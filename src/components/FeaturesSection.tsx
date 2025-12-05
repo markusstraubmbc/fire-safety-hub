@@ -1,63 +1,42 @@
 import {
   ClipboardList,
   Wrench,
-  FileText,
-  Bell,
-  Car,
-  Shirt,
-  Calendar,
-  AlertTriangle,
+  Users,
+  Package,
+  UserCheck,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
   {
-    icon: ClipboardList,
-    title: "Ausrüstungsverwaltung",
-    description:
-      "Komplette Übersicht über alle Geräte und Ausrüstungsgegenstände mit Standort und Status.",
-  },
-  {
     icon: Wrench,
-    title: "Wartungsmanagement",
+    title: "Wartungsvorlagen nach DGUV",
     description:
-      "Planen und dokumentieren Sie alle Wartungen und Prüfungen mit automatischen Erinnerungen.",
+      "Standardisierte Prüfvorlagen gemäß DGUV-Vorschriften für rechtssichere Dokumentation aller Wartungen.",
   },
   {
-    icon: AlertTriangle,
-    title: "Mängelmelder",
+    icon: ClipboardList,
+    title: "Inventarisierung",
     description:
-      "Defekte Geräte schnell und einfach melden – direkt aus dem Kiosk-Modus.",
+      "Vollständige Erfassung und Verwaltung aller Geräte, Fahrzeuge und Ausrüstungsgegenstände.",
   },
   {
-    icon: Car,
-    title: "Fahrtenbuch",
+    icon: Users,
+    title: "Anwesenheitserfassung per RFID",
     description:
-      "Digitales Fahrtenbuch für alle Einsatzfahrzeuge mit lückenloser Dokumentation.",
+      "Automatische Erfassung der Anwesenheit bei Einsätzen und Übungen mittels RFID-Technologie.",
   },
   {
-    icon: Shirt,
-    title: "Wäscheverwaltung",
+    icon: Package,
+    title: "Warenbewegung",
     description:
-      "Verwaltung von Schutzkleidung inkl. Wasch- und Imprägnierungszyklen.",
+      "Lückenlose Nachverfolgung von Materialflüssen, Ein- und Ausgängen sowie Verbrauchsmaterialien.",
   },
   {
-    icon: Calendar,
-    title: "Einsätze & Übungen",
+    icon: UserCheck,
+    title: "Mannschaftsverwaltung",
     description:
-      "Erfassung von Einsätzen und Übungen mit Mannschaftsübersicht.",
-  },
-  {
-    icon: Bell,
-    title: "Benachrichtigungen",
-    description:
-      "Automatische Erinnerungen bei anstehenden Prüfungen und Wartungen.",
-  },
-  {
-    icon: FileText,
-    title: "PDF-Export",
-    description:
-      "Exportieren Sie alle Berichte und Protokolle als professionelle PDF-Dokumente.",
+      "Verwaltung aller Mitglieder inkl. Lehrgänge, Qualifikationen und Dienstgrade.",
   },
 ];
 
