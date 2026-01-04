@@ -78,21 +78,21 @@ export const features: Feature[] = [
   {
     icon: AlertTriangle,
     title: "Atemschutzüberwachung",
-    description: "Digitale ASÜ und Tauglichkeitsverwaltung (G.26.3) für maximale Sicherheit.",
+    description: "Digitale ASÜ und Tauglichkeitsverwaltung für maximale Sicherheit.",
     slug: "atemschutzueberwachung",
   },
 
   // Specialized Modules
   {
-    icon: Map, // Re-using Map or finding another? Map fits for Plans.
-    title: "Objektpläne (DIN 14095)",
-    description: "Digitale Bereitstellung und Prüfung von Feuerwehrplänen mit GPS-Trigger.",
+    icon: Map,
+    title: "Objektpläne",
+    description: "Digitale Bereitstellung und Prüfung von Feuerwehrplänen mit Standort-Unterstützung.",
     slug: "objektplaene",
   },
   {
     icon: Droplets,
     title: "Wasserkarte & Hydranten",
-    description: "Operatives Management von Wasserentnahmestellen mit OSM-Integration.",
+    description: "Operatives Management von Wasserentnahmestellen mit digitalen Karten.",
     slug: "wasserkarte",
   },
   {
@@ -128,7 +128,7 @@ export const features: Feature[] = [
   {
     icon: ShieldCheck,
     title: "Digitaler Dienstausweis",
-    description: "Identifikation via Smartphone Wallet (Apple/Google) und NFC-Login.",
+    description: "Identifikation via Smartphone Wallet und kontaktlosem Login.",
     slug: "digitaler-dienstausweis",
   },
 
@@ -136,17 +136,17 @@ export const features: Feature[] = [
   {
     icon: Link2,
     title: "Integration & API",
-    description: "Interfaces zu Alarmierung, Kalender, MQTT und externen Systemen.",
+    description: "Schnittstellen zu Alarmierung, Kalender und externen Systemen.",
     slug: "schnittstellen",
   },
   {
     icon: BarChart3,
     title: "Statistik & Reporting",
-    description: "Umfangreiche Auswertungen, FwDV-Jahresberichte und Druckzentrum.",
+    description: "Umfangreiche Auswertungen, Jahresberichte und Druckzentrum.",
     slug: "reporting",
   },
   {
-    icon: ClipboardList, // Or another icon
+    icon: ClipboardList,
     title: "Inventur & Bestand",
     description: "Flexible Inventurprozesse für Standort & Kategorien mit Scanner-Support.",
     slug: "inventur",
@@ -158,7 +158,7 @@ export const features: Feature[] = [
     slug: "formular-center",
   },
   {
-    icon: Wrench, // Or AlertTriangle
+    icon: Wrench,
     title: "Mängelmanagement",
     description: "Zentrale Erfassung und Bearbeitung von Defekten, auch öffentlich.",
     slug: "maengelmanagement",

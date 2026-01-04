@@ -37,7 +37,7 @@ export const modules: Record<string, ModuleData> = {
     "kommandozentrale": {
         title: "Dashboard & Übersicht",
         shortDesc: "Zentrale Übersicht über alle wichtigen Kennzahlen und Statusmeldungen.",
-        longDesc: "Das Dashboard ist die zentrale Kommandozentrale Ihrer Feuerwehr. Es bietet sofortige Transparenz über alle kritischen Informationen auf einen Blick und dient als Frühwarnsystem für anstehende Aufgaben. Mit konfigurierbaren Widgets und einer User Analytics Map behalten Sie stets den Überblick über Lizenzstatus, Updates und die aktuellen Aktivitäten im System.",
+        longDesc: "Das Dashboard ist die zentrale Kommandozentrale Ihrer Feuerwehr. Es bietet sofortige Transparenz über alle kritischen Informationen auf einen Blick und dient als Frühwarnsystem für anstehende Aufgaben. Mit konfigurierbaren Widgets und einer geografischen Nutzeranalyse behalten Sie stets den Überblick über Lizenzstatus, Updates und die aktuellen Aktivitäten im System.",
         benefits: [
             "Sofortige Transparenz: Alle kritischen Informationen auf einen Blick",
             "Frühwarnsystem: Automatische Warnungen bei anstehenden Wartungen und Prüfungen",
@@ -58,23 +58,23 @@ export const modules: Record<string, ModuleData> = {
     "ausruestungsverwaltung": {
         title: "Ausrüstungsverwaltung",
         shortDesc: "Lückenlose Dokumentation und Verwaltung aller Ausrüstungsgegenstände.",
-        longDesc: "Die zentrale Verwaltung für Ihr gesamtes Inventar. Von der Anschaffung bis zur Aussonderung wird jeder Gegenstand mit vollständiger Historie dokumentiert. Die Integration von QR-Codes und Barcodes ermöglicht sekundenschnelle Zugriffe. Ein intelligentes Lifecycle-Management liefert Daten für Ersatzbeschaffungen und Wirtschaftlichkeitsanalysen.",
+        longDesc: "Die zentrale Verwaltung für Ihr gesamtes Inventar. Von der Anschaffung bis zur Aussonderung wird jeder Gegenstand mit vollständiger Historie dokumentiert. Die Integration von Codescan-Technologie ermöglicht sekundenschnelle Zugriffe. Ein intelligentes Lifecycle-Management liefert Daten für Ersatzbeschaffungen und Wirtschaftlichkeitsanalysen.",
         benefits: [
             "Lückenlose Dokumentation: Vollständige Historie jedes Ausrüstungsgegenstands",
-            "Schnelle Suche: QR-Code/Barcode-Scanner für sofortigen Zugriff",
+            "Schnelle Suche: Scanner-Integration für sofortigen Zugriff",
             "Life-Cycle-Analyse: Fundierte Entscheidungen für Ersatzbeschaffungen",
             "Effizienz: Massenbearbeitung und Datenvalidierung"
         ],
         features: [
             "Erfassung mit Stammdaten (Hersteller, Seriennummer, Kaufdatum, Status)",
-            "QR-Code/Barcode-Scanner Integration & Etikettendruck",
+            "Scanner-Integration & Etikettendruck",
             "Lifecycle Analyse: Kostenkontrolle, Ausfallquoten & Wartungs-Defekt-Verhältnis",
             "Aktionsbereich: Dokumentation von Ausgabe, Rückgabe, Reinigung, Reparatur",
             "Ausrüstungsbündel (Bundles): Gruppierung zu logischen Einheiten (Parent/Child)",
             "Tagging-System & Bildupload"
         ],
         technicalDetails: [
-            "Unterstützung von QR-Codes, Barcodes und RFID",
+            "Unterstützung gängiger Scan-Technologien",
             "Massenimport/-export und Duplikatserkennung",
             "Historische Kostentrends (6-36 Monate)"
         ],
@@ -107,18 +107,18 @@ export const modules: Record<string, ModuleData> = {
     "kiosk-modus": {
         title: "Kiosk-Modus",
         shortDesc: "Touchscreen-optimierte Oberfläche für Tablets und Terminals.",
-        longDesc: "Der Kiosk-Modus bringt die Verwaltung direkt in die Fahrzeughalle. Mit einer für Touchscreens optimierten Oberfläche können Einsatzkräfte schnell und einfach Fahrtenbücher pflegen, Geräte warten oder Mängel melden. Unified Login via RFID oder QR-Code sorgt für Sicherheit und Komfort.",
+        longDesc: "Der Kiosk-Modus bringt die Verwaltung direkt in die Fahrzeughalle. Mit einer für Touchscreens optimierten Oberfläche können Einsatzkräfte schnell und einfach Fahrtenbücher pflegen, Geräte warten oder Mängel melden. Unified Login via Chip, Code oder Scan sorgt für Sicherheit und Komfort.",
         benefits: [
             "Barrierefreiheit: Einfache Bedienung für alle Nutzer",
             "Zeitersparnis & Fehlerminimierung: Wizard-geführte Prozesse",
             "Mobilität: Optimiert für Tablets an festen Standorten oder mobil",
-            "Sicherheit: PIN-Schutz und temporäre QR-Logins"
+            "Sicherheit: PIN-Schutz und temporäre Logins"
         ],
         features: [
             "Kacheln für Einsatz, Ausrüstung, Tools, Profil, Mängel, Fahrtenbuch, Wäsche, uvm.",
-            "Unified Login: RFID, PIN, dynamischer QR-Code (Wallet) & Gesichtserkennung (sofern unterstützt)",
+            "Unified Login: Unterstützung verschiedener Anmeldeverfahren (Chip/Scan/PIN)",
             "Wartungs-Wizard & Fahrtenbuch-Wizard mit Schritt-für-Schritt-Führung",
-            "Wetter & Unwetter-Warnungen (DWD/ZAMG) & Regenradar",
+            "Wetter & Unwetter-Warnungen (Professionelle Wetterdienste)",
             "Dynamisches Monitor-Mapping für Führungskräfte",
             "Premium Design: Dark Mode, High Contrast & Glassmorphism"
         ],
@@ -132,8 +132,8 @@ export const modules: Record<string, ModuleData> = {
         longDesc: "Das zentrale Werkzeug für die Einsatzleitung. Der Lagemonitor bietet eine modulare Echtzeit-Übersicht über alle relevanten Daten: Von Lagemeldungen über Fahrzeugstatus bis zur Atemschutzüberwachung. Ergänzt durch mobile Ansichten für Führungskräfte und digitale Objektpläne.",
         benefits: [
             "Situational Awareness: Alle Infos sofort im Blick",
-            "Echtzeit-Synchronisation: Alle 15 Sekunden Updates für alle",
-            "Flexibilität: 18 konfigurierbare Panels für jede Rolle",
+            "Echtzeit-Synchronisation: Laufende Updates für alle",
+            "Flexibilität: Konfigurierbare Panels für jede Rolle",
             "Mobile-First: Optimiert für Touchscreens und Tablets"
         ],
         features: [
@@ -142,7 +142,7 @@ export const modules: Record<string, ModuleData> = {
             "Whiteboard-Funktion & Taktische Karte mit Symbolen",
             "Atemschutzüberwachung & Abschnittsbildung (Funk)",
             "Schnellzugriff auf Objektpläne und Gefahrstoffdaten",
-            "Kontakt-Filter & Hydranten-Vollbild"
+            "Kontakt-Filter & Hydranten-Monitor"
         ],
         keywords: ["Einsatzführung", "Lagekarte", "Statusmonitor", "Führungshilfsmittel", "Live-Lage", "Einsatzleitung"],
         icon: Map,
@@ -150,19 +150,19 @@ export const modules: Record<string, ModuleData> = {
     },
     "atemschutzueberwachung": {
         title: "Atemschutzüberwachung",
-        shortDesc: "Digitale ASÜ und Tauglichkeitsverwaltung (G.26.3).",
-        longDesc: "Maximale Sicherheit im Atemschutzeinsatz. Das Modul kombiniert die operative Überwachung im Einsatz (Timer, Drücke, Trupps) mit der administrativen Verwaltung der Tauglichkeit (G.26.3, Belastungsübungen).",
+        shortDesc: "Digitale ASÜ und Tauglichkeitsverwaltung.",
+        longDesc: "Maximale Sicherheit im Atemschutzeinsatz. Das Modul kombiniert die operative Überwachung im Einsatz (Timer, Drücke, Trupps) mit der administrativen Verwaltung der Tauglichkeit und Belastungsübungen.",
         benefits: [
             "Sicherheit: Automatische Warnungen bei Zeitüberschreitung",
             "Rechtssicherheit: Lückenlose Dokumentation und Tauglichkeits-Check",
-            "Schnelligkeit: Trupp-Erfassung via RFID",
+            "Schnelligkeit: Trupp-Erfassung via Scan",
             "Transparenz: Live-Status der Mannschaftsbereitschaft"
         ],
         features: [
             "Echtzeit-Monitoring aktiver Trupps (Druck, Zeit)",
             "Automatische Berechnung von Rückweg und Warnschwellen",
             "Integration in Einsatzbericht & PDF-Protokoll",
-            "G.26.3 Fristenmanagement & Belastungsübungs-Tracking",
+            "Fristenmanagement & Belastungsübungs-Tracking",
             "Dashboard-Widget für Atemschutz-Pool-Status"
         ],
         keywords: ["ASÜ", "Atemschutz", "G26.3", "Truppüberwachung", "Einsatzsicherheit", "Belastungsübung"],
@@ -172,18 +172,18 @@ export const modules: Record<string, ModuleData> = {
     "einsatzerfassung": {
         title: "Einsätze & Übungen",
         shortDesc: "Vollständige Dokumentation, Planung und Auswertung.",
-        longDesc: "Verwaltung des gesamten Einsatzzyklus: Von der Alarmierung über die Dokumentation bis zur Nachbereitung. Inklusive moderner Features wie KI-Textassistenz, automatischer Geocodierung und ISO-Chronen-Analyse für Eintreffzeiten.",
+        longDesc: "Verwaltung des gesamten Einsatzzyklus: Von der Alarmierung über die Dokumentation bis zur Nachbereitung. Inklusive moderner Features wie KI-Textassistenz, automatischer Geocodierung und Analyse für Eintreffzeiten.",
         benefits: [
             "Effizienz: KI-gestützte Berichterstellung und Vorlagen",
             "Analyse: Eintreffzeiten-Visualisierung und Heatmaps",
-            "Compliance: FwDV-konforme Jahresberichte",
+            "Compliance: Konforme Jahresberichte",
             "Organisation: Kanban-Board für Auftragsplanung"
         ],
         features: [
             "Missionserfassung mit Status, Personal & Fahrzeugen",
-            "KI-Textassistent für Berichte & Smart Parsing von Mails",
+            "KI-Textassistent für Berichte & Smart Parsing",
             "Offene Posten Liste & Nachbereitungsworkflow",
-            "Missions-Zeit-Vergleich (Isochronen) & Geocodierung",
+            "Missions-Zeit-Vergleich & Geocodierung",
             "Umfangreiche PDF-Exporte (inkl. Lagekarte)",
             "Übungs-Schwellenwert-Verwaltung & Automatisches Tracking"
         ],
@@ -194,15 +194,15 @@ export const modules: Record<string, ModuleData> = {
     "mannschaftsverwaltung": {
         title: "Mannschaftsverwaltung",
         shortDesc: "Personal, Qualifikationen und KI-Analysen.",
-        longDesc: "Verwalten Sie Ihre wichtigste Ressource effizient. Neben Stammdaten und Qualifikationen bietet das System intelligente Analysen zur Verfügbarkeit, automatische Beförderungsvorschläge (nach BW-Recht) und eine KI-gestützte Personalbedarfsplanung.",
+        longDesc: "Verwalten Sie Ihre wichtigste Ressource effizient. Neben Stammdaten und Qualifikationen bietet das System intelligente Analysen zur Verfügbarkeit, automatische Beförderungsvorschläge und eine KI-gestützte Personalbedarfsplanung.",
         benefits: [
             "Strategie: KI-Besetzungsanalyse und Lücken-Erkennung",
             "Automatisierung: Beförderungsvorschläge & Qualifikations-Status",
             "Transparenz: Audit-Log für alle Änderungen",
-            "Flexibilität: Multi-Gruppen-Zuweisung & RFID 1:n"
+            "Flexibilität: Multi-Gruppen-Zuweisung"
         ],
         features: [
-            "Stammdaten, Dienstgrade, Funktionen & RFID-Management",
+            "Stammdaten, Dienstgrade, Funktionen & Identitäts-Management",
             "KI-Personal-Analyse (Verfügbarkeit, Lehrgangsbedarf)",
             "Automatisierte Qualifikations-Aktivierung bei Übungsteilnahme",
             "Beförderungssystem (Vorschläge nach Dienstzeit/Quali)",
@@ -214,20 +214,20 @@ export const modules: Record<string, ModuleData> = {
         color: "blue"
     },
     "objektplaene": {
-        title: "Objektpläne (DIN 14095)",
+        title: "Objektpläne",
         shortDesc: "Digitale Bereitstellung und Prüfung von Feuerwehrplänen.",
-        longDesc: "Haben Sie wichtige Gebäudeinformationen immer griffbereit. Das Modul verwaltet Objektpläne nach DIN 14095, überwacht Prüffristen und stellt Pläne im Einsatz (GPS-basiert) sofort zur Verfügung. Inklusive Gefahrstoffdaten und Kontaktpersonen.",
+        longDesc: "Haben Sie wichtige Gebäudeinformationen immer griffbereit. Das Modul verwaltet Objektpläne, überwacht Prüffristen und stellt Pläne im Einsatz (GPS-basiert) sofort zur Verfügung. Inklusive Gefahrstoffdaten und Kontaktpersonen.",
         benefits: [
             "Verfügbarkeit: Zugriff bei Alarmierung (GPS-Trigger)",
             "Aktualität: Überwachung von Prüfintervallen",
-            "Sicherheit: Gefahrstoffe und BMZ-Daten sofort sichtbar",
-            "Standard: Struktur nach DIN 14095"
+            "Sicherheit: Gefahrstoffe und Anlagendaten sofort sichtbar",
+            "Standard: Strukturierte Datenerfassung"
         ],
         features: [
             "Interaktive Karte mit Status (Geprüft/Fällig)",
             "Dokumentenverwaltung (PDF/Bilder) & Versionierung",
-            "Strukturierte Daten: BMZ, FSD, Gefahrstoffe, Ansprechpartner",
-            "Excel/JSON Import & Export",
+            "Strukturierte Daten: Anlagen, FSD, Gefahrstoffe, Ansprechpartner",
+            "Standardisierter Import & Export",
             "Integration in Kiosk & Lagemonitor"
         ],
         keywords: ["Feuerwehrpläne", "DIN 14095", "Objektverwaltung", "Gefahrstoffe", "BMA", "FSD"],
@@ -237,20 +237,20 @@ export const modules: Record<string, ModuleData> = {
     "wasserkarte": {
         title: "Wasserkarte & Hydranten",
         shortDesc: "Operatives Management von Wasserentnahmestellen.",
-        longDesc: "Optimieren Sie die Wasserversorgung. Die interaktive Karte zeigt Hydranten und Wasserentnahmestellen mit detaillierten Infos (Durchfluss, Typ). Integration von OpenStreetMap und direkte Mängelmeldung.",
+        longDesc: "Optimieren Sie die Wasserversorgung. Die interaktive Karte zeigt Hydranten und Wasserentnahmestellen mit detaillierten Infos (Durchfluss, Typ). Integration von digitalen Kartendiensten und direkte Mängelmeldung.",
         benefits: [
             "Taktik: Schnelles Auffinden von Wasserquellen",
-            "Detailtiefe: Anzeige von Durchflussmengen und Durchmessern",
-            "Aktualität: Live-Nachladen von OSM-Daten"
+            "Detailtiefe: Anzeige von Durchflussmengen und technischen Daten",
+            "Aktualität: Intelligente Datenaktualisierung"
         ],
         features: [
-            "OSM-Integration mit Caching",
+            "Karten-Integration mit Caching-Technologie",
             "Farbcodierung nach Kapazität/Durchmesser",
-            "Detailinfos: Typ (Unterflur/Überflur), DN, Entfernung",
+            "Detailinfos: Typ (Unterflur/Überflur), Dimension, Entfernung",
             "Kiosk-Integration & Vollbildmodus",
             "Filter & Suchfunktionen"
         ],
-        keywords: ["Hydrantenplan", "Löschwasser", "Wasserversorgung", "OSM", "Unterflurhydrant"],
+        keywords: ["Hydrantenplan", "Löschwasser", "Wasserversorgung", "Digitale Karte", "Unterflurhydrant"],
         icon: Droplets,
         color: "sky"
     },
@@ -306,7 +306,7 @@ export const modules: Record<string, ModuleData> = {
             "Workflow: Annahme, Wäsche, Fertig, Abholung",
             "Kundenverwaltung (auch externe Wehren)",
             "Statistiken: Waschzähler & Historie",
-            "Barcode-Scan & Größenfilter"
+            "Scan-Unterstützung & Größenfilter"
         ],
         keywords: ["Kleiderkammer", "PSA Reinigung", "Waschzyklus", "Hygiene", "Bekleidung"],
         icon: Shirt,
@@ -334,15 +334,15 @@ export const modules: Record<string, ModuleData> = {
     "digitaler-dienstausweis": {
         title: "Digitaler Dienstausweis",
         shortDesc: "Identifikation via Smartphone Wallet.",
-        longDesc: "Die moderne Art der Ausweisung. Ein kryptographisch gesicherter Dienstausweis für Apple & Google Wallet. Dient zur Identifikation und als Login-Medium am Kiosk.",
+        longDesc: "Die moderne Art der Ausweisung. Ein kryptographisch gesicherter Dienstausweis für gängige Smartphone Wallets. Dient zur Identifikation und als Login-Medium am Kiosk.",
         benefits: [
             "Modernität: Ausweis immer auf dem Smartphone",
-            "Sicherheit: Signierte QR-Codes & Verifikations-Portal",
-            "Integration: Nutzung für NFC/QR-Login"
+            "Sicherheit: Signierte Codes & Verifikations-Portal",
+            "Integration: Nutzung für kontaktlosen Login"
         ],
         features: [
-            "Wallet Integration (Apple/Google)",
-            "Dynamische QR-Codes (zeitbasiert)",
+            "Smartphone-Wallet Integration",
+            "Dynamische Codes (zeitbasiert)",
             "Anzeige von Qualifikationen & Abzeichen",
             "Öffentliches Verifikations-Portal"
         ],
@@ -352,21 +352,21 @@ export const modules: Record<string, ModuleData> = {
     },
     "schnittstellen": {
         title: "Integration & API",
-        shortDesc: "Connectoren für Alarmierung, Kalender & MQTT.",
-        longDesc: "RESQIO ist offen. Verbinden Sie Ihre Systeme über REST-API oder MQTT. Empfangen Sie Alarme von Leitstellen, synchronisieren Sie Kalender und integrieren Sie IoT-Geräte.",
+        shortDesc: "Schnittstellen für Alarmierung, Kalender & Drittsysteme.",
+        longDesc: "RESQIO ist offen. Verbinden Sie Ihre Systeme über Schnittstellen. Empfangen Sie Alarme von Leitstellen, synchronisieren Sie Kalender und integrieren Sie IoT-Geräte.",
         benefits: [
             "Automatisierung: Alarm-Eingang triggert Einsatzerstellung",
             "Flexibilität: Eigene Anbindungen via API",
-            "IoT: Smart Home / Wachensteuerung via MQTT"
+            "IoT: Smart Home / Wachensteuerung"
         ],
         features: [
-            "REST-API & Webhooks",
-            "Enterprise MQTT-Broker (Alarmierung, IoT)",
+            "API & Webhooks",
+            "Echtzeit-Schnittstelle (Alarmierung, IoT)",
             "KI-Parsing für Alarm-Emails/Texte",
-            "CardDAV Kontaktsynchronisation",
-            "ICS-Kalender Import/Export"
+            "Kontakt-Synchronisation",
+            "Kalender Import/Export"
         ],
-        keywords: ["API", "MQTT", "Schnittstelle", "Alarmserver", "Integration"],
+        keywords: ["API", "Schnittstelle", "Alarmserver", "Integration", "IoT"],
         icon: Link2,
         color: "blue"
     },
@@ -375,13 +375,13 @@ export const modules: Record<string, ModuleData> = {
         shortDesc: "Umfangreiche Auswertungen und Druckzentrum.",
         longDesc: "Datenbasierte Entscheidungen treffen. Das Statistik-Modul liefert detaillierte Einblicke in alle Bereiche. Das Druckzentrum bietet fertige Berichte und Listen für jeden Zweck.",
         benefits: [
-            "Compliance: FwDV-Jahresstatistik auf Knopfdruck",
+            "Compliance: Jahresstatistik auf Knopfdruck",
             "Analyse: Langzeittrends und Verteilungen",
             "Dokumentation: Papierhafte Nachweise wo nötig"
         ],
         features: [
             "Dashboard mit Kacheln für alle Module (Personal, Einsatz...)",
-            "FwDV Jahresbericht (14 Seiten PDF/Excel)",
+            "Jahresbericht (PDF/Excel)",
             "Druckzentrum: Listen, Etiketten, Laufkarten",
             "Spezial-Reports: Beförderung, Exposition, Übungsbeteiligung"
         ],
@@ -394,12 +394,12 @@ export const modules: Record<string, ModuleData> = {
         shortDesc: "Digitale Brandverhütungsschau & Mängelverwaltung.",
         longDesc: "Digitalisieren Sie die Brandschau. Planen Sie Termine, erfassen Sie Mängel mobil vor Ort und erstellen Sie rechtssichere Bescheide. Mit integrierter Fristenüberwachung.",
         benefits: [
-            "Effizienz: 60% Zeitersparnis durch digitale Erfassung",
+            "Effizienz: Zeitersparnis durch digitale Erfassung",
             "Rechtssicherheit: Lückenlose Dokumentation & Bescheide",
             "Übersicht: Alle Objekte und Fristen im Blick"
         ],
         features: [
-            "Objekt- & Zyklenverwaltung (3/5/6 Jahre)",
+            "Objekt- & Zyklenverwaltung",
             "Mobile Checklisten & Fotodokumentation",
             "Mängelmanagement mit Fristen & Wiedervorlage",
             "Automatische Bescheiderstellung (PDF)"
@@ -418,7 +418,7 @@ export const modules: Record<string, ModuleData> = {
             "Schnelligkeit: Optimierter Scan-Workflow"
         ],
         features: [
-            "Scan-Modus (Barcode/RFID) & Manuelle Erfassung",
+            "Scan-Modus & Manuelle Erfassung",
             "Ausrüstungsvorlagen (Soll-Ist-Abgleich)",
             "Standort- & Kategorie-Inventur",
             "Abschlussdokumentation & Differenzbericht"
@@ -440,7 +440,7 @@ export const modules: Record<string, ModuleData> = {
             "Ordnerstruktur & Kategorien",
             "PDF-Vorschau & Druckfunktion",
             "Formular-Markierung & Favoriten",
-            "Kiosk-Integration (Große Touch-Buttons)"
+            "Kiosk-Integration"
         ],
         keywords: ["Formulare", "Vorlagen", "Dokumente", "Dienstanweisung", "Vordrucke"],
         icon: FolderSearch,
@@ -449,14 +449,14 @@ export const modules: Record<string, ModuleData> = {
     "maengelmanagement": {
         title: "Mängelmanagement",
         shortDesc: "Zentrale Erfassung und Bearbeitung von Defekten.",
-        longDesc: "Ein defektes Gerät darf nicht unbemerkt bleiben. Der Mängelmelder ermöglicht eine niederschwellige Meldung (auch öffentlich/QR). Die Verwaltung sorgt für Priorisierung, Zuweisung und dokumentierte Behebung.",
+        longDesc: "Ein defektes Gerät darf nicht unbemerkt bleiben. Der Mängelmelder ermöglicht eine niederschwellige Meldung (auch via Code-Scan). Die Verwaltung sorgt für Priorisierung, Zuweisung und dokumentierte Behebung.",
         benefits: [
             "Reaktion: Schnelle Meldung und Behebung",
             "Transparenz: Statusverfolgung für Melder",
             "Barrierefrei: Öffentlicher Melder ohne Login"
         ],
         features: [
-            "Öffentlicher Mängelmelder (QR-Code)",
+            "Öffentlicher Mängelmelder",
             "Status-Tracking (Gemeldet, In Arbeit, Erledigt)",
             "Foto-Dokumentation & Kommentare",
             "Integration in Wartung & Ausrüstung"
@@ -476,7 +476,7 @@ export const modules: Record<string, ModuleData> = {
         ],
         features: [
             "KI-Textoptimierung (Berichte, Protokolle)",
-            "Smart Parsing unstrukturierter Alarm-Daten",
+            "Smart Parsing unstrukturierter Daten",
             "Personal-Lücken-Analyse & Prognosen",
             "Lehrgangs-Empfehlungen"
         ],
