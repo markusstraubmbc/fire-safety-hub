@@ -43,36 +43,34 @@ const ContactSection = () => {
     <section id="kontakt" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary-foreground mb-4">
-            Demo anfragen
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Bereit für die Zukunft?
           </h2>
-          <p className="text-lg text-secondary-foreground/80">
+          <p className="text-lg text-muted-foreground">
             Überzeugen Sie sich selbst von resqio. Kontaktieren Sie uns
             für eine unverbindliche Live-Demo.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
           {/* Contact Info */}
           <div>
-            <h3 className="text-2xl font-bold text-secondary-foreground mb-6">
+            <h3 className="text-2xl font-bold text-foreground mb-6">
               Ihr Ansprechpartner
             </h3>
             <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-secondary-foreground">
-                    Markus Straub
-                  </h4>
-                  <p className="text-secondary-foreground/70">
+                  <p className="font-medium text-foreground">Markus Straub</p>
+                  <p className="text-sm text-muted-foreground mb-1">
                     Produktentwicklung & Support
                   </p>
                   <a
                     href="mailto:support@resqio.de"
-                    className="text-primary hover:underline"
+                    className="text-primary hover:underline font-medium"
                   >
                     support@resqio.de
                   </a>
@@ -80,31 +78,36 @@ const ContactSection = () => {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-secondary-foreground">Eschenstraße 37</p>
-                  <p className="text-secondary-foreground">72141 Walddorfhäslach</p>
-                  <p className="text-secondary-foreground/70">Deutschland</p>
+                  <p className="font-medium text-foreground">Eschenstraße 37</p>
+                  <p className="text-muted-foreground">72141 Walddorfhäslach</p>
+                  <p className="text-muted-foreground">Deutschland</p>
                 </div>
               </div>
             </div>
 
-            <Card className="mt-8 bg-secondary-foreground/5 border-secondary-foreground/10">
-              <CardContent className="p-6">
-                <h4 className="font-semibold text-secondary-foreground mb-2">
-                  Was Sie erwartet:
-                </h4>
-                <ul className="space-y-2 text-secondary-foreground/80 text-sm">
-                  <li>• Persönliche Live-Demo der Software</li>
-                  <li>• Beantwortung all Ihrer Fragen</li>
-                  <li>• Individuelles Angebot für Ihre Feuerwehr</li>
-                  <li>• Cloud oder Self-Hosted Optionen</li>
-                  <li>• Keine versteckten Kosten</li>
-                </ul>
-              </CardContent>
-            </Card>
+            <div className="mt-12 p-6 bg-muted/30 rounded-2xl border border-border">
+              <h4 className="font-semibold text-foreground mb-4">
+                Was Sie erwartet:
+              </h4>
+              <ul className="space-y-3">
+                {[
+                  "Persönliche Live-Demo der Software",
+                  "Beantwortung all Ihrer Fragen",
+                  "Individuelles Angebot für Ihre Feuerwehr",
+                  "Cloud oder Self-Hosted Optionen",
+                  "Keine versteckten Kosten",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-2 text-muted-foreground">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Contact Form */}
