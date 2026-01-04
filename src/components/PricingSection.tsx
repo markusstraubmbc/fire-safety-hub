@@ -94,7 +94,9 @@ const PricingSection = () => {
                   {plan.focus}
                 </p>
                 <div className="mt-4">
-                  <span className="text-3xl font-bold text-foreground">{plan.price}</span>
+                  <span className={`font-bold text-foreground ${plan.price === "Auf Anfrage" ? "text-xl" : "text-3xl"}`}>
+                    {plan.price}
+                  </span>
                   {plan.period && (
                     <span className="text-muted-foreground ml-1">/ {plan.period}</span>
                   )}
