@@ -1,49 +1,52 @@
-import { useState } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import dashboardImg from "@/assets/dashboard.png";
+import kioskImg from "@/assets/kiosk.png";
+import druckzentrumImg from "@/assets/druckzentrum.png";
+import objektplaeneImg from "@/assets/objektplaene.png";
 import screenshot1 from "@/assets/screenshot-1.jpg";
 import screenshot2 from "@/assets/screenshot-2.jpg";
-import screenshot3 from "@/assets/screenshot-3.jpg";
-import screenshot4 from "@/assets/screenshot-4.jpg";
-import screenshot5 from "@/assets/screenshot-5.jpg";
-import screenshot6 from "@/assets/screenshot-6.jpg";
 
 const screenshots = [
   {
-    id: "dashboard",
     title: "Dashboard",
-    description:
-      "Übersichtliches Dashboard mit allen wichtigen Kennzahlen: Wartungsstatus, anstehende Prüfungen, Warenbewegungen und mehr.",
+    description: "Übersichtliches Dashboard mit allen wichtigen Kennzahlen auf einen Blick.",
+    image: dashboardImg,
+  },
+  {
+    title: "Kiosk-Modus",
+    description: "Intuitive Tablet-Oberfläche für schnelle Erfassung im Gerätehaus.",
+    image: kioskImg,
+  },
+  {
+    title: "Druckzentrum",
+    description: "Professionelle Berichte und Protokolle direkt als PDF exportieren.",
+    image: druckzentrumImg,
+  },
+  {
+    title: "Objektpläne",
+    description: "Digitale Einsatzpläne nach DIN 14095 mit Kartenintegration.",
+    image: objektplaeneImg,
+  },
+  {
+    title: "Wartungsmanagement",
+    description: "Geführte Checklisten mit Foto-Dokumentation für rechtssichere Prüfungen.",
     image: screenshot1,
   },
   {
-    id: "wartung",
-    title: "Wartungsmanagement",
-    description:
-      "Geführte Checklisten mit Foto-Dokumentation für rechtssichere Prüfungen nach DGUV.",
-    image: screenshot3,
-  },
-  {
-    id: "einsatz",
-    title: "Einsatz & Übungen",
-    description:
-      "Professionelle Dokumentation mit taktischen Lagekarten und KI-gestützter Berichterstellung.",
-    image: screenshot5,
-  },
-  {
-    id: "kiosk",
-    title: "Kiosk-Modus",
-    description:
-      "Benutzerfreundlicher Kiosk-Modus für schnelle Erfassung von Einsätzen, Übungen, Mängelmeldungen und Fahrten.",
-    image: screenshot4,
+    title: "Einsatzdokumentation",
+    description: "Professionelle Dokumentation mit taktischen Lagekarten.",
+    image: screenshot2,
   },
 ];
 
 const ScreenshotsSection = () => {
-  const [activeTab, setActiveTab] = useState("dashboard");
-
-  const activeScreenshot = screenshots.find((s) => s.id === activeTab);
-
   return (
     <section id="screenshots" className="py-20 md:py-32 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -57,54 +60,45 @@ const ScreenshotsSection = () => {
           </p>
         </div>
 
-        {/* Tab Buttons */}
-        <div className="flex justify-center gap-4 mb-8">
-          {screenshots.map((screenshot) => (
-            <Button
-              key={screenshot.id}
-              variant={activeTab === screenshot.id ? "default" : "outline"}
-              onClick={() => setActiveTab(screenshot.id)}
-              className={
-                activeTab === screenshot.id
-                  ? "bg-primary text-primary-foreground"
-                  : "border-border text-foreground hover:bg-muted"
-              }
-            >
-              {screenshot.title}
-            </Button>
-          ))}
+        <div className="max-w-5xl mx-auto">
+          <Carousel className="w-full">
+            <CarouselContent>
+              {screenshots.map((screenshot, index) => (
+                <CarouselItem key={index}>
+                  <Card className="bg-card border-border overflow-hidden shadow-2xl">
+                    <div className="bg-secondary p-3 flex items-center gap-2">
+                      <div className="flex gap-2">
+                        <div className="w-3 h-3 rounded-full bg-destructive" />
+                        <div className="w-3 h-3 rounded-full bg-accent" />
+                        <div className="w-3 h-3 rounded-full bg-green-500" />
+                      </div>
+                      <div className="flex-1 text-center">
+                        <span className="text-secondary-foreground/60 text-sm">
+                          resqio - {screenshot.title}
+                        </span>
+                      </div>
+                    </div>
+                    <img
+                      src={screenshot.image}
+                      alt={screenshot.title}
+                      className="w-full"
+                    />
+                    <div className="p-6 bg-card">
+                      <h3 className="text-xl font-semibold text-foreground mb-2">
+                        {screenshot.title}
+                      </h3>
+                      <p className="text-muted-foreground">
+                        {screenshot.description}
+                      </p>
+                    </div>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2 md:-left-12" />
+            <CarouselNext className="right-2 md:-right-12" />
+          </Carousel>
         </div>
-
-        {/* Screenshot Display */}
-        {activeScreenshot && (
-          <Card className="bg-card border-border overflow-hidden max-w-5xl mx-auto shadow-2xl">
-            <div className="bg-secondary p-3 flex items-center gap-2">
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-destructive" />
-                <div className="w-3 h-3 rounded-full bg-accent" />
-                <div className="w-3 h-3 rounded-full bg-green-500" />
-              </div>
-              <div className="flex-1 text-center">
-                <span className="text-secondary-foreground/60 text-sm">
-                  resqio - {activeScreenshot.title}
-                </span>
-              </div>
-            </div>
-            <img
-              src={activeScreenshot.image}
-              alt={activeScreenshot.title}
-              className="w-full"
-            />
-            <div className="p-6 bg-card">
-              <h3 className="text-xl font-semibold text-foreground mb-2">
-                {activeScreenshot.title}
-              </h3>
-              <p className="text-muted-foreground">
-                {activeScreenshot.description}
-              </p>
-            </div>
-          </Card>
-        )}
       </div>
     </section>
   );
