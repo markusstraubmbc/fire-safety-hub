@@ -62,7 +62,7 @@ export const modules: Record<string, ModuleData> = {
             "Automatische Speicherung: Spalten-Konfiguration wird bei erneutem Öffnen wiederhergestellt",
             "Hochperformante Echtzeit-Synchronisation für minimale Latenz",
             "Berechtigungsgesteuert: Führungskräfte-Monitor",
-            "Revisionssicheres Logging aller Lagemeldungen und Statusänderungen"
+            "Detailliertes Logging aller Lagemeldungen und Statusänderungen"
         ],
         icon: Map,
         color: "blue"
@@ -74,7 +74,7 @@ export const modules: Record<string, ModuleData> = {
         benefits: [
             "Maximale Sicherheit für Ihre Trupps durch automatisierte Überwachung der Rückzugszeiten",
             "Signifikante Entlastung der Überwachungskraft durch intuitive Touch-Bedienung",
-            "100% revisionssichere Dokumentation ohne manuellen Übertragungsaufwand"
+            "Lückenlose Dokumentation ohne manuellen Übertragungsaufwand"
         ],
         features: [
             "Echtzeit-Trupp-Monitoring: Intuitive Anzeige von Zeit, Druck und Status für bis zu 12 Trupps gleichzeitig",
@@ -85,8 +85,8 @@ export const modules: Record<string, ModuleData> = {
             "Multi-Device Sync: Spiegelung der Überwachungstafel auf weitere mobile Endgeräte für die Einsatzleitung"
         ],
         technicalDetails: [
-            "Revisionssichere PDF-Generierung nach FwDV 7 Standards",
-            "Offline-First Architektur für unterbrechungsfreien Betrieb ohne WLAN",
+            "Protokollierte PDF-Generierung nach FwDV 7 Standards",
+            "Auch ohne Internetverbindung voll einsatzfähig",
             "Synchronisation mit dem zentralen RESQIO-Einsatzbericht"
         ],
         icon: AlertTriangle,
@@ -110,9 +110,9 @@ export const modules: Record<string, ModuleData> = {
             "Automatisierter Versand: Sofortige Verteilung der Berichte an Kommunen, Versicherungen oder Presse"
         ],
         technicalDetails: [
-            "Anbindung an OpenAI Enterprise für datenschutzkonforme KI-Verarbeitung",
-            "Exportformate in PDF/A und Excel für Langzeitarchivierung",
-            "Vollständiger Audit-Trail für jede Berichtsänderung"
+            "Datenschutzkonforme KI-Verarbeitung (Enterprise Standard)",
+            "Vollständige Exportmöglichkeiten (PDF/Excel) für Archivierung",
+            "Lückenlose Nachvollziehbarkeit jeder Änderung"
         ],
         icon: FileText,
         color: "red"
@@ -120,9 +120,9 @@ export const modules: Record<string, ModuleData> = {
     "wartungsmanagement": {
         title: "Prüfwesen & Wartung",
         shortDesc: "Maximale Haftungssicherheit durch automatisiertes Prüffristen-Management.",
-        longDesc: "Das RESQIO Wartungsmodul ist der Garant für die Einsatzbereitschaft Ihrer Ausrüstung. Es beendet das Zeitalter der Excellisten und Papierordner. Das System überwacht proaktiv alle Prüffristen nach DGUV, Herstellervorgaben und Normen. Gerätewarte werden durch intelligente Checklisten geführt, Mängel werden sofort digital erfasst und der Lifecycle jedes einzelnen Geräts wird lückenlos dokumentiert – für 100% Rechtssicherheit im Falle eines Unfalls.",
+        longDesc: "Das RESQIO Wartungsmodul unterstützt die Einsatzbereitschaft Ihrer Ausrüstung. Es beendet das Zeitalter der Excellisten und Papierordner. Das System überwacht alle Prüffristen und orientiert sich an DGUV und Herstellervorgaben. Gerätewarte werden durch intelligente Checklisten geführt, Mängel werden digital erfasst und der Lifecycle jedes einzelnen Geräts wird dokumentiert – für eine umfassende Dokumentation.",
         benefits: [
-            "Null-Fehler-Quote bei Prüffristen durch automatisiertes Eskalationsmanagement",
+            "Zuverlässige Einhaltung von Prüffristen durch automatisiertes Eskalationsmanagement",
             "Signifikante Zeitersparnis für Gerätewarte durch Tablet-gestützte Dokumentation",
             "Optimale Investitionsplanung durch detaillierte Lifecycle-Kostenanalysen"
         ],
@@ -135,9 +135,9 @@ export const modules: Record<string, ModuleData> = {
             "Instant Labeling: Direktdruck von QR-Codes und Prüfplaketten aus dem System heraus"
         ],
         technicalDetails: [
-            "Granulare Benachrichtigungshistorie für rechtssichere Nachweise",
-            "Optimierte Datenbankstrukturen für maximale Performance",
-            "Native Schnittstelle zur Mängelverwaltung für sofortige Instandsetzung"
+            "Detaillierte Benachrichtigungshistorie für rechtssichere Nachweise",
+            "Blitzschneller Zugriff auch bei großen Beständen",
+            "Direkte Verknüpfung zur Mängelverwaltung für sofortige Instandsetzung"
         ],
         icon: Wrench,
         color: "slate"
@@ -160,9 +160,9 @@ export const modules: Record<string, ModuleData> = {
             "GDPR Compliance: Granulare Berechtigungsmatrix bis auf Feldebene zum Schutz sensibler Personendaten"
         ],
         technicalDetails: [
-            "Unterstützung komplexer m:n Gruppenstrukturen",
+            "Flexible Abbildung beliebiger Abteilungsstrukturen",
             "Automatische Alters- und Jubiläumsberechnung",
-            "Sicheres Rollenkonzept mit feldbasierten Zugriffsbeschränkungen"
+            "Detailliertes Berechtigungssystem zum Schutz sensibler Daten"
         ],
         icon: Users,
         color: "blue"
@@ -179,15 +179,15 @@ export const modules: Record<string, ModuleData> = {
         features: [
             "Readiness Monitor: Live-Status der Einsatzbereitschaft basierend auf FwDV Soll-Stärken",
             "Maintenance Alerter: Visualisierung aller fälligen und überfälligen Prüfungen im Gerätepark",
-            "Severe Weather Ticker: Integration von Echtzeit-Warnungen des DWD/ZAMG für Ihre Region",
+            "Severe Weather Ticker: Integration von Echtzeit-Warnungen des DWD für Ihre Region",
             "Defect Tracker: Sofort-Übersicht gemeldeter Mängel an Fahrzeugen und Ausrüstung",
             "Audit Stream: Transparente Anzeige der letzten Systemaktivitäten und Stammdaten-Änderungen",
             "Geo-Analytics Map: Visualisierung der letzten Systemzugriffe zur Standortsicherung"
         ],
         technicalDetails: [
-            "Vollständig konfigurierbares Widget-System",
-            "Echtzeit-Datenaktualisierung ohne Seiten-Refresh",
-            "Optimiertes Responsive Design für die mobile Nutzung unterwegs"
+            "Individuell anpassbare Übersichtselemente",
+            "Automatische Live-Aktualisierung aller Daten",
+            "Optimierte Darstellung auf allen Geräten (PC, Tablet, Smartphone)"
         ],
         icon: LayoutDashboard,
         color: "indigo"
@@ -209,7 +209,7 @@ export const modules: Record<string, ModuleData> = {
             "Zuweisung von PSA zu Mitgliedern"
         ],
         technicalDetails: [
-            "Unterstützung für Parent-Child-Beziehungen",
+            "Abbildung verschachtelter Lagerorte und Beladungen",
             "Export als Inventurliste (Excel/PDF)",
             "Anbindung mobiler Handscanner"
         ],
@@ -241,10 +241,10 @@ export const modules: Record<string, ModuleData> = {
             "Premium Design System: Glassmorphism, High-Contrast für Kiosk-Dialoge, animierte Scan-Bestätigungen und vollständiger Dark-Mode"
         ],
         technicalDetails: [
-            "Native Anbindung von RFID-Lesern und Kamera-Streaming mit Audio-Feedback bei Scans",
-            "Vollständig offline-fähig für kritische Kernfunktionen",
-            "Responsive UI-Design für alle gängigen Industrie-Tablets mit großformatierten Touch-Buttons",
-            "PIN-geschützte Zugriffsverwaltung mit granularem Berechtigungssystem pro Kachel"
+            "Direkte Unterstützung von RFID-Lesern und Kamera-Scans",
+            "Ausfallsicherer Betrieb auch ohne Netzwerkverbindung",
+            "Große, touch-optimierte Bedienflächen für Tablets",
+            "PIN-geschützte Zugriffsverwaltung für einzelne Bereiche"
         ],
         icon: Monitor,
         color: "emerald"
@@ -267,9 +267,9 @@ export const modules: Record<string, ModuleData> = {
             "Automated Categorization: Intelligente Zuweisung von Einsatz-Tagging und FwDV-Statistik-Codes"
         ],
         technicalDetails: [
-            "Datenschutzkonforme Anbindung modernster LLM-Modelle (OpenAI Enterprise)",
-            "Spezifische Trainings-Prompts für das Feuerwehr-Fachvokabular",
-            "Transparente Kosten- und Tokenkontrolle für Administratoren"
+            "Datenschutzkonforme Nutzung modernster KI-Technologie",
+            "Speziell auf Feuerwehr-Fachsprache trainiert",
+            "Volle Kostenkontrolle und Transparenz"
         ],
         icon: Brain,
         color: "purple"
@@ -281,7 +281,7 @@ export const modules: Record<string, ModuleData> = {
         benefits: [
             "Massiver Zeitvorteil durch automatisierte Bereitstellung relevanter Pläne bei Alarmierung",
             "Erhöhte Sicherheit der Einsatzkräfte durch sofortigen Zugriff auf Gefahrstoff- und Taktikinfos",
-            "Revisionssicheres Management der Prüffristen für alle Pläne gemäß Normvorgaben"
+            "Strukturiertes Management der Prüffristen für alle Pläne"
         ],
         features: [
             "DIN 14095 Datenstruktur: Erfassung aller normrelevanten Objektdaten inkl. BMA, BMZ und FSD",
@@ -292,9 +292,9 @@ export const modules: Record<string, ModuleData> = {
             "Karten-Integration: Visualisierung aller Objekte auf einer interaktiven Karte mit Status-Farbcodierung"
         ],
         technicalDetails: [
-            "Offline-Synchronisation für den mobilen Einsatz (Tablet)",
-            "Kryptographisch gesicherte Dokumentenspeicherung",
-            "Geocodierung via Nominatim/OSM Schnittstelle"
+            "Automatische Bereitstellung für den mobilen Einsatz (Offline-fähig)",
+            "Geschützter Zugriff auf Gebäudepläne",
+            "Automatische Standorterkennung und Kartendarstellung"
         ],
         icon: Map,
         color: "blue"
@@ -305,7 +305,7 @@ export const modules: Record<string, ModuleData> = {
         longDesc: "Sichern Sie die Wasserversorgung in jeder Lage. Die RESQIO Wasserkarte bietet Ihnen eine hochpräzise Übersicht über alle verfügbaren Hydranten, Löschwasserzisternen und Saugstellen. Durch die direkte Verknüpfung mit dem Mängelmelder und der Wartungshistorie wissen Ihre Maschinisten schon auf der Anfahrt, auf welcher Entnahmestelle Verlass ist und wo alternative Wege nötig sind.",
         benefits: [
             "Kein Zeitverlust bei der Suche nach Entnahmestellen durch präzises Mapping",
-            "Garantierte Versorgungssicherheit durch aktuellen Status von Durchmesser und Ergiebigkeit",
+            "Verbesserte Versorgungssicherheit durch aktuellen Status von Durchmesser und Ergiebigkeit",
             "Effiziente Infrastrukturpflege durch integriertes Mängelmanagement auf der Karte"
         ],
         features: [
@@ -317,9 +317,9 @@ export const modules: Record<string, ModuleData> = {
             "Overpass Filter: Intelligentes Caching von OSM-Daten für maximale Performance auch im Funkloch"
         ],
         technicalDetails: [
-            "Integration von OpenStreetMap Overpass-API für Live-Daten",
-            "GeoJSON-Export für Drittsysteme",
-            "Mobile-Optimierte Kartensteuerung für Touch-Geräte"
+            "Nutzung aktueller Live-Kartendaten für maximale Genauigkeit",
+            "Einfache Pflege der Hydrantendaten",
+            "Optimierte Kartenbedienung auf Touch-Geräten"
         ],
         icon: Droplets,
         color: "sky"
@@ -342,7 +342,7 @@ export const modules: Record<string, ModuleData> = {
             "Stock Integration: Echtzeit-Synchronisation mit dem Lagerbestand bei Zu- und Abgängen"
         ],
         technicalDetails: [
-            "Barkode-gestützte Erfassungsmodule",
+            "Schnelle Erfassung per Barcode-Scan",
             "Revisionssichere Archivierung aller Lieferscheine",
             "Unterstützung interner und externer Standorte"
         ],
@@ -354,7 +354,7 @@ export const modules: Record<string, ModuleData> = {
         shortDesc: "Rechtssichere Kilometer- und Routendokumentation ohne Papierchaos.",
         longDesc: "Beenden Sie das Zeitalter der schmierzettel im Handschuhfach. Das digitale Fahrtenbuch von RESQIO integriert sich nahtlos in den Kiosk-Modus und das Einsatzmanagement. Kilometerstände, Kraftstoffverbräuche und Fahrtzwecke werden sekundenschnell erfasst – oft vollautomatisch durch intelligente Vorschläge. So sichern Sie die Rechtssicherheit Ihrer Fahrzeugflotte und behalten die Kosten stets im Griff.",
         benefits: [
-            "100% GoBD-konforme Dokumentation aller Dienstfahrten und Einsätze",
+            "Digitale Dokumentation von Dienstfahrten und Einsätzen",
             "Massive Zeitersparnis durch automatisierte Zuweisung zu Missionen und Übungen",
             "Detaillierte Kosten- und Verbrauchsanalysen zur Flottenoptimierung"
         ],
@@ -369,7 +369,7 @@ export const modules: Record<string, ModuleData> = {
         technicalDetails: [
             "Automatisierte Berechnung gefahrener Distanzen",
             "Unterstützung von Sonderrechten-Dokumentation",
-            "Verschlüsselte Historie zur Vermeidung von Manipulationen"
+            "Protokollierung aller Einträge und Änderungen"
         ],
         icon: Car,
         color: "slate"
@@ -379,8 +379,8 @@ export const modules: Record<string, ModuleData> = {
         shortDesc: "Sicherheit durch Sauberkeit – Tracking von Reinigungszyklen und Schutzkleidung.",
         longDesc: "Schutzkleidung rettet Leben – wenn sie richtig gepflegt wird. RESQIO überwacht den gesamten Hygiene-Lifecycle Ihrer Ausrüstung. Tracken Sie Waschzyklen, Imprägnierungen und Reparaturen gemäß Hersteller-Vorgaben. Ob persönliche Zuweisung oder Pool-Wäsche: Sie wissen jederzeit, welches Teil in der Reinigung ist und wann es seine maximale Schutzlebensdauer erreicht hat.",
         benefits: [
-            "Garantierte Schutzwirkung durch systematische Überwachung der Waschzyklen",
-            "Lückenloser Nachweis der Hygiene-Kette gemäß UVV und DGUV",
+            "Unterstützung im Erhalt der Schutzwirkung durch Überwachung der Waschzyklen",
+            "Nachweis der Hygiene-Kette",
             "Effiziente Verwaltung von Pool-Beständen und persönlicher Ausrüstung"
         ],
         features: [
@@ -392,8 +392,8 @@ export const modules: Record<string, ModuleData> = {
             "Instant Notification: Automatisierte Info an Kameraden sobald Kleidung abholbereit ist"
         ],
         technicalDetails: [
-            "QR-Code/NFC Integration für Textil-Tags",
-            "Statistische Auswertung der Artikel-Ausnutzung",
+            "Unterstützung für QR-Codes und NFC-Chips in Kleidung",
+            "Detaillierte Nutzungsstatistiken",
             "Integrierte Wartungsprüfung im Workflow"
         ],
         icon: Shirt,
@@ -417,9 +417,9 @@ export const modules: Record<string, ModuleData> = {
             "Cost Projection: Trendanalysen zur Früherkennung von Budgetüberschreitungen"
         ],
         technicalDetails: [
-            "GoBD-konforme Datenspeicherung",
-            "Mandantenfähige Trennung von Abteilungen",
-            "Verschlüsselter Datei-Tresor für sensible Belege"
+            "Strukturierte Datenspeicherung",
+            "Saubere Trennung verschiedener Abteilungen/Kassen",
+            "Sichere Ablage sensibler Belege"
         ],
         icon: CreditCard,
         color: "green"
@@ -429,7 +429,7 @@ export const modules: Record<string, ModuleData> = {
         shortDesc: "Die moderne Identität im 21. Jahrhundert – Sicher, digital und NFC-fähig.",
         longDesc: "Bringen Sie Ihre Einsatzkraft in das digitale Zeitalter. Der digitale Dienstausweis von RESQIO ist weit mehr als nur ein Dokument – er ist der sichere Schlüssel zu Ihrem gesamten System. Als kryptographisch gesichertes Wallet-Element dient er als offizieller Nachweis, als kontaktloses Anmeldemedium an Kiosken und als stolze Präsentation Ihrer Qualifikationen und Ehrungen.",
         benefits: [
-            "Höchste Sicherheit gegen Fälschung durch dynamisch signierte QR-Codes",
+            "Hoher Sicherheitsstandard gegen Fälschung durch dynamisch signierte QR-Codes",
             "Sofortige Verifikation der Einsatzbereitschaft durch Behörden via Portal",
             "Maximale Bequemlichkeit: Identität, Login und Qualis immer am Smartphone dabei"
         ],
@@ -442,8 +442,8 @@ export const modules: Record<string, ModuleData> = {
             "Instant Revoke: Zentrale Deaktivierung des Ausweises bei Verlust oder Dienstende"
         ],
         technicalDetails: [
-            "Asymmetrische Verschlüsselung der Signatur-Token",
-            "Kompakte, offline-verfügbare Datenpakete",
+            "Geschützt durch moderne Verschlüsselung",
+            "Jederzeit offline auf dem Smartphone verfügbar",
             "Unterstützung von biometrischen Merkmalen (Passbild)"
         ],
         icon: ShieldCheck,
@@ -467,9 +467,9 @@ export const modules: Record<string, ModuleData> = {
             "Category Vault: Strukturierte Ablage für Prüfprotokolle, Statuten und technische Handbücher"
         ],
         technicalDetails: [
-            "Revisionssichere Archivierung nach GoBD",
-            "Granulare Zugriffsberechtigungen bis auf Dateiebene",
-            "Optimiertes Rendering für mobile Endgeräte"
+            "Strukturierte Archivierung von Dokumenten",
+            "Präzise Zugriffssteuerung für jedes Dokument",
+            "Perfekte Lesbarkeit auf Smartphones und Tablets"
         ],
         icon: FolderSearch,
         color: "slate"
@@ -492,9 +492,9 @@ export const modules: Record<string, ModuleData> = {
             "API Analytics: Überwachung von Datenverkehr, Latenzen und System-Health"
         ],
         technicalDetails: [
-            "Sichere Token-basierte Authentifizierung (JWT/API-Keys)",
-            "Standardisierte Datenarchitektur für maximale Kompatibilität",
-            "Skalierbare Microservice-Anbindung"
+            "Sichere Authentifizierung für externe Systeme",
+            "Einfacher Datenaustausch durch Standards",
+            "Zukunftssichere Anbindung weiterer Dienste"
         ],
         icon: Link2,
         color: "blue"
@@ -517,9 +517,9 @@ export const modules: Record<string, ModuleData> = {
             "Historical Trends: Vergleich von Einsatzentwicklung und Kosten über mehrere Jahre"
         ],
         technicalDetails: [
-            "Aggregierte Big-Data Analyse für zehntausende Datensätze",
-            "Exportfertige High-Resolution Grafiken für Präsentationen",
-            "Anonymisierungs-Layer für datenschutzkonforme Berichte"
+            "Leistungsstarke Auswertung auch großer Datenmengen",
+            "Professionelle Grafiken für Präsentationen",
+            "Integrierter Datenschutz durch automatische Anonymisierung"
         ],
         icon: BarChart3,
         color: "purple"
@@ -542,7 +542,7 @@ export const modules: Record<string, ModuleData> = {
             "Digital Signature: Erfassung von Unterschriften direkt am Tablet zur sofortigen Finalisierung"
         ],
         technicalDetails: [
-            "Native Verknüpfung mit dem Objektplan-Modul",
+            "Direkte Verknüpfung mit Objektplänen",
             "Individuell anpassbare Prüflisten nach lokalen Verordnungen",
             "Archivierung gemäß gesetzlicher Aufbewahrungsfristen"
         ],
