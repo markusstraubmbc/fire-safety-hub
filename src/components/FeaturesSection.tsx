@@ -177,24 +177,24 @@ const FeaturesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {features.map((feature, index) => (
             <Link
               key={index}
               to={feature.slug ? `/modul/${feature.slug}` : "#"}
               className="block group"
             >
-              <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-primary/50 group-hover:-translate-y-1">
-                <CardContent className="p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <feature.icon className="w-5 h-5 text-primary" />
+              <Card className="h-full transition-all duration-300 hover:shadow-xl hover:border-primary/50 group-hover:-translate-y-2 bg-card/60 backdrop-blur-sm shadow-sm">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors border border-primary/5">
+                      <feature.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <div className="min-w-0">
-                      <h3 className="text-sm font-semibold text-foreground mb-1 leading-tight">
+                    <div className="min-w-0 pt-1">
+                      <h3 className="text-base font-bold text-foreground mb-2 leading-tight group-hover:text-primary transition-colors">
                         {feature.title}
                       </h3>
-                      <p className="text-muted-foreground text-xs line-clamp-2">
+                      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
                         {feature.description}
                       </p>
                     </div>

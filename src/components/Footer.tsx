@@ -5,32 +5,33 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-foreground py-12">
+    <footer className="bg-slate-950 py-16 border-t border-white/5">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center">
-              <img src="/src/assets/logo.jpg" alt="RESQIO Logo" className="w-full h-full object-cover" />
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center border border-white/10 group-hover:border-primary/50 transition-colors">
+              <img src="/logo.jpg" alt="RESQIO Logo" className="w-full h-full object-cover" />
             </div>
-            <span className="text-lg font-bold text-background">
-              resq<span className="text-primary">io</span>
+            <span className="text-xl font-extrabold text-white tracking-tight">
+              RESQ<span className="text-primary font-black">IO</span>
             </span>
           </Link>
 
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-background/60">
-            <Link to="/impressum" className="hover:text-background transition-colors">
+          <div className="flex flex-wrap justify-center gap-8 text-sm font-medium text-slate-400">
+            <Link to="/impressum" className="hover:text-primary transition-colors">
               Impressum
             </Link>
-            <Link to="/datenschutz" className="hover:text-background transition-colors">
+            <Link to="/datenschutz" className="hover:text-primary transition-colors">
               Datenschutz
             </Link>
-            <a href="mailto:support@resqio.de" className="hover:text-background transition-colors">
+            <a href="mailto:support@resqio.de" className="hover:text-primary transition-colors flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
               support@resqio.de
             </a>
           </div>
 
-          <p className="text-sm text-background/60">
-            © {currentYear} RESQIO. Alle Rechte vorbehalten.
+          <p className="text-sm text-slate-500 font-medium italic">
+            © {currentYear} RESQIO. Professional Safety Hub.
           </p>
         </div>
       </div>

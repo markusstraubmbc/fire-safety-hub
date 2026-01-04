@@ -122,7 +122,7 @@ export const modules: Record<string, ModuleData> = {
             "Digital Checklists: Geführte Prüfvorgänge mit integrierter Foto-Dokumentation direkt am Objekt",
             "Lifecycle-Monitor: Analyse von Anschaffungskosten vs. Reparaturaufwand zur Ersatzbeschaffungs-Planung",
             "Multi-Asset Support: Intelligentes Handling von Einzelgeräten, Fahrzeugbeladungen und komplexen Baugruppen",
-            "Vendor Integration: Einfache Einbindung von externen Prüfdienstleistern und Brandschutzfirmen",
+            "Externe Wartungsdokumentation: Dokumentation von extern durchgeführten Wartungen und Prüfungen im System",
             "Instant Labeling: Direktdruck von QR-Codes und Prüfplaketten aus dem System heraus"
         ],
         technicalDetails: [

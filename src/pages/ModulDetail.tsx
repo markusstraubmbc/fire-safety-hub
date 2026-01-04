@@ -77,10 +77,10 @@ const ModulDetail = () => {
               </div>
 
               <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+                <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
                   {module.title}
                 </h1>
-                <p className="text-xl md:text-2xl text-slate-300 font-medium max-w-2xl leading-relaxed italic">
+                <p className="text-xl md:text-2xl text-muted-foreground font-medium max-w-2xl leading-relaxed italic">
                   "{module.shortDesc}"
                 </p>
               </div>
@@ -105,29 +105,29 @@ const ModulDetail = () => {
               <div className="absolute -inset-10 bg-primary/20 rounded-full blur-[100px] opacity-20 animate-pulse" />
               <div className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-tr from-primary/50 to-purple-500/50 rounded-[2.5rem] blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-                <div className="relative bg-slate-900/80 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-2xl flex flex-col items-center text-center space-y-8">
+                <div className="relative bg-card/80 backdrop-blur-2xl border border-border rounded-[2.5rem] p-8 md:p-12 shadow-2xl flex flex-col items-center text-center space-y-8">
                   <div className={`w-28 h-28 rounded-3xl ${colorConfig.bg} flex items-center justify-center animate-float border ${colorConfig.border}`}>
                     <Icon className={`w-14 h-14 ${colorConfig.text}`} />
                   </div>
                   <div className="space-y-3">
                     <p className="text-xs font-bold text-primary uppercase tracking-[0.2em]">Platform Integration</p>
-                    <h3 className="text-2xl font-bold text-white">RESQIO Console</h3>
-                    <p className="text-slate-400 text-sm max-w-[240px] mx-auto">
+                    <h3 className="text-2xl font-bold text-foreground">RESQIO Console</h3>
+                    <p className="text-muted-foreground text-sm max-w-[240px] mx-auto">
                       Vollständig integriert in das RESQIO-Ökosystem (Kiosk, Web & Mobile).
                     </p>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4 w-full pt-4">
-                    <div className="px-5 py-4 bg-white/5 rounded-2xl border border-white/5 flex flex-col items-center">
-                      <p className="text-[10px] text-slate-500 uppercase font-bold tracking-tight mb-1">Status</p>
+                    <div className="px-5 py-4 bg-muted/50 rounded-2xl border border-border flex flex-col items-center">
+                      <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight mb-1">Status</p>
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                        <p className="text-sm font-bold text-white uppercase">Operational</p>
+                        <p className="text-sm font-bold text-foreground uppercase">Operational</p>
                       </div>
                     </div>
-                    <div className="px-5 py-4 bg-white/5 rounded-2xl border border-white/5 flex flex-col items-center">
-                      <p className="text-[10px] text-slate-500 uppercase font-bold tracking-tight mb-1">Integration</p>
-                      <p className="text-sm font-bold text-white">API Native</p>
+                    <div className="px-5 py-4 bg-muted/50 rounded-2xl border border-border flex flex-col items-center">
+                      <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight mb-1">Integration</p>
+                      <p className="text-sm font-bold text-foreground">API Native</p>
                     </div>
                   </div>
                 </div>
@@ -150,7 +150,7 @@ const ModulDetail = () => {
                     <Lightbulb className="w-6 h-6 text-primary" />
                   </div>
                   <div className="space-y-1">
-                    <h2 className="text-3xl font-bold text-white">Der RESQIO Mehrwert</h2>
+                    <h2 className="text-3xl font-bold text-foreground">Der RESQIO Mehrwert</h2>
                     <p className="text-muted-foreground text-sm">Warum sich Profis für dieses Modul entscheiden</p>
                   </div>
                 </div>
@@ -163,7 +163,7 @@ const ModulDetail = () => {
                           <CheckCircle2 className="w-4 h-4 text-primary" />
                         </div>
                       </div>
-                      <p className="text-slate-300 leading-relaxed font-medium">
+                      <p className="text-muted-foreground leading-relaxed font-medium">
                         {benefit}
                       </p>
                     </div>
@@ -175,20 +175,20 @@ const ModulDetail = () => {
               <section className="space-y-8">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-2xl bg-slate-500/10 flex items-center justify-center">
-                    <Settings2 className="w-6 h-6 text-slate-400" />
+                    <Settings2 className="w-6 h-6 text-muted-foreground" />
                   </div>
                   <div className="space-y-1">
-                    <h2 className="text-3xl font-bold text-white">Funktionale Highlights</h2>
+                    <h2 className="text-3xl font-bold text-foreground">Funktionale Highlights</h2>
                     <p className="text-muted-foreground text-sm">Tiefgehende Features für Ihren Erfolg</p>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {module.features.map((feature, idx) => (
-                    <div key={idx} className="group p-6 bg-card/20 backdrop-blur-sm rounded-2xl border border-white/5 hover:border-primary/30 transition-all hover:bg-card/40">
+                    <div key={idx} className="group p-6 bg-card/20 backdrop-blur-sm rounded-2xl border border-border hover:border-primary/30 transition-all hover:bg-card/40">
                       <div className="flex items-start gap-4">
                         <div className="w-2 h-2 rounded-full bg-primary/40 mt-2.5 group-hover:scale-150 transition-transform" />
-                        <p className="text-lg font-medium text-slate-200 leading-snug">
+                        <p className="text-base font-medium text-foreground leading-snug">
                           {feature}
                         </p>
                       </div>
@@ -202,31 +202,31 @@ const ModulDetail = () => {
             <div className="xl:col-span-4 space-y-8">
               {/* Technical Box */}
               {module.technicalDetails && (
-                <div className="bg-slate-900/80 backdrop-blur-xl rounded-[2.5rem] p-8 border border-white/5 border-l-4 border-l-primary shadow-2xl sticky top-28">
+                <div className="bg-card/80 backdrop-blur-xl rounded-[2.5rem] p-8 border border-border border-l-4 border-l-primary shadow-2xl sticky top-28">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                       <Info className="w-5 h-5 text-primary" />
                     </div>
-                    <h3 className="text-xl font-bold text-white tracking-tight">Tech-Spezifikationen</h3>
+                    <h3 className="text-xl font-bold text-foreground tracking-tight">Tech-Spezifikationen</h3>
                   </div>
 
                   <div className="space-y-5">
                     {module.technicalDetails.map((detail, idx) => (
                       <div key={idx} className="flex items-start gap-3 group">
                         <div className="w-1.5 h-1.5 rounded-full bg-primary/50 mt-2 group-hover:bg-primary transition-colors" />
-                        <p className="text-sm text-slate-400 font-medium leading-relaxed group-hover:text-slate-200 transition-colors">
+                        <p className="text-sm text-muted-foreground font-medium leading-relaxed group-hover:text-foreground transition-colors">
                           {detail}
                         </p>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-10 pt-8 border-t border-white/5">
-                    <div className="flex items-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/5">
+                  <div className="mt-10 pt-8 border-t border-border">
+                    <div className="flex items-center gap-3 p-4 bg-muted/50 rounded-2xl border border-border">
                       <ShieldCheck className="w-5 h-5 text-green-500" />
                       <div className="space-y-0.5">
-                        <p className="text-xs font-bold text-white uppercase tracking-wider">Compliance</p>
-                        <p className="text-[10px] text-slate-500 uppercase font-medium">DSGVO & DIN 14095 Ready</p>
+                        <p className="text-xs font-bold text-foreground uppercase tracking-wider">Compliance</p>
+                        <p className="text-[10px] text-muted-foreground uppercase font-medium">DSGVO & DIN 14095 Ready</p>
                       </div>
                     </div>
                   </div>
@@ -241,14 +241,14 @@ const ModulDetail = () => {
               )}
 
               {/* Security Banner */}
-              <div className="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-[2.5rem] p-8 border border-white/5">
-                <h4 className="text-white font-bold mb-3 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-[2.5rem] p-8 border border-border">
+                <h4 className="text-foreground font-bold mb-3 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-indigo-500" />
                   Hosting & Sicherheit
                 </h4>
-                <p className="text-sm text-slate-400 leading-relaxed">
-                  Zertifizierte Rechenzentren in Deutschland (ISO 27001).
-                  High-Availability Cluster für den unternehmenskritischen Einsatz rund um die Uhr.
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  DSGVO-konforme Serverstandorte in Deutschland.
+                  Ihre Daten bleiben sicher in einer geschützten, deutschen Cloud-Umgebung.
                 </p>
               </div>
             </div>
