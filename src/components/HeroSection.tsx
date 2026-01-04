@@ -63,7 +63,7 @@ const HeroSection = () => {
               <p className="text-sm text-primary-foreground/60">Im produktiven Einsatz</p>
             </div>
             <div className="space-y-1">
-              <p className="text-2xl font-bold text-primary-foreground">10.000+</p>
+              <p className="text-2xl font-bold text-primary-foreground">5.000+</p>
               <p className="text-sm text-primary-foreground/60">Gegenstände verwaltet</p>
             </div>
             <div className="space-y-1">
