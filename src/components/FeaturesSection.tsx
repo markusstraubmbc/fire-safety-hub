@@ -42,8 +42,8 @@ export const features: Feature[] = [
   // Highlight Functions
   {
     icon: Map,
-    title: "Lagemonitor",
-    description: "Zentrale Einsatztaktik mit Echtzeit-Tracking, Hydranten-Layer und automatischer Gelände-Analyse.",
+    title: "Lagemonitor & Einsatzführung",
+    description: "Modulares Spaltensystem mit 14 Panels für Situational Awareness, Echtzeit-Synchronisation und mobile Führungsübersicht.",
     slug: "lagemonitor",
   },
   {
@@ -86,7 +86,7 @@ export const features: Feature[] = [
   {
     icon: Monitor,
     title: "Kiosk-Modus",
-    description: "Optimierte Touch-Oberfläche für das Gerätehaus zur schnellen Erfassung von Fahrten und Mängelberichten.",
+    description: "13 Touch-Kacheln mit Wizard-geführten Prozessen, Unified Login (RFID/QR/PIN) und Premium Design für maximale Nutzerakzeptanz.",
     slug: "kiosk-modus",
   },
   {

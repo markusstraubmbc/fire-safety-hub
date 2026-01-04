@@ -34,26 +34,35 @@ export interface ModuleData {
 
 export const modules: Record<string, ModuleData> = {
     "lagemonitor": {
-        title: "Lagemonitor",
-        shortDesc: "Die hochperformante taktische Kommandozentrale für Ihre Einsatzleitung.",
-        longDesc: "Der RESQIO Lagemonitor ist weit mehr als eine digitale Karte – er ist das schlagende Herz Ihrer Einsatzführung. In Sekundenbruchteilen aggregiert er Live-Positionsdaten, taktische Zeichen nach FwDV und kritische Infrastrukturdaten in einer hochperformanten, intuitiven Ansicht. Ob im Gerätehaus am Kiosk-Terminal oder mobil am Einsatzleitwagen: Der Lagemonitor sorgt für eine lückenlose Transparenz, die Leben rettet und die Entscheidungsfindung massiv beschleunigt.",
+        title: "Lagemonitor & Einsatzführung",
+        shortDesc: "Echtzeitübersicht und taktische Führung bei laufenden Einsätzen mit modularem Spaltensystem.",
+        longDesc: "Der RESQIO Lagemonitor ist das taktische Nervenzentrum für laufende Einsätze. Mit 14 individuell konfigurierbaren Panels bietet er maximale Situational Awareness für unterschiedliche Führungsrollen – vom Gruppenführer bis zur Einsatzleitung. Die automatische Echtzeit-Synchronisation im 15-Sekunden-Intervall garantiert, dass alle Beteiligten stets denselben Informationsstand haben. Optimiert für Touchscreens und große Lagemonitore im Gerätehaus.",
         benefits: [
-            "Maximale taktische Transparenz in Echtzeit über alle Einheiten",
-            "Sekundenschnelle Lokalisierung von Gefahrenschwerpunkten und Hydranten",
-            "Sichere Entscheidungsplattform für Führungskräfte an jedem Standort"
+            "Situational Awareness: Alle einsatzrelevanten Informationen auf einen Blick in modularen Spalten",
+            "Flexibilität: 14 individuell ein-/ausblendbare Panels für unterschiedliche Führungsrollen",
+            "Echtzeit-Synchronisation: Automatische Aktualisierung aller Datenquellen im 15-Sekunden-Intervall",
+            "Mobile-First: Optimiert für Touchscreens und große Lagemonitore im Gerätehaus",
+            "Aktivitäts-Benachrichtigungen: Visuelle Alerts bei neuen Lagemeldungen, Personen oder Bildern"
         ],
         features: [
-            "Live-Einsatzboard: Dynamische Anzeige von Einsätzen und Übungen in getrennten, hochkontrastreichen Spalten/Kacheln",
-            "Taktisches Mapping: Vollständige Bibliothek taktischer Zeichen nach FwDV direkt integriert",
-            "Infrastruktur-Layer: Echtzeit-Ansicht von Hydranten (inkl. DN & Typ) und digitalen Objektplänen (DIN 14095)",
-            "Situations-Analytik: Integration von Live-Wetterradar (RainViewer/Windy) und Unwetterwarnungen (DWD/ZAMG)",
-            "Automatisierte Führung: Dynamisches Monitor-Mapping für Zielgruppen (GF, ZF, MA, AGT) mit 1:n Qualifikations-Prüfung",
-            "Interaktives Whiteboard: Digitales Wideboard für Skizzen und Funkpläne direkt im Lageboard"
+            "Stammdaten-Panel: Kerninformationen zum Einsatz (Adresse, Stichwort, Status, beteiligte Fahrzeuge)",
+            "Status-Panel: Live-Ansicht aller Fahrzeug-Statusmeldungen (S1–S6) in chronologischer Reihenfolge",
+            "Lagemeldungen: Erfasste Meldungen von der Einsatzstelle mit Zeitstempel und Wichtigkeits-Markierung",
+            "Fahrzeuge & Mannschaft: Detaillierte Übersicht mit Personalzuordnung, Qualifikationen und Status-Timeline",
+            "Atemschutz-Überwachung: Monitoring aktiver Trupps mit Timer, Druckanzeige und akustischer Alarmierung",
+            "Kontakte & Hydranten: Schnellzugriff auf Ansprechpartner und kartenbasierte Wasserversorgungsplanung",
+            "Taktische Lagekarte: Einsatzort, Fahrzeugpositionen und Taktische Zeichen nach FwDV",
+            "Interaktives Whiteboard: Digitale Skizzen für Wasserversorgung und Gebietsaufteilung",
+            "Verbrauchsmaterial-Tracking: Erfassung von Ölbinder, Schaummittel etc. mit Lagerbestandsabgleich",
+            "Funk-Abschnittsbildung: Kanalzuweisungen und Einheiten-Mapping im 'Weitere'-Menü",
+            "Offene Posten: Aufgabenliste für Nachbereitung mit Nachrichten-Thread und Zuweisung",
+            "Führungskräfte-Monitor: Mobile-optimierte Quick Overview für Smartphones und Tablets"
         ],
         technicalDetails: [
-            "Hochperformante Mapbox/OpenStreetMap Integration mit Geofencing",
-            "Echtzeit-Synchronisation via WebSockets für null Latenz",
-            "Revisionssicheres Logging jeder Positionsänderung und Lagemeldung"
+            "Browser-Persistenz: Spalten-Konfiguration wird gespeichert und bei erneutem Öffnen wiederhergestellt",
+            "WebSocket-basierte Echtzeit-Synchronisation für minimale Latenz",
+            "Berechtigungsgesteuert: Führungskräfte-Monitor nur mit 'kiosk.einsatz_zugriff_leader'-Berechtigung",
+            "Revisionssicheres Logging aller Lagemeldungen und Statusänderungen"
         ],
         icon: Map,
         color: "blue"
@@ -209,25 +218,33 @@ export const modules: Record<string, ModuleData> = {
     },
     "kiosk-modus": {
         title: "Kiosk-Modus",
-        shortDesc: "Die Tablet-optimierte Benutzeroberfläche für maximale Akzeptanz im Dienst.",
-        longDesc: "Der RESQIO Kiosk-Modus ist das digitale Rückgrat für Ihre Mannschaft direkt am Ort des Geschehens. Speziell entwickelt für die harten Anforderungen im Gerätehaus, ermöglicht er die dezentrale Erfassung von Aktionen im Vorbeilaufen. Ohne Schulungsaufwand bedienen Ihre Kameraden intuitive Wizards für Fahrtenbücher, Wartungen oder Materialrückgaben. Der Kiosk ist nicht nur ein Terminal, sondern das Informationszentrum für jeden Kameraden – vom Atemschutz-Nachweis bis zum Live-Unwetterticker.",
+        shortDesc: "Touchscreen-optimierte Benutzeroberfläche für Tablets und Terminals an festen Standorten.",
+        longDesc: "Der RESQIO Kiosk-Modus ist das digitale Rückgrat für Ihre Mannschaft direkt am Ort des Geschehens. Mit über 13 Hauptkacheln und spezialisierten Untermenüs für Einsätze, Ausrüstung und Tools ermöglicht er die dezentrale Erfassung von Aktionen im Vorbeilaufen. Wizard-geführte Prozesse verhindern Falscheingaben und garantieren höchste Nutzerakzeptanz – auch für technisch weniger versierte Kameraden.",
         benefits: [
-            "Massive Reduzierung der manuellen Bürokratie durch dezentrale Erfassung",
-            "Höchste Nutzerakzeptanz durch intuitives Design und Touch-Optimierung",
-            "Echtzeit-Informationsfluss für die gesamte Mannschaft am Hallen-Monitor"
+            "Barrierefreiheit: Einfache Bedienung auch für technisch weniger versierte Nutzer",
+            "Zeitersparnis: Schnelle Erfassung von Aktionen direkt am Standort der Ausrüstung",
+            "Fehlerreduktion: Wizard-geführte Prozesse verhindern Falscheingaben",
+            "Mobilität: Keine PC-Arbeitsplätze nötig, mobile Erfassung möglich"
         ],
         features: [
-            "Unified Smart Scanner: Sekundenschnelles Einloggen via RFID-Chip oder integrierter Kamera (QR-Code)",
-            "Secure QR-Login: Dynamisch signierte, zeitbasierte QR-Codes für höchste Datensicherheit beim Login",
-            "Interaktive Wizards: Schritt-für-Schritt Führung für Fahrtenbuch, Materialbewegung und Mängelmeldungen",
-            "Mannschafts-Dashboard: Persönliche Statistiken, Lehrgangsfortschritt und Atemschutz-Nachweise auf einen Blick",
-            "Digitales Schwarzes Brett: Live-Ticker für Einsätze, Wetterwarnungen und abteilungsinterne News",
-            "Offene Posten Management: Nachbereitung und Aufgabenverteilung von Einsätzen direkt am Touchscreen"
+            "Hauptmenü: 13 Kacheln (Einsatz, Ausrüstung, Tools, Profil, Mängelmelder, Fahrtenbuch, Kleidung, Kontakte, Finanzen, Statistik, Offene Posten, Erweitert, Wetter)",
+            "Einsatz & Übungen: 15 Untermenü-Kacheln inkl. Personen erfassen, Auftragsplanung (Kanban), Lagemonitor, Atemschutz, Lagemeldungen und Objektpläne",
+            "Unified Login System: Schnellanmeldung via RFID, QR-Code mit 60min Gültigkeit, PIN oder manueller Auswahl",
+            "Mein Profil: Persönliche Statistik, Atemschutz-Nachweise, Qualifikationen, zugewiesene Ausrüstung und digitaler Dienstausweis (Wallet)",
+            "Wartungs-Wizard: Schritt-für-Schritt-Anleitung mit Checklisten, Foto-Upload, Zeiterfassung, Signatur und Ad-Hoc Modus",
+            "Fahrtenbuch-Wizard: Fahrzeug, KM-Stand, Fahrer, Zweck, Ziel, Sonderrechte mit automatischer Distanzberechnung",
+            "Ausrüstung & Tools: Suche per Scan, Wartung, Standort-Inventur, Quick-Check, Bündel-Zuweisung und Standortwechsel",
+            "Kleidungsmodul: Wäscheverwaltung mit Annahme, Abgabe, Größenfilter und integrierter Wartungsprüfung",
+            "Wetter & Unwetter: Echtzeit-Daten, DWD/ZAMG-Warnungen mit Scrolling-Ticker und Premium Alert-Cards",
+            "Optimiertes Regenradar: Provider-Auswahl (Windy/RainViewer), GPS-Zentrierung auf Feuerwache mit Dark-Theme",
+            "Dynamisches Monitor-Mapping: Flexible FwDV-Zielgruppen (GF, ZF, MA, AGT) mit 1:n Qualifikations-Matching und Farbcodierung",
+            "Premium Design System: Glassmorphism, High-Contrast für Kiosk-Dialoge, animierte Scan-Bestätigungen und vollständiger Dark-Mode"
         ],
         technicalDetails: [
-            "Native Anbindung von RFID-Lesern und Kamera-Streaming",
+            "Native Anbindung von RFID-Lesern und Kamera-Streaming mit Audio-Feedback bei Scans",
             "Vollständig offline-fähig für kritische Kernfunktionen",
-            "Responsive UI-Design für alle gängigen Industrie-Tablets"
+            "Responsive UI-Design für alle gängigen Industrie-Tablets mit großformatierten Touch-Buttons",
+            "PIN-geschützte Zugriffsverwaltung mit granularem Berechtigungssystem pro Kachel"
         ],
         icon: Monitor,
         color: "emerald"
