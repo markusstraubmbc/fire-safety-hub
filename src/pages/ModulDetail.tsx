@@ -23,8 +23,21 @@ const ModulDetail = () => {
   useEffect(() => {
     if (slug && !module) {
       navigate("/");
+      return;
     }
     window.scrollTo(0, 0);
+
+    if (module) {
+      document.title = `${module.title} | RESQIO`;
+
+      let metaDescription = document.querySelector('meta[name="description"]');
+      if (!metaDescription) {
+        metaDescription = document.createElement("meta");
+        metaDescription.setAttribute("name", "description");
+        document.head.appendChild(metaDescription);
+      }
+      metaDescription.setAttribute("content", module.shortDesc);
+    }
   }, [slug, module, navigate]);
 
   const colorConfig = useMemo(() => {
