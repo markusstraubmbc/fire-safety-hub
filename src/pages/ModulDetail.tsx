@@ -1,551 +1,259 @@
-import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, CheckCircle } from "lucide-react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { modules } from "@/data/module-data";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  ArrowLeft,
+  CheckCircle2,
+  Lightbulb,
+  Settings2,
+  ShieldCheck,
+  Info,
+  Sparkles,
+  Zap
+} from "lucide-react";
+import { useEffect, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { features } from "@/components/FeaturesSection";
-import screenshot1 from "@/assets/screenshot-1.jpg";
-import screenshot2 from "@/assets/screenshot-2.jpg";
-import screenshot3 from "@/assets/screenshot-3.jpg";
-import screenshot4 from "@/assets/screenshot-4.jpg";
-import screenshot5 from "@/assets/screenshot-5.jpg";
-import screenshot6 from "@/assets/screenshot-6.jpg";
-
-// Module-specific screenshot mapping
-const moduleScreenshots: Record<string, { dashboard: string; kiosk: string }> = {
-  "kommandozentrale": { dashboard: screenshot1, kiosk: screenshot2 },
-  "wartungsmanagement": { dashboard: screenshot3, kiosk: screenshot4 },
-  "ausruestungsverwaltung": { dashboard: screenshot5, kiosk: screenshot6 },
-  "einsatz-uebungsmanagement": { dashboard: screenshot1, kiosk: screenshot3 },
-  "mannschaftsverwaltung": { dashboard: screenshot2, kiosk: screenshot4 },
-  "kiosk-modus": { dashboard: screenshot4, kiosk: screenshot5 },
-  "ki-integration": { dashboard: screenshot1, kiosk: screenshot6 },
-  "befoerderungssystem": { dashboard: screenshot2, kiosk: screenshot3 },
-  "qualifikationen": { dashboard: screenshot3, kiosk: screenshot5 },
-  "objektplaene": { dashboard: screenshot4, kiosk: screenshot1 },
-  "wasserkarte": { dashboard: screenshot5, kiosk: screenshot2 },
-  "atemschutzueberwachung": { dashboard: screenshot6, kiosk: screenshot3 },
-  "brandsicherheitswachen": { dashboard: screenshot1, kiosk: screenshot4 },
-  "warenbewegung": { dashboard: screenshot2, kiosk: screenshot5 },
-  "fahrtenbuch": { dashboard: screenshot3, kiosk: screenshot6 },
-  "waescheverwaltung": { dashboard: screenshot4, kiosk: screenshot1 },
-  "budget-finanzen": { dashboard: screenshot5, kiosk: screenshot2 },
-  "digitaler-dienstausweis": { dashboard: screenshot6, kiosk: screenshot3 },
-  "berechtigungen": { dashboard: screenshot1, kiosk: screenshot4 },
-  "enterprise-integration": { dashboard: screenshot2, kiosk: screenshot5 },
-  "benachrichtigungen": { dashboard: screenshot3, kiosk: screenshot6 },
-  "berichte": { dashboard: screenshot4, kiosk: screenshot1 },
-  "inventur": { dashboard: screenshot5, kiosk: screenshot2 },
-  "lizenzverwaltung": { dashboard: screenshot6, kiosk: screenshot3 },
-};
-
-const moduleDetails: Record<string, {
-  highlights: string[];
-  benefits: string[];
-}> = {
-  "kommandozentrale": {
-    highlights: [
-      "Live-Bereitschafts-Monitor mit sekundengenauen Einblicken",
-      "Vorausschauende Analysen für strategische Standortplanung",
-      "Proaktives Warnsystem bei fälligen Wartungen",
-      "Management-Summary über Einsätze, Übungen und Budgets",
-    ],
-    benefits: [
-      "Alle wichtigen Informationen auf einen Blick",
-      "Fundierte Entscheidungen durch aggregierte Statistiken",
-      "Automatische Eskalation bei kritischen Ressourcen",
-    ],
-  },
-  "wartungsmanagement": {
-    highlights: [
-      "Prüffristen nach DGUV und Herstellervorgaben automatisiert",
-      "Hierarchische Verknüpfung von Einzelgeräten und Baugruppen",
-      "Geführte Checklisten mit integrierter Foto-Dokumentation",
-      "Exakte Erfassung von Personal- und Materialkosten",
-    ],
-    benefits: [
-      "Maximale Haftungssicherheit",
-      "Minimaler Verwaltungsaufwand",
-      "Revisionssichere Dokumentation",
-    ],
-  },
-  "ausruestungsverwaltung": {
-    highlights: [
-      "Inventarisierung mit Barcodes, QR-Codes und Kategorisierung",
-      "Ausrüstungsbündel für hierarchische Geräteverwaltung",
-      "Standortverwaltung und Zuordnung zu Fahrzeugen",
-      "Historische Gerätedaten und Lebenszyklus-Tracking",
-    ],
-    benefits: [
-      "Vollständiger Überblick über alle Bestände",
-      "Schnelles Auffinden von Geräten",
-      "Optimierte Bestandsplanung",
-    ],
-  },
-  "einsatz-uebungsmanagement": {
-    highlights: [
-      "Automatisierte Datenintegration von FMS-Status und Wetterdaten",
-      "Taktische Lagekarte (Wideboard) im PDF-Bericht",
-      "Intelligentes Aufgabenmanagement nach Einsätzen",
-      "Echtzeit-Bestandsführung von Verbrauchsmaterialien",
-    ],
-    benefits: [
-      "KI-gestützte Berichtserstellung in Rekordzeit",
-      "Professionelle Einsatzdokumentation",
-      "Automatische Ressourcen-Nachverfolgung",
-    ],
-  },
-  "mannschaftsverwaltung": {
-    highlights: [
-      "Mitgliederverwaltung mit allen Stammdaten",
-      "Lehrgänge, Qualifikationen und Dienstgrade",
-      "Kompetenz-Matrix für Spezialqualifikationen",
-      "Verfügbarkeits-Prognose nach Tageszeit und Wochentag",
-    ],
-    benefits: [
-      "Alle Personaldaten zentral verfügbar",
-      "Rechtzeitige Erneuerung von Lehrgängen",
-      "Qualifikationsübersicht für Einsatzplanung",
-    ],
-  },
-  "kiosk-modus": {
-    highlights: [
-      "Smart Access via RFID-Chip, PIN oder dynamischem QR-Code",
-      "Geführte Wizards für Fahrtenbuch und Mängelmeldungen",
-      "Persönlicher Bereich mit Atemschutz-Nachweisen",
-      "Hallen-Monitor mit Live-Einsatzdaten und Wetterradar",
-    ],
-    benefits: [
-      "Intuitive Bedienung ohne Schulung",
-      "Optimiert für Tablets und Touchscreens",
-      "Akzeptanz bei allen Kameraden",
-    ],
-  },
-  "ki-integration": {
-    highlights: [
-      "Intelligente Besetzungsanalyse und Personalplanung",
-      "Automatisierte Lehrgangs-Vorschläge",
-      "KI-generierte Einsatzberichte",
-      "Smarte Ausrüstungsvorschläge basierend auf Nutzung",
-    ],
-    benefits: [
-      "Zeitersparnis durch Automatisierung",
-      "Datengestützte Entscheidungen",
-      "Proaktive Personalentwicklung",
-    ],
-  },
-  "befoerderungssystem": {
-    highlights: [
-      "Automatische Beförderungsvorschläge nach BW-Richtlinien",
-      "Überwachung von Dienstzeiten und Lehrgängen",
-      "Verwaltung von Leistungsabzeichen und Ehrungen",
-      "Digitale Medaillenvitrine in der App",
-    ],
-    benefits: [
-      "Systematische Laufbahnplanung",
-      "Keine vergessenen Beförderungen",
-      "Wertschätzung der Kameraden",
-    ],
-  },
-  "qualifikationen": {
-    highlights: [
-      "Verknüpfung von Übungsteilnahmen mit Qualifikationen",
-      "Automatischer Erhaltungs-Status von Fähigkeiten",
-      "Ablaufüberwachung für Zertifikate",
-      "Fähigkeitsmatrix pro Kamerad",
-    ],
-    benefits: [
-      "Automatische Qualifikationsnachweise",
-      "Frühzeitige Warnung vor Ablauf",
-      "Lückenlose Nachweisführung",
-    ],
-  },
-  "objektplaene": {
-    highlights: [
-      "DIN 14095 konforme Einsatzpläne mit Kartenintegration",
-      "Automatische GPS-basierte Bereitstellung bei Alarmierung",
-      "Sofortiger Zugriff auf BMA-Zentralen und FSD-Informationen",
-      "Compliance-Monitor für Revisionsfristen",
-    ],
-    benefits: [
-      "Einsatzrelevante Infos dort, wo sie gebraucht werden",
-      "Mobile Dokumenteneinsicht am Einsatz-Tablet",
-      "Systematische Überwachung nach Normen",
-    ],
-  },
-  "wasserkarte": {
-    highlights: [
-      "Intelligente OSM-Kartenlayer mit Prüfstatus",
-      "Farbcodierte Hydranten nach Zustand",
-      "Adresssuche und Standortfilter",
-      "Integration mit Einsatzplanung",
-    ],
-    benefits: [
-      "Schnelle Wasserversorgung am Einsatzort",
-      "Übersicht über alle Wasserentnahmestellen",
-      "Prüfstatus auf einen Blick",
-    ],
-  },
-  "atemschutzueberwachung": {
-    highlights: [
-      "Digitale Überwachungstafel mit Timern",
-      "Druck-Tracking für alle AGT-Trupps",
-      "Echtzeit-Statusanzeige",
-      "Automatische Alarmierung bei Grenzwerten",
-    ],
-    benefits: [
-      "Maximale Sicherheit für Atemschutzgeräteträger",
-      "Digitalisierung der Überwachung",
-      "Lückenlose Protokollierung",
-    ],
-  },
-  "brandsicherheitswachen": {
-    highlights: [
-      "Zentrale Klientenverwaltung für Veranstalter",
-      "Smart Invoicing mit automatischer Berechnung",
-      "Standardisierte Vorlagen für Einsatzprofile",
-      "Dokumentation und Abrechnung in einem System",
-    ],
-    benefits: [
-      "Professionelle Abwicklung kommunaler Aufgaben",
-      "Automatisierte Fakturierung",
-      "Effiziente Planung durch Vorlagen",
-    ],
-  },
-  "warenbewegung": {
-    highlights: [
-      "Globales Tracking mit automatisierten Rückmeldefristen",
-      "Dokumenten-Automatisierung für Lieferscheine",
-      "Ein- und Ausgangsbuchungen",
-      "Mindestbestandswarnungen",
-    ],
-    benefits: [
-      "Transparenz über alle Standorte hinweg",
-      "Lückenlose Materialdokumentation",
-      "Optimierte Lagerhaltung",
-    ],
-  },
-  "fahrtenbuch": {
-    highlights: [
-      "Digitale Fahrtenbuchführung für alle Fahrzeuge",
-      "Kilometerstände und Tankungen",
-      "Fahrerprotokoll und Einsatznachweise",
-      "Wartungsintervalle nach Kilometerstand",
-    ],
-    benefits: [
-      "Lückenlose Fahrzeugdokumentation",
-      "Einfache Kostenabrechnung",
-      "Rechtskonformes digitales Fahrtenbuch",
-    ],
-  },
-  "waescheverwaltung": {
-    highlights: [
-      "Zuordnung Schutzkleidung zu Personen",
-      "Waschzyklen und Imprägnierung",
-      "Lebensdauer-Tracking",
-      "Größenverwaltung und Bestellung",
-    ],
-    benefits: [
-      "Optimale Pflege der Schutzausrüstung",
-      "Rechtzeitige Ersatzbeschaffung",
-      "Hygiene- und Sicherheitsnachweis",
-    ],
-  },
-  "budget-finanzen": {
-    highlights: [
-      "Haushaltsplanung und Budgetüberwachung",
-      "Abteilungsbudgets mit Einzelnachweisen",
-      "Belegverwaltung und Kostenstellen",
-      "Auswertungen und Jahresabschlüsse",
-    ],
-    benefits: [
-      "Volle Kostentransparenz",
-      "Einfache Haushaltsplanung",
-      "Revisionssichere Belegführung",
-    ],
-  },
-  "digitaler-dienstausweis": {
-    highlights: [
-      "Wallet-Integration für Apple und Google Wallet",
-      "Öffentliches Verifikationsportal via QR-Code",
-      "NFC-Anmeldung an Kiosk-Terminals",
-      "PDF-Export für klassischen Ausweis",
-    ],
-    benefits: [
-      "Moderne digitale Identität",
-      "Sicherer Identitätsnachweis",
-      "Kontaktlose Anmeldung mit Smartphone",
-    ],
-  },
-  "berechtigungen": {
-    highlights: [
-      "Granulare RBAC-Matrix bis auf Feldebene",
-      "Lückenloses Audit-Log für Änderungen",
-      "Rollenverwaltung mit Vorlagen",
-      "Rechtssichere Protokollierung",
-    ],
-    benefits: [
-      "Schutz sensibler Daten",
-      "Compliance mit Datenschutzanforderungen",
-      "Nachvollziehbare Zugriffshistorie",
-    ],
-  },
-  "enterprise-integration": {
-    highlights: [
-      "Integrierter MQTT-Broker für IoT",
-      "Anbindung von Alarmierungssystemen",
-      "REST-API für externe Integrationen",
-      "Geo-redundante Infrastruktur",
-    ],
-    benefits: [
-      "Nahtlose Integration in bestehende Systeme",
-      "Automatisierung von Workflows",
-      "Hochverfügbarkeit und Ausfallsicherheit",
-    ],
-  },
-  "benachrichtigungen": {
-    highlights: [
-      "E-Mail-Benachrichtigungen und Reports",
-      "Kalender-Synchronisation via iCal",
-      "Konfigurierbare Vorlaufzeiten",
-      "Benachrichtigungshistorie",
-    ],
-    benefits: [
-      "Keine vergessenen Termine",
-      "Automatisierte Arbeitsabläufe",
-      "Integration in bestehende Kalender",
-    ],
-  },
-  "berichte": {
-    highlights: [
-      "Übersichten und Statistiken",
-      "Exportfunktionen in PDF und Excel",
-      "Professionelle Protokoll-PDFs",
-      "Individuelles Wappen/Logo",
-    ],
-    benefits: [
-      "Fundierte Entscheidungsgrundlagen",
-      "Professionelle Außendarstellung",
-      "Einfache Berichterstellung",
-    ],
-  },
-  "inventur": {
-    highlights: [
-      "Standort- und kategoriebasierte Inventurprüfungen",
-      "Soll-Ist-Abgleich am Tablet",
-      "Digitaler Inventur-Mode am Fahrzeug",
-      "Automatische Differenzlisten",
-    ],
-    benefits: [
-      "Effiziente Inventurdurchführung",
-      "Lückenlose Bestandserfassung",
-      "Schnelle Differenzanalyse",
-    ],
-  },
-  "lizenzverwaltung": {
-    highlights: [
-      "Zentrale Lizenzverwaltung",
-      "License-Server für Enterprise",
-      "Multi-Standort-Unterstützung",
-      "Automatische Updates",
-    ],
-    benefits: [
-      "Zentrale Administration",
-      "Flexible Skalierung",
-      "Transparente Lizenzübersicht",
-    ],
-  },
-};
 
 const ModulDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const feature = features.find((f) => f.slug === slug);
-  const details = slug ? moduleDetails[slug] : null;
-  
-  // Get module-specific screenshots or fallback
-  const screenshots = slug && moduleScreenshots[slug] 
-    ? moduleScreenshots[slug] 
-    : { dashboard: screenshot1, kiosk: screenshot2 };
+  const navigate = useNavigate();
+  const module = slug ? modules[slug] : null;
 
-  if (!feature || !details) {
-    return (
-      <div className="min-h-screen bg-background">
-        <Header />
-        <main className="container mx-auto px-4 py-20 text-center">
-          <h1 className="text-2xl font-bold mb-4">Modul nicht gefunden</h1>
-          <Link to="/">
-            <Button>Zurück zur Startseite</Button>
-          </Link>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (slug && !module) {
+      navigate("/");
+    }
+    window.scrollTo(0, 0);
+  }, [slug, module, navigate]);
 
-  const Icon = feature.icon;
+  const colorConfig = useMemo(() => {
+    const color = module?.color || "blue";
+    const configs: Record<string, { bg: string; text: string; border: string; gradient: string }> = {
+      blue: { bg: "bg-blue-500/10", text: "text-blue-500", border: "border-blue-500/20", gradient: "from-blue-600/20 via-transparent to-transparent" },
+      amber: { bg: "bg-amber-500/10", text: "text-amber-500", border: "border-amber-500/20", gradient: "from-amber-600/20 via-transparent to-transparent" },
+      red: { bg: "bg-red-500/10", text: "text-red-500", border: "border-red-500/20", gradient: "from-red-600/20 via-transparent to-transparent" },
+      slate: { bg: "bg-slate-500/10", text: "text-slate-500", border: "border-slate-500/20", gradient: "from-slate-600/20 via-transparent to-transparent" },
+      indigo: { bg: "bg-indigo-500/10", text: "text-indigo-500", border: "border-indigo-500/20", gradient: "from-indigo-600/20 via-transparent to-transparent" },
+      zinc: { bg: "bg-zinc-500/10", text: "text-zinc-500", border: "border-zinc-500/20", gradient: "from-zinc-600/20 via-transparent to-transparent" },
+      emerald: { bg: "bg-emerald-500/10", text: "text-emerald-500", border: "border-emerald-500/20", gradient: "from-emerald-600/20 via-transparent to-transparent" },
+      purple: { bg: "bg-purple-500/10", text: "text-purple-500", border: "border-purple-500/20", gradient: "from-purple-600/20 via-transparent to-transparent" },
+      sky: { bg: "bg-sky-500/10", text: "text-sky-500", border: "border-sky-500/20", gradient: "from-sky-600/20 via-transparent to-transparent" },
+      orange: { bg: "bg-orange-500/10", text: "text-orange-500", border: "border-orange-500/20", gradient: "from-orange-600/20 via-transparent to-transparent" },
+      green: { bg: "bg-green-500/10", text: "text-green-500", border: "border-green-500/20", gradient: "from-green-600/20 via-transparent to-transparent" },
+    };
+    return configs[color] || configs.blue;
+  }, [module]);
+
+  if (!module) return null;
+
+  const Icon = module.icon;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
+      {/* Background Decor */}
+      <div className={`absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b ${colorConfig.gradient} -z-10 opacity-50`} />
+      <div className="absolute top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse" />
+
       <Header />
-      
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
-          <div className="container mx-auto px-4">
-            <Link
-              to="/#features"
-              className="inline-flex items-center text-muted-foreground hover:text-primary mb-6 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Zurück zur Übersicht
-            </Link>
-            
-            <div className="flex items-start gap-6">
-              <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
-                <Icon className="w-8 h-8 text-primary" />
+
+      <main className="flex-grow pt-28 pb-20">
+        <div className="container mx-auto px-4">
+          {/* Breadcrumb / Back Button */}
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-all mb-12 group py-2 px-4 rounded-full border border-transparent hover:border-border hover:bg-card/30"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            <span className="text-sm font-medium">Zurück zur Übersicht</span>
+          </Link>
+
+          {/* Hero Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
+            <div className="lg:col-span-7 space-y-8">
+              <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full ${colorConfig.bg} ${colorConfig.text} text-xs font-bold tracking-widest uppercase border ${colorConfig.border}`}>
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Enterprise Modul</span>
               </div>
-              <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                  {feature.title}
+
+              <div className="space-y-4">
+                <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+                  {module.title}
                 </h1>
-                <p className="text-lg text-muted-foreground max-w-2xl">
-                  {feature.description}
+                <p className="text-xl md:text-2xl text-slate-300 font-medium max-w-2xl leading-relaxed italic">
+                  "{module.shortDesc}"
+                </p>
+              </div>
+
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
+                {module.longDesc}
+              </p>
+
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Button size="lg" className="h-14 px-8 bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
+                  Jetzt Demo anfordern
+                </Button>
+                <Link to="/#contact">
+                  <Button variant="outline" size="lg" className="h-14 px-8 rounded-2xl hover:bg-card/50 transition-all">
+                    Beratungstermin buchen
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 relative">
+              <div className="absolute -inset-10 bg-primary/20 rounded-full blur-[100px] opacity-20 animate-pulse" />
+              <div className="relative group">
+                <div className="absolute -inset-0.5 bg-gradient-to-tr from-primary/50 to-purple-500/50 rounded-[2.5rem] blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                <div className="relative bg-slate-900/80 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-2xl flex flex-col items-center text-center space-y-8">
+                  <div className={`w-28 h-28 rounded-3xl ${colorConfig.bg} flex items-center justify-center animate-float border ${colorConfig.border}`}>
+                    <Icon className={`w-14 h-14 ${colorConfig.text}`} />
+                  </div>
+                  <div className="space-y-3">
+                    <p className="text-xs font-bold text-primary uppercase tracking-[0.2em]">Platform Integration</p>
+                    <h3 className="text-2xl font-bold text-white">RESQIO Console</h3>
+                    <p className="text-slate-400 text-sm max-w-[240px] mx-auto">
+                      Vollständig integriert in das RESQIO-Ökosystem (Kiosk, Web & Mobile).
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4 w-full pt-4">
+                    <div className="px-5 py-4 bg-white/5 rounded-2xl border border-white/5 flex flex-col items-center">
+                      <p className="text-[10px] text-slate-500 uppercase font-bold tracking-tight mb-1">Status</p>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                        <p className="text-sm font-bold text-white uppercase">Operational</p>
+                      </div>
+                    </div>
+                    <div className="px-5 py-4 bg-white/5 rounded-2xl border border-white/5 flex flex-col items-center">
+                      <p className="text-[10px] text-slate-500 uppercase font-bold tracking-tight mb-1">Integration</p>
+                      <p className="text-sm font-bold text-white">API Native</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 xl:grid-cols-12 gap-12 mb-24">
+            {/* Main Content Area */}
+            <div className="xl:col-span-8 space-y-12">
+
+              {/* Why Section */}
+              <section className="relative overflow-hidden bg-card/40 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 border border-border group hover:border-primary/20 transition-all duration-500">
+                <div className="absolute top-0 right-0 p-8 opacity-5">
+                  <Zap className="w-32 h-32 text-primary" />
+                </div>
+
+                <div className="flex items-center gap-4 mb-10">
+                  <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+                    <Lightbulb className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="space-y-1">
+                    <h2 className="text-3xl font-bold text-white">Der RESQIO Mehrwert</h2>
+                    <p className="text-muted-foreground text-sm">Warum sich Profis für dieses Modul entscheiden</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {module.benefits.map((benefit, idx) => (
+                    <div key={idx} className="flex gap-4 group/item">
+                      <div className="mt-1">
+                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center group-hover/item:bg-primary/20 transition-colors">
+                          <CheckCircle2 className="w-4 h-4 text-primary" />
+                        </div>
+                      </div>
+                      <p className="text-slate-300 leading-relaxed font-medium">
+                        {benefit}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* Functional Highlights */}
+              <section className="space-y-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-slate-500/10 flex items-center justify-center">
+                    <Settings2 className="w-6 h-6 text-slate-400" />
+                  </div>
+                  <div className="space-y-1">
+                    <h2 className="text-3xl font-bold text-white">Funktionale Highlights</h2>
+                    <p className="text-muted-foreground text-sm">Tiefgehende Features für Ihren Erfolg</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {module.features.map((feature, idx) => (
+                    <div key={idx} className="group p-6 bg-card/20 backdrop-blur-sm rounded-2xl border border-white/5 hover:border-primary/30 transition-all hover:bg-card/40">
+                      <div className="flex items-start gap-4">
+                        <div className="w-2 h-2 rounded-full bg-primary/40 mt-2.5 group-hover:scale-150 transition-transform" />
+                        <p className="text-lg font-medium text-slate-200 leading-snug">
+                          {feature}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </div>
+
+            {/* Sidebar Information */}
+            <div className="xl:col-span-4 space-y-8">
+              {/* Technical Box */}
+              {module.technicalDetails && (
+                <div className="bg-slate-900/80 backdrop-blur-xl rounded-[2.5rem] p-8 border border-white/5 border-l-4 border-l-primary shadow-2xl sticky top-28">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <Info className="w-5 h-5 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white tracking-tight">Tech-Spezifikationen</h3>
+                  </div>
+
+                  <div className="space-y-5">
+                    {module.technicalDetails.map((detail, idx) => (
+                      <div key={idx} className="flex items-start gap-3 group">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary/50 mt-2 group-hover:bg-primary transition-colors" />
+                        <p className="text-sm text-slate-400 font-medium leading-relaxed group-hover:text-slate-200 transition-colors">
+                          {detail}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-10 pt-8 border-t border-white/5">
+                    <div className="flex items-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/5">
+                      <ShieldCheck className="w-5 h-5 text-green-500" />
+                      <div className="space-y-0.5">
+                        <p className="text-xs font-bold text-white uppercase tracking-wider">Compliance</p>
+                        <p className="text-[10px] text-slate-500 uppercase font-medium">DSGVO & DIN 14095 Ready</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Quick CTA */}
+                  <div className="mt-8">
+                    <Button variant="ghost" className="w-full h-12 rounded-xl text-primary hover:text-primary hover:bg-primary/10 border border-primary/20">
+                      Handbuch ansehen
+                    </Button>
+                  </div>
+                </div>
+              )}
+
+              {/* Security Banner */}
+              <div className="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-[2.5rem] p-8 border border-white/5">
+                <h4 className="text-white font-bold mb-3 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-indigo-500" />
+                  Hosting & Sicherheit
+                </h4>
+                <p className="text-sm text-slate-400 leading-relaxed">
+                  Zertifizierte Rechenzentren in Deutschland (ISO 27001).
+                  High-Availability Cluster für den unternehmenskritischen Einsatz rund um die Uhr.
                 </p>
               </div>
             </div>
           </div>
-        </section>
-
-        {/* Screenshots Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold text-foreground mb-8">
-              So sieht es aus
-            </h2>
-            
-            <Tabs defaultValue="dashboard" className="w-full">
-              <TabsList className="mb-6">
-                <TabsTrigger value="dashboard">Dashboard-Ansicht</TabsTrigger>
-                <TabsTrigger value="kiosk">Kiosk-Modus</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="dashboard">
-                <Card className="overflow-hidden">
-                  <CardContent className="p-0">
-                    <div className="bg-muted/50 p-2 border-b flex items-center gap-2">
-                      <div className="flex gap-1.5">
-                        <div className="w-3 h-3 rounded-full bg-destructive/60" />
-                        <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-                        <div className="w-3 h-3 rounded-full bg-green-500/60" />
-                      </div>
-                      <span className="text-xs text-muted-foreground ml-2">
-                        resqio – Dashboard
-                      </span>
-                    </div>
-                    <img
-                      src={screenshots.dashboard}
-                      alt={`${feature.title} im Dashboard`}
-                      className="w-full"
-                    />
-                  </CardContent>
-                </Card>
-                <p className="text-sm text-muted-foreground mt-4">
-                  Die Dashboard-Ansicht bietet vollständige Verwaltungsfunktionen für Administratoren und Gerätewarte.
-                </p>
-              </TabsContent>
-              
-              <TabsContent value="kiosk">
-                <Card className="overflow-hidden">
-                  <CardContent className="p-0">
-                    <div className="bg-muted/50 p-2 border-b flex items-center gap-2">
-                      <div className="flex gap-1.5">
-                        <div className="w-3 h-3 rounded-full bg-destructive/60" />
-                        <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-                        <div className="w-3 h-3 rounded-full bg-green-500/60" />
-                      </div>
-                      <span className="text-xs text-muted-foreground ml-2">
-                        resqio – Kiosk-Modus
-                      </span>
-                    </div>
-                    <img
-                      src={screenshots.kiosk}
-                      alt={`${feature.title} im Kiosk-Modus`}
-                      className="w-full"
-                    />
-                  </CardContent>
-                </Card>
-                <p className="text-sm text-muted-foreground mt-4">
-                  Der Kiosk-Modus ist optimiert für die einfache Bedienung durch alle Kameraden.
-                </p>
-              </TabsContent>
-            </Tabs>
-          </div>
-        </section>
-
-        {/* Features & Benefits */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-6">
-                    Funktionen im Detail
-                  </h3>
-                  <ul className="space-y-4">
-                    {details.highlights.map((highlight, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-6">
-                    Ihre Vorteile
-                  </h3>
-                  <ul className="space-y-4">
-                    {details.benefits.map((benefit, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl font-bold text-foreground mb-4">
-              Überzeugt?
-            </h2>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Erleben Sie {feature.title} und alle weiteren Module in einer persönlichen Demo.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/#contact">
-                <Button size="lg">
-                  Demo anfragen
-                </Button>
-              </Link>
-              <Link to="/#features">
-                <Button variant="outline" size="lg">
-                  Weitere Module ansehen
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
+        </div>
       </main>
 
       <Footer />
