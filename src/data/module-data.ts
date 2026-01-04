@@ -28,6 +28,7 @@ export interface ModuleData {
     benefits: string[];
     features: string[];
     technicalDetails?: string[];
+    keywords?: string[]; // SEO Keywords
     icon: LucideIcon;
     color?: string;
 }
@@ -64,6 +65,7 @@ export const modules: Record<string, ModuleData> = {
             "Berechtigungsgesteuert: Führungskräfte-Monitor",
             "Detailliertes Logging aller Lagemeldungen und Statusänderungen"
         ],
+        keywords: ["Lagemonitor", "Einsatzführung", "Lagekarte", "Feuerwehr Software", "Einsatzdokumentation", "FwDV 100", "Echtzeit Lage", "Führungshilfsmittel"],
         icon: Map,
         color: "blue"
     },
@@ -89,6 +91,7 @@ export const modules: Record<string, ModuleData> = {
             "Auch ohne Internetverbindung voll einsatzfähig",
             "Synchronisation mit dem zentralen RESQIO-Einsatzbericht"
         ],
+        keywords: ["Atemschutzüberwachung", "ASÜ digital", "FwDV 7", "Atemschutz Feuerwehr", "Überwachungstafel", "Einsatzstellenhygiene", "Truppüberwachung"],
         icon: AlertTriangle,
         color: "amber"
     },
@@ -114,6 +117,7 @@ export const modules: Record<string, ModuleData> = {
             "Vollständige Exportmöglichkeiten (PDF/Excel) für Archivierung",
             "Lückenlose Nachvollziehbarkeit jeder Änderung"
         ],
+        keywords: ["Einsatzbericht", "Feuerwehr Berichtswesen", "KI Bericht", "Einsatzerfassung", "Kostenersatz Feuerwehr", "FwDV Statistik", "Automatischer Bericht"],
         icon: FileText,
         color: "red"
     },
@@ -139,6 +143,7 @@ export const modules: Record<string, ModuleData> = {
             "Blitzschneller Zugriff auch bei großen Beständen",
             "Direkte Verknüpfung zur Mängelverwaltung für sofortige Instandsetzung"
         ],
+        keywords: ["Gerätewart Software", "Prüffristen Feuerwehr", "DGUV Prüfung", "Wartungsplaner", "Feuerwehr Inventar", "Mängelverwaltung", "Geräteprüfung"],
         icon: Wrench,
         color: "slate"
     },
@@ -164,6 +169,7 @@ export const modules: Record<string, ModuleData> = {
             "Automatische Alters- und Jubiläumsberechnung",
             "Detailliertes Berechtigungssystem zum Schutz sensibler Daten"
         ],
+        keywords: ["Personalverwaltung Feuerwehr", "Dienstbuch", "Lehrgangsverwaltung", "Feuerwehr Stammdaten", "Beförderungen", "Ehrungen", "G26.3 Verwaltung"],
         icon: Users,
         color: "blue"
     },
@@ -189,6 +195,7 @@ export const modules: Record<string, ModuleData> = {
             "Automatische Live-Aktualisierung aller Daten",
             "Optimierte Darstellung auf allen Geräten (PC, Tablet, Smartphone)"
         ],
+        keywords: ["Feuerwehr Dashboard", "Kommandozentrale", "Einsatzbereitschaft", "Wetterwarnung Feuerwehr", "Führungsinformation", "Statusmonitor"],
         icon: LayoutDashboard,
         color: "indigo"
     },
@@ -213,6 +220,7 @@ export const modules: Record<string, ModuleData> = {
             "Export als Inventurliste (Excel/PDF)",
             "Anbindung mobiler Handscanner"
         ],
+        keywords: ["Ausrüstungsverwaltung", "Feuerwehr Inventar", "Lagerverwaltung", "Barcode Scanner", "Fahrzeugbeladung", "Schlauchverwaltung"],
         icon: ClipboardList,
         color: "zinc"
     },
@@ -246,6 +254,7 @@ export const modules: Record<string, ModuleData> = {
             "Große, touch-optimierte Bedienflächen für Tablets",
             "PIN-geschützte Zugriffsverwaltung für einzelne Bereiche"
         ],
+        keywords: ["Feuerwehr Kiosk", "Wachbuch digital", "RFID Login", "Touchscreen Software", "Gerätehaus Monitor", "Einsatzmonitor", "Werkstatt PC"],
         icon: Monitor,
         color: "emerald"
     },
@@ -271,6 +280,7 @@ export const modules: Record<string, ModuleData> = {
             "Speziell auf Feuerwehr-Fachsprache trainiert",
             "Volle Kostenkontrolle und Transparenz"
         ],
+        keywords: ["Künstliche Intelligenz Feuerwehr", "AI Reporting", "Einsatzbericht KI", "Personalprognose", "Smart Fire Station", "Intelligente Verwaltung"],
         icon: Brain,
         color: "purple"
     },
@@ -296,6 +306,7 @@ export const modules: Record<string, ModuleData> = {
             "Geschützter Zugriff auf Gebäudepläne",
             "Automatische Standorterkennung und Kartendarstellung"
         ],
+        keywords: ["Objektpläne digital", "Feuerwehrpläne", "DIN 14095", "Laufkarten", "BMA Pläne", "Einsatzplan", "Gefahrstoffkataster"],
         icon: Map,
         color: "blue"
     },
@@ -321,6 +332,7 @@ export const modules: Record<string, ModuleData> = {
             "Einfache Pflege der Hydrantendaten",
             "Optimierte Kartenbedienung auf Touch-Geräten"
         ],
+        keywords: ["Wasserkarte Feuerwehr", "Hydrantenplan digital", "Löschwasserversorgung", "OSM Feuerwehr", "Hydrantenprüfung", "Entnahmestellen"],
         icon: Droplets,
         color: "sky"
     },
@@ -346,6 +358,7 @@ export const modules: Record<string, ModuleData> = {
             "Revisionssichere Archivierung aller Lieferscheine",
             "Unterstützung interner und externer Standorte"
         ],
+        keywords: ["Materialwirtschaft", "Lagerbuch", "Lieferscheine", "Asset Tracking", "Feuerwehr Logistik", "Geräteausgabe"],
         icon: Package,
         color: "orange"
     },
@@ -371,6 +384,7 @@ export const modules: Record<string, ModuleData> = {
             "Unterstützung von Sonderrechten-Dokumentation",
             "Protokollierung aller Einträge und Änderungen"
         ],
+        keywords: ["Digitales Fahrtenbuch", "Fahrzeugmanagement", "Tankbuch", "Kilometernachweis", "Flottenmanagement", "Dienstfahrten"],
         icon: Car,
         color: "slate"
     },
@@ -396,6 +410,7 @@ export const modules: Record<string, ModuleData> = {
             "Detaillierte Nutzungsstatistiken",
             "Integrierte Wartungsprüfung im Workflow"
         ],
+        keywords: ["Kleiderkammer Software", "PSA Verwaltung", "Wäschemanagement", "Hygiene Feuerwehr", "Reinigungsnachweis", "Schutzkleidung"],
         icon: Shirt,
         color: "blue"
     },
@@ -421,6 +436,7 @@ export const modules: Record<string, ModuleData> = {
             "Saubere Trennung verschiedener Abteilungen/Kassen",
             "Sichere Ablage sensibler Belege"
         ],
+        keywords: ["Feuerwehrkasse", "Kameradschaftskasse", "Budgetverwaltung", "Finanzplanung", "Kassenbuch", "Rechnungsprüfung"],
         icon: CreditCard,
         color: "green"
     },
@@ -446,6 +462,7 @@ export const modules: Record<string, ModuleData> = {
             "Jederzeit offline auf dem Smartphone verfügbar",
             "Unterstützung von biometrischen Merkmalen (Passbild)"
         ],
+        keywords: ["Dienstausweis App", "Feuerwehr Ausweis", "Apple Wallet", "Google Wallet", "Digitale Identität", "Mitgliedsausweis"],
         icon: ShieldCheck,
         color: "indigo"
     },
@@ -471,6 +488,7 @@ export const modules: Record<string, ModuleData> = {
             "Präzise Zugriffssteuerung für jedes Dokument",
             "Perfekte Lesbarkeit auf Smartphones und Tablets"
         ],
+        keywords: ["Dienstanweisungen", "Wissensdatenbank", "Feuerwehr Vorschriften", "Lesebestätigung", "Dokumentenlenkung", "Schulungsunterlagen"],
         icon: FolderSearch,
         color: "slate"
     },
@@ -496,6 +514,7 @@ export const modules: Record<string, ModuleData> = {
             "Einfacher Datenaustausch durch Standards",
             "Zukunftssichere Anbindung weiterer Dienste"
         ],
+        keywords: ["Feuerwehr API", "Alarmierungsschnittstelle", "Divera 24/7", "Alamos", "MQTT", "Systemintegration", "Smart Home"],
         icon: Link2,
         color: "blue"
     },
@@ -521,6 +540,7 @@ export const modules: Record<string, ModuleData> = {
             "Professionelle Grafiken für Präsentationen",
             "Integrierter Datenschutz durch automatische Anonymisierung"
         ],
+        keywords: ["Feuerwehr Statistik", "Jahresbericht", "Brandschutzbedarfsplan", "Einsatzstatistik", "Bedarfsanalyse", "Controlling"],
         icon: BarChart3,
         color: "purple"
     },
@@ -546,6 +566,7 @@ export const modules: Record<string, ModuleData> = {
             "Individuell anpassbare Prüflisten nach lokalen Verordnungen",
             "Archivierung gemäß gesetzlicher Aufbewahrungsfristen"
         ],
+        keywords: ["Brandverhütungsschau Software", "Vorbeugender Brandschutz", "Mängelerfassung", "Objektbegehung", "Feuerbeschau", "Prüfprotokoll"],
         icon: Building2,
         color: "blue"
     }

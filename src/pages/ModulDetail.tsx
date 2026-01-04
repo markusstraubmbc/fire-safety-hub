@@ -37,6 +37,16 @@ const ModulDetail = () => {
         document.head.appendChild(metaDescription);
       }
       metaDescription.setAttribute("content", module.shortDesc);
+
+      if (module.keywords && module.keywords.length > 0) {
+        let metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (!metaKeywords) {
+          metaKeywords = document.createElement("meta");
+          metaKeywords.setAttribute("name", "keywords");
+          document.head.appendChild(metaKeywords);
+        }
+        metaKeywords.setAttribute("content", module.keywords.join(", "));
+      }
     }
   }, [slug, module, navigate]);
 
