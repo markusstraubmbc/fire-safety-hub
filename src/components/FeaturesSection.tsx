@@ -27,6 +27,7 @@ import {
   LayoutDashboard,
   Monitor,
   LucideIcon,
+  ArrowRight,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -185,8 +186,8 @@ const FeaturesSection = () => {
               className="block group"
             >
               <Card className="h-full transition-all duration-300 hover:shadow-xl hover:border-primary/50 group-hover:-translate-y-2 bg-card/60 backdrop-blur-sm shadow-sm">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
+                <CardContent className="p-6 h-full flex flex-col relative">
+                  <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors border border-primary/5">
                       <feature.icon className="w-6 h-6 text-primary" />
                     </div>
@@ -197,6 +198,13 @@ const FeaturesSection = () => {
                       <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
                         {feature.description}
                       </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-auto flex justify-end">
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-primary opacity-60 group-hover:opacity-100 transition-all translate-x-0 group-hover:translate-x-1">
+                      <span>Details</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
                 </CardContent>
