@@ -9,14 +9,11 @@ import {
   AlertTriangle,
   Users,
   Package,
-  UserCheck,
   Shield,
-  Gauge,
   Map,
   CreditCard,
   Award,
   Brain,
-  QrCode,
   Building2,
   Flame,
   GraduationCap,
@@ -27,6 +24,8 @@ import {
   Link2,
   BarChart3,
   ShieldCheck,
+  LayoutDashboard,
+  Monitor,
   LucideIcon,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -44,138 +43,122 @@ export const features: Feature[] = [
   {
     icon: Map,
     title: "Lagemonitor",
-    description:
-      "Echtzeit-Lagekarte mit taktischen Zeichen, Hydranten-Integration und Live-Einheiten-Tracking für optimale Koordination.",
+    description: "Zentrale Einsatztaktik mit Echtzeit-Tracking, Hydranten-Layer und automatischer Gelände-Analyse.",
     slug: "lagemonitor",
   },
   {
     icon: AlertTriangle,
     title: "Atemschutzüberwachung",
-    description:
-      "Digitale Überwachungstafel für Trupps unter Atemschutz. Mit automatischen Zeitrechnern und Druck-Warnsystem.",
+    description: "Revisionssichere Überwachungstafel mit automatischen Zeitberechnungen und integriertem Druck-Warnsystem.",
     slug: "atemschutzueberwachung",
   },
   {
     icon: FileText,
     title: "Einsatzerfassung",
-    description:
-      "Lückenlose Dokumentation von Einsätzen und Übungen. KI-gestützte Berichterstellung und rechtssichere Archivierung.",
+    description: "Effiziente Dokumentation mit KI-gestützter Berichterstellung und nahtloser Übernahme von Statusdaten.",
     slug: "einsatzerfassung",
   },
   {
     icon: Wrench,
     title: "Gerätewartungen",
-    description:
-      "Zentrale Verwaltung aller Prüffristen. Geführte Checklisten nach DGUV/DIN direkt auf dem Tablet mit Foto-Beweis.",
+    description: "Rechtssicheres Prüffrist-Management nach DGUV mit interaktiven Checklisten und Foto-Dokumentation.",
     slug: "wartungsmanagement",
   },
   {
     icon: Users,
     title: "Personalverwaltung",
-    description:
-      "Stammdaten, Qualifikationen und Beförderungen im Blick. Automatische Erinnerung an Lehrgangs-Auffrischungen.",
+    description: "Ganzheitliche Stammdatenführung inkl. automatischer Überwachung von Qualifikations-Auffrischungen.",
     slug: "mannschaftsverwaltung",
   },
   // Further Core Modules
   {
-    icon: Gauge,
+    icon: LayoutDashboard,
     title: "Dashboard",
-    description:
-      "Alle relevanten Kennzahlen auf einen Blick. Live-Status der Einsatzbereitschaft und anstehende Termine.",
+    description: "Kompakte Kommandozentrale für Live-Einsatzbereitschaft, kritische Termine und proaktive Warnungen.",
     slug: "kommandozentrale",
   },
   {
     icon: ClipboardList,
     title: "Ausrüstung",
-    description:
-      "Inventarisierung mit Barcodes und QR-Codes. Hierarchische Struktur für Fahrzeuge und Lager.",
+    description: "Zentrale Inventarisierung mit hierarchischer Beladungsstruktur sowie Barcode- & QR-Code-Integration.",
     slug: "ausruestungsverwaltung",
   },
   {
-    icon: QrCode,
+    icon: Monitor,
     title: "Kiosk-Modus",
-    description:
-      "Einfacher Zugang für die Mannschaft über RFID oder PIN. Schnelle Meldung von Defekten.",
+    description: "Optimierte Touch-Oberfläche für das Gerätehaus zur schnellen Erfassung von Fahrten und Mängelberichten.",
     slug: "kiosk-modus",
   },
   {
     icon: Brain,
     title: "KI & AI Integration",
-    description:
-      "Intelligente Unterstützung bei der Berichterstellung und vorausschauende Wartungsplanung.",
+    description: "Vorausschauende Algorithmen für automatisierte Berichtveredelung und strategische Personalplanung.",
     slug: "ki-integration",
   },
   {
     icon: Map,
     title: "Objektpläne",
-    description:
-      "Digitale Hinterlegung von Brandschutzplänen nach DIN 14095 mit GPS-Verknüpfung.",
+    description: "Digitale Bereitstellung einsatzrelevanter Gebäudepläne nach DIN 14095 direkt am mobilen Endgerät.",
     slug: "objektplaene",
   },
   {
     icon: Droplets,
     title: "Wasserkarte",
-    description:
-      "Interaktive Karte aller Hydranten und Wasserentnahmestellen mit Prüfstatus.",
+    description: "Präzise Lokalisierung aller Entnahmestellen mit tagesaktuellem Prüfstatus und Durchflussmengen-Daten.",
     slug: "wasserkarte",
   },
   {
     icon: Package,
     title: "Logistik",
-    description:
-      "Lückenlose Dokumentation von Warenbewegungen und Materialausgaben.",
+    description: "Standortübergreifendes Asset-Tracking zur lückenlosen Dokumentation von Materialausgaben und Lagereingängen.",
     slug: "warenbewegung",
   },
   {
     icon: Car,
     title: "Fahrtenbuch",
-    description:
-      "Digitales Logbuch für alle Fahrzeuge mit automatischer Kilometer-Erfassung.",
+    description: "Vollständig digitale Kilometerrückmeldung und Routendokumentation für eine rechtssichere Flottenführung.",
     slug: "fahrtenbuch",
   },
   {
     icon: Shirt,
     title: "Wäsche",
-    description:
-      "Verwaltung der Schutzkleidung mit Tracking von Waschzyklen und Lebensdauer.",
+    description: "Automatisierter Lifecycle-Tracker für Schutzkleidung inkl. Dokumentation von Waschzyklen und Lebensdauer.",
     slug: "waescheverwaltung",
   },
   {
     icon: CreditCard,
     title: "Budget",
-    description:
-      "Transparente Verwaltung von Finanzen, Abteilungsbudgets und Belegarchivierung.",
+    description: "Transparente Kostenkontrolle für Abteilungsbudgets mit digitaler Belegarchivierung und Ausgaben-Analyse.",
     slug: "budget-finanzen",
   },
   {
-    icon: UserCheck,
+    icon: ShieldCheck,
     title: "Dienstausweis",
-    description:
-      "Digitaler Dienstausweis mit Wallet-Integration und öffentlicher Verifikation.",
+    description: "Kryptographisch gesicherte Identität mit Apple/Google Wallet-Support und Echtzeit-Verifikation.",
     slug: "digitaler-dienstausweis",
   },
   {
     icon: FolderSearch,
-    title: "Digitales Wissensmanagement",
-    description: "Zentrale Ablage für Dienstanweisungen und Pläne. Inklusive rechtssicherer Lesebestätigungen.",
+    title: "Wissensmanagement",
+    description: "Plattform für Dienstanweisungen und Schulungsunterlagen mit revisionssicherer Lesebestätigungs-Matrix.",
     slug: "dokumentenmanagement",
   },
   {
     icon: Link2,
-    title: "Schnittstellen & Konnektivität",
-    description: "Native Anbindung von Partnersystemen via MQTT und REST-API. Volle Integration in Ihre IT.",
+    title: "Konnektivität",
+    description: "Nahtlose System-Integration via REST-API und MQTT zur Anbindung von Divera, Alamos und weiteren.",
     slug: "schnittstellen",
   },
   {
     icon: BarChart3,
-    title: "Strategisches Reporting",
-    description: "Automatisierte Berichte für Kommunen. Analyse von Einsatzschwerpunkten für die Bedarfsplanung.",
+    title: "Reporting",
+    description: "Strategische Business-Intelligence-Analysen zur Validierung von Brandschutzbedarfsplänen und Statistiken.",
     slug: "reporting",
   },
   {
     icon: Building2,
-    title: "Vorbeugender Brandschutz",
-    description: "Erfassung von Brandverhütungsschauen. Automatisierte Mängelbescheide und Revisionsfristen.",
+    title: "Brandschau",
+    description: "Digitale Durchführung des vorbeugenden Brandschutzes mit automatisierten Bescheiden und Fristenüberwachung.",
     slug: "brandschutz",
   },
 ];
