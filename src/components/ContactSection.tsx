@@ -1,44 +1,6 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent } from "@/components/ui/card";
-import { Mail, MapPin, Send, CheckCircle } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { Mail, MapPin } from "lucide-react";
 
 const ContactSection = () => {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    feuerwehr: "",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast({
-      title: "Anfrage gesendet!",
-      description:
-        "Vielen Dank für Ihr Interesse. Wir melden uns in Kürze bei Ihnen.",
-    });
-  };
-
   return (
     <section id="kontakt" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
@@ -52,188 +14,79 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-2xl font-bold text-foreground mb-6">
-              Ihr Ansprechpartner
-            </h3>
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <Mail className="w-6 h-6 text-primary" />
+        <div className="max-w-2xl mx-auto">
+          {/* Contact Info Centered */}
+          <div className="text-center space-y-12">
+
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <Mail className="w-8 h-8 text-primary" />
                 </div>
                 <div>
-                  <p className="font-medium text-foreground">Markus Straub</p>
+                  <p className="font-medium text-foreground text-lg">Markus Straub</p>
                   <p className="text-sm text-muted-foreground mb-1">
                     Produktentwicklung & Support
                   </p>
                   <a
                     href="mailto:support@resqio.de"
-                    className="text-primary hover:underline font-medium"
+                    className="text-primary hover:underline font-bold text-lg"
                   >
                     support@resqio.de
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <MapPin className="w-6 h-6 text-primary" />
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <MapPin className="w-8 h-8 text-primary" />
                 </div>
                 <div>
-                  <p className="font-medium text-foreground">Eschenstraße 37</p>
+                  <p className="font-medium text-foreground text-lg">Eschenstraße 37</p>
                   <p className="text-muted-foreground">72141 Walddorfhäslach</p>
                   <p className="text-muted-foreground">Deutschland</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-12 p-6 bg-muted/30 rounded-2xl border border-border">
-              <h4 className="font-semibold text-foreground mb-4">
-                Was Sie erwartet:
-              </h4>
-              <ul className="space-y-3">
-                {[
-                  "Persönliche Live-Demo der Software",
-                  "Beantwortung all Ihrer Fragen",
-                  "Individuelles Angebot für Ihre Feuerwehr",
-                  "Sichere Cloud-Lösung",
-                  "Keine versteckten Kosten",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2 text-muted-foreground">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <div className="grid md:grid-cols-2 gap-8 text-left max-w-2xl mx-auto">
+              <div className="p-6 bg-muted/30 rounded-2xl border border-border">
+                <h4 className="font-semibold text-foreground mb-4 text-center md:text-left">
+                  Was Sie erwartet:
+                </h4>
+                <ul className="space-y-3">
+                  {[
+                    "Persönliche Live-Demo der Software",
+                    "Beantwortung all Ihrer Fragen",
+                    "Individuelles Angebot für Ihre Feuerwehr",
+                    "Sichere Cloud-Lösung",
+                    "Keine versteckten Kosten",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-muted-foreground">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            <div className="mt-8 grid grid-cols-3 gap-4">
-              <div className="text-center p-3 bg-muted/30 rounded-lg border border-border">
-                <div className="text-2xl mb-1">🇩🇪</div>
-                <div className="text-xs font-medium text-foreground">Serverstandort Deutschland</div>
-              </div>
-              <div className="text-center p-3 bg-muted/30 rounded-lg border border-border">
-                <div className="text-2xl mb-1">🔒</div>
-                <div className="text-xs font-medium text-foreground">SSL-verschlüsselt</div>
-              </div>
-              <div className="text-center p-3 bg-muted/30 rounded-lg border border-border">
-                <div className="text-2xl mb-1">🛡️</div>
-                <div className="text-xs font-medium text-foreground">DSGVO-konform</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <Card className="bg-card border-border">
-            <CardContent className="p-6 md:p-8">
-              {isSubmitted ? (
-                <div className="text-center py-8">
-                  <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle className="w-8 h-8 text-green-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    Vielen Dank!
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Ihre Anfrage wurde erfolgreich übermittelt. Wir melden uns
-                    in Kürze bei Ihnen.
-                  </p>
+              <div className="flex flex-col justify-center gap-4">
+                <div className="flex items-center gap-4 p-4 bg-muted/30 rounded-xl border border-border">
+                  <div className="text-3xl">🇩🇪</div>
+                  <div className="text-sm font-medium text-foreground">Serverstandort<br />Deutschland</div>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      Name *
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Max Mustermann"
-                      required
-                      className="bg-background border-border"
-                    />
-                  </div>
+                <div className="flex items-center gap-4 p-4 bg-muted/30 rounded-xl border border-border">
+                  <div className="text-3xl">🔒</div>
+                  <div className="text-sm font-medium text-foreground">SSL-verschlüsselt<br />& Sicher</div>
+                </div>
+                <div className="flex items-center gap-4 p-4 bg-muted/30 rounded-xl border border-border">
+                  <div className="text-3xl">🛡️</div>
+                  <div className="text-sm font-medium text-foreground">100% DSGVO-konform</div>
+                </div>
+              </div>
+            </div>
 
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      E-Mail *
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="max@feuerwehr.de"
-                      required
-                      className="bg-background border-border"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="feuerwehr"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      Feuerwehr / Organisation
-                    </label>
-                    <Input
-                      id="feuerwehr"
-                      name="feuerwehr"
-                      value={formData.feuerwehr}
-                      onChange={handleChange}
-                      placeholder="FF Musterstadt"
-                      className="bg-background border-border"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      Nachricht
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Erzählen Sie uns von Ihren Anforderungen..."
-                      rows={4}
-                      className="bg-background border-border resize-none"
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    size="lg"
-                    disabled={isSubmitting}
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                  >
-                    {isSubmitting ? (
-                      "Wird gesendet..."
-                    ) : (
-                      <>
-                        Demo anfragen
-                        <Send className="w-4 h-4 ml-2" />
-                      </>
-                    )}
-                  </Button>
-                </form>
-              )}
-            </CardContent>
-          </Card>
+          </div>
         </div>
       </div>
     </section>

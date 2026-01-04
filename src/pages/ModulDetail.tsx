@@ -71,10 +71,7 @@ const ModulDetail = () => {
           {/* Hero Section */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
             <div className="lg:col-span-7 space-y-8">
-              <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full ${colorConfig.bg} ${colorConfig.text} text-xs font-bold tracking-widest uppercase border ${colorConfig.border}`}>
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>RESQIO Modul</span>
-              </div>
+              {/* Badge Removed */}
 
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
@@ -90,12 +87,14 @@ const ModulDetail = () => {
               </p>
 
               <div className="flex flex-wrap gap-4 pt-4">
-                <Button size="lg" className="h-14 px-8 bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
-                  Jetzt Demo anfordern
-                </Button>
+                <a href="mailto:support@resqio.de?subject=Demo Anfrage RESQIO">
+                  <Button size="lg" className="h-14 px-8 bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
+                    Jetzt Demo anfordern
+                  </Button>
+                </a>
                 <Link to="/#contact">
                   <Button variant="outline" size="lg" className="h-14 px-8 rounded-2xl hover:bg-card/50 transition-all">
-                    Beratungstermin buchen
+                    Kontakt aufnehmen
                   </Button>
                 </Link>
               </div>
