@@ -68,7 +68,7 @@ const ScreenshotsSection = () => {
               </div>
               <div className="flex-1 text-center">
                 <span className="text-secondary-foreground/60 text-sm">
-                  GerätewartPro - {activeScreenshot.title}
+                  resqio - {activeScreenshot.title}
                 </span>
               </div>
             </div>

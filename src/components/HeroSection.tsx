@@ -24,17 +24,18 @@ const HeroSection = () => {
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 bg-primary/20 text-primary-foreground px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Shield className="w-4 h-4" />
-            SaaS-Lösung für Feuerwehren
+            Das digitale Rückgrat Ihrer Feuerwehr
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
-            Geräteverwaltung & Dokumentation{" "}
-            <span className="text-accent">einfach gemacht</span>
+            Einsatzbereit. Geprüft.{" "}
+            <span className="text-accent">Dokumentiert.</span>
           </h1>
 
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 leading-relaxed">
-            Die professionelle Software für Gerätewarte. Verwalten Sie Ausrüstung,
-            Wartungen und Prüfungen digital – sicher, effizient und rechtssicher.
+            resqio ist mehr als nur Verwaltungssoftware – die intelligente Kommandozentrale 
+            für die moderne Feuerwehr. Von rechtssicherer Ausrüstungsprüfung über KI-optimierte 
+            Einsatznachbereitung bis zur vorausschauenden Personalplanung.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -52,14 +53,14 @@ const HeroSection = () => {
               onClick={() => document.getElementById("features")?.scrollIntoView({ behavior: "smooth" })}
               className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8"
             >
-              Mehr erfahren
+              Alle Features
             </Button>
           </div>
 
           <div className="flex flex-wrap gap-6">
             <div className="flex items-center gap-2 text-primary-foreground/80">
               <CheckCircle className="w-5 h-5 text-accent" />
-              <span>Keine Installation</span>
+              <span>Cloud oder Self-hosted</span>
             </div>
             <div className="flex items-center gap-2 text-primary-foreground/80">
               <Clock className="w-5 h-5 text-accent" />

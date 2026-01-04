@@ -1,4 +1,4 @@
-import { Check, Sparkles } from "lucide-react";
+import { Check, Building, Building2, Rocket } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -8,6 +8,59 @@ const PricingSection = () => {
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const plans = [
+    {
+      name: "Community",
+      icon: Building,
+      focus: "< 10.000 Einwohner",
+      price: "399 €",
+      period: "jährlich",
+      features: [
+        "Alle Kernfunktionen",
+        "Unbegrenzte Benutzer",
+        "E-Mail-Support",
+        "Automatische Updates",
+        "DSGVO-konformes Hosting",
+        "Regelmäßige Backups",
+      ],
+      popular: false,
+    },
+    {
+      name: "Professional",
+      icon: Rocket,
+      focus: "< 25.000 Einwohner",
+      price: "599 €",
+      period: "jährlich",
+      features: [
+        "Alle Community-Features",
+        "KI-Funktionen",
+        "Erweiterte Berichte",
+        "Prioritäts-Support",
+        "Schulung & Einarbeitung",
+        "Individuelle Anpassungen",
+        "Kalender-Sync (iCal)",
+      ],
+      popular: true,
+    },
+    {
+      name: "Enterprise",
+      icon: Building2,
+      focus: "Städte & Kreise",
+      price: "Auf Anfrage",
+      period: "",
+      features: [
+        "Alle Professional-Features",
+        "Multi-Standort-Verwaltung",
+        "MQTT & API-Integration",
+        "Dediziertes Hosting",
+        "SLA-Garantie",
+        "Persönlicher Account Manager",
+        "White-Label Option",
+      ],
+      popular: false,
+    },
+  ];
+
   return (
     <section id="pricing" className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4">
@@ -16,59 +69,67 @@ const PricingSection = () => {
             Transparent & Fair
           </h2>
           <p className="text-lg text-muted-foreground">
-            Als SaaS-Lösung bieten wir flexible Preismodelle, die sich an Ihrer
-            Feuerwehrgröße orientieren.
+            Flexible Preismodelle, die sich an Ihrer Feuerwehrgröße orientieren. 
+            Alle Preise inklusive Updates, Support und optionalem Hosting.
           </p>
         </div>
 
-        <div className="max-w-lg mx-auto">
-          <Card className="bg-card border-2 border-primary relative overflow-hidden">
-            <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-4 py-1 text-sm font-medium rounded-bl-lg">
-              <Sparkles className="w-4 h-4 inline mr-1" />
-              Empfohlen
-            </div>
-            <CardHeader className="text-center pt-12 pb-6">
-              <h3 className="text-2xl font-bold text-foreground mb-2">
-                SaaS-Lizenz
-              </h3>
-              <p className="text-muted-foreground">
-                Individuelles Angebot für Ihre Feuerwehr
-              </p>
-            </CardHeader>
-            <CardContent className="pb-8">
-              <ul className="space-y-4 mb-8">
-                {[
-                  "Unbegrenzte Benutzer",
-                  "Alle Funktionen inklusive",
-                  "Automatische Updates",
-                  "Deutscher Support",
-                  "DSGVO-konformes Hosting",
-                  "Regelmäßige Backups",
-                  "Individuelle Anpassungen möglich",
-                  "Schulung & Einarbeitung",
-                ].map((feature, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Check className="w-3 h-3 text-primary" />
-                    </div>
-                    <span className="text-foreground">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {plans.map((plan, index) => (
+            <Card 
+              key={index} 
+              className={`bg-card relative overflow-hidden ${
+                plan.popular ? "border-2 border-primary" : "border-border"
+              }`}
+            >
+              {plan.popular && (
+                <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-4 py-1 text-sm font-medium rounded-bl-lg">
+                  Empfohlen
+                </div>
+              )}
+              <CardHeader className="text-center pt-8 pb-4">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <plan.icon className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-1">
+                  {plan.name}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {plan.focus}
+                </p>
+                <div className="mt-4">
+                  <span className="text-3xl font-bold text-foreground">{plan.price}</span>
+                  {plan.period && (
+                    <span className="text-muted-foreground ml-1">/ {plan.period}</span>
+                  )}
+                </div>
+              </CardHeader>
+              <CardContent className="pb-8">
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center gap-3">
+                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <Check className="w-3 h-3 text-primary" />
+                      </div>
+                      <span className="text-foreground text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
 
-              <Button
-                onClick={scrollToContact}
-                size="lg"
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-              >
-                Jetzt Demo anfragen
-              </Button>
-
-              <p className="text-center text-sm text-muted-foreground mt-4">
-                Keine Kreditkarte erforderlich • Unverbindliches Angebot
-              </p>
-            </CardContent>
-          </Card>
+                <Button
+                  onClick={scrollToContact}
+                  size="lg"
+                  className={`w-full ${
+                    plan.popular 
+                      ? "bg-primary text-primary-foreground hover:bg-primary/90" 
+                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                  }`}
+                >
+                  {plan.price === "Auf Anfrage" ? "Kontakt aufnehmen" : "Demo anfragen"}
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
         <div className="mt-12 text-center">
