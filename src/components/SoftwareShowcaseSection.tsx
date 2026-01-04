@@ -118,7 +118,7 @@ const SoftwareShowcaseSection = () => {
                                                 </div>
                                                 <div className="ml-4 px-3 py-1 bg-background rounded-md text-xs text-muted-foreground flex items-center gap-2 border border-border/50">
                                                     <item.icon className="w-3 h-3" />
-                                                    resqio - {item.title}
+                                                    RESQIO - {item.title}
                                                 </div>
                                             </div>
 

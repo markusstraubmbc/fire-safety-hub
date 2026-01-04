@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <Link to="/" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center">
-              <img src="/src/assets/logo.jpg" alt="resqio Logo" className="w-full h-full object-cover" />
+              <img src="/src/assets/logo.jpg" alt="RESQIO Logo" className="w-full h-full object-cover" />
             </div>
             <span className="text-lg font-bold text-background">
               resq<span className="text-primary">io</span>
@@ -30,7 +30,7 @@ const Footer = () => {
           </div>
 
           <p className="text-sm text-background/60">
-            © {currentYear} resqio. Alle Rechte vorbehalten.
+            © {currentYear} RESQIO. Alle Rechte vorbehalten.
           </p>
         </div>
       </div>

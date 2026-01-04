@@ -18,7 +18,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
-              <img src="/src/assets/logo.jpg" alt="resqio Logo" className="w-full h-full object-cover" />
+              <img src="/src/assets/logo.jpg" alt="RESQIO Logo" className="w-full h-full object-cover" />
             </div>
             <span className="text-lg md:text-xl font-bold text-foreground">
               resq<span className="text-primary">io</span>

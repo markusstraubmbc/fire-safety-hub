@@ -47,7 +47,7 @@ const ContactSection = () => {
             Bereit für die Zukunft?
           </h2>
           <p className="text-lg text-muted-foreground">
-            Überzeugen Sie sich selbst von resqio. Kontaktieren Sie uns
+            Überzeugen Sie sich selbst von RESQIO. Kontaktieren Sie uns
             für eine unverbindliche Live-Demo.
           </p>
         </div>
@@ -98,7 +98,7 @@ const ContactSection = () => {
                   "Persönliche Live-Demo der Software",
                   "Beantwortung all Ihrer Fragen",
                   "Individuelles Angebot für Ihre Feuerwehr",
-                  "Cloud oder Self-Hosted Optionen",
+                  "Sichere Cloud-Lösung",
                   "Keine versteckten Kosten",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-2 text-muted-foreground">
@@ -107,6 +107,21 @@ const ContactSection = () => {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            <div className="mt-8 grid grid-cols-3 gap-4">
+              <div className="text-center p-3 bg-muted/30 rounded-lg border border-border">
+                <div className="text-2xl mb-1">🇩🇪</div>
+                <div className="text-xs font-medium text-foreground">Serverstandort Deutschland</div>
+              </div>
+              <div className="text-center p-3 bg-muted/30 rounded-lg border border-border">
+                <div className="text-2xl mb-1">🔒</div>
+                <div className="text-xs font-medium text-foreground">SSL-verschlüsselt</div>
+              </div>
+              <div className="text-center p-3 bg-muted/30 rounded-lg border border-border">
+                <div className="text-2xl mb-1">🛡️</div>
+                <div className="text-xs font-medium text-foreground">DSGVO-konform</div>
+              </div>
             </div>
           </div>
 

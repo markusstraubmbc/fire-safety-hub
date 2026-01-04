@@ -161,7 +161,7 @@ const FeaturesSection = () => {
             Alle Funktionen im Überblick
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            resqio vereint alle Prozesse in einer intuitiven, hochperformanten Plattform –
+            RESQIO vereint alle Prozesse in einer intuitiven, hochperformanten Plattform –
             von der Geräteverwaltung bis zur KI-gestützten Personalplanung.
           </p>
         </div>
