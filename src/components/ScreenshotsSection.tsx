@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import screenshotDashboard from "@/assets/screenshot-dashboard.png";
-import screenshotKiosk from "@/assets/screenshot-kiosk.png";
+import screenshot1 from "@/assets/screenshot-1.jpg";
+import screenshot2 from "@/assets/screenshot-2.jpg";
+import screenshot3 from "@/assets/screenshot-3.jpg";
+import screenshot4 from "@/assets/screenshot-4.jpg";
+import screenshot5 from "@/assets/screenshot-5.jpg";
+import screenshot6 from "@/assets/screenshot-6.jpg";
 
 const screenshots = [
   {
@@ -10,14 +14,28 @@ const screenshots = [
     title: "Dashboard",
     description:
       "Übersichtliches Dashboard mit allen wichtigen Kennzahlen: Wartungsstatus, anstehende Prüfungen, Warenbewegungen und mehr.",
-    image: screenshotDashboard,
+    image: screenshot1,
+  },
+  {
+    id: "wartung",
+    title: "Wartungsmanagement",
+    description:
+      "Geführte Checklisten mit Foto-Dokumentation für rechtssichere Prüfungen nach DGUV.",
+    image: screenshot3,
+  },
+  {
+    id: "einsatz",
+    title: "Einsatz & Übungen",
+    description:
+      "Professionelle Dokumentation mit taktischen Lagekarten und KI-gestützter Berichterstellung.",
+    image: screenshot5,
   },
   {
     id: "kiosk",
     title: "Kiosk-Modus",
     description:
       "Benutzerfreundlicher Kiosk-Modus für schnelle Erfassung von Einsätzen, Übungen, Mängelmeldungen und Fahrten.",
-    image: screenshotKiosk,
+    image: screenshot4,
   },
 ];
 
