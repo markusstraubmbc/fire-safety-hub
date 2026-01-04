@@ -8,7 +8,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Zap, Layers, BarChart3, LayoutDashboard, Monitor, Printer, Activity, Touchpad } from "lucide-react";
-import dashboardImg from "@/assets/showcase-dashboard.png";
+import commandCenterImg from "@/assets/showcase-command-center.png";
 import statisticsImg from "@/assets/showcase-statistics.png";
 import operationsImg from "@/assets/showcase-operations.png";
 import kioskHomeImg from "@/assets/showcase-kiosk-home.png";
@@ -36,7 +36,7 @@ const screenshots = [
     {
         title: "Intelligente Kommandozentrale",
         description: "Behalten Sie den Puls Ihrer Wehr in Echtzeit im Blick. Das Dashboard liefert sekundengenaue Einblicke in Einsatzbereitschaft, Termine und Ressourcen.",
-        image: dashboardImg,
+        image: commandCenterImg,
         icon: LayoutDashboard,
     },
     {
@@ -67,25 +67,25 @@ const screenshots = [
 
 const SoftwareShowcaseSection = () => {
     return (
-        <section className="py-20 bg-muted/50" id="software-showcase">
+        <section className="py-12 md:py-16 bg-muted/50" id="software-showcase">
             <div className="container mx-auto px-4">
 
                 {/* Intro Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <Badge variant="outline" className="mb-4 text-primary border-primary/30 bg-primary/5">
+                <div className="text-center max-w-3xl mx-auto mb-10">
+                    <Badge variant="outline" className="mb-3 text-primary border-primary/30 bg-primary/5">
                         Software Einblicke
                     </Badge>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-3">
                         Moderne Oberfläche für maximale Effizienz
                     </h2>
-                    <p className="text-muted-foreground text-lg">
+                    <p className="text-muted-foreground text-base">
                         Entdecken Sie eine Benutzeroberfläche, die speziell für die Anforderungen moderner Feuerwehren entwickelt wurde.
                         Übersichtlich, schnell und intuitiv bedienbar.
                     </p>
                 </div>
 
                 {/* Core Benefits Grid */}
-                <div className="grid md:grid-cols-3 gap-8 mb-20">
+                <div className="grid md:grid-cols-3 gap-6 mb-12">
                     {features.map((feature, index) => (
                         <Card key={index} className="bg-background border-none shadow-md hover:shadow-lg transition-all duration-300">
                             <CardContent className="pt-6">

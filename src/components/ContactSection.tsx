@@ -40,7 +40,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-secondary">
+    <section id="kontakt" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-secondary-foreground mb-4">
@@ -70,8 +70,8 @@ const ContactSection = () => {
                   <p className="text-secondary-foreground/70">
                     Produktentwicklung & Support
                   </p>
-                  <a 
-                    href="mailto:support@resqio.de" 
+                  <a
+                    href="mailto:support@resqio.de"
                     className="text-primary hover:underline"
                   >
                     support@resqio.de
