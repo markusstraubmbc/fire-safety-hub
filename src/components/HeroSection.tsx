@@ -73,12 +73,19 @@ const HeroSection = () => {
           </div>
 
           {/* Reference Badge */}
-          <div className="inline-flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-4 py-2">
+          <a 
+            href="#referenz"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("referenz")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="inline-flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-4 py-2 hover:bg-primary-foreground/20 transition-colors cursor-pointer"
+          >
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
             <span className="text-primary-foreground/90 text-sm">
               Bereits im Einsatz bei der Feuerwehr Walddorfhäslach
             </span>
-          </div>
+          </a>
         </div>
       </div>
     </section>
