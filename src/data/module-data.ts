@@ -59,9 +59,9 @@ export const modules: Record<string, ModuleData> = {
             "Führungskräfte-Monitor: Mobile-optimierte Quick Overview für Smartphones und Tablets"
         ],
         technicalDetails: [
-            "Browser-Persistenz: Spalten-Konfiguration wird gespeichert und bei erneutem Öffnen wiederhergestellt",
-            "WebSocket-basierte Echtzeit-Synchronisation für minimale Latenz",
-            "Berechtigungsgesteuert: Führungskräfte-Monitor nur mit 'kiosk.einsatz_zugriff_leader'-Berechtigung",
+            "Automatische Speicherung: Spalten-Konfiguration wird bei erneutem Öffnen wiederhergestellt",
+            "Hochperformante Echtzeit-Synchronisation für minimale Latenz",
+            "Berechtigungsgesteuert: Führungskräfte-Monitor",
             "Revisionssicheres Logging aller Lagemeldungen und Statusänderungen"
         ],
         icon: Map,
@@ -493,7 +493,7 @@ export const modules: Record<string, ModuleData> = {
         ],
         technicalDetails: [
             "Sichere Token-basierte Authentifizierung (JWT/API-Keys)",
-            "JSON-Payload Architektur für maximale Kompatibilität",
+            "Standardisierte Datenarchitektur für maximale Kompatibilität",
             "Skalierbare Microservice-Anbindung"
         ],
         icon: Link2,
