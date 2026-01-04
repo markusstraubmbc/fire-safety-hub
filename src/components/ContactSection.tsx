@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
@@ -35,7 +35,7 @@ const ContactSection = () => {
     toast({
       title: "Anfrage gesendet!",
       description:
-        "Vielen Dank für Ihr Interesse. Markus Straub wird sich in Kürze bei Ihnen melden.",
+        "Vielen Dank für Ihr Interesse. Wir melden uns in Kürze bei Ihnen.",
     });
   };
 
@@ -47,8 +47,8 @@ const ContactSection = () => {
             Demo anfragen
           </h2>
           <p className="text-lg text-secondary-foreground/80">
-            Überzeugen Sie sich selbst von GerätewartPro. Kontaktieren Sie uns
-            für eine unverbindliche Demo.
+            Überzeugen Sie sich selbst von resqio. Kontaktieren Sie uns
+            für eine unverbindliche Live-Demo.
           </p>
         </div>
 
@@ -70,17 +70,12 @@ const ContactSection = () => {
                   <p className="text-secondary-foreground/70">
                     Produktentwicklung & Support
                   </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <p className="text-secondary-foreground">
-                    Telefonische Beratung nach Vereinbarung
-                  </p>
+                  <a 
+                    href="mailto:support@resqio.de" 
+                    className="text-primary hover:underline"
+                  >
+                    support@resqio.de
+                  </a>
                 </div>
               </div>
 
@@ -89,7 +84,9 @@ const ContactSection = () => {
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-secondary-foreground">Deutschland</p>
+                  <p className="text-secondary-foreground">Eschenstraße 37</p>
+                  <p className="text-secondary-foreground">72141 Walddorfhäslach</p>
+                  <p className="text-secondary-foreground/70">Deutschland</p>
                 </div>
               </div>
             </div>
@@ -103,6 +100,7 @@ const ContactSection = () => {
                   <li>• Persönliche Live-Demo der Software</li>
                   <li>• Beantwortung all Ihrer Fragen</li>
                   <li>• Individuelles Angebot für Ihre Feuerwehr</li>
+                  <li>• Cloud oder Self-Hosted Optionen</li>
                   <li>• Keine versteckten Kosten</li>
                 </ul>
               </CardContent>
@@ -121,8 +119,8 @@ const ContactSection = () => {
                     Vielen Dank!
                   </h3>
                   <p className="text-muted-foreground">
-                    Ihre Anfrage wurde erfolgreich übermittelt. Markus Straub
-                    wird sich in Kürze bei Ihnen melden.
+                    Ihre Anfrage wurde erfolgreich übermittelt. Wir melden uns
+                    in Kürze bei Ihnen.
                   </p>
                 </div>
               ) : (

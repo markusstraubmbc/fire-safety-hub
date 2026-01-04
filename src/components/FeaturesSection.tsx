@@ -11,6 +11,18 @@ import {
   Package,
   UserCheck,
   Shield,
+  Gauge,
+  Map,
+  CreditCard,
+  Award,
+  Brain,
+  QrCode,
+  Building2,
+  Flame,
+  GraduationCap,
+  Droplets,
+  Server,
+  Lock,
   LucideIcon,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -24,103 +36,192 @@ export interface Feature {
 }
 
 export const features: Feature[] = [
+  // Core Modules
+  {
+    icon: Gauge,
+    title: "Intelligente Kommandozentrale",
+    description:
+      "Dashboard mit Live-Bereitschafts-Monitor, vorausschauenden Analysen und proaktivem Warnsystem.",
+    slug: "kommandozentrale",
+  },
   {
     icon: Shield,
-    title: "Wartungsvorlagen nach DGUV",
+    title: "Rechtssicheres Wartungsmanagement",
     description:
-      "Standardisierte Prüfvorlagen gemäß DGUV-Vorschriften für rechtssichere Dokumentation aller Wartungen.",
-    slug: "wartungsvorlagen-dguv",
-  },
-  {
-    icon: ClipboardList,
-    title: "Inventarisierung",
-    description:
-      "Vollständige Erfassung und Verwaltung aller Geräte, Fahrzeuge und Ausrüstungsgegenstände.",
-    slug: "inventarisierung",
-  },
-  {
-    icon: Users,
-    title: "Anwesenheitserfassung per RFID",
-    description:
-      "Automatische Erfassung der Anwesenheit bei Einsätzen und Übungen mittels RFID-Technologie.",
-    slug: "anwesenheitserfassung-rfid",
-  },
-  {
-    icon: Package,
-    title: "Warenbewegung",
-    description:
-      "Lückenlose Nachverfolgung von Materialflüssen, Ein- und Ausgängen sowie Verbrauchsmaterialien.",
-    slug: "warenbewegung",
-  },
-  {
-    icon: UserCheck,
-    title: "Mannschaftsverwaltung",
-    description:
-      "Verwaltung aller Mitglieder inkl. Lehrgänge, Qualifikationen und Dienstgrade.",
-    slug: "mannschaftsverwaltung",
-  },
-  {
-    icon: Wrench,
-    title: "Wartungsmanagement",
-    description:
-      "Planen und dokumentieren Sie alle Wartungen und Prüfungen mit automatischen Erinnerungen.",
+      "Prüffristen nach DGUV automatisiert. Geführte Checklisten mit Foto-Dokumentation direkt am Tablet.",
     slug: "wartungsmanagement",
   },
   {
-    icon: AlertTriangle,
-    title: "Mängelmelder",
+    icon: ClipboardList,
+    title: "Ausrüstungsverwaltung",
     description:
-      "Defekte Geräte schnell und einfach melden – direkt aus dem Kiosk-Modus.",
-    slug: "maengelmelder",
+      "Inventarisierung mit Barcodes, QR-Codes und Kategorisierung. Hierarchische Gerätebündel.",
+    slug: "ausruestungsverwaltung",
+  },
+  {
+    icon: Calendar,
+    title: "Einsatz- & Übungsmanagement 2.0",
+    description:
+      "KI-gestützte Dokumentation mit taktischen Lagekarten, Geocoding und automatisierten Berichten.",
+    slug: "einsatz-uebungsmanagement",
+  },
+  {
+    icon: Users,
+    title: "Mannschaftsverwaltung",
+    description:
+      "Personal, Teams, Schulungen und Anwesenheiten. Kompetenz-Matrix und Verfügbarkeits-Prognose.",
+    slug: "mannschaftsverwaltung",
+  },
+  {
+    icon: QrCode,
+    title: "Kiosk-Modus",
+    description:
+      "Tablet-optimiert mit RFID, PIN oder QR-Login. Geführte Workflows und persönlicher Bereich.",
+    slug: "kiosk-modus",
+  },
+  // KI & Analysen
+  {
+    icon: Brain,
+    title: "KI & AI Integration",
+    description:
+      "Intelligente Besetzungsanalyse, Lehrgangs-Vorschläge, automatisierte Berichte & Ausrüstungsvorschläge.",
+    slug: "ki-integration",
+  },
+  {
+    icon: Award,
+    title: "Beförderungs- & Ehrungssystem",
+    description:
+      "Automatische Beförderungsvorschläge nach BW-Richtlinien. Leistungsabzeichen und Dienstjahre.",
+    slug: "befoerderungssystem",
+  },
+  {
+    icon: GraduationCap,
+    title: "Automatisierte Qualifikationen",
+    description:
+      "Verknüpfung von Übungsteilnahmen mit automatischem Erhaltungs-Status von Fähigkeiten.",
+    slug: "qualifikationen",
+  },
+  // Einsatz & Sicherheit
+  {
+    icon: Map,
+    title: "Digitale Objektpläne (DIN 14095)",
+    description:
+      "Einsatzpläne mit Kartenintegration, Prüfzyklen und automatischer GPS-basierter Bereitstellung.",
+    slug: "objektplaene",
+  },
+  {
+    icon: Droplets,
+    title: "Wasserkarte & Hydranten",
+    description:
+      "Interaktive Hydrantenkarte mit Prüfstatus, BMA-Zentralen und Gefahrstoffdaten.",
+    slug: "wasserkarte",
+  },
+  {
+    icon: AlertTriangle,
+    title: "Atemschutzüberwachung",
+    description:
+      "Digitale Überwachungstafel mit Timern und Druck-Tracking für maximale Sicherheit.",
+    slug: "atemschutzueberwachung",
+  },
+  {
+    icon: Flame,
+    title: "Brandsicherheitswachen",
+    description:
+      "Planung, Dokumentation und Abrechnung von Sicherheitswachen mit Smart Invoicing.",
+    slug: "brandsicherheitswachen",
+  },
+  // Logistik & Verwaltung
+  {
+    icon: Package,
+    title: "Warenbewegung & Logistik",
+    description:
+      "Lückenlose Dokumentation von Reparaturwegen, Lieferscheine und Übergabeprotokolle als PDF.",
+    slug: "warenbewegung",
   },
   {
     icon: Car,
     title: "Fahrtenbuch",
     description:
-      "Digitales Fahrtenbuch für alle Einsatzfahrzeuge mit lückenloser Dokumentation.",
+      "Digitales Logbuch für alle Fahrzeuge mit Kilometerständen und Einsatznachweisen.",
     slug: "fahrtenbuch",
   },
   {
     icon: Shirt,
     title: "Wäscheverwaltung",
     description:
-      "Verwaltung von Schutzkleidung inkl. Wasch- und Imprägnierungszyklen.",
+      "Schutzkleidung-Inventar, Waschzyklen und Wäscheaufträge mit Lebensdauer-Tracking.",
     slug: "waescheverwaltung",
   },
   {
-    icon: Calendar,
-    title: "Einsätze & Übungen",
+    icon: CreditCard,
+    title: "Budget & Finanzen",
     description:
-      "Erfassung von Einsätzen und Übungen mit Mannschaftsübersicht.",
-    slug: "einsaetze-uebungen",
+      "Haushaltsplanung, Abteilungsbudgets und Belegverwaltung für volle Kostentransparenz.",
+    slug: "budget-finanzen",
+  },
+  // Digital & Enterprise
+  {
+    icon: UserCheck,
+    title: "Digitaler Dienstausweis",
+    description:
+      "Wallet-Integration (Google/Apple), PDF-Export und öffentliches Verifikations-Portal.",
+    slug: "digitaler-dienstausweis",
+  },
+  {
+    icon: Lock,
+    title: "RBAC Berechtigungen",
+    description:
+      "Granulare Rollen- und Rechteverwaltung mit lückenlosem Audit-Log.",
+    slug: "berechtigungen",
+  },
+  {
+    icon: Server,
+    title: "Enterprise MQTT & API",
+    description:
+      "Integrierter MQTT-Broker für IoT und Alarmierungssysteme. REST-API für Integrationen.",
+    slug: "enterprise-integration",
   },
   {
     icon: Bell,
-    title: "Benachrichtigungen",
+    title: "E-Mail-Benachrichtigungen",
     description:
-      "Automatische Erinnerungen bei anstehenden Prüfungen und Wartungen.",
+      "Automatische Wartungserinnerungen, Reports und Kalender-Synchronisation (iCal).",
     slug: "benachrichtigungen",
   },
   {
     icon: FileText,
-    title: "PDF-Export",
+    title: "Dashboard & Berichte",
     description:
-      "Exportieren Sie alle Berichte und Protokolle als professionelle PDF-Dokumente.",
-    slug: "pdf-export",
+      "Übersichten, Statistiken, Exportfunktionen und professionelle PDF-Protokolle.",
+    slug: "berichte",
+  },
+  {
+    icon: Building2,
+    title: "Inventur-System",
+    description:
+      "Standort- und kategoriebasierte Inventurprüfungen mit Soll-Ist-Abgleich am Tablet.",
+    slug: "inventur",
+  },
+  {
+    icon: Wrench,
+    title: "Lizenzverwaltung",
+    description:
+      "Zentrale Lizenzverwaltung mit License-Server für Enterprise-Deployments.",
+    slug: "lizenzverwaltung",
   },
 ];
 
 const FeaturesSection = () => {
   return (
-    <section id="funktionen" className="py-20 bg-muted/30">
+    <section id="features" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Alle Funktionen im Überblick
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            GerätewartPro bietet alle Werkzeuge, die Sie für eine professionelle
-            Geräteverwaltung und Dokumentation benötigen.
+            resqio vereint alle Prozesse in einer intuitiven, hochperformanten Plattform – 
+            von der Geräteverwaltung bis zur KI-gestützten Personalplanung.
           </p>
         </div>
 

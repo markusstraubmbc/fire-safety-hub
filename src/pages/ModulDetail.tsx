@@ -13,25 +13,38 @@ const moduleDetails: Record<string, {
   highlights: string[];
   benefits: string[];
 }> = {
-  "wartungsvorlagen-dguv": {
+  "kommandozentrale": {
     highlights: [
-      "Vorgefertigte Prüfvorlagen nach DGUV-Vorschriften",
-      "Automatische Prüfintervalle und Erinnerungen",
-      "Digitale Unterschrift und Protokollierung",
-      "Rechtssichere Dokumentation aller Prüfungen",
+      "Live-Bereitschafts-Monitor mit sekundengenauen Einblicken",
+      "Vorausschauende Analysen für strategische Standortplanung",
+      "Proaktives Warnsystem bei fälligen Wartungen",
+      "Management-Summary über Einsätze, Übungen und Budgets",
     ],
     benefits: [
-      "Erfüllung gesetzlicher Anforderungen",
-      "Zeitersparnis durch standardisierte Abläufe",
-      "Lückenlose Nachweisführung",
+      "Alle wichtigen Informationen auf einen Blick",
+      "Fundierte Entscheidungen durch aggregierte Statistiken",
+      "Automatische Eskalation bei kritischen Ressourcen",
     ],
   },
-  "inventarisierung": {
+  "wartungsmanagement": {
     highlights: [
-      "Vollständige Geräte- und Ausrüstungserfassung",
-      "Barcode- und QR-Code-Unterstützung",
-      "Standortverwaltung und Zuordnung",
-      "Historische Gerätedaten und Lebenszyklus",
+      "Prüffristen nach DGUV und Herstellervorgaben automatisiert",
+      "Hierarchische Verknüpfung von Einzelgeräten und Baugruppen",
+      "Geführte Checklisten mit integrierter Foto-Dokumentation",
+      "Exakte Erfassung von Personal- und Materialkosten",
+    ],
+    benefits: [
+      "Maximale Haftungssicherheit",
+      "Minimaler Verwaltungsaufwand",
+      "Revisionssichere Dokumentation",
+    ],
+  },
+  "ausruestungsverwaltung": {
+    highlights: [
+      "Inventarisierung mit Barcodes, QR-Codes und Kategorisierung",
+      "Ausrüstungsbündel für hierarchische Geräteverwaltung",
+      "Standortverwaltung und Zuordnung zu Fahrzeugen",
+      "Historische Gerätedaten und Lebenszyklus-Tracking",
     ],
     benefits: [
       "Vollständiger Überblick über alle Bestände",
@@ -39,38 +52,25 @@ const moduleDetails: Record<string, {
       "Optimierte Bestandsplanung",
     ],
   },
-  "anwesenheitserfassung-rfid": {
+  "einsatz-uebungsmanagement": {
     highlights: [
-      "Automatische Erfassung per RFID-Chip",
-      "Echtzeit-Anwesenheitsübersicht",
-      "Integration mit Einsatz- und Übungsdokumentation",
-      "Auswertungen und Statistiken",
+      "Automatisierte Datenintegration von FMS-Status und Wetterdaten",
+      "Taktische Lagekarte (Wideboard) im PDF-Bericht",
+      "Intelligentes Aufgabenmanagement nach Einsätzen",
+      "Echtzeit-Bestandsführung von Verbrauchsmaterialien",
     ],
     benefits: [
-      "Zeitsparende automatische Erfassung",
-      "Präzise Dokumentation für Versicherungen",
-      "Nachweis von Übungsstunden",
-    ],
-  },
-  "warenbewegung": {
-    highlights: [
-      "Ein- und Ausgangsbuchungen",
-      "Verbrauchsmaterial-Tracking",
-      "Mindestbestandswarnungen",
-      "Lieferanten- und Bestellverwaltung",
-    ],
-    benefits: [
-      "Keine Engpässe bei wichtigem Material",
-      "Transparente Materialflüsse",
-      "Optimierte Lagerhaltung",
+      "KI-gestützte Berichtserstellung in Rekordzeit",
+      "Professionelle Einsatzdokumentation",
+      "Automatische Ressourcen-Nachverfolgung",
     ],
   },
   "mannschaftsverwaltung": {
     highlights: [
       "Mitgliederverwaltung mit allen Stammdaten",
-      "Lehrgänge und Qualifikationen",
-      "Dienstgrade und Funktionen",
-      "Ablaufüberwachung für Zertifikate",
+      "Lehrgänge, Qualifikationen und Dienstgrade",
+      "Kompetenz-Matrix für Spezialqualifikationen",
+      "Verfügbarkeits-Prognose nach Tageszeit und Wochentag",
     ],
     benefits: [
       "Alle Personaldaten zentral verfügbar",
@@ -78,43 +78,134 @@ const moduleDetails: Record<string, {
       "Qualifikationsübersicht für Einsatzplanung",
     ],
   },
-  "wartungsmanagement": {
+  "kiosk-modus": {
     highlights: [
-      "Wartungsplanung mit Kalenderansicht",
-      "Automatische Fälligkeitsberechnung",
-      "Wartungshistorie für jedes Gerät",
-      "Zuständigkeiten und Verantwortlichkeiten",
+      "Smart Access via RFID-Chip, PIN oder dynamischem QR-Code",
+      "Geführte Wizards für Fahrtenbuch und Mängelmeldungen",
+      "Persönlicher Bereich mit Atemschutz-Nachweisen",
+      "Hallen-Monitor mit Live-Einsatzdaten und Wetterradar",
     ],
     benefits: [
-      "Keine vergessenen Wartungen",
-      "Verlängerte Gerätelebensdauer",
-      "Professionelle Wartungsdokumentation",
+      "Intuitive Bedienung ohne Schulung",
+      "Optimiert für Tablets und Touchscreens",
+      "Akzeptanz bei allen Kameraden",
     ],
   },
-  "maengelmelder": {
+  "ki-integration": {
     highlights: [
-      "Einfache Mängelmeldung im Kiosk-Modus",
-      "Fotodokumentation von Schäden",
-      "Status-Tracking bis zur Behebung",
-      "Benachrichtigung der Verantwortlichen",
+      "Intelligente Besetzungsanalyse und Personalplanung",
+      "Automatisierte Lehrgangs-Vorschläge",
+      "KI-generierte Einsatzberichte",
+      "Smarte Ausrüstungsvorschläge basierend auf Nutzung",
     ],
     benefits: [
-      "Schnelle Erfassung durch jeden Kameraden",
-      "Transparenter Bearbeitungsstand",
-      "Keine verlorenen Mängelmeldungen",
+      "Zeitersparnis durch Automatisierung",
+      "Datengestützte Entscheidungen",
+      "Proaktive Personalentwicklung",
+    ],
+  },
+  "befoerderungssystem": {
+    highlights: [
+      "Automatische Beförderungsvorschläge nach BW-Richtlinien",
+      "Überwachung von Dienstzeiten und Lehrgängen",
+      "Verwaltung von Leistungsabzeichen und Ehrungen",
+      "Digitale Medaillenvitrine in der App",
+    ],
+    benefits: [
+      "Systematische Laufbahnplanung",
+      "Keine vergessenen Beförderungen",
+      "Wertschätzung der Kameraden",
+    ],
+  },
+  "qualifikationen": {
+    highlights: [
+      "Verknüpfung von Übungsteilnahmen mit Qualifikationen",
+      "Automatischer Erhaltungs-Status von Fähigkeiten",
+      "Ablaufüberwachung für Zertifikate",
+      "Fähigkeitsmatrix pro Kamerad",
+    ],
+    benefits: [
+      "Automatische Qualifikationsnachweise",
+      "Frühzeitige Warnung vor Ablauf",
+      "Lückenlose Nachweisführung",
+    ],
+  },
+  "objektplaene": {
+    highlights: [
+      "DIN 14095 konforme Einsatzpläne mit Kartenintegration",
+      "Automatische GPS-basierte Bereitstellung bei Alarmierung",
+      "Sofortiger Zugriff auf BMA-Zentralen und FSD-Informationen",
+      "Compliance-Monitor für Revisionsfristen",
+    ],
+    benefits: [
+      "Einsatzrelevante Infos dort, wo sie gebraucht werden",
+      "Mobile Dokumenteneinsicht am Einsatz-Tablet",
+      "Systematische Überwachung nach Normen",
+    ],
+  },
+  "wasserkarte": {
+    highlights: [
+      "Intelligente OSM-Kartenlayer mit Prüfstatus",
+      "Farbcodierte Hydranten nach Zustand",
+      "Adresssuche und Standortfilter",
+      "Integration mit Einsatzplanung",
+    ],
+    benefits: [
+      "Schnelle Wasserversorgung am Einsatzort",
+      "Übersicht über alle Wasserentnahmestellen",
+      "Prüfstatus auf einen Blick",
+    ],
+  },
+  "atemschutzueberwachung": {
+    highlights: [
+      "Digitale Überwachungstafel mit Timern",
+      "Druck-Tracking für alle AGT-Trupps",
+      "Echtzeit-Statusanzeige",
+      "Automatische Alarmierung bei Grenzwerten",
+    ],
+    benefits: [
+      "Maximale Sicherheit für Atemschutzgeräteträger",
+      "Digitalisierung der Überwachung",
+      "Lückenlose Protokollierung",
+    ],
+  },
+  "brandsicherheitswachen": {
+    highlights: [
+      "Zentrale Klientenverwaltung für Veranstalter",
+      "Smart Invoicing mit automatischer Berechnung",
+      "Standardisierte Vorlagen für Einsatzprofile",
+      "Dokumentation und Abrechnung in einem System",
+    ],
+    benefits: [
+      "Professionelle Abwicklung kommunaler Aufgaben",
+      "Automatisierte Fakturierung",
+      "Effiziente Planung durch Vorlagen",
+    ],
+  },
+  "warenbewegung": {
+    highlights: [
+      "Globales Tracking mit automatisierten Rückmeldefristen",
+      "Dokumenten-Automatisierung für Lieferscheine",
+      "Ein- und Ausgangsbuchungen",
+      "Mindestbestandswarnungen",
+    ],
+    benefits: [
+      "Transparenz über alle Standorte hinweg",
+      "Lückenlose Materialdokumentation",
+      "Optimierte Lagerhaltung",
     ],
   },
   "fahrtenbuch": {
     highlights: [
-      "Digitale Fahrtenbuchführung",
+      "Digitale Fahrtenbuchführung für alle Fahrzeuge",
       "Kilometerstände und Tankungen",
       "Fahrerprotokoll und Einsatznachweise",
-      "Fahrzeugspezifische Auswertungen",
+      "Wartungsintervalle nach Kilometerstand",
     ],
     benefits: [
       "Lückenlose Fahrzeugdokumentation",
       "Einfache Kostenabrechnung",
-      "Wartungsintervalle nach Kilometerstand",
+      "Rechtskonformes digitales Fahrtenbuch",
     ],
   },
   "waescheverwaltung": {
@@ -130,43 +221,108 @@ const moduleDetails: Record<string, {
       "Hygiene- und Sicherheitsnachweis",
     ],
   },
-  "einsaetze-uebungen": {
+  "budget-finanzen": {
     highlights: [
-      "Einsatzdokumentation mit Zeiterfassung",
-      "Übungsplanung und -protokollierung",
-      "Teilnehmererfassung automatisch per RFID",
-      "Auswertungen nach Einsatzarten",
+      "Haushaltsplanung und Budgetüberwachung",
+      "Abteilungsbudgets mit Einzelnachweisen",
+      "Belegverwaltung und Kostenstellen",
+      "Auswertungen und Jahresabschlüsse",
     ],
     benefits: [
-      "Vollständige Einsatzstatistiken",
-      "Nachweis von Übungsstunden",
-      "Grundlage für Jahresberichte",
+      "Volle Kostentransparenz",
+      "Einfache Haushaltsplanung",
+      "Revisionssichere Belegführung",
+    ],
+  },
+  "digitaler-dienstausweis": {
+    highlights: [
+      "Wallet-Integration für Apple und Google Wallet",
+      "Öffentliches Verifikationsportal via QR-Code",
+      "NFC-Anmeldung an Kiosk-Terminals",
+      "PDF-Export für klassischen Ausweis",
+    ],
+    benefits: [
+      "Moderne digitale Identität",
+      "Sicherer Identitätsnachweis",
+      "Kontaktlose Anmeldung mit Smartphone",
+    ],
+  },
+  "berechtigungen": {
+    highlights: [
+      "Granulare RBAC-Matrix bis auf Feldebene",
+      "Lückenloses Audit-Log für Änderungen",
+      "Rollenverwaltung mit Vorlagen",
+      "Rechtssichere Protokollierung",
+    ],
+    benefits: [
+      "Schutz sensibler Daten",
+      "Compliance mit Datenschutzanforderungen",
+      "Nachvollziehbare Zugriffshistorie",
+    ],
+  },
+  "enterprise-integration": {
+    highlights: [
+      "Integrierter MQTT-Broker für IoT",
+      "Anbindung von Alarmierungssystemen",
+      "REST-API für externe Integrationen",
+      "Geo-redundante Infrastruktur",
+    ],
+    benefits: [
+      "Nahtlose Integration in bestehende Systeme",
+      "Automatisierung von Workflows",
+      "Hochverfügbarkeit und Ausfallsicherheit",
     ],
   },
   "benachrichtigungen": {
     highlights: [
-      "E-Mail-Benachrichtigungen",
-      "Erinnerungen vor Fälligkeiten",
+      "E-Mail-Benachrichtigungen und Reports",
+      "Kalender-Synchronisation via iCal",
       "Konfigurierbare Vorlaufzeiten",
       "Benachrichtigungshistorie",
     ],
     benefits: [
       "Keine vergessenen Termine",
       "Automatisierte Arbeitsabläufe",
-      "Entlastung des Gerätewarts",
+      "Integration in bestehende Kalender",
     ],
   },
-  "pdf-export": {
+  "berichte": {
     highlights: [
+      "Übersichten und Statistiken",
+      "Exportfunktionen in PDF und Excel",
       "Professionelle Protokoll-PDFs",
       "Individuelles Wappen/Logo",
-      "Sammelexporte und Berichte",
-      "Archivierungsfunktion",
     ],
     benefits: [
+      "Fundierte Entscheidungsgrundlagen",
       "Professionelle Außendarstellung",
-      "Einfache Weitergabe von Dokumenten",
-      "Langzeitarchivierung",
+      "Einfache Berichterstellung",
+    ],
+  },
+  "inventur": {
+    highlights: [
+      "Standort- und kategoriebasierte Inventurprüfungen",
+      "Soll-Ist-Abgleich am Tablet",
+      "Digitaler Inventur-Mode am Fahrzeug",
+      "Automatische Differenzlisten",
+    ],
+    benefits: [
+      "Effiziente Inventurdurchführung",
+      "Lückenlose Bestandserfassung",
+      "Schnelle Differenzanalyse",
+    ],
+  },
+  "lizenzverwaltung": {
+    highlights: [
+      "Zentrale Lizenzverwaltung",
+      "License-Server für Enterprise",
+      "Multi-Standort-Unterstützung",
+      "Automatische Updates",
+    ],
+    benefits: [
+      "Zentrale Administration",
+      "Flexible Skalierung",
+      "Transparente Lizenzübersicht",
     ],
   },
 };
@@ -202,7 +358,7 @@ const ModulDetail = () => {
         <section className="py-16 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
           <div className="container mx-auto px-4">
             <Link
-              to="/#funktionen"
+              to="/#features"
               className="inline-flex items-center text-muted-foreground hover:text-primary mb-6 transition-colors"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -248,7 +404,7 @@ const ModulDetail = () => {
                         <div className="w-3 h-3 rounded-full bg-green-500/60" />
                       </div>
                       <span className="text-xs text-muted-foreground ml-2">
-                        GerätewartPro – Dashboard
+                        resqio – Dashboard
                       </span>
                     </div>
                     <img
@@ -259,7 +415,7 @@ const ModulDetail = () => {
                   </CardContent>
                 </Card>
                 <p className="text-sm text-muted-foreground mt-4">
-                  Die Dashboard-Ansicht bietet vollständige Verwaltungsfunktionen für den Gerätewart.
+                  Die Dashboard-Ansicht bietet vollständige Verwaltungsfunktionen für Administratoren und Gerätewarte.
                 </p>
               </TabsContent>
               
@@ -273,7 +429,7 @@ const ModulDetail = () => {
                         <div className="w-3 h-3 rounded-full bg-green-500/60" />
                       </div>
                       <span className="text-xs text-muted-foreground ml-2">
-                        GerätewartPro – Kiosk-Modus
+                        resqio – Kiosk-Modus
                       </span>
                     </div>
                     <img
@@ -340,12 +496,12 @@ const ModulDetail = () => {
               Erleben Sie {feature.title} und alle weiteren Module in einer persönlichen Demo.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/#kontakt">
+              <Link to="/#contact">
                 <Button size="lg">
                   Demo anfragen
                 </Button>
               </Link>
-              <Link to="/#funktionen">
+              <Link to="/#features">
                 <Button variant="outline" size="lg">
                   Weitere Module ansehen
                 </Button>
