@@ -73,7 +73,7 @@ const ModulDetail = () => {
             <div className="lg:col-span-7 space-y-8">
               <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full ${colorConfig.bg} ${colorConfig.text} text-xs font-bold tracking-widest uppercase border ${colorConfig.border}`}>
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Enterprise Modul</span>
+                <span>RESQIO Modul</span>
               </div>
 
               <div className="space-y-4">
