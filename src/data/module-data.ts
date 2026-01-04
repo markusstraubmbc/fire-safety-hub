@@ -136,7 +136,7 @@ export const modules: Record<string, ModuleData> = {
         ],
         technicalDetails: [
             "Granulare Benachrichtigungshistorie für rechtssichere Nachweise",
-            "Optimierte Datenbankstrukturen für Großinventare (> 10.000 Assets)",
+            "Optimierte Datenbankstrukturen für maximale Performance",
             "Native Schnittstelle zur Mängelverwaltung für sofortige Instandsetzung"
         ],
         icon: Wrench,

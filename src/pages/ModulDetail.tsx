@@ -226,16 +226,9 @@ const ModulDetail = () => {
                       <ShieldCheck className="w-5 h-5 text-green-500" />
                       <div className="space-y-0.5">
                         <p className="text-xs font-bold text-foreground uppercase tracking-wider">Compliance</p>
-                        <p className="text-[10px] text-muted-foreground uppercase font-medium">DSGVO & DIN 14095 Ready</p>
+                        <p className="text-[10px] text-muted-foreground uppercase font-medium">DSGVO Ready</p>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Quick CTA */}
-                  <div className="mt-8">
-                    <Button variant="ghost" className="w-full h-12 rounded-xl text-primary hover:text-primary hover:bg-primary/10 border border-primary/20">
-                      Handbuch ansehen
-                    </Button>
                   </div>
                 </div>
               )}
