@@ -37,7 +37,7 @@ const PricingSection = () => {
         "Automatische Updates und Backups",
         "DSGVO konformes Hosting",
       ],
-      popular: true,
+      popular: false,
     },
     {
       name: "Individuell",
