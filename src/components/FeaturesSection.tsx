@@ -36,178 +36,119 @@ export interface Feature {
 }
 
 export const features: Feature[] = [
-  // Core Modules
-  {
-    icon: Gauge,
-    title: "Intelligente Kommandozentrale",
-    description:
-      "Dashboard mit Live-Bereitschafts-Monitor, vorausschauenden Analysen und proaktivem Warnsystem.",
-    slug: "kommandozentrale",
-  },
-  {
-    icon: Shield,
-    title: "Rechtssicheres Wartungsmanagement",
-    description:
-      "Prüffristen nach DGUV automatisiert. Geführte Checklisten mit Foto-Dokumentation direkt am Tablet.",
-    slug: "wartungsmanagement",
-  },
-  {
-    icon: ClipboardList,
-    title: "Ausrüstungsverwaltung",
-    description:
-      "Inventarisierung mit Barcodes, QR-Codes und Kategorisierung. Hierarchische Gerätebündel.",
-    slug: "ausruestungsverwaltung",
-  },
-  {
-    icon: Calendar,
-    title: "Einsatz- & Übungsmanagement 2.0",
-    description:
-      "KI-gestützte Dokumentation mit taktischen Lagekarten, Geocoding und automatisierten Berichten.",
-    slug: "einsatz-uebungsmanagement",
-  },
-  {
-    icon: Users,
-    title: "Mannschaftsverwaltung",
-    description:
-      "Personal, Teams, Schulungen und Anwesenheiten. Kompetenz-Matrix und Verfügbarkeits-Prognose.",
-    slug: "mannschaftsverwaltung",
-  },
-  {
-    icon: QrCode,
-    title: "Kiosk-Modus",
-    description:
-      "Tablet-optimiert mit RFID, PIN oder QR-Login. Geführte Workflows und persönlicher Bereich.",
-    slug: "kiosk-modus",
-  },
-  // KI & Analysen
-  {
-    icon: Brain,
-    title: "KI & AI Integration",
-    description:
-      "Intelligente Besetzungsanalyse, Lehrgangs-Vorschläge, automatisierte Berichte & Ausrüstungsvorschläge.",
-    slug: "ki-integration",
-  },
-  {
-    icon: Award,
-    title: "Beförderungs- & Ehrungssystem",
-    description:
-      "Automatische Beförderungsvorschläge nach BW-Richtlinien. Leistungsabzeichen und Dienstjahre.",
-    slug: "befoerderungssystem",
-  },
-  {
-    icon: GraduationCap,
-    title: "Automatisierte Qualifikationen",
-    description:
-      "Verknüpfung von Übungsteilnahmen mit automatischem Erhaltungs-Status von Fähigkeiten.",
-    slug: "qualifikationen",
-  },
-  // Einsatz & Sicherheit
+  // Highlight Functions
   {
     icon: Map,
-    title: "Digitale Objektpläne (DIN 14095)",
+    title: "Lagemonitor",
     description:
-      "Einsatzpläne mit Kartenintegration, Prüfzyklen und automatischer GPS-basierter Bereitstellung.",
-    slug: "objektplaene",
-  },
-  {
-    icon: Droplets,
-    title: "Wasserkarte & Hydranten",
-    description:
-      "Interaktive Hydrantenkarte mit Prüfstatus, BMA-Zentralen und Gefahrstoffdaten.",
-    slug: "wasserkarte",
+      "Echtzeit-Lagekarte mit taktischen Zeichen, Hydranten-Integration und Live-Einheiten-Tracking für optimale Koordination.",
+    slug: "lagemonitor",
   },
   {
     icon: AlertTriangle,
     title: "Atemschutzüberwachung",
     description:
-      "Digitale Überwachungstafel mit Timern und Druck-Tracking für maximale Sicherheit.",
+      "Digitale Überwachungstafel für Trupps unter Atemschutz. Mit automatischen Zeitrechnern und Druck-Warnsystem.",
     slug: "atemschutzueberwachung",
   },
   {
-    icon: Flame,
-    title: "Brandsicherheitswachen",
+    icon: FileText,
+    title: "Einsatzerfassung",
     description:
-      "Planung, Dokumentation und Abrechnung von Sicherheitswachen mit Smart Invoicing.",
-    slug: "brandsicherheitswachen",
+      "Lückenlose Dokumentation von Einsätzen und Übungen. KI-gestützte Berichterstellung und rechtssichere Archivierung.",
+    slug: "einsatzerfassung",
   },
-  // Logistik & Verwaltung
+  {
+    icon: Wrench,
+    title: "Gerätewartungen",
+    description:
+      "Zentrale Verwaltung aller Prüffristen. Geführte Checklisten nach DGUV/DIN direkt auf dem Tablet mit Foto-Beweis.",
+    slug: "wartungsmanagement",
+  },
+  {
+    icon: Users,
+    title: "Personalverwaltung",
+    description:
+      "Stammdaten, Qualifikationen und Beförderungen im Blick. Automatische Erinnerung an Lehrgangs-Auffrischungen.",
+    slug: "mannschaftsverwaltung",
+  },
+  // Further Core Modules
+  {
+    icon: Gauge,
+    title: "Dashboard",
+    description:
+      "Alle relevanten Kennzahlen auf einen Blick. Live-Status der Einsatzbereitschaft und anstehende Termine.",
+    slug: "kommandozentrale",
+  },
+  {
+    icon: ClipboardList,
+    title: "Ausrüstung",
+    description:
+      "Inventarisierung mit Barcodes und QR-Codes. Hierarchische Struktur für Fahrzeuge und Lager.",
+    slug: "ausruestungsverwaltung",
+  },
+  {
+    icon: QrCode,
+    title: "Kiosk-Modus",
+    description:
+      "Einfacher Zugang für die Mannschaft über RFID oder PIN. Schnelle Meldung von Defekten.",
+    slug: "kiosk-modus",
+  },
+  {
+    icon: Brain,
+    title: "KI & AI Integration",
+    description:
+      "Intelligente Unterstützung bei der Berichterstellung und vorausschauende Wartungsplanung.",
+    slug: "ki-integration",
+  },
+  {
+    icon: Map,
+    title: "Objektpläne",
+    description:
+      "Digitale Hinterlegung von Brandschutzplänen nach DIN 14095 mit GPS-Verknüpfung.",
+    slug: "objektplaene",
+  },
+  {
+    icon: Droplets,
+    title: "Wasserkarte",
+    description:
+      "Interaktive Karte aller Hydranten und Wasserentnahmestellen mit Prüfstatus.",
+    slug: "wasserkarte",
+  },
   {
     icon: Package,
-    title: "Warenbewegung & Logistik",
+    title: "Logistik",
     description:
-      "Lückenlose Dokumentation von Reparaturwegen, Lieferscheine und Übergabeprotokolle als PDF.",
+      "Lückenlose Dokumentation von Warenbewegungen und Materialausgaben.",
     slug: "warenbewegung",
   },
   {
     icon: Car,
     title: "Fahrtenbuch",
     description:
-      "Digitales Logbuch für alle Fahrzeuge mit Kilometerständen und Einsatznachweisen.",
+      "Digitales Logbuch für alle Fahrzeuge mit automatischer Kilometer-Erfassung.",
     slug: "fahrtenbuch",
   },
   {
     icon: Shirt,
-    title: "Wäscheverwaltung",
+    title: "Wäsche",
     description:
-      "Schutzkleidung-Inventar, Waschzyklen und Wäscheaufträge mit Lebensdauer-Tracking.",
+      "Verwaltung der Schutzkleidung mit Tracking von Waschzyklen und Lebensdauer.",
     slug: "waescheverwaltung",
   },
   {
     icon: CreditCard,
-    title: "Budget & Finanzen",
+    title: "Budget",
     description:
-      "Haushaltsplanung, Abteilungsbudgets und Belegverwaltung für volle Kostentransparenz.",
+      "Transparente Verwaltung von Finanzen, Abteilungsbudgets und Belegarchivierung.",
     slug: "budget-finanzen",
   },
-  // Digital & Enterprise
   {
     icon: UserCheck,
-    title: "Digitaler Dienstausweis",
+    title: "Dienstausweis",
     description:
-      "Wallet-Integration (Google/Apple), PDF-Export und öffentliches Verifikations-Portal.",
+      "Digitaler Dienstausweis mit Wallet-Integration und öffentlicher Verifikation.",
     slug: "digitaler-dienstausweis",
-  },
-  {
-    icon: Lock,
-    title: "RBAC Berechtigungen",
-    description:
-      "Granulare Rollen- und Rechteverwaltung mit lückenlosem Audit-Log.",
-    slug: "berechtigungen",
-  },
-  {
-    icon: Server,
-    title: "Enterprise MQTT & API",
-    description:
-      "Integrierter MQTT-Broker für IoT und Alarmierungssysteme. REST-API für Integrationen.",
-    slug: "enterprise-integration",
-  },
-  {
-    icon: Bell,
-    title: "E-Mail-Benachrichtigungen",
-    description:
-      "Automatische Wartungserinnerungen, Reports und Kalender-Synchronisation (iCal).",
-    slug: "benachrichtigungen",
-  },
-  {
-    icon: FileText,
-    title: "Dashboard & Berichte",
-    description:
-      "Übersichten, Statistiken, Exportfunktionen und professionelle PDF-Protokolle.",
-    slug: "berichte",
-  },
-  {
-    icon: Building2,
-    title: "Inventur-System",
-    description:
-      "Standort- und kategoriebasierte Inventurprüfungen mit Soll-Ist-Abgleich am Tablet.",
-    slug: "inventur",
-  },
-  {
-    icon: Wrench,
-    title: "Lizenzverwaltung",
-    description:
-      "Zentrale Lizenzverwaltung mit License-Server für Enterprise-Deployments.",
-    slug: "lizenzverwaltung",
   },
 ];
 
@@ -220,7 +161,7 @@ const FeaturesSection = () => {
             Alle Funktionen im Überblick
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            resqio vereint alle Prozesse in einer intuitiven, hochperformanten Plattform – 
+            resqio vereint alle Prozesse in einer intuitiven, hochperformanten Plattform –
             von der Geräteverwaltung bis zur KI-gestützten Personalplanung.
           </p>
         </div>

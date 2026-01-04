@@ -33,9 +33,9 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 leading-relaxed">
-            resqio ist mehr als nur Verwaltungssoftware – die intelligente Kommandozentrale 
-            für die moderne Feuerwehr. Von rechtssicherer Ausrüstungsprüfung über KI-optimierte 
-            Einsatznachbereitung bis zur vorausschauenden Personalplanung.
+            RESQIO ist mehr als nur Verwaltungssoftware – die intelligente Kommandozentrale
+            für die moderne Feuerwehr. Kontinuierliche Weiterentwicklung durch Kundenfeedback
+            auf neuste Technologie inkl. AI.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -51,24 +51,28 @@ const HeroSection = () => {
               variant="outline"
               size="lg"
               onClick={() => document.getElementById("features")?.scrollIntoView({ behavior: "smooth" })}
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8"
+              className="bg-white/10 text-white border-white/20 hover:bg-white/20 text-lg px-8 backdrop-blur-sm transition-all"
             >
-              Alle Features
+              Einblick in die Funktionen
             </Button>
           </div>
 
-          <div className="flex flex-wrap gap-6 mb-8">
-            <div className="flex items-center gap-2 text-primary-foreground/80">
-              <CheckCircle className="w-5 h-5 text-accent" />
-              <span>Cloud oder Self-hosted</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+            <div className="space-y-1">
+              <p className="text-2xl font-bold text-primary-foreground">2025</p>
+              <p className="text-sm text-primary-foreground/60">Im produktiven Einsatz</p>
             </div>
-            <div className="flex items-center gap-2 text-primary-foreground/80">
-              <Clock className="w-5 h-5 text-accent" />
-              <span>Sofort einsatzbereit</span>
+            <div className="space-y-1">
+              <p className="text-2xl font-bold text-primary-foreground">10.000+</p>
+              <p className="text-sm text-primary-foreground/60">Gegenstände verwaltet</p>
             </div>
-            <div className="flex items-center gap-2 text-primary-foreground/80">
+            <div className="space-y-1">
+              <p className="text-2xl font-bold text-primary-foreground">40+</p>
+              <p className="text-sm text-primary-foreground/60">Module im Einsatz</p>
+            </div>
+            <div className="space-y-1 text-primary-foreground/80 flex items-center gap-2">
               <Shield className="w-5 h-5 text-accent" />
-              <span>DSGVO-konform</span>
+              <span className="text-sm font-medium">DSGVO-konform</span>
             </div>
           </div>
 

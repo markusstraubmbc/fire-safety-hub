@@ -17,8 +17,8 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <Shield className="w-6 h-6 text-primary-foreground" />
+            <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
+              <img src="/src/assets/logo.jpg" alt="resqio Logo" className="w-full h-full object-cover" />
             </div>
             <span className="text-lg md:text-xl font-bold text-foreground">
               resq<span className="text-primary">io</span>
@@ -32,12 +32,6 @@ const Header = () => {
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Funktionen
-            </button>
-            <button
-              onClick={() => scrollToSection("screenshots")}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Screenshots
             </button>
             <button
               onClick={() => scrollToSection("pricing")}
@@ -74,12 +68,6 @@ const Header = () => {
               className="text-muted-foreground hover:text-foreground transition-colors text-left"
             >
               Funktionen
-            </button>
-            <button
-              onClick={() => scrollToSection("screenshots")}
-              className="text-muted-foreground hover:text-foreground transition-colors text-left"
-            >
-              Screenshots
             </button>
             <button
               onClick={() => scrollToSection("pricing")}

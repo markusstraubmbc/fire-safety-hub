@@ -9,8 +9,8 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <Shield className="w-5 h-5 text-primary-foreground" />
+            <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center">
+              <img src="/src/assets/logo.jpg" alt="resqio Logo" className="w-full h-full object-cover" />
             </div>
             <span className="text-lg font-bold text-background">
               resq<span className="text-primary">io</span>

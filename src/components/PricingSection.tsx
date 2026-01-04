@@ -10,52 +10,49 @@ const PricingSection = () => {
 
   const plans = [
     {
-      name: "Community",
+      name: "Bis 5.000 Einwohner",
       icon: Building,
-      focus: "< 10.000 Einwohner",
+      focus: "Gemeindegröße",
       price: "399 €",
-      period: "jährlich",
+      period: "monatlich",
       features: [
-        "Alle Kernfunktionen",
+        "Alle Kern-Features",
         "Unbegrenzte Benutzer",
-        "E-Mail-Support",
-        "Automatische Updates",
-        "DSGVO-konformes Hosting",
-        "Regelmäßige Backups",
+        "KI Features",
+        "Automatische Updates und Backups",
+        "DSGVO konformes Hosting",
       ],
       popular: false,
     },
     {
-      name: "Professional",
+      name: "Bis 10.000 Einwohner",
       icon: Rocket,
-      focus: "< 25.000 Einwohner",
+      focus: "Gemeindegröße",
       price: "599 €",
-      period: "jährlich",
+      period: "monatlich",
       features: [
-        "Alle Community-Features",
-        "KI-Funktionen",
-        "Erweiterte Berichte",
-        "Prioritäts-Support",
-        "Schulung & Einarbeitung",
-        "Individuelle Anpassungen",
-        "Kalender-Sync (iCal)",
+        "Alle Kern-Features",
+        "Unbegrenzte Benutzer",
+        "KI Features",
+        "Automatische Updates und Backups",
+        "DSGVO konformes Hosting",
       ],
       popular: true,
     },
     {
-      name: "Enterprise",
+      name: "Individuell",
       icon: Building2,
       focus: "Städte & Kreise",
       price: "Auf Anfrage",
       period: "",
       features: [
-        "Alle Professional-Features",
+        "Alle Kern-Features",
+        "Unbegrenzte Benutzer",
+        "KI Features",
+        "Automatische Updates und Backups",
+        "DSGVO konformes Hosting",
         "Multi-Standort-Verwaltung",
-        "MQTT & API-Integration",
-        "Dediziertes Hosting",
-        "SLA-Garantie",
-        "Persönlicher Account Manager",
-        "White-Label Option",
+        "Individuell exclusive Features",
       ],
       popular: false,
     },
@@ -69,18 +66,17 @@ const PricingSection = () => {
             Transparent & Fair
           </h2>
           <p className="text-lg text-muted-foreground">
-            Flexible Preismodelle, die sich an Ihrer Feuerwehrgröße orientieren. 
+            Bequeme monatliche Zahlweise, die sich an Ihrer Feuerwehrgröße orientiert.
             Alle Preise inklusive Updates, Support und optionalem Hosting.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {plans.map((plan, index) => (
-            <Card 
-              key={index} 
-              className={`bg-card relative overflow-hidden ${
-                plan.popular ? "border-2 border-primary" : "border-border"
-              }`}
+            <Card
+              key={index}
+              className={`bg-card relative overflow-hidden ${plan.popular ? "border-2 border-primary" : "border-border"
+                }`}
             >
               {plan.popular && (
                 <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-4 py-1 text-sm font-medium rounded-bl-lg">
@@ -119,11 +115,10 @@ const PricingSection = () => {
                 <Button
                   onClick={scrollToContact}
                   size="lg"
-                  className={`w-full ${
-                    plan.popular 
-                      ? "bg-primary text-primary-foreground hover:bg-primary/90" 
-                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                  }`}
+                  className={`w-full ${plan.popular
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                    }`}
                 >
                   {plan.price === "Auf Anfrage" ? "Kontakt aufnehmen" : "Demo anfragen"}
                 </Button>
