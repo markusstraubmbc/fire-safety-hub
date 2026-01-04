@@ -57,7 +57,7 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap gap-6 mb-8">
             <div className="flex items-center gap-2 text-primary-foreground/80">
               <CheckCircle className="w-5 h-5 text-accent" />
               <span>Cloud oder Self-hosted</span>
@@ -70,6 +70,14 @@ const HeroSection = () => {
               <Shield className="w-5 h-5 text-accent" />
               <span>DSGVO-konform</span>
             </div>
+          </div>
+
+          {/* Reference Badge */}
+          <div className="inline-flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-4 py-2">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+            <span className="text-primary-foreground/90 text-sm">
+              Bereits im Einsatz bei der Feuerwehr Walddorfhäslach
+            </span>
           </div>
         </div>
       </div>

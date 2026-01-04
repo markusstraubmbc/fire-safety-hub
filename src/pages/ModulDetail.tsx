@@ -6,8 +6,40 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { features } from "@/components/FeaturesSection";
-import screenshotDashboard from "@/assets/screenshot-dashboard.png";
-import screenshotKiosk from "@/assets/screenshot-kiosk.png";
+import screenshot1 from "@/assets/screenshot-1.jpg";
+import screenshot2 from "@/assets/screenshot-2.jpg";
+import screenshot3 from "@/assets/screenshot-3.jpg";
+import screenshot4 from "@/assets/screenshot-4.jpg";
+import screenshot5 from "@/assets/screenshot-5.jpg";
+import screenshot6 from "@/assets/screenshot-6.jpg";
+
+// Module-specific screenshot mapping
+const moduleScreenshots: Record<string, { dashboard: string; kiosk: string }> = {
+  "kommandozentrale": { dashboard: screenshot1, kiosk: screenshot2 },
+  "wartungsmanagement": { dashboard: screenshot3, kiosk: screenshot4 },
+  "ausruestungsverwaltung": { dashboard: screenshot5, kiosk: screenshot6 },
+  "einsatz-uebungsmanagement": { dashboard: screenshot1, kiosk: screenshot3 },
+  "mannschaftsverwaltung": { dashboard: screenshot2, kiosk: screenshot4 },
+  "kiosk-modus": { dashboard: screenshot4, kiosk: screenshot5 },
+  "ki-integration": { dashboard: screenshot1, kiosk: screenshot6 },
+  "befoerderungssystem": { dashboard: screenshot2, kiosk: screenshot3 },
+  "qualifikationen": { dashboard: screenshot3, kiosk: screenshot5 },
+  "objektplaene": { dashboard: screenshot4, kiosk: screenshot1 },
+  "wasserkarte": { dashboard: screenshot5, kiosk: screenshot2 },
+  "atemschutzueberwachung": { dashboard: screenshot6, kiosk: screenshot3 },
+  "brandsicherheitswachen": { dashboard: screenshot1, kiosk: screenshot4 },
+  "warenbewegung": { dashboard: screenshot2, kiosk: screenshot5 },
+  "fahrtenbuch": { dashboard: screenshot3, kiosk: screenshot6 },
+  "waescheverwaltung": { dashboard: screenshot4, kiosk: screenshot1 },
+  "budget-finanzen": { dashboard: screenshot5, kiosk: screenshot2 },
+  "digitaler-dienstausweis": { dashboard: screenshot6, kiosk: screenshot3 },
+  "berechtigungen": { dashboard: screenshot1, kiosk: screenshot4 },
+  "enterprise-integration": { dashboard: screenshot2, kiosk: screenshot5 },
+  "benachrichtigungen": { dashboard: screenshot3, kiosk: screenshot6 },
+  "berichte": { dashboard: screenshot4, kiosk: screenshot1 },
+  "inventur": { dashboard: screenshot5, kiosk: screenshot2 },
+  "lizenzverwaltung": { dashboard: screenshot6, kiosk: screenshot3 },
+};
 
 const moduleDetails: Record<string, {
   highlights: string[];
@@ -331,6 +363,11 @@ const ModulDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const feature = features.find((f) => f.slug === slug);
   const details = slug ? moduleDetails[slug] : null;
+  
+  // Get module-specific screenshots or fallback
+  const screenshots = slug && moduleScreenshots[slug] 
+    ? moduleScreenshots[slug] 
+    : { dashboard: screenshot1, kiosk: screenshot2 };
 
   if (!feature || !details) {
     return (
@@ -408,7 +445,7 @@ const ModulDetail = () => {
                       </span>
                     </div>
                     <img
-                      src={screenshotDashboard}
+                      src={screenshots.dashboard}
                       alt={`${feature.title} im Dashboard`}
                       className="w-full"
                     />
@@ -433,7 +470,7 @@ const ModulDetail = () => {
                       </span>
                     </div>
                     <img
-                      src={screenshotKiosk}
+                      src={screenshots.kiosk}
                       alt={`${feature.title} im Kiosk-Modus`}
                       className="w-full"
                     />
