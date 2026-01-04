@@ -23,6 +23,10 @@ import {
   Droplets,
   Server,
   Lock,
+  FolderSearch,
+  Link2,
+  BarChart3,
+  ShieldCheck,
   LucideIcon,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -149,6 +153,30 @@ export const features: Feature[] = [
     description:
       "Digitaler Dienstausweis mit Wallet-Integration und öffentlicher Verifikation.",
     slug: "digitaler-dienstausweis",
+  },
+  {
+    icon: FolderSearch,
+    title: "Digitales Wissensmanagement",
+    description: "Zentrale Ablage für Dienstanweisungen und Pläne. Inklusive rechtssicherer Lesebestätigungen.",
+    slug: "dokumentenmanagement",
+  },
+  {
+    icon: Link2,
+    title: "Schnittstellen & Konnektivität",
+    description: "Native Anbindung von Partnersystemen via MQTT und REST-API. Volle Integration in Ihre IT.",
+    slug: "schnittstellen",
+  },
+  {
+    icon: BarChart3,
+    title: "Strategisches Reporting",
+    description: "Automatisierte Berichte für Kommunen. Analyse von Einsatzschwerpunkten für die Bedarfsplanung.",
+    slug: "reporting",
+  },
+  {
+    icon: Building2,
+    title: "Vorbeugender Brandschutz",
+    description: "Erfassung von Brandverhütungsschauen. Automatisierte Mängelbescheide und Revisionsfristen.",
+    slug: "brandschutz",
   },
 ];
 
