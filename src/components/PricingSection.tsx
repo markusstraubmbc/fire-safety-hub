@@ -10,11 +10,11 @@ const PricingSection = () => {
 
   const plans = [
     {
-      name: "Bis 5.000 Einwohner",
+      name: "Basis",
       icon: Building,
-      focus: "Gemeindegröße",
-      price: "399 €",
-      period: "monatlich",
+      focus: "Kleine Feuerwehren",
+      price: "Auf Anfrage",
+      period: "",
       features: [
         "Alle Kern-Features",
         "Unbegrenzte Benutzer",
@@ -25,11 +25,11 @@ const PricingSection = () => {
       popular: false,
     },
     {
-      name: "Bis 10.000 Einwohner",
+      name: "Premium",
       icon: Rocket,
-      focus: "Gemeindegröße",
-      price: "599 €",
-      period: "monatlich",
+      focus: "Mittelgroße Feuerwehren",
+      price: "Auf Anfrage",
+      period: "",
       features: [
         "Alle Kern-Features",
         "Unbegrenzte Benutzer",
@@ -37,10 +37,10 @@ const PricingSection = () => {
         "Automatische Updates und Backups",
         "DSGVO konformes Hosting",
       ],
-      popular: false,
+      popular: true,
     },
     {
-      name: "Individuell",
+      name: "Enterprise",
       icon: Building2,
       focus: "Städte & Kreise",
       price: "Auf Anfrage",
@@ -63,11 +63,11 @@ const PricingSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Transparent & Fair
+            Individuell & Bedarfsgerecht
           </h2>
           <p className="text-lg text-muted-foreground">
-            Bequeme monatliche Zahlweise, die sich an Ihrer Feuerwehrgröße orientiert.
-            Alle Preise inklusive Updates, Support und optionalem Hosting.
+            Unsere Lösungen passen sich Ihrer Feuerwehr an. Kontaktieren Sie uns für ein
+            maßgeschneidertes Angebot inklusive Updates, Support und Hosting.
           </p>
         </div>
 
@@ -122,7 +122,7 @@ const PricingSection = () => {
                     : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                     }`}
                 >
-                  {plan.price === "Auf Anfrage" ? "Kontakt aufnehmen" : "Demo anfragen"}
+                  {plan.price === "Auf Anfrage" ? "Kontakt aufnehmen" : "Angebot anfragen"}
                 </Button>
               </CardContent>
             </Card>
