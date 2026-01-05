@@ -41,8 +41,8 @@ const Header = memo(() => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || mobileMenuOpen
-        ? "bg-background/95 backdrop-blur-lg border-b border-border py-2 shadow-lg shadow-black/5"
-        : "bg-transparent py-4"
+      ? "bg-background/95 backdrop-blur-lg border-b border-border py-2 shadow-lg shadow-black/5"
+      : "bg-transparent py-4"
       }`}>
       {/* Scroll Progress Bar */}
       <div
@@ -99,7 +99,7 @@ const Header = memo(() => {
               Modelle
             </button>
             <Button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => scrollToSection("kontakt")}
               className="bg-primary text-primary-foreground hover:bg-primary/90"
             >
               Angebot anfragen
@@ -153,7 +153,7 @@ const Header = memo(() => {
               Modelle
             </button>
             <Button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => scrollToSection("kontakt")}
               className="bg-primary text-primary-foreground hover:bg-primary/90 w-full font-bold"
             >
               Angebot anfragen

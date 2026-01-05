@@ -4,7 +4,7 @@ import heroImage from "@/assets/german_firefighters_fixed_bg.png";
 
 const HeroSection = () => {
   const scrollToContact = () => {
-    const element = document.getElementById("contact");
+    const element = document.getElementById("kontakt");
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -50,7 +50,7 @@ const HeroSection = () => {
             <Button
               variant="outline"
               size="lg"
-              onClick={() => document.getElementById("features")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => document.getElementById("funktionen")?.scrollIntoView({ behavior: "smooth" })}
               className="bg-white/10 text-white border-white/20 hover:bg-white/20 text-lg px-8 backdrop-blur-sm transition-all"
             >
               Einblick in die Module

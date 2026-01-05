@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const PricingSection = () => {
   const scrollToContact = () => {
-    const element = document.getElementById("contact");
+    const element = document.getElementById("kontakt");
     element?.scrollIntoView({ behavior: "smooth" });
   };
 

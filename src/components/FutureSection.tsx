@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 
 const FutureSection = () => {
     const scrollToContact = () => {
-        const element = document.getElementById("contact");
+        const element = document.getElementById("kontakt");
         element?.scrollIntoView({ behavior: "smooth" });
     };
 
