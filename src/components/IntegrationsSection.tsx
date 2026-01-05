@@ -12,8 +12,65 @@ const IntegrationsSection = () => {
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-                    {/* Left Column: Context & Copy */}
-                    <div className="space-y-8">
+                    {/* Left Column: Visual */}
+                    <div className="relative order-2 lg:order-1">
+                        {/* Background Glows */}
+                        <div className="absolute -inset-10 bg-primary/20 rounded-full blur-[120px] opacity-20 animate-pulse" />
+                        <div className="absolute -inset-10 bg-red-500/10 rounded-full blur-[100px] opacity-10 animate-pulse" style={{ animationDelay: '1.5s' }} />
+
+                        <div className="relative group">
+                            <div className="absolute -inset-0.5 bg-gradient-to-tr from-primary/30 to-red-500/20 rounded-[2.5rem] blur opacity-40 group-hover:opacity-100 transition duration-1000" />
+                            <div className="relative bg-card rounded-[2.5rem] border border-border p-2 overflow-hidden shadow-2xl">
+                                <img
+                                    src={fireTechVisual}
+                                    alt="Digital Firefighter Technical Connectivity Hub"
+                                    className="rounded-[2rem] w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
+                                />
+
+                                {/* Flow Animation Overlay */}
+                                <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 800" fill="none">
+                                        {/* Horizontal Flow Paths (Isometric) */}
+                                        <path d="M150 500 L400 350 M400 350 L650 200" stroke="transparent" id="path1" />
+                                        <path d="M150 300 L400 450 M400 450 L650 600" stroke="transparent" id="path2" />
+
+                                        {/* Animated Packets */}
+                                        {[0, 1, 2].map((i) => (
+                                            <circle key={`p1-${i}`} r="3" fill="hsl(var(--primary))" className="blur-[1px]">
+                                                <animateMotion dur="3s" repeatCount="indefinite" begin={`${i * 1}s`}>
+                                                    <mpath href="#path1" />
+                                                </animateMotion>
+                                                <animate attributeName="opacity" values="0;1;1;0" dur="3s" repeatCount="indefinite" begin={`${i * 1}s`} />
+                                            </circle>
+                                        ))}
+
+                                        {[0, 1, 2].map((i) => (
+                                            <circle key={`p2-${i}`} r="3" fill="hsl(200 100% 50%)" className="blur-[1px]">
+                                                <animateMotion dur="4s" repeatCount="indefinite" begin={`${i * 1.3}s`}>
+                                                    <mpath href="#path2" />
+                                                </animateMotion>
+                                                <animate attributeName="opacity" values="0;1;1;0" dur="4s" repeatCount="indefinite" begin={`${i * 1.3}s`} />
+                                            </circle>
+                                        ))}
+
+                                        {/* Scanner effect */}
+                                        <rect width="100%" height="2" fill="url(#scanGradient)" className="animate-[scanner_4s_linear_infinite]" />
+                                        <defs>
+                                            <linearGradient id="scanGradient" x1="0" y1="0" x2="0" y2="1">
+                                                <stop offset="0%" stopColor="transparent" />
+                                                <stop offset="50%" stopColor="hsl(var(--primary) / 0.2)" />
+                                                <stop offset="100%" stopColor="transparent" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right Column: Context & Copy */}
+                    <div className="space-y-8 order-1 lg:order-2">
                         <div className="space-y-4">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider">
                                 <Radio className="w-3.5 h-3.5" />
@@ -52,37 +109,6 @@ const IntegrationsSection = () => {
                                     <span className="text-sm font-bold text-primary">Ihre Systeme anbinden</span>
                                     <ArrowRight className="w-4 h-4 text-primary group-hover/btn:translate-x-1 transition-transform" />
                                 </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Column: Visual */}
-                    <div className="relative">
-                        {/* Background Glows */}
-                        <div className="absolute -inset-10 bg-primary/20 rounded-full blur-[120px] opacity-20 animate-pulse" />
-                        <div className="absolute -inset-10 bg-red-500/10 rounded-full blur-[100px] opacity-10 animate-pulse" style={{ animationDelay: '1.5s' }} />
-
-                        <div className="relative group">
-                            <div className="absolute -inset-0.5 bg-gradient-to-tr from-primary/30 to-red-500/20 rounded-[2.5rem] blur opacity-40 group-hover:opacity-100 transition duration-1000" />
-                            <div className="relative bg-card rounded-[2.5rem] border border-border p-2 overflow-hidden shadow-2xl">
-                                <img
-                                    src={fireTechVisual}
-                                    alt="Digital Firefighter Technical Connectivity Hub"
-                                    className="rounded-[2rem] w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
-                                />
-
-                                {/* Overlay Tech Specs */}
-                                <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
-                                    <div className="bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-white/10 flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
-                                            <Cpu className="w-5 h-5 text-primary" />
-                                        </div>
-                                        <div>
-                                            <p className="text-[10px] text-white/60 uppercase font-bold tracking-widest">Protocol</p>
-                                            <p className="text-sm font-bold text-white">MQTT 5.0 / WebSockets</p>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
