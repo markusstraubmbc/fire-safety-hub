@@ -87,14 +87,17 @@ const Datenschutz = () => {
 
                 <section>
                   <h2 className="text-xl font-semibold text-foreground mb-3">
-                    5. SSL-Verschlüsselung
+                    5. Datensicherheit und Verschlüsselung
                   </h2>
                   <p className="text-muted-foreground text-sm">
                     Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der
-                    Übertragung vertraulicher Inhalte eine SSL-Verschlüsselung.
+                    Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung.
                     Eine verschlüsselte Verbindung erkennen Sie daran, dass die
                     Adresszeile des Browsers von "http://" auf "https://" wechselt
-                    und an dem Schloss-Symbol in Ihrer Browserzeile.
+                    und an dem Schloss-Symbol in Ihrer Browserzeile. Wir setzen
+                    modernste Sicherheitsstandards ein, um Ihre Daten vor unbefugtem
+                    Zugriff zu schützen und einen sicheren Betrieb der Website zu
+                    gewährleisten.
                   </p>
                 </section>
 
@@ -103,9 +106,31 @@ const Datenschutz = () => {
                     6. Hosting
                   </h2>
                   <p className="text-muted-foreground text-sm">
-                    Die RESQIO Software wird auf Servern in Deutschland gehostet.
-                    Wir gewährleisten damit die Einhaltung der DSGVO und bieten
-                    höchste Sicherheitsstandards für Ihre Daten.
+                    Die RESQIO Website wird auf sicheren Servern in Deutschland gehostet.
+                    Wir gewährleisten damit die Einhaltung der strengen Vorgaben der
+                    DSGVO und bieten höchste Sicherheitsstandards für den Abruf
+                    unserer Inhalte.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold text-foreground mb-3">
+                    7. Inhalte und Haftungsausschluss
+                  </h2>
+                  <p className="text-muted-foreground text-sm">
+                    Die auf dieser Website bereitgestellten Inhalte, einschließlich
+                    der Texte sowie der visuellen Darstellungen und Bilder, wurden
+                    unter Zuhilfenahme systemgestützter Verfahren und künstlicher
+                    Intelligenz erstellt oder optimiert. Wir bemühen uns um
+                    höchstmögliche Genauigkeit und Aktualität der Informationen.
+                  </p>
+                  <p className="text-muted-foreground text-sm mt-2">
+                    Dennoch übernehmen wir keine Gewähr für die Richtigkeit,
+                    Vollständigkeit oder Aktualität der bereitgestellten Informationen.
+                    Für etwaige Falschangaben oder daraus resultierende Schäden wird
+                    keine Haftung übernommen. Aus den Inhalten dieser Website lassen
+                    sich keine Rechtsansprüche ableiten. Die Nutzung der
+                    bereitgestellten Informationen erfolgt auf eigene Gefahr.
                   </p>
                 </section>
               </CardContent>
