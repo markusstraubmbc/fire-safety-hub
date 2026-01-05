@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Clock, CheckCircle } from "lucide-react";
-import heroImage from "@/assets/hero-firefighters.jpg";
+import heroImage from "@/assets/german_firefighters_fixed_bg.png";
 
 const HeroSection = () => {
   const scrollToContact = () => {
