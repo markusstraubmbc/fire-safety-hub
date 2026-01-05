@@ -1,4 +1,4 @@
-import { Mail, MapPin, Radio, BellRing, ShieldCheck, Heart } from "lucide-react";
+import { Mail, MapPin, Radio, BellRing, ShieldCheck, Heart, Phone } from "lucide-react";
 
 const ContactSection = () => {
   return (
@@ -32,6 +32,11 @@ const ContactSection = () => {
                     <Mail className="w-3.5 h-3.5" />
                     support@resqio.de
                   </a>
+                  <a href="tel:+4916096256376" className="text-primary hover:underline text-sm font-bold flex items-center gap-1 mt-2">
+                    <Phone className="w-3.5 h-3.5" />
+                    0160 96256376
+                  </a>
+                  <p className="text-[11px] text-muted-foreground mt-0.5 whitespace-nowrap">... oder rufen Sie einfach direkt an</p>
                 </div>
               </div>
 
