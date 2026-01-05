@@ -12,6 +12,7 @@ Alle relevanten Änderungen an diesem Projekt werden in dieser Datei dokumentier
 
 ### Hinzugefügt
 - **Technische "Eye-Catcher":** Integration von Schlagworten wie MQTT, REST API und Microservices zur Demonstration technischer Modernität.
+- **Header-Kontrast & Lesbarkeit:** Dynamische Farbanpassung der Navigation (Weiß auf dunklem Hero-Bild, Theme-Farben nach Scroll) für perfekte Lesbarkeit in jeder Position.
 - **Funkmelder-Konnektivität & Profi-Copy:** Kontakt-Sektion mit Pager-Symbolen, Alarm-Interaktionen und feuerwehr-spezifischem Wording ("digitale Wache", "Augenhöhe") optimiert.
 - **Performance Header & Scroll-Progress:** Header-Komponente technisch optimiert (React.memo, passive listener) und visuell mit einer Scroll-Fortschrittsanzeige veredelt.
 - **Middleware-Service:** Explizites Angebot zur Entwicklung individueller Middleware-Lösungen für die System-Integration.

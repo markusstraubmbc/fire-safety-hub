@@ -40,9 +40,9 @@ const Header = memo(() => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-      ? "bg-background/80 backdrop-blur-lg border-b border-border py-2 shadow-lg shadow-black/5"
-      : "bg-transparent py-4"
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || mobileMenuOpen
+        ? "bg-background/95 backdrop-blur-lg border-b border-border py-2 shadow-lg shadow-black/5"
+        : "bg-transparent py-4"
       }`}>
       {/* Scroll Progress Bar */}
       <div
@@ -55,7 +55,8 @@ const Header = memo(() => {
             <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
               <img src="/logo.jpg" alt="RESQIO Logo" className="w-full h-full object-cover" />
             </div>
-            <span className="text-lg md:text-xl font-bold text-foreground">
+            <span className={`text-lg md:text-xl font-bold transition-colors ${isScrolled ? "text-foreground" : "text-white"
+              }`}>
               RESQ<span className="text-primary">IO</span>
             </span>
           </Link>
@@ -64,31 +65,36 @@ const Header = memo(() => {
           <nav className="hidden md:flex items-center gap-8">
             <button
               onClick={() => scrollToSection("home")}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className={`transition-colors font-medium ${isScrolled ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+                }`}
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection("funktionen")}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className={`transition-colors font-medium ${isScrolled ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+                }`}
             >
               Funktionen
             </button>
             <button
               onClick={() => scrollToSection("software-showcase")}
-              className="text-muted-foreground hover:text-foreground transition-colors text-nowrap"
+              className={`transition-colors font-medium text-nowrap ${isScrolled ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+                }`}
             >
               Software Einblicke
             </button>
             <button
               onClick={() => scrollToSection("future")}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className={`transition-colors font-medium ${isScrolled ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+                }`}
             >
               Zukunft
             </button>
             <button
               onClick={() => scrollToSection("pricing")}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className={`transition-colors font-medium ${isScrolled ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+                }`}
             >
               Modelle
             </button>
@@ -106,9 +112,9 @@ const Header = memo(() => {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
+              <X className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
             ) : (
-              <Menu className="w-6 h-6 text-foreground" />
+              <Menu className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
             )}
           </button>
         </div>
@@ -118,37 +124,37 @@ const Header = memo(() => {
           <nav className="md:hidden py-4 border-t border-border flex flex-col gap-4">
             <button
               onClick={() => scrollToSection("home")}
-              className="text-muted-foreground hover:text-foreground transition-colors text-left"
+              className="text-foreground hover:text-primary transition-colors text-left font-medium"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection("funktionen")}
-              className="text-muted-foreground hover:text-foreground transition-colors text-left"
+              className="text-foreground hover:text-primary transition-colors text-left font-medium"
             >
               Funktionen
             </button>
             <button
               onClick={() => scrollToSection("software-showcase")}
-              className="text-muted-foreground hover:text-foreground transition-colors text-left"
+              className="text-foreground hover:text-primary transition-colors text-left font-medium"
             >
               Software Einblicke
             </button>
             <button
               onClick={() => scrollToSection("future")}
-              className="text-muted-foreground hover:text-foreground transition-colors text-left"
+              className="text-foreground hover:text-primary transition-colors text-left font-medium"
             >
               Zukunft
             </button>
             <button
               onClick={() => scrollToSection("pricing")}
-              className="text-muted-foreground hover:text-foreground transition-colors text-left"
+              className="text-foreground hover:text-primary transition-colors text-left font-medium"
             >
               Modelle
             </button>
             <Button
               onClick={() => scrollToSection("contact")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 w-full"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 w-full font-bold"
             >
               Angebot anfragen
             </Button>
