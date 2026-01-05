@@ -41,22 +41,40 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             <button
-              onClick={() => scrollToSection("features")}
+              onClick={() => scrollToSection("home")}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Home
+            </button>
+            <button
+              onClick={() => scrollToSection("funktionen")}
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Funktionen
             </button>
             <button
+              onClick={() => scrollToSection("software-showcase")}
+              className="text-muted-foreground hover:text-foreground transition-colors text-nowrap"
+            >
+              Software Einblicke
+            </button>
+            <button
+              onClick={() => scrollToSection("future")}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Zukunft
+            </button>
+            <button
               onClick={() => scrollToSection("pricing")}
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
-              Preise
+              Modelle
             </button>
             <Button
               onClick={() => scrollToSection("contact")}
               className="bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              Demo anfragen
+              Angebot anfragen
             </Button>
           </nav>
 
@@ -77,22 +95,40 @@ const Header = () => {
         {mobileMenuOpen && (
           <nav className="md:hidden py-4 border-t border-border flex flex-col gap-4">
             <button
-              onClick={() => scrollToSection("features")}
+              onClick={() => scrollToSection("home")}
+              className="text-muted-foreground hover:text-foreground transition-colors text-left"
+            >
+              Home
+            </button>
+            <button
+              onClick={() => scrollToSection("funktionen")}
               className="text-muted-foreground hover:text-foreground transition-colors text-left"
             >
               Funktionen
             </button>
             <button
+              onClick={() => scrollToSection("software-showcase")}
+              className="text-muted-foreground hover:text-foreground transition-colors text-left"
+            >
+              Software Einblicke
+            </button>
+            <button
+              onClick={() => scrollToSection("future")}
+              className="text-muted-foreground hover:text-foreground transition-colors text-left"
+            >
+              Zukunft
+            </button>
+            <button
               onClick={() => scrollToSection("pricing")}
               className="text-muted-foreground hover:text-foreground transition-colors text-left"
             >
-              Preise
+              Modelle
             </button>
             <Button
               onClick={() => scrollToSection("contact")}
               className="bg-primary text-primary-foreground hover:bg-primary/90 w-full"
             >
-              Demo anfragen
+              Angebot anfragen
             </Button>
           </nav>
         )}

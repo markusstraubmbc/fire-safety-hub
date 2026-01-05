@@ -10,25 +10,10 @@ const PricingSection = () => {
 
   const plans = [
     {
-      name: "Basis",
-      icon: Building,
-      focus: "Kleine Feuerwehren",
-      price: "Auf Anfrage",
-      period: "",
-      features: [
-        "Alle Kern-Features",
-        "Unbegrenzte Benutzer",
-        "KI Features",
-        "Automatische Updates und Backups",
-        "DSGVO konformes Hosting",
-      ],
-      popular: false,
-    },
-    {
-      name: "Premium",
+      name: "Standard",
       icon: Rocket,
-      focus: "Mittelgroße Feuerwehren",
-      price: "Auf Anfrage",
+      focus: "All-in-One Lösung",
+      price: "",
       period: "",
       features: [
         "Alle Kern-Features",
@@ -40,10 +25,10 @@ const PricingSection = () => {
       popular: true,
     },
     {
-      name: "Enterprise",
+      name: "Individuell",
       icon: Building2,
       focus: "Städte & Kreise",
-      price: "Auf Anfrage",
+      price: "",
       period: "",
       features: [
         "Alle Kern-Features",
@@ -71,7 +56,7 @@ const PricingSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {plans.map((plan, index) => (
             <Card
               key={index}
@@ -93,14 +78,16 @@ const PricingSection = () => {
                 <p className="text-sm text-muted-foreground">
                   {plan.focus}
                 </p>
-                <div className="mt-4">
-                  <span className={`font-bold text-foreground ${plan.price === "Auf Anfrage" ? "text-xl" : "text-3xl"}`}>
-                    {plan.price}
-                  </span>
-                  {plan.period && (
-                    <span className="text-muted-foreground ml-1">/ {plan.period}</span>
-                  )}
-                </div>
+                {plan.price && (
+                  <div className="mt-4">
+                    <span className={`font-bold text-foreground ${plan.price === "Auf Anfrage" ? "text-xl" : "text-3xl"}`}>
+                      {plan.price}
+                    </span>
+                    {plan.period && (
+                      <span className="text-muted-foreground ml-1">/ {plan.period}</span>
+                    )}
+                  </div>
+                )}
               </CardHeader>
               <CardContent className="pb-8">
                 <ul className="space-y-3 mb-8">
@@ -122,7 +109,7 @@ const PricingSection = () => {
                     : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                     }`}
                 >
-                  {plan.price === "Auf Anfrage" ? "Kontakt aufnehmen" : "Angebot anfragen"}
+                  Angebot anfragen
                 </Button>
               </CardContent>
             </Card>
