@@ -24,7 +24,7 @@ const HeroSection = () => {
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 bg-primary/20 text-primary-foreground px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Shield className="w-4 h-4" />
-            Das digitale Rückgrat Ihrer Feuerwehr
+            Das digitale Rückgrat Ihrer Wehr – von Kameraden für Kameraden
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
@@ -33,9 +33,9 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 leading-relaxed">
-            RESQIO ist mehr als nur Verwaltungssoftware – die intelligente Kommandozentrale
-            für die moderne Feuerwehr. Kontinuierliche Weiterentwicklung durch Kundenfeedback
-            auf neuste Technologie inkl. AI.
+            RESQIO ist mehr als nur Verwaltungssoftware – wir sind die intelligente Kommandozentrale
+            für die moderne Feuerwehr. Von der Ausrüstungsprüfung bis zur KI-gestützten
+            Einsatznachbereitung.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -44,7 +44,7 @@ const HeroSection = () => {
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8"
             >
-              Kostenlose Demo
+              Kostenlose Demo anfragen
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             <Button
@@ -53,14 +53,19 @@ const HeroSection = () => {
               onClick={() => document.getElementById("features")?.scrollIntoView({ behavior: "smooth" })}
               className="bg-white/10 text-white border-white/20 hover:bg-white/20 text-lg px-8 backdrop-blur-sm transition-all"
             >
-              Einblick in die Funktionen
+              Einblick in die Module
             </Button>
           </div>
+
+          <p className="text-lg text-primary-foreground/90 mb-8 max-w-xl">
+            Sprechen Sie mit uns für eine unverbindliche Live-Demo und machen wir gemeinsam
+            Ihre Wehr fit für die digitale Zukunft.
+          </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             <div className="space-y-1">
               <p className="text-2xl font-bold text-primary-foreground">2025</p>
-              <p className="text-sm text-primary-foreground/60">Im produktiven Einsatz</p>
+              <p className="text-sm text-primary-foreground/60">An 365 Tagen einsatzbereit</p>
             </div>
             <div className="space-y-1">
               <p className="text-2xl font-bold text-primary-foreground">5.000+</p>
@@ -68,11 +73,11 @@ const HeroSection = () => {
             </div>
             <div className="space-y-1">
               <p className="text-2xl font-bold text-primary-foreground">40+</p>
-              <p className="text-sm text-primary-foreground/60">Module im Einsatz</p>
+              <p className="text-sm text-primary-foreground/60">Einsatzmodule verfügbar</p>
             </div>
             <div className="space-y-1 text-primary-foreground/80 flex items-center gap-2">
               <Shield className="w-5 h-5 text-accent" />
-              <span className="text-sm font-medium">DSGVO-konform</span>
+              <span className="text-sm font-medium">Sicher in DE</span>
             </div>
           </div>
 

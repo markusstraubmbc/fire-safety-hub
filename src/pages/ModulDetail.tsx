@@ -247,8 +247,8 @@ const ModulDetail = () => {
                     <div className="flex items-center gap-3 p-4 bg-muted/50 rounded-2xl border border-border">
                       <ShieldCheck className="w-5 h-5 text-green-500" />
                       <div className="space-y-0.5">
-                        <p className="text-xs font-bold text-foreground uppercase tracking-wider">Compliance</p>
-                        <p className="text-[10px] text-muted-foreground uppercase font-medium">DSGVO Ready</p>
+                        <p className="text-xs font-bold text-foreground uppercase tracking-wider">Datenschutz</p>
+                        <p className="text-[10px] text-muted-foreground uppercase font-medium">Safe & Secure</p>
                       </div>
                     </div>
                   </div>
@@ -262,7 +262,7 @@ const ModulDetail = () => {
                   Hosting & Sicherheit
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  DSGVO-konforme Serverstandorte in Deutschland.
+                  Sichere Serverstandorte in Deutschland.
                   Ihre Daten bleiben sicher in einer geschützten, deutschen Cloud-Umgebung.
                 </p>
               </div>

@@ -110,7 +110,7 @@ export const features: Feature[] = [
   {
     icon: Car,
     title: "Fahrtenbuch & KFZ",
-    description: "Rechtssicheres Fahrtenbuch und Fahrzeugverwaltung mit Verbrauchsstatistik.",
+    description: "Strukturiertes Fahrtenbuch und Fahrzeugverwaltung mit Verbrauchsstatistik.",
     slug: "fahrtenbuch",
   },
   {

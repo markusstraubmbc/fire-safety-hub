@@ -70,7 +70,7 @@ const ContactSection = () => {
                 {[
                   { icon: "🇩🇪", text: "Serverstandort Deutschland" },
                   { icon: "🔒", text: "SSL-verschlüsselt" },
-                  { icon: "🛡️", text: "100% DSGVO-konform" },
+                  { icon: "🛡️", text: "Datenschutz-fokussiert" },
                 ].map((badge, i) => (
                   <div key={i} className="flex items-center gap-2 px-4 py-2 bg-background rounded-full border border-border text-xs font-medium text-muted-foreground">
                     <span>{badge.icon}</span>

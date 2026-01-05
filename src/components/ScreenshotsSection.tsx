@@ -36,7 +36,7 @@ const screenshots = [
   },
   {
     title: "Wartungsmanagement",
-    description: "Geführte Checklisten mit Foto-Dokumentation für rechtssichere Prüfungen.",
+    description: "Geführte Checklisten mit Foto-Dokumentation für lückenlose Prüfungen.",
     image: screenshot1,
   },
   {

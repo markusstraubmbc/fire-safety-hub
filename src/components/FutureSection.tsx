@@ -11,7 +11,7 @@ const FutureSection = () => {
         "Digitaler Dienstausweis für das Wallet",
         "Papierlose Verwaltung auf dem neuesten Stand",
         "Optimiert für Smartphone & Tablet",
-        "Sichere, DSGVO-konforme Datenhaltung",
+        "Sichere & moderne Datenarchitektur",
     ];
 
     return (
