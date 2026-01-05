@@ -12,8 +12,8 @@ const IntegrationsSection = () => {
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-                    {/* Left Column: Visual */}
-                    <div className="relative order-2 lg:order-1">
+                    {/* Right Column: Visual */}
+                    <div className="relative order-2 lg:order-2">
                         {/* Background Glows */}
                         <div className="absolute -inset-10 bg-primary/20 rounded-full blur-[120px] opacity-20 animate-pulse" />
                         <div className="absolute -inset-10 bg-red-500/10 rounded-full blur-[100px] opacity-10 animate-pulse" style={{ animationDelay: '1.5s' }} />
@@ -69,8 +69,8 @@ const IntegrationsSection = () => {
                         </div>
                     </div>
 
-                    {/* Right Column: Context & Copy */}
-                    <div className="space-y-8 order-1 lg:order-2">
+                    {/* Left Column: Context & Copy */}
+                    <div className="space-y-8 order-1 lg:order-1">
                         <div className="space-y-4">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider">
                                 <Radio className="w-3.5 h-3.5" />

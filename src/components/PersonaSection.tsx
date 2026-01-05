@@ -38,8 +38,21 @@ const PersonaSection = () => {
             <div className="container mx-auto px-4">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
 
-                    {/* Left: Content */}
-                    <div className="lg:w-1/2 space-y-12">
+                    {/* Left: Visual */}
+                    <div className="lg:w-1/2 relative order-2 lg:order-1">
+                        <div className="absolute -inset-10 bg-primary/20 rounded-full blur-[120px] opacity-20 animate-pulse" />
+                        <div className="relative rounded-[3rem] border border-border p-3 bg-card shadow-2xl shadow-primary/10 overflow-hidden group">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-red-500/10 opacity-40 group-hover:opacity-60 transition-opacity" />
+                            <img
+                                src={rolesVisual}
+                                alt="Firefighter Roles Illustration"
+                                className="rounded-[2.5rem] w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Right: Content */}
+                    <div className="lg:w-1/2 space-y-12 order-1 lg:order-2">
                         <div className="space-y-4">
                             <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">
                                 Gemacht für die <br />
@@ -69,19 +82,6 @@ const PersonaSection = () => {
                                     </div>
                                 </div>
                             ))}
-                        </div>
-                    </div>
-
-                    {/* Right: Visual */}
-                    <div className="lg:w-1/2 relative">
-                        <div className="absolute -inset-10 bg-primary/20 rounded-full blur-[120px] opacity-20 animate-pulse" />
-                        <div className="relative rounded-[3rem] border border-border p-3 bg-card shadow-2xl shadow-primary/10 overflow-hidden group">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-red-500/10 opacity-40 group-hover:opacity-60 transition-opacity" />
-                            <img
-                                src={rolesVisual}
-                                alt="Firefighter Roles Illustration"
-                                className="rounded-[2.5rem] w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
-                            />
                         </div>
                     </div>
 

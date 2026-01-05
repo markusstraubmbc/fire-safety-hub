@@ -18,19 +18,7 @@ const FutureSection = () => {
         <section id="future" className="py-16 md:py-24 overflow-hidden bg-background">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
-                    <div className="flex-1 order-2 md:order-1 relative">
-                        <div className="absolute -inset-4 bg-primary/5 rounded-[3rem] blur-3xl" />
-                        <div className="relative group">
-                            <div className="absolute -inset-1 bg-gradient-to-tr from-primary/20 to-transparent rounded-[2.5rem] blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
-                            <img
-                                src="/images/digital-id.png"
-                                alt="Digitaler Dienstausweis auf dem Smartphone"
-                                className="relative rounded-[2.5rem] shadow-2xl w-full max-w-[400px] mx-auto transform hover:-rotate-2 transition-transform duration-500 ease-out"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="flex-1 text-left order-1 md:order-2">
+                    <div className="flex-1 text-left order-1 md:order-1">
                         <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
                             Bereit für die <span className="text-primary italic">Zukunft?</span>
                         </h2>
@@ -59,6 +47,18 @@ const FutureSection = () => {
                         >
                             Jetzt digitalisieren
                         </Button>
+                    </div>
+
+                    <div className="flex-1 order-2 md:order-2 relative">
+                        <div className="absolute -inset-4 bg-primary/5 rounded-[3rem] blur-3xl" />
+                        <div className="relative group">
+                            <div className="absolute -inset-1 bg-gradient-to-tr from-primary/20 to-transparent rounded-[2.5rem] blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
+                            <img
+                                src="/images/digital-id.png"
+                                alt="Digitaler Dienstausweis auf dem Smartphone"
+                                className="relative rounded-[2.5rem] shadow-2xl w-full max-w-[400px] mx-auto transform hover:rotate-2 transition-transform duration-500 ease-out"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
