@@ -19,6 +19,13 @@ Dieses Dokument dient als Leitfaden für die Sprache auf der Resqio Website und 
 | 100% DSGVO-konform | Datenschutz-fokussiert, Sicher gehostet in DE, Privatsphäre-bewusst |
 | Verpflichtend | Notwendig, Wichtig, Empfohlen |
 
+## 3. Technische "Spice" Keywords
+Um Modernität zu demonstrieren, nutzen wir gezielt:
+- **MQTT:** Für Echtzeit-Datenübertragung (z.B. IoT-Anbindung).
+- **REST API / Webhooks:** Für nahtlose System-Integrationen.
+- **Middleware:** Wir betonen, dass wir individuelle Schnittstellen und Middleware-Lösungen bauen.
+- **Microservices:** Für skalierbare und robuste Architektur.
+
 ## 3. Feuerwehr-Vokabular (Bevorzugt)
 - **Mannschaft** -> Personal & Kameraden
 - **Ausrüstung** -> Gerätehaus & Technik

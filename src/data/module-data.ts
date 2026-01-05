@@ -352,19 +352,20 @@ export const modules: Record<string, ModuleData> = {
     },
     "schnittstellen": {
         title: "Integration & API",
-        shortDesc: "Schnittstellen für Alarmierung, Kalender & Drittsysteme.",
-        longDesc: "RESQIO ist offen. Verbinden Sie Ihre Systeme über Schnittstellen. Empfangen Sie Alarme von Leitstellen, synchronisieren Sie Kalender und integrieren Sie IoT-Geräte.",
+        shortDesc: "Moderne Schnittstellen (MQTT, REST API) & Middleware.",
+        longDesc: "RESQIO ist offen. Verbinden Sie Ihre Systeme über modernste Schnittstellen wie MQTT und REST. Wir entwickeln auf Anfrage individuelle Middleware-Lösungen, um Ihre bestehenden Systeme nahtlos anzubinden.",
         benefits: [
             "Struktur: Alarmierung triggert automatisch die Einsatzerfassung",
-            "Flexibilität: Offene API für alle Drittanbieter im Rettungswesen",
-            "Automatisierung: Vernetzte Wache durch IoT-Anbindung"
+            "Modernität: Hochperformante MQTT-Anbindung für Echtzeit-Daten",
+            "Individualität: Wir bauen Ihre maßgeschneiderte Middleware",
+            "Flexibilität: Offene REST API für alle Drittanbieter"
         ],
         features: [
-            "API & Webhooks",
-            "Echtzeit-Schnittstelle (Alarmierung, IoT)",
-            "KI-Parsing für Alarm-Emails/Texte",
-            "Kontakt-Synchronisation",
-            "Kalender Import/Export"
+            "REST API & Webhooks für volle Kontrolle",
+            "Echtzeit-MQTT Broker für IoT-Anwendungen",
+            "Individuelle Middleware-Entwicklung auf Anfrage",
+            "KI-Parsing für unstrukturierte Alarm-Daten",
+            "Nahtlose Kalender- & Kontakt-Synchronisation"
         ],
         keywords: ["API", "Schnittstelle", "Alarmserver", "Integration", "IoT"],
         icon: Link2,
