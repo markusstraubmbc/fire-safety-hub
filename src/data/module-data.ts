@@ -397,7 +397,7 @@ export const modules: Record<string, ModuleData> = {
         color: "green"
     },
     "treasury-kassier": {
-        title: "Finanzwesen & Kassier (Treasury)",
+        title: "Kassier Modul",
         shortDesc: "Genaue Buchhaltung für Feuerwehr-Vereine und Kommunen.",
         longDesc: "Das vollständige Finanzmodul für die moderne Feuerwehr-Buchhaltung – von der Belegeinreichung bis zum SEPA-Export.",
         benefits: [
