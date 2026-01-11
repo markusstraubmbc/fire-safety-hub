@@ -130,7 +130,7 @@ export const features: Feature[] = [
   },
   {
     icon: CreditCard,
-    title: "Finanzwesen & Treasury",
+    title: "Kassier Modul",
     description: "Vollständige Buchhaltung, SEPA-Export und KI-Belegprüfung für Vereine.",
     slug: "treasury-kassier",
   },
