@@ -152,44 +152,43 @@ export const features: Feature[] = [
     description: "Offline-Integration des Wissensmanagements direkt in die Lagekarte.",
     slug: "wiki-integration",
   },
-  },
 
-// Tools & Integrations
-{
-  icon: Link2,
+  // Tools & Integrations
+  {
+    icon: Link2,
     title: "Integration & API",
-      description: "Schnittstellen zu Alarmierung, MQTT, Email-Templates und externen Systemen.",
-        slug: "schnittstellen",
+    description: "Schnittstellen zu Alarmierung, MQTT, Email-Templates und externen Systemen.",
+    slug: "schnittstellen",
   },
-{
-  icon: BarChart3,
+  {
+    icon: BarChart3,
     title: "Statistik & Reporting",
-      description: "Umfangreiche Auswertungen, Jahresberichte und Druckzentrum.",
-        slug: "reporting",
+    description: "Umfangreiche Auswertungen, Jahresberichte und Druckzentrum.",
+    slug: "reporting",
   },
-{
-  icon: ClipboardList,
+  {
+    icon: ClipboardList,
     title: "Inventur & Bestand",
-      description: "Flexible Inventurprozesse für Standort & Kategorien mit Scanner-Support.",
-        slug: "inventur",
+    description: "Flexible Inventurprozesse für Standort & Kategorien mit Scanner-Support.",
+    slug: "inventur",
   },
-{
-  icon: FolderSearch,
+  {
+    icon: FolderSearch,
     title: "Formular-Center",
-      description: "Zentraler Zugriff auf Vorlagen, Dokumente und Dienstanweisungen.",
-        slug: "formular-center",
+    description: "Zentraler Zugriff auf Vorlagen, Dokumente und Dienstanweisungen.",
+    slug: "formular-center",
   },
-{
-  icon: Wrench,
+  {
+    icon: Wrench,
     title: "Mängelmanagement",
-      description: "Zentrale Erfassung und Bearbeitung von Defekten, auch öffentlich.",
-        slug: "maengelmanagement",
+    description: "Zentrale Erfassung und Bearbeitung von Defekten, auch öffentlich.",
+    slug: "maengelmanagement",
   },
-{
-  icon: Brain,
+  {
+    icon: Brain,
     title: "KI-Assistenz",
-      description: "Smarte Unterstützung für Texte, Planung und Analysen.",
-        slug: "ki-integration",
+    description: "Smarte Unterstützung für Texte, Planung und Analysen.",
+    slug: "ki-integration",
   },
 ];
 
