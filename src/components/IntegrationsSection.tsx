@@ -5,6 +5,7 @@ const IntegrationsSection = () => {
     const integrations = [
         { name: "Alamos", description: "Alarmierung & Info" },
         { name: "Sybos", description: "Verwaltung & Einsatz" },
+        { name: "Einsatzleiterwiki", description: "Wissen & Taktik" },
     ];
 
     return (
@@ -84,6 +85,10 @@ const IntegrationsSection = () => {
                                 RESQIO ist das Gehirn Ihrer Wache. Egal ob <span className="text-foreground font-semibold">Fahrzeug-Telemetrie via MQTT</span>,
                                 die Anbindung von Brandmeldeanlagen oder der Datenaustausch mit Leitstellen-Software:
                                 Wir vernetzen Ihre Hardware- und Softwaresysteme lückenlos.
+                                <span className="block mt-4">
+                                    Dank integriertem <span className="text-foreground font-semibold">Email Template Management</span> kommunizieren Sie zudem
+                                    immer professionell und im einheitlichen Branding – inklusive dynamischer Variablen und Live-Vorschau.
+                                </span>
                             </p>
                         </div>
 

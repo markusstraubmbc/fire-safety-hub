@@ -34,8 +34,8 @@ const features = [
 
 const screenshots = [
     {
-        title: "Intelligente Kommandozentrale",
-        description: "Behalten Sie den Puls Ihrer Wehr in Echtzeit im Blick. Das Dashboard liefert sekundengenaue Einblicke in Einsatzbereitschaft, Termine und Ressourcen.",
+        title: "Operatives Lagezentrum",
+        description: "Behalten Sie den Puls Ihrer Wehr in Echtzeit im Blick. Das Dashboard liefert sekundengenaue Einblicke in die Einsatzbereitschaft, Personalverfügbarkeit und Ressourcen.",
         image: commandCenterImg,
         icon: LayoutDashboard,
     },

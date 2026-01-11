@@ -18,6 +18,9 @@ import {
     Link2,
     BarChart3,
     Building2,
+    BookOpen,
+    Mail,
+    UserCheck,
     LucideIcon
 } from "lucide-react";
 
@@ -254,6 +257,48 @@ export const modules: Record<string, ModuleData> = {
         icon: Droplets,
         color: "sky"
     },
+    "wasserfoerderung": {
+        title: "Wasserförderung & Löschwasserversorgung",
+        shortDesc: "Planung komplexer Wasserförderungsstrecken auf professionellem Niveau.",
+        longDesc: "Die Multi-Plan Visualisierung ermöglicht die gleichzeitige Darstellung und Verwaltung mehrerer Förderszenarien. Ideal für Großschadenslagen und wasserarme Gebiete.",
+        benefits: [
+            "Effizienz: Visualisierung von bis zu 10 Plänen gleichzeitig",
+            "Übersicht: Intelligente Farb-Kodierung zur Unterscheidung",
+            "Zeitersparnis: Konsolidierte Excel/PDF Berichte für alle Pläne",
+            "Präzision: Isochronen-Analyse basierend auf Entfernung und Fahrzeiten"
+        ],
+        features: [
+            "Multi-Plan Management & Farb-Kodierung",
+            "Layer Management für Überlappungen",
+            "Konsolidierte Exporte (Excel/PDF)",
+            "Performance-optimiertes Rendering",
+            "Isochronen-Analyse & Hydranten-Integration"
+        ],
+        keywords: ["Wasserförderung", "Löschwasser", "Multi-Plan", "Isochronen", "Fördertrecke"],
+        icon: Droplets,
+        color: "blue"
+    },
+    "wiki-integration": {
+        title: "Einsatzleiterwiki Integration",
+        shortDesc: "Kritisches Wissen offline verfügbar – immer und überall.",
+        longDesc: "Integration des Einsatzleiterwikis direkt in resqio mit vollständiger Offline-Verfügbarkeit und nativer MKT-Darstellung.",
+        benefits: [
+            "Verfügbarkeit: Alle Inhalte offline-first verfügbar",
+            "Struktur: Checklisten als interaktive React-Komponenten",
+            "Look & Feel: MKT-Branding für einheitliches Design",
+            "Taktik: Integration in die Lagekarte und Einsatzdetails"
+        ],
+        features: [
+            "DokuWiki Sync & Monitoring",
+            "Offline-Verfügbarkeit ohne Internetzugang",
+            "Native Darstellung von Checklisten",
+            "DokuWiki-Parser für strukturierte JSON-Formate",
+            "Strategischer Schnellzugriff"
+        ],
+        keywords: ["Einsatzleiterwiki", "Wissen", "Offline", "DokuWiki", "Checklisten"],
+        icon: BookOpen,
+        color: "slate"
+    },
     "warenbewegung": {
         title: "Logistik & Waren",
         shortDesc: "Tracking von Ausrüstung zwischen Standorten.",
@@ -312,6 +357,26 @@ export const modules: Record<string, ModuleData> = {
         icon: Shirt,
         color: "blue"
     },
+    "mannschafts-self-service": {
+        title: "Mannschafts-Self-Service",
+        shortDesc: "Immer aktuelle Stammdaten ohne manuellen Aufwand.",
+        longDesc: "Entlasten Sie die Verwaltung durch das neue Self-Service-Portal. Mitglieder können ihre persönlichen Daten sicher und einfach selbst auf dem aktuellen Stand halten.",
+        benefits: [
+            "Entlastung: Dezentrale Datenpflege durch Mitglieder",
+            "Sicherheit: Token-basierter Login ohne Passwort",
+            "Qualität: Integrierte Prüfung von IBAN und E-Mail",
+            "Transparenz: Qualifikations-Monitor für Mitglieder"
+        ],
+        features: [
+            "Token-basierter Login (E-Mail-Link)",
+            "Daten-Validierung (IBAN, E-Mail, Plausibilität)",
+            "Eigener Qualifikations-Monitor",
+            "Status-Reporting für Administratoren"
+        ],
+        keywords: ["Self-Service", "Mitgliederportal", "Stammdaten", "Token-Login", "Digitalisierung"],
+        icon: UserCheck,
+        color: "emerald"
+    },
     "budget-finanzen": {
         title: "Budget & Finanzen",
         shortDesc: "Verwaltung von Haushaltsmitteln und Ausgaben.",
@@ -328,6 +393,26 @@ export const modules: Record<string, ModuleData> = {
             "Berichte und Haushaltspläne (PDF)"
         ],
         keywords: ["Kasse", "Budget", "Finanzen", "Rechnung", "Abrechnung"],
+        icon: CreditCard,
+        color: "green"
+    },
+    "treasury-kassier": {
+        title: "Finanzwesen & Kassier (Treasury)",
+        shortDesc: "Genaue Buchhaltung für Feuerwehr-Vereine und Kommunen.",
+        longDesc: "Das vollständige Finanzmodul für die moderne Feuerwehr-Buchhaltung – von der Belegeinreichung bis zum SEPA-Export.",
+        benefits: [
+            "Revisionssicherheit: Buchungsliste für Kassenprüfer und Finanzamt",
+            "Effizienz: SEPA-Zahlungsverkehr im PAIN-Format",
+            "Kontrolle: Echtzeit-Monitoring von Budgets und Kostenstellen",
+            "Komfort: Beleg-Upload via Kiosk mit KI-Volltextsuche"
+        ],
+        features: [
+            "KI-gestütztes Beleg-Postfach",
+            "SEPA-Sammelüberweisungen (PAIN)",
+            "Budget- & Haushalts-Monitoring",
+            "Kiosk-Erfassung & Revisionssichere Berichte"
+        ],
+        keywords: ["Finanzwesen", "Kassier", "SEPA", "Buchhaltung", "Budget", "Treasury"],
         icon: CreditCard,
         color: "green"
     },
@@ -363,6 +448,7 @@ export const modules: Record<string, ModuleData> = {
         features: [
             "REST API & Webhooks für volle Kontrolle",
             "Echtzeit-MQTT Broker für IoT-Anwendungen",
+            "Zentrales Email Template Management (Branding & Variablen)",
             "Individuelle Middleware-Entwicklung auf Anfrage",
             "KI-Parsing für unstrukturierte Alarm-Daten",
             "Nahtlose Kalender- & Kontakt-Synchronisation"
@@ -391,21 +477,22 @@ export const modules: Record<string, ModuleData> = {
         color: "purple"
     },
     "brandschutz": {
-        title: "Vorbeugender Brandschutz",
-        shortDesc: "Digitale Brandverhütungsschau & Mängelverwaltung.",
-        longDesc: "Digitalisieren Sie die Brandschau. Planen Sie Termine, erfassen Sie Mängel mobil vor Ort und erstellen Sie übersichtliche Bescheide. Mit integrierter Fristenüberwachung.",
+        title: "Vorbeugender Brandschutz & Brandschau",
+        shortDesc: "Digitalisierte Sicherheit für Ihre Kommune.",
+        longDesc: "Verwalten Sie Brandverhütungsschauen effizient und rechtssicher. resqio führt Sie durch den gesamten Prozess von der Terminierung bis zur Mängelnachverfolgung.",
         benefits: [
-            "Zeitersparnis: Digitale Erfassung der Brandverhütungsschau",
-            "Transparenz: Klare Bescheide und Fristenüberwachung",
-            "Gesamtüberblick: Alle Brandschau-Objekte auf einen Blick"
+            "Dokumentation: Lückenlose Historie aller Brandschauen",
+            "Präzision: Mängel-Dokumentation mit Fotos und Prioritäten",
+            "Automation: Berichte und Revisionsschreiben auf Knopfdruck",
+            "Sicherheit: Fristen-Controlling mit Wiedervorlage"
         ],
         features: [
-            "Objekt- & Zyklenverwaltung",
-            "Mobile Checklisten & Fotodokumentation",
-            "Mängelmanagement mit Fristen & Wiedervorlage",
-            "Automatische Bescheiderstellung (PDF)"
+            "Mobile Mängel-Dokumentation (Tablet-First)",
+            "Automatisierte Berichte & Revisionsschreiben",
+            "Lebenszyklus-Historie pro Objekt",
+            "Fristen-Controlling & Terminierung"
         ],
-        keywords: ["Brandschau", "Feuerbeschau", "VB", "Mängelmeldung", "Bescheid"],
+        keywords: ["Brandschau", "Vorbeugender Brandschutz", "Mängel", "Revisionsfristen", "Brandschutzbeauftragter"],
         icon: Building2,
         color: "blue"
     },

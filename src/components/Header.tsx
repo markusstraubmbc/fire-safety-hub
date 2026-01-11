@@ -2,7 +2,7 @@ import { useState, useEffect, memo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import logoImg from "@/assets/logo.jpg";
+import logoImg from "@/assets/logo.png";
 
 const Header = memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -53,7 +53,7 @@ const Header = memo(() => {
         <div className="flex items-center justify-between h-14 md:h-16">
           <Link to="/" className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
-              <img src="/logo.jpg" alt="RESQIO Logo" className="w-full h-full object-cover" />
+              <img src="/logo.png" alt="RESQIO Logo" className="w-full h-full object-cover" />
             </div>
             <span className={`text-lg md:text-xl font-bold transition-colors ${isScrolled ? "text-foreground" : "text-white"
               }`}>

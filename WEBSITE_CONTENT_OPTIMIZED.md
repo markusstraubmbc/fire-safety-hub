@@ -1,10 +1,10 @@
 # resqio – Das digitale Rückgrat Ihrer Feuerwehr
 
-**resqio ist mehr als nur eine Verwaltungssoftware. Es ist die intelligente Kommandozentrale für die moderne Feuerwehr von heute und morgen. Von der rechtssicheren Ausrüstungsprüfung über die KI-optimierte Einsatznachbereitung bis hin zur vorausschauenden Personalplanung – resqio vereint alle Prozesse in einer intuitiven, hochperformanten Plattform.**
+**resqio ist mehr als nur eine Verwaltungssoftware. Es ist das operative Lagezentrum für die moderne Feuerwehr von heute und morgen. Von der rechtssicheren Ausrüstungsprüfung über die KI-optimierte Einsatznachbereitung bis hin zur vorausschauenden Personalplanung – resqio vereint alle Prozesse in einer intuitiven, hochperformanten Plattform.**
 
 ---
 
-## 1. Intelligente Kommandozentrale (Dashboard)
+## 1. Operatives Lagezentrum (Dashboard)
 **Behalten Sie den Puls Ihrer Wehr in Echtzeit im Blick.**
 
 Das resqio Dashboard ist Ihre zentrale Informationsdrehscheibe. Es liefert Ihnen sekundengenaue Einblicke in die Einsatzbereitschaft, anstehende Termine und kritische Ressourcen – alles auf einen Blick, ohne langes Suchen.

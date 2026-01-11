@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <Link to="/" className="flex items-center gap-2 group">
             <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center border border-white/10 group-hover:border-primary/50 transition-colors">
-              <img src="/logo.jpg" alt="RESQIO Logo" className="w-full h-full object-cover" />
+              <img src="/logo.png" alt="RESQIO Logo" className="w-full h-full object-cover" />
             </div>
             <span className="text-xl font-extrabold text-white tracking-tight">
               RESQ<span className="text-primary font-black">IO</span>
