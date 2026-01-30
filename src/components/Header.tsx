@@ -2,6 +2,7 @@ import { useState, useEffect, memo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import logoImg from "@/assets/logo.png";
 
 const Header = memo(() => {
@@ -104,6 +105,7 @@ const Header = memo(() => {
             >
               Modelle
             </button>
+            <ThemeToggle />
             <Button
               onClick={() => scrollToSection("kontakt")}
               className="bg-primary text-primary-foreground hover:bg-primary/90"
@@ -160,12 +162,15 @@ const Header = memo(() => {
             >
               Modelle
             </button>
-            <Button
-              onClick={() => scrollToSection("kontakt")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 w-full font-bold"
-            >
-              Angebot anfragen
-            </Button>
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <Button
+                onClick={() => scrollToSection("kontakt")}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 flex-1 font-bold"
+              >
+                Angebot anfragen
+              </Button>
+            </div>
           </nav>
         )}
       </div>
