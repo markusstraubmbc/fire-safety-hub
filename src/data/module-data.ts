@@ -110,7 +110,7 @@ export const modules: Record<string, ModuleData> = {
     "kiosk-modus": {
         title: "Kiosk-Modus",
         shortDesc: "Touchscreen-optimierte Oberfläche für Tablets und Terminals.",
-        longDesc: "Der Kiosk-Modus bringt die Verwaltung direkt in die Fahrzeughalle. Mit einer für Touchscreens optimierten Oberfläche können Einsatzkräfte schnell und einfach Fahrtenbücher pflegen, Geräte warten oder Mängel melden. Unified Login via Chip, Code oder Scan sorgt für Sicherheit und Komfort.",
+        longDesc: "Der Kiosk-Modus bringt die Verwaltung direkt in die Fahrzeughalle. Mit einer für Touchscreens optimierten Oberfläche können Einsatzkräfte schnell Fahrtenbücher pflegen, Geräte warten oder Mängel melden. Der integrierte KI-Assistent bietet Führungskräften Zugriff auf Wiki-Inhalte und Systemdaten für schnelle Entscheidungen. Unified Login via Chip, Code oder Scan sorgt für Sicherheit und Komfort.",
         benefits: [
             "Einfachheit: Intuitive Bedienung für jeden Kameraden ohne Schulung",
             "Zeitersparnis: Wizard-geführte Abläufe direkt in der Fahrzeughalle",
@@ -120,6 +120,7 @@ export const modules: Record<string, ModuleData> = {
         features: [
             "Kacheln für Einsatz, Ausrüstung, Tools, Profil, Mängel, Fahrtenbuch, Wäsche, uvm.",
             "Unified Login: Unterstützung verschiedener Anmeldeverfahren (Chip/Scan/PIN)",
+            "KI-gestützter Wissens-Chat für Führungskräfte",
             "Wartungs-Wizard & Fahrtenbuch-Wizard mit Schritt-für-Schritt-Führung",
             "Wetter & Unwetter-Warnungen (Professionelle Wetterdienste)",
             "Dynamisches Monitor-Mapping für Führungskräfte",
@@ -174,23 +175,23 @@ export const modules: Record<string, ModuleData> = {
     },
     "einsatzerfassung": {
         title: "Einsätze & Übungen",
-        shortDesc: "Vollständige Dokumentation, Planung und Auswertung.",
-        longDesc: "Verwaltung des gesamten Einsatzzyklus: Von der Alarmierung über die Dokumentation bis zur Nachbereitung. Inklusive moderner Features wie KI-Textassistenz, automatischer Geocodierung und Analyse für Eintreffzeiten.",
+        shortDesc: "Vollständige Dokumentation, Planung und Auswertung mit KI-Unterstützung.",
+        longDesc: "Verwaltung des gesamten Einsatzzyklus von der Alarmierung bis zur Nachbereitung. Inklusive moderner Features wie KI-Textassistenz, automatischer Geocodierung, Quiz-Master für realitätsnahe Trainingsszenarien und Analyse für Eintreffzeiten.",
         benefits: [
             "Zeitersparnis: KI-Berichtsassistent für schnelle Dokumentation",
+            "Realitätsnahe Übungen: Interaktives Szenario-basiertes Quiz-System",
             "Analyse: Visualisierung von Eintreffzeiten und Ausrückeordnungen",
-            "Struktur: Fachgerechte Jahresberichte für die Gemeinde",
-            "Planung: Effiziente Auftragsvergabe für Wartungen und Übungen"
+            "Struktur: Fachgerechte Jahresberichte und automatisches Session-Tracking"
         ],
         features: [
-            "Missionserfassung mit Status, Personal & Fahrzeugen",
             "KI-Textassistent für Berichte & Smart Parsing",
+            "Quiz-Master & Trainings-System mit Szenario-Verwaltung",
             "Offene Posten Liste & Nachbereitungsworkflow",
             "Missions-Zeit-Vergleich & Geocodierung",
             "Umfangreiche PDF-Exporte (inkl. Lagekarte)",
-            "Übungs-Schwellenwert-Verwaltung & Automatisches Tracking"
+            "Material- & Verbrauchsmaterialverwaltung mit Bestandsführung"
         ],
-        keywords: ["Einsatzbericht", "Übungsdienst", "FwDV", "Einsatzstatistik", "KI Bericht", "Isochronen"],
+        keywords: ["Einsatzbericht", "Übungsdienst", "FwDV", "Quiz-System", "KI Bericht", "Trainings-Szenarien"],
         icon: FileText,
         color: "red"
     },
@@ -259,22 +260,28 @@ export const modules: Record<string, ModuleData> = {
     },
     "wasserfoerderung": {
         title: "Wasserförderung & Löschwasserversorgung",
-        shortDesc: "Planung komplexer Wasserförderungsstrecken auf professionellem Niveau.",
-        longDesc: "Die Multi-Plan Visualisierung ermöglicht die gleichzeitige Darstellung und Verwaltung mehrerer Förderszenarien. Ideal für Großschadenslagen und wasserarme Gebiete.",
+        shortDesc: "Präzise Hydraulik-Planung für komplexe Wasserförderungsstrecken.",
+        longDesc: "Planen Sie Wasserförderungsstrecken über weite Distanzen mit wissenschaftlicher Präzision. RESQIO berechnet Druckverluste, optimiert Pumpenstandorte und visualisiert Höhenprofile in Echtzeit. Die Multi-Plan Visualisierung ermöglicht die gleichzeitige Darstellung mehrerer Förderszenarien.",
         benefits: [
-            "Effizienz: Visualisierung von bis zu 10 Plänen gleichzeitig",
-            "Übersicht: Intelligente Farb-Kodierung zur Unterscheidung",
-            "Zeitersparnis: Konsolidierte Excel/PDF Berichte für alle Pläne",
-            "Präzision: Isochronen-Analyse basierend auf Entfernung und Fahrzeiten"
+            "Effizienz: Bis zu 10 Förderszenarien gleichzeitig planen und vergleichen",
+            "Präzision: Automatisierte Pumpenplatzierung basierend auf Zieldruck",
+            "Analyse: Detaillierte Tabellen aller Druckwerte und Reibungsverluste",
+            "Flexibilität: Direktes Erfassen von Hydranten und POIs auf der Karte"
         ],
         features: [
-            "Multi-Plan Management & Farb-Kodierung",
+            "Multi-Plan Management mit Farb-Kodierung",
+            "Intelligente Pumpen-Optimierung & Kavitationsvermeidung",
+            "Hydraulische Analyse mit Druckverlusten",
             "Layer Management für Überlappungen",
-            "Konsolidierte Exporte (Excel/PDF)",
-            "Performance-optimiertes Rendering",
-            "Isochronen-Analyse & Hydranten-Integration"
+            "Infrastruktur-Capture: Hydranten direkt auf Karte editieren",
+            "Professionelle Planungsunterlagen als PDF-Export"
         ],
-        keywords: ["Wasserförderung", "Löschwasser", "Multi-Plan", "Isochronen", "Fördertrecke"],
+        technicalDetails: [
+            "Echtzeit-Berechnung von Reibungsverlusten",
+            "Geodätische Höhenprofile mit topografischen Karten",
+            "Druckverlusttabellen nach Standardformeln"
+        ],
+        keywords: ["Wasserförderung", "Löschwasser", "Multi-Plan", "Hydraulik", "Pumpenoptimierung", "Förderstrecke"],
         icon: Droplets,
         color: "blue"
     },
@@ -321,20 +328,21 @@ export const modules: Record<string, ModuleData> = {
     "fahrtenbuch": {
         title: "Fahrtenbuch & KFZ",
         shortDesc: "Strukturiertes Fahrtenbuch und Fahrzeugverwaltung.",
-        longDesc: "Digitales Management für Ihre Flotte. Erfassen Sie Fahrten und Tankvorgänge direkt am Fahrzeug per Tablet. Das System liefert Auswertungen zu Kosten, Kilometern und Wartungsbedarf.",
+        longDesc: "Digitales Management für Ihre Flotte. Erfassen Sie Fahrten und Tankvorgänge direkt am Fahrzeug per Tablet. Das System liefert Auswertungen zu Kosten, Kilometern und Wartungsbedarf für HLF, LF, TLF, MTW und alle weiteren Fahrzeugtypen.",
         benefits: [
             "Nachvollziehbarkeit: Fahrtenbuch-Dokumentation nach Vorschrift",
             "Kostencheck: Verbrauch und Betriebskosten der Fahrzeuge im Blick",
             "Einfach am Tablet: Fahrten direkt im Gerätehaus erfassen"
         ],
         features: [
-            "Stammdatenverwaltung & Besatzungsplanung",
-            "Digitales Fahrtenbuch (Zweck, Ziel, Sonderrechte)",
+            "Stammdatenverwaltung für HLF, LF, TLF, MTW & Kommandowagen",
+            "Digitales Fahrtenbuch mit Besatzungsplanung",
             "Tankerfassung & Verbrauchsstatistik",
             "Kiosk-Wizard für schnelle Eingabe",
+            "KM-basierte Wartungsintervalle",
             "Integration in Einsatzerfassung"
         ],
-        keywords: ["Fahrtenbuch", "Fuhrpark", "KFZ", "Tankbuch", "Kilometerstand"],
+        keywords: ["Fahrtenbuch", "Fuhrpark", "KFZ", "Tankbuch", "Kilometerstand", "HLF", "LF", "TLF", "MTW"],
         icon: Car,
         color: "slate"
     },
@@ -437,25 +445,49 @@ export const modules: Record<string, ModuleData> = {
     },
     "schnittstellen": {
         title: "Integration & API",
-        shortDesc: "Moderne Schnittstellen (MQTT, REST API) & Middleware.",
-        longDesc: "RESQIO ist offen. Verbinden Sie Ihre Systeme über modernste Schnittstellen wie MQTT und REST. Wir entwickeln auf Anfrage individuelle Middleware-Lösungen, um Ihre bestehenden Systeme nahtlos anzubinden.",
+        shortDesc: "Bidirektionale REST API, MQTT-Broker & individuelle Middleware.",
+        longDesc: "RESQIO ist offen für Ihre Systemlandschaft. Die vollständige REST API ermöglicht nicht nur das Auslesen, sondern auch das Schreiben und Aktualisieren von Daten in der Anwendung. Verbinden Sie Alarmierungssysteme, IoT-Geräte und Drittsysteme über MQTT oder REST. Wir entwickeln auf Anfrage individuelle Middleware-Lösungen für komplexe Integrationsszenarien.",
         benefits: [
-            "Struktur: Alarmierung triggert automatisch die Einsatzerfassung",
-            "Modernität: Hochperformante MQTT-Anbindung für Echtzeit-Daten",
-            "Individualität: Wir bauen Ihre maßgeschneiderte Middleware",
-            "Flexibilität: Offene REST API für alle Drittanbieter"
+            "Bidirektional: Daten auslesen UND in RESQIO schreiben via REST API",
+            "Automatisierung: Alarmierung triggert automatisch die Einsatzerfassung",
+            "Echtzeit: Hochperformante MQTT-Anbindung für IoT-Anwendungen",
+            "Individualität: Maßgeschneiderte Middleware für Ihre Systemlandschaft"
         ],
         features: [
-            "REST API & Webhooks für volle Kontrolle",
+            "Vollständige REST API (GET, POST, PUT, DELETE) für alle Module",
+            "API-Schnittstelle zum Setzen von Informationen in der Anwendung",
+            "Webhooks für ereignisgesteuerte Workflows",
             "Echtzeit-MQTT Broker für IoT-Anwendungen",
             "Zentrales Email Template Management (Branding & Variablen)",
             "Individuelle Middleware-Entwicklung auf Anfrage",
             "KI-Parsing für unstrukturierte Alarm-Daten",
             "Nahtlose Kalender- & Kontakt-Synchronisation"
         ],
-        keywords: ["API", "Schnittstelle", "Alarmserver", "Integration", "IoT"],
+        keywords: ["API", "REST API", "Schnittstelle", "Alarmserver", "Integration", "IoT", "MQTT", "Middleware"],
         icon: Link2,
         color: "blue"
+    },
+    "email-templates": {
+        title: "Email Template Management",
+        shortDesc: "Professionelle Kommunikation mit einheitlichem Branding.",
+        longDesc: "Zentrale Steuerung aller ausgehenden Benachrichtigungen. RESQIO sorgt dafür, dass jede E-Mail – vom Wartungshinweis bis zur Einladung – professionell und konsistent aussieht. Mit dem visuellen Template-Editor erstellen Sie ansprechende E-Mails mit dynamischen Platzhaltern.",
+        benefits: [
+            "Professionalität: Einheitliches Corporate Design über alle Systembenachrichtigungen",
+            "Effizienz: Vorlagen mit dynamischen Variablen für personalisierte Massenmails",
+            "Kontrolle: Echtzeit-Vorschau vor dem Versand",
+            "Zuverlässigkeit: Integration moderner E-Mail-Gateways"
+        ],
+        features: [
+            "Visual Template Editor mit WYSIWYG-Ansicht",
+            "Dynamische Platzhalter für Personalisierung",
+            "Global Layouts: Einheitliche Header & Footer",
+            "Vorschau-Modus für alle Templates",
+            "Zentraler Versand-Service (Resend-Integration)",
+            "Versionierung von Template-Änderungen"
+        ],
+        keywords: ["E-Mail Vorlagen", "Template Management", "Benachrichtigungen", "Branding", "Newsletter"],
+        icon: Mail,
+        color: "indigo"
     },
     "reporting": {
         title: "Statistik & Reporting",

@@ -28,25 +28,60 @@ const ModulDetail = () => {
     window.scrollTo(0, 0);
 
     if (module) {
-      document.title = `${module.title} | RESQIO`;
+      const pageTitle = `${module.title} | RESQIO`;
+      const pageUrl = `https://resqio.de/modul/${slug}`;
 
-      let metaDescription = document.querySelector('meta[name="description"]');
-      if (!metaDescription) {
-        metaDescription = document.createElement("meta");
-        metaDescription.setAttribute("name", "description");
-        document.head.appendChild(metaDescription);
-      }
-      metaDescription.setAttribute("content", module.shortDesc);
+      document.title = pageTitle;
+
+      // Helper function for meta tags
+      const updateMetaTag = (property: string, content: string) => {
+        let tag = document.querySelector(`meta[property="${property}"]`) ||
+                  document.querySelector(`meta[name="${property}"]`);
+        if (!tag) {
+          tag = document.createElement("meta");
+          if (property.startsWith('og:') || property.startsWith('twitter:')) {
+            tag.setAttribute("property", property);
+          } else {
+            tag.setAttribute("name", property);
+          }
+          document.head.appendChild(tag);
+        }
+        tag.setAttribute("content", content);
+      };
+
+      // Helper function for link tags
+      const updateLinkTag = (rel: string, href: string) => {
+        let tag = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement;
+        if (!tag) {
+          tag = document.createElement("link");
+          tag.setAttribute("rel", rel);
+          document.head.appendChild(tag);
+        }
+        tag.setAttribute("href", href);
+      };
+
+      // Basic meta tags
+      updateMetaTag("description", module.shortDesc);
 
       if (module.keywords && module.keywords.length > 0) {
-        let metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (!metaKeywords) {
-          metaKeywords = document.createElement("meta");
-          metaKeywords.setAttribute("name", "keywords");
-          document.head.appendChild(metaKeywords);
-        }
-        metaKeywords.setAttribute("content", module.keywords.join(", "));
+        updateMetaTag("keywords", module.keywords.join(", "));
       }
+
+      // OpenGraph tags
+      updateMetaTag("og:title", pageTitle);
+      updateMetaTag("og:description", module.shortDesc);
+      updateMetaTag("og:type", "website");
+      updateMetaTag("og:url", pageUrl);
+      updateMetaTag("og:image", "https://resqio.de/logo.png");
+
+      // Twitter tags
+      updateMetaTag("twitter:card", "summary_large_image");
+      updateMetaTag("twitter:title", pageTitle);
+      updateMetaTag("twitter:description", module.shortDesc);
+      updateMetaTag("twitter:image", "https://resqio.de/logo.png");
+
+      // Canonical URL
+      updateLinkTag("canonical", pageUrl);
     }
   }, [slug, module, navigate]);
 

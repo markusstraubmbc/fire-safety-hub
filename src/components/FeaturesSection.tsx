@@ -113,7 +113,7 @@ export const features: Feature[] = [
   {
     icon: Car,
     title: "Fahrtenbuch & KFZ",
-    description: "Strukturiertes Fahrtenbuch und Fahrzeugverwaltung mit Verbrauchsstatistik.",
+    description: "Digitales Fahrtenbuch für Ihre gesamte Flotte. Erfassen Sie Fahrten von HLF, LF, TLF, MTW und Kommandowagen direkt am Tablet. Verbrauchsstatistiken und KM-basierte Wartungsintervalle inklusive.",
     slug: "fahrtenbuch",
   },
   {
@@ -155,9 +155,15 @@ export const features: Feature[] = [
 
   // Tools & Integrations
   {
+    icon: Mail,
+    title: "Email Template Management",
+    description: "Professionelle Kommunikation mit einheitlichem Branding und dynamischen Vorlagen.",
+    slug: "email-templates",
+  },
+  {
     icon: Link2,
     title: "Integration & API",
-    description: "Schnittstellen zu Alarmierung, MQTT, Email-Templates und externen Systemen.",
+    description: "Bidirektionale REST API zum Lesen und Schreiben von Daten. MQTT-Broker, Webhooks und individuelle Middleware für nahtlose Systemintegration.",
     slug: "schnittstellen",
   },
   {
