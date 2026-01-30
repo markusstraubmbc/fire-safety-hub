@@ -2,8 +2,6 @@ import { useState, useEffect, memo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import logoImg from "@/assets/logo.png";
 
 const Header = memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -62,7 +60,7 @@ const Header = memo(() => {
             <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
               <img src="/logo.png" alt="RESQIO Logo" className="w-full h-full object-cover" />
             </div>
-            <span className={`text-lg md:text-xl font-bold transition-colors ${shouldBeSolid ? "text-foreground" : "text-white"
+            <span className={`text-xl font-bold transition-colors ${shouldBeSolid ? "text-foreground" : "text-white"
               }`}>
               RESQ<span className="text-primary">IO</span>
             </span>
@@ -105,10 +103,9 @@ const Header = memo(() => {
             >
               Modelle
             </button>
-            <ThemeToggle />
             <Button
               onClick={() => scrollToSection("kontakt")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
             >
               Angebot anfragen
             </Button>
@@ -131,46 +128,43 @@ const Header = memo(() => {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-border flex flex-col gap-4">
+          <nav className="md:hidden py-4 border-t border-border flex flex-col gap-2">
             <button
               onClick={() => scrollToSection("home")}
-              className="text-foreground hover:text-primary transition-colors text-left font-medium"
+              className="text-foreground hover:text-primary transition-colors text-left font-medium py-2 px-1 active:scale-98 touch-manipulation"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection("funktionen")}
-              className="text-foreground hover:text-primary transition-colors text-left font-medium"
+              className="text-foreground hover:text-primary transition-colors text-left font-medium py-2 px-1 active:scale-98 touch-manipulation"
             >
               Funktionen
             </button>
             <button
               onClick={() => scrollToSection("software-showcase")}
-              className="text-foreground hover:text-primary transition-colors text-left font-medium"
+              className="text-foreground hover:text-primary transition-colors text-left font-medium py-2 px-1 active:scale-98 touch-manipulation"
             >
               Software Einblicke
             </button>
             <button
               onClick={() => scrollToSection("future")}
-              className="text-foreground hover:text-primary transition-colors text-left font-medium"
+              className="text-foreground hover:text-primary transition-colors text-left font-medium py-2 px-1 active:scale-98 touch-manipulation"
             >
               Zukunft
             </button>
             <button
               onClick={() => scrollToSection("pricing")}
-              className="text-foreground hover:text-primary transition-colors text-left font-medium"
+              className="text-foreground hover:text-primary transition-colors text-left font-medium py-2 px-1 active:scale-98 touch-manipulation"
             >
               Modelle
             </button>
-            <div className="flex items-center gap-2">
-              <ThemeToggle />
-              <Button
-                onClick={() => scrollToSection("kontakt")}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 flex-1 font-bold"
-              >
-                Angebot anfragen
-              </Button>
-            </div>
+            <Button
+              onClick={() => scrollToSection("kontakt")}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 w-full font-semibold mt-2 h-12 touch-manipulation"
+            >
+              Angebot anfragen
+            </Button>
           </nav>
         )}
       </div>
