@@ -45,7 +45,7 @@ export const features: Feature[] = [
   {
     icon: Map,
     title: "Lagemonitor & Führung",
-    description: "Echtzeitübersicht und taktische Unterstützung im Einsatz mit modularem Spaltensystem.",
+    description: "Echtzeit-Führungssystem mit integrierten Wasserkarten, Hydrantenmanagement, lokalem POI-Management (Sammelstellen, Gefahren) und KI-gestütztem Dokumentenzugriff für relevante Objektpläne.",
     slug: "lagemonitor",
   },
   {
@@ -56,8 +56,8 @@ export const features: Feature[] = [
   },
   {
     icon: Users,
-    title: "Mannschaftsverwaltung",
-    description: "Personal, Qualifikationen, digitale Akten und KI-gestützte Analysen.",
+    title: "Personal & Kameraden",
+    description: "Vollständiges Personalmanagement mit Überprüfungsportal, Verifikationssystem und Feedback, granularem Rollenmanagement sowie KI-gestützten Analysen für strategische Personalplanung.",
     slug: "mannschaftsverwaltung",
   },
   {
@@ -75,7 +75,7 @@ export const features: Feature[] = [
   {
     icon: Monitor,
     title: "Kiosk-Modus",
-    description: "Touchscreen-optimierte Oberfläche für Tablets, Terminals und digitale Wachbücher.",
+    description: "57 Module touchscreen-optimiert für die Mannschaft. Von Wartungs-Wizards über Fahrtenbuch bis Belegeinreichung – alle Aufgaben selbstständig am Tablet erledigen. Mit KI-Assistent und RFID-Login.",
     slug: "kiosk-modus",
   },
   {
@@ -131,7 +131,7 @@ export const features: Feature[] = [
   {
     icon: CreditCard,
     title: "Kassier Modul",
-    description: "Vollständige Buchhaltung, SEPA-Export und KI-Belegprüfung für Vereine.",
+    description: "Professionelle Vereinsbuchhaltung mit §2b UStG-Auswertung, Veranstaltungscontrolling und Self-Service Belegeinreichung über Kameradschaftsportal. SEPA-Export und revisionssichere Berichte.",
     slug: "treasury-kassier",
   },
   {
@@ -192,8 +192,8 @@ export const features: Feature[] = [
   },
   {
     icon: Brain,
-    title: "KI-Assistenz",
-    description: "Smarte Unterstützung für Texte, Planung und Analysen.",
+    title: "KI-Assistenz & Automatisierung",
+    description: "Intelligenter Chatbot, automatische Textoptimierung, Adressoptimierung, KI-Pumpenoptimierung und automatisches Objektdaten-Mapping. Machine Learning für vorausschauende Personalplanung.",
     slug: "ki-integration",
   },
 ];

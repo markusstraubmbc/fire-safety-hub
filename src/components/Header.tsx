@@ -10,6 +10,9 @@ const Header = memo(() => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const location = useLocation();
 
+  // Only use transparent header on homepage
+  const isHomePage = location.pathname === '/';
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -39,8 +42,11 @@ const Header = memo(() => {
     }
   };
 
+  // Determine if header should be solid (not transparent)
+  const shouldBeSolid = !isHomePage || isScrolled || mobileMenuOpen;
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || mobileMenuOpen
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${shouldBeSolid
       ? "bg-background/95 backdrop-blur-lg border-b border-border py-2 shadow-lg shadow-black/5"
       : "bg-transparent py-4"
       }`}>
@@ -55,7 +61,7 @@ const Header = memo(() => {
             <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
               <img src="/logo.png" alt="RESQIO Logo" className="w-full h-full object-cover" />
             </div>
-            <span className={`text-lg md:text-xl font-bold transition-colors ${isScrolled ? "text-foreground" : "text-white"
+            <span className={`text-lg md:text-xl font-bold transition-colors ${shouldBeSolid ? "text-foreground" : "text-white"
               }`}>
               RESQ<span className="text-primary">IO</span>
             </span>
@@ -65,35 +71,35 @@ const Header = memo(() => {
           <nav className="hidden md:flex items-center gap-8">
             <button
               onClick={() => scrollToSection("home")}
-              className={`transition-colors font-medium ${isScrolled ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+              className={`transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection("funktionen")}
-              className={`transition-colors font-medium ${isScrolled ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+              className={`transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
               Funktionen
             </button>
             <button
               onClick={() => scrollToSection("software-showcase")}
-              className={`transition-colors font-medium text-nowrap ${isScrolled ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+              className={`transition-colors font-medium text-nowrap ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
               Software Einblicke
             </button>
             <button
               onClick={() => scrollToSection("future")}
-              className={`transition-colors font-medium ${isScrolled ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+              className={`transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
               Zukunft
             </button>
             <button
               onClick={() => scrollToSection("pricing")}
-              className={`transition-colors font-medium ${isScrolled ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+              className={`transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
               Modelle
@@ -112,9 +118,9 @@ const Header = memo(() => {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
-              <X className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
+              <X className={`w-6 h-6 ${shouldBeSolid ? "text-foreground" : "text-white"}`} />
             ) : (
-              <Menu className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
+              <Menu className={`w-6 h-6 ${shouldBeSolid ? "text-foreground" : "text-white"}`} />
             )}
           </button>
         </div>

@@ -108,47 +108,93 @@ export const modules: Record<string, ModuleData> = {
         color: "slate"
     },
     "kiosk-modus": {
-        title: "Kiosk-Modus",
-        shortDesc: "Touchscreen-optimierte Oberfläche für Tablets und Terminals.",
-        longDesc: "Der Kiosk-Modus bringt die Verwaltung direkt in die Fahrzeughalle. Mit einer für Touchscreens optimierten Oberfläche können Einsatzkräfte schnell Fahrtenbücher pflegen, Geräte warten oder Mängel melden. Der integrierte KI-Assistent bietet Führungskräften Zugriff auf Wiki-Inhalte und Systemdaten für schnelle Entscheidungen. Unified Login via Chip, Code oder Scan sorgt für Sicherheit und Komfort.",
+        title: "Kiosk-Modus - Die zentrale Mannschaftsoberfläche",
+        shortDesc: "57 Module touchscreen-optimiert – die Mannschaft erledigt alle Aufgaben selbstständig am Tablet.",
+        longDesc: "Der RESQIO Kiosk-Modus ist die zentrale Schnittstelle zwischen System und Mannschaft. Auf großen Touchscreens oder Tablets in der Fahrzeughalle stehen der gesamten Mannschaft 57 speziell optimierte Module zur Verfügung – von der Fahrtenbuchpflege über die Gerätewartung bis zur Belegeinreichung. Jeder Kamerad kann alle Aufgaben rund um seine Funktion eigenständig erledigen, ohne am Desktop-PC arbeiten zu müssen. Der integrierte KI-Assistent unterstützt Führungskräfte mit sofortigem Zugriff auf Wiki-Inhalte und Systemdaten. Wizard-geführte Workflows machen komplexe Tätigkeiten kinderleicht. Unified Login via RFID-Chip, PIN oder QR-Code ermöglicht sekundenschnelle Anmeldung ohne Tastatur.",
         benefits: [
-            "Einfachheit: Intuitive Bedienung für jeden Kameraden ohne Schulung",
-            "Zeitersparnis: Wizard-geführte Abläufe direkt in der Fahrzeughalle",
-            "Mobilität: Perfekt für Tablets an der Wache oder im ELW",
-            "Sicherer Zugriff: Schnellanmeldung via RFID-Chip oder PIN"
+            "Vollständigkeit: 57 Module für alle Tätigkeiten der Mannschaft am Kiosk verfügbar",
+            "Selbstständigkeit: Jeder Kamerad erledigt seine Aufgaben eigenständig ohne Admin-Eingriff",
+            "Funktionsbezogen: Vom Atemschutzgeräteträger bis zum Gerätewart – jeder findet seine Tools",
+            "Einfachheit: Intuitive Touch-Bedienung ohne Schulung – auch mit Handschuhen bedienbar",
+            "Zeitersparnis: Wizard-geführte Workflows für Wartung, Fahrtenbuch und Meldungen",
+            "Mobilität: Perfekt für fest montierte Tablets an der Wache oder mobile Geräte im ELW",
+            "Sicherer Zugriff: Schnellanmeldung via RFID-Chip, PIN oder digitalem Dienstausweis",
+            "Intelligenz: KI-Assistent beantwortet Fragen und liefert relevante Informationen",
+            "Wetterfest: Robuste Tablet-Halterungen für Umgebungen mit hoher Beanspruchung"
         ],
         features: [
-            "Kacheln für Einsatz, Ausrüstung, Tools, Profil, Mängel, Fahrtenbuch, Wäsche, uvm.",
-            "Unified Login: Unterstützung verschiedener Anmeldeverfahren (Chip/Scan/PIN)",
-            "KI-gestützter Wissens-Chat für Führungskräfte",
-            "Wartungs-Wizard & Fahrtenbuch-Wizard mit Schritt-für-Schritt-Führung",
-            "Wetter & Unwetter-Warnungen (Professionelle Wetterdienste)",
-            "Dynamisches Monitor-Mapping für Führungskräfte",
-            "Premium Design: Dark Mode, High Contrast & Glassmorphism"
+            "57 Kiosk-optimierte Module für alle Mannschaftsaufgaben",
+            "Funktionsbereich: Einsatz, Wartung, Fahrtenbuch, Mängel, Wäsche, Inventur, Finanzen",
+            "Rollenspezifische Kacheln: AGT-Bereich, Gerätewart-Tools, Kassier-Funktionen",
+            "Unified Login: RFID-Chip, PIN, QR-Code, Digitaler Dienstausweis",
+            "KI-gestützter Wissens-Chat für Führungskräfte mit Systemdaten-Zugriff",
+            "Intelligente Wartungs-Wizards mit Schritt-für-Schritt-Führung und Foto-Upload",
+            "Fahrtenbuch-Wizard: Schnellerfassung mit Fahrzeugauswahl und Besatzung",
+            "Mängelmelder: QR-Code scannen, Foto machen, Mangel melden – in 30 Sekunden",
+            "Wäsche-Management: Abgabe und Abholung direkt am Tablet erfassen",
+            "Inventur-Modus: Scan-basierte Bestandserfassung mit Live-Feedback",
+            "Belegeinreichung: Fotos von Quittungen mit automatischer KI-Kategorisierung",
+            "Persönlicher Bereich: Eigene Qualifikationen, Übungsfortschritt, AGT-Nachweise",
+            "Wetter & Unwetter-Warnungen: Integration professioneller Wetterdienste",
+            "Einsatz-Monitor: Live-Status aktueller Einsätze und Verfügbarkeit",
+            "Hallen-Monitor Modus: Vollbild-Anzeige für fest montierte Displays",
+            "Dynamisches Monitor-Mapping: Verschiedene Ansichten für unterschiedliche Standorte",
+            "Formular-Center: Direkter Zugriff auf Dienstvorschriften und Druckvorlagen",
+            "Hydrantenkarte: Schneller Zugriff auf Löschwasserversorgung im Ausrückebereich",
+            "Budget-Übersicht: Transparenz über Kassenstände und Genehmigungsstatus",
+            "Premium Design: Dark Mode, High Contrast & Glassmorphism für beste Lesbarkeit",
+            "Offline-Modus: Kritische Funktionen auch ohne Internetverbindung",
+            "Multi-Sprachen-Support: Deutsch, Englisch und weitere Sprachen",
+            "Barrierefreiheit: Große Schaltflächen, hoher Kontrast, Sprachausgabe"
         ],
-        keywords: ["Touchscreen", "Kiosk", "RFID Login", "Fahrzeughalle", "Tablet Modus", "Wetterwarnung"],
+        technicalDetails: [
+            "Touch-optimiert für Bildschirme ab 10 Zoll",
+            "Responsive Design für 10\" bis 55\" Displays",
+            "Unterstützung gängiger RFID-Reader (HID, Mifare, EM4100)",
+            "Lokaler Cache für Offline-Betrieb",
+            "WebSocket-basierte Echtzeit-Updates"
+        ],
+        keywords: ["Touchscreen", "Kiosk", "57 Module", "Mannschaftsoberfläche", "RFID Login", "Fahrzeughalle", "Tablet Modus", "Wetterwarnung", "Wizard", "Self-Service"],
         icon: Monitor,
         color: "emerald"
     },
     "lagemonitor": {
         title: "Lagemonitor & Führung",
-        shortDesc: "Echtzeitübersicht und taktische Unterstützung im Einsatz.",
-        longDesc: "Das zentrale Werkzeug für die Einsatzleitung. Der Lagemonitor bietet eine modulare Echtzeit-Übersicht über alle relevanten Daten: Von Lagemeldungen über Fahrzeugstatus bis zur Atemschutzüberwachung. Ergänzt durch mobile Ansichten für Führungskräfte und digitale Objektpläne.",
+        shortDesc: "Echtzeit-Führungssystem mit Wasserkarten, POI-Management, Hydrantenübersicht und KI-gestütztem Dokumentenzugriff.",
+        longDesc: "Die zentrale Kommandozentrale für die Einsatzleitung. Der Lagemonitor vereint alle taktisch relevanten Informationen in einer intelligenten Oberfläche: Interaktive Wasserkarten zeigen verfügbare Hydranten in Echtzeit, lokale POIs (Sammelstellen, Gefahrenstellen, Zufahrten) sind sofort abrufbar, und das KI-gestützte Dokumentenmanagement liefert relevante Objektpläne und Einsatzunterlagen automatisch. Von Lagemeldungen über Fahrzeugstatus bis zur Atemschutzüberwachung – alles auf einen Blick.",
         benefits: [
-            "Lage-Überblick: Alle einsatzrelevanten Infos sofort im Blick",
-            "Synchronisation: Alle Führungskräfte auf dem gleichen Sachstand",
-            "Anpassbar: Individuelle Ansichten für jede taktische Rolle",
-            "Einsatz-Tablet Ready: Optimiert für die Arbeit im Feld"
+            "Wasserversorgung: Integrierte Wasserkarten mit Live-Hydrantenstatus und Durchflussmengen",
+            "POI-Management: Lokale Points of Interest (Sammelstellen, Gefahren, Zufahrten) direkt in der Lagekarte",
+            "Hydranten-Übersicht: Echtzeit-Verfügbarkeit mit Farbcodierung nach Leistung",
+            "KI-Dokumentenzugriff: Automatische Bereitstellung relevanter Objektpläne basierend auf Einsatzort",
+            "Lage-Synchronisation: Alle Führungskräfte arbeiten auf dem gleichen Informationsstand",
+            "Taktische Flexibilität: Individuelle Ansichten und Module pro Führungsrolle",
+            "Mobile Excellence: Vollständig optimiert für Einsatz-Tablets im Feld"
         ],
         features: [
-            "Modulare Spalten: Status, Lagemeldungen, Karte, Personal, Hydranten, Bilder...",
+            "Integrierte Wasserkarten mit Hydranten-Overlay und Durchfluss-Informationen",
+            "Lokales POI-Management: Sammelstellen, Gefahrenstellen, Zufahrten und Sperrungen",
+            "Intelligentes Hydrantenmanagement mit Status-Tracking (verfügbar/defekt/gesperrt)",
+            "KI-gestütztes Dokumentenmanagement: Automatische Bereitstellung relevanter Pläne",
+            "Modulare Spalten: Status, Lagemeldungen, Karte, Personal, Hydranten, Dokumente, Bilder",
             "Führungskräfte-Monitor (Quick Overview) für mobile Endgeräte",
-            "Whiteboard-Funktion & Taktische Karte mit Symbolen",
-            "Atemschutzüberwachung & Abschnittsbildung (Funk)",
-            "Schnellzugriff auf Objektpläne und Gefahrstoffdaten",
-            "Kontakt-Filter & Hydranten-Monitor"
+            "Interaktive Whiteboard-Funktion & Taktische Karte mit Einsatzsymbolen",
+            "Live-Atemschutzüberwachung mit Trupp-Status",
+            "Abschnittsbildung & Funkgruppen-Verwaltung",
+            "Schnellzugriff auf Objektpläne, Gefahrstoffdaten und Ansprechpartner",
+            "Hydranten-Radius-Visualisierung für Löschwasserversorgung",
+            "POI-Filter nach Kategorie (Sammelstellen, Gefahren, Infrastruktur)",
+            "KI-Suchfunktion: \"Zeige mir alle Hydranten im Umkreis\" oder \"Objektplan für aktuelle Adresse\"",
+            "Dokumenten-Preview direkt im Lagemonitor",
+            "Kontakt-Filter & Emergency-Kontakte"
         ],
-        keywords: ["Einsatzführung", "Lagekarte", "Statusmonitor", "Führungshilfsmittel", "Taktik", "Einsatzleitung"],
+        technicalDetails: [
+            "Echtzeit-Datensynchronisation über WebSockets",
+            "Offline-Kartencaching für autonomen Betrieb",
+            "KI-basierte Dokumenten-Relevanz-Bewertung",
+            "Multi-User Kollaborations-Engine"
+        ],
+        keywords: ["Einsatzführung", "Lagekarte", "Wasserkarte", "Hydrantenmanagement", "POI", "KI Dokumentenzugriff", "Statusmonitor", "Führungshilfsmittel", "Taktik", "Einsatzleitung"],
         icon: Map,
         color: "blue"
     },
@@ -196,24 +242,41 @@ export const modules: Record<string, ModuleData> = {
         color: "red"
     },
     "mannschaftsverwaltung": {
-        title: "Personal & Kameraden",
-        shortDesc: "Mannschaft, Qualifikationen und KI-Analysen.",
-        longDesc: "Verwalten Sie Ihre wichtigste Ressource effizient. Neben Stammdaten und Qualifikationen bietet das System intelligente Analysen zur Verfügbarkeit, automatische Beförderungsvorschläge und eine KI-gestützte Personalbedarfsplanung.",
+        title: "Personal & Kameraden Management",
+        shortDesc: "Vollständige Personalverwaltung mit Überprüfungsportal, Verifikationssystem, Rollenmanagement und KI-Analysen.",
+        longDesc: "Die zentrale Plattform für modernes Personalmanagement in der Feuerwehr. Verwalten Sie Stammdaten, Qualifikationen und Berechtigungen mit professionellem Rollenmanagement. Das integrierte Überprüfungsportal ermöglicht die systematische Kontrolle aller Personalinformationen, während das Verifikationsportal mit Feedback-System die Qualität der Daten sicherstellt. KI-gestützte Analysen liefern strategische Erkenntnisse zur Verfügbarkeit und Personalplanung.",
         benefits: [
-            "Strategie: KI-Analyse der Schlagkraft Ihrer Wehr",
-            "Automatisierung: Beförderungsvorschläge & Check des Ausbildungsstands",
-            "Transparenz: Lückenlose Historie aller Personaländerungen",
-            "Struktur: Unterstützung komplexer Gruppen- und Führungsstrukturen"
+            "Datenqualität: Überprüfungsportal für systematische Kontrolle aller Personalinformationen",
+            "Verifikation: Feedback-basiertes Verifikationsportal für valide Stammdaten",
+            "Berechtigungen: Granulares Rollenmanagement mit individuellen Zugriffsrechten",
+            "Strategie: KI-Analyse der Schlagkraft und Verfügbarkeit Ihrer Wehr",
+            "Automatisierung: Intelligente Beförderungsvorschläge & Ausbildungsstandkontrolle",
+            "Transparenz: Lückenlose Historie aller Personaländerungen mit Audit-Trail",
+            "Flexibilität: Unterstützung komplexer Gruppen- und Führungsstrukturen"
         ],
         features: [
-            "Stammdaten, Dienstgrade, Funktionen & Identitäts-Management",
-            "KI-Personal-Analyse (Verfügbarkeit, Lehrgangsbedarf)",
+            "Überprüfungsportal: Systematische Review-Workflows für Stammdaten und Qualifikationen",
+            "Verifikationsportal mit Feedback-System: Validierung durch Führungskräfte",
+            "Granulares Rollenmanagement: Individuelle Berechtigungen pro Modul und Funktion",
+            "Berechtigungs-Templates: Vordefinierte Rollen für Kommandant, Gerätewart, Kassier etc.",
+            "Stammdaten-Management: Dienstgrade, Funktionen & Identitäts-Management",
+            "KI-Personal-Analyse: Verfügbarkeit, Lehrgangsbedarf und Schlagkraft-Prognosen",
             "Automatisierte Qualifikations-Aktivierung bei Übungsteilnahme",
-            "Beförderungssystem (Vorschläge nach Dienstzeit/Quali)",
-            "Sichtbarkeits-Steuerung & Inaktiv-Verwaltung",
-            "Globale Filterung in allen Modulen"
+            "Intelligentes Beförderungssystem mit Vorschlägen nach Dienstzeit und Qualifikationen",
+            "Qualifikations-Monitoring: Fristen für G26.3, Lehrgänge und Fortbildungen",
+            "Führungskräfte-Hierarchie: Abbildung komplexer Organisations-Strukturen",
+            "Sichtbarkeits-Steuerung & Datenschutz-Management pro Person",
+            "Inaktiv-Verwaltung für ehemalige Mitglieder mit Archivfunktion",
+            "Globale Filterung in allen Modulen nach Qualifikationen und Status",
+            "Audit-Trail: Vollständige Nachverfolgbarkeit aller Änderungen"
         ],
-        keywords: ["Kameradenverwaltung", "Lehrgänge", "Beförderung", "KI Analyse", "Verfügbarkeit", "RFID"],
+        technicalDetails: [
+            "DSGVO-konforme Datenhaltung mit Löschkonzept",
+            "Multi-Level Berechtigungssystem mit Vererbung",
+            "Workflow-Engine für Freigabe-Prozesse",
+            "Automatische Benachrichtigungen bei Fristablauf"
+        ],
+        keywords: ["Kameradenverwaltung", "Personalmanagement", "Rollenmanagement", "Überprüfungsportal", "Verifikation", "Lehrgänge", "Beförderung", "KI Analyse", "Verfügbarkeit", "RFID", "Berechtigungen"],
         icon: Users,
         color: "blue"
     },
@@ -405,22 +468,40 @@ export const modules: Record<string, ModuleData> = {
         color: "green"
     },
     "treasury-kassier": {
-        title: "Kassier Modul",
-        shortDesc: "Genaue Buchhaltung für Feuerwehr-Vereine und Kommunen.",
-        longDesc: "Das vollständige Finanzmodul für die moderne Feuerwehr-Buchhaltung – von der Belegeinreichung bis zum SEPA-Export.",
+        title: "Kassier Modul - Professionelle Vereinsbuchhaltung",
+        shortDesc: "Vollständige Buchhaltung mit §2b UStG-Auswertung, Veranstaltungsmanagement und Self-Service Belegeinreichung.",
+        longDesc: "Das professionelle Finanzmodul für Feuerwehr-Vereine und kommunale Feuerwehren. Von der dezentralen Belegeinreichung über die automatisierte Verbuchung bis zur steuerkonformen Auswertung nach §2b UStG. Mit integriertem Veranstaltungsmanagement für Feste, Brandsicherheitswachen und Veranstaltungen. Das Kameradschaftsportal ermöglicht jedem Mitglied die eigenständige Belegeinreichung – der Kassier behält die volle Kontrolle über alle Buchungen.",
         benefits: [
-            "Revisionssicherheit: Buchungsliste für Kassenprüfer und Finanzamt",
-            "Effizienz: SEPA-Zahlungsverkehr im PAIN-Format",
-            "Kontrolle: Echtzeit-Monitoring von Budgets und Kostenstellen",
-            "Komfort: Beleg-Upload via Kiosk mit KI-Volltextsuche"
+            "Steuerkonformität: Automatische Auswertung nach §2b UStG für gemeinnützige Vereine",
+            "Revisionssicherheit: Lückenlose Buchungsliste für Kassenprüfer und Finanzamt",
+            "Self-Service: Kameraden reichen Belege selbstständig über das Portal ein",
+            "Veranstaltungs-Controlling: Detaillierte Auswertung von Festen und Events",
+            "Effizienz: SEPA-Zahlungsverkehr im PAIN-Format mit Sammelüberweisungen",
+            "Komfort: KI-gestütztes Beleg-Postfach mit automatischer Texterkennung",
+            "Transparenz: Echtzeit-Monitoring von Budgets, Kostenstellen und Veranstaltungen"
         ],
         features: [
-            "KI-gestütztes Beleg-Postfach",
-            "SEPA-Sammelüberweisungen (PAIN)",
-            "Budget- & Haushalts-Monitoring",
-            "Kiosk-Erfassung & Revisionssichere Berichte"
+            "§2b UStG Steuerauswertung: Automatische Berechnung für gemeinnützige Vereine",
+            "Veranstaltungsauswertung: Controlling für Feste, BSW und Events",
+            "Kameradschaftsportal-Kachel: Self-Service Belegeinreichung für alle Mitglieder",
+            "Intelligente Verbuchung: Workflow für Freigabe, Prüfung und Buchung",
+            "KI-gestütztes Beleg-Postfach mit Volltextsuche und automatischer Kategorisierung",
+            "SEPA-Sammelüberweisungen (PAIN-Format) mit Stapelverarbeitung",
+            "Budget- & Haushalts-Monitoring mit Soll/Ist-Vergleich",
+            "Kostenstellen-Management für detaillierte Zuordnung",
+            "Kiosk-Erfassung: Schnelle Belegerfassung direkt an der Wache",
+            "Revisionssichere Berichte: Export für Kassenprüfer und Finanzamt",
+            "Veranstaltungskalender mit Einnahmen-/Ausgaben-Tracking",
+            "Automatische Beleg-Nummerierung und Archivierung",
+            "Multi-Währungs-Support für internationale Veranstaltungen"
         ],
-        keywords: ["Finanzwesen", "Kassier", "SEPA", "Buchhaltung", "Budget", "Treasury"],
+        technicalDetails: [
+            "Konforme Umsetzung der §2b UStG-Regelungen für gemeinnützige Organisationen",
+            "Standardisierte Formate für elektronischen Zahlungsverkehr",
+            "Export-Schnittstellen für Steuerberater und Finanzverwaltung",
+            "Revisionssichere und rechtskonforme Archivierung"
+        ],
+        keywords: ["Finanzwesen", "Kassier", "§2b UStG", "Vereinsbuchhaltung", "SEPA", "Veranstaltungsauswertung", "Belegeinreichung", "Treasury", "Steuerkonform", "Kassenprüfung"],
         icon: CreditCard,
         color: "green"
     },
@@ -586,21 +667,39 @@ export const modules: Record<string, ModuleData> = {
         color: "orange"
     },
     "ki-integration": {
-        title: "KI-Assistenz",
-        shortDesc: "Smarte Unterstützung für Texte und Planung.",
-        longDesc: "Nutzen Sie künstliche Intelligenz zur Entlastung. Vom automatischen Polieren von Einsatzberichten bis zur Analyse komplexer Personalverfügbarkeit. KI hilft, Daten in Erkenntnisse zu verwandeln.",
+        title: "KI-Assistenz & Intelligente Automatisierung",
+        shortDesc: "Künstliche Intelligenz für Texte, Planung, Optimierung und intelligente Datenverarbeitung.",
+        longDesc: "RESQIO nutzt modernste KI-Technologie, um Ihre Feuerwehr intelligent zu unterstützen. Von der automatischen Textoptimierung über den interaktiven KI-Chatbot bis zur intelligenten Pumpenoptimierung bei der Wasserförderung. Die KI analysiert Ihre Personalstruktur, optimiert Adressen automatisch und mappt Objektdaten ohne manuelle Eingabe. So verwandeln Sie Daten in Erkenntnisse und sparen wertvolle Zeit bei administrativen Aufgaben.",
         benefits: [
-            "Qualität: Perfekt formulierte Einsatzberichte per Mausklick",
-            "Tempo: Den Papierkram nach dem Einsatz in Sekunden erledigen",
-            "Planung: Personalengpässe erkennen und gegensteuern"
+            "Effizienz: KI-Chatbot beantwortet Fragen zu Systemdaten, Wiki-Inhalten und Prozessen in Echtzeit",
+            "Qualität: Perfekt formulierte Einsatzberichte und Protokolle per Mausklick",
+            "Automatisierung: Intelligentes Mapping von Objektdaten ohne manuelle Datenpflege",
+            "Präzision: KI-gestützte Pumpenoptimierung für komplexe Wasserförderungsstrecken",
+            "Smart Data: Automatische Adressoptimierung und Geocodierung",
+            "Vorausschauend: Personal-Lücken-Analyse und strategische Personalplanung",
+            "Tempo: Administrativer Aufwand wird um bis zu 70% reduziert"
         ],
         features: [
-            "KI-Textoptimierung (Berichte, Protokolle)",
-            "Smart Parsing unstrukturierter Daten",
-            "Personal-Lücken-Analyse & Prognosen",
-            "Lehrgangs-Empfehlungen"
+            "KI-Chatbot: Interaktiver Assistent für Führungskräfte mit Zugriff auf alle Systemdaten",
+            "KI-Textoptimierung: Professionelle Berichte, Protokolle und Dokumentationen",
+            "Intelligente Adressoptimierung: Automatische Korrektur und Standardisierung",
+            "Automatisches Objektdaten-Mapping: KI erkennt und strukturiert Gebäudeinformationen",
+            "KI-Pumpenoptimierung: Intelligente Berechnung optimaler Pumpenstandorte",
+            "Smart Parsing: Verarbeitung unstrukturierter Alarm- und Einsatzdaten",
+            "Personal-Lücken-Analyse: Vorausschauende Verfügbarkeits-Prognosen",
+            "KI-Karriereplaner: Individuelle Lehrgangs-Empfehlungen basierend auf Potenzialanalyse",
+            "Automatische Beförderungsvorschläge nach Dienstzeit und Qualifikationen",
+            "Geocodierung & Koordinaten-Optimierung für Einsatzorte",
+            "Intelligente Volltextsuche über alle Module hinweg"
         ],
-        keywords: ["KI", "AI", "Künstliche Intelligenz", "Textgenerator", "Analyse"],
+        technicalDetails: [
+            "Integration moderner Large Language Models (LLM)",
+            "OpenAI GPT-4 Integration für Textgenerierung",
+            "Machine Learning Algorithmen für Personalanalyse",
+            "Hydraulische Berechnungsmodelle mit KI-Optimierung",
+            "Geocoding APIs mit intelligenter Plausibilitätsprüfung"
+        ],
+        keywords: ["KI", "AI", "Künstliche Intelligenz", "Chatbot", "Textgenerator", "Automatisierung", "Machine Learning", "Adressoptimierung", "Pumpenoptimierung", "Smart Data"],
         icon: Brain,
         color: "purple"
     }
