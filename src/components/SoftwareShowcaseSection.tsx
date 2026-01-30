@@ -11,12 +11,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Zap, Layers, BarChart3, LayoutDashboard, Monitor, Activity, Touchpad, MessageSquare, Expand } from "lucide-react";
+// PNG imports
 import lagemonitorImg from "@/assets/showcase-lagemonitor.png";
 import kioskHomeImg from "@/assets/showcase-kiosk-home.png";
 import kioskMobileImg from "@/assets/showcase-kiosk-mobile.png";
 import dialogsImg from "@/assets/showcase-dialogs.png";
 import operationsImg from "@/assets/showcase-operations.png";
 import statisticsImg from "@/assets/showcase-statistics.png";
+
+// WebP imports
+import lagemonitorWebp from "@/assets/showcase-lagemonitor.webp";
+import kioskHomeWebp from "@/assets/showcase-kiosk-home.webp";
+import kioskMobileWebp from "@/assets/showcase-kiosk-mobile.webp";
+import dialogsWebp from "@/assets/showcase-dialogs.webp";
+import operationsWebp from "@/assets/showcase-operations.webp";
+import statisticsWebp from "@/assets/showcase-statistics.webp";
 
 const features = [
     {
@@ -41,36 +50,42 @@ const screenshots = [
         title: "Operatives Lagezentrum",
         description: "Behalten Sie den Puls Ihrer Wehr in Echtzeit im Blick. Das Dashboard mit Lagemonitor liefert sekundengenaue Einblicke in die Einsatzbereitschaft, Personalverfügbarkeit und taktische Lage mit interaktiver Kartendarstellung.",
         image: lagemonitorImg,
+        imageWebp: lagemonitorWebp,
         icon: LayoutDashboard,
     },
     {
         title: "Kiosk-Modus Startseite",
         description: "Die Benutzeroberfläche für maximale Akzeptanz. Optimiert für Tablets und Touchscreens, ermöglicht sie eine intuitive Bedienung ohne Schulung. 57 Module für alle Mannschaftsaufgaben verfügbar.",
         image: kioskHomeImg,
+        imageWebp: kioskHomeWebp,
         icon: Monitor,
     },
     {
         title: "Mobile Erfassung im Kiosk",
         description: "Einfache Erfassung von Tätigkeiten, Personal und Material direkt vor Ort im Gerätehaus. Wizard-geführte Workflows für Wartung, Fahrtenbuch und Meldungen. Schnell, einfach und zuverlässig.",
         image: kioskMobileImg,
+        imageWebp: kioskMobileWebp,
         icon: Touchpad,
     },
     {
         title: "Erweiterte Dialoge & Workflows",
         description: "Professionelle Eingabemasken mit intelligenter Validierung und kontextsensitiver Hilfe. Komplexe Workflows in wenigen Schritten abbilden mit intuitiver Benutzerführung.",
         image: dialogsImg,
+        imageWebp: dialogsWebp,
         icon: MessageSquare,
     },
     {
         title: "Einsatz- & Übungsmanagement",
         description: "Lückenlose Dokumentation mit wenigen Klicks. Filtern, Suchen und Exportieren von Berichten war noch nie so einfach. KI-gestützte Textassistenz für professionelle Dokumentation.",
         image: operationsImg,
+        imageWebp: operationsWebp,
         icon: Activity,
     },
     {
         title: "Umfangreiche Statistiken",
         description: "Visualisierte Auswertungen zu Einsätzen, Personal, Übungen und Budget. Management-Summary für fundierte Entscheidungen auf Basis realer Daten mit Export-Funktionen.",
         image: statisticsImg,
+        imageWebp: statisticsWebp,
         icon: BarChart3,
     },
 ];
@@ -79,17 +94,32 @@ const SoftwareShowcaseSection = () => {
     const [api, setApi] = useState<CarouselApi>();
     const [current, setCurrent] = useState(0);
     const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
+    const [isPaused, setIsPaused] = useState(false);
 
-    // Auto-play functionality
+    // Auto-play functionality with pause support
     useEffect(() => {
-        if (!api) return;
+        if (!api || isPaused) return;
 
         const interval = setInterval(() => {
             api.scrollNext();
         }, 5000); // Auto-advance every 5 seconds
 
         return () => clearInterval(interval);
-    }, [api]);
+    }, [api, isPaused]);
+
+    // Pause auto-play when tab is not visible
+    useEffect(() => {
+        const handleVisibilityChange = () => {
+            if (document.hidden) {
+                setIsPaused(true);
+            } else {
+                setIsPaused(false);
+            }
+        };
+
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+        return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
+    }, []);
 
     // Update current slide
     useEffect(() => {
@@ -138,11 +168,17 @@ const SoftwareShowcaseSection = () => {
                 </div>
 
                 {/* Screenshots Carousel */}
-                <div className="max-w-6xl mx-auto">
+                <div
+                    className="max-w-6xl mx-auto"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                >
                     <Carousel
                         className="w-full"
                         opts={{ align: "start", loop: true }}
                         setApi={setApi}
+                        aria-label="Software Screenshots Galerie"
+                        aria-live="polite"
                     >
                         <CarouselContent>
                             {screenshots.map((item, index) => (
@@ -165,13 +201,18 @@ const SoftwareShowcaseSection = () => {
                                             {/* Image with Click-to-Enlarge */}
                                             <div
                                                 className="relative aspect-[16/10] overflow-hidden bg-muted cursor-pointer group"
-                                                onClick={() => setEnlargedImage(item.image)}
+                                                onClick={() => setEnlargedImage(item.imageWebp)}
                                             >
-                                                <img
-                                                    src={item.image}
-                                                    alt={item.title}
-                                                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                                                />
+                                                <picture>
+                                                    <source srcSet={item.imageWebp} type="image/webp" />
+                                                    <img
+                                                        src={item.image}
+                                                        alt={item.title}
+                                                        loading="lazy"
+                                                        decoding="async"
+                                                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                                                    />
+                                                </picture>
                                                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                                                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg flex items-center gap-2">
                                                         <Expand className="w-4 h-4" />
@@ -204,23 +245,32 @@ const SoftwareShowcaseSection = () => {
                     </Carousel>
 
                     {/* Thumbnail Navigation */}
-                    <div className="flex justify-center gap-3 mt-8 flex-wrap">
+                    <div className="flex justify-center gap-3 mt-8 flex-wrap" role="tablist" aria-label="Screenshot Navigation">
                         {screenshots.map((item, index) => (
                             <button
                                 key={index}
                                 onClick={() => api?.scrollTo(index)}
+                                role="tab"
+                                aria-selected={current === index}
+                                aria-label={`Gehe zu Screenshot ${index + 1}: ${item.title}`}
+                                aria-controls={`screenshot-${index}`}
                                 className={`relative group overflow-hidden rounded-lg border-2 transition-all duration-300 ${
                                     current === index
                                         ? "border-primary shadow-lg scale-105"
                                         : "border-border hover:border-primary/50 hover:scale-105"
                                 }`}
                             >
-                                <div className="w-24 h-16 md:w-32 md:h-20 overflow-hidden bg-muted">
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        className="w-full h-full object-cover object-top"
-                                    />
+                                <div className="w-28 h-20 md:w-32 md:h-24 overflow-hidden bg-muted">
+                                    <picture>
+                                        <source srcSet={item.imageWebp} type="image/webp" />
+                                        <img
+                                            src={item.image}
+                                            alt={`Thumbnail für ${item.title}`}
+                                            loading="lazy"
+                                            decoding="async"
+                                            className="w-full h-full object-cover object-top"
+                                        />
+                                    </picture>
                                 </div>
                                 <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
                                     current === index ? "bg-primary/20" : "bg-black/0 group-hover:bg-black/10"

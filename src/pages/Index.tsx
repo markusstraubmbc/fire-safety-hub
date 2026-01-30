@@ -1,7 +1,6 @@
+import { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import FeaturesSection from "@/components/FeaturesSection";
-import SoftwareShowcaseSection from "@/components/SoftwareShowcaseSection";
 import IntegrationsSection from "@/components/IntegrationsSection";
 import PersonaSection from "@/components/PersonaSection";
 import ProcessSection from "@/components/ProcessSection";
@@ -12,15 +11,33 @@ import TestimonialSection from "@/components/TestimonialSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
+// Lazy load heavy components
+const FeaturesSection = lazy(() => import("@/components/FeaturesSection"));
+const SoftwareShowcaseSection = lazy(() => import("@/components/SoftwareShowcaseSection"));
+
+// Loading fallback component
+const SectionLoader = () => (
+  <div className="py-16 md:py-24 flex items-center justify-center">
+    <div className="animate-pulse flex flex-col items-center gap-4">
+      <div className="w-12 h-12 rounded-full bg-primary/20"></div>
+      <div className="text-sm text-muted-foreground">Lädt...</div>
+    </div>
+  </div>
+);
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main>
         <HeroSection />
-        <FeaturesSection />
+        <Suspense fallback={<SectionLoader />}>
+          <FeaturesSection />
+        </Suspense>
         <PersonaSection />
-        <SoftwareShowcaseSection />
+        <Suspense fallback={<SectionLoader />}>
+          <SoftwareShowcaseSection />
+        </Suspense>
         <IntegrationsSection />
         <ProcessSection />
         <FutureSection />
