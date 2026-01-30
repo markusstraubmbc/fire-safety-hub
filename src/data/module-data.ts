@@ -21,6 +21,8 @@ import {
     BookOpen,
     Mail,
     UserCheck,
+    Gamepad2,
+    Beer,
     LucideIcon
 } from "lucide-react";
 
@@ -110,7 +112,7 @@ export const modules: Record<string, ModuleData> = {
     "kiosk-modus": {
         title: "Kiosk-Modus - Die zentrale Mannschaftsoberfläche",
         shortDesc: "57 Module touchscreen-optimiert – die Mannschaft erledigt alle Aufgaben selbstständig am Tablet.",
-        longDesc: "Der RESQIO Kiosk-Modus ist die zentrale Schnittstelle zwischen System und Mannschaft. Auf großen Touchscreens oder Tablets in der Fahrzeughalle stehen der gesamten Mannschaft 57 speziell optimierte Module zur Verfügung – von der Fahrtenbuchpflege über die Gerätewartung bis zur Belegeinreichung. Jeder Kamerad kann alle Aufgaben rund um seine Funktion eigenständig erledigen, ohne am Desktop-PC arbeiten zu müssen. Der integrierte KI-Assistent unterstützt Führungskräfte mit sofortigem Zugriff auf Wiki-Inhalte und Systemdaten. Wizard-geführte Workflows machen komplexe Tätigkeiten kinderleicht. Unified Login via RFID-Chip, PIN oder QR-Code ermöglicht sekundenschnelle Anmeldung ohne Tastatur.",
+        longDesc: "Der RESQIO Kiosk-Modus ist die zentrale Schnittstelle zwischen System und Mannschaft. Auf großen Touchscreens oder Tablets in der Fahrzeughalle stehen der gesamten Mannschaft 57 speziell optimierte Module zur Verfügung – von der Fahrtenbuchpflege über die Gerätewartung bis zur Belegeinreichung. Jeder Kamerad kann alle Aufgaben rund um seine Funktion eigenständig erledigen, ohne am Desktop-PC arbeiten zu müssen. Der integrierte KI-Assistent mit Spracheingabe unterstützt Führungskräfte mit sofortigem Zugriff auf Wiki-Inhalte und Systemdaten. Dedizierte URL-Routen für jeden Bereich ermöglichen korrekte Browser-Navigation. Wizard-geführte Workflows machen komplexe Tätigkeiten kinderleicht. Unified Login via RFID-Chip, PIN oder QR-Code ermöglicht sekundenschnelle Anmeldung ohne Tastatur.",
         benefits: [
             "Vollständigkeit: 57 Module für alle Tätigkeiten der Mannschaft am Kiosk verfügbar",
             "Selbstständigkeit: Jeder Kamerad erledigt seine Aufgaben eigenständig ohne Admin-Eingriff",
@@ -127,13 +129,14 @@ export const modules: Record<string, ModuleData> = {
             "Funktionsbereich: Einsatz, Wartung, Fahrtenbuch, Mängel, Wäsche, Inventur, Finanzen",
             "Rollenspezifische Kacheln: AGT-Bereich, Gerätewart-Tools, Kassier-Funktionen",
             "Unified Login: RFID-Chip, PIN, QR-Code, Digitaler Dienstausweis",
-            "KI-gestützter Wissens-Chat für Führungskräfte mit Systemdaten-Zugriff",
+            "KI-Assistent mit Spracheingabe: Gemeinsamer Chat für Führungskräfte mit Voice-Input und Wiki-Zugriff",
             "Intelligente Wartungs-Wizards mit Schritt-für-Schritt-Führung und Foto-Upload",
             "Fahrtenbuch-Wizard: Schnellerfassung mit Fahrzeugauswahl und Besatzung",
             "Mängelmelder: QR-Code scannen, Foto machen, Mangel melden – in 30 Sekunden",
             "Wäsche-Management: Abgabe und Abholung direkt am Tablet erfassen",
             "Inventur-Modus: Scan-basierte Bestandserfassung mit Live-Feedback",
-            "Belegeinreichung: Fotos von Quittungen mit automatischer KI-Kategorisierung",
+            "Finanzen-Bereich: Dedizierte URL-Route mit Budget-Übersicht und Genehmigungsstatus",
+            "Belegeinreichung: Eigenständiger Screen für Quittungen mit KI-Kategorisierung",
             "Persönlicher Bereich: Eigene Qualifikationen, Übungsfortschritt, AGT-Nachweise",
             "Wetter & Unwetter-Warnungen: Integration professioneller Wetterdienste",
             "Einsatz-Monitor: Live-Status aktueller Einsätze und Verfügbarkeit",
@@ -145,7 +148,13 @@ export const modules: Record<string, ModuleData> = {
             "Premium Design: Dark Mode, High Contrast & Glassmorphism für beste Lesbarkeit",
             "Offline-Modus: Kritische Funktionen auch ohne Internetverbindung",
             "Multi-Sprachen-Support: Deutsch, Englisch und weitere Sprachen",
-            "Barrierefreiheit: Große Schaltflächen, hoher Kontrast, Sprachausgabe"
+            "Barrierefreiheit: Große Schaltflächen, hoher Kontrast, Sprachausgabe",
+            "Document Center: Vollständiges Dokumenten-Management mit Suche, Filter und direktem Zugriff auf alle Vorlagen",
+            "Whiteboard Panel: Interaktives Zeichnen mit FwDV-Taktischen Symbolen für Lageskizzen und Planungen",
+            "Anwesenheitserfassung: Schnelles Check-In/Check-Out mit 30-Minuten Bearbeitungsfenster und RFID-Support",
+            "Personen-Detailansicht: Umfassende Mitglieder-Info mit Qualifikationen, Lehrgängen und letzten Fahrten",
+            "Ausrüstungs-Wizard: Neue Geräte direkt am Tablet erfassen mit Foto, Barcode-Scan und Standortzuweisung",
+            "Echtzeit-Synchronisation: WebSocket-basierte Live-Updates für Whiteboards und Statusänderungen"
         ],
         technicalDetails: [
             "Touch-optimiert für Bildschirme ab 10 Zoll",
@@ -220,54 +229,83 @@ export const modules: Record<string, ModuleData> = {
         color: "amber"
     },
     "einsatzerfassung": {
-        title: "Einsätze & Übungen",
-        shortDesc: "Vollständige Dokumentation, Planung und Auswertung mit KI-Unterstützung.",
-        longDesc: "Verwaltung des gesamten Einsatzzyklus von der Alarmierung bis zur Nachbereitung. Inklusive moderner Features wie KI-Textassistenz, automatischer Geocodierung, Quiz-Master für realitätsnahe Trainingsszenarien und Analyse für Eintreffzeiten.",
+        title: "Einsätze & Übungen - Vollspektrum Einsatzmanagement",
+        shortDesc: "Vollständige Einsatzabwicklung von Alarmierung bis Nachbereitung - mit Quiz-Training, Navigation, externem Portal und Verbrauchsmaterial-Tracking.",
+        longDesc: "Das umfassendste Einsatzmanagement-System für moderne Feuerwehren. Von der Alarmierung über die Dokumentation bis zur strategischen Nachbereitung. Der integrierte Quiz-Master ermöglicht realitätsnahe Szenario-Schulungen. Bei Großeinsätzen können externe Feuerwehren via QR-Code ohne Login Statusmeldungen und Lagemeldungen mit Fotos abgeben. Die Multi-App-Navigation führt Sie mit Ihrer bevorzugten App (Google Maps, Apple Maps, Waze, OSM) direkt zur Einsatzstelle. Verbrauchsmaterialien wie Ölbinder, Schaummittel und Medizin werden automatisch erfasst und nachverfolgt. KI-Textassistenz und automatisches Geocoding runden das System ab.",
         benefits: [
-            "Zeitersparnis: KI-Berichtsassistent für schnelle Dokumentation",
-            "Realitätsnahe Übungen: Interaktives Szenario-basiertes Quiz-System",
-            "Analyse: Visualisierung von Eintreffzeiten und Ausrückeordnungen",
-            "Struktur: Fachgerechte Jahresberichte und automatisches Session-Tracking"
+            "Realitätsnähe: Quiz-Master mit praxisnahen Szenarien und Session-Tracking für authentische Übungen",
+            "Großeinsatzlagen: Externes Portal ermöglicht Zusammenarbeit mit anderen Feuerwehren ohne Login",
+            "Navigation: Multi-App-Unterstützung - jeder nutzt seine bevorzugte Navigations-App",
+            "Materialtracking: Vollständiges Verbrauchsmaterial-Management mit Kategorien und Einheiten",
+            "Zeitersparnis: KI-Berichtsassistent erstellt professionelle Dokumentationen in Sekunden",
+            "Mobilität: QR-Code-Navigation für schnellen Start vom Tablet",
+            "Offline-Fähigkeit: Externes Portal funktioniert auch ohne durchgängige Verbindung",
+            "Analyse: Visualisierung von Eintreffzeiten und taktischen Vergleichen"
         ],
         features: [
-            "KI-Textassistent für Berichte & Smart Parsing",
-            "Quiz-Master & Trainings-System mit Szenario-Verwaltung",
-            "Offene Posten Liste & Nachbereitungsworkflow",
-            "Missions-Zeit-Vergleich & Geocodierung",
-            "Umfangreiche PDF-Exporte (inkl. Lagekarte)",
-            "Material- & Verbrauchsmaterialverwaltung mit Bestandsführung"
+            "Quiz-Master: Interaktives Szenario-basiertes Quiz-System mit automatischem Session-Tracking, Punktevergabe und Erfolgsstatistiken für realitätsnahe Wissensabfragen",
+            "Externes Feuerwehr-Portal: QR-Code-Zugang für externe Kräfte bei Großeinsätzen",
+            "Status-Meldungen: Vordefinierte Status (Anfahrt, Vor Ort, Verfügbar, Zurückgekehrt) per One-Tap",
+            "Lagemeldungen mit Foto: Situationsberichte mit Bildanhang und Wichtig-Markierung",
+            "Material-Erfassung: Vordefinierte Verbrauchsmaterialien plus manuelle Eingabe",
+            "Multi-App-Navigation: Google Maps, Apple Maps, Waze, OpenStreetMap, HERE WeGo",
+            "QR-Code-Generierung: Scanbare Codes für Mobile-Navigation vom Tablet",
+            "Kartenvorschau: Interaktive Mini-Karte (200x150px) mit Einsatzort-Marker",
+            "Automatisches Geocoding: Koordinaten-Generierung aus Adressen mit Caching",
+            "Verbrauchsmaterialien-Verwaltung: Ölbinder, Schaummittel, Medizin mit Bestandsverfolgung",
+            "Kategor isierung: Typ, Einheit (Stück, Liter, kg), Standort",
+            "KI-Textassistent: Professionelle Berichte per Mausklick & Smart Parsing",
+            "Offene Posten Liste: Strukturierte Nachbereitung mit Aufgabenvergabe",
+            "Missions-Zeit-Vergleich: Benchmarking zwischen Einsätzen",
+            "Umfangreiche PDF-Exporte: Lagekarte, Berichte, Statistiken",
+            "BSW-Verwaltung: Dedizierte Ansicht für Brandsicherheitswachen",
+            "Einsatzbericht-Historie: Lückenlose Dokumentation aller Vorgänge"
         ],
-        keywords: ["Einsatzbericht", "Übungsdienst", "FwDV", "Quiz-System", "KI Bericht", "Trainings-Szenarien"],
+        technicalDetails: [
+            "Externe Portal: 7 dedizierte Datenbanktabellen für isolierte Datenhaltung",
+            "Offline-Caching: LocalStorage für Datenpersistenz bei Verbindungsverlust",
+            "QR-Code-Sicherheit: 64-Zeichen-Token mit SHA-256-Hashing",
+            "Platform-Detection: Automatische App-Empfehlung basierend auf OS",
+            "Geocoding-Fallback: Multiple Server für robuste Adress-Auflösung"
+        ],
+        keywords: ["Einsatzbericht", "Übungsdienst", "FwDV", "Quiz-System", "KI Bericht", "Trainings-Szenarien", "Externes Portal", "Navigation", "Verbrauchsmaterial", "Großeinsatz", "QR-Code"],
         icon: FileText,
         color: "red"
     },
     "mannschaftsverwaltung": {
         title: "Personal & Kameraden Management",
         shortDesc: "Vollständige Personalverwaltung mit Überprüfungsportal, Verifikationssystem, Rollenmanagement und KI-Analysen.",
-        longDesc: "Die zentrale Plattform für modernes Personalmanagement in der Feuerwehr. Verwalten Sie Stammdaten, Qualifikationen und Berechtigungen mit professionellem Rollenmanagement. Das integrierte Überprüfungsportal ermöglicht die systematische Kontrolle aller Personalinformationen, während das Verifikationsportal mit Feedback-System die Qualität der Daten sicherstellt. KI-gestützte Analysen liefern strategische Erkenntnisse zur Verfügbarkeit und Personalplanung.",
+        longDesc: "Die zentrale Plattform für modernes Personalmanagement in der Feuerwehr. Verwalten Sie Stammdaten, Qualifikationen und Berechtigungen mit professionellem Rollenmanagement. Notfallkontakte sind vollständig integriert und können als vCard exportiert werden. Der neue Lehrgänge-Tab ermöglicht Inline-Bearbeitung ohne Dialog-Wechsel. Das integrierte Überprüfungsportal ermöglicht die systematische Kontrolle aller Personalinformationen, während das Verifikationsportal mit Feedback-System die Qualität der Daten sicherstellt. KI-gestützte Analysen liefern strategische Erkenntnisse zur Verfügbarkeit und Personalplanung.",
         benefits: [
+            "Sicherheit: Notfallkontakte jederzeit verfügbar und exportierbar",
+            "Effizienz: Lehrgänge inline bearbeiten ohne separaten Dialog",
             "Datenqualität: Überprüfungsportal für systematische Kontrolle aller Personalinformationen",
             "Verifikation: Feedback-basiertes Verifikationsportal für valide Stammdaten",
             "Berechtigungen: Granulares Rollenmanagement mit individuellen Zugriffsrechten",
             "Strategie: KI-Analyse der Schlagkraft und Verfügbarkeit Ihrer Wehr",
             "Automatisierung: Intelligente Beförderungsvorschläge & Ausbildungsstandkontrolle",
-            "Transparenz: Lückenlose Historie aller Personaländerungen mit Audit-Trail",
-            "Flexibilität: Unterstützung komplexer Gruppen- und Führungsstrukturen"
+            "Export: CardDAV/VCF-Export inklusive Notfallkontakte für externe Systeme",
+            "Transparenz: Lückenlose Historie aller Personaländerungen mit Audit-Trail"
         ],
         features: [
             "Überprüfungsportal: Systematische Review-Workflows für Stammdaten und Qualifikationen",
             "Verifikationsportal mit Feedback-System: Validierung durch Führungskräfte",
             "Granulares Rollenmanagement: Individuelle Berechtigungen pro Modul und Funktion",
             "Berechtigungs-Templates: Vordefinierte Rollen für Kommandant, Gerätewart, Kassier etc.",
+            "Notfallkontakte-Integration: Vollständig in Kontaktsystem integriert mit CardDAV/VCF-Export",
+            "Lehrgänge-Tab: Inline-Bearbeitung mit Abschlussdatum, Ablaufdatum und Zertifikat-URLs",
             "Stammdaten-Management: Dienstgrade, Funktionen & Identitäts-Management",
             "KI-Personal-Analyse: Verfügbarkeit, Lehrgangsbedarf und Schlagkraft-Prognosen",
             "Automatisierte Qualifikations-Aktivierung bei Übungsteilnahme",
             "Intelligentes Beförderungssystem mit Vorschlägen nach Dienstzeit und Qualifikationen",
+            "Dienstgrad-Historie: Timeline-Ansicht aller Beförderungen mit Statistiken zu Verweildauer und Beförderungsrate",
             "Qualifikations-Monitoring: Fristen für G26.3, Lehrgänge und Fortbildungen",
             "Führungskräfte-Hierarchie: Abbildung komplexer Organisations-Strukturen",
             "Sichtbarkeits-Steuerung & Datenschutz-Management pro Person",
             "Inaktiv-Verwaltung für ehemalige Mitglieder mit Archivfunktion",
             "Globale Filterung in allen Modulen nach Qualifikationen und Status",
+            "Namensformat-Standardisierung: Einheitliches \"Nachname Vorname\" im gesamten System",
+            "vCard-Export: Kontakte mit Notfallkontakten als vCard 3.0 exportierbar",
             "Audit-Trail: Vollständige Nachverfolgbarkeit aller Änderungen"
         ],
         technicalDetails: [
@@ -302,22 +340,48 @@ export const modules: Record<string, ModuleData> = {
         color: "blue"
     },
     "wasserkarte": {
-        title: "Wasserkarte & Hydranten",
-        shortDesc: "Operatives Management von Wasserentnahmestellen.",
-        longDesc: "Optimieren Sie die Wasserversorgung. Die interaktive Karte zeigt Hydranten und Wasserentnahmestellen mit detaillierten Infos (Durchfluss, Typ). Integration von digitalen Kartendiensten und direkte Mängelmeldung.",
+        title: "Wasserkarte & Infrastruktur-Erfassung",
+        shortDesc: "Interaktives Hydranten- und POI-Management mit Klick-zum-Bearbeiten, OpenFireMap-Integration und mobiler Erfassung.",
+        longDesc: "Die umfassendste Wasserkarten-Lösung für die Feuerwehr. Erfassen Sie Hydranten und Points of Interest direkt auf der Karte mit einem Klick. Die Dual-Modus-Erfassung ermöglicht sowohl Wasserentnahmestellen als auch POIs (Sammelstellen, Gefahrenstellen, Zufahrten) zu verwalten. Klicken Sie auf jeden Marker, um sofort Detailinformationen zu bearbeiten. OpenFireMap zeigt automatisch OSM Feuerwehr-Infrastruktur (Feuerwachen, Sammelplätze, Sirenen). Jeder Hydrant und POI wird mit Ersteller-Information gespeichert. Performance-Optimierung mit intelligentem Zoom-Level-Management verhindert Überlastung. Unterstützt Unterflur- und Überflurhydranten mit vollständigen technischen Daten.",
         benefits: [
-            "Taktik: Hydranten und Wasserentnahmestellen im Umkreis finden",
-            "Info: Anzeige von Durchflussmengen und technischen Merkmalen",
-            "Aktuelle Daten: Schnelle Mängelmeldung bei defekten Hydranten"
+            "Flexibilität: Hydranten UND Points of Interest auf einer Karte erfassen",
+            "Effizienz: Klick-zum-Bearbeiten - Marker anklicken und sofort ändern",
+            "Integration: OpenFireMap zeigt OSM Feuerwehr-Infrastruktur automatisch",
+            "Transparenz: Wer hat welchen Hydrant/POI erfasst - Ersteller-Anzeige",
+            "Mobilität: Erfassung direkt vor Ort mit Tablet oder Smartphone",
+            "Performance: Intelligentes Laden nur bei sinnvollen Zoom-Stufen (13-19)",
+            "Vielfalt: POIs mit individuellen Icons und Farben kategorisierbar",
+            "Vollständigkeit: Lokale + OpenStreetMap Hydranten kombiniert nutzbar"
         ],
         features: [
-            "Karten-Integration mit Caching-Technologie",
+            "Infrastruktur-Erfassung: Hydranten und POIs direkt auf Karte platzieren",
+            "Dual-Modus: Umschaltbar zwischen Hydranten- und POI-Erfassung",
+            "Klick-zum-Bearbeiten: Marker anklicken öffnet sofort Bearbeitungsdialog",
+            "OpenFireMap-Integration: OSM Feuerwehr-Infrastruktur (Wachen, Sammelplätze, Sirenen)",
+            "Lokale Hydranten-Layer: Eigene erfasste Hydranten mit grünen 💧 Markern",
+            "Lokale POIs-Layer: POIs mit individuellen Icons und Farben",
+            "Ersteller-Anzeige: Name des Erstellers in Popup und Tabelle",
+            "Technische Vollständigkeit: Typ, Durchmesser, Druck, Durchfluss, Status, Notizen",
+            "Feuerwehr-Standort-Marker: 🚒 zeigt automatisch ersten Standort mit Koordinaten",
+            "Standard-Typ-Dropdown: Vordefinierter Typ für schnelle Erfassung",
+            "Liste erfasster Punkte: Sidebar mit allen gesetzten Punkten, Auswahl und Löschen",
+            "Layer-Control: Toggle-bare Kartenebenen für vollständige Übersicht",
+            "Performance-Optimierung: Zoom-Level-Beschränkungen (13-19 für OSM)",
+            "Debouncing: 500ms Verzögerung bei Kartenverschiebung reduziert API-Aufrufe",
+            "Marker-Limit: Max. 1000 Marker pro Layer verhindert Browser-Überlastung",
+            "UTF-8 Encoding: Korrekte Darstellung deutscher Sonderzeichen",
             "Farbcodierung nach Kapazität/Durchmesser",
-            "Detailinfos: Typ (Unterflur/Überflur), Dimension, Entfernung",
             "Kiosk-Integration & Vollbildmodus",
             "Filter & Suchfunktionen"
         ],
-        keywords: ["Hydrantenplan", "Löschwasser", "Wasserversorgung", "Digitale Karte", "Unterflurhydrant"],
+        technicalDetails: [
+            "UTF-8mb4 Zeichensatz für vollständige Unicode-Unterstützung",
+            "Foreign-Key-Optimierung für performante Datenbankabfragen",
+            "Offline-Kartencaching für autonomen Betrieb",
+            "Debouncing und Rate-Limiting zum Schutz vor API-Überlastung",
+            "Automatische Tile-Server-Fallbacks bei Serverausfall"
+        ],
+        keywords: ["Hydrantenplan", "Löschwasser", "Wasserversorgung", "Digitale Karte", "Unterflurhydrant", "POI", "Infrastruktur-Erfassung", "OpenFireMap", "Klick-zum-Bearbeiten"],
         icon: Droplets,
         color: "sky"
     },
@@ -529,9 +593,13 @@ export const modules: Record<string, ModuleData> = {
         shortDesc: "Bidirektionale REST API, MQTT-Broker & individuelle Middleware.",
         longDesc: "RESQIO ist offen für Ihre Systemlandschaft. Die vollständige REST API ermöglicht nicht nur das Auslesen, sondern auch das Schreiben und Aktualisieren von Daten in der Anwendung. Verbinden Sie Alarmierungssysteme, IoT-Geräte und Drittsysteme über MQTT oder REST. Wir entwickeln auf Anfrage individuelle Middleware-Lösungen für komplexe Integrationsszenarien.",
         benefits: [
+            "Flexibilität: Beliebig viele Kalender-Quellen gleichzeitig synchronisieren",
             "Bidirektional: Daten auslesen UND in RESQIO schreiben via REST API",
+            "BSW-Automation: Brandsicherheitswachen automatisch aus Kalendern importieren",
+            "Transparenz: Status jeder Kalenderquelle einzeln einsehbar mit Fehlerprotokoll",
             "Automatisierung: Alarmierung triggert automatisch die Einsatzerfassung",
             "Echtzeit: Hochperformante MQTT-Anbindung für IoT-Anwendungen",
+            "Export: CardDAV/VCF-Export inklusive Notfallkontakte",
             "Individualität: Maßgeschneiderte Middleware für Ihre Systemlandschaft"
         ],
         features: [
@@ -539,6 +607,12 @@ export const modules: Record<string, ModuleData> = {
             "API-Schnittstelle zum Setzen von Informationen in der Anwendung",
             "Webhooks für ereignisgesteuerte Workflows",
             "Echtzeit-MQTT Broker für IoT-Anwendungen",
+            "Multi-URL Kalendersynchronisation: Beliebig viele ICS-Quellen pro Typ (1:n statt 1:1)",
+            "BSW-Integration: Automatischer Import von Brandsicherheitswachen aus externen Kalendern",
+            "Sync-Status pro Quelle: Echtzeit-Anzeige mit Fehlermeldungen und letztem Sync-Zeitpunkt",
+            "Individuelle Einstellungen: Jede Quelle mit eigenen Zeitfenstern oder globalen Settings",
+            "Aktivierung/Deaktivierung: Quellen temporär deaktivieren ohne Löschen",
+            "CardDAV-Synchronisation: Kontakte inkl. Notfallkontakte als vCard exportierbar",
             "Zentrales Email Template Management (Branding & Variablen)",
             "Individuelle Middleware-Entwicklung auf Anfrage",
             "KI-Parsing für unstrukturierte Alarm-Daten",
@@ -571,21 +645,41 @@ export const modules: Record<string, ModuleData> = {
         color: "indigo"
     },
     "reporting": {
-        title: "Statistik & Reporting",
-        shortDesc: "Umfangreiche Auswertungen und Druckzentrum.",
-        longDesc: "Datenbasierte Entscheidungen treffen. Das Statistik-Modul liefert detaillierte Einblicke in alle Bereiche. Das Druckzentrum bietet fertige Berichte und Listen für jeden Zweck.",
+        title: "Statistik, Reporting & Security-Audit",
+        shortDesc: "Umfassende Auswertungen, Druckzentrum, KI-Dashboard, Login-Audit und Sicherheitsanalysen.",
+        longDesc: "Das vollständigste Statistik- und Controlling-System für die Feuerwehr. Treffen Sie datenbasierte Entscheidungen auf Basis detaillierter Einblicke in alle Bereiche. Das neue KI-Dashboard zeigt KPI-Übersicht mit Anfragen, Tokens und Kosten. Die erweiterte Login-Audit-Funktion protokolliert alle Anmeldungen mit IP-Adressen und Gerätetypen und visualisiert diese grafisch. Identifizieren Sie Sicherheitsrisiken durch aggregierte Fehler-Analyse. Das Druckzentrum bietet fertige Berichte und Listen für jeden Zweck mit granularen RBAC-Berechtigungen.",
         benefits: [
+            "Sicherheit: Login-Audit mit IP-Adressen, Gerätetypen und Fehler-Analyse",
+            "KI-Controlling: Vollständige Übersicht über KI-Nutzung und Kosten mit Prognosen",
+            "Aktivität: Anmelde-Statistik pro Person zeigt aktivste Nutzer",
             "Pflichtaufgabe: Jahresstatistik der Branddirektion auf Knopfdruck",
             "Vorausschauend: Langzeittrends in der Einsatzfrequenz erkennen",
-            "Nachweisbar: Dokumentation der Übungsbeteiligung und Belastung"
+            "Nachweisbar: Dokumentation der Übungsbeteiligung und Belastung",
+            "Granular: RBAC-Berechtigungen für jeden Statistik-Bereich"
         ],
         features: [
-            "Dashboard mit Kacheln für alle Module (Personal, Einsatz...)",
-            "Jahresbericht (PDF/Excel)",
-            "Druckzentrum: Listen, Etiketten, Laufkarten",
-            "Spezial-Reports: Beförderung, Exposition, Übungsbeteiligung"
+            "KI-Dashboard: KPI-Übersicht (Anfragen, Tokens, Kosten), Feature-Verteilung, Modell-Analyse",
+            "Login-Audit & Analyse: Grafische Visualisierung von Anmeldeereignissen mit Area-Charts",
+            "Anmelde-Statistik: Häufigkeit der Anmeldungen pro Person mit Badge-Anzeige",
+            "IP-Adressen-Protokollierung: Tracking von Gerätetypen und Standorten",
+            "Fehler-Analyse: Aggregierte Auswertung zur Identifizierung von Sicherheitsrisiken",
+            "CSV-Export: Export aller Statistikdaten für externe Analyse",
+            "Dashboard mit Kacheln für alle Module (Personal, Einsatz, KI)",
+            "Jahresbericht (PDF/Excel) mit vollständiger Dokumentation",
+            "Druckzentrum: Listen, Etiketten, Laufkarten, Zugangskarten",
+            "Spezial-Reports: Beförderung, Exposition, Übungsbeteiligung, Teilnahme-Statistik",
+            "Zeitraum-Filter: 7, 30, 90 Tage oder alle Daten",
+            "Top-Nutzer-Ranking: Aktivste Systemnutzer mit Statistiken",
+            "Kostenprognose: Geschätzte Monatskosten für KI basierend auf historischen Daten",
+            "Granulare RBAC: 6+ neue Berechtigungen für Statistik-Zugriff"
         ],
-        keywords: ["Statistik", "Jahresbericht", "Auswertung", "Drucken", "Controlling"],
+        technicalDetails: [
+            "Area-Charts für zeitbasierte Visualisierungen",
+            "Aggregations-Engine für Fehler-Analyse",
+            "Rollenbasierte Daten-Maskierung",
+            "Automatische Daten-Retention-Policies"
+        ],
+        keywords: ["Statistik", "Jahresbericht", "Auswertung", "Drucken", "Controlling", "Login-Audit", "KI-Dashboard", "Sicherheit", "RBAC"],
         icon: BarChart3,
         color: "purple"
     },
@@ -669,8 +763,11 @@ export const modules: Record<string, ModuleData> = {
     "ki-integration": {
         title: "KI-Assistenz & Intelligente Automatisierung",
         shortDesc: "Künstliche Intelligenz für Texte, Planung, Optimierung und intelligente Datenverarbeitung.",
-        longDesc: "RESQIO nutzt modernste KI-Technologie, um Ihre Feuerwehr intelligent zu unterstützen. Von der automatischen Textoptimierung über den interaktiven KI-Chatbot bis zur intelligenten Pumpenoptimierung bei der Wasserförderung. Die KI analysiert Ihre Personalstruktur, optimiert Adressen automatisch und mappt Objektdaten ohne manuelle Eingabe. So verwandeln Sie Daten in Erkenntnisse und sparen wertvolle Zeit bei administrativen Aufgaben.",
+        longDesc: "RESQIO nutzt modernste KI-Technologie, um Ihre Feuerwehr intelligent zu unterstützen. Das umfassende KI-Dashboard bietet volle Transparenz über Nutzung, Kosten und Feature-Verteilung. Im Kiosk steht allen Führungskräften ein gemeinsamer KI-Assistent mit Spracheingabe zur Verfügung. Von der automatischen Textoptimierung über den interaktiven KI-Chatbot bis zur intelligenten Pumpenoptimierung bei der Wasserförderung. Die KI analysiert Ihre Personalstruktur, optimiert Adressen automatisch und mappt Objektdaten ohne manuelle Eingabe. Rate Limiting und granulare Berechtigungen sorgen für kontrollierten Einsatz. So verwandeln Sie Daten in Erkenntnisse und sparen wertvolle Zeit bei administrativen Aufgaben.",
         benefits: [
+            "Kontrolle: KI-Dashboard mit vollständiger Übersicht über Nutzung, Kosten und Prognosen",
+            "Teamwork: Gemeinsamer Kiosk-Chat für alle Führungskräfte mit Wiki-Integration",
+            "Hands-free: Spracheingabe ermöglicht KI-Nutzung auch im Einsatz",
             "Effizienz: KI-Chatbot beantwortet Fragen zu Systemdaten, Wiki-Inhalten und Prozessen in Echtzeit",
             "Qualität: Perfekt formulierte Einsatzberichte und Protokolle per Mausklick",
             "Automatisierung: Intelligentes Mapping von Objektdaten ohne manuelle Datenpflege",
@@ -680,8 +777,18 @@ export const modules: Record<string, ModuleData> = {
             "Tempo: Administrativer Aufwand wird um bis zu 70% reduziert"
         ],
         features: [
+            "KI-Dashboard: Umfassende Übersicht mit KPI (Anfragen, Tokens, Kosten), Feature-Verteilung und Modell-Analyse",
+            "Top-Nutzer Ranking: Identifikation aktivster Nutzer mit Anfragen und Token-Verbrauch",
+            "Kostenprognose: Geschätzte Monatskosten basierend auf historischen Daten",
             "KI-Chatbot: Interaktiver Assistent für Führungskräfte mit Zugriff auf alle Systemdaten",
+            "Kiosk KI-Assistent: Gemeinsamer Chat für alle Führungskräfte mit automatischer 24h-Löschung",
+            "Spracheingabe: Web Speech API mit deutscher Spracherkennung für hands-free Nutzung",
+            "Wiki-Suche: KI durchsucht Einsatzleiterwiki mit Quellenangaben",
+            "Direkter Systemzugriff: Echtzeit-Abfrage von Einsätzen, Ausrüstung und Personal",
+            "Lesezeichen-Funktion: Wichtige Nachrichten markieren und vor Löschung schützen",
+            "Chat-Speicherung: Konversationen permanent speichern und später abrufen",
             "KI-Textoptimierung: Professionelle Berichte, Protokolle und Dokumentationen",
+            "Rate Limiting: Konfigurierbares Stunden-, Tages- und Monatslimit pro Benutzer",
             "Intelligente Adressoptimierung: Automatische Korrektur und Standardisierung",
             "Automatisches Objektdaten-Mapping: KI erkennt und strukturiert Gebäudeinformationen",
             "KI-Pumpenoptimierung: Intelligente Berechnung optimaler Pumpenstandorte",
@@ -690,6 +797,7 @@ export const modules: Record<string, ModuleData> = {
             "KI-Karriereplaner: Individuelle Lehrgangs-Empfehlungen basierend auf Potenzialanalyse",
             "Automatische Beförderungsvorschläge nach Dienstzeit und Qualifikationen",
             "Geocodierung & Koordinaten-Optimierung für Einsatzorte",
+            "CSV-Export: Export der KI-Nutzungsdaten für externe Analyse",
             "Intelligente Volltextsuche über alle Module hinweg"
         ],
         technicalDetails: [
@@ -702,5 +810,70 @@ export const modules: Record<string, ModuleData> = {
         keywords: ["KI", "AI", "Künstliche Intelligenz", "Chatbot", "Textgenerator", "Automatisierung", "Machine Learning", "Adressoptimierung", "Pumpenoptimierung", "Smart Data"],
         icon: Brain,
         color: "purple"
+    },
+    "planspiel": {
+        title: "Planspiel System - Professionelle Feuerwehr-Ausbildung",
+        shortDesc: "Komplettes Trainings- und Simulationssystem mit 500+ Codes, 200+ Missionen und 45+ Trainingsszenarien für realitätsnahe Übungen.",
+        longDesc: "Das Planspiel System revolutioniert die Feuerwehr-Ausbildung durch gamifizierte Trainingsszenarien. Basierend auf dem EinsatzLeiterWiki bietet es über 200 realistische Einsatzmissionen, die speziell auf 6-8 Minuten Übungssessions optimiert wurden. Ausbilder steuern das komplette Training über die Game Master Oberfläche, während Teilnehmer über Fahrzeug-spezifische Ansichten und ein Dispatcher-System interagieren. Mit über 500 verschiedenen Aufgabencodes aus den Bereichen Erste Hilfe, Teamarbeit, Technische Hilfeleistung, Brandbekämpfung und Gefahrgut wird jede Übung zur praxisnahen Herausforderung.",
+        benefits: [
+            "Praxisnähe: 200+ Einsatzmissionen aus EinsatzLeiterWiki für authentische Szenarien",
+            "Effizienz: Trainingsszenarien auf 6-8 Minuten optimiert für maximalen Lerneffekt",
+            "Vielfalt: 500+ Aufgabencodes aus 6 Hauptkategorien (Erste Hilfe, TH, Brand, ABC, Foto)",
+            "Führung: Game Master UI für vollständige Kontrolle über Training und Ablauf",
+            "Realismus: Dispatcher UI simuliert echte Leitstellen-Kommunikation",
+            "Flexibilität: 45+ vorgefertigte Trainingsszenarien in verschiedenen Schwierigkeitsgraden",
+            "Dokumentation: Druckvorlagen für physische Code-Karten und Spielmaterial",
+            "Auswertung: Umfassende Nachbesprechung mit Evaluation-Ansicht und Statistiken"
+        ],
+        features: [
+            "200+ Einsatzmissionen: Professionell kuratierte Szenarien aus EinsatzLeiterWiki",
+            "500+ Aufgabencodes: Kategorisiert in Erste Hilfe, Zusammenarbeit, TH, Brand, ABC/Gefahrgut, Foto-Dokumentation",
+            "Game Master Oberfläche: Zentrale Steuerung für Ausbilder mit Session-Management und Echtzeit-Überwachung",
+            "Dispatcher UI: Realistische Leitstellen-Simulation für authentische Alarmierung und Kommunikation",
+            "Fahrzeug-Ansichten: Spezifische Interfaces für HLF, LF, TLF, DLK mit Code-System-Integration",
+            "45+ Trainingsszenarien: Vorgefertigte Übungen mit verschiedenen Schwierigkeitsgraden (Einsteiger bis Experte)",
+            "6-8 Minuten Optimierung: Missionen zeitlich perfekt getaktet für effektive Kurzübungen",
+            "Quiz-Master Integration: Verknüpfung mit Szenario-basiertem Quiz-System für Wissensabfrage",
+            "Druckvorlagen: Professionelle Templates für physische Code-Karten und Übungsmaterial",
+            "Evaluation & Nachbesprechung: Detaillierte Auswertungs-Ansicht mit Punkteverteilung und Feedback",
+            "Fortschritts-Tracking: Automatische Erfassung von Trainingsfortschritten pro Teilnehmer",
+            "Szenario-Editor: Eigene Missionen und Code-Kombinationen erstellen und verwalten",
+            "Multi-Team Support: Mehrere Teams können parallel verschiedene Szenarien trainieren",
+            "Statistik-Dashboard: Übersicht über absolvierte Trainings, Erfolgsquoten und Schwachstellen",
+            "Code-Kategorien Management: Flexible Verwaltung von Aufgabentypen und Schwierigkeitsgraden"
+        ],
+        keywords: ["Planspiel", "Training", "Simulation", "Ausbildung", "Übung", "Game Master", "Dispatcher", "Szenarien", "EinsatzLeiterWiki", "Gamification"],
+        icon: Gamepad2,
+        color: "green"
+    },
+    "wirt-modul": {
+        title: "Wirt-Modul - Gastronomie & Getränkeverwaltung",
+        shortDesc: "Vollständiges Verwaltungssystem für Getränke, Snacks und Vereinsgastronomie mit Kiosk-Integration und Statistiken.",
+        longDesc: "Das Wirt-Modul digitalisiert die Vereinsgastronomie Ihrer Feuerwehr. Verwalten Sie Ihr komplettes Sortiment an Getränken und Snacks zentral, erfassen Sie Verkäufe direkt am Kiosk-Tablet und behalten Sie jederzeit den Überblick über Verbrauch und Umsätze. Die Shopping-Cart-Funktion ermöglicht schnelles Erfassen mehrerer Produkte gleichzeitig, während umfangreiche Statistiken Ihnen zeigen, welche Produkte am beliebtesten sind und wann Nachbestellungen fällig werden.",
+        benefits: [
+            "Effizienz: Schnelle Erfassung von Verkäufen direkt am Kiosk-Tablet mit Touch-Optimierung",
+            "Übersicht: Zentrale Verwaltung aller Produkte mit Kategorien, Preisen und Beständen",
+            "Transparenz: Umfassende Statistiken zeigen Verbrauchstrends und Umsatzentwicklung",
+            "Flexibilität: Shopping-Cart ermöglicht Multi-Produkt-Auswahl in einem Durchgang",
+            "Kontrolle: Bestandsverwaltung mit Warnungen bei niedrigen Lagerbeständen",
+            "Vereinfachung: Keine separate Kasse nötig - alles digital über RESQIO"
+        ],
+        features: [
+            "Produkt-Management: Vollständige Verwaltung von Getränken, Snacks und weiteren Artikeln",
+            "Kategorien & Preise: Flexible Kategorisierung mit individueller Preisgestaltung",
+            "Kiosk-Shopping-Cart: Touch-optimierte Oberfläche für schnelle Multi-Produkt-Auswahl",
+            "Bestandsverwaltung: Automatisches Tracking von Lagerbeständen mit Mindestbestands-Warnungen",
+            "Verkaufserfassung: Schnelle Buchung von Verkäufen mit Zeitstempel und Mitgliederzuordnung",
+            "Verbrauchsstatistiken: Detaillierte Auswertungen nach Produkt, Zeitraum und Kategorie",
+            "Umsatzberichte: Übersicht über Einnahmen mit Export-Funktionen für Buchhaltung",
+            "Settings-Dialog: Zentrale Konfiguration von Produkten, Kategorien und Preisen",
+            "Full-Page Kiosk-View: Dedizierte Vollbild-Ansicht für optimale Tablet-Nutzung",
+            "Beliebtheits-Ranking: Automatische Ermittlung der meistverkauften Produkte",
+            "Zeitbasierte Analysen: Verbrauchstrends nach Wochentagen und Uhrzeiten",
+            "Schnellzugriff-Favoriten: Häufig verkaufte Produkte prominent platziert"
+        ],
+        keywords: ["Gastronomie", "Getränke", "Wirt", "Verkauf", "Kiosk", "Snacks", "Vereinsgastronomie", "Bestand", "Umsatz"],
+        icon: Beer,
+        color: "amber"
     }
 };

@@ -21,6 +21,8 @@ import {
   BookOpen,
   Mail,
   UserCheck,
+  Gamepad2,
+  Beer,
   LucideIcon,
   ArrowRight,
 } from "lucide-react";
@@ -195,6 +197,18 @@ export const features: Feature[] = [
     title: "KI-Assistenz & Automatisierung",
     description: "Intelligenter Chatbot, automatische Textoptimierung, Adressoptimierung, KI-Pumpenoptimierung und automatisches Objektdaten-Mapping. Machine Learning für vorausschauende Personalplanung.",
     slug: "ki-integration",
+  },
+  {
+    icon: Gamepad2,
+    title: "Planspiel System",
+    description: "Komplettes Trainings- und Simulationssystem mit 500+ Codes, 200+ Missionen aus EinsatzLeiterWiki und 45+ Trainingsszenarien (6-8 Min. Sessions) für professionelle Feuerwehr-Ausbildung.",
+    slug: "planspiel",
+  },
+  {
+    icon: Beer,
+    title: "Wirt-Modul",
+    description: "Vollständiges Verwaltungssystem für Vereinsgastronomie. Getränke, Snacks und Verkaufserfassung direkt am Kiosk-Tablet mit Statistiken und Bestandsverwaltung.",
+    slug: "wirt-modul",
   },
 ];
 

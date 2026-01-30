@@ -115,6 +115,14 @@
     <loc>https://resqio.de/modul/ki-integration</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://resqio.de/modul/planspiel</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://resqio.de/modul/wirt-modul</loc>
+    <priority>0.8</priority>
+  </url>
 
   <!-- Legal Pages -->
   <url>
