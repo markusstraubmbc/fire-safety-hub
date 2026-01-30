@@ -201,7 +201,7 @@ export const features: Feature[] = [
   {
     icon: Gamepad2,
     title: "Planspiel System",
-    description: "Komplettes Trainings- und Simulationssystem mit 500+ Codes, 200+ Missionen aus EinsatzLeiterWiki und 45+ Trainingsszenarien (6-8 Min. Sessions) für professionelle Feuerwehr-Ausbildung.",
+    description: "Komplettes Trainings- und Simulationssystem mit 2.451 Codes in 19 Kategorien, 1.977 Einsätzen aus EinsatzLeiterWiki, 51 Szenarien und 8.602 möglichen Punkten für professionelle Feuerwehr-Ausbildung.",
     slug: "planspiel",
   },
   {

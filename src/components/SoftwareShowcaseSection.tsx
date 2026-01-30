@@ -1,18 +1,22 @@
+import { useState, useEffect } from "react";
 import {
     Carousel,
     CarouselContent,
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
+    CarouselApi,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Zap, Layers, BarChart3, LayoutDashboard, Monitor, Printer, Activity, Touchpad } from "lucide-react";
-import commandCenterImg from "@/assets/showcase-command-center.png";
-import statisticsImg from "@/assets/showcase-statistics.png";
-import operationsImg from "@/assets/showcase-operations.png";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { Zap, Layers, BarChart3, LayoutDashboard, Monitor, Activity, Touchpad, MessageSquare, Expand } from "lucide-react";
+import lagemonitorImg from "@/assets/showcase-lagemonitor.png";
 import kioskHomeImg from "@/assets/showcase-kiosk-home.png";
-import kioskOpsImg from "@/assets/showcase-kiosk-ops.png";
+import kioskMobileImg from "@/assets/showcase-kiosk-mobile.png";
+import dialogsImg from "@/assets/showcase-dialogs.png";
+import operationsImg from "@/assets/showcase-operations.png";
+import statisticsImg from "@/assets/showcase-statistics.png";
 
 const features = [
     {
@@ -35,37 +39,69 @@ const features = [
 const screenshots = [
     {
         title: "Operatives Lagezentrum",
-        description: "Behalten Sie den Puls Ihrer Wehr in Echtzeit im Blick. Das Dashboard liefert sekundengenaue Einblicke in die Einsatzbereitschaft, Personalverfügbarkeit und Ressourcen.",
-        image: commandCenterImg,
+        description: "Behalten Sie den Puls Ihrer Wehr in Echtzeit im Blick. Das Dashboard mit Lagemonitor liefert sekundengenaue Einblicke in die Einsatzbereitschaft, Personalverfügbarkeit und taktische Lage mit interaktiver Kartendarstellung.",
+        image: lagemonitorImg,
         icon: LayoutDashboard,
     },
     {
-        title: "Umfangreiche Statistiken",
-        description: "Visualisierte Auswertungen zu Einsätzen, Personal, Übungen und Budget. Management-Summary für fundierte Entscheidungen auf Basis realer Daten.",
-        image: statisticsImg,
-        icon: BarChart3,
-    },
-    {
-        title: "Einsatz- & Übungsmanagement",
-        description: "Lückenlose Dokumentation mit wenigen Klicks. Filtern, Suchen und Exportieren von Berichten war noch nie so einfach.",
-        image: operationsImg,
-        icon: Activity,
-    },
-    {
         title: "Kiosk-Modus Startseite",
-        description: "Die Benutzeroberfläche für maximale Akzeptanz. Optimiert für Tablets und Touchscreens, ermöglicht sie eine intuitive Bedienung ohne Schulung.",
+        description: "Die Benutzeroberfläche für maximale Akzeptanz. Optimiert für Tablets und Touchscreens, ermöglicht sie eine intuitive Bedienung ohne Schulung. 57 Module für alle Mannschaftsaufgaben verfügbar.",
         image: kioskHomeImg,
         icon: Monitor,
     },
     {
-        title: "Mobile Erfassung",
-        description: "Einfache Erfassung von Tätigkeiten, Personal und Material direkt vor Ort im Gerätehaus. Schnell, einfach und zuverlässig.",
-        image: kioskOpsImg,
+        title: "Mobile Erfassung im Kiosk",
+        description: "Einfache Erfassung von Tätigkeiten, Personal und Material direkt vor Ort im Gerätehaus. Wizard-geführte Workflows für Wartung, Fahrtenbuch und Meldungen. Schnell, einfach und zuverlässig.",
+        image: kioskMobileImg,
         icon: Touchpad,
+    },
+    {
+        title: "Erweiterte Dialoge & Workflows",
+        description: "Professionelle Eingabemasken mit intelligenter Validierung und kontextsensitiver Hilfe. Komplexe Workflows in wenigen Schritten abbilden mit intuitiver Benutzerführung.",
+        image: dialogsImg,
+        icon: MessageSquare,
+    },
+    {
+        title: "Einsatz- & Übungsmanagement",
+        description: "Lückenlose Dokumentation mit wenigen Klicks. Filtern, Suchen und Exportieren von Berichten war noch nie so einfach. KI-gestützte Textassistenz für professionelle Dokumentation.",
+        image: operationsImg,
+        icon: Activity,
+    },
+    {
+        title: "Umfangreiche Statistiken",
+        description: "Visualisierte Auswertungen zu Einsätzen, Personal, Übungen und Budget. Management-Summary für fundierte Entscheidungen auf Basis realer Daten mit Export-Funktionen.",
+        image: statisticsImg,
+        icon: BarChart3,
     },
 ];
 
 const SoftwareShowcaseSection = () => {
+    const [api, setApi] = useState<CarouselApi>();
+    const [current, setCurrent] = useState(0);
+    const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
+
+    // Auto-play functionality
+    useEffect(() => {
+        if (!api) return;
+
+        const interval = setInterval(() => {
+            api.scrollNext();
+        }, 5000); // Auto-advance every 5 seconds
+
+        return () => clearInterval(interval);
+    }, [api]);
+
+    // Update current slide
+    useEffect(() => {
+        if (!api) return;
+
+        setCurrent(api.selectedScrollSnap());
+
+        api.on("select", () => {
+            setCurrent(api.selectedScrollSnap());
+        });
+    }, [api]);
+
     return (
         <section className="py-12 md:py-16 bg-muted/50" id="software-showcase">
             <div className="container mx-auto px-4">
@@ -103,7 +139,11 @@ const SoftwareShowcaseSection = () => {
 
                 {/* Screenshots Carousel */}
                 <div className="max-w-6xl mx-auto">
-                    <Carousel className="w-full" opts={{ align: "start", loop: true }}>
+                    <Carousel
+                        className="w-full"
+                        opts={{ align: "start", loop: true }}
+                        setApi={setApi}
+                    >
                         <CarouselContent>
                             {screenshots.map((item, index) => (
                                 <CarouselItem key={index} className="md:basis-2/3 lg:basis-3/4 pl-4 md:pl-8">
@@ -122,13 +162,22 @@ const SoftwareShowcaseSection = () => {
                                                 </div>
                                             </div>
 
-                                            {/* Image */}
-                                            <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                                            {/* Image with Click-to-Enlarge */}
+                                            <div
+                                                className="relative aspect-[16/10] overflow-hidden bg-muted cursor-pointer group"
+                                                onClick={() => setEnlargedImage(item.image)}
+                                            >
                                                 <img
                                                     src={item.image}
                                                     alt={item.title}
-                                                    className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-[1.01]"
+                                                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                                                 />
+                                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                                                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg flex items-center gap-2">
+                                                        <Expand className="w-4 h-4" />
+                                                        <span className="text-sm font-medium">Vergrößern</span>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             {/* Description Footer */}
@@ -153,7 +202,49 @@ const SoftwareShowcaseSection = () => {
                             <CarouselNext className="-right-4 lg:-right-12 h-12 w-12 border-2" />
                         </div>
                     </Carousel>
+
+                    {/* Thumbnail Navigation */}
+                    <div className="flex justify-center gap-3 mt-8 flex-wrap">
+                        {screenshots.map((item, index) => (
+                            <button
+                                key={index}
+                                onClick={() => api?.scrollTo(index)}
+                                className={`relative group overflow-hidden rounded-lg border-2 transition-all duration-300 ${
+                                    current === index
+                                        ? "border-primary shadow-lg scale-105"
+                                        : "border-border hover:border-primary/50 hover:scale-105"
+                                }`}
+                            >
+                                <div className="w-24 h-16 md:w-32 md:h-20 overflow-hidden bg-muted">
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        className="w-full h-full object-cover object-top"
+                                    />
+                                </div>
+                                <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+                                    current === index ? "bg-primary/20" : "bg-black/0 group-hover:bg-black/10"
+                                }`}>
+                                    <item.icon className={`w-6 h-6 transition-opacity ${
+                                        current === index ? "opacity-100 text-primary" : "opacity-0 group-hover:opacity-60 text-white"
+                                    }`} />
+                                </div>
+                            </button>
+                        ))}
+                    </div>
                 </div>
+
+                {/* Enlarged Image Dialog */}
+                <Dialog open={!!enlargedImage} onOpenChange={() => setEnlargedImage(null)}>
+                    <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 overflow-hidden">
+                        <DialogTitle className="sr-only">Screenshot vergrößert</DialogTitle>
+                        <img
+                            src={enlargedImage || ""}
+                            alt="Vergrößerte Ansicht"
+                            className="w-full h-full object-contain"
+                        />
+                    </DialogContent>
+                </Dialog>
 
             </div>
         </section>
