@@ -114,8 +114,10 @@ const Header = memo(() => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-3 active:scale-95 transition-transform touch-manipulation"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
           >
             {mobileMenuOpen ? (
               <X className={`w-6 h-6 ${shouldBeSolid ? "text-foreground" : "text-white"}`} />

@@ -200,7 +200,7 @@ const SoftwareShowcaseSection = () => {
 
                                             {/* Image with Click-to-Enlarge */}
                                             <div
-                                                className="relative aspect-[16/10] overflow-hidden bg-muted cursor-pointer group"
+                                                className="relative aspect-[4/3] md:aspect-[16/10] overflow-hidden bg-muted cursor-pointer group active:scale-[0.99] transition-transform"
                                                 onClick={() => setEnlargedImage(item.imageWebp)}
                                             >
                                                 <picture>
@@ -238,9 +238,32 @@ const SoftwareShowcaseSection = () => {
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
+                        {/* Desktop Navigation */}
                         <div className="hidden md:block">
                             <CarouselPrevious className="-left-4 lg:-left-12 h-12 w-12 border-2" />
                             <CarouselNext className="-right-4 lg:-right-12 h-12 w-12 border-2" />
+                        </div>
+
+                        {/* Mobile Navigation - Bottom Centered */}
+                        <div className="flex md:hidden justify-center gap-4 mt-4 absolute bottom-4 left-0 right-0 z-10">
+                            <button
+                                onClick={() => api?.scrollPrev()}
+                                className="h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm border-2 border-border hover:bg-background flex items-center justify-center shadow-lg active:scale-95 transition-transform"
+                                aria-label="Vorheriges Bild"
+                            >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button
+                                onClick={() => api?.scrollNext()}
+                                className="h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm border-2 border-border hover:bg-background flex items-center justify-center shadow-lg active:scale-95 transition-transform"
+                                aria-label="Nächstes Bild"
+                            >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
                         </div>
                     </Carousel>
 

@@ -208,3 +208,56 @@ All colors MUST be HSL.
     }
   }
 }
+
+/* Mobile optimizations & Accessibility */
+@layer utilities {
+  /* Disable animations for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    /* Disable keyframe animations */
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.5; transform: none; }
+    }
+    @keyframes flow-line {
+      0%, 100% { opacity: 0.5; stroke-dashoffset: 0; }
+    }
+    @keyframes scanner {
+      0%, 100% { opacity: 0; transform: none; }
+    }
+  }
+
+  /* Touch-friendly utilities */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  /* Better tap highlighting for mobile */
+  .tap-highlight-none {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Mobile-optimized scrolling */
+  .scroll-smooth-mobile {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent zoom on input focus (iOS) */
+  @media screen and (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      font-size: 16px !important;
+    }
+  }
+}
