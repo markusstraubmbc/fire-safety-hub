@@ -10,13 +10,20 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { Zap, Layers, BarChart3, LayoutDashboard, Monitor, Activity, Touchpad, MessageSquare, Expand } from "lucide-react";
+import { Zap, Layers, BarChart3, LayoutDashboard, Monitor, Activity, Touchpad, Expand } from "lucide-react";
 // PNG imports
 import lagemonitorImg from "@/assets/showcase-lagemonitor.png";
 import kioskHomeImg from "@/assets/showcase-kiosk-home.png";
 import kioskMobileImg from "@/assets/showcase-kiosk-mobile.png";
 import operationsImg from "@/assets/showcase-operations.png";
 import statisticsImg from "@/assets/showcase-statistics.png";
+
+// WebP imports
+import lagemonitorWebp from "@/assets/showcase-lagemonitor.webp";
+import kioskHomeWebp from "@/assets/showcase-kiosk-home.webp";
+import kioskMobileWebp from "@/assets/showcase-kiosk-mobile.webp";
+import operationsWebp from "@/assets/showcase-operations.webp";
+import statisticsWebp from "@/assets/showcase-statistics.webp";
 
 const features = [
     {
@@ -41,30 +48,35 @@ const screenshots = [
         title: "Operatives Lagezentrum",
         description: "Behalten Sie den Puls Ihrer Wehr in Echtzeit im Blick. Das Dashboard mit Lagemonitor liefert sekundengenaue Einblicke in die Einsatzbereitschaft, Personalverfügbarkeit und taktische Lage mit interaktiver Kartendarstellung.",
         image: lagemonitorImg,
+        imageWebp: lagemonitorWebp,
         icon: LayoutDashboard,
     },
     {
         title: "Kiosk-Modus Startseite",
         description: "Die Benutzeroberfläche für maximale Akzeptanz. Optimiert für Tablets und Touchscreens, ermöglicht sie eine intuitive Bedienung ohne Schulung. 57 Module für alle Mannschaftsaufgaben verfügbar.",
         image: kioskHomeImg,
+        imageWebp: kioskHomeWebp,
         icon: Monitor,
     },
     {
         title: "Mobile Erfassung im Kiosk",
         description: "Einfache Erfassung von Tätigkeiten, Personal und Material direkt vor Ort im Gerätehaus. Wizard-geführue Workflows für Wartung, Fahrtenbuch und Meldungen. Schnell, einfach und zuverlässig.",
         image: kioskMobileImg,
+        imageWebp: kioskMobileWebp,
         icon: Touchpad,
     },
     {
         title: "Einsatz- & Übungsmanagement",
         description: "Lückenlose Dokumentation mit wenigen Klicks. Filtern, Suchen und Exportieren von Berichten war noch nie so einfach. KI-gestützte Textassistenz für professionelle Dokumentation.",
         image: operationsImg,
+        imageWebp: operationsWebp,
         icon: Activity,
     },
     {
         title: "Umfangreiche Statistiken",
         description: "Visualisierte Auswertungen zu Einsätzen, Personal, Übungen und Budget. Management-Summary für fundierte Entscheidungen auf Basis realer Daten mit Export-Funktionen.",
         image: statisticsImg,
+        imageWebp: statisticsWebp,
         icon: BarChart3,
     },
 ];
@@ -180,15 +192,18 @@ const SoftwareShowcaseSection = () => {
                                             {/* Image with Click-to-Enlarge */}
                                             <div
                                                 className="relative aspect-[4/3] md:aspect-[16/10] overflow-hidden bg-muted cursor-pointer group active:scale-[0.99] transition-transform"
-                                                onClick={() => setEnlargedImage(item.image)}
+                                                onClick={() => setEnlargedImage(item.imageWebp)}
                                             >
-                                                <img
-                                                    src={item.image}
-                                                    alt={item.title}
-                                                    loading="lazy"
-                                                    decoding="async"
-                                                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                                                />
+                                                <picture>
+                                                    <source srcSet={item.imageWebp} type="image/webp" />
+                                                    <img
+                                                        src={item.image}
+                                                        alt={item.title}
+                                                        loading="lazy"
+                                                        decoding="async"
+                                                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                                                    />
+                                                </picture>
                                                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                                                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg flex items-center gap-2">
                                                         <Expand className="w-4 h-4" />
@@ -259,13 +274,16 @@ const SoftwareShowcaseSection = () => {
                                     }`}
                             >
                                 <div className="w-28 h-20 md:w-32 md:h-24 overflow-hidden bg-muted">
-                                    <img
-                                        src={item.image}
-                                        alt={`Thumbnail für ${item.title}`}
-                                        loading="lazy"
-                                        decoding="async"
-                                        className="w-full h-full object-cover object-top"
-                                    />
+                                    <picture>
+                                        <source srcSet={item.imageWebp} type="image/webp" />
+                                        <img
+                                            src={item.image}
+                                            alt={`Thumbnail für ${item.title}`}
+                                            loading="lazy"
+                                            decoding="async"
+                                            className="w-full h-full object-cover object-top"
+                                        />
+                                    </picture>
                                 </div>
                                 <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${current === index ? "bg-primary/20" : "bg-black/0 group-hover:bg-black/10"
                                     }`}>
