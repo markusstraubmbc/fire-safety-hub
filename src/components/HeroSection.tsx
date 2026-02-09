@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Clock, CheckCircle } from "lucide-react";
 import heroImage from "@/assets/german_firefighters_fixed_bg.png";
+import heroImageWebp from "@/assets/german_firefighters_fixed_bg.webp";
+import hero640 from "@/assets/hero-640w.webp";
+import hero1024 from "@/assets/hero-1024w.webp";
 
 const HeroSection = () => {
   const scrollToContact = () => {
@@ -12,11 +15,21 @@ const HeroSection = () => {
     <section id="home" className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Feuerwehr Team bei der Arbeit"
-          className="w-full h-full object-cover"
-        />
+        <picture>
+          <source
+            type="image/webp"
+            srcSet={`${hero640} 640w, ${hero1024} 1024w, ${heroImageWebp} 1920w`}
+            sizes="100vw"
+          />
+          <img
+            src={heroImage}
+            alt="Feuerwehr Team bei der Arbeit"
+            className="w-full h-full object-cover"
+            width={1024}
+            height={1024}
+            fetchPriority="high"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/60" />
       </div>
 

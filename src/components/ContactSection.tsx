@@ -99,6 +99,10 @@ const ContactSection = () => {
               src="/images/contact-hero.png"
               alt="Moderne Einsatzzentrale"
               className="relative rounded-[2rem] shadow-2xl border border-border w-full object-cover aspect-[4/3] transform hover:-translate-y-2 transition-transform duration-500"
+              width={800}
+              height={600}
+              loading="lazy"
+              decoding="async"
             />
           </div>
 

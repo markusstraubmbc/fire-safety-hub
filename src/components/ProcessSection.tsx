@@ -1,5 +1,6 @@
 import { PlayCircle, UploadCloud, Rocket } from "lucide-react";
 import processVisual from "@/assets/process-visual.png";
+import processVisualWebp from "@/assets/process-visual.webp";
 
 const ProcessSection = () => {
     const steps = [
@@ -45,11 +46,18 @@ const ProcessSection = () => {
                     <div className="relative order-2 lg:order-1">
                         <div className="absolute -inset-10 bg-primary/10 rounded-full blur-[100px] opacity-20" />
                         <div className="relative rounded-[2.5rem] border border-border p-2 bg-background shadow-xl overflow-hidden">
-                            <img
-                                src={processVisual}
-                                alt="Digital Transformation Process"
-                                className="rounded-[2rem] w-full h-auto object-cover"
-                            />
+                            <picture>
+                                <source srcSet={processVisualWebp} type="image/webp" />
+                                <img
+                                    src={processVisual}
+                                    alt="Digital Transformation Process"
+                                    className="rounded-[2rem] w-full h-auto object-cover"
+                                    width={1024}
+                                    height={1024}
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
                         </div>
                     </div>
 

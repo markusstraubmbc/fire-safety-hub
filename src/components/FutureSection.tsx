@@ -57,6 +57,10 @@ const FutureSection = () => {
                                 src="/images/digital-id.png"
                                 alt="Digitaler Dienstausweis auf dem Smartphone"
                                 className="relative rounded-[2.5rem] shadow-2xl w-full max-w-[400px] mx-auto transform hover:rotate-2 transition-transform duration-500 ease-out"
+                                width={400}
+                                height={600}
+                                loading="lazy"
+                                decoding="async"
                             />
                         </div>
                     </div>

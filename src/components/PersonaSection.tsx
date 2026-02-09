@@ -1,5 +1,6 @@
 import { UserCheck, Shield, Hammer, Users, Briefcase } from "lucide-react";
 import rolesVisual from "@/assets/roles-visual.png";
+import rolesVisualWebp from "@/assets/roles-visual.webp";
 
 const PersonaSection = () => {
     const roles = [
@@ -43,11 +44,18 @@ const PersonaSection = () => {
                         <div className="absolute -inset-10 bg-primary/20 rounded-full blur-[120px] opacity-20 animate-pulse" />
                         <div className="relative rounded-[3rem] border border-border p-3 bg-card shadow-2xl shadow-primary/10 overflow-hidden group">
                             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-red-500/10 opacity-40 group-hover:opacity-60 transition-opacity" />
-                            <img
-                                src={rolesVisual}
-                                alt="Firefighter Roles Illustration"
-                                className="rounded-[2.5rem] w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
-                            />
+                            <picture>
+                                <source srcSet={rolesVisualWebp} type="image/webp" />
+                                <img
+                                    src={rolesVisual}
+                                    alt="Firefighter Roles Illustration"
+                                    className="rounded-[2.5rem] w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
+                                    width={1024}
+                                    height={1024}
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
                         </div>
                     </div>
 

@@ -201,6 +201,8 @@ const SoftwareShowcaseSection = () => {
                                                         alt={item.title}
                                                         loading="lazy"
                                                         decoding="async"
+                                                        width={1600}
+                                                        height={1000}
                                                         className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                                                     />
                                                 </picture>
