@@ -103,6 +103,7 @@ const ContactSection = () => {
               height={600}
               loading="lazy"
               decoding="async"
+              sizes="(min-width: 1024px) 50vw, 100vw"
             />
           </div>
 

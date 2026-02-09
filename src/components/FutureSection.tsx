@@ -61,6 +61,7 @@ const FutureSection = () => {
                                 height={600}
                                 loading="lazy"
                                 decoding="async"
+                                sizes="(min-width: 768px) 400px, 100vw"
                             />
                         </div>
                     </div>

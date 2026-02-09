@@ -24,7 +24,7 @@ const IntegrationsSection = () => {
                             <div className="absolute -inset-0.5 bg-gradient-to-tr from-primary/30 to-red-500/20 rounded-[2.5rem] blur opacity-40 group-hover:opacity-100 transition duration-1000" />
                             <div className="relative bg-card rounded-[2.5rem] border border-border p-2 overflow-hidden shadow-2xl">
                                 <picture>
-                                    <source srcSet={fireTechVisualWebp} type="image/webp" />
+                                    <source srcSet={fireTechVisualWebp} type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
                                     <img
                                         src={fireTechVisual}
                                         alt="Digital Firefighter Technical Connectivity Hub"
@@ -33,6 +33,7 @@ const IntegrationsSection = () => {
                                         height={1024}
                                         loading="lazy"
                                         decoding="async"
+                                        sizes="(min-width: 1024px) 50vw, 100vw"
                                     />
                                 </picture>
 

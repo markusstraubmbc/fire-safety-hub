@@ -15,7 +15,7 @@ const RegionalSection = () => {
                             <div className="absolute -inset-1 bg-gradient-to-tr from-primary/20 to-red-500/10 rounded-[3rem] blur-xl opacity-50 group-hover:opacity-100 transition duration-1000" />
                             <div className="relative bg-card rounded-[3rem] border border-border p-2 overflow-hidden shadow-2xl">
                                 <picture>
-                                    <source srcSet={regionalVisualWebp} type="image/webp" />
+                                    <source srcSet={regionalVisualWebp} type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
                                     <img
                                         src={regionalVisual}
                                         alt="Modern Firehouse Architecture"
@@ -24,6 +24,7 @@ const RegionalSection = () => {
                                         height={1024}
                                         loading="lazy"
                                         decoding="async"
+                                        sizes="(min-width: 1024px) 50vw, 100vw"
                                     />
                                 </picture>
                                 {/* Location Badge */}

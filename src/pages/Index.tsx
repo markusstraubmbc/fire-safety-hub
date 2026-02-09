@@ -1,60 +1,34 @@
-import { lazy, Suspense } from "react";
+import { useCallback } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import PersonaSection from "@/components/PersonaSection";
 import Footer from "@/components/Footer";
-
-// Lazy load all below-the-fold sections
-const FeaturesSection = lazy(() => import("@/components/FeaturesSection"));
-const SoftwareShowcaseSection = lazy(() => import("@/components/SoftwareShowcaseSection"));
-const IntegrationsSection = lazy(() => import("@/components/IntegrationsSection"));
-const ProcessSection = lazy(() => import("@/components/ProcessSection"));
-const FutureSection = lazy(() => import("@/components/FutureSection"));
-const PricingSection = lazy(() => import("@/components/PricingSection"));
-const RegionalSection = lazy(() => import("@/components/RegionalSection"));
-const ContactSection = lazy(() => import("@/components/ContactSection"));
-
-// Loading fallback component
-const SectionLoader = () => (
-  <div className="py-16 md:py-24 flex items-center justify-center">
-    <div className="animate-pulse flex flex-col items-center gap-4">
-      <div className="w-12 h-12 rounded-full bg-primary/20"></div>
-      <div className="text-sm text-muted-foreground">Lädt...</div>
-    </div>
-  </div>
-);
+import { LazySection } from "@/hooks/use-lazy-section";
 
 const Index = () => {
+  const featuresFactory = useCallback(() => import("@/components/FeaturesSection"), []);
+  const showcaseFactory = useCallback(() => import("@/components/SoftwareShowcaseSection"), []);
+  const integrationsFactory = useCallback(() => import("@/components/IntegrationsSection"), []);
+  const processFactory = useCallback(() => import("@/components/ProcessSection"), []);
+  const futureFactory = useCallback(() => import("@/components/FutureSection"), []);
+  const pricingFactory = useCallback(() => import("@/components/PricingSection"), []);
+  const regionalFactory = useCallback(() => import("@/components/RegionalSection"), []);
+  const contactFactory = useCallback(() => import("@/components/ContactSection"), []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main>
         <HeroSection />
-        <Suspense fallback={<SectionLoader />}>
-          <FeaturesSection />
-        </Suspense>
+        <LazySection factory={featuresFactory} rootMargin="100px" />
         <PersonaSection />
-        <Suspense fallback={<SectionLoader />}>
-          <SoftwareShowcaseSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <IntegrationsSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <ProcessSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <FutureSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <PricingSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <RegionalSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <ContactSection />
-        </Suspense>
+        <LazySection factory={showcaseFactory} rootMargin="200px" />
+        <LazySection factory={integrationsFactory} rootMargin="200px" />
+        <LazySection factory={processFactory} rootMargin="200px" />
+        <LazySection factory={futureFactory} rootMargin="200px" />
+        <LazySection factory={pricingFactory} rootMargin="200px" />
+        <LazySection factory={regionalFactory} rootMargin="200px" />
+        <LazySection factory={contactFactory} rootMargin="200px" />
       </main>
       <Footer />
     </div>

@@ -47,7 +47,7 @@ const ProcessSection = () => {
                         <div className="absolute -inset-10 bg-primary/10 rounded-full blur-[100px] opacity-20" />
                         <div className="relative rounded-[2.5rem] border border-border p-2 bg-background shadow-xl overflow-hidden">
                             <picture>
-                                <source srcSet={processVisualWebp} type="image/webp" />
+                                <source srcSet={processVisualWebp} type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
                                 <img
                                     src={processVisual}
                                     alt="Digital Transformation Process"
@@ -56,6 +56,7 @@ const ProcessSection = () => {
                                     height={1024}
                                     loading="lazy"
                                     decoding="async"
+                                    sizes="(min-width: 1024px) 50vw, 100vw"
                                 />
                             </picture>
                         </div>

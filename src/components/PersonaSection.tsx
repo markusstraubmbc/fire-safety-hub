@@ -45,7 +45,7 @@ const PersonaSection = () => {
                         <div className="relative rounded-[3rem] border border-border p-3 bg-card shadow-2xl shadow-primary/10 overflow-hidden group">
                             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-red-500/10 opacity-40 group-hover:opacity-60 transition-opacity" />
                             <picture>
-                                <source srcSet={rolesVisualWebp} type="image/webp" />
+                                <source srcSet={rolesVisualWebp} type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
                                 <img
                                     src={rolesVisual}
                                     alt="Firefighter Roles Illustration"
@@ -54,6 +54,7 @@ const PersonaSection = () => {
                                     height={1024}
                                     loading="lazy"
                                     decoding="async"
+                                    sizes="(min-width: 1024px) 50vw, 100vw"
                                 />
                             </picture>
                         </div>
