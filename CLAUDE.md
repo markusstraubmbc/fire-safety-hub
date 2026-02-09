@@ -5,9 +5,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 
 RESQIO Fire Safety Hub is a marketing/landing page website for a comprehensive fire department management system. Built with Vite, React, TypeScript, and shadcn/ui components, this site showcases various modules and features of the RESQIO platform for German-speaking fire departments (Feuerwehr).
-
-**Lovable Integration**: This project is managed through Lovable (https://lovable.dev/projects/bf753064-e15e-4b1d-8e65-83e6f1a04bf9). Changes made via Lovable are automatically committed to this repository.
-
 ## Development Commands
 
 ```bash
