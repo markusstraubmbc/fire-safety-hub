@@ -12,7 +12,12 @@
       "Bash(git checkout:*)",
       "Bash(npm uninstall:*)",
       "Bash(npx husky init)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(dir:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(sort:*)",
+      "Bash(node -e:*)"
     ]
   }
 }
