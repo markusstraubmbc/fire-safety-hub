@@ -1,0 +1,170 @@
+# RESQIO - Moderne Feuerwehr-Verwaltungssoftware
+
+## Übersicht
+RESQIO ist eine umfassende, webbasierte Softwarelösung für Feuerwehren und Hilfsorganisationen. Sie digitalisiert und optimiert Verwaltungs-, Einsatz- und Übungsprozesse. Die Plattform zeichnet sich durch eine moderne Benutzeroberfläche, Modularität und spezielle Funktionen wie den Kiosk-Modus für Touchscreens in Fahrzeughallen aus.
+
+## Kernfunktionen & Mehrwert
+*   **Ganzheitlicher Ansatz**: Von der Personalverwaltung über Gerätewartung bis zur Einsatzdokumentation.
+*   **Kiosk-Modus**: Touch-optimierte Oberfläche für die Mannschaft (z.B. Fahrtenbuch, Status, Info-Screen).
+*   **KI-Integration**: Intelligente Assistenzsysteme für Berichte, Datenanalyse und Chatbots.
+*   **Sicherheit & Datenschutz**: Hosting in Deutschland, DSGVO-konform, rollenbasiertes Zugriffssystem.
+*   **Modularität**: Feuerwehren können spezifische Module je nach Bedarf nutzen.
+
+## Module im Detail
+
+### 1. Kommandozentrale (Dashboard)
+Zentrale Übersicht für Führungskräfte.
+*   **Beschreibung**: Bietet Transparenz über Einsatzbereitschaft, offene Aufgaben, Lizenzstatus und Systemzustand.
+*   **Funktionen**: Live-Statistiken, Frühwarnsystem für Fristen, User-Analytics (Geografisch), Widget-basiertes Layout.
+
+### 2. Ausrüstungsverwaltung
+Vollständiges Inventar-Management.
+*   **Beschreibung**: Dokumentation des gesamten Iventars von Anschaffung bis Aussonderung.
+*   **Funktionen**: Barcode/QR-Code Scanner Integration, Lifecycle-Management, Kostenanalyse, Massenbearbeitung, Bundle-Verwaltung (Sets).
+
+### 3. Wartungsmanagement
+Planung und Dokumentation von Prüfungen.
+*   **Beschreibung**: Sicherstellung der Einsatzbereitschaft gemäß DGUV und Herstellervorgaben.
+*   **Funktionen**: Automatische Termine, Checklisten, Mängeldokumentation, Einbindung externer Prüfer, Zeiterfassung.
+
+### 4. Kiosk-Modus
+Zentrale Oberfläche für die Mannschaft (Touch-Optimiert).
+*   **Beschreibung**: Ermöglicht der Mannschaft die selbstständige Erledigung von Aufgaben ohne PC-Zugang.
+*   **Funktionen**: 57 Module, RFID/QR-Login, Fahrtenbuch-Wizard, Mängelmelder, Wäsche-Management, Inventur-Modus, Wetter/Unwetter-Warnungen, KI-Assistent.
+
+### 5. Lagemonitor & Führung
+Echtzeit-Führungssystem für den Einsatz.
+*   **Beschreibung**: Interaktive Lagekarte mit Hydranten, POIs und Dokumentenzugriff.
+*   **Funktionen**: Wasserkarten mit Durchflussmengen, KI-Dokumentenbereitstellung (Objektpläne), Taktische Symbole, Abschnittsbildung, Synchronisation zwischen Führungskräften.
+
+### 6. Atemschutzüberwachung (ASÜ)
+Sicherheit für den Atemschutzeinsatz.
+*   **Beschreibung**: Überwachung aktiver Trupps und Verwaltung der Tauglichkeit (G26.3).
+*   **Funktionen**: Echtzeit-Monitoring (Druck/Zeit), Rückwegberechnung, FwDV 7 Konformität, RFID-Scan zur Trupp-Registrierung.
+
+### 7. Einsatzerfassung
+Vollständiges Einsatzmanagement und Dokumentation.
+*   **Beschreibung**: Von Alarmierung bis zum Bericht.
+*   **Funktionen**: KI-Berichtsassistent, Quiz-Master für Übungen, Multi-App-Navigation, QR-Portal für externe Kräfte (Großeinsätze), Verbrauchsmaterial-Tracking.
+
+### 8. Personal & Mannschaftsverwaltung
+Verwaltung der Kameraden und Qualifikationen.
+*   **Beschreibung**: Stammdaten, Lehrgänge, Beförderungen und Verfügbarkeit.
+*   **Funktionen**: Überprüfungsportal, Rollenmanagement, KI-Personalanalyse, Intelligente Beförderungsvorschläge, Notfallkontakte (vCard Export), Dienstausweise.
+
+### 9. Objektpläne
+Digitale Einsatzpläne und BMA.
+*   **Beschreibung**: Bereitstellung von Feuerwehrplänen nach DIN 14095.
+*   **Funktionen**: GPS-basierter Abruf im Einsatz, Revisionsfristen-Überwachung, Gefahrstoffdatenbank.
+
+### 10. Wasserkarte
+Infrastruktur-Erfassung und Hydrantenplan.
+*   **Beschreibung**: Map-basiertes Management von Wasserentnahmestellen.
+*   **Funktionen**: OpenFireMap Integration, Klick-zum-Bearbeiten, Offline-Caching, Filterung nach Kapazität/Typ.
+
+### 11. Wasserförderung
+Hydraulische Planung Lange Wegstrecke.
+*   **Beschreibung**: Berechnung von Pumpenstandorten und Druckverlusten.
+*   **Funktionen**: Höhenprofil-Analyse, Multi-Plan Simulation, Kavitationswarnung.
+
+### 12. Wiki-Integration
+Wissensmanagement.
+*   **Beschreibung**: Integration des Einsatzleiterwiki.
+*   **Funktionen**: Offline-Verfügbarkeit, Checklisten, Taktische Informationen.
+
+### 13. Warenbewegung & Logistik
+Tracking von Materialflüssen.
+*   **Beschreibung**: Überwachung von Ausrüstung bei Versand/Reparatur.
+*   **Funktionen**: Lieferscheine, Statusverfolgung (Werkstatt, Extern).
+
+### 14. Fahrtenbuch
+Fuhrparkmanagement.
+*   **Beschreibung**: Dokumentation von Bewegungsfahrten und Tankvorgängen.
+*   **Funktionen**: Besatzungserfassung, Verbrauchsstatistik, KFZ-Kostenkontrolle.
+
+### 15. Wäscheverwaltung
+Kleiderkammer und Hygiene.
+*   **Beschreibung**: Management der Persönlichen Schutzausrüstung (PSA) und Reinigung.
+*   **Funktionen**: Waschzyklen-Zähler, Pool-Wäsche vs. Persönliche Ausrüstung, Status-Tracking.
+
+### 16. Mannschafts-Self-Service
+Mitgliederportal.
+*   **Beschreibung**: Eigenständige Datenpflege durch Mitglieder.
+*   **Funktionen**: Token-Login (Passwortlos), Stammdaten-Update, Qualifikations-Einsicht.
+
+### 17. Budget & Finanzen
+Einfache Kassenführung.
+*   **Beschreibung**: Verwaltung von Budgets und Ausgaben.
+*   **Funktionen**: Beleg-Upload, Freigabeprozesse, Haushaltsstellen.
+
+### 18. Treasury / Kassier
+Professionelle Vereinsbuchhaltung.
+*   **Beschreibung**: Finanzverwaltung für Feuerwehrvereine (§2b UStG).
+*   **Funktionen**: SEPA-Sammelüberweisungen, Veranstaltungsabrechnung, Steuerkonforme Auswertungen.
+
+### 19. Digitaler Dienstausweis
+Identifikation via Smartphone.
+*   **Beschreibung**: Wallet-Pass für iOS/Android.
+*   **Funktionen**: QR-Code für Kiosk-Login, Anzeige von Qualifikationen, Fälschungssicher.
+
+### 20. Schnittstellen (API)
+Integration in Systemlandschaften.
+*   **Beschreibung**: Offene Architektur für Drittanbieter.
+*   **Funktionen**: REST API, MQTT (IoT), Kalender-Sync (Almos/Divera), Webhooks.
+
+### 21. Email Templates
+Kommunikations-Branding.
+*   **Beschreibung**: Einheitliches Design für E-Mails.
+*   **Funktionen**: Drag-and-Drop Editor, Variablen-Support.
+
+### 22. Reporting & Statistik
+Auswertungen und Berichte.
+*   **Beschreibung**: Datenanalyse für Entscheidungen.
+*   **Funktionen**: Jahresberichte, Einsatzzahlen, Übungsbeteiligung, Login-Audits.
+
+### 23. Brandschutz
+Vorbeugender Brandschutz.
+*   **Beschreibung**: Durchführung von Brandschauen.
+*   **Funktionen**: Mängelerfassung vor Ort, Fristenmanagement, Berichtsgenerierung.
+
+### 24. Inventur
+Bestandsprüfung.
+*   **Beschreibung**: Soll-Ist-Abgleich von Fahrzeugen und Lagern.
+*   **Funktionen**: Scan-gestützte Inventur, Differenzlisten.
+
+### 25. Formular-Center
+Dokumentenablage.
+*   **Beschreibung**: Verfügbarkeit von Vordrucken und Dienstanweisungen.
+*   **Funktionen**: PDF-Vorschau, Drucken am Kiosk.
+
+### 26. Mängelmanagement
+Defekt-Meldesystem.
+*   **Beschreibung**: Zentraler Prozess für Reparaturen.
+*   **Funktionen**: QR-Meldung durch Mannschaft, Ticket-System für Gerätewarte.
+
+### 27. KI-Integration
+Künstliche Intelligenz.
+*   **Beschreibung**: Unterstützung durch LLMs und Algorithmen.
+*   **Funktionen**: Automatisierte Berichte, Chat-Assistenten, Adresskorrekturen, Prognosen.
+
+### 28. Planspiel System
+Ausbildung und Simulation.
+*   **Beschreibung**: Virtuelles Planübungssystem.
+*   **Funktionen**: >1900 Szenarien, Game Master Modus, Dispatcher Simulation, Bewertungssystem.
+
+### 29. Wirt-Modul
+Getränke und Verpflegung.
+*   **Beschreibung**: Digitale Strichliste und Kasse.
+*   **Funktionen**: Kiosk-Verkaufsoberfläche, Lagerbestand, Abrechnung.
+
+## Technische Details
+*   **Hosting**: Deutschland (Sichere Cloud-Umgebung).
+*   **Client**: Web-App (React/Vite), installierbar als PWA (Progressive Web App).
+*   **Offline-Fähigkeit**: Kritische Module (z.B. Einsatzbericht, Wiki) cachen Daten lokal.
+*   **Echtzeit**: WebSocket-Verbindungen für Live-Updates (Lagekarte, Whiteboard).
+*   **API**: RESTful API für Integrationen.
+
+## Kontakt & Demo
+*   **Website**: https://resqio.de
+*   **Email**: support@resqio.de
+*   **Demo**: Auf Anfrage verfügbar.
