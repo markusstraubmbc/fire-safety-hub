@@ -53,16 +53,19 @@ const FutureSection = () => {
                         <div className="absolute -inset-4 bg-primary/5 rounded-[3rem] blur-3xl" />
                         <div className="relative group">
                             <div className="absolute -inset-1 bg-gradient-to-tr from-primary/20 to-transparent rounded-[2.5rem] blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
-                            <img
-                                src="/images/digital-id.png"
-                                alt="Digitaler Dienstausweis auf dem Smartphone"
-                                className="relative rounded-[2.5rem] shadow-2xl w-full max-w-[400px] mx-auto transform hover:rotate-2 transition-transform duration-500 ease-out"
-                                width={400}
-                                height={600}
-                                loading="lazy"
-                                decoding="async"
-                                sizes="(min-width: 768px) 400px, 100vw"
-                            />
+                            <picture>
+                                <source srcSet="/images/digital-id.webp" type="image/webp" sizes="(min-width: 768px) 400px, 100vw" />
+                                <img
+                                    src="/images/digital-id.png"
+                                    alt="Digitaler Dienstausweis auf dem Smartphone"
+                                    className="relative rounded-[2.5rem] shadow-2xl w-full max-w-[400px] mx-auto transform hover:rotate-2 transition-transform duration-500 ease-out"
+                                    width={400}
+                                    height={600}
+                                    loading="lazy"
+                                    decoding="async"
+                                    sizes="(min-width: 768px) 400px, 100vw"
+                                />
+                            </picture>
                         </div>
                     </div>
                 </div>

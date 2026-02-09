@@ -1,12 +1,7 @@
 import { useRef, useState, useEffect, lazy, Suspense, ComponentType } from "react";
 
-const SectionLoader = () => (
-  <div className="py-16 md:py-24 flex items-center justify-center">
-    <div className="animate-pulse flex flex-col items-center gap-4">
-      <div className="w-12 h-12 rounded-full bg-primary/20"></div>
-      <div className="text-sm text-muted-foreground">Lädt...</div>
-    </div>
-  </div>
+const SectionPlaceholder = () => (
+  <div className="min-h-[50vh]" />
 );
 
 interface LazySectionProps {
@@ -51,11 +46,11 @@ export function LazySection({ factory, rootMargin = "200px" }: LazySectionProps)
   return (
     <div ref={ref}>
       {Component ? (
-        <Suspense fallback={<SectionLoader />}>
+        <Suspense fallback={<SectionPlaceholder />}>
           <Component />
         </Suspense>
       ) : (
-        <SectionLoader />
+        <SectionPlaceholder />
       )}
     </div>
   );

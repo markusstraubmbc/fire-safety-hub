@@ -95,16 +95,19 @@ const ContactSection = () => {
           {/* Right Column: Image */}
           <div className="flex-1 relative lg:sticky lg:top-24">
             <div className="absolute -inset-4 bg-primary/5 rounded-[2.5rem] blur-2xl" />
-            <img
-              src="/images/contact-hero.png"
-              alt="Moderne Einsatzzentrale"
-              className="relative rounded-[2rem] shadow-2xl border border-border w-full object-cover aspect-[4/3] transform hover:-translate-y-2 transition-transform duration-500"
-              width={800}
-              height={600}
-              loading="lazy"
-              decoding="async"
-              sizes="(min-width: 1024px) 50vw, 100vw"
-            />
+            <picture>
+              <source srcSet="/images/contact-hero.webp" type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
+              <img
+                src="/images/contact-hero.png"
+                alt="Moderne Einsatzzentrale"
+                className="relative rounded-[2rem] shadow-2xl border border-border w-full object-cover aspect-[4/3] transform hover:-translate-y-2 transition-transform duration-500"
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
+            </picture>
           </div>
 
         </div>
