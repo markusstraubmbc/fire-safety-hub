@@ -1,4 +1,4 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect, useRef, memo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -6,24 +6,47 @@ import { Menu, X } from "lucide-react";
 const Header = memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const progressRef = useRef<HTMLDivElement>(null);
+  const rafId = useRef(0);
   const location = useLocation();
 
   // Only use transparent header on homepage
   const isHomePage = location.pathname === '/';
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+    let ticking = false;
+    let lastScrolled = false;
 
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const onFrame = () => {
+      const scrollY = window.scrollY;
+      const scrolled = scrollY > 10;
+
+      // Only trigger re-render when scroll state actually changes
+      if (scrolled !== lastScrolled) {
+        lastScrolled = scrolled;
+        setIsScrolled(scrolled);
+      }
+
+      // Update progress bar via DOM ref (no re-render)
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      setScrollProgress(scrolled);
+      if (progressRef.current && height > 0) {
+        progressRef.current.style.width = `${(scrollY / height) * 100}%`;
+      }
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        rafId.current = requestAnimationFrame(onFrame);
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafId.current);
+    };
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -49,10 +72,11 @@ const Header = memo(() => {
       ? "bg-background/95 backdrop-blur-lg border-b border-border py-2 shadow-lg shadow-black/5"
       : "bg-transparent py-4"
       }`}>
-      {/* Scroll Progress Bar */}
+      {/* Scroll Progress Bar - updated via ref to avoid re-renders */}
       <div
-        className="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-150 ease-out z-[60]"
-        style={{ width: `${scrollProgress}%` }}
+        ref={progressRef}
+        className="absolute bottom-0 left-0 h-[2px] bg-primary z-[60]"
+        style={{ width: "0%" }}
       />
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-14 md:h-16">

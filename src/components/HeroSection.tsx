@@ -64,7 +64,7 @@ const HeroSection = () => {
               variant="outline"
               size="lg"
               onClick={() => document.getElementById("funktionen")?.scrollIntoView({ behavior: "smooth" })}
-              className="bg-white/10 text-white border-white/20 hover:bg-white/20 text-lg px-8 backdrop-blur-sm transition-all"
+              className="bg-white/15 text-white border-white/20 hover:bg-white/25 text-lg px-8 transition-colors"
             >
               Einblick in die Module
             </Button>

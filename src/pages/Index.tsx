@@ -1,12 +1,12 @@
 import { useCallback } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import PersonaSection from "@/components/PersonaSection";
 import Footer from "@/components/Footer";
 import { LazySection } from "@/hooks/use-lazy-section";
 
 const Index = () => {
   const featuresFactory = useCallback(() => import("@/components/FeaturesSection"), []);
+  const personaFactory = useCallback(() => import("@/components/PersonaSection"), []);
   const showcaseFactory = useCallback(() => import("@/components/SoftwareShowcaseSection"), []);
   const integrationsFactory = useCallback(() => import("@/components/IntegrationsSection"), []);
   const processFactory = useCallback(() => import("@/components/ProcessSection"), []);
@@ -20,15 +20,15 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <LazySection factory={featuresFactory} rootMargin="100px" />
-        <PersonaSection />
-        <LazySection factory={showcaseFactory} rootMargin="200px" />
-        <LazySection factory={integrationsFactory} rootMargin="200px" />
-        <LazySection factory={processFactory} rootMargin="200px" />
-        <LazySection factory={futureFactory} rootMargin="200px" />
-        <LazySection factory={pricingFactory} rootMargin="200px" />
-        <LazySection factory={regionalFactory} rootMargin="200px" />
-        <LazySection factory={contactFactory} rootMargin="200px" />
+        <LazySection factory={featuresFactory} rootMargin="50px" />
+        <LazySection factory={personaFactory} rootMargin="50px" />
+        <LazySection factory={showcaseFactory} rootMargin="50px" />
+        <LazySection factory={integrationsFactory} rootMargin="50px" />
+        <LazySection factory={processFactory} rootMargin="50px" />
+        <LazySection factory={futureFactory} rootMargin="50px" />
+        <LazySection factory={pricingFactory} rootMargin="50px" />
+        <LazySection factory={regionalFactory} rootMargin="50px" />
+        <LazySection factory={contactFactory} rootMargin="50px" />
       </main>
       <Footer />
     </div>

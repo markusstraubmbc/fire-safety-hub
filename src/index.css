@@ -257,4 +257,26 @@ All colors MUST be HSL.
       font-size: 16px !important;
     }
   }
+
+  /* Disable expensive animations on mobile for better performance */
+  @media screen and (max-width: 768px) {
+    .animate-pulse {
+      animation: none !important;
+    }
+
+    /* Reduce transition durations on mobile */
+    .transition-all,
+    .transition-transform,
+    .transition-opacity,
+    .transition-colors {
+      transition-duration: 150ms !important;
+    }
+
+    /* Disable backdrop-blur on mobile (expensive GPU operation) */
+    .backdrop-blur-sm,
+    .backdrop-blur-lg {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+  }
 }
