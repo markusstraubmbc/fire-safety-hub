@@ -50,8 +50,8 @@ const PersonaSection = () => {
                                     src={rolesVisual}
                                     alt="Firefighter Roles Illustration"
                                     className="rounded-[2.5rem] w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
-                                    width={1024}
-                                    height={1024}
+                                    width={800}
+                                    height={800}
                                     loading="lazy"
                                     decoding="async"
                                     sizes="(min-width: 1024px) 50vw, 100vw"

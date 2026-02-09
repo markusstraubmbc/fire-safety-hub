@@ -58,7 +58,10 @@ const Header = memo(() => {
         <div className="flex items-center justify-between h-14 md:h-16">
           <Link to="/" className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
-              <img src="/logo.png?v=2" alt="RESQIO Logo" className="w-full h-full object-cover" width={40} height={40} />
+              <picture>
+                <source srcSet="/logo-80.webp" type="image/webp" />
+                <img src="/logo-80.png" alt="RESQIO Logo" className="w-full h-full object-cover" width={40} height={40} />
+              </picture>
             </div>
             <span className={`text-xl font-bold transition-colors ${shouldBeSolid ? "text-foreground" : "text-white"
               }`}>
