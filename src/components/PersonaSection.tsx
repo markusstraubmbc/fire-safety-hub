@@ -49,7 +49,7 @@ const PersonaSection = () => {
                                 <source srcSet={`${rolesVisual620} 620w, ${rolesVisualWebp} 800w`} type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
                                 <img
                                     src={rolesVisual}
-                                    alt="Firefighter Roles Illustration"
+                                    alt="Übersicht der Feuerwehr-Rollen und Verantwortlichkeiten"
                                     className="rounded-[2.5rem] w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
                                     width={800}
                                     height={800}

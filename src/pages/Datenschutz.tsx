@@ -1,8 +1,24 @@
+import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Datenschutz = () => {
+  useEffect(() => {
+    document.title = "Datenschutzerklärung | RESQIO";
+    let robotsMeta = document.querySelector('meta[name="robots"]') as HTMLMetaElement;
+    if (!robotsMeta) {
+      robotsMeta = document.createElement("meta");
+      robotsMeta.name = "robots";
+      document.head.appendChild(robotsMeta);
+    }
+    robotsMeta.content = "noindex, follow";
+    return () => {
+      document.title = "RESQIO - Die intelligente Feuerwehr-Verwaltungssoftware für heute & morgen";
+      robotsMeta?.remove();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />

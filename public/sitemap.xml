@@ -2,135 +2,166 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://resqio.de/</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-02-09</lastmod>
     <priority>1.0</priority>
   </url>
 
   <!-- Module Pages -->
   <url>
     <loc>https://resqio.de/modul/kommandozentrale</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/ausruestungsverwaltung</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/wartungsmanagement</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/kiosk-modus</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/lagemonitor</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/atemschutzueberwachung</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/einsatzerfassung</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/mannschaftsverwaltung</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/objektplaene</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/wasserkarte</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/wasserfoerderung</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/wiki-integration</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/warenbewegung</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/fahrtenbuch</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/waescheverwaltung</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/mannschafts-self-service</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/budget-finanzen</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/treasury-kassier</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/digitaler-dienstausweis</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/schnittstellen</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/email-templates</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/reporting</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/brandschutz</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/inventur</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/formular-center</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/maengelmanagement</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/ki-integration</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/planspiel</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resqio.de/modul/wirt-modul</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.8</priority>
   </url>
 
   <!-- Legal Pages -->
   <url>
     <loc>https://resqio.de/impressum</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://resqio.de/datenschutz</loc>
+    <lastmod>2026-02-09</lastmod>
     <priority>0.3</priority>
   </url>
 </urlset>

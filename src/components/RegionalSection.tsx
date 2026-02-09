@@ -18,7 +18,7 @@ const RegionalSection = () => {
                                     <source srcSet={regionalVisualWebp} type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
                                     <img
                                         src={regionalVisual}
-                                        alt="Modern Firehouse Architecture"
+                                        alt="Modernes Feuerwehrgerätehaus"
                                         className="rounded-[2.5rem] w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
                                         width={1024}
                                         height={1024}

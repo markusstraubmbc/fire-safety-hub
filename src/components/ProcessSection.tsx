@@ -50,7 +50,7 @@ const ProcessSection = () => {
                                 <source srcSet={processVisualWebp} type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
                                 <img
                                     src={processVisual}
-                                    alt="Digital Transformation Process"
+                                    alt="Digitaler Transformationsprozess für Feuerwehren"
                                     className="rounded-[2rem] w-full h-auto object-cover"
                                     width={1024}
                                     height={1024}

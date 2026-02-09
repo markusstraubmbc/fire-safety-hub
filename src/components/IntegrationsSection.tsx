@@ -27,7 +27,7 @@ const IntegrationsSection = () => {
                                     <source srcSet={fireTechVisualWebp} type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
                                     <img
                                         src={fireTechVisual}
-                                        alt="Digital Firefighter Technical Connectivity Hub"
+                                        alt="Digitale Schnittstellen und Integrationen für Feuerwehren"
                                         className="rounded-[2rem] w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
                                         width={1024}
                                         height={1024}
