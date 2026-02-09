@@ -82,6 +82,42 @@ const ModulDetail = () => {
 
       // Canonical URL
       updateLinkTag("canonical", pageUrl);
+
+      // BreadcrumbList structured data
+      const breadcrumbScript = document.createElement("script");
+      breadcrumbScript.type = "application/ld+json";
+      breadcrumbScript.id = "breadcrumb-jsonld";
+      breadcrumbScript.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "RESQIO",
+            "item": "https://resqio.de/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Module",
+            "item": "https://resqio.de/#funktionen"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": module.title,
+            "item": pageUrl
+          }
+        ]
+      });
+      // Remove old breadcrumb if exists
+      document.getElementById("breadcrumb-jsonld")?.remove();
+      document.head.appendChild(breadcrumbScript);
+
+      return () => {
+        document.getElementById("breadcrumb-jsonld")?.remove();
+      };
     }
   }, [slug, module, navigate]);
 
