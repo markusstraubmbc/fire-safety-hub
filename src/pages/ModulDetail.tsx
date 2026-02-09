@@ -36,7 +36,7 @@ const ModulDetail = () => {
       // Helper function for meta tags
       const updateMetaTag = (property: string, content: string) => {
         let tag = document.querySelector(`meta[property="${property}"]`) ||
-                  document.querySelector(`meta[name="${property}"]`);
+          document.querySelector(`meta[name="${property}"]`);
         if (!tag) {
           tag = document.createElement("meta");
           if (property.startsWith('og:') || property.startsWith('twitter:')) {
@@ -72,13 +72,13 @@ const ModulDetail = () => {
       updateMetaTag("og:description", module.shortDesc);
       updateMetaTag("og:type", "website");
       updateMetaTag("og:url", pageUrl);
-      updateMetaTag("og:image", "https://resqio.de/logo.png");
+      updateMetaTag("og:image", "https://resqio.de/logo.png?v=2");
 
       // Twitter tags
       updateMetaTag("twitter:card", "summary_large_image");
       updateMetaTag("twitter:title", pageTitle);
       updateMetaTag("twitter:description", module.shortDesc);
-      updateMetaTag("twitter:image", "https://resqio.de/logo.png");
+      updateMetaTag("twitter:image", "https://resqio.de/logo.png?v=2");
 
       // Canonical URL
       updateLinkTag("canonical", pageUrl);
