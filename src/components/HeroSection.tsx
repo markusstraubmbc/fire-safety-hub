@@ -41,8 +41,8 @@ const HeroSection = () => {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
-            Einsatzbereit. Geprüft.{" "}
-            <span className="text-accent">Professionell.</span>
+            Intelligent. Vernetzt.{" "}
+            <span className="text-accent">Vielfältig.</span>
           </h1>
 
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 leading-relaxed">
