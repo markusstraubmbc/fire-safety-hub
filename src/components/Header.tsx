@@ -155,34 +155,34 @@ const Header = memo(() => {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-border flex flex-col gap-2">
+          <nav className="md:hidden py-4 border-t border-border flex flex-col gap-2 max-h-[calc(100vh-80px)] overflow-y-auto">
             <button
               onClick={() => scrollToSection("home")}
-              className="text-foreground hover:text-primary transition-colors text-left font-medium py-2 px-1 active:scale-98 touch-manipulation"
+              className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection("funktionen")}
-              className="text-foreground hover:text-primary transition-colors text-left font-medium py-2 px-1 active:scale-98 touch-manipulation"
+              className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
             >
               Funktionen
             </button>
             <button
               onClick={() => scrollToSection("software-showcase")}
-              className="text-foreground hover:text-primary transition-colors text-left font-medium py-2 px-1 active:scale-98 touch-manipulation"
+              className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
             >
               Software Einblicke
             </button>
             <button
               onClick={() => scrollToSection("future")}
-              className="text-foreground hover:text-primary transition-colors text-left font-medium py-2 px-1 active:scale-98 touch-manipulation"
+              className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
             >
               Zukunft
             </button>
             <button
               onClick={() => scrollToSection("pricing")}
-              className="text-foreground hover:text-primary transition-colors text-left font-medium py-2 px-1 active:scale-98 touch-manipulation"
+              className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
             >
               Modelle
             </button>

@@ -12,25 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Critical CSS: Above-the-fold rendering -->
-  <style>
-    :root {
-      --background: 210 20% 98%;
-      --foreground: 220 30% 15%;
-      --primary: 0 85% 50%;
-      --primary-foreground: 0 0% 100%;
-      --secondary: 220 50% 20%;
-      --secondary-foreground: 0 0% 100%;
-      --muted-foreground: 220 20% 30%;
-      --accent: 30 100% 55%;
-      --border: 210 20% 85%;
-    }
-    *, *::before, *::after { box-sizing: border-box; border-width: 0; border-style: solid; }
-    html { line-height: 1.5; -webkit-text-size-adjust: 100%; font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif; }
-    body { margin: 0; background-color: hsl(210 20% 98%); color: hsl(220 30% 15%); }
-    #root { min-height: 100vh; }
-    .min-h-screen { min-height: 100vh; }
-    .bg-background { background-color: hsl(var(--background)); }
-  </style>
+  <link rel="stylesheet" href="/critical.css" />
 
   <!-- Fonts: Preconnect + Load (Latin subset only) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />

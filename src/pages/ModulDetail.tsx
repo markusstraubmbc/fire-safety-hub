@@ -156,14 +156,14 @@ const ModulDetail = () => {
           {/* Breadcrumb / Back Button */}
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-all mb-12 group py-2 px-4 rounded-full border border-transparent hover:border-border hover:bg-card/30"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-all mb-8 md:mb-12 group py-3 px-4 rounded-full border border-transparent hover:border-border hover:bg-card/30 touch-manipulation"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             <span className="text-sm font-medium">Zurück zur Übersicht</span>
           </Link>
 
           {/* Hero Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12 items-center mb-16 md:mb-24">
             <div className="lg:col-span-7 space-y-8">
               {/* Badge Removed */}
 
@@ -180,14 +180,14 @@ const ModulDetail = () => {
                 {module.longDesc}
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-4">
-                <a href="mailto:support@resqio.de?subject=Demo Anfrage RESQIO">
-                  <Button size="lg" className="h-14 px-8 bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <a href="mailto:support@resqio.de?subject=Demo Anfrage RESQIO" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto h-12 sm:h-14 px-6 sm:px-8 bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
                     Jetzt Demo anfordern
                   </Button>
                 </a>
-                <Link to="/#contact">
-                  <Button variant="outline" size="lg" className="h-14 px-8 rounded-2xl hover:bg-card/50 transition-all">
+                <Link to="/#contact" className="w-full sm:w-auto">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto h-12 sm:h-14 px-6 sm:px-8 rounded-2xl hover:bg-card/50 transition-all">
                     Kontakt aufnehmen
                   </Button>
                 </Link>
@@ -198,9 +198,9 @@ const ModulDetail = () => {
               <div className="absolute -inset-10 bg-primary/20 rounded-full blur-[100px] opacity-20 animate-pulse" />
               <div className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-tr from-primary/50 to-purple-500/50 rounded-[2.5rem] blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-                <div className="relative bg-card/80 backdrop-blur-2xl border border-border rounded-[2.5rem] p-8 md:p-12 shadow-2xl flex flex-col items-center text-center space-y-8">
-                  <div className={`w-28 h-28 rounded-3xl ${colorConfig.bg} flex items-center justify-center animate-float border ${colorConfig.border}`}>
-                    <Icon className={`w-14 h-14 ${colorConfig.text}`} />
+                <div className="relative bg-card/80 backdrop-blur-2xl border border-border rounded-2xl md:rounded-[2.5rem] p-6 md:p-8 lg:p-12 shadow-2xl flex flex-col items-center text-center space-y-6 md:space-y-8">
+                  <div className={`w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl md:rounded-3xl ${colorConfig.bg} flex items-center justify-center animate-float border ${colorConfig.border}`}>
+                    <Icon className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 ${colorConfig.text}`} />
                   </div>
                   <div className="space-y-3">
                     <p className="text-xs font-bold text-primary uppercase tracking-[0.2em]">Platform Integration</p>
@@ -228,12 +228,12 @@ const ModulDetail = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 xl:grid-cols-12 gap-12 mb-24">
+          <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 md:gap-8 lg:gap-12 mb-16 md:mb-24">
             {/* Main Content Area */}
             <div className="xl:col-span-8 space-y-12">
 
               {/* Why Section */}
-              <section className="relative overflow-hidden bg-card/40 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 border border-border group hover:border-primary/20 transition-all duration-500">
+              <section className="relative overflow-hidden bg-card/40 backdrop-blur-xl rounded-2xl md:rounded-[2.5rem] p-6 md:p-8 lg:p-12 border border-border group hover:border-primary/20 transition-all duration-500">
                 <div className="absolute top-0 right-0 p-8 opacity-5">
                   <Zap className="w-32 h-32 text-primary" />
                 </div>
@@ -248,7 +248,7 @@ const ModulDetail = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                   {module.benefits.map((benefit, idx) => (
                     <div key={idx} className="flex gap-4 group/item">
                       <div className="mt-1">
@@ -278,7 +278,7 @@ const ModulDetail = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {module.features.map((feature, idx) => (
-                    <div key={idx} className="group p-6 bg-card/20 backdrop-blur-sm rounded-2xl border border-border hover:border-primary/30 transition-all hover:bg-card/40">
+                    <div key={idx} className="group p-4 sm:p-6 bg-card/20 backdrop-blur-sm rounded-2xl border border-border hover:border-primary/30 transition-all hover:bg-card/40">
                       <div className="flex items-start gap-4">
                         <div className="w-2 h-2 rounded-full bg-primary/40 mt-2.5 group-hover:scale-150 transition-transform" />
                         <p className="text-base font-medium text-foreground leading-snug">
@@ -295,7 +295,7 @@ const ModulDetail = () => {
             <div className="xl:col-span-4 space-y-8">
               {/* Technical Box */}
               {module.technicalDetails && (
-                <div className="bg-card/80 backdrop-blur-xl rounded-[2.5rem] p-8 border border-border border-l-4 border-l-primary shadow-2xl sticky top-28">
+                <div className="bg-card/80 backdrop-blur-xl rounded-2xl md:rounded-[2.5rem] p-6 md:p-8 border border-border border-l-4 border-l-primary shadow-2xl xl:sticky xl:top-28">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                       <Info className="w-5 h-5 text-primary" />
@@ -327,7 +327,7 @@ const ModulDetail = () => {
               )}
 
               {/* Security Banner */}
-              <div className="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-[2.5rem] p-8 border border-border">
+              <div className="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-2xl md:rounded-[2.5rem] p-6 md:p-8 border border-border">
                 <h4 className="text-foreground font-bold mb-3 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-indigo-500" />
                   Hosting & Sicherheit

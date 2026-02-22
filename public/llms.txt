@@ -157,6 +157,21 @@ Getränke und Verpflegung.
 *   **Beschreibung**: Digitale Strichliste und Kasse.
 *   **Funktionen**: Kiosk-Verkaufsoberfläche, Lagerbestand, Abrechnung.
 
+### 30. RESQIO Kreis-Platform (RKP)
+Föderale Plattform für Kreisfeuerwehrverbände.
+*   **Beschreibung**: Eigenständige Plattform zur Koordination und Verwaltung von Feuerwehren auf Kreisebene. Verbindet dezentrale RESQIO-Instanzen mit voller Datensouveränität der einzelnen Wehren.
+*   **Funktionen**: Federation mit Echtzeit-Monitoring, Schulungskalender mit Online-Anmeldung, Atemschutzwerkstatt- und Schlauchwerkstatt-Buchung, kreisweites Sonderausrüstungs-Register, anonymisierte Personalstatistiken, Fahrzeug-Dashboard, Wasserversorgungskarte, Kreislager, gemeinsame Beschaffung, Schwarzes Brett, Dokumenten-Portal, KI-Assistent, Übungskoordination.
+
+### 31. Arbeitsstunden & Zeiterfassung
+Systematisches Work Hours Tracking.
+*   **Beschreibung**: Erfassung von Arbeitsstunden mit Geräte-Zuordnung, Bulk-Erfassung und Kiosk-Integration.
+*   **Funktionen**: Equipment-Referenz, Bulk-Erfassung, Kiosk-Wizard, flexible Kategorisierung, Statistik-Export.
+
+### 32. Brandsicherheitswache & Veranstaltungen
+Professionelle BSW-Verwaltung.
+*   **Beschreibung**: Planung und Abrechnung von Brandsicherheitswachen und kommunalen Veranstaltungen.
+*   **Funktionen**: Klientenverwaltung, Smart Invoicing, standardisierte Vorlagen, BSW-Kalender, Abrechnungsmanagement.
+
 ## Technische Details
 *   **Hosting**: Deutschland (Sichere Cloud-Umgebung).
 *   **Client**: Web-App (React/Vite), installierbar als PWA (Progressive Web App).

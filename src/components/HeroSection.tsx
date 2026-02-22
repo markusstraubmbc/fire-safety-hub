@@ -55,7 +55,7 @@ const HeroSection = () => {
             <Button
               onClick={scrollToContact}
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 text-base sm:text-lg px-6 sm:px-8"
             >
               Kostenlose Demo anfragen
               <ArrowRight className="w-5 h-5 ml-2" />
@@ -64,7 +64,7 @@ const HeroSection = () => {
               variant="outline"
               size="lg"
               onClick={() => document.getElementById("funktionen")?.scrollIntoView({ behavior: "smooth" })}
-              className="bg-white/15 text-white border-white/20 hover:bg-white/25 text-lg px-8 transition-colors"
+              className="bg-white/15 text-white border-white/20 hover:bg-white/25 text-base sm:text-lg px-6 sm:px-8 transition-colors"
             >
               Einblick in die Module
             </Button>
@@ -75,9 +75,9 @@ const HeroSection = () => {
             Ihre Wehr fit für die digitale Zukunft.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8">
             <div className="space-y-1">
-              <p className="text-2xl font-bold text-primary-foreground">2025</p>
+              <p className="text-2xl font-bold text-primary-foreground">2026</p>
               <p className="text-sm text-primary-foreground/60">An 365 Tagen einsatzbereit</p>
             </div>
             <div className="space-y-1">

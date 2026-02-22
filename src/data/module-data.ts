@@ -23,6 +23,9 @@ import {
     UserCheck,
     Gamepad2,
     Beer,
+    Globe,
+    Clock,
+    Calendar,
     LucideIcon
 } from "lucide-react";
 
@@ -154,14 +157,15 @@ export const modules: Record<string, ModuleData> = {
             "Anwesenheitserfassung: Schnelles Check-In/Check-Out mit 30-Minuten Bearbeitungsfenster und RFID-Support",
             "Personen-Detailansicht: Umfassende Mitglieder-Info mit Qualifikationen, Lehrgängen und letzten Fahrten",
             "Ausrüstungs-Wizard: Neue Geräte direkt am Tablet erfassen mit Foto, Barcode-Scan und Standortzuweisung",
-            "Echtzeit-Synchronisation: WebSocket-basierte Live-Updates für Whiteboards und Statusänderungen"
+            "Echtzeit-Synchronisation: Änderungen an Whiteboards und Status werden sofort auf allen Geräten sichtbar",
+            "Technische Anlagen: Sofortige Einsatzübersicht über BMA, Löschanlagen, RWA und Schließanlagen am Stellplatz-Tablet",
+            "Wäsche-Delegation: Wäscheanfragen für andere Kameraden stellen – ideal für Gerätewarte und Führungskräfte"
         ],
         technicalDetails: [
-            "Touch-optimiert für Bildschirme ab 10 Zoll",
-            "Responsive Design für 10\" bis 55\" Displays",
-            "Unterstützung gängiger RFID-Reader (HID, Mifare, EM4100)",
-            "Lokaler Cache für Offline-Betrieb",
-            "WebSocket-basierte Echtzeit-Updates"
+            "Touch-optimiert für Bildschirme ab 10 Zoll bis 55 Zoll Hallen-Displays",
+            "Unterstützung gängiger RFID-Reader für schnelle Anmeldung",
+            "Offline-fähig: Kritische Funktionen auch ohne Internetverbindung",
+            "Echtzeit-Updates: Änderungen werden sofort auf allen Geräten sichtbar"
         ],
         keywords: ["Touchscreen", "Kiosk", "57 Module", "Mannschaftsoberfläche", "RFID Login", "Fahrzeughalle", "Tablet Modus", "Wetterwarnung", "Wizard", "Self-Service"],
         icon: Monitor,
@@ -198,10 +202,10 @@ export const modules: Record<string, ModuleData> = {
             "Kontakt-Filter & Emergency-Kontakte"
         ],
         technicalDetails: [
-            "Echtzeit-Datensynchronisation über WebSockets",
-            "Offline-Kartencaching für autonomen Betrieb",
-            "KI-basierte Dokumenten-Relevanz-Bewertung",
-            "Multi-User Kollaborations-Engine"
+            "Echtzeit-Synchronisation: Alle Führungskräfte sehen die gleiche Lage",
+            "Offline-fähig: Karten und Pläne werden lokal gespeichert für den Einsatz",
+            "KI erkennt automatisch die relevantesten Dokumente für den aktuellen Einsatzort",
+            "Mehrere Führungskräfte können gleichzeitig auf der Lagekarte arbeiten"
         ],
         keywords: ["Einsatzführung", "Lagekarte", "Wasserkarte", "Hydrantenmanagement", "POI", "KI Dokumentenzugriff", "Statusmonitor", "Führungshilfsmittel", "Taktik", "Einsatzleitung"],
         icon: Map,
@@ -250,23 +254,24 @@ export const modules: Record<string, ModuleData> = {
             "Material-Erfassung: Vordefinierte Verbrauchsmaterialien plus manuelle Eingabe",
             "Multi-App-Navigation: Google Maps, Apple Maps, Waze, OpenStreetMap, HERE WeGo",
             "QR-Code-Generierung: Scanbare Codes für Mobile-Navigation vom Tablet",
-            "Kartenvorschau: Interaktive Mini-Karte (200x150px) mit Einsatzort-Marker",
-            "Automatisches Geocoding: Koordinaten-Generierung aus Adressen mit Caching",
+            "Kartenvorschau: Interaktive Mini-Karte mit Einsatzort-Marker",
+            "Automatisches Geocoding: Koordinaten werden aus Adressen ermittelt",
             "Verbrauchsmaterialien-Verwaltung: Ölbinder, Schaummittel, Medizin mit Bestandsverfolgung",
-            "Kategor isierung: Typ, Einheit (Stück, Liter, kg), Standort",
+            "Kategorisierung: Typ, Einheit und Standort für alle Verbrauchsmaterialien",
             "KI-Textassistent: Professionelle Berichte per Mausklick & Smart Parsing",
             "Offene Posten Liste: Strukturierte Nachbereitung mit Aufgabenvergabe",
             "Missions-Zeit-Vergleich: Benchmarking zwischen Einsätzen",
             "Umfangreiche PDF-Exporte: Lagekarte, Berichte, Statistiken",
             "BSW-Verwaltung: Dedizierte Ansicht für Brandsicherheitswachen",
-            "Einsatzbericht-Historie: Lückenlose Dokumentation aller Vorgänge"
+            "Einsatzbericht-Historie: Lückenlose Dokumentation aller Vorgänge",
+            "Auto-Close für Übungen: Automatisches Schließen nach 7 Tagen – jederzeit manuell wieder öffenbar"
         ],
         technicalDetails: [
-            "Externe Portal: 7 dedizierte Datenbanktabellen für isolierte Datenhaltung",
-            "Offline-Caching: LocalStorage für Datenpersistenz bei Verbindungsverlust",
-            "QR-Code-Sicherheit: 64-Zeichen-Token mit SHA-256-Hashing",
-            "Platform-Detection: Automatische App-Empfehlung basierend auf OS",
-            "Geocoding-Fallback: Multiple Server für robuste Adress-Auflösung"
+            "Sicheres externes Portal mit isolierter Datenhaltung",
+            "Offline-fähig: Daten werden lokal gesichert bei Verbindungsverlust",
+            "Höchste Sicherheitsstandards für externe QR-Code-Zugänge",
+            "Automatische Navigations-App-Empfehlung je nach Gerät",
+            "Robuste Adress-Auflösung mit mehreren Fallback-Diensten"
         ],
         keywords: ["Einsatzbericht", "Übungsdienst", "FwDV", "Quiz-System", "KI Bericht", "Trainings-Szenarien", "Externes Portal", "Navigation", "Verbrauchsmaterial", "Großeinsatz", "QR-Code"],
         icon: FileText,
@@ -306,36 +311,48 @@ export const modules: Record<string, ModuleData> = {
             "Globale Filterung in allen Modulen nach Qualifikationen und Status",
             "Namensformat-Standardisierung: Einheitliches \"Nachname Vorname\" im gesamten System",
             "vCard-Export: Kontakte mit Notfallkontakten als vCard 3.0 exportierbar",
-            "Audit-Trail: Vollständige Nachverfolgbarkeit aller Änderungen"
+            "Audit-Trail: Vollständige Nachverfolgbarkeit aller Änderungen",
+            "Qualifikations-Dashboard: 30/90/180-Tage-Ablaufprognose mit Gesundheitsindex (Gültig vs. Abgelaufen %)",
+            "Kritischste Qualifikation: Nächste 5 Abläufe und mehrfach betroffene Mitglieder auf einen Blick",
+            "Zuweisungs-Trends: Monatliche Entwicklung auf einen Blick mit PDF-Export"
         ],
         technicalDetails: [
-            "DSGVO-konforme Datenhaltung mit Löschkonzept",
-            "Multi-Level Berechtigungssystem mit Vererbung",
-            "Workflow-Engine für Freigabe-Prozesse",
-            "Automatische Benachrichtigungen bei Fristablauf"
+            "DSGVO-konforme Datenhaltung mit automatischem Löschkonzept",
+            "Mehrstufiges Berechtigungssystem – jeder sieht nur seine relevanten Daten",
+            "Automatische Freigabe-Workflows für Personaländerungen",
+            "Automatische Erinnerungen bei ablaufenden Qualifikationen und Fristen"
         ],
         keywords: ["Kameradenverwaltung", "Personalmanagement", "Rollenmanagement", "Überprüfungsportal", "Verifikation", "Lehrgänge", "Beförderung", "KI Analyse", "Verfügbarkeit", "RFID", "Berechtigungen"],
         icon: Users,
         color: "blue"
     },
     "objektplaene": {
-        title: "Objektpläne",
-        shortDesc: "Digitale Bereitstellung und Prüfung von Feuerwehrplänen.",
-        longDesc: "Haben Sie wichtige Gebäudeinformationen immer griffbereit. Das Modul verwaltet Objektpläne, überwacht Prüffristen und stellt Pläne im Einsatz (GPS-basiert) sofort zur Verfügung. Inklusive Gefahrstoffdaten und Kontaktpersonen.",
+        title: "Objektpläne & Technische Anlagen",
+        shortDesc: "Digitale Einsatzpläne nach DIN 14095 mit umfassender Verwaltung technischer Anlagen, Alarmhistorie und externem Betreiberportal.",
+        longDesc: "Haben Sie wichtige Gebäudeinformationen immer griffbereit. Das Modul verwaltet Objektpläne, überwacht Prüffristen und stellt Pläne im Einsatz (GPS-basiert) sofort zur Verfügung. Neu in v3.7: Umfassende Verwaltung aller brandschutztechnischen Anlagen (BMZ, FSD, FIZ, FSE, SPZ, Löschanlagen, RWA, Schließanlagen), interaktive Kartenansicht mit farbcodierten Entity-Markern, Alarmhistorie für Fehl-, Täuschungs- und Echtalarme sowie ein Token-basiertes Objektplan-Portal für externe Betreiber.",
         benefits: [
             "Einsatzbereit: Automatischer Abruf der Pläne bei Alarmierung",
             "Immer aktuell: Überwachung der regulären Revisionsfristen",
             "Sicherheit: Taktische Gefahrenschwerpunkte sofort sichtbar",
-            "Standard: Saubere Daten gemäß DIN 14095"
+            "Standard: Saubere Daten gemäß DIN 14095",
+            "Technische Anlagen: BMZ, FSD, Löschanlagen, RWA und Schließanlagen vollständig erfasst",
+            "Betreiberportal: Externe Betreiber pflegen Daten eigenständig ohne RESQIO-Login"
         ],
         features: [
-            "Interaktive Karte mit Status (Geprüft/Fällig)",
+            "Interaktive Karte mit farbcodierten Entity-Markern und Annotationen für taktische Einsatzplanung",
             "Dokumentenverwaltung (PDF/Bilder) & Versionierung",
+            "Technische Anlagen: BMZ, FSD, FIZ, FSE, SPZ mit PIN-Codes und Standort-Koordinaten",
+            "Löschanlagen: Sprinkler, Schaum, CO2, Pulver, Gas mit Kapazitätsangaben",
+            "Lüftungsanlagen: RWA, maschinelle und natürliche Belüftung",
+            "Schließanlage: Profilzylinder, FSD-Schlüssel, Generalschlüssel mit Nummern und Aufbewahrungsort",
+            "Alarmhistorie: Tracking von Fehl-, Täuschungs- und Echtalarmen sowie Wartungen",
+            "Revisionsbogen-Export: HTML/PDF-Druck aller Objektplan-Daten inkl. technische Anlagen und Kontakte",
+            "Objektplan-Portal: Token-basierter Zugang für externe Betreiber",
             "Strukturierte Daten: Anlagen, FSD, Gefahrstoffe, Ansprechpartner",
             "Standardisierter Import & Export",
             "Integration in Kiosk & Lagemonitor"
         ],
-        keywords: ["Feuerwehrpläne", "DIN 14095", "Objektverwaltung", "Gefahrstoffe", "BMA", "FSD"],
+        keywords: ["Feuerwehrpläne", "DIN 14095", "Objektverwaltung", "Gefahrstoffe", "BMA", "FSD", "Technische Anlagen", "Alarmhistorie", "Betreiberportal", "Revisionsbogen"],
         icon: Map,
         color: "blue"
     },
@@ -349,7 +366,7 @@ export const modules: Record<string, ModuleData> = {
             "Integration: OpenFireMap zeigt OSM Feuerwehr-Infrastruktur automatisch",
             "Transparenz: Wer hat welchen Hydrant/POI erfasst - Ersteller-Anzeige",
             "Mobilität: Erfassung direkt vor Ort mit Tablet oder Smartphone",
-            "Performance: Intelligentes Laden nur bei sinnvollen Zoom-Stufen (13-19)",
+            "Performance: Intelligentes Laden für flüssiges Arbeiten auch bei vielen Hydranten",
             "Vielfalt: POIs mit individuellen Icons und Farben kategorisierbar",
             "Vollständigkeit: Lokale + OpenStreetMap Hydranten kombiniert nutzbar"
         ],
@@ -366,20 +383,15 @@ export const modules: Record<string, ModuleData> = {
             "Standard-Typ-Dropdown: Vordefinierter Typ für schnelle Erfassung",
             "Liste erfasster Punkte: Sidebar mit allen gesetzten Punkten, Auswahl und Löschen",
             "Layer-Control: Toggle-bare Kartenebenen für vollständige Übersicht",
-            "Performance-Optimierung: Zoom-Level-Beschränkungen (13-19 für OSM)",
-            "Debouncing: 500ms Verzögerung bei Kartenverschiebung reduziert API-Aufrufe",
-            "Marker-Limit: Max. 1000 Marker pro Layer verhindert Browser-Überlastung",
-            "UTF-8 Encoding: Korrekte Darstellung deutscher Sonderzeichen",
+            "Optimierte Darstellung: Flüssiges Scrollen und Zoomen auch bei großen Datenmengen",
             "Farbcodierung nach Kapazität/Durchmesser",
             "Kiosk-Integration & Vollbildmodus",
             "Filter & Suchfunktionen"
         ],
         technicalDetails: [
-            "UTF-8mb4 Zeichensatz für vollständige Unicode-Unterstützung",
-            "Foreign-Key-Optimierung für performante Datenbankabfragen",
-            "Offline-Kartencaching für autonomen Betrieb",
-            "Debouncing und Rate-Limiting zum Schutz vor API-Überlastung",
-            "Automatische Tile-Server-Fallbacks bei Serverausfall"
+            "Offline-fähig: Karten werden lokal gespeichert für den Einsatz ohne Internet",
+            "Zuverlässig: Automatische Ausweich-Server bei Verbindungsproblemen",
+            "Performant: Auch bei hunderten Hydranten bleibt die Karte flüssig"
         ],
         keywords: ["Hydrantenplan", "Löschwasser", "Wasserversorgung", "Digitale Karte", "Unterflurhydrant", "POI", "Infrastruktur-Erfassung", "OpenFireMap", "Klick-zum-Bearbeiten"],
         icon: Droplets,
@@ -446,9 +458,11 @@ export const modules: Record<string, ModuleData> = {
             "Externe Standorte & Partnerverwaltung",
             "Bewegungstypen: Ausgang, Eingang, Intern, Reparatur",
             "Lieferschein-Generierung (PDF)",
-            "Historie pro Gegenstand & Dashboard-Widget"
+            "Historie pro Gegenstand & Dashboard-Widget",
+            "Multi-Feuerwehr / Abteilungs-Struktur: Rolle und Feuerwehr-Zugehörigkeit pro Person",
+            "Digitaler Inventur-Modus: Soll-Ist-Abgleich der Fahrzeugbeladung via Tablet"
         ],
-        keywords: ["Logistik", "Versand", "Reparatur", "Lieferschein", "Standortwechsel"],
+        keywords: ["Logistik", "Versand", "Reparatur", "Lieferschein", "Standortwechsel", "Multi-Feuerwehr", "Inventur"],
         icon: Package,
         color: "orange"
     },
@@ -506,9 +520,11 @@ export const modules: Record<string, ModuleData> = {
             "Token-basierter Login (E-Mail-Link)",
             "Daten-Validierung (IBAN, E-Mail, Plausibilität)",
             "Eigener Qualifikations-Monitor",
-            "Status-Reporting für Administratoren"
+            "Status-Reporting für Administratoren",
+            "Mehrfach-Kontaktdaten: 1:n Telefonnummern und E-Mail-Adressen im Self-Service-Portal pflegen",
+            "Excel-Export mit Typ-Kennzeichnung aller Kontaktkanäle"
         ],
-        keywords: ["Self-Service", "Mitgliederportal", "Stammdaten", "Token-Login", "Digitalisierung"],
+        keywords: ["Self-Service", "Mitgliederportal", "Stammdaten", "Token-Login", "Digitalisierung", "Mehrfach-Kontakte"],
         icon: UserCheck,
         color: "emerald"
     },
@@ -533,8 +549,8 @@ export const modules: Record<string, ModuleData> = {
     },
     "treasury-kassier": {
         title: "Kassier Modul - Professionelle Vereinsbuchhaltung",
-        shortDesc: "Vollständige Buchhaltung mit §2b UStG-Auswertung, Veranstaltungsmanagement und Self-Service Belegeinreichung.",
-        longDesc: "Das professionelle Finanzmodul für Feuerwehr-Vereine und kommunale Feuerwehren. Von der dezentralen Belegeinreichung über die automatisierte Verbuchung bis zur steuerkonformen Auswertung nach §2b UStG. Mit integriertem Veranstaltungsmanagement für Feste, Brandsicherheitswachen und Veranstaltungen. Das Kameradschaftsportal ermöglicht jedem Mitglied die eigenständige Belegeinreichung – der Kassier behält die volle Kontrolle über alle Buchungen.",
+        shortDesc: "Vollständige Buchhaltung mit Rechnungsmanagement, §2b UStG-Auswertung, JHV-Bericht und Event P&L-Analyse.",
+        longDesc: "Das professionelle Finanzmodul für Feuerwehr-Vereine und kommunale Feuerwehren. Von der dezentralen Belegeinreichung über die automatisierte Verbuchung bis zur steuerkonformen Auswertung nach §2b UStG. Neu: Professionelles Rechnungsmanagement mit E-Mail-Versand und PDF-Export, automatisierte JHV-Berichte mit Reverse-Geocoding und Event P&L-Berichte für Veranstaltungs-Controlling. Das Kameradschaftsportal ermöglicht jedem Mitglied die eigenständige Belegeinreichung – der Kassier behält die volle Kontrolle über alle Buchungen.",
         benefits: [
             "Steuerkonformität: Automatische Auswertung nach §2b UStG für gemeinnützige Vereine",
             "Revisionssicherheit: Lückenlose Buchungsliste für Kassenprüfer und Finanzamt",
@@ -557,13 +573,17 @@ export const modules: Record<string, ModuleData> = {
             "Revisionssichere Berichte: Export für Kassenprüfer und Finanzamt",
             "Veranstaltungskalender mit Einnahmen-/Ausgaben-Tracking",
             "Automatische Beleg-Nummerierung und Archivierung",
-            "Multi-Währungs-Support für internationale Veranstaltungen"
+            "Multi-Währungs-Support für internationale Veranstaltungen",
+            "Rechnungsmanagement: Professionelle Rechnungserstellung mit E-Mail-Versand und PDF-Export",
+            "JHV-Bericht: Automatisierte Jahresbericht-Generierung mit Reverse-Geocoding",
+            "Event P&L: Veranstaltungs-Gewinn & Verlust Berichte mit Transaktionsaufschlüsselung",
+            "Excel Export/Import: Für Buchungen und erweiterte Analysen"
         ],
         technicalDetails: [
-            "Konforme Umsetzung der §2b UStG-Regelungen für gemeinnützige Organisationen",
-            "Standardisierte Formate für elektronischen Zahlungsverkehr",
-            "Export-Schnittstellen für Steuerberater und Finanzverwaltung",
-            "Revisionssichere und rechtskonforme Archivierung"
+            "Steuerkonforme Auswertungen nach §2b UStG für gemeinnützige Vereine",
+            "SEPA-kompatibel für reibungslosen elektronischen Zahlungsverkehr",
+            "Export-fertig für Steuerberater, Finanzamt und Kassenprüfer",
+            "Revisionssichere Archivierung aller Belege und Buchungen"
         ],
         keywords: ["Finanzwesen", "Kassier", "§2b UStG", "Vereinsbuchhaltung", "SEPA", "Veranstaltungsauswertung", "Belegeinreichung", "Treasury", "Steuerkonform", "Kassenprüfung"],
         icon: CreditCard,
@@ -579,12 +599,14 @@ export const modules: Record<string, ModuleData> = {
             "Kontaktlos: Schnellanmeldung am Kiosk-Terminal via Wallet"
         ],
         features: [
-            "Smartphone-Wallet Integration",
+            "Smartphone-Wallet Integration (Apple Wallet & Google Wallet)",
             "Dynamische Codes (zeitbasiert)",
             "Anzeige von Qualifikationen & Abzeichen",
-            "Öffentliches Verifikations-Portal"
+            "Öffentliches Verifikations-Portal via QR-Code (revisionssicher)",
+            "NFC-Experience: Kontaktlose Anmeldung an Kiosk-Terminals",
+            "Digitale Medaillenvitrine: Leistungsabzeichen und Ehrungen in der App"
         ],
-        keywords: ["Wallet", "Dienstausweis", "Digitale ID", "NFC", "Verifikation"],
+        keywords: ["Wallet", "Dienstausweis", "Digitale ID", "NFC", "Verifikation", "Apple Wallet", "Google Wallet", "Medaillenvitrine"],
         icon: ShieldCheck,
         color: "indigo"
     },
@@ -646,8 +668,8 @@ export const modules: Record<string, ModuleData> = {
     },
     "reporting": {
         title: "Statistik, Reporting & Security-Audit",
-        shortDesc: "Umfassende Auswertungen, Druckzentrum, KI-Dashboard, Login-Audit und Sicherheitsanalysen.",
-        longDesc: "Das vollständigste Statistik- und Controlling-System für die Feuerwehr. Treffen Sie datenbasierte Entscheidungen auf Basis detaillierter Einblicke in alle Bereiche. Das neue KI-Dashboard zeigt KPI-Übersicht mit Anfragen, Tokens und Kosten. Die erweiterte Login-Audit-Funktion protokolliert alle Anmeldungen mit IP-Adressen und Gerätetypen und visualisiert diese grafisch. Identifizieren Sie Sicherheitsrisiken durch aggregierte Fehler-Analyse. Das Druckzentrum bietet fertige Berichte und Listen für jeden Zweck mit granularen RBAC-Berechtigungen.",
+        shortDesc: "Umfassende Auswertungen mit vollständigem Druckexport, KI-Dashboard, Login-Audit und Sicherheitsanalysen.",
+        longDesc: "Das vollständigste Statistik- und Controlling-System für die Feuerwehr. Treffen Sie datenbasierte Entscheidungen auf Basis detaillierter Einblicke in alle Bereiche. Jede Statistikseite ist als professionelles Dokument mit Briefkopf und Unterschriftsfeld exportierbar – ideal für Jahresberichte und Kassenprüfungen. Das KI-Dashboard gibt Ihnen volle Transparenz über die KI-Nutzung Ihrer Wehr. Die Login-Audit-Funktion protokolliert alle Anmeldungen und hilft Ihnen, Sicherheitsrisiken frühzeitig zu erkennen.",
         benefits: [
             "Sicherheit: Login-Audit mit IP-Adressen, Gerätetypen und Fehler-Analyse",
             "KI-Controlling: Vollständige Übersicht über KI-Nutzung und Kosten mit Prognosen",
@@ -671,15 +693,19 @@ export const modules: Record<string, ModuleData> = {
             "Zeitraum-Filter: 7, 30, 90 Tage oder alle Daten",
             "Top-Nutzer-Ranking: Aktivste Systemnutzer mit Statistiken",
             "Kostenprognose: Geschätzte Monatskosten für KI basierend auf historischen Daten",
-            "Granulare RBAC: 6+ neue Berechtigungen für Statistik-Zugriff"
+            "Granulare RBAC: 6+ neue Berechtigungen für Statistik-Zugriff",
+            "Vollständiger Export: Jede Statistikseite als druckfertiges Dokument exportierbar",
+            "PDF direkt im Browser: Berichte ohne Zusatzsoftware als PDF speichern",
+            "Intelligente Filterung: Je nach Einsatz, Übung oder BSW werden nur relevante Felder angezeigt",
+            "Professionelles Layout: Einheitlicher Briefkopf, Tabellen und Unterschriftsfelder über alle Berichte"
         ],
         technicalDetails: [
-            "Area-Charts für zeitbasierte Visualisierungen",
-            "Aggregations-Engine für Fehler-Analyse",
-            "Rollenbasierte Daten-Maskierung",
-            "Automatische Daten-Retention-Policies"
+            "Übersichtliche Diagramme für zeitbasierte Auswertungen",
+            "Rollenbasierter Datenzugriff – jeder sieht nur, was er soll",
+            "Automatische Datenhaltung nach gesetzlichen Vorgaben",
+            "PDF-Export direkt aus dem Browser – ohne Zusatzsoftware"
         ],
-        keywords: ["Statistik", "Jahresbericht", "Auswertung", "Drucken", "Controlling", "Login-Audit", "KI-Dashboard", "Sicherheit", "RBAC"],
+        keywords: ["Statistik", "Jahresbericht", "Auswertung", "Drucken", "Controlling", "Login-Audit", "KI-Dashboard", "Sicherheit", "RBAC", "Export-Coverage"],
         icon: BarChart3,
         color: "purple"
     },
@@ -782,13 +808,13 @@ export const modules: Record<string, ModuleData> = {
             "Kostenprognose: Geschätzte Monatskosten basierend auf historischen Daten",
             "KI-Chatbot: Interaktiver Assistent für Führungskräfte mit Zugriff auf alle Systemdaten",
             "Kiosk KI-Assistent: Gemeinsamer Chat für alle Führungskräfte mit automatischer 24h-Löschung",
-            "Spracheingabe: Web Speech API mit deutscher Spracherkennung für hands-free Nutzung",
+            "Spracheingabe: Deutsche Spracherkennung für hands-free Nutzung auch im Einsatz",
             "Wiki-Suche: KI durchsucht Einsatzleiterwiki mit Quellenangaben",
             "Direkter Systemzugriff: Echtzeit-Abfrage von Einsätzen, Ausrüstung und Personal",
             "Lesezeichen-Funktion: Wichtige Nachrichten markieren und vor Löschung schützen",
             "Chat-Speicherung: Konversationen permanent speichern und später abrufen",
             "KI-Textoptimierung: Professionelle Berichte, Protokolle und Dokumentationen",
-            "Rate Limiting: Konfigurierbares Stunden-, Tages- und Monatslimit pro Benutzer",
+            "Kontrollierter Einsatz: Individuelle Nutzungslimits pro Kamerad einstellbar",
             "Intelligente Adressoptimierung: Automatische Korrektur und Standardisierung",
             "Automatisches Objektdaten-Mapping: KI erkennt und strukturiert Gebäudeinformationen",
             "KI-Pumpenoptimierung: Intelligente Berechnung optimaler Pumpenstandorte",
@@ -801,11 +827,10 @@ export const modules: Record<string, ModuleData> = {
             "Intelligente Volltextsuche über alle Module hinweg"
         ],
         technicalDetails: [
-            "Integration moderner Large Language Models (LLM)",
-            "OpenAI GPT-4 Integration für Textgenerierung",
-            "Machine Learning Algorithmen für Personalanalyse",
-            "Hydraulische Berechnungsmodelle mit KI-Optimierung",
-            "Geocoding APIs mit intelligenter Plausibilitätsprüfung"
+            "Modernste KI-Modelle für Textgenerierung und Analyse",
+            "Intelligente Algorithmen für vorausschauende Personalplanung",
+            "KI-optimierte Berechnungen für Wasserförderung und Hydraulik",
+            "Automatische Plausibilitätsprüfung bei Adress- und Koordinatendaten"
         ],
         keywords: ["KI", "AI", "Künstliche Intelligenz", "Chatbot", "Textgenerator", "Automatisierung", "Machine Learning", "Adressoptimierung", "Pumpenoptimierung", "Smart Data"],
         icon: Brain,
@@ -813,13 +838,13 @@ export const modules: Record<string, ModuleData> = {
     },
     "planspiel": {
         title: "Planspiel System - Professionelle Feuerwehr-Ausbildung",
-        shortDesc: "Komplettes Trainings- und Simulationssystem mit 2.451 Codes in 19 Kategorien, 1.977 Einsätzen, 51 Szenarien und 8.602 möglichen Punkten für realitätsnahe Übungen.",
-        longDesc: "Das Planspiel System revolutioniert die Feuerwehr-Ausbildung durch gamifizierte Trainingsszenarien. Basierend auf dem EinsatzLeiterWiki bietet es 1.977 realistische Einsatzmissionen, die speziell auf 6-8 Minuten Übungssessions optimiert wurden. Ausbilder steuern das komplette Training über die Game Master Oberfläche, während Teilnehmer über Fahrzeug-spezifische Ansichten und ein Dispatcher-System interagieren. Mit 2.451 verschiedenen Aufgabencodes aus 19 Kategorien – von klassischen Einsatzszenarien (Brand, TH, Verkehrsunfall, Gefahrgut) über moderne Spezialthemen (E-Auto, Atemschutz vertieft) bis zu Ausbildungskategorien (FwDV, UVV, Funkkommunikation) – wird jede Übung zur praxisnahen Herausforderung mit bis zu 8.602 erreichbaren Punkten.",
+        shortDesc: "Komplettes Trainings- und Simulationssystem mit 6.090 hochwertigen Codes in 74 Kategorien, 200+ Missionen und 45+ Trainingsszenarien für realitätsnahe Übungen.",
+        longDesc: "Das Planspiel System revolutioniert die Feuerwehr-Ausbildung durch gamifizierte Trainingsszenarien. Basierend auf dem EinsatzLeiterWiki bietet es 200+ realistische Einsatzmissionen, die speziell auf 6-8 Minuten Übungssessions optimiert wurden. Ausbilder steuern das komplette Training über die Game Master Oberfläche, während Teilnehmer über Fahrzeug-spezifische Ansichten und ein Dispatcher-System interagieren. Mit 6.090 qualitätsgesicherten Aufgabencodes (≥700 Zeichen Aufgabe, ≥300 Zeichen Lösung, 0 Duplikate) aus 74 Kategorien mit UN-Nummern und Einsatzleiterwiki-Referenzen wird jede Übung zur praxisnahen Herausforderung.",
         benefits: [
-            "Umfang: 1.977 Einsatzmissionen aus EinsatzLeiterWiki für authentische Szenarien",
-            "Vielfalt: 2.451 Aufgabencodes aus 19 Kategorien (Brand, TH, VU, Gefahrgut, E-Auto, Atemschutz, FwDV, UVV, Funk, Erste Hilfe und mehr)",
-            "Effizienz: 51 Trainingsszenarien auf 6-8 Minuten optimiert für maximalen Lerneffekt",
-            "Gamification: 8.602 mögliche Punkte für messbare Leistungsbewertung und Motivation",
+            "Umfang: 200+ Einsatzmissionen aus EinsatzLeiterWiki für authentische Szenarien",
+            "Vielfalt: 6.090 qualitätsgesicherte Aufgabencodes aus 74 Kategorien mit UN-Nummern",
+            "Effizienz: 45+ Trainingsszenarien auf 6-8 Minuten optimiert für maximalen Lerneffekt",
+            "Qualität: Jeder Code mit ≥700 Zeichen Aufgabe und ≥300 Zeichen Lösung, 0 Duplikate",
             "Führung: Game Master UI für vollständige Kontrolle über Training und Ablauf",
             "Realismus: Dispatcher UI simuliert echte Leitstellen-Kommunikation",
             "Moderne Szenarien: Spezialthemen wie E-Auto-Brände, KFZ-Technik und Fahrzeugtechnik Feuerwehr",
@@ -828,10 +853,10 @@ export const modules: Record<string, ModuleData> = {
             "Auswertung: Umfassende Nachbesprechung mit Evaluation-Ansicht und Statistiken"
         ],
         features: [
-            "1.977 Einsatzmissionen: Professionell kuratierte Szenarien aus EinsatzLeiterWiki",
-            "2.451 Aufgabencodes in 19 Kategorien: Brand, TH, Verkehrsunfall, Gefahrgut, Wasser, Personen, Tier, E-Auto, LKW, KFZ-Technik, Fahrzeugtechnik Feuerwehr, Atemschutz vertieft, Foto, Wissen, Praxis, FwDV, UVV, Funkkommunikation, Rettung/Erste Hilfe",
-            "51 Trainingsszenarien: Vorgefertigte Übungen mit verschiedenen Schwierigkeitsgraden (Einsteiger bis Experte)",
-            "8.602 mögliche Punkte: Umfassendes Punktesystem für objektive Leistungsbewertung",
+            "200+ Einsatzmissionen: Professionell kuratierte Szenarien aus EinsatzLeiterWiki",
+            "6.090 Aufgabencodes in 74 Kategorien mit UN-Nummern und Wiki-Referenzen",
+            "45+ Trainingsszenarien: Vorgefertigte Übungen mit verschiedenen Schwierigkeitsgraden (Einsteiger bis Experte)",
+            "Qualitätssicherung: ≥700 Chars Aufgabe, ≥300 Chars Lösung, 0 Duplikate",
             "Game Master Oberfläche: Zentrale Steuerung für Ausbilder mit Session-Management und Echtzeit-Überwachung",
             "Dispatcher UI: Realistische Leitstellen-Simulation für authentische Alarmierung und Kommunikation",
             "Fahrzeug-Ansichten: Spezifische Interfaces für HLF, LF, TLF, DLK mit Code-System-Integration",
@@ -880,5 +905,95 @@ export const modules: Record<string, ModuleData> = {
         keywords: ["Gastronomie", "Getränke", "Wirt", "Verkauf", "Kiosk", "Snacks", "Vereinsgastronomie", "Bestand", "Umsatz"],
         icon: Beer,
         color: "amber"
+    },
+    "kreis-platform": {
+        title: "RESQIO Kreis-Platform (RKP)",
+        shortDesc: "Die föderale Plattform für Kreisfeuerwehrverbände – souverän, intelligent, vernetzt. Volle Datensouveränität für jede Wehr.",
+        longDesc: "Die RESQIO Kreis-Platform ist eine eigenständige, cloud-native SaaS-Plattform für die Koordination und Verwaltung von Feuerwehren auf Kreisebene. RKP verbindet dezentrale RESQIO-Instanzen einzelner Feuerwehren zu einem vernetzten System – ohne die Datensouveränität der einzelnen Wehren zu beeinträchtigen. Jede Feuerwehr entscheidet selbst, welche Daten sie freigibt. Das Kreismodul aggregiert und anonymisiert diese Informationen DSGVO-konform. Mit föderaler N:N-Architektur, KI-gestützten Analysen, zentraler Schulungsverwaltung, Werkstatt-Management und kreisweitem Ressourcen-Register.",
+        benefits: [
+            "Datensouveränität: Jede Feuerwehr behält die volle Kontrolle über ihre Daten",
+            "Sichere Vernetzung: Höchste Verschlüsselungsstandards mit gegenseitiger Authentifizierung",
+            "Föderale N:N-Architektur: Ein Kreismodul für beliebig viele Feuerwehren, eine Feuerwehr in mehreren Kreismodulen",
+            "Pairing in 2 Minuten: Verbindung per Einladungslink oder QR-Code",
+            "KI-Analysen: Qualifikationstrend-Erkennung und Beschaffungsbedarfe vorhersagen",
+            "Schulungsverwaltung: Zentraler Kalender mit Online-Anmeldung und automatischer Personalakten-Rückmeldung",
+            "Werkstatt-Management: Atemschutz- und Schlauchwerkstatt mit Online-Buchung und Kapazitätsplanung",
+            "Ressourcen-Register: Sonderausrüstungen kreisweit mit Verfügbarkeitsampel und Anfrage-Workflow",
+            "Privacy by Design: Anonymisierte Statistiken, bei unter 5 Personen wird 'unter 5' angezeigt",
+            "Flexibles Hosting: Betrieb auf eigenem Server oder in der Cloud – Sie entscheiden"
+        ],
+        features: [
+            "Federation & Verbindung: Beliebig viele Feuerwehren sicher anbinden mit Echtzeit-Verbindungsüberwachung",
+            "Dashboard: Aggregierte Personalstärken, Qualifikationsverteilung, interaktive Kreiskarte mit Feuerwehr-Standorten",
+            "Schulungskalender: AGT, Maschinisten, Gruppenführer, Zugführer, CSA – mit Platzverwaltung und Wartelisten",
+            "KI-gestützte Kontingent-Verteilung: Basierend auf Qualifikationsdefiziten, Kritikalität und Wartezeit",
+            "Atemschutzwerkstatt (ASW): Kalenderansicht mit Zeitslots, G26.3/G26.2-Prüfung, Reparatur, Maskenprüfung",
+            "Schlauchwerkstatt: B-, C-, D-Schläuche, Saugschläuche – Waschen, Prüfen (DIN 14811), Reparatur",
+            "Atemübungsstrecke: Track-Typen Standard, Heat, Dark, Combined mit G26.3-Voraussetzungsprüfung",
+            "Sonderausrüstungs-Register: Kategorien nach DIN 14555 und FwDV mit Verfügbarkeitsampel und Radius-Suche",
+            "Personalstatistiken: Anonymisiert – AGT-/Maschinisten-Quoten, Altersstruktur, FwDV-konforme Soll-Ist-Vergleiche",
+            "Fahrzeug-Dashboard: Kreisweite Koordination für Großlagen mit Verfügbarkeitskarte",
+            "Wasserversorgungskarte: Aggregierte Hydranten, Brunnen, Zisternen mit Gap-Analyse",
+            "Kreislager: Zentrale Bestandsführung mit Mindestmengen-Warnungen und automatischer Reservierung",
+            "Gemeinsame Beschaffung: Sammelbestellungen mit Anfrage-Tracking und Dokumenten-Upload",
+            "Schwarzes Brett: Kategorisierte Mitteilungen mit Prioritätsstufen und Lesebestätigungen",
+            "Dokumenten-Portal: Versionsverwaltung mit Download-Tracking und Zugriffskontrolle",
+            "KI-Assistent: Qualifikationstrends, Verteilungsvorschläge, Beschaffungsprognosen, Standortsuche",
+            "Übungskoordination: Kreisweiter Kalender mit Ressourcen-Konflikt-Warnung und kooperativem Planungsmodus",
+            "Flexible Instanztypen: Feuerwehren, ASW, Schlauchwerkstätten, Übungsstrecken, Ausbildungszentren, Kreislogistik"
+        ],
+        technicalDetails: [
+            "Eigenständige Plattform: Komplett unabhängig von den einzelnen RESQIO-Instanzen",
+            "Höchste Verschlüsselungsstandards mit automatischer Zertifikats-Rotation",
+            "Flexibles Hosting: Eigener Server, kommunales Rechenzentrum oder Cloud",
+            "DSGVO-konform: Keine personenbezogenen Daten auf Kreisebene, automatische Löschung bei Trennung"
+        ],
+        keywords: ["Kreisfeuerwehrverband", "Kreis-Platform", "RKP", "Föderale Architektur", "Ressourcen-Register", "Schulungsverwaltung", "Atemschutzwerkstatt", "Schlauchwerkstatt", "Sonderausrüstung", "mTLS", "RSA-4096", "DSGVO", "Kreisbrandmeister"],
+        icon: Globe,
+        color: "violet"
+    },
+    "arbeitsstunden": {
+        title: "Arbeitsstunden & Zeiterfassung",
+        shortDesc: "Systematisches Work Hours Tracking mit Equipment-Referenz, Bulk-Erfassung und vollständigen Statistik-Exporten.",
+        longDesc: "Erfassen Sie Arbeitsstunden professionell und verknüpfen Sie sie direkt mit Geräten und Projekten. Das Modul bietet Bulk-Erfassung für mehrere Einträge gleichzeitig, flexible Kategorisierung nach Arbeitstypen und vollständige Statistik-Exporte mit Top 5 Kategorien/Personen, Quellen-Analyse und monatlichen Auswertungen. Die Kiosk-Integration ermöglicht die Erfassung direkt an der Wache.",
+        benefits: [
+            "Präzision: Arbeitsstunden direkt Geräten und Projekten zuordnen",
+            "Effizienz: Bulk-Erfassung für mehrere Einträge gleichzeitig",
+            "Mobilität: Eigene Kiosk-Kachel mit Wizard-UI für schnelle Erfassung",
+            "Transparenz: Vollständiger Drucken-Export mit Top 5 Kategorien und Personen"
+        ],
+        features: [
+            "Equipment-Referenz: Arbeitsstunden mit Geräten verknüpfen",
+            "Bulk-Erfassung: Mehrere Einträge gleichzeitig anlegen",
+            "Kiosk-Integration: Eigene Kachel mit Wizard-UI und Equipment-Tabelle",
+            "Flexible Kategorisierung: Verschiedene Arbeitstypen definierbar",
+            "Statistik-Export: Top 5 Kategorien/Personen, Nach Quelle, Nach Kategorie, Nach Monat, Pro Person",
+            "PDF-Export: Druckfertiger Export mit vollständiger Auswertung"
+        ],
+        keywords: ["Arbeitsstunden", "Zeiterfassung", "Work Hours", "Equipment-Tracking", "Kiosk", "Bulk-Erfassung", "Statistik-Export"],
+        icon: Clock,
+        color: "teal"
+    },
+    "bsw-events": {
+        title: "Brandsicherheitswache & Veranstaltungen",
+        shortDesc: "Professionelle Verwaltung und Abrechnung von Brandsicherheitswachen und kommunalen Veranstaltungen.",
+        longDesc: "Planen und rechnen Sie Brandsicherheitswachen professionell ab. RESQIO automatisiert den Prozess von der ersten Anfrage bis zur finalen Fakturierung. Mit zentraler Klientenverwaltung, Smart Invoicing basierend auf Tarifsätzen und Fahrzeugvorhaltung sowie standardisierten Vorlagen für effiziente Einsatzplanung bei wiederkehrenden Veranstaltungen.",
+        benefits: [
+            "Automatisierung: Vom Antrag bis zur Rechnung in einem Workflow",
+            "Klientenverwaltung: Alle Veranstalter und Ansprechpartner zentral verwaltet",
+            "Fakturierung: Automatisierte Berechnung nach Tarifsätzen, Stunden und Fahrzeugvorhaltung",
+            "Effizienz: Standardisierte Vorlagen für wiederkehrende Standardveranstaltungen"
+        ],
+        features: [
+            "Zentrale Klientenverwaltung: Veranstalter und Ansprechpartner in strukturierter Datenbank",
+            "Smart Invoicing: Automatisierte Berechnung basierend auf Tarifsätzen und Fahrzeugvorhaltung",
+            "Standardisierte Vorlagen: Hinterlegte Einsatzprofile für Standardveranstaltungen",
+            "BSW-Kalender: Termine mit automatischer Synchronisation über iCal",
+            "Abrechnungsmanagement: PDF-Rechnungen und Zusammenfassungen",
+            "Integration: Nahtlose Verknüpfung mit Einsatz- und Treasury-Modul"
+        ],
+        keywords: ["Brandsicherheitswache", "BSW", "Veranstaltung", "Events", "Abrechnung", "Fakturierung", "Klientenverwaltung", "Smart Invoicing"],
+        icon: Calendar,
+        color: "rose"
     }
 };

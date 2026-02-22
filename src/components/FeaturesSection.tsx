@@ -23,6 +23,9 @@ import {
   UserCheck,
   Gamepad2,
   Beer,
+  Globe,
+  Clock,
+  Calendar,
   LucideIcon,
   ArrowRight,
 } from "lucide-react";
@@ -201,7 +204,7 @@ export const features: Feature[] = [
   {
     icon: Gamepad2,
     title: "Planspiel System",
-    description: "Komplettes Trainings- und Simulationssystem mit 2.451 Codes in 19 Kategorien, 1.977 Einsätzen aus EinsatzLeiterWiki, 51 Szenarien und 8.602 möglichen Punkten für professionelle Feuerwehr-Ausbildung.",
+    description: "Komplettes Trainings- und Simulationssystem mit über 6.000 Codes in 74 Kategorien, mehr als 200 vorgefertigten Einsatzszenarien und professionellem Bewertungssystem für die Feuerwehr-Ausbildung.",
     slug: "planspiel",
   },
   {
@@ -209,6 +212,24 @@ export const features: Feature[] = [
     title: "Wirt-Modul",
     description: "Vollständiges Verwaltungssystem für Vereinsgastronomie. Getränke, Snacks und Verkaufserfassung direkt am Kiosk-Tablet mit Statistiken und Bestandsverwaltung.",
     slug: "wirt-modul",
+  },
+  {
+    icon: Globe,
+    title: "RESQIO Kreis-Platform",
+    description: "Föderale Plattform für Kreisfeuerwehrverbände. Verbindet dezentrale Feuerwehr-Instanzen mit Schulungskalender, Werkstatt-Buchung und kreisweitem Ressourcen-Register.",
+    slug: "kreis-platform",
+  },
+  {
+    icon: Clock,
+    title: "Arbeitsstunden & Zeiterfassung",
+    description: "Systematische Erfassung von Arbeitsstunden mit Geräte-Zuordnung, Bulk-Erfassung und Kiosk-Integration für die ehrenamtliche Arbeit.",
+    slug: "arbeitsstunden",
+  },
+  {
+    icon: Calendar,
+    title: "BSW & Veranstaltungen",
+    description: "Professionelle Verwaltung von Brandsicherheitswachen und kommunalen Veranstaltungen mit Klientenverwaltung und automatisierter Abrechnung.",
+    slug: "bsw-events",
   },
 ];
 
@@ -234,7 +255,7 @@ const FeaturesSection = () => {
               className="block group"
             >
               <Card className="h-full transition-all duration-300 hover:shadow-xl hover:border-primary/50 group-hover:-translate-y-2 bg-card/60 backdrop-blur-sm shadow-sm">
-                <CardContent className="p-6 h-full flex flex-col relative">
+                <CardContent className="p-4 sm:p-6 h-full flex flex-col relative">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors border border-primary/5">
                       <feature.icon className="w-6 h-6 text-primary" />
