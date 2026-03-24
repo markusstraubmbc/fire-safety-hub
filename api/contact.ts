@@ -1,10 +1,9 @@
-import { Resend } from "resend";
-
 export const config = {
-  runtime: "nodejs",
+  runtime: "edge",
 };
 
-const resend = new Resend("re_bCqQgZJy_GAZv4Ti5xtpEEUsvxXwvU2kV");
+const RESEND_API_KEY = "re_bCqQgZJy_GAZv4Ti5xtpEEUsvxXwvU2kV";
+const RESEND_URL = "https://api.resend.com/emails";
 
 function escapeHtml(str: string): string {
   return str
@@ -15,27 +14,36 @@ function escapeHtml(str: string): string {
     .replace(/'/g, "&#039;");
 }
 
-export default async function handler(req, res) {
-  // CORS headers
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
+export default async function handler(request: Request) {
+  if (request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    });
   }
 
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+  if (request.method !== "POST") {
+    return Response.json({ error: "Method not allowed" }, { status: 405 });
   }
 
-  console.log("Contact API called, body type:", typeof req.body, "body:", JSON.stringify(req.body));
+  let body: Record<string, string>;
+  try {
+    body = await request.json();
+  } catch {
+    return Response.json({ error: "Invalid JSON body" }, { status: 400 });
+  }
 
-  const { name, email, phone, message, feuerwehr } = req.body || {};
+  const { name, email, phone, message, feuerwehr } = body;
 
   if (!name || !email || !message) {
-    console.error("Missing required fields:", { name: !!name, email: !!email, message: !!message });
-    return res.status(400).json({ error: "Name, E-Mail und Nachricht sind Pflichtfelder." });
+    return Response.json(
+      { error: "Name, E-Mail und Nachricht sind Pflichtfelder." },
+      { status: 400 }
+    );
   }
 
   const safeName = escapeHtml(name);
@@ -44,40 +52,56 @@ export default async function handler(req, res) {
   const safeFeuerwehr = feuerwehr ? escapeHtml(feuerwehr) : "";
   const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
 
+  const htmlContent = `
+    <h2>Neue Kontaktanfrage über resqio.de</h2>
+    <table style="border-collapse:collapse;width:100%;max-width:600px;">
+      <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Name</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeName}</td></tr>
+      <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">E-Mail</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeEmail}</td></tr>
+      ${safePhone ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Telefon</td><td style="padding:8px;border-bottom:1px solid #eee;">${safePhone}</td></tr>` : ""}
+      ${safeFeuerwehr ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Feuerwehr</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeFeuerwehr}</td></tr>` : ""}
+      <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Nachricht</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeMessage}</td></tr>
+    </table>
+  `;
+
   try {
-    console.log("Sending email via Resend...");
-    const { data, error } = await resend.emails.send({
-      from: "RESQIO Kontaktformular <kontakt@resqio.io>",
-      to: "markus@straub-it.de",
-      subject: `Neue Kontaktanfrage von ${safeName}`,
-      replyTo: email,
-      html: `
-        <h2>Neue Kontaktanfrage über resqio.de</h2>
-        <table style="border-collapse:collapse;width:100%;max-width:600px;">
-          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Name</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeName}</td></tr>
-          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">E-Mail</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeEmail}</td></tr>
-          ${safePhone ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Telefon</td><td style="padding:8px;border-bottom:1px solid #eee;">${safePhone}</td></tr>` : ""}
-          ${safeFeuerwehr ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Feuerwehr</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeFeuerwehr}</td></tr>` : ""}
-          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Nachricht</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeMessage}</td></tr>
-        </table>
-      `,
+    const resendResponse = await fetch(RESEND_URL, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "RESQIO Kontaktformular <kontakt@resqio.io>",
+        to: ["markus@straub-it.de"],
+        subject: `Neue Kontaktanfrage von ${safeName}`,
+        reply_to: email,
+        html: htmlContent,
+      }),
     });
 
-    if (error) {
-      console.error("Resend API error:", JSON.stringify(error));
-      return res.status(422).json({
-        error: "E-Mail konnte nicht gesendet werden.",
-        detail: error.message || error.name || "Unbekannter Resend-Fehler",
-      });
+    const resendData = await resendResponse.json();
+
+    if (!resendResponse.ok) {
+      console.error("Resend API error:", JSON.stringify(resendData));
+      return Response.json(
+        {
+          error: "E-Mail konnte nicht gesendet werden.",
+          detail: resendData?.message || resendData?.name || `HTTP ${resendResponse.status}`,
+        },
+        { status: 422 }
+      );
     }
 
-    console.log("Resend success, email ID:", data?.id);
-    return res.status(200).json({ success: true, emailId: data?.id });
+    console.log("Resend success:", JSON.stringify(resendData));
+    return Response.json({ success: true, emailId: resendData?.id });
   } catch (err) {
-    console.error("Resend exception:", err);
-    return res.status(500).json({
-      error: "E-Mail konnte nicht gesendet werden.",
-      detail: err instanceof Error ? err.message : "Unbekannter Fehler",
-    });
+    console.error("Resend fetch error:", err);
+    return Response.json(
+      {
+        error: "E-Mail konnte nicht gesendet werden.",
+        detail: err instanceof Error ? err.message : "Netzwerkfehler",
+      },
+      { status: 500 }
+    );
   }
 }
