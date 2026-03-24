@@ -1,11 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { scrollToSection } from "@/lib/utils";
 
 const FutureSection = () => {
-    const scrollToContact = () => {
-        const element = document.getElementById("kontakt");
-        element?.scrollIntoView({ behavior: "smooth" });
-    };
 
     const benefits = [
         "Digitaler Dienstausweis für das Wallet",
@@ -41,7 +38,7 @@ const FutureSection = () => {
                         </ul>
 
                         <Button
-                            onClick={scrollToContact}
+                            onClick={() => scrollToSection("kontakt")}
                             size="lg"
                             className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg rounded-full shadow-lg shadow-primary/20 transition-all hover:scale-105"
                         >

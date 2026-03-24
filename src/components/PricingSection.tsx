@@ -1,12 +1,9 @@
 import { Check, Building, Building2, Rocket } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { scrollToSection } from "@/lib/utils";
 
 const PricingSection = () => {
-  const scrollToContact = () => {
-    const element = document.getElementById("kontakt");
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
 
   const plans = [
     {
@@ -101,7 +98,7 @@ const PricingSection = () => {
                 </ul>
 
                 <Button
-                  onClick={scrollToContact}
+                  onClick={() => scrollToSection("kontakt")}
                   size="lg"
                   className={`w-full ${plan.popular
                     ? "bg-primary text-primary-foreground hover:bg-primary/90"
