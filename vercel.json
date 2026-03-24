@@ -1,12 +1,6 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "functions": {
-    "api/contact.ts": {
-      "memory": 256,
-      "maxDuration": 10
-    }
-  },
   "headers": [
     {
       "source": "/images/(.*)",
@@ -56,11 +50,7 @@
   ],
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
-    },
-    {
-      "source": "/((?!assets/).*)",
+      "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
   ]
