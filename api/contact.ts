@@ -30,10 +30,8 @@ export default async function handler(req, res) {
 
   try {
     await resend.emails.send({
-      // Absender muss eine in Resend verifizierte Domain sein.
-      // Sobald resqio.io in Resend verifiziert ist, auf "RESQIO <support@resqio.io>" ändern.
-      from: "RESQIO Kontaktformular <onboarding@resend.dev>",
-      to: "support@resqio.io",
+      from: "RESQIO Kontaktformular <kontakt@resqio.io>",
+      to: "markus@straub-it.de",
       subject: `Neue Kontaktanfrage von ${safeName}`,
       replyTo: email,
       html: `
