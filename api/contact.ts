@@ -12,13 +12,25 @@ function escapeHtml(str: string): string {
 }
 
 export default async function handler(req, res) {
+  // CORS headers
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { name, email, phone, message, feuerwehr } = req.body;
+  console.log("Contact API called, body type:", typeof req.body, "body:", JSON.stringify(req.body));
+
+  const { name, email, phone, message, feuerwehr } = req.body || {};
 
   if (!name || !email || !message) {
+    console.error("Missing required fields:", { name: !!name, email: !!email, message: !!message });
     return res.status(400).json({ error: "Name, E-Mail und Nachricht sind Pflichtfelder." });
   }
 
@@ -29,6 +41,7 @@ export default async function handler(req, res) {
   const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
 
   try {
+    console.log("Sending email via Resend...");
     const { data, error } = await resend.emails.send({
       from: "RESQIO Kontaktformular <kontakt@resqio.io>",
       to: "markus@straub-it.de",
@@ -56,11 +69,11 @@ export default async function handler(req, res) {
 
     console.log("Resend success, email ID:", data?.id);
     return res.status(200).json({ success: true, emailId: data?.id });
-  } catch (error) {
-    console.error("Resend exception:", error);
+  } catch (err) {
+    console.error("Resend exception:", err);
     return res.status(500).json({
       error: "E-Mail konnte nicht gesendet werden.",
-      detail: error instanceof Error ? error.message : "Unbekannter Fehler",
+      detail: err instanceof Error ? err.message : "Unbekannter Fehler",
     });
   }
 }
