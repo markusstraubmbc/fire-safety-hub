@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 
-const COOLDOWN_MS = 5 * 60 * 1000; // 5 Minuten
+const COOLDOWN_MS = 60 * 1000; // 1 Minute
 
 const contactSchema = z.object({
   name: z.string().min(2, "Bitte geben Sie Ihren Namen ein."),
@@ -39,9 +39,9 @@ const ContactSection = () => {
     const timeSinceLast = now - lastSentRef.current;
 
     if (timeSinceLast < COOLDOWN_MS) {
-      const remainingMin = Math.ceil((COOLDOWN_MS - timeSinceLast) / 60000);
+      const remainingSec = Math.ceil((COOLDOWN_MS - timeSinceLast) / 1000);
       toast.error(
-        `Bitte warten Sie noch ${remainingMin} Minute${remainingMin > 1 ? "n" : ""}, bevor Sie erneut senden. Sie können uns auch direkt per E-Mail erreichen: support@resqio.io`
+        `Bitte warten Sie noch ${remainingSec} Sekunde${remainingSec > 1 ? "n" : ""}, bevor Sie erneut senden. Sie können uns auch direkt per E-Mail erreichen: support@resqio.io`
       );
       return;
     }
@@ -96,8 +96,8 @@ const ContactSection = () => {
                   <BellRing className="w-6 h-6 text-primary animate-pulse" />
                 </div>
                 <div>
-                  <p className="font-bold text-foreground">Direkter Kontakt</p>
-                  <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wider font-bold">Support & Entwicklung</p>
+                  <p className="font-bold text-foreground">Markus Straub</p>
+                  <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wider font-bold">Direkter Kontakt – Support & Entwicklung</p>
                   <a href="mailto:support@resqio.io" className="text-primary hover:underline text-sm font-bold flex items-center gap-1">
                     <Mail className="w-3.5 h-3.5" />
                     support@resqio.io
