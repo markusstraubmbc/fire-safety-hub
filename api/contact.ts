@@ -1,5 +1,9 @@
 import { Resend } from "resend";
 
+export const config = {
+  runtime: "nodejs",
+};
+
 const resend = new Resend("re_bCqQgZJy_GAZv4Ti5xtpEEUsvxXwvU2kV");
 
 function escapeHtml(str: string): string {
