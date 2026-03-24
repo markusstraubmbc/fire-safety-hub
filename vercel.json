@@ -1,4 +1,10 @@
 {
+  "framework": "vite",
+  "functions": {
+    "api/contact.ts": {
+      "runtime": "@vercel/node@3"
+    }
+  },
   "headers": [
     {
       "source": "/images/(.*)",
