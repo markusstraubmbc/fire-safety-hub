@@ -1,6 +1,57 @@
-import { Mail, MapPin, Radio, BellRing, ShieldCheck, Heart, Phone } from "lucide-react";
+import { Mail, MapPin, Radio, BellRing, ShieldCheck, Phone, Send, Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
+
+const contactSchema = z.object({
+  name: z.string().min(2, "Bitte geben Sie Ihren Namen ein."),
+  email: z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein."),
+  phone: z.string().optional(),
+  feuerwehr: z.string().optional(),
+  message: z.string().min(10, "Bitte geben Sie eine Nachricht ein (mind. 10 Zeichen)."),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
 
 const ContactSection = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+  });
+
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Fehler beim Senden");
+      }
+
+      toast.success("Nachricht erfolgreich gesendet! Wir melden uns zeitnah bei Ihnen.");
+      reset();
+    } catch {
+      toast.error("Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="kontakt" className="py-16 md:py-24 bg-muted/20 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
@@ -92,22 +143,102 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Right Column: Image */}
+          {/* Right Column: Contact Form */}
           <div className="flex-1 relative lg:sticky lg:top-24">
             <div className="absolute -inset-4 bg-primary/5 rounded-[2.5rem] blur-2xl" />
-            <picture>
-              <source srcSet="/images/contact-hero.webp" type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
-              <img
-                src="/images/contact-hero.png"
-                alt="Moderne Einsatzzentrale"
-                className="relative rounded-[2rem] shadow-2xl border border-border w-full object-cover aspect-[4/3] transform hover:-translate-y-2 transition-transform duration-500"
-                width={800}
-                height={600}
-                loading="lazy"
-                decoding="async"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-              />
-            </picture>
+            <div className="relative bg-card rounded-[2rem] shadow-2xl border border-border p-8 md:p-10">
+              <h3 className="text-2xl font-bold text-foreground mb-2">Demo anfragen</h3>
+              <p className="text-sm text-muted-foreground mb-8">
+                Füllen Sie das Formular aus und wir melden uns innerhalb von 24 Stunden bei Ihnen.
+              </p>
+
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name *</Label>
+                  <Input
+                    id="name"
+                    placeholder="Max Mustermann"
+                    {...register("name")}
+                    className={errors.name ? "border-destructive" : ""}
+                  />
+                  {errors.name && (
+                    <p className="text-xs text-destructive">{errors.name.message}</p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="email">E-Mail *</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="max@feuerwehr-musterstadt.de"
+                    {...register("email")}
+                    className={errors.email ? "border-destructive" : ""}
+                  />
+                  {errors.email && (
+                    <p className="text-xs text-destructive">{errors.email.message}</p>
+                  )}
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Telefon</Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      placeholder="0160 1234567"
+                      {...register("phone")}
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="feuerwehr">Feuerwehr</Label>
+                    <Input
+                      id="feuerwehr"
+                      placeholder="FF Musterstadt"
+                      {...register("feuerwehr")}
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message">Nachricht *</Label>
+                  <Textarea
+                    id="message"
+                    placeholder="Wie können wir Ihnen helfen? Erzählen Sie uns von Ihrer Feuerwehr..."
+                    rows={4}
+                    {...register("message")}
+                    className={errors.message ? "border-destructive" : ""}
+                  />
+                  {errors.message && (
+                    <p className="text-xs text-destructive">{errors.message.message}</p>
+                  )}
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full"
+                  size="lg"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Wird gesendet...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4 mr-2" />
+                      Nachricht senden
+                    </>
+                  )}
+                </Button>
+
+                <p className="text-[11px] text-muted-foreground text-center">
+                  Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.
+                </p>
+              </form>
+            </div>
           </div>
 
         </div>
