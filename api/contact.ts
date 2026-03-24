@@ -1,6 +1,15 @@
 import { Resend } from "resend";
 
-const resend = new Resend("re_bCqQgZJy_GAZv4Ti5xtpEEUsvxXwvU2kV");
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -13,20 +22,26 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Name, E-Mail und Nachricht sind Pflichtfelder." });
   }
 
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safePhone = phone ? escapeHtml(phone) : "";
+  const safeFeuerwehr = feuerwehr ? escapeHtml(feuerwehr) : "";
+  const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
+
   try {
     await resend.emails.send({
-      from: "RESQIO Kontaktformular <onboarding@resend.dev>",
-      to: "markus@straub-it.de",
-      subject: `Neue Kontaktanfrage von ${name}`,
+      from: "RESQIO Kontaktformular <support@resqio.io>",
+      to: "support@resqio.io",
+      subject: `Neue Kontaktanfrage von ${safeName}`,
       replyTo: email,
       html: `
         <h2>Neue Kontaktanfrage über resqio.de</h2>
         <table style="border-collapse:collapse;width:100%;max-width:600px;">
-          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Name</td><td style="padding:8px;border-bottom:1px solid #eee;">${name}</td></tr>
-          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">E-Mail</td><td style="padding:8px;border-bottom:1px solid #eee;">${email}</td></tr>
-          ${phone ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Telefon</td><td style="padding:8px;border-bottom:1px solid #eee;">${phone}</td></tr>` : ""}
-          ${feuerwehr ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Feuerwehr</td><td style="padding:8px;border-bottom:1px solid #eee;">${feuerwehr}</td></tr>` : ""}
-          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Nachricht</td><td style="padding:8px;border-bottom:1px solid #eee;">${message}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Name</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeName}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">E-Mail</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeEmail}</td></tr>
+          ${safePhone ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Telefon</td><td style="padding:8px;border-bottom:1px solid #eee;">${safePhone}</td></tr>` : ""}
+          ${safeFeuerwehr ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Feuerwehr</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeFeuerwehr}</td></tr>` : ""}
+          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Nachricht</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeMessage}</td></tr>
         </table>
       `,
     });

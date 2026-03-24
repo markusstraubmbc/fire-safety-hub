@@ -50,11 +50,11 @@ const Impressum = () => {
                   </h2>
                   <p className="text-muted-foreground">
                     E-Mail:{" "}
-                    <a 
-                      href="mailto:support@resqio.de" 
+                    <a
+                      href="mailto:support@resqio.io"
                       className="text-primary hover:underline"
                     >
-                      support@resqio.de
+                      support@resqio.io
                     </a>
                   </p>
                 </section>

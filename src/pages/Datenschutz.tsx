@@ -61,10 +61,10 @@ const Datenschutz = () => {
                     72141 Walddorfhäslach<br />
                     E-Mail:{" "}
                     <a
-                      href="mailto:support@resqio.de"
+                      href="mailto:support@resqio.io"
                       className="text-primary hover:underline"
                     >
-                      support@resqio.de
+                      support@resqio.io
                     </a>
                   </p>
                 </section>
