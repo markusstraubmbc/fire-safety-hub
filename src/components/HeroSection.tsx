@@ -1,15 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Clock, CheckCircle } from "lucide-react";
+import { scrollToSection } from "@/lib/utils";
 import heroImage from "@/assets/german_firefighters_fixed_bg.png";
 import heroImageWebp from "@/assets/german_firefighters_fixed_bg.webp";
 import hero640 from "@/assets/hero-640w.webp";
 import hero1024 from "@/assets/hero-1024w.webp";
 
 const HeroSection = () => {
-  const scrollToContact = () => {
-    const element = document.getElementById("kontakt");
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section id="home" className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
@@ -53,7 +50,7 @@ const HeroSection = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <Button
-              onClick={scrollToContact}
+              onClick={() => scrollToSection("kontakt")}
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90 text-base sm:text-lg px-6 sm:px-8"
             >
@@ -63,7 +60,7 @@ const HeroSection = () => {
             <Button
               variant="outline"
               size="lg"
-              onClick={() => document.getElementById("funktionen")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => scrollToSection("funktionen")}
               className="bg-white/15 text-white border-white/20 hover:bg-white/25 text-base sm:text-lg px-6 sm:px-8 transition-colors"
             >
               Einblick in die Module

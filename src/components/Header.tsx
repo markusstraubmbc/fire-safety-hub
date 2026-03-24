@@ -50,18 +50,36 @@ const Header = memo(() => {
   }, []);
 
   const scrollToSection = (id: string) => {
+    setMobileMenuOpen(false);
+
+    const doScroll = (el: HTMLElement) => {
+      const headerOffset = 80;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    };
+
     const element = document.getElementById(id);
     if (element) {
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-      setMobileMenuOpen(false);
+      doScroll(element);
+      return;
     }
+
+    // Element not in DOM yet (lazy-loaded) – scroll down to trigger loading
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    let attempts = 0;
+    const tryScroll = () => {
+      const target = document.getElementById(id);
+      if (target) {
+        doScroll(target);
+        return;
+      }
+      if (attempts < 10) {
+        attempts++;
+        setTimeout(tryScroll, 300);
+      }
+    };
+    setTimeout(tryScroll, 300);
   };
 
   // Determine if header should be solid (not transparent)
