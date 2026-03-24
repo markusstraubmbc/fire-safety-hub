@@ -29,7 +29,7 @@ export default async function handler(req, res) {
   const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
 
   try {
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: "RESQIO Kontaktformular <kontakt@resqio.io>",
       to: "markus@straub-it.de",
       subject: `Neue Kontaktanfrage von ${safeName}`,
@@ -46,9 +46,21 @@ export default async function handler(req, res) {
       `,
     });
 
-    return res.status(200).json({ success: true });
+    if (error) {
+      console.error("Resend API error:", JSON.stringify(error));
+      return res.status(422).json({
+        error: "E-Mail konnte nicht gesendet werden.",
+        detail: error.message || error.name || "Unbekannter Resend-Fehler",
+      });
+    }
+
+    console.log("Resend success, email ID:", data?.id);
+    return res.status(200).json({ success: true, emailId: data?.id });
   } catch (error) {
-    console.error("Resend error:", error);
-    return res.status(500).json({ error: "E-Mail konnte nicht gesendet werden." });
+    console.error("Resend exception:", error);
+    return res.status(500).json({
+      error: "E-Mail konnte nicht gesendet werden.",
+      detail: error instanceof Error ? error.message : "Unbekannter Fehler",
+    });
   }
 }
