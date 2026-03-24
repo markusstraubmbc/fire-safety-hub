@@ -181,12 +181,12 @@ const ModulDetail = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <a href="mailto:support@resqio.de?subject=Demo Anfrage RESQIO" className="w-full sm:w-auto">
+                <Link to="/#kontakt" className="w-full sm:w-auto">
                   <Button size="lg" className="w-full sm:w-auto h-12 sm:h-14 px-6 sm:px-8 bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
                     Jetzt Demo anfordern
                   </Button>
-                </a>
-                <Link to="/#contact" className="w-full sm:w-auto">
+                </Link>
+                <Link to="/#kontakt" className="w-full sm:w-auto">
                   <Button variant="outline" size="lg" className="w-full sm:w-auto h-12 sm:h-14 px-6 sm:px-8 rounded-2xl hover:bg-card/50 transition-all">
                     Kontakt aufnehmen
                   </Button>

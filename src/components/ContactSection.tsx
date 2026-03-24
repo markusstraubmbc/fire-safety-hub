@@ -2,12 +2,14 @@ import { Mail, MapPin, Radio, BellRing, ShieldCheck, Phone, Send, Loader2 } from
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+
+const COOLDOWN_MS = 5 * 60 * 1000; // 5 Minuten
 
 const contactSchema = z.object({
   name: z.string().min(2, "Bitte geben Sie Ihren Namen ein."),
@@ -21,6 +23,8 @@ type ContactFormData = z.infer<typeof contactSchema>;
 
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isCooldown, setIsCooldown] = useState(false);
+  const lastSentRef = useRef<number>(0);
   const {
     register,
     handleSubmit,
@@ -31,6 +35,17 @@ const ContactSection = () => {
   });
 
   const onSubmit = async (data: ContactFormData) => {
+    const now = Date.now();
+    const timeSinceLast = now - lastSentRef.current;
+
+    if (timeSinceLast < COOLDOWN_MS) {
+      const remainingMin = Math.ceil((COOLDOWN_MS - timeSinceLast) / 60000);
+      toast.error(
+        `Bitte warten Sie noch ${remainingMin} Minute${remainingMin > 1 ? "n" : ""}, bevor Sie erneut senden. Sie können uns auch direkt per E-Mail erreichen: support@resqio.io`
+      );
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       const response = await fetch("/api/contact", {
@@ -43,10 +58,14 @@ const ContactSection = () => {
         throw new Error("Fehler beim Senden");
       }
 
+      lastSentRef.current = Date.now();
+      setIsCooldown(true);
+      setTimeout(() => setIsCooldown(false), COOLDOWN_MS);
+
       toast.success("Nachricht erfolgreich gesendet! Wir melden uns zeitnah bei Ihnen.");
       reset();
     } catch {
-      toast.error("Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.");
+      toast.error("Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an support@resqio.io");
     } finally {
       setIsSubmitting(false);
     }
@@ -79,9 +98,9 @@ const ContactSection = () => {
                 <div>
                   <p className="font-bold text-foreground">Direkter Kontakt</p>
                   <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wider font-bold">Support & Entwicklung</p>
-                  <a href="mailto:support@resqio.de" className="text-primary hover:underline text-sm font-bold flex items-center gap-1">
+                  <a href="mailto:support@resqio.io" className="text-primary hover:underline text-sm font-bold flex items-center gap-1">
                     <Mail className="w-3.5 h-3.5" />
-                    support@resqio.de
+                    support@resqio.io
                   </a>
                   <a href="tel:+4916096256376" className="text-primary hover:underline text-sm font-bold flex items-center gap-1 mt-2">
                     <Phone className="w-3.5 h-3.5" />
@@ -219,12 +238,17 @@ const ContactSection = () => {
                   type="submit"
                   className="w-full"
                   size="lg"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || isCooldown}
                 >
                   {isSubmitting ? (
                     <>
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                       Wird gesendet...
+                    </>
+                  ) : isCooldown ? (
+                    <>
+                      <Mail className="w-4 h-4 mr-2" />
+                      Nachricht gesendet – oder direkt an support@resqio.io
                     </>
                   ) : (
                     <>

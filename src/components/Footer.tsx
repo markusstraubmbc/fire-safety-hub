@@ -27,9 +27,9 @@ const Footer = () => {
             <Link to="/datenschutz" className="hover:text-primary transition-colors">
               Datenschutz
             </Link>
-            <a href="mailto:support@resqio.de" className="hover:text-primary transition-colors flex items-center gap-2">
+            <a href="mailto:support@resqio.io" className="hover:text-primary transition-colors flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              support@resqio.de
+              support@resqio.io
             </a>
           </div>
 
