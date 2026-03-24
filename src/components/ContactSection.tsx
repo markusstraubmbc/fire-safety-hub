@@ -54,8 +54,9 @@ const ContactSection = () => {
         body: JSON.stringify(data),
       });
 
+      const result = await response.json();
       if (!response.ok) {
-        throw new Error("Fehler beim Senden");
+        throw new Error(result?.detail || result?.error || "Fehler beim Senden");
       }
 
       lastSentRef.current = Date.now();
@@ -64,8 +65,10 @@ const ContactSection = () => {
 
       toast.success("Nachricht erfolgreich gesendet! Wir melden uns zeitnah bei Ihnen.");
       reset();
-    } catch {
-      toast.error("Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an support@resqio.io");
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "";
+      console.error("Contact form error:", msg);
+      toast.error(`Nachricht konnte nicht gesendet werden${msg ? `: ${msg}` : ""}. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an support@resqio.io`);
     } finally {
       setIsSubmitting(false);
     }
