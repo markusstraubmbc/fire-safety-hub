@@ -30,8 +30,8 @@ export default async function handler(req, res) {
 
   try {
     await resend.emails.send({
-      from: "RESQIO Kontaktformular <noreply@resqio.io>",
-      to: "kontakt@resqio.io",
+      from: "RESQIO Kontaktformular <kontakt@resqio.io>",
+      to: "markus@straub-it.de",
       subject: `Neue Kontaktanfrage von ${safeName}`,
       replyTo: email,
       html: `
