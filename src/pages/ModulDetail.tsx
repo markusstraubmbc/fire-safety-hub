@@ -21,6 +21,10 @@ const ModulDetail = () => {
   const module = slug ? modules[slug] : null;
 
   useEffect(() => {
+    if (slug === "kreis-platform") {
+      navigate("/kreis", { replace: true });
+      return;
+    }
     if (slug && !module) {
       navigate("/");
       return;

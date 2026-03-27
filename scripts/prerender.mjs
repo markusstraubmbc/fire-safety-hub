@@ -222,7 +222,93 @@ for (const mod of modules) {
   writeFileSync(join(outDir, "index.html"), html, "utf-8");
 }
 
-// --- 3. Generate Impressum page ---
+// --- 3. Generate Kreismodul dedicated page ---
+{
+  const kreisTitle = "RESQIO Kreismodul | Kreisfeuerwehrverband Software — Alle Wehren vernetzt";
+  const kreisDesc = "RESQIO Kreismodul: Die DSGVO-konforme Plattform für Kreisbrandmeister und Landratsämter. Alle Feuerwehren Ihres Landkreises vernetzt — Schulungen koordinieren, Werkstätten buchen, Ressourcen kreisweit verwalten. Ende-zu-Ende verschlüsselt, volle Datensouveränität.";
+  const kreisUrl = `${BASE_URL}/kreis`;
+  const kreisKeywords = "Kreisfeuerwehrverband Software, Kreismodul, Kreisbrandmeister Software, Landratsamt Feuerwehr, Kreisverwaltung Feuerwehr, Feuerwehr Kreisebene, DSGVO Feuerwehr, Datensouveränität, Schulungsverwaltung Feuerwehr, Atemschutzwerkstatt Software, Schlauchwerkstatt, Ressourcen-Register, Personalverwaltung Feuerwehr, Kreisfeuerwehr Management, Feuerwehr Vernetzung, Sonderausrüstung Feuerwehr, FwDV Auswertung, Qualifikationsverwaltung, Feuerwehr Landkreis, Werkstatt-Buchung Feuerwehr";
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "RESQIO", item: `${BASE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Module", item: `${BASE_URL}/#funktionen` },
+      { "@type": "ListItem", position: 3, name: "Kreismodul", item: kreisUrl },
+    ],
+  };
+
+  const productLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "RESQIO Kreismodul",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    description: "Föderale Plattform für Kreisfeuerwehrverbände. Vernetzt alle Feuerwehren eines Landkreises bei voller Datensouveränität.",
+    image: `${BASE_URL}/logo-200.png`,
+    url: kreisUrl,
+    publisher: { "@type": "Organization", name: "RESQIO", url: BASE_URL },
+    featureList: "Kreisweites Dashboard, Schulungsmanagement, Atemschutzwerkstatt-Buchung, Schlauchwerkstatt, Sonderausrüstungs-Register, Personalstatistiken, Fahrzeug-Dashboard, Wasserversorgungskarte, KI-Assistent, Übungskoordination, Dokumenten-Portal, Schwarzes Brett",
+  };
+
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      { "@type": "Question", name: "Was ist das RESQIO Kreismodul?", acceptedAnswer: { "@type": "Answer", text: "Das RESQIO Kreismodul ist eine eigenständige Plattform für Kreisfeuerwehrverbände und Landratsämter. Es vernetzt alle Feuerwehren eines Landkreises und bietet zentrale Verwaltung von Schulungen, Werkstätten, Ressourcen und Personalstatistiken — bei voller Datensouveränität der einzelnen Wehren." } },
+      { "@type": "Question", name: "Ist das Kreismodul DSGVO-konform?", acceptedAnswer: { "@type": "Answer", text: "Ja, das Kreismodul arbeitet nach dem Prinzip Privacy by Design. Personenbezogene Daten verbleiben bei den einzelnen Feuerwehren. Auf Kreisebene werden ausschließlich anonymisierte und aggregierte Statistiken angezeigt. Alle Datenübertragungen sind Ende-zu-Ende verschlüsselt." } },
+      { "@type": "Question", name: "Wie werden die Feuerwehren angebunden?", acceptedAnswer: { "@type": "Answer", text: "Feuerwehren verbinden sich per Einladungslink oder QR-Code mit dem Kreismodul. Der gesamte Pairing-Prozess dauert weniger als 2 Minuten. Jede Wehr entscheidet selbst, welche Daten sie freigibt." } },
+      { "@type": "Question", name: "Welche Funktionen bietet das Kreismodul?", acceptedAnswer: { "@type": "Answer", text: "Das Kreismodul umfasst u.a. ein kreisweites Dashboard, Schulungsmanagement mit Online-Anmeldung, Atemschutz- und Schlauchwerkstatt-Buchung, ein Sonderausrüstungs-Register, Personalstatistiken, Fahrzeug-Dashboard, Wasserversorgungskarte, Dokumenten-Portal, Schwarzes Brett, KI-Assistent und Übungskoordination." } },
+    ],
+  };
+
+  const bodyContent = `<main>
+<h1>RESQIO Kreismodul — Alle Wehren Ihres Landkreises vernetzt</h1>
+<p>Das RESQIO Kreismodul ist die DSGVO-konforme Plattform für Kreisfeuerwehrverbände und Landratsämter. Koordinieren Sie Schulungen, buchen Sie Werkstatt-Termine und verwalten Sie Ressourcen kreisweit — bei voller Datensouveränität jeder einzelnen Wehr.</p>
+<h2>Zentrale Steuerung für Ihren Landkreis</h2>
+<p>Ein Dashboard für den gesamten Landkreis: Personalstärken, Qualifikationen, Fahrzeuge und Verfügbarkeiten aller Feuerwehren auf einen Blick.</p>
+<h2>Datenschutz und Verschlüsselung</h2>
+<p>Keine personenbezogenen Daten auf Kreisebene. Durchgehende Ende-zu-Ende-Verschlüsselung. Hosting in Deutschland. DSGVO-konform nach Privacy by Design.</p>
+<h2>Kernfunktionen</h2>
+<ul>
+<li>Kreisweites Dashboard mit interaktiver Kreiskarte</li>
+<li>Schulungsmanagement mit Online-Anmeldung und automatischer Platzvergabe</li>
+<li>Atemschutzwerkstatt und Schlauchwerkstatt digital buchen</li>
+<li>Sonderausrüstungs-Register mit Verfügbarkeitsampel</li>
+<li>Anonymisierte Personalstatistiken mit FwDV-Auswertungen</li>
+<li>Fahrzeug-Dashboard für Großlagen und gegenseitige Hilfe</li>
+<li>Wasserversorgungskarte mit Gap-Analyse</li>
+<li>KI-Assistent für Qualifikationstrends und Beschaffungsprognosen</li>
+<li>Dokumenten-Portal und Schwarzes Brett</li>
+<li>Übungskoordination mit Konflikt-Warnung</li>
+</ul>
+<p><a href="mailto:support@resqio.de?subject=Demo Anfrage RESQIO Kreismodul">Jetzt Demo anfordern</a> | <a href="/">Zur Startseite</a></p>
+</main>`;
+
+  let kreisHtml = createPage({
+    title: kreisTitle,
+    description: kreisDesc,
+    keywords: kreisKeywords,
+    canonicalUrl: kreisUrl,
+    bodyContent,
+    jsonLd: breadcrumbLd,
+  });
+
+  // Add additional JSON-LD schemas
+  kreisHtml = kreisHtml.replace("</head>",
+    `  <script type="application/ld+json">${JSON.stringify(productLd)}</script>\n` +
+    `  <script type="application/ld+json">${JSON.stringify(faqLd)}</script>\n` +
+    `  <meta property="og:locale" content="de_DE" />\n` +
+    `</head>`
+  );
+
+  mkdirSync(join(distDir, "kreis"), { recursive: true });
+  writeFileSync(join(distDir, "kreis", "index.html"), kreisHtml, "utf-8");
+  console.log("Prerendered Kreismodul page.");
+}
+
+// --- 4. Generate Impressum page ---
 {
   const html = createPage({
     title: "Impressum | RESQIO",
@@ -236,7 +322,7 @@ for (const mod of modules) {
   writeFileSync(join(distDir, "impressum", "index.html"), html, "utf-8");
 }
 
-// --- 4. Generate Datenschutz page ---
+// --- 5. Generate Datenschutz page ---
 {
   const html = createPage({
     title: "Datenschutzerklärung | RESQIO",
@@ -250,7 +336,7 @@ for (const mod of modules) {
   writeFileSync(join(distDir, "datenschutz", "index.html"), html, "utf-8");
 }
 
-// --- 5. Generate 404 page ---
+// --- 6. Generate 404 page ---
 {
   const html = createPage({
     title: "Seite nicht gefunden | RESQIO",
@@ -264,12 +350,15 @@ for (const mod of modules) {
   console.log("Prerendered 404 page.");
 }
 
-// --- 6. Auto-generate sitemap.xml ---
+// --- 7. Auto-generate sitemap.xml ---
 {
   const urls = [];
 
   // Homepage (highest priority)
   urls.push({ loc: `${BASE_URL}/`, priority: "1.0", changefreq: "weekly" });
+
+  // Kreismodul dedicated page
+  urls.push({ loc: `${BASE_URL}/kreis`, priority: "0.9", changefreq: "weekly" });
 
   // Module pages
   for (const mod of modules) {
@@ -301,4 +390,4 @@ ${urls
   console.log(`Generated sitemap.xml with ${urls.length} URLs.`);
 }
 
-console.log(`Prerendered ${modules.length + 4} pages successfully (homepage + ${modules.length} modules + impressum + datenschutz + 404).`);
+console.log(`Prerendered ${modules.length + 5} pages successfully (homepage + kreismodul + ${modules.length} modules + impressum + datenschutz + 404).`);

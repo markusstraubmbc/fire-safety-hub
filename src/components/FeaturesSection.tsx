@@ -37,6 +37,7 @@ export interface Feature {
   title: string;
   description: string;
   slug?: string;
+  href?: string;
 }
 
 export const features: Feature[] = [
@@ -216,7 +217,8 @@ export const features: Feature[] = [
   {
     icon: Globe,
     title: "RESQIO Kreis-Platform",
-    description: "Föderale Plattform für Kreisfeuerwehrverbände. Verbindet dezentrale Feuerwehr-Instanzen mit Schulungskalender, Werkstatt-Buchung und kreisweitem Ressourcen-Register.",
+    description: "Alle Wehren im Landkreis. Ein System. Volle Datensouveränität.",
+    href: "/kreis",
     slug: "kreis-platform",
   },
   {
@@ -251,7 +253,7 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <Link
               key={index}
-              to={feature.slug ? `/modul/${feature.slug}` : "#"}
+              to={feature.href || (feature.slug ? `/modul/${feature.slug}` : "#")}
               className="block group"
             >
               <Card className="h-full transition-all duration-300 hover:shadow-xl hover:border-primary/50 group-hover:-translate-y-2 bg-card/60 backdrop-blur-sm shadow-sm">

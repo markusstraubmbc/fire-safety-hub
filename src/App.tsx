@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 
 // Lazy load non-critical routes
+const KreisModul = lazy(() => import("./pages/KreisModul"));
 const ModulDetail = lazy(() => import("./pages/ModulDetail"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const Datenschutz = lazy(() => import("./pages/Datenschutz"));
@@ -23,6 +24,7 @@ const App = () => (
         <Suspense fallback={<div className="min-h-screen bg-background" />}>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/kreis" element={<KreisModul />} />
             <Route path="/modul/:slug" element={<ModulDetail />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
