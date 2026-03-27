@@ -155,6 +155,13 @@ const Header = memo(() => {
             >
               Modelle
             </button>
+            <Link
+              to="/kreis"
+              className={`transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+                }`}
+            >
+              Kreis
+            </Link>
             <Button
               onClick={() => scrollToSection("kontakt")}
               className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
@@ -211,6 +218,13 @@ const Header = memo(() => {
             >
               Modelle
             </button>
+            <Link
+              to="/kreis"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
+            >
+              Kreis
+            </Link>
             <Button
               onClick={() => scrollToSection("kontakt")}
               className="bg-primary text-primary-foreground hover:bg-primary/90 w-full font-semibold mt-2 h-12 touch-manipulation"
