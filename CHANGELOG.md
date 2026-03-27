@@ -2,6 +2,13 @@
 
 Alle relevanten Änderungen an diesem Projekt werden in dieser Datei dokumentiert.
 
+## [Unreleased] - 2026-03-27
+
+### Behoben
+- **Datenbank-Migration:** Migration `v1050_to_v1051.sql` korrigiert.
+    - Die nicht existierende Spalte `module` wurde aus dem `INSERT INTO permission_types` Statement entfernt. Dies behebt den `Unknown column 'module'` Fehler (`ER_BAD_FIELD_ERROR`, errno 1054) beim Serverstart.
+    - Korrigierte Migration liegt unter `migrations/v1050_to_v1051.sql`.
+
 ## [Unreleased] - 2026-01-05
 
 ### Geändert
