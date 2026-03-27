@@ -674,7 +674,7 @@ const KreisModul = () => {
                     </Button>
                   </a>
                   <a href="mailto:support@resqio.de">
-                    <Button variant="outline" size="lg" className="w-full sm:w-auto h-14 px-8 rounded-2xl border-white/30 text-white hover:bg-white/10 font-bold transition-all">
+                    <Button variant="outline" size="lg" className="w-full sm:w-auto h-14 px-8 rounded-2xl border-2 border-white/60 text-white hover:bg-white/20 font-bold transition-all">
                       Kontakt aufnehmen
                     </Button>
                   </a>

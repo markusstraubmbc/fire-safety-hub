@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, memo } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -9,6 +9,7 @@ const Header = memo(() => {
   const progressRef = useRef<HTMLDivElement>(null);
   const rafId = useRef(0);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Only use transparent header on homepage
   const isHomePage = location.pathname === '/';
@@ -58,6 +59,12 @@ const Header = memo(() => {
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
       window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     };
+
+    // If not on homepage, navigate there first with the section hash
+    if (!isHomePage) {
+      navigate(`/#${id}`);
+      return;
+    }
 
     const element = document.getElementById(id);
     if (element) {
