@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
 
           <p className="text-sm text-slate-500 font-medium italic">
-            © {currentYear} RESQIO. Professional Safety Hub.
+            © {currentYear} RESQIO. Einsatzbereit. Geprüft. Professionell.
           </p>
         </div>
       </div>

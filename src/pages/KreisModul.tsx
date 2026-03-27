@@ -330,9 +330,9 @@ const KreisModul = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
       {/* Background Decor */}
-      <div className="absolute top-0 left-0 w-full h-[700px] bg-gradient-to-b from-violet-600/15 via-indigo-500/5 to-transparent -z-10" />
-      <div className="absolute top-[5%] -right-[10%] w-[40%] h-[40%] bg-violet-500/5 rounded-full blur-[120px] -z-10 animate-pulse" />
-      <div className="absolute top-[30%] -left-[10%] w-[30%] h-[30%] bg-indigo-500/5 rounded-full blur-[100px] -z-10" />
+      <div className="absolute top-0 left-0 w-full h-[700px] bg-gradient-to-b from-primary/15 via-primary/5 to-transparent -z-10" />
+      <div className="absolute top-[5%] -right-[10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse" />
+      <div className="absolute top-[30%] -left-[10%] w-[30%] h-[30%] bg-primary/5 rounded-full blur-[100px] -z-10" />
 
       <Header />
 
@@ -354,16 +354,16 @@ const KreisModul = () => {
           <section className="mb-20 md:mb-28">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               <div className="lg:col-span-7 space-y-8">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-violet-500/10 border border-violet-500/20 rounded-full">
-                  <Globe className="w-4 h-4 text-violet-500" />
-                  <span className="text-sm font-semibold text-violet-600 dark:text-violet-400">Für Landkreise & Kreisfeuerwehrverbände</span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
+                  <Globe className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-semibold text-primary dark:text-primary">Für Landkreise & Kreisfeuerwehrverbände</span>
                 </div>
 
                 <div className="space-y-4">
                   <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
                     Ihr Landkreis.<br />
                     Alle Wehren.<br />
-                    <span className="text-violet-600 dark:text-violet-400">Eine Plattform.</span>
+                    <span className="text-primary dark:text-primary">Eine Plattform.</span>
                   </h1>
                   <p className="text-xl md:text-2xl text-muted-foreground font-medium max-w-2xl leading-relaxed">
                     Reduzieren Sie Verwaltungsaufwand, zentralisieren Sie Prozesse und behalten Sie den Überblick — ohne die Datenhoheit der einzelnen Wehren einzuschränken.
@@ -372,7 +372,7 @@ const KreisModul = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <a href="mailto:support@resqio.de?subject=Demo Anfrage RESQIO Kreismodul">
-                    <Button size="lg" className="w-full sm:w-auto h-12 sm:h-14 px-6 sm:px-8 bg-violet-600 hover:bg-violet-700 text-white rounded-2xl shadow-xl shadow-violet-600/20 transition-all hover:scale-105 active:scale-95">
+                    <Button size="lg" className="w-full sm:w-auto h-12 sm:h-14 px-6 sm:px-8 bg-primary hover:bg-primary/90 text-white rounded-2xl shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
                       Jetzt Demo anfordern
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
@@ -391,7 +391,7 @@ const KreisModul = () => {
                     { icon: Clock, label: "Minuten statt Stunden" },
                   ].map((stat) => (
                     <div key={stat.label} className="flex items-center gap-2 px-4 py-2.5 bg-card/60 backdrop-blur-sm border border-border rounded-xl">
-                      <stat.icon className="w-4 h-4 text-violet-500" />
+                      <stat.icon className="w-4 h-4 text-primary" />
                       <span className="text-sm font-semibold text-foreground">{stat.label}</span>
                     </div>
                   ))}
@@ -399,17 +399,17 @@ const KreisModul = () => {
               </div>
 
               <div className="lg:col-span-5 relative">
-                <div className="absolute -inset-10 bg-violet-500/10 rounded-full blur-[100px] opacity-30 animate-pulse" />
+                <div className="absolute -inset-10 bg-primary/10 rounded-full blur-[100px] opacity-30 animate-pulse" />
                 <div className="relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-tr from-violet-500/50 to-indigo-500/50 rounded-[2.5rem] blur opacity-30" />
+                  <div className="absolute -inset-0.5 bg-gradient-to-tr from-primary/50 to-primary/30 rounded-[2.5rem] blur opacity-30" />
                   <div className="relative bg-card/80 backdrop-blur-2xl border border-border rounded-2xl md:rounded-[2.5rem] p-6 md:p-8 lg:p-10 shadow-2xl">
                     {/* Federation Visual */}
                     <div className="text-center space-y-6">
-                      <div className="w-20 h-20 mx-auto rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
-                        <Globe className="w-10 h-10 text-violet-500" />
+                      <div className="w-20 h-20 mx-auto rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                        <Globe className="w-10 h-10 text-primary" />
                       </div>
                       <div className="space-y-2">
-                        <p className="text-xs font-bold text-violet-500 uppercase tracking-[0.2em]">Kreismodul</p>
+                        <p className="text-xs font-bold text-primary uppercase tracking-[0.2em]">Kreismodul</p>
                         <h3 className="text-2xl font-bold text-foreground">Föderale Vernetzung</h3>
                         <p className="text-muted-foreground text-sm max-w-[260px] mx-auto">
                           Beliebig viele Wehren anbinden — jede behält ihre Datenhoheit.
@@ -512,10 +512,10 @@ const KreisModul = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {benefits.map((benefit, idx) => (
-                <Card key={idx} className="h-full bg-card/60 backdrop-blur-sm border-border hover:border-violet-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <Card key={idx} className="h-full bg-card/60 backdrop-blur-sm border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                   <CardContent className="p-6 md:p-8 space-y-4">
-                    <div className="w-12 h-12 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
-                      <benefit.icon className="w-6 h-6 text-violet-500" />
+                    <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                      <benefit.icon className="w-6 h-6 text-primary" />
                     </div>
                     <h3 className="text-lg font-bold text-foreground">{benefit.title}</h3>
                     <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
@@ -526,22 +526,73 @@ const KreisModul = () => {
           </section>
 
           {/* ============================================ */}
-          {/* D) DATENSCHUTZ & VERSCHLÜSSELUNG SECTION */}
+          {/* D) FUNKTIONS-ÜBERSICHT SECTION (TABS) */}
           {/* ============================================ */}
           <section className="mb-20 md:mb-28">
-            <div className="relative overflow-hidden bg-gradient-to-br from-violet-500/10 via-indigo-500/5 to-transparent rounded-2xl md:rounded-[2.5rem] p-8 md:p-12 lg:p-16 border border-violet-500/20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Alle Funktionen im Überblick
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Von der zentralen Steuerung über Schulungsmanagement bis hin zur KI-gestützten Analyse — das Kreismodul deckt alle Bereiche ab.
+              </p>
+            </div>
+
+            <Tabs defaultValue="ueberblick" className="w-full">
+              <TabsList className="w-full flex flex-wrap h-auto gap-2 bg-muted/50 p-2 rounded-xl mb-8">
+                {featureTabs.map((tab) => (
+                  <TabsTrigger
+                    key={tab.id}
+                    value={tab.id}
+                    className="flex-1 min-w-[140px] text-xs sm:text-sm font-semibold data-[state=active]:bg-primary data-[state=active]:text-white rounded-lg py-2.5"
+                  >
+                    {tab.label}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+
+              {featureTabs.map((tab) => (
+                <TabsContent key={tab.id} value={tab.id}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    {tab.features.map((feature, idx) => (
+                      <div
+                        key={idx}
+                        className="group p-5 md:p-6 bg-card/40 backdrop-blur-sm rounded-2xl border border-border hover:border-primary/30 transition-all hover:bg-card/60"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                            <feature.icon className="w-5 h-5 text-primary" />
+                          </div>
+                          <div className="space-y-1.5">
+                            <h4 className="font-bold text-foreground text-sm">{feature.title}</h4>
+                            <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </TabsContent>
+              ))}
+            </Tabs>
+          </section>
+
+          {/* ============================================ */}
+          {/* E) DATENSCHUTZ & VERSCHLÜSSELUNG SECTION */}
+          {/* ============================================ */}
+          <section className="mb-20 md:mb-28">
+            <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-2xl md:rounded-[2.5rem] p-8 md:p-12 lg:p-16 border border-primary/20">
               {/* Background Decor */}
               <div className="absolute top-0 right-0 p-8 opacity-5">
-                <ShieldCheck className="w-48 h-48 text-violet-500" />
+                <ShieldCheck className="w-48 h-48 text-primary" />
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
                 {/* Left: Principles */}
                 <div className="lg:col-span-7 space-y-8">
                   <div className="space-y-3">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-violet-500/10 border border-violet-500/20 rounded-full">
-                      <Lock className="w-3.5 h-3.5 text-violet-500" />
-                      <span className="text-xs font-bold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Datenschutz & Verschlüsselung</span>
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full">
+                      <Lock className="w-3.5 h-3.5 text-primary" />
+                      <span className="text-xs font-bold text-primary uppercase tracking-wider">Datenschutz & Verschlüsselung</span>
                     </div>
                     <h2 className="text-3xl md:text-4xl font-bold text-foreground">
                       Datenschutz ist keine Option — es ist unser Prinzip
@@ -554,8 +605,8 @@ const KreisModul = () => {
                   <div className="space-y-5">
                     {privacyPrinciples.map((principle, idx) => (
                       <div key={idx} className="flex items-start gap-4 group">
-                        <div className="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center shrink-0 group-hover:bg-violet-500/20 transition-colors">
-                          <principle.icon className="w-5 h-5 text-violet-500" />
+                        <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                          <principle.icon className="w-5 h-5 text-primary" />
                         </div>
                         <div className="space-y-1">
                           <h4 className="font-bold text-foreground">{principle.title}</h4>
@@ -603,61 +654,10 @@ const KreisModul = () => {
           </section>
 
           {/* ============================================ */}
-          {/* E) FUNKTIONS-ÜBERSICHT SECTION (TABS) */}
-          {/* ============================================ */}
-          <section className="mb-20 md:mb-28">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Alle Funktionen im Überblick
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Von der zentralen Steuerung über Schulungsmanagement bis hin zur KI-gestützten Analyse — das Kreismodul deckt alle Bereiche ab.
-              </p>
-            </div>
-
-            <Tabs defaultValue="ueberblick" className="w-full">
-              <TabsList className="w-full flex flex-wrap h-auto gap-2 bg-muted/50 p-2 rounded-xl mb-8">
-                {featureTabs.map((tab) => (
-                  <TabsTrigger
-                    key={tab.id}
-                    value={tab.id}
-                    className="flex-1 min-w-[140px] text-xs sm:text-sm font-semibold data-[state=active]:bg-violet-500 data-[state=active]:text-white rounded-lg py-2.5"
-                  >
-                    {tab.label}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-
-              {featureTabs.map((tab) => (
-                <TabsContent key={tab.id} value={tab.id}>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                    {tab.features.map((feature, idx) => (
-                      <div
-                        key={idx}
-                        className="group p-5 md:p-6 bg-card/40 backdrop-blur-sm rounded-2xl border border-border hover:border-violet-500/30 transition-all hover:bg-card/60"
-                      >
-                        <div className="flex items-start gap-4">
-                          <div className="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center shrink-0 group-hover:bg-violet-500/20 transition-colors">
-                            <feature.icon className="w-5 h-5 text-violet-500" />
-                          </div>
-                          <div className="space-y-1.5">
-                            <h4 className="font-bold text-foreground text-sm">{feature.title}</h4>
-                            <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </TabsContent>
-              ))}
-            </Tabs>
-          </section>
-
-          {/* ============================================ */}
           {/* F) CTA SECTION */}
           {/* ============================================ */}
           <section className="mb-10">
-            <div className="relative overflow-hidden bg-gradient-to-r from-violet-600 to-indigo-600 rounded-2xl md:rounded-[2.5rem] p-8 md:p-12 lg:p-16 text-center">
+            <div className="relative overflow-hidden bg-gradient-to-r from-primary to-primary/80 rounded-2xl md:rounded-[2.5rem] p-8 md:p-12 lg:p-16 text-center">
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
               <div className="relative space-y-6 max-w-2xl mx-auto">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
@@ -668,13 +668,13 @@ const KreisModul = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                   <a href="mailto:support@resqio.de?subject=Demo Anfrage RESQIO Kreismodul">
-                    <Button size="lg" className="w-full sm:w-auto h-14 px-8 bg-white text-violet-700 hover:bg-white/90 rounded-2xl shadow-xl font-bold transition-all hover:scale-105 active:scale-95">
+                    <Button size="lg" className="w-full sm:w-auto h-14 px-8 bg-white text-primary hover:bg-white/90 rounded-2xl shadow-xl font-bold transition-all hover:scale-105 active:scale-95">
                       Demo anfordern
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </a>
                   <a href="mailto:support@resqio.de">
-                    <Button variant="outline" size="lg" className="w-full sm:w-auto h-14 px-8 rounded-2xl border-2 border-white/60 text-white hover:bg-white/20 font-bold transition-all">
+                    <Button size="lg" className="w-full sm:w-auto h-14 px-8 rounded-2xl border-2 border-white/60 bg-transparent text-white hover:bg-white/20 font-bold transition-all">
                       Kontakt aufnehmen
                     </Button>
                   </a>
