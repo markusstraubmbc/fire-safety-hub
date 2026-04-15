@@ -13,6 +13,9 @@ ErrorDocument 500 /index.html
   RewriteCond %{REQUEST_URI} (.+)/$
   RewriteRule ^ %1 [R=301,L]
 
+  # Redirect legacy kreis-platform URL to dedicated page
+  RewriteRule ^modul/kreis-platform$ /kreis [R=301,L]
+
   # Serve prerendered files if directory with index.html exists
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteCond %{REQUEST_FILENAME}/index.html -f
