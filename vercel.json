@@ -76,9 +76,16 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/modul/kreis-platform",
+      "destination": "/kreis",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
-      "source": "/((?!api/).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
