@@ -5,8 +5,73 @@ import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import { LazySection } from "@/hooks/use-lazy-section";
 
+const FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Ist die Software rechtssicher?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RESQIO ist so konzipiert, dass es alle relevanten Dokumentationspflichten (z.B. nach DGUV oder FwDV) unterstützt. Da wir jedoch nicht förmlich zertifiziert sind, nutzen wir Begriffe wie 'Nachvollziehbar' oder 'Lückenlos', um ehrlich und transparent zu bleiben. Die Erfahrung zeigt: Im Ernstfall zählt die Qualität Ihrer Daten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wo werden meine Daten gespeichert?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alle Daten werden ausschließlich auf hochsicheren Servern in Deutschland gehostet. Wir legen größten Wert auf Datenschutz und Privatsphäre, ganz ohne US-Cloud-Umwege."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Können wir unsere bestehende Hardware anbinden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja! RESQIO ist über seine MQTT-Schnittstellen und REST-APIs extrem offen. Wir bauen auf Anfrage auch individuelle Middleware, um z.B. Ihre Fahrzeug-Telemetrie oder IoT-Geräte im Gerätehaus direkt zu vernetzen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie kompliziert ist die Einrichtung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gar nicht. Wir begleiten Sie beim Onboarding und helfen bei der Datenübernahme. Da die Software für Kameraden entwickelt wurde, ist die Bedienung intuitiv und erfordert kaum Schulungsaufwand."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gibt es eine Mindestvertragslaufzeit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wir setzen auf Partnerschaft auf Augenhöhe. Kontaktieren Sie uns für Details zu unseren flexiblen Modellen, die auf die Bedürfnisse von Feuerwehren zugeschnitten sind."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was kostet RESQIO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Preise richten sich nach der Größe und den Anforderungen Ihrer Feuerwehr. Kontaktieren Sie uns für ein individuelles Angebot unter support@resqio.de oder über das Kontaktformular auf resqio.de."
+      }
+    }
+  ]
+};
+
 const Index = () => {
   const location = useLocation();
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "homepage-faq-jsonld";
+    script.textContent = JSON.stringify(FAQ_JSON_LD);
+    document.getElementById("homepage-faq-jsonld")?.remove();
+    document.head.appendChild(script);
+    return () => { document.getElementById("homepage-faq-jsonld")?.remove(); };
+  }, []);
 
   // Handle hash navigation (e.g. from /modul/xyz to /#kontakt)
   useEffect(() => {
