@@ -15,7 +15,10 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
+    target: "es2020",
     cssCodeSplit: true,
+    assetsInlineLimit: 4096,
+    chunkSizeWarningLimit: 600,
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -25,6 +28,9 @@ export default defineConfig(({ mode }) => ({
             }
             if (id.includes("@radix-ui")) {
               return "vendor-ui";
+            }
+            if (id.includes("lucide-react")) {
+              return "vendor-icons";
             }
             if (id.includes("recharts") || id.includes("d3-")) {
               return "vendor-charts";

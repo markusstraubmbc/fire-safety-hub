@@ -10,9 +10,13 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3" />
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#cc1a1a" />
 
   <!-- Critical CSS: Above-the-fold rendering -->
   <link rel="stylesheet" href="/critical.css" />
+
+  <!-- Preload critical assets -->
+  <link rel="preload" href="/logo.png" as="image" fetchpriority="high" />
 
   <!-- Fonts: Preconnect + Load (Latin subset only) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,12 +25,18 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap&subset=latin" /></noscript>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap&subset=latin" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap&subset=latin" media="print" onload="this.media='all'" />
+
   <title>RESQIO - Intelligent. Vernetzt. Vielfältig. | Feuerwehr-Verwaltungssoftware</title>
   <meta name="description"
-    content="RESQIO - Professionelle Feuerwehr-Verwaltungssoftware. Rechtssicheres Wartungsmanagement nach DGUV, KI-gestützte Einsatzauswertung, Wasserförderungs-Planung & digitaler Dienstausweis. Made in Germany." />
+    content="RESQIO – Professionelle Feuerwehr-Verwaltungssoftware für die Freiwillige Feuerwehr. Rechtssicheres Wartungsmanagement nach DGUV, KI-gestützte Einsatzauswertung, Wasserförderungs-Planung, Stab & Führungsunterstützung, digitaler Dienstausweis. Made in Germany." />
   <meta name="author" content="Markus Straub" />
   <meta name="keywords"
-    content="Feuerwehrsoftware, Verwaltungssoftware Feuerwehr, Freiwillige Feuerwehr Software, Geräteverwaltung, Wartungsplaner, DGUV Prüfung, Atemschutzüberwachung, Einsatzerfassung, Einsatzauswertung, Objektpläne DIN 14095, Wasserförderung, Hydrantenplan, Hydrantenkartierung, Qualifikationsverwaltung, Ausbildungsmanagement, KI-Assistent Feuerwehr, KI Personalanalyse, Digitaler Dienstausweis, Kreisfeuerwehrverband Software, Kreisbrandmeister, FwDV, DSGVO Feuerwehr, HLF, LF, TLF, MTW, Brandschau, Feuerwehr Datenschutz" />
+    content="Feuerwehrsoftware, Verwaltungssoftware Feuerwehr, Freiwillige Feuerwehr Software, Geräteverwaltung, Wartungsplaner, Gerätewart Software, DGUV Prüfung, Atemschutzüberwachung, Einsatzerfassung, Einsatzauswertung, Objektpläne DIN 14095, Wasserförderung, Hydrantenplan, Hydrantenkartierung, Qualifikationsverwaltung, Ausbildungsmanagement, Lehrgangsverwaltung, KI-Assistent Feuerwehr, KI Personalanalyse, Digitaler Dienstausweis, Stab Feuerwehr, Führungsunterstützung, Fahrzeugverwaltung Feuerwehr, Kreisfeuerwehrverband Software, Kreisbrandmeister, FwDV, DSGVO Feuerwehr, HLF, LF, TLF, MTW, Brandschau, Feuerwehr Datenschutz, Beförderungssystem Feuerwehr, Kalender Feuerwehr" />
+
+  <!-- Crawler & Indexing Directives -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow" />
 
   <link rel="canonical" href="https://resqio.de/" />
 
@@ -36,16 +46,21 @@
   <meta property="og:url" content="https://resqio.de/" />
   <meta property="og:title" content="RESQIO – Die intelligente Feuerwehr-Software" />
   <meta property="og:description"
-    content="Von der rechtssicheren Ausrüstungsprüfung bis zur KI-optimierten Einsatznachbereitung – RESQIO vereint alle Prozesse Ihrer Feuerwehr." />
+    content="Von der rechtssicheren Ausrüstungsprüfung bis zur KI-optimierten Einsatznachbereitung – RESQIO vereint alle Prozesse Ihrer Feuerwehr in einer Plattform." />
   <meta property="og:image" content="https://resqio.de/logo-200.png" />
+  <meta property="og:image:width" content="200" />
+  <meta property="og:image:height" content="200" />
+  <meta property="og:image:alt" content="RESQIO Logo – Feuerwehr-Verwaltungssoftware" />
+  <meta property="og:site_name" content="RESQIO" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://resqio.de/" />
   <meta property="twitter:title" content="RESQIO – Das digitale Rückgrat Ihrer Feuerwehr" />
   <meta property="twitter:description"
-    content="Einsatzbereit. Geprüft. Dokumentiert. Die moderne Lösung für die Feuerwehrverwaltung." />
+    content="Einsatzbereit. Geprüft. Dokumentiert. Die moderne Lösung für die Feuerwehrverwaltung – Made in Germany." />
   <meta property="twitter:image" content="https://resqio.de/logo-200.png" />
+  <meta property="twitter:image:alt" content="RESQIO – Feuerwehr-Verwaltungssoftware" />
 
   <!-- Structured Data / JSON-LD -->
   <script type="application/ld+json">
@@ -53,29 +68,80 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "RESQIO",
+      "url": "https://resqio.de",
       "image": "https://resqio.de/logo.png",
-      "operatingSystem": "Web",
+      "logo": "https://resqio.de/logo.png",
+      "operatingSystem": "Web, iOS, Android",
       "applicationCategory": "BusinessApplication",
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "EUR",
-        "price": "399.00"
-      },
-      "description": "Professionelle Feuerwehr-Verwaltungssoftware. Rechtssicheres Wartungsmanagement, KI-gestützte Einsatzauswertung und digitaler Dienstausweis.",
+      "applicationSubCategory": "Emergency Management Software",
+      "inLanguage": "de",
+      "availableOnDevice": "Desktop, Tablet, Mobile",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "All in One",
+          "priceCurrency": "EUR",
+          "price": "399.00",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "billingDuration": "P1Y",
+            "unitCode": "ANN"
+          },
+          "description": "Für Gemeinden bis 5.000 Einwohner"
+        },
+        {
+          "@type": "Offer",
+          "name": "Professional",
+          "priceCurrency": "EUR",
+          "price": "599.00",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "billingDuration": "P1Y",
+            "unitCode": "ANN"
+          },
+          "description": "Für Gemeinden bis 10.000 Einwohner"
+        }
+      ],
+      "description": "Professionelle Feuerwehr-Verwaltungssoftware. Rechtssicheres Wartungsmanagement nach DGUV, KI-gestützte Einsatzauswertung, Stab & Führungsunterstützung, Wasserförderungs-Planung und digitaler Dienstausweis.",
+      "featureList": [
+        "Wartungsmanagement nach DGUV und FwDV",
+        "Atemschutzüberwachung (AGT)",
+        "Einsatz- und Übungsdokumentation",
+        "KI-gestützte Personalanalyse",
+        "Stab & Führungsunterstützung",
+        "Digitaler Dienstausweis (Apple Wallet / Google Wallet)",
+        "Kiosk-Modus für Touchscreens",
+        "Objektpläne nach DIN 14095",
+        "Wasserförderungsplanung",
+        "DSGVO-konform, Serverstandort Deutschland"
+      ],
       "publisher": {
         "@type": "Organization",
-        "name": "Markus Straub"
+        "name": "Markus Straub",
+        "url": "https://resqio.de",
+        "email": "support@resqio.de",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Eschenstraße 37",
+          "addressLocality": "Walddorfhäslach",
+          "postalCode": "72141",
+          "addressRegion": "Baden-Württemberg",
+          "addressCountry": "DE"
+        }
       }
     }
   </script>
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "Organization",
       "name": "RESQIO",
+      "url": "https://resqio.de",
       "logo": "https://resqio.de/logo.png",
-      "image": "https://resqio.de/logo.png",
-      "description": "Professionelle Feuerwehr-Verwaltungssoftware Made in Germany",
+      "image": "https://resqio.de/logo-200.png",
+      "description": "Anbieter moderner Feuerwehr-Verwaltungssoftware für den deutschsprachigen Raum",
+      "email": "support@resqio.de",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Eschenstraße 37",
@@ -84,9 +150,97 @@
         "addressRegion": "Baden-Württemberg",
         "addressCountry": "DE"
       },
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 48.5,
+          "longitude": 9.5
+        },
+        "description": "Deutschland, Österreich, Schweiz"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "support@resqio.de",
+        "availableLanguage": "German"
+      }
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Ist die Software rechtssicher?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RESQIO ist so konzipiert, dass es alle relevanten Dokumentationspflichten (z.B. nach DGUV oder FwDV) unterstützt. Da wir jedoch nicht förmlich zertifiziert sind, nutzen wir Begriffe wie 'Nachvollziehbar' oder 'Lückenlos', um ehrlich und transparent zu bleiben. Die Erfahrung zeigt: Im Ernstfall zählt die Qualität Ihrer Daten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wo werden meine Daten gespeichert?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Alle Daten werden ausschließlich auf hochsicheren Servern in Deutschland gehostet. Wir legen größten Wert auf Datenschutz und Privatsphäre, ganz ohne US-Cloud-Umwege."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Können wir unsere bestehende Hardware anbinden?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja! RESQIO ist über seine MQTT-Schnittstellen und REST-APIs extrem offen. Wir bauen auf Anfrage auch individuelle Middleware, um z.B. Ihre Fahrzeug-Telemetrie oder IoT-Geräte im Gerätehaus direkt zu vernetzen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie kompliziert ist die Einrichtung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gar nicht. Wir begleiten Sie beim Onboarding und helfen bei der Datenübernahme. Da die Software für Kameraden entwickelt wurde, ist die Bedienung intuitiv und erfordert kaum Schulungsaufwand."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Gibt es eine Mindestvertragslaufzeit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wir setzen auf Partnerschaft auf Augenhöhe. Kontaktieren Sie uns für Details zu unseren flexiblen Modellen, die auf die Bedürfnisse von Feuerwehren zugeschnitten sind."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was kostet RESQIO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RESQIO ist ab 399 € pro Jahr erhältlich (All-in-One-Paket für Gemeinden bis 5.000 Einwohner). Das Professional-Paket für bis zu 10.000 Einwohner kostet 599 € pro Jahr. Für Städte und Kreise erstellen wir individuelle Angebote."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "RESQIO",
       "url": "https://resqio.de",
-      "email": "support@resqio.de",
-      "priceRange": "€€"
+      "description": "Feuerwehr-Verwaltungssoftware für die Freiwillige Feuerwehr",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://resqio.de/#funktionen"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "inLanguage": "de"
     }
   </script>
 </head>
