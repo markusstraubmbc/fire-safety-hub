@@ -1,8 +1,16 @@
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
 
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
 
 User-agent: Twitterbot
 Allow: /
@@ -10,6 +18,61 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: LinkedInBot
+Allow: /
+
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+
+# Common Crawl (used by many LLMs for training)
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Applebot
+User-agent: Applebot
+Allow: /
+
+# Amazon / Alexa
+User-agent: Amazonbot
+Allow: /
+
+# All others
 User-agent: *
 Allow: /
 Disallow: /api/

@@ -115,12 +115,42 @@ const ModulDetail = () => {
           }
         ]
       });
-      // Remove old breadcrumb if exists
       document.getElementById("breadcrumb-jsonld")?.remove();
       document.head.appendChild(breadcrumbScript);
 
+      // SoftwareApplication per-module structured data
+      const moduleScript = document.createElement("script");
+      moduleScript.type = "application/ld+json";
+      moduleScript.id = "module-jsonld";
+      moduleScript.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": `RESQIO – ${module.title}`,
+        "url": pageUrl,
+        "image": "https://resqio.de/logo-200.png",
+        "operatingSystem": "Web, iOS, Android",
+        "applicationCategory": "BusinessApplication",
+        "inLanguage": "de",
+        "description": module.longDesc || module.shortDesc,
+        "featureList": module.features.slice(0, 10),
+        "isPartOf": {
+          "@type": "SoftwareApplication",
+          "name": "RESQIO",
+          "url": "https://resqio.de"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Markus Straub",
+          "url": "https://resqio.de",
+          "email": "support@resqio.de"
+        }
+      });
+      document.getElementById("module-jsonld")?.remove();
+      document.head.appendChild(moduleScript);
+
       return () => {
         document.getElementById("breadcrumb-jsonld")?.remove();
+        document.getElementById("module-jsonld")?.remove();
       };
     }
   }, [slug, module, navigate]);
