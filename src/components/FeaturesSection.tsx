@@ -26,6 +26,11 @@ import {
   Globe,
   Clock,
   Calendar,
+  Shield,
+  Truck,
+  GraduationCap,
+  CalendarDays,
+  TrendingUp,
   LucideIcon,
   ArrowRight,
 } from "lucide-react";
@@ -232,6 +237,36 @@ export const features: Feature[] = [
     title: "BSW & Veranstaltungen",
     description: "Professionelle Verwaltung von Brandsicherheitswachen und kommunalen Veranstaltungen mit Klientenverwaltung und automatisierter Abrechnung.",
     slug: "bsw-events",
+  },
+  {
+    icon: Shield,
+    title: "Stab & Führungsunterstützung",
+    description: "Digitale Stabsarbeit für Großschadenlagen und Übungen. Unterstützt alle Stabsfunktionen, strukturierte Lageführung, Einsatztagebuch und abschließende Nachbereitung.",
+    slug: "stab-modul",
+  },
+  {
+    icon: Truck,
+    title: "Fahrzeugverwaltung & Flotte",
+    description: "Zentrale Verwaltung aller Fahrzeuge und Anhänger mit Stammdaten, Flottenstatus und Einsatzbereitschaft im Überblick.",
+    slug: "fahrzeugverwaltung",
+  },
+  {
+    icon: GraduationCap,
+    title: "Lehrgänge & Qualifikationsmanagement",
+    description: "Planung, Verwaltung und Nachverfolgung von Lehrgängen und Qualifikationen für alle Mitglieder.",
+    slug: "lehrgaenge",
+  },
+  {
+    icon: CalendarDays,
+    title: "Kalender & Terminverwaltung",
+    description: "Zentraler Kalender für Übungen, Termine und Veranstaltungen mit Übersicht und Benachrichtigungen.",
+    slug: "kalender",
+  },
+  {
+    icon: TrendingUp,
+    title: "Beförderungssystem",
+    description: "Strukturierte Verwaltung von Beförderungsvorschlägen und Dienstgradentwicklung nach Landesvorgaben.",
+    slug: "befoerderungssystem",
   },
 ];
 
