@@ -14,11 +14,14 @@ npm i
 # Start development server (Vite dev server on port 8080)
 npm run dev
 
-# Build for production
+# Build for production (automatically regenerates sitemap first via prebuild)
 npm run build
 
-# Build in development mode
+# Build in development mode (also regenerates sitemap)
 npm run build:dev
+
+# Manually regenerate public/sitemap.xml from module-data.ts
+npm run generate-sitemap
 
 # Lint code
 npm run lint
@@ -151,6 +154,18 @@ All user-facing content is in German (Deutsch). Maintain German language for:
 1. Add module entry to `modules` object in `src/data/module-data.ts`
 2. Choose appropriate icon from lucide-react
 3. Module automatically appears in listings and is accessible via `/modul/{key}`
+4. **Run `npm run generate-sitemap`** — the sitemap is NOT static; it is generated from `module-data.ts`. Forgetting this step means the new module page will NOT be indexed by Google.
+5. Commit both `module-data.ts` AND the regenerated `public/sitemap.xml` together.
+
+> Note: `npm run build` and `npm run build:dev` automatically call the sitemap generator via the `prebuild` hook, so CI/CD deployments always produce a fresh sitemap. Manual dev work requires running `npm run generate-sitemap` explicitly.
+
+### Sitemap Auto-Generation
+- **Script**: `scripts/generate-sitemap.cjs`
+- **Source of truth**: slug keys in the `modules` object in `src/data/module-data.ts`
+- **Output**: `public/sitemap.xml` (33 URLs: homepage + /kreis + 31 module pages)
+- **Excluded slugs**: `kreis-platform` (has a dedicated `/kreis` page, handled by a Vercel 301 redirect)
+- **lastmod**: always set to today's date at generation time, so Google sees fresh dates after every build
+- **NEVER edit `public/sitemap.xml` manually** — changes will be overwritten on the next build
 
 ### Adding a New Section to Landing Page
 1. Create component in `src/components/` as `{Name}Section.tsx`
@@ -173,6 +188,27 @@ npx shadcn@latest add [component-name]
 ## Build Output
 
 Production builds go to `dist/` directory. The project is configured for static site deployment.
+
+## API Endpoints
+
+The contact form uses different handlers depending on deployment target:
+
+| File | Runtime | Path | Notes |
+|------|---------|------|-------|
+| `api/contact.ts` | Vercel Edge Function | `/api/contact` | Primary — used by `ContactSection.tsx` |
+| `public/api/contact.php` | Apache + PHP | `/api/contact.php` via `.htaccess` rewrite | Fallback for non-Vercel hosting |
+
+**Always call `/api/contact`** from the frontend. The `.htaccess` rewrite maps this to `.php` on Apache, and Vercel routes it to the Edge Function automatically.
+
+The API path `/api/` is blocked in `public/robots.txt` (`Disallow: /api/`) to prevent search engine crawlers from hitting the contact endpoint and generating 5xx errors in Google Search Console.
+
+## SEO / Indexing Rules
+
+- **sitemap.xml is auto-generated** — never edit it manually (see "Sitemap Auto-Generation" above)
+- **robots.txt** (`public/robots.txt`) — `/api/` is disallowed for all bots; all public pages are allowed
+- **Canonical URLs** — set dynamically in `ModulDetail.tsx` for each module page; set statically in `index.html` for the homepage
+- **`kreis-platform` slug** exists in `module-data.ts` but is excluded from the sitemap. Vercel serves a 301 redirect `/modul/kreis-platform` → `/kreis`. Do not add it to the sitemap.
+- **After any content change to a page**, run `npm run generate-sitemap` and commit the updated `public/sitemap.xml` so Google sees a fresh `lastmod` date and re-crawls the affected page.
 
 ## About RESQIO Platform
 
