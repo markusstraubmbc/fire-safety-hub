@@ -12,5 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /api/
 
 Sitemap: https://resqio.de/sitemap.xml

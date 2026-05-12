@@ -16,6 +16,9 @@ ErrorDocument 500 /index.html
   # Redirect legacy kreis-platform URL to dedicated page
   RewriteRule ^modul/kreis-platform$ /kreis [R=301,L]
 
+  # Route /api/contact to PHP handler (Apache deployments)
+  RewriteRule ^api/contact$ /api/contact.php [L]
+
   # Serve prerendered files if directory with index.html exists
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteCond %{REQUEST_FILENAME}/index.html -f
