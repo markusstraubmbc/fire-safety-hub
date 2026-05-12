@@ -26,6 +26,11 @@ import {
     Globe,
     Clock,
     Calendar,
+    CalendarDays,
+    Shield,
+    Truck,
+    GraduationCap,
+    TrendingUp,
     LucideIcon
 } from "lucide-react";
 
@@ -995,5 +1000,113 @@ export const modules: Record<string, ModuleData> = {
         keywords: ["Brandsicherheitswache", "BSW", "Veranstaltung", "Events", "Abrechnung", "Fakturierung", "Klientenverwaltung", "Smart Invoicing"],
         icon: Calendar,
         color: "rose"
+    },
+
+    "stab-modul": {
+        title: "Stab & Führungsunterstützung",
+        shortDesc: "Digitale Unterstützung der Stabsarbeit bei komplexen Einsatzlagen und Führungsaufgaben.",
+        longDesc: "Das Stab-Modul begleitet Führungskräfte bei anspruchsvollen Einsätzen und bietet strukturierte Werkzeuge für eine geordnete Stabsarbeit. Von der Lageerfassung über Besprechungen bis hin zur Nachbereitung – alle relevanten Informationen laufen zentral zusammen und stehen dem gesamten Führungsstab jederzeit zur Verfügung.",
+        benefits: [
+            "Überblick: Alle einsatzrelevanten Informationen an einem Ort",
+            "Koordination: Klare Strukturen für alle Sachgebiete des Stabes",
+            "Nachvollziehbarkeit: Vollständige Dokumentation aller Führungsentscheidungen",
+            "Qualitätssicherung: Strukturierte Nachbereitung für kontinuierliche Verbesserung"
+        ],
+        features: [
+            "Strukturierte Stabsbesetzung mit Rollen und Zuständigkeiten",
+            "Einsatztagebuch für lückenlose Dokumentation",
+            "Besprechungsmanagement mit Tagesordnung und Ergebnissen",
+            "Einsatzabschnittsverwaltung und Kräftezuordnung",
+            "Funk- und Kommunikationsprotokoll",
+            "Gebietsanalyse und Schadenübersicht",
+            "Lessons Learned und Qualitätssicherung nach dem Einsatz"
+        ],
+        keywords: ["Stabsarbeit", "Führungsunterstützung", "Einsatztagebuch", "Einsatzleitung", "Führungsstab", "Lagemonitor", "Stab Feuerwehr", "Führungsorganisation"],
+        icon: Shield,
+        color: "slate"
+    },
+    "fahrzeugverwaltung": {
+        title: "Fahrzeugverwaltung & Flotte",
+        shortDesc: "Zentrale Verwaltung aller Fahrzeuge mit Stammdaten, Status und Einsatzhistorie.",
+        longDesc: "Behalten Sie Ihre gesamte Fahrzeugflotte im Griff – von der Stammdatenpflege bis zur Statusübersicht. Das Modul ergänzt das Fahrtenbuch um eine umfassende Flottenverwaltung mit Fahrzeugprofilen, Ausstattungsmerkmalen und einer klaren Übersicht über Einsatzbereitschaft und Verfügbarkeit jedes Fahrzeugs.",
+        benefits: [
+            "Überblick: Alle Fahrzeuge mit Status auf einen Blick",
+            "Dokumentation: Vollständige Fahrzeugprofile mit relevanten Daten",
+            "Planung: Verfügbarkeit und Einsatzbereitschaft im Griff",
+            "Verknüpfung: Nahtlose Integration mit Fahrtenbuch und Einsatzplanung"
+        ],
+        features: [
+            "Fahrzeugsprofile mit Stammdaten (Kennzeichen, Typ, Ausstattung)",
+            "Statusverfolgung und Einsatzbereitschaft",
+            "Verknüpfung mit Einsätzen und Fahrtenbucheinträgen",
+            "Fahrzeugbezogene Wartungsintervalle und -dokumentation",
+            "Übersicht über Fahrzeugzuordnungen im Einsatz"
+        ],
+        keywords: ["Fahrzeugverwaltung", "Fuhrpark", "Flottenmanagement", "Feuerwehrfahrzeuge", "KFZ Verwaltung", "Fahrzeugstatus", "Einsatzfahrzeuge"],
+        icon: Truck,
+        color: "orange"
+    },
+    "lehrgaenge": {
+        title: "Lehrgänge & Qualifikationsmanagement",
+        shortDesc: "Verwaltung von Lehrgängen, Qualifikationen und Beförderungsvoraussetzungen für alle Mitglieder.",
+        longDesc: "Behalten Sie den Überblick über absolvierte und geplante Lehrgänge Ihrer gesamten Mannschaft. Das Modul unterstützt bei der Planung von Fortbildungen, verfolgt den Qualifikationsstand jedes Mitglieds und liefert die Datengrundlage für Beförderungsentscheidungen – alles zentral und auf dem aktuellen Stand.",
+        benefits: [
+            "Transparenz: Qualifikationsstand aller Mitglieder jederzeit einsehbar",
+            "Planung: Gezielte Steuerung des Aus- und Fortbildungsbedarfs",
+            "Beförderungen: Klare Grundlage für Beförderungsentscheidungen",
+            "Nachweis: Lehrgangshistorie und Zertifikate dokumentiert"
+        ],
+        features: [
+            "Lehrgangserfassung mit Datum, Abschluss und Ablaufdatum",
+            "Qualifikationsübersicht pro Mitglied",
+            "Aggregierte Auswertung des Aus- und Fortbildungsstands",
+            "Verknüpfung mit Beförderungsvoraussetzungen",
+            "Export und Nachweisführung"
+        ],
+        keywords: ["Lehrgänge", "Qualifikationsmanagement", "Fortbildung", "Ausbildung Feuerwehr", "Beförderungsvoraussetzungen", "Truppführer", "Lehrgangsnachweis"],
+        icon: GraduationCap,
+        color: "emerald"
+    },
+    "kalender": {
+        title: "Kalender & Terminverwaltung",
+        shortDesc: "Zentraler Kalender für Dienste, Übungen, Veranstaltungen und Termine Ihrer Feuerwehr.",
+        longDesc: "Der integrierte Kalender bündelt alle relevanten Termine Ihrer Organisation an einem Ort. Ob Übungen, Veranstaltungen oder Sonderdienste – alle Beteiligten haben stets den gleichen Informationsstand. Externe Kalenderquellen lassen sich einbinden, sodass ein vollständiges Bild aller Aktivitäten entsteht.",
+        benefits: [
+            "Überblick: Alle Termine der Feuerwehr zentral und aktuell",
+            "Transparenz: Mannschaft und Führung auf demselben Stand",
+            "Integration: Externe Kalenderquellen einbindbar",
+            "Planung: Vorausschauende Koordination von Personal und Ressourcen"
+        ],
+        features: [
+            "Zentraler Terminkalender für die gesamte Organisation",
+            "Verschiedene Terminarten (Übung, Veranstaltung, Dienst, Wartung)",
+            "Teilnehmerverwaltung und Rückmeldung",
+            "Einbindung externer Kalenderquellen",
+            "Verknüpfung mit Einsätzen und Mannschaftsverwaltung"
+        ],
+        keywords: ["Kalender", "Terminverwaltung", "Übungsplanung", "Dienstplanung", "Feuerwehr Kalender", "Veranstaltungsplanung"],
+        icon: CalendarDays,
+        color: "sky"
+    },
+    "befoerderungssystem": {
+        title: "Beförderungssystem",
+        shortDesc: "Automatische Ermittlung von Beförderungsvorschlägen auf Basis hinterlegter Richtlinien.",
+        longDesc: "Das Beförderungsmodul unterstützt Führungskräfte dabei, Beförderungsentscheidungen transparent und regelkonform zu treffen. Auf Basis der hinterlegten Qualifikationen und Dienstzeiten werden Beförderungsvorschläge automatisch ermittelt – nachvollziehbar und ohne aufwändige Einzelprüfungen.",
+        benefits: [
+            "Automatisierung: Keine manuelle Prüfung der Beförderungsvoraussetzungen nötig",
+            "Transparenz: Klare und nachvollziehbare Beförderungsgrundlage",
+            "Fairness: Einheitliche Kriterien für alle Mitglieder",
+            "Zeitersparnis: Führungskräfte entlasten und Prozesse beschleunigen"
+        ],
+        features: [
+            "Automatische Prüfung von Beförderungsvoraussetzungen",
+            "Übersicht beförderungsfähiger Mitglieder",
+            "Berücksichtigung von Qualifikationen und Dienstzeiten",
+            "Dokumentation von Beförderungshistorie",
+            "Flexible Konfiguration der Beförderungsregeln"
+        ],
+        keywords: ["Beförderungssystem", "Beförderung Feuerwehr", "Dienstgrade", "Qualifikationen", "Dienstzeit", "Beförderungsvoraussetzungen"],
+        icon: TrendingUp,
+        color: "amber"
     }
 };
