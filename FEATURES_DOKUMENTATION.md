@@ -1487,3 +1487,180 @@ Durch die Integration aller Module in einer zentralen Plattform entfällt die No
   - Integration von OpenStreetMap-Daten
 - **Konfiguration:**
   - Backend-Dialog zur Definition von Farbbereichen für Durchmesser (z.B. < DN80 = Rot, > DN100 = Blau)
+
+---
+
+### 38. **Stab-Modul / RESQIO:command (NEU v3.9.925+)**
+**Zweck:** Digitale Führungsunterstützung bei komplexen Einsatzlagen, Großschadenslagen und Stabsübungen
+
+**Mehrwert:**
+- **Koordination:** Klare Strukturierung der Stabsarbeit über alle Sachgebiete (S1–S6)
+- **Lückenlosigkeit:** Einsatztagebuch mit Revisionshistorie als rechtssicheres Führungsdokument
+- **Echtzeit:** Alle Stabsmitglieder arbeiten auf demselben Informationsstand
+- **Nachbereitung:** Strukturiertes Lessons-Learned-Format für kontinuierliche Verbesserung
+
+**Features:**
+
+*Stabsführung:*
+- Stabsbesetzung mit definierten Funktionen (Stabsleiter, S1–S6, Sichter, Sprecher)
+- Mehrere Führungsstufen (B, C, D, E) unterstützt
+- Stab-Typen: Einsatz, Übung, Planung, Dauerstab
+- Zuweisung von Einsätzen zu Stäben mit Rollenmodell (Hauptlage, Teillage, Beobachtung)
+
+*Einsatztagebuch (S1–S6):*
+- Live-Protokoll mit Sachgebietszuordnung, Eintragstypen und Prioritätsstufen
+- Revisions-Audit-Trail: Alle Änderungen nachvollziehbar
+- Verankerung von Einträgen, Antwort-Threads und Priorisierung
+- Voice Dictation für hands-free Erfassung
+
+*Aufgaben-Board (Kanban, S1–S4):*
+- Kanban-Ansicht mit Spalten je Sachgebiet
+- Prioritäten, Deadlines, Zuweisungen und Status-Tracking
+- Konfigurierbare Spaltenreihenfolge und -sichtbarkeit
+
+*Besprechungen:*
+- Strukturierte Lagebesprechungen mit Tagesordnungspunkten
+- Teilnehmerliste und Ergebnisprotokoll
+- KI-gestützte Zusammenfassung nach Abschluss
+- Standard-Tagesordnungspunkte konfigurierbar
+
+*Einsatzabschnitte:*
+- Abschnittsstruktur mit Hierarchie (Ober-/Unterabschnitte)
+- Führungskraft, Funkrufname und Abschnittssymbole
+- Zuweisung von Fahrzeugen und Kräften zu Abschnitten
+
+*Gebietsanalyse & Schadenkonten:*
+- Kartenbasierte Zeichenwerkzeuge (Polygon, Kreis) zur Gebietsmarkierung
+- Automatische POI-Abfrage (Hydranten, Krankenhäuser, Sammelstellen) im markierten Gebiet
+- Schadenkonten mit Schweregrad, Gefahren und Maßnahmen
+- Verknüpfung mit Einsatzabschnitten
+
+*Lagekarte (interaktiv, 3D):*
+- Interaktive Einsatzkarte mit taktischen Zeichen nach DIN 14034-3
+- 3D-Gebäudeansicht für räumliche Lageerfassung
+- Polygon/Linie/Rechteck-Zeichenwerkzeuge
+- PNG-Export der Lagekarte
+- Kartenrotation, Mini-Map-Overlay
+
+*MANV & GPS-Tracking:*
+- Patientenliste mit Sichtungskategorien
+- GPS-basiertes Echtzeit-Tracking von Ressourcen und Fahrzeugen im Einsatzgebiet
+
+*Funk-Protokoll:*
+- Erfassung aller Funkkommunikation (Richtung, Sender, Empfänger, Kanal)
+- Markierung wichtiger Meldungen
+- Chronologische Übersicht mit Filterfunktionen
+
+*Einsatzvorlagen & Szenarien:*
+- Vordefinierte Einsatzvorlagen mit Tagesordnungspunkten, Ressourcen und Board-Konfiguration
+- Schnelles Aufsetzen neuer Stabsarbeit bei bekannten Lagearten
+
+*Dokumente & Medien:*
+- Geo-getaggte Foto-/Videodokumentation direkt aus dem Stab
+- Notizen mit Dateianhängen
+
+*Berichte & Abschluss:*
+- Automatisch generierter Einsatzblatt-Abschlussbericht (PDF/Druck)
+- Lessons Learned: Strukturierte Bewertung (Kommunikation, Ressourcen, Führung)
+- Verbesserungsvorschläge und Kernlernpunkte
+
+**Berechtigungen:** Granulares Rollenmodell mit 14 Einzelberechtigungen (Einsatztagebuch, Board, Notizen, Besprechungen, Ressourcen, Gebietsanalyse, KI, Ticker, Admin, Lagekarte 3D)
+
+---
+
+### 39. **Fahrzeugverwaltung (Stammdaten & Flottenstatus)**
+**Zweck:** Zentrale Verwaltung der Fahrzeugflotte mit vollständigen Stammdaten, Ausrüstungsdetails und Einsatzstatus
+
+**Mehrwert:**
+- **Überblick:** Alle Fahrzeuge mit aktuellem Status auf einen Blick
+- **Transparenz:** Vollständige Fahrzeugprofile mit Ausstattungsmerkmalen
+- **Planung:** Verfügbarkeit und Einsatzbereitschaft jederzeit abrufbar
+
+**Features:**
+- Fahrzeugprofile mit Stammdaten (Kennzeichen, Typ, Modell, Baujahr, Ausstattung)
+- Statusverfolgung und Einsatzbereitschaft
+- Verknüpfung mit Einsätzen, Fahrtenbucheinträgen und Wartungssystem
+- Fahrzeugbezogene Wartungsintervalle (km-basiert und zeitbasiert)
+- Aktivitätshistorie und Nutzungsauswertungen
+- Statuszeitverfolgung mit Zeitstempeln für Statuswechsel
+
+---
+
+### 40. **Lehrgänge & Qualifikationsmanagement**
+**Zweck:** Verwaltung aller absolvierter und geplanter Lehrgänge sowie des Qualifikationsstands der Mannschaft
+
+**Mehrwert:**
+- **Transparenz:** Qualifikationsstand aller Mitglieder jederzeit abrufbar
+- **Planung:** Gezielte Steuerung von Aus- und Fortbildungsbedarf
+- **Voraussetzungen:** Klare Grundlage für Beförderungsentscheidungen
+
+**Features:**
+- Lehrgangserfassung mit Datum, Abschlussdatum, Ablaufdatum und Zertifikat-URLs
+- Inline-Bearbeitung ohne Seitennavigation
+- Qualifikationsübersicht pro Mitglied mit Ablauffristen
+- Massenlehrgangs-Buchung für mehrere Mitglieder gleichzeitig
+- Automatische Qualifikations-Aktivierung bei Übungsteilnahme
+- Qualifikationsverfall-Überwachung mit Frühwarnung
+- Aggregierte Auswertung des Ausbildungsstands nach Dienstgrad und Funktion
+- Export für Nachweis- und Meldepflichten
+
+---
+
+### 41. **Kalender & Terminverwaltung**
+**Zweck:** Zentraler Kalender für alle Termine der Feuerwehr mit Multi-Quellenintegration
+
+**Mehrwert:**
+- **Überblick:** Alle Termine zentral und für alle sichtbar
+- **Integration:** Externe Kalenderquellen einbindbar
+- **Planung:** Frühzeitige Koordination von Personal und Ressourcen
+
+**Features:**
+- Zentraler Terminkalender für Dienste, Übungen und Veranstaltungen
+- Verschiedene Terminarten (Übung, Veranstaltung, Dienst, Wartung, BSW)
+- Multi-Quellenintegration: Mehrere externe Kalender gleichzeitig einbindbar (1:n statt 1:1)
+- Individuelle Einstellungen und Sync-Status je Kalenderquelle
+- BSW-Automation: Brandsicherheitswachen automatisch aus externem Kalender importieren
+- Teilnehmerverwaltung und Rückmeldung
+- iCal-Export für externe Kalender-Apps
+
+---
+
+### 42. **Beförderungssystem (Baden-Württemberg)**
+**Zweck:** Automatische Ermittlung und Dokumentation von Beförderungsvorschlägen nach den Richtlinien der Feuerwehr Baden-Württemberg
+
+**Mehrwert:**
+- **Automatisierung:** Keine manuelle Prüfung der Beförderungsvoraussetzungen
+- **Rechtssicherheit:** Einhaltung der BW-Feuerwehr-Beförderungsrichtlinien
+- **Transparenz:** Nachvollziehbare und einheitliche Beförderungskriterien
+
+**Features:**
+- Automatische Prüfung aller Beförderungsvoraussetzungen (Qualifikationen, Dienstzeit, Mindestalter)
+- Übersicht beförderungsfähiger Mitglieder mit Detailbegründung
+- Fallback-Logik für Beförderungen ohne Qualifikation bei erhöhter Dienstzeit
+- Dokumentation der Beförderungshistorie mit Timeline-Ansicht
+- Dienstgrad-Statistiken (Verweildauer, Beförderungsrate)
+- Konfigurierbare Beförderungsregeln je nach Landesrecht
+
+---
+
+### 43. **Statistik-Erweiterungen (v3.9.x)**
+**Neu seit Anfang 2026 – Ergänzungen zum bestehenden Statistik-Modul:**
+
+- **Heatmap-Ansicht:** Einsatzverteilung nach Wochentag und Tageszeit auf einen Blick
+- **Chart-Drill-Down:** Interaktive Vertiefung in Zeitreihen, Kategorien und Einzelwerte
+- **Jahres-Schnellauswahl:** Direkter Wechsel zwischen Auswertungsjahren ohne Neunavigation
+- **Gerätealtersanalyse:** Auswertung des Fuhrparks nach Anschaffungsjahr und geschätzter Restlebensdauer
+- **Verbrauchsmaterial-Statistik:** Erfassung und Auswertung des Verbrauchsmaterialeinsatzes je Einsatz
+- **Fahrzeug-Aktivitäts-Tab:** Auswertung nach Fahrer, Kraftstoffverbrauch und Aktivitätsverlauf
+- **Objektplan-Nutzungsstatistik:** Welche Pläne werden wann und wie oft abgerufen
+- **HTML/PDF Export:** Alle Statistikseiten als professionelle Berichte in beiden Formaten exportierbar
+
+---
+
+### 44. **KI-Personalanalyse-Erweiterungen (v3.9.x)**
+**Neu seit Anfang 2026 – Ergänzungen zur KI-Assistenz:**
+
+- **Qualifikationsverfall-Cluster:** Gruppierung von Mitgliedern mit ähnlich ablaufenden Qualifikationen für gezielte Nachschulungsplanung
+- **Retention-Risk-Analyse:** Früherkennung von Mitgliedern mit Fluktuationsrisiko auf Basis von Aktivitäts- und Engagementdaten
+- **Szenario-Simulation:** KI-gestützte Besetzungsplanung für verschiedene Einsatzszenarien und Tageszeiten
+- **LLM-gestützter Personalbericht:** Vollautomatisch generierter Textbericht mit strategischen Handlungsempfehlungen

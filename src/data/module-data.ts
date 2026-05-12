@@ -26,6 +26,11 @@ import {
     Globe,
     Clock,
     Calendar,
+    CalendarDays,
+    Shield,
+    Truck,
+    GraduationCap,
+    TrendingUp,
     LucideIcon
 } from "lucide-react";
 
@@ -192,6 +197,7 @@ export const modules: Record<string, ModuleData> = {
             "Modulare Spalten: Status, Lagemeldungen, Karte, Personal, Hydranten, Dokumente, Bilder",
             "Führungskräfte-Monitor (Quick Overview) für mobile Endgeräte",
             "Interaktive Whiteboard-Funktion & Taktische Karte mit Einsatzsymbolen",
+            "Taktische Zeichen nach DIN 14034-3: Umfangreiche Symbolbibliothek für die Lagedarstellung",
             "Live-Atemschutzüberwachung mit Trupp-Status",
             "Abschnittsbildung & Funkgruppen-Verwaltung",
             "Schnellzugriff auf Objektpläne, Gefahrstoffdaten und Ansprechpartner",
@@ -468,12 +474,14 @@ export const modules: Record<string, ModuleData> = {
     },
     "fahrtenbuch": {
         title: "Fahrtenbuch & KFZ",
-        shortDesc: "Strukturiertes Fahrtenbuch und Fahrzeugverwaltung.",
-        longDesc: "Digitales Management für Ihre Flotte. Erfassen Sie Fahrten und Tankvorgänge direkt am Fahrzeug per Tablet. Das System liefert Auswertungen zu Kosten, Kilometern und Wartungsbedarf für HLF, LF, TLF, MTW und alle weiteren Fahrzeugtypen.",
+        shortDesc: "Strukturiertes digitales Fahrtenbuch mit Flottenauswertungen, Sammelbericht und automatischer Lückenerkennung.",
+        longDesc: "Digitales Management für Ihre Fahrzeugflotte. Erfassen Sie Fahrten und Tankvorgänge direkt am Tablet. Das System liefert Auswertungen zu Kosten, Kilometern und Wartungsbedarf für HLF, LF, TLF, MTW und alle weiteren Fahrzeugtypen. Der Fahrtenbuch-Sammelbericht fasst mehrere Fahrzeuge und Zeiträume in einem übersichtlichen Querformat-Dokument zusammen – ideal für Jahresberichte und Kontrollen.",
         benefits: [
             "Nachvollziehbarkeit: Fahrtenbuch-Dokumentation nach Vorschrift",
             "Kostencheck: Verbrauch und Betriebskosten der Fahrzeuge im Blick",
-            "Einfach am Tablet: Fahrten direkt im Gerätehaus erfassen"
+            "Einfach am Tablet: Fahrten direkt im Gerätehaus erfassen",
+            "Flottenbericht: Alle Fahrzeuge eines Zeitraums auf einen Blick",
+            "Lückenlos: Automatische Erkennung fehlender Kilometereinträge"
         ],
         features: [
             "Stammdatenverwaltung für HLF, LF, TLF, MTW & Kommandowagen",
@@ -481,9 +489,11 @@ export const modules: Record<string, ModuleData> = {
             "Tankerfassung & Verbrauchsstatistik",
             "Kiosk-Wizard für schnelle Eingabe",
             "KM-basierte Wartungsintervalle",
+            "Fahrtenbuch-Sammelbericht: Mehrere Fahrzeuge im Querformat auswerten",
+            "Automatische Lückenerkennung: Fehlende KM-Einträge werden erkannt und vorgeschlagen",
             "Integration in Einsatzerfassung"
         ],
-        keywords: ["Fahrtenbuch", "Fuhrpark", "KFZ", "Tankbuch", "Kilometerstand", "HLF", "LF", "TLF", "MTW"],
+        keywords: ["Fahrtenbuch", "Fuhrpark", "KFZ", "Tankbuch", "Kilometerstand", "HLF", "LF", "TLF", "MTW", "Sammelbericht"],
         icon: Car,
         color: "slate"
     },
@@ -565,7 +575,9 @@ export const modules: Record<string, ModuleData> = {
             "Veranstaltungsauswertung: Controlling für Feste, BSW und Events",
             "Kameradschaftsportal-Kachel: Self-Service Belegeinreichung für alle Mitglieder",
             "Intelligente Verbuchung: Workflow für Freigabe, Prüfung und Buchung",
-            "KI-gestütztes Beleg-Postfach mit Volltextsuche und automatischer Kategorisierung",
+            "KI-gestützte Belegerkennung: Automatische Texterkennung und Kategorisierung eingereichter Belege",
+            "Kameradschaftskassen: Verwaltung interner Vereinskassen mit gesetzlichen Grenzwertprüfungen",
+            "ZIP-Download: Alle Belege eines Zeitraums als Archiv herunterladen",
             "SEPA-Sammelüberweisungen (PAIN-Format) mit Stapelverarbeitung",
             "Budget- & Haushalts-Monitoring mit Soll/Ist-Vergleich",
             "Kostenstellen-Management für detaillierte Zuordnung",
@@ -685,18 +697,21 @@ export const modules: Record<string, ModuleData> = {
             "Anmelde-Statistik: Häufigkeit der Anmeldungen pro Person mit Badge-Anzeige",
             "IP-Adressen-Protokollierung: Tracking von Gerätetypen und Standorten",
             "Fehler-Analyse: Aggregierte Auswertung zur Identifizierung von Sicherheitsrisiken",
+            "Chart-Drill-Down: Interaktive Vertiefung in Zeitreihen und Kategorien",
+            "Heatmap-Ansicht: Einsatzverteilung nach Wochentag und Uhrzeit",
+            "Jahres-Schnellauswahl: Direkter Wechsel zwischen Auswertungsjahren",
+            "Erweiterte Fahrzeug-Auswertungen: Kraftstoff-Tabelle, Aktivitäten-Tab, Auswertung je Fahrer",
+            "Gerätealtersanalyse: Auswertung nach Anschaffungsjahr und Restlebensdauer",
+            "Verbrauchsmaterial-Auswertung: Einsatz- und Übungsbedarf statistisch erfasst",
+            "Objektplan-Nutzungsstatistik: Welche Pläne werden wann abgerufen",
+            "HTML/PDF Export: Alle Statistikseiten als professionelle Berichte exportierbar",
             "CSV-Export: Export aller Statistikdaten für externe Analyse",
             "Dashboard mit Kacheln für alle Module (Personal, Einsatz, KI)",
             "Jahresbericht (PDF/Excel) mit vollständiger Dokumentation",
             "Druckzentrum: Listen, Etiketten, Laufkarten, Zugangskarten",
             "Spezial-Reports: Beförderung, Exposition, Übungsbeteiligung, Teilnahme-Statistik",
-            "Zeitraum-Filter: 7, 30, 90 Tage oder alle Daten",
             "Top-Nutzer-Ranking: Aktivste Systemnutzer mit Statistiken",
-            "Kostenprognose: Geschätzte Monatskosten für KI basierend auf historischen Daten",
-            "Granulare RBAC: 6+ neue Berechtigungen für Statistik-Zugriff",
-            "Vollständiger Export: Jede Statistikseite als druckfertiges Dokument exportierbar",
-            "PDF direkt im Browser: Berichte ohne Zusatzsoftware als PDF speichern",
-            "Intelligente Filterung: Je nach Einsatz, Übung oder BSW werden nur relevante Felder angezeigt",
+            "Granulare RBAC: Berechtigungen für jeden Statistik-Bereich einzeln steuerbar",
             "Professionelles Layout: Einheitlicher Briefkopf, Tabellen und Unterschriftsfelder über alle Berichte"
         ],
         technicalDetails: [
@@ -820,6 +835,9 @@ export const modules: Record<string, ModuleData> = {
             "KI-Pumpenoptimierung: Intelligente Berechnung optimaler Pumpenstandorte",
             "Smart Parsing: Verarbeitung unstrukturierter Alarm- und Einsatzdaten",
             "Personal-Lücken-Analyse: Vorausschauende Verfügbarkeits-Prognosen",
+            "Qualifikationsverfall-Cluster: Gruppierung ablaufender Qualifikationen für gezielte Nachschulung",
+            "Retention-Risk-Analyse: Früherkennung von Personalrisiken und Fluktuationsgefahr",
+            "Szenario-Simulation: KI-gestützte Besetzungsplanung für verschiedene Einsatzszenarien",
             "KI-Karriereplaner: Individuelle Lehrgangs-Empfehlungen basierend auf Potenzialanalyse",
             "Automatische Beförderungsvorschläge nach Dienstzeit und Qualifikationen",
             "Geocodierung & Koordinaten-Optimierung für Einsatzorte",
@@ -995,5 +1013,120 @@ export const modules: Record<string, ModuleData> = {
         keywords: ["Brandsicherheitswache", "BSW", "Veranstaltung", "Events", "Abrechnung", "Fakturierung", "Klientenverwaltung", "Smart Invoicing"],
         icon: Calendar,
         color: "rose"
+    },
+
+    "stab-modul": {
+        title: "Stab & Führungsunterstützung",
+        shortDesc: "Digitale Stabsarbeit für komplexe Einsatzlagen – von der Lageerfassung über die Führungsdokumentation bis zur strukturierten Nachbereitung.",
+        longDesc: "Das Stab-Modul unterstützt Führungskräfte bei anspruchsvollen Einsätzen und Großschadenslagen. Strukturierte Werkzeuge für alle Sachgebiete des Stabes, ein Live-Einsatztagebuch, eine interaktive Lagekarte mit taktischen Zeichen sowie eine vollständige Einsatzdokumentation sorgen dafür, dass Entscheidungen nachvollziehbar bleiben und die Stabsarbeit auch unter Druck geordnet verläuft. MANV-Unterstützung, GPS-gestütztes Ressourcentracking und automatisch generierte Abschlussberichte runden das Modul ab.",
+        benefits: [
+            "Überblick: Alle einsatzrelevanten Informationen zentral und in Echtzeit",
+            "Koordination: Klare Zuständigkeiten für alle Sachgebiete des Stabes",
+            "Nachvollziehbarkeit: Lückenlose Dokumentation aller Führungsentscheidungen",
+            "Qualitätssicherung: Strukturierte Nachbereitung mit Lessons Learned",
+            "Großschadenslage: MANV-Unterstützung und ressourcenübergreifende Koordination",
+            "Ausdruck: Einsatzblatt als Druckdokument für Übergabe und Abschluss"
+        ],
+        features: [
+            "Stabsbesetzung mit definierten Rollen und Sachgebietszuständigkeiten",
+            "Live-Einsatztagebuch mit Echtzeiterfassung und Revisionshistorie",
+            "Besprechungsmanagement mit Tagesordnung und Ergebnisprotokoll",
+            "Einsatzabschnittsverwaltung und Kräftezuordnung",
+            "Interaktive Lagekarte mit taktischen Zeichen (DIN 14034-3)",
+            "MANV-Patientenliste mit GPS-gestütztem Echtzeit-Tracking der Ressourcen",
+            "Funk- und Kommunikationsprotokoll",
+            "Gebietsanalyse mit Schadenkonten und Gefährdungsbewertung",
+            "Einsatzvorlagen und Szenarien für wiederkehrende Lagen",
+            "Automatischer Einsatzblatt-Generator als Druckdokument",
+            "Lessons Learned und Qualitätssicherung nach dem Einsatz",
+            "KI-gestützte Zusammenfassung von Lagebesprechungen"
+        ],
+        keywords: ["Stabsarbeit", "Führungsunterstützung", "Einsatztagebuch", "Einsatzleitung", "Führungsstab", "MANV", "Großschadenslage", "Taktische Zeichen", "Lagekarte", "Stab Feuerwehr", "Führungsorganisation"],
+        icon: Shield,
+        color: "slate"
+    },
+    "fahrzeugverwaltung": {
+        title: "Fahrzeugverwaltung & Flotte",
+        shortDesc: "Zentrale Verwaltung aller Fahrzeuge mit Stammdaten, Status und Einsatzhistorie.",
+        longDesc: "Behalten Sie Ihre gesamte Fahrzeugflotte im Griff – von der Stammdatenpflege bis zur Statusübersicht. Das Modul ergänzt das Fahrtenbuch um eine umfassende Flottenverwaltung mit Fahrzeugprofilen, Ausstattungsmerkmalen und einer klaren Übersicht über Einsatzbereitschaft und Verfügbarkeit jedes Fahrzeugs.",
+        benefits: [
+            "Überblick: Alle Fahrzeuge mit Status auf einen Blick",
+            "Dokumentation: Vollständige Fahrzeugprofile mit relevanten Daten",
+            "Planung: Verfügbarkeit und Einsatzbereitschaft im Griff",
+            "Verknüpfung: Nahtlose Integration mit Fahrtenbuch und Einsatzplanung"
+        ],
+        features: [
+            "Fahrzeugsprofile mit Stammdaten (Kennzeichen, Typ, Ausstattung)",
+            "Statusverfolgung und Einsatzbereitschaft",
+            "Verknüpfung mit Einsätzen und Fahrtenbucheinträgen",
+            "Fahrzeugbezogene Wartungsintervalle und -dokumentation",
+            "Übersicht über Fahrzeugzuordnungen im Einsatz"
+        ],
+        keywords: ["Fahrzeugverwaltung", "Fuhrpark", "Flottenmanagement", "Feuerwehrfahrzeuge", "KFZ Verwaltung", "Fahrzeugstatus", "Einsatzfahrzeuge"],
+        icon: Truck,
+        color: "orange"
+    },
+    "lehrgaenge": {
+        title: "Lehrgänge & Qualifikationsmanagement",
+        shortDesc: "Verwaltung von Lehrgängen, Qualifikationen und Beförderungsvoraussetzungen für alle Mitglieder.",
+        longDesc: "Behalten Sie den Überblick über absolvierte und geplante Lehrgänge Ihrer gesamten Mannschaft. Das Modul unterstützt bei der Planung von Fortbildungen, verfolgt den Qualifikationsstand jedes Mitglieds und liefert die Datengrundlage für Beförderungsentscheidungen – alles zentral und auf dem aktuellen Stand.",
+        benefits: [
+            "Transparenz: Qualifikationsstand aller Mitglieder jederzeit einsehbar",
+            "Planung: Gezielte Steuerung des Aus- und Fortbildungsbedarfs",
+            "Beförderungen: Klare Grundlage für Beförderungsentscheidungen",
+            "Nachweis: Lehrgangshistorie und Zertifikate dokumentiert"
+        ],
+        features: [
+            "Lehrgangserfassung mit Datum, Abschluss und Ablaufdatum",
+            "Qualifikationsübersicht pro Mitglied",
+            "Aggregierte Auswertung des Aus- und Fortbildungsstands",
+            "Verknüpfung mit Beförderungsvoraussetzungen",
+            "Export und Nachweisführung"
+        ],
+        keywords: ["Lehrgänge", "Qualifikationsmanagement", "Fortbildung", "Ausbildung Feuerwehr", "Beförderungsvoraussetzungen", "Truppführer", "Lehrgangsnachweis"],
+        icon: GraduationCap,
+        color: "emerald"
+    },
+    "kalender": {
+        title: "Kalender & Terminverwaltung",
+        shortDesc: "Zentraler Kalender für Dienste, Übungen, Veranstaltungen und Termine Ihrer Feuerwehr.",
+        longDesc: "Der integrierte Kalender bündelt alle relevanten Termine Ihrer Organisation an einem Ort. Ob Übungen, Veranstaltungen oder Sonderdienste – alle Beteiligten haben stets den gleichen Informationsstand. Externe Kalenderquellen lassen sich einbinden, sodass ein vollständiges Bild aller Aktivitäten entsteht.",
+        benefits: [
+            "Überblick: Alle Termine der Feuerwehr zentral und aktuell",
+            "Transparenz: Mannschaft und Führung auf demselben Stand",
+            "Integration: Externe Kalenderquellen einbindbar",
+            "Planung: Vorausschauende Koordination von Personal und Ressourcen"
+        ],
+        features: [
+            "Zentraler Terminkalender für die gesamte Organisation",
+            "Verschiedene Terminarten (Übung, Veranstaltung, Dienst, Wartung)",
+            "Teilnehmerverwaltung und Rückmeldung",
+            "Einbindung externer Kalenderquellen",
+            "Verknüpfung mit Einsätzen und Mannschaftsverwaltung"
+        ],
+        keywords: ["Kalender", "Terminverwaltung", "Übungsplanung", "Dienstplanung", "Feuerwehr Kalender", "Veranstaltungsplanung"],
+        icon: CalendarDays,
+        color: "sky"
+    },
+    "befoerderungssystem": {
+        title: "Beförderungssystem",
+        shortDesc: "Automatische Ermittlung von Beförderungsvorschlägen auf Basis hinterlegter Richtlinien.",
+        longDesc: "Das Beförderungsmodul unterstützt Führungskräfte dabei, Beförderungsentscheidungen transparent und regelkonform zu treffen. Auf Basis der hinterlegten Qualifikationen und Dienstzeiten werden Beförderungsvorschläge automatisch ermittelt – nachvollziehbar und ohne aufwändige Einzelprüfungen.",
+        benefits: [
+            "Automatisierung: Keine manuelle Prüfung der Beförderungsvoraussetzungen nötig",
+            "Transparenz: Klare und nachvollziehbare Beförderungsgrundlage",
+            "Fairness: Einheitliche Kriterien für alle Mitglieder",
+            "Zeitersparnis: Führungskräfte entlasten und Prozesse beschleunigen"
+        ],
+        features: [
+            "Automatische Prüfung von Beförderungsvoraussetzungen",
+            "Übersicht beförderungsfähiger Mitglieder",
+            "Berücksichtigung von Qualifikationen und Dienstzeiten",
+            "Dokumentation von Beförderungshistorie",
+            "Flexible Konfiguration der Beförderungsregeln"
+        ],
+        keywords: ["Beförderungssystem", "Beförderung Feuerwehr", "Dienstgrade", "Qualifikationen", "Dienstzeit", "Beförderungsvoraussetzungen"],
+        icon: TrendingUp,
+        color: "amber"
     }
 };
