@@ -13,11 +13,13 @@
 
 ## Preismodelle
 
-| Paket | Zielgruppe | Jahrespreis |
-|---|---|---|
-| All in One | Gemeinden < 5.000 Einwohner | 399 € |
-| Professional | Gemeinden < 10.000 Einwohner | 599 € |
-| Enterprise | Städte & Kreise | Auf Anfrage |
+Die Preise richten sich nach der Größe und den Anforderungen der Feuerwehr. Individuelle Angebote auf Anfrage unter support@resqio.de.
+
+| Paket | Zielgruppe |
+|---|---|
+| All in One | Gemeinden < 5.000 Einwohner |
+| Professional | Gemeinden < 10.000 Einwohner |
+| Enterprise | Städte & Kreise |
 
 ## Kernfunktionen & Mehrwert
 
