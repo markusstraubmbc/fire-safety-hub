@@ -97,8 +97,8 @@ export const modules: Record<string, ModuleData> = {
     },
     "wartungsmanagement": {
         title: "Wartungsmanagement",
-        shortDesc: "Planung, Durchführung und Dokumentation aller Prüfarbeiten.",
-        longDesc: "Sichern Sie die Einsatzbereitschaft und das strukturierte Vorgehen durch automatisierte Wartungsplanung. Das System generiert Termine basierend auf Intervallen, bietet geführte Checklisten und dokumentiert Arbeitszeiten sowie Mängel. Auch extern durchgeführte Wartungen lassen sich nahtlos integrieren.",
+        shortDesc: "Gerätewart-Software für die Feuerwehr – Prüffristen automatisch planen, DGUV-konforme Checklisten führen und alle Wartungsarbeiten lückenlos dokumentieren.",
+        longDesc: "Die zentrale Gerätewart-Software für einsatzbereite Feuerwehren. Prüffristen nach DGUV und Herstellervorgaben werden automatisch überwacht, Checklisten geführt und Arbeitszeiten dokumentiert. Extern durchgeführte Wartungen durch Fachfirmen lassen sich nahtlos integrieren.",
         benefits: [
             "Verlässlichkeit: Einhaltung der Prüffristen nach DGUV und Herstellervorgaben",
             "Planungssicherheit: Vorausschauende Wartung schont das Budget",
@@ -113,7 +113,7 @@ export const modules: Record<string, ModuleData> = {
             "Integration externer Dienstleister & Ad-Hoc Wartungen",
             "Zeiterfassung & Kostenkalkulation pro Wartung"
         ],
-        keywords: ["Wartungsplaner", "Prüffristen", "DGUV", "Gerätewart", "Checklisten", "Instandhaltung"],
+        keywords: ["Gerätewart Software", "Gerätewart App", "Feuerwehr Gerätewart", "Wartungsplaner Feuerwehr", "Prüffristen Software", "DGUV Prüfung", "Prüfbuch digital", "UVV Prüfung Feuerwehr", "Gerätebuch digital", "Checklisten Wartung", "Instandhaltung Feuerwehr"],
         icon: Wrench,
         color: "slate"
     },
@@ -178,7 +178,7 @@ export const modules: Record<string, ModuleData> = {
     },
     "lagemonitor": {
         title: "Lagemonitor & Führung",
-        shortDesc: "Echtzeit-Führungssystem mit Wasserkarten, POI-Management, Hydrantenübersicht und KI-gestütztem Dokumentenzugriff.",
+        shortDesc: "Digitale Lagekarte und Führungssystem für die Feuerwehr – Echtzeit-Hydrantenübersicht, taktische Zeichen, POI-Management und KI-gestützter Dokumentenzugriff.",
         longDesc: "Die zentrale Kommandozentrale für die Einsatzleitung. Der Lagemonitor vereint alle taktisch relevanten Informationen in einer intelligenten Oberfläche: Interaktive Wasserkarten zeigen verfügbare Hydranten in Echtzeit, lokale POIs (Sammelstellen, Gefahrenstellen, Zufahrten) sind sofort abrufbar, und das KI-gestützte Dokumentenmanagement liefert relevante Objektpläne und Einsatzunterlagen automatisch. Von Lagemeldungen über Fahrzeugstatus bis zur Atemschutzüberwachung – alles auf einen Blick.",
         benefits: [
             "Wasserversorgung: Integrierte Wasserkarten mit Live-Hydrantenstatus und Durchflussmengen",
@@ -213,14 +213,14 @@ export const modules: Record<string, ModuleData> = {
             "KI erkennt automatisch die relevantesten Dokumente für den aktuellen Einsatzort",
             "Mehrere Führungskräfte können gleichzeitig auf der Lagekarte arbeiten"
         ],
-        keywords: ["Einsatzführung", "Lagekarte", "Wasserkarte", "Hydrantenmanagement", "POI", "KI Dokumentenzugriff", "Statusmonitor", "Führungshilfsmittel", "Taktik", "Einsatzleitung"],
+        keywords: ["Lagekarte Feuerwehr Software", "digitale Lagekarte Feuerwehr", "Führungssystem Feuerwehr", "Einsatzleitung Software", "Hydrantenplan digital", "Wasserkarte Feuerwehr", "taktische Zeichen Software", "POI Feuerwehr", "Einsatzführung digital", "Leitstelle Feuerwehr Software"],
         icon: Map,
         color: "blue"
     },
     "atemschutzueberwachung": {
-        title: "Atemschutzüberwachung",
-        shortDesc: "Digitale ASÜ und Tauglichkeitsverwaltung.",
-        longDesc: "Maximale Sicherheit im Atemschutzeinsatz. Das Modul kombiniert die operative Überwachung im Einsatz (Timer, Drücke, Trupps) mit der administrativen Verwaltung der Tauglichkeit und Belastungsübungen.",
+        title: "Digitale Atemschutzüberwachung",
+        shortDesc: "Digitale Atemschutzüberwachung für Feuerwehren – Echtzeit-Truppmonitoring, G26.3-Tauglichkeitsverwaltung und FwDV 7 konforme Dokumentation in einer Lösung.",
+        longDesc: "Maximale Sicherheit im Atemschutzeinsatz – digital und lückenlos. Das Modul kombiniert die operative Überwachung im Einsatz (Timer, Drücke, Trupps) mit der administrativen Verwaltung der Tauglichkeit und Belastungsübungen. Alle AGT-Einsätze werden automatisch dokumentiert und stehen für Auswertungen zur Verfügung.",
         benefits: [
             "Sicherheit: Warnung bei Zeit- oder Drucküberschreitung im Innenangriff",
             "Sicherheit: Dokumentationspflicht nach FwDV 7 lückenlos erfüllt",
@@ -234,7 +234,7 @@ export const modules: Record<string, ModuleData> = {
             "Fristenmanagement & Belastungsübungs-Tracking",
             "Dashboard-Widget für Atemschutz-Pool-Status"
         ],
-        keywords: ["ASÜ", "Atemschutz", "G26.3", "Truppüberwachung", "Einsatzsicherheit", "Belastungsübung"],
+        keywords: ["digitale Atemschutzüberwachung", "Atemschutzüberwachung digital", "ASÜ Software", "AGT Verwaltung", "Atemschutz Feuerwehr Software", "G26.3", "Truppüberwachung", "Einsatzsicherheit", "Belastungsübung", "FwDV 7", "Atemschutzgeräteträger"],
         icon: AlertTriangle,
         color: "amber"
     },
@@ -285,7 +285,7 @@ export const modules: Record<string, ModuleData> = {
     },
     "mannschaftsverwaltung": {
         title: "Personal & Kameraden Management",
-        shortDesc: "Vollständige Personalverwaltung mit Überprüfungsportal, Verifikationssystem, Rollenmanagement und KI-Analysen.",
+        shortDesc: "Feuerwehr-Personalverwaltung digital – Mitgliederverwaltung, Qualifikationen, Beförderungen und KI-gestützte Personalanalyse in einer Plattform.",
         longDesc: "Die zentrale Plattform für modernes Personalmanagement in der Feuerwehr. Verwalten Sie Stammdaten, Qualifikationen und Berechtigungen mit professionellem Rollenmanagement. Notfallkontakte sind vollständig integriert und können als vCard exportiert werden. Der neue Lehrgänge-Tab ermöglicht Inline-Bearbeitung ohne Dialog-Wechsel. Das integrierte Überprüfungsportal ermöglicht die systematische Kontrolle aller Personalinformationen, während das Verifikationsportal mit Feedback-System die Qualität der Daten sicherstellt. KI-gestützte Analysen liefern strategische Erkenntnisse zur Verfügbarkeit und Personalplanung.",
         benefits: [
             "Sicherheit: Notfallkontakte jederzeit verfügbar und exportierbar",
@@ -328,7 +328,7 @@ export const modules: Record<string, ModuleData> = {
             "Automatische Freigabe-Workflows für Personaländerungen",
             "Automatische Erinnerungen bei ablaufenden Qualifikationen und Fristen"
         ],
-        keywords: ["Kameradenverwaltung", "Personalmanagement", "Rollenmanagement", "Überprüfungsportal", "Verifikation", "Lehrgänge", "Beförderung", "KI Analyse", "Verfügbarkeit", "RFID", "Berechtigungen"],
+        keywords: ["Feuerwehr Personalverwaltung", "Feuerwehr Mitgliederverwaltung", "Kameradenverwaltung digital", "Personalakte Feuerwehr", "Qualifikationsverwaltung Feuerwehr", "Feuerwehr Übungspräsenz", "KI Personalanalyse Feuerwehr", "Rollenmanagement Feuerwehr", "Beförderung Feuerwehr Software", "RFID Feuerwehr"],
         icon: Users,
         color: "blue"
     },
@@ -559,7 +559,7 @@ export const modules: Record<string, ModuleData> = {
     },
     "treasury-kassier": {
         title: "Kassier Modul - Professionelle Vereinsbuchhaltung",
-        shortDesc: "Vollständige Buchhaltung mit Rechnungsmanagement, §2b UStG-Auswertung, JHV-Bericht und Event P&L-Analyse.",
+        shortDesc: "Kassier-Software für Feuerwehrvereine – §2b UStG-konforme Buchhaltung, SEPA-Export, Belegeinreichung und professionelle Jahresberichte.",
         longDesc: "Das professionelle Finanzmodul für Feuerwehr-Vereine und kommunale Feuerwehren. Von der dezentralen Belegeinreichung über die automatisierte Verbuchung bis zur steuerkonformen Auswertung nach §2b UStG. Neu: Professionelles Rechnungsmanagement mit E-Mail-Versand und PDF-Export, automatisierte JHV-Berichte mit Reverse-Geocoding und Event P&L-Berichte für Veranstaltungs-Controlling. Das Kameradschaftsportal ermöglicht jedem Mitglied die eigenständige Belegeinreichung – der Kassier behält die volle Kontrolle über alle Buchungen.",
         benefits: [
             "Steuerkonformität: Automatische Auswertung nach §2b UStG für gemeinnützige Vereine",
@@ -597,7 +597,7 @@ export const modules: Record<string, ModuleData> = {
             "Export-fertig für Steuerberater, Finanzamt und Kassenprüfer",
             "Revisionssichere Archivierung aller Belege und Buchungen"
         ],
-        keywords: ["Finanzwesen", "Kassier", "§2b UStG", "Vereinsbuchhaltung", "SEPA", "Veranstaltungsauswertung", "Belegeinreichung", "Treasury", "Steuerkonform", "Kassenprüfung"],
+        keywords: ["§2b UStG Feuerwehr", "§ 2b ustg Verein", "Kassier Software Feuerwehr", "Feuerwehrverein Buchhaltung", "Vereinsbuchhaltung Software", "SEPA Sammelüberweisung Feuerwehr", "Belegeinreichung Feuerwehr", "Kassenprüfer Bericht", "Steuerkonform Feuerwehr", "Feuerwehr Vereinsfinanzen"],
         icon: CreditCard,
         color: "green"
     },
