@@ -14,11 +14,17 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  esbuild: {
+    // Remove license comments from production bundles (reduces bundle size)
+    legalComments: "none",
+  },
   build: {
     target: "es2020",
     cssCodeSplit: true,
     assetsInlineLimit: 4096,
     chunkSizeWarningLimit: 600,
+    // Disable sourcemaps in production to reduce deploy size
+    sourcemap: mode === "development",
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -37,6 +43,9 @@ export default defineConfig(({ mode }) => ({
             }
             if (id.includes("@tanstack")) {
               return "vendor-query";
+            }
+            if (id.includes("embla-carousel")) {
+              return "vendor-carousel";
             }
           }
         },

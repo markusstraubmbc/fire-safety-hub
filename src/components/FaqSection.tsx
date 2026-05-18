@@ -9,6 +9,18 @@ import { HelpCircle } from "lucide-react";
 const FaqSection = () => {
     const faqs = [
         {
+            question: "Was kostet RESQIO?",
+            answer: "Die Preise richten sich nach der Größe und den Anforderungen Ihrer Feuerwehr. Kontaktieren Sie uns für ein individuelles Angebot unter support@resqio.de oder über das Kontaktformular. Wir finden gemeinsam das passende Modell – von der kleinen Ortswehr bis zum Kreisfeuerwehrverband."
+        },
+        {
+            question: "Gibt es ein Kreismodul für Kreisfeuerwehrverbände?",
+            answer: "Ja! Das RESQIO Kreismodul ist speziell für Kreisbrandmeister und Kreisfeuerwehrverbände entwickelt. Es ermöglicht die zentrale Verwaltung aller angeschlossenen Wehren mit voller Datensouveränität je Feuerwehr, gemeinsamen Ressourcen-Übersichten, Einladungssystem für neue Wehren und kreisweiten Auswertungen – alles in einem System."
+        },
+        {
+            question: "Gibt es eine mobile App und einen Kiosk-Modus?",
+            answer: "RESQIO ist vollständig mobil-optimiert und läuft im Browser auf jedem Smartphone und Tablet. Zusätzlich gibt es den speziellen Kiosk-Modus mit 57 touchscreen-optimierten Modulen für Tablets im Gerätehaus – mit RFID-Login, PIN und QR-Code. So können Kameraden Wartungen, Fahrtenbuch, Belegeinreichung und mehr selbstständig erledigen."
+        },
+        {
             question: "Ist die Software rechtssicher?",
             answer: "RESQIO ist so konzipiert, dass es alle relevanten Dokumentationspflichten (z.B. nach DGUV oder FwDV) unterstützt. Da wir jedoch nicht förmlich zertifiziert sind, nutzen wir Begriffe wie 'Nachvollziehbar' oder 'Lückenlos', um ehrlich und transparent zu bleiben. Die Erfahrung zeigt: Im Ernstfall zählt die Qualität Ihrer Daten."
         },
