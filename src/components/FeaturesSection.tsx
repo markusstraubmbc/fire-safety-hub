@@ -31,6 +31,7 @@ import {
   GraduationCap,
   CalendarDays,
   TrendingUp,
+  Bell,
   LucideIcon,
   ArrowRight,
 } from "lucide-react";
@@ -80,7 +81,7 @@ export const features: Feature[] = [
   {
     icon: Wrench,
     title: "Wartungsmanagement",
-    description: "Planung, Durchführung und Dokumentation aller Prüfarbeiten und Fristen.",
+    description: "Planung, Durchführung und Dokumentation aller Prüfarbeiten und Fristen – inklusive digitaler Unterschrift des Prüfers direkt auf dem Protokoll.",
     slug: "wartungsmanagement",
   },
   {
@@ -94,6 +95,12 @@ export const features: Feature[] = [
     title: "Atemschutzüberwachung",
     description: "Digitale ASÜ und Tauglichkeitsverwaltung für maximale Sicherheit.",
     slug: "atemschutzueberwachung",
+  },
+  {
+    icon: Bell,
+    title: "Alarmmonitor",
+    description: "Live-Alarmdarstellung im Gerätehaus: Einsatzdaten, Fahrzeugstatus und Hydrantenkarte bei Alarmierung sofort sichtbar. Mit FMS-Integration via MQTT/Webhook und Ruhemodus-Anzeige.",
+    slug: "alarmmonitor",
   },
 
   // Specialized Modules
@@ -241,7 +248,7 @@ export const features: Feature[] = [
   {
     icon: Shield,
     title: "Stab & Führungsunterstützung",
-    description: "Digitale Stabsarbeit für Großschadenlagen und Übungen. Unterstützt alle Stabsfunktionen, strukturierte Lageführung, Einsatztagebuch und abschließende Nachbereitung.",
+    description: "Digitale Stabsarbeit für Großschadenlagen: MANV-Sichtungsliste, Funk-Protokoll, Entscheidungsprotokoll, Einsatztagebuch und strukturierte Einsatznachbereitung für alle Stabsfunktionen S1–S6.",
     slug: "stab-modul",
   },
   {

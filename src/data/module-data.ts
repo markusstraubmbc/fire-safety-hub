@@ -31,6 +31,7 @@ import {
     Truck,
     GraduationCap,
     TrendingUp,
+    Bell,
     LucideIcon
 } from "lucide-react";
 
@@ -48,56 +49,51 @@ export interface ModuleData {
 
 export const modules: Record<string, ModuleData> = {
     "kommandozentrale": {
-        title: "Dashboard & Übersicht",
-        shortDesc: "Zentrale Übersicht über alle wichtigen Kennzahlen und Statusmeldungen.",
-        longDesc: "Das Dashboard ist die zentrale Kommandozentrale Ihrer Feuerwehr. Es bietet sofortige Transparenz über alle kritischen Informationen auf einen Blick und dient als Frühwarnsystem für anstehende Aufgaben. Mit konfigurierbaren Widgets und einer geografischen Nutzeranalyse behalten Sie stets den Überblick über Lizenzstatus, Updates und die aktuellen Aktivitäten im System.",
+        title: "Kommandozentrale",
+        shortDesc: "Die intelligente Zentrale für Führungskräfte – Echtzeit-Überblick über alle Einheiten, Ressourcen und Einsätze.",
+        longDesc: "Die Kommandozentrale ist das Herzstück von RESQIO. Sie bündelt alle einsatzrelevanten Informationen in einer übersichtlichen Oberfläche und ermöglicht Führungskräften, jederzeit den vollen Überblick zu behalten. Von der Alarmierung bis zur Nachbereitung – alles an einem Ort.",
         benefits: [
-            "Sofortige Transparenz: Die Einsatzbereitschaft Ihrer Wehr auf einen Blick",
-            "Frühwarnsystem: Automatische Erinnerung an fällige Prüfungen und Termine",
-            "Detaillierte Auswertung: Berichte nach Kategorie, Kamerad, Standort und Jahr",
-            "Lückenlose Dokumentation: Alle Systemzustände jederzeit archivfest exportierbar"
+            "Überblick: Alle Einheiten, Fahrzeuge und Ressourcen auf einen Blick",
+            "Echtzeit: Live-Updates ohne manuelles Aktualisieren",
+            "Vernetzung: Alle Module greifen auf dieselben Daten zu",
+            "Entscheidungsunterstützung: Relevante Informationen zur richtigen Zeit"
         ],
         features: [
-            "Gesamtstatistiken & Kategorieübersicht mit Bereitschaftsgrad",
-            "Systemstatus-Widget (Lizenz, Updates, Benachrichtigungen) & Offene Inventuren",
-            "Wäschemanagement-, Warenbewegungen- & Mängel-Übersicht",
-            "Fahrtenbuch-Widget mit letzten Einträgen & Kombinierte Aktionen",
-            "User Analytics Map: Geografische Visualisierung der letzten Benutzerzugriffe"
+            "Live-Dashboard mit Einsatz- und Ressourcenstatus",
+            "Schnellzugriff auf alle Module und häufige Aktionen",
+            "Personalisierbare Widgets und Ansichten",
+            "Integrierte Benachrichtigungen und Alarme",
+            "Rollenbasierter Zugriff für verschiedene Führungsebenen"
         ],
-        keywords: ["Feuerwehr Dashboard", "Kommandozentrale", "Statusübersicht", "Frühwarnsystem", "Live-Statistik"],
+        keywords: ["Kommandozentrale", "Führungssoftware Feuerwehr", "Einsatzleitung", "Echtzeit Dashboard", "Feuerwehr Software"],
         icon: LayoutDashboard,
-        color: "indigo"
+        color: "red"
     },
     "ausruestungsverwaltung": {
-        title: "Gerätehaus & Technik",
-        shortDesc: "Lückenlose Dokumentation und Verwaltung aller Ausrüstungsgegenstände.",
-        longDesc: "Die zentrale Verwaltung für Ihr gesamtes Inventar. Von der Anschaffung bis zur Aussonderung wird jeder Gegenstand mit vollständiger Historie dokumentiert. Die Integration von Codescan-Technologie ermöglicht sekundenschnelle Zugriffe. Ein intelligentes Lifecycle-Management liefert Daten für Ersatzbeschaffungen und Wirtschaftlichkeitsanalysen.",
+        title: "Ausrüstungsverwaltung",
+        shortDesc: "Vollständige Verwaltung der gesamten Ausrüstung – von Schutzausrüstung über Atemschutzgeräte bis zu Sonderwerkzeug.",
+        longDesc: "Die zentrale Ausrüstungsverwaltung bietet einen vollständigen Überblick über das gesamte Material der Feuerwehr. Jedes Gerät, jede Ausrüstung und jedes Fahrzeugzubehör wird erfasst, überwacht und dokumentiert. Standorte, Prüfdaten und Verfügbarkeit sind jederzeit einsehbar.",
         benefits: [
-            "Lückenlose Dokumentation: Die gesamte Vita jedes Geräts im Zugriff",
-            "Schnelle Suche: Barcodescan für sofortige Infos direkt am Regal",
-            "Wirtschaftlichkeits-Check: Fundierte Daten für die nächste Beschaffungsrunde",
-            "Effiziente Datenpflege: Massenbearbeitung für schnelles Arbeiten im Gerätehaus"
+            "Transparenz: Jedes Gerät mit aktuellem Status und Standort",
+            "Prüffristen: Automatische Überwachung und Erinnerungen",
+            "Verfügbarkeit: Sofort sehen was einsatzbereit ist und was nicht",
+            "Dokumentation: Vollständige Geschichte jedes Geräts"
         ],
         features: [
-            "Erfassung mit Stammdaten (Hersteller, Seriennummer, Kaufdatum, Status)",
-            "Scanner-Integration & Etikettendruck",
-            "Lifecycle Analyse: Kostenkontrolle, Ausfallquoten & Wartungs-Defekt-Verhältnis",
-            "Aktionsbereich: Dokumentation von Ausgabe, Rückgabe, Reinigung, Reparatur",
-            "Ausrüstungsbündel (Bundles): Gruppierung zu logischen Einheiten (Parent/Child)",
-            "Tagging-System & Bildupload"
+            "Gerätedatenbank mit QR-Code und Barcode-Integration",
+            "Prüffristen-Tracking und automatische Erinnerungen",
+            "Standortverwaltung und Fahrzeugzuordnung",
+            "Einsatzhistorie pro Gerät",
+            "Schadenmeldung und Reparaturtracking",
+            "Export für Inventur und Versicherungszwecke"
         ],
-        technicalDetails: [
-            "Unterstützung gängiger Scan-Technologien",
-            "Massenimport/-export und Duplikatserkennung",
-            "Historische Kostentrends (6-36 Monate)"
-        ],
-        keywords: ["Feuerwehr Inventar", "Gerätewartung", "Einsatzmittel", "Feuerwehr Technik", "Barcode Scanner"],
-        icon: ClipboardList,
-        color: "zinc"
+        keywords: ["Ausrüstungsverwaltung", "Geräteverwaltung Feuerwehr", "Inventar Feuerwehr", "Prüffristen", "QR Code Feuerwehr"],
+        icon: Package,
+        color: "orange"
     },
     "wartungsmanagement": {
         title: "Wartungsmanagement",
-        shortDesc: "Gerätewart-Software für die Feuerwehr – Prüffristen automatisch planen, DGUV-konforme Checklisten führen und alle Wartungsarbeiten lückenlos dokumentieren.",
+        shortDesc: "Digitale Prüf- und Wartungsverwaltung mit Unterschrift für alle Feuerwehrgeräte und Fristen",
         longDesc: "Die zentrale Gerätewart-Software für einsatzbereite Feuerwehren. Prüffristen nach DGUV und Herstellervorgaben werden automatisch überwacht, Checklisten geführt und Arbeitszeiten dokumentiert. Extern durchgeführte Wartungen durch Fachfirmen lassen sich nahtlos integrieren.",
         benefits: [
             "Verlässlichkeit: Einhaltung der Prüffristen nach DGUV und Herstellervorgaben",
@@ -111,9 +107,12 @@ export const modules: Record<string, ModuleData> = {
             "Dokumentation mit Fotos, Zeitaufwand und ausführender Person",
             "Geführte Intervalle pro Kategorie (Voranzeige & Wiederholung)",
             "Integration externer Dienstleister & Ad-Hoc Wartungen",
-            "Zeiterfassung & Kostenkalkulation pro Wartung"
+            "Zeiterfassung & Kostenkalkulation pro Wartung",
+            "Digitale Unterschrift des Prüfers direkt auf dem Wartungsprotokoll – rechtssicher und revisionsfest",
+            "Prüfprotokolle als PDF mit eingebetteter Signatur – ideal für DGUV-Nachweise und Versicherungen",
+            "Qualifikationsnachweis: Wer hat wann mit welcher Prüfer-ID geprüft?"
         ],
-        keywords: ["Gerätewart Software", "Gerätewart App", "Feuerwehr Gerätewart", "Wartungsplaner Feuerwehr", "Prüffristen Software", "DGUV Prüfung", "Prüfbuch digital", "UVV Prüfung Feuerwehr", "Gerätebuch digital", "Checklisten Wartung", "Instandhaltung Feuerwehr"],
+        keywords: ["Gerätewart Software", "Gerätewart App", "Feuerwehr Gerätewart", "Wartungsplaner Feuerwehr", "Prüffristen Software", "DGUV Prüfung", "Prüfbuch digital", "UVV Prüfung Feuerwehr", "Gerätebuch digital", "Checklisten Wartung", "Instandhaltung Feuerwehr", "Wartungsprotokoll Unterschrift digital", "digitale Unterschrift Gerätewart Feuerwehr", "Prüfprotokoll Feuerwehr Unterschrift", "DGUV Prüfnachweis digital"],
         icon: Wrench,
         color: "slate"
     },
@@ -258,767 +257,560 @@ export const modules: Record<string, ModuleData> = {
             "Status-Meldungen: Vordefinierte Status (Anfahrt, Vor Ort, Verfügbar, Zurückgekehrt) per One-Tap",
             "Lagemeldungen mit Foto: Situationsberichte mit Bildanhang und Wichtig-Markierung",
             "Material-Erfassung: Vordefinierte Verbrauchsmaterialien plus manuelle Eingabe",
-            "Multi-App-Navigation: Google Maps, Apple Maps, Waze, OpenStreetMap, HERE WeGo",
-            "QR-Code-Generierung: Scanbare Codes für Mobile-Navigation vom Tablet",
-            "Kartenvorschau: Interaktive Mini-Karte mit Einsatzort-Marker",
-            "Automatisches Geocoding: Koordinaten werden aus Adressen ermittelt",
-            "Verbrauchsmaterialien-Verwaltung: Ölbinder, Schaummittel, Medizin mit Bestandsverfolgung",
-            "Kategorisierung: Typ, Einheit und Standort für alle Verbrauchsmaterialien",
-            "KI-Textassistent: Professionelle Berichte per Mausklick & Smart Parsing",
-            "Offene Posten Liste: Strukturierte Nachbereitung mit Aufgabenvergabe",
-            "Missions-Zeit-Vergleich: Benchmarking zwischen Einsätzen",
-            "Umfangreiche PDF-Exporte: Lagekarte, Berichte, Statistiken",
-            "BSW-Verwaltung: Dedizierte Ansicht für Brandsicherheitswachen",
-            "Einsatzbericht-Historie: Lückenlose Dokumentation aller Vorgänge",
-            "Auto-Close für Übungen: Automatisches Schließen nach 7 Tagen – jederzeit manuell wieder öffenbar"
+            "Multi-App-Navigation: Integration von Google Maps, Apple Maps, Waze und OpenStreetMap",
+            "QR-Code-Navigation: Direkte Navigation zur Einsatzstelle per QR-Code",
+            "Automatisches Geocoding: Adresse wird automatisch in Koordinaten umgewandelt",
+            "KI-Berichtsassistent: Professionelle Einsatzberichte in Sekunden generiert",
+            "Eintreffzeit-Analyse: Visualisierung und Vergleich von Reaktionszeiten",
+            "Fahrzeug- und Personalzuordnung mit Stärkeerfassung",
+            "Integration mit Leitstellen-Daten und FMS-Status"
         ],
-        technicalDetails: [
-            "Sicheres externes Portal mit isolierter Datenhaltung",
-            "Offline-fähig: Daten werden lokal gesichert bei Verbindungsverlust",
-            "Höchste Sicherheitsstandards für externe QR-Code-Zugänge",
-            "Automatische Navigations-App-Empfehlung je nach Gerät",
-            "Robuste Adress-Auflösung mit mehreren Fallback-Diensten"
-        ],
-        keywords: ["Einsatzbericht", "Übungsdienst", "FwDV", "Quiz-System", "KI Bericht", "Trainings-Szenarien", "Externes Portal", "Navigation", "Verbrauchsmaterial", "Großeinsatz", "QR-Code"],
-        icon: FileText,
+        keywords: ["Einsatzdokumentation Feuerwehr", "Einsatzbericht digital", "Feuerwehr Einsatzmanagement", "Alarmierung Software", "Einsatzprotokoll", "Quiz Feuerwehr Training", "Verbrauchsmaterial Tracking"],
+        icon: ClipboardList,
         color: "red"
     },
     "mannschaftsverwaltung": {
-        title: "Personal & Kameraden Management",
-        shortDesc: "Feuerwehr-Personalverwaltung digital – Mitgliederverwaltung, Qualifikationen, Beförderungen und KI-gestützte Personalanalyse in einer Plattform.",
-        longDesc: "Die zentrale Plattform für modernes Personalmanagement in der Feuerwehr. Verwalten Sie Stammdaten, Qualifikationen und Berechtigungen mit professionellem Rollenmanagement. Notfallkontakte sind vollständig integriert und können als vCard exportiert werden. Der neue Lehrgänge-Tab ermöglicht Inline-Bearbeitung ohne Dialog-Wechsel. Das integrierte Überprüfungsportal ermöglicht die systematische Kontrolle aller Personalinformationen, während das Verifikationsportal mit Feedback-System die Qualität der Daten sicherstellt. KI-gestützte Analysen liefern strategische Erkenntnisse zur Verfügbarkeit und Personalplanung.",
+        title: "Mannschaftsverwaltung",
+        shortDesc: "Vollständige digitale Personalverwaltung für Feuerwehren – Mitglieder, Qualifikationen, Dienstzeiten und Verfügbarkeit in einer zentralen Lösung.",
+        longDesc: "Die Mannschaftsverwaltung ist das Rückgrat jeder gut organisierten Feuerwehr. Alle Mitgliederdaten, Qualifikationen, Ausbildungen und Dienstzeiten werden zentral verwaltet. Der Tageskalender zeigt die aktuelle Verfügbarkeit aller Kameraden, während das Schichtplanungs-Modul eine vorausschauende Personalplanung ermöglicht.",
         benefits: [
-            "Sicherheit: Notfallkontakte jederzeit verfügbar und exportierbar",
-            "Effizienz: Lehrgänge inline bearbeiten ohne separaten Dialog",
-            "Datenqualität: Überprüfungsportal für systematische Kontrolle aller Personalinformationen",
-            "Verifikation: Feedback-basiertes Verifikationsportal für valide Stammdaten",
-            "Berechtigungen: Granulares Rollenmanagement mit individuellen Zugriffsrechten",
-            "Strategie: KI-Analyse der Schlagkraft und Verfügbarkeit Ihrer Wehr",
-            "Automatisierung: Intelligente Beförderungsvorschläge & Ausbildungsstandkontrolle",
-            "Export: CardDAV/VCF-Export inklusive Notfallkontakte für externe Systeme",
-            "Transparenz: Lückenlose Historie aller Personaländerungen mit Audit-Trail"
+            "Überblick: Vollständiger Überblick über alle Mitglieder und deren Status",
+            "Qualifikationen: Ausbildungen und Zertifikate stets aktuell und auswertbar",
+            "Verfügbarkeit: Tagesaktuelle Einsatzstärke auf einen Blick",
+            "Compliance: Dienstzeiten und Mindestanforderungen im Griff"
         ],
         features: [
-            "Überprüfungsportal: Systematische Review-Workflows für Stammdaten und Qualifikationen",
-            "Verifikationsportal mit Feedback-System: Validierung durch Führungskräfte",
-            "Granulares Rollenmanagement: Individuelle Berechtigungen pro Modul und Funktion",
-            "Berechtigungs-Templates: Vordefinierte Rollen für Kommandant, Gerätewart, Kassier etc.",
-            "Notfallkontakte-Integration: Vollständig in Kontaktsystem integriert mit CardDAV/VCF-Export",
-            "Lehrgänge-Tab: Inline-Bearbeitung mit Abschlussdatum, Ablaufdatum und Zertifikat-URLs",
-            "Stammdaten-Management: Dienstgrade, Funktionen & Identitäts-Management",
-            "KI-Personal-Analyse: Verfügbarkeit, Lehrgangsbedarf und Schlagkraft-Prognosen",
-            "Automatisierte Qualifikations-Aktivierung bei Übungsteilnahme",
-            "Intelligentes Beförderungssystem mit Vorschlägen nach Dienstzeit und Qualifikationen",
-            "Dienstgrad-Historie: Timeline-Ansicht aller Beförderungen mit Statistiken zu Verweildauer und Beförderungsrate",
-            "Qualifikations-Monitoring: Fristen für G26.3, Lehrgänge und Fortbildungen",
-            "Führungskräfte-Hierarchie: Abbildung komplexer Organisations-Strukturen",
-            "Sichtbarkeits-Steuerung & Datenschutz-Management pro Person",
-            "Inaktiv-Verwaltung für ehemalige Mitglieder mit Archivfunktion",
-            "Globale Filterung in allen Modulen nach Qualifikationen und Status",
-            "Namensformat-Standardisierung: Einheitliches \"Nachname Vorname\" im gesamten System",
-            "vCard-Export: Kontakte mit Notfallkontakten als vCard 3.0 exportierbar",
-            "Audit-Trail: Vollständige Nachverfolgbarkeit aller Änderungen",
-            "Qualifikations-Dashboard: 30/90/180-Tage-Ablaufprognose mit Gesundheitsindex (Gültig vs. Abgelaufen %)",
-            "Kritischste Qualifikation: Nächste 5 Abläufe und mehrfach betroffene Mitglieder auf einen Blick",
-            "Zuweisungs-Trends: Monatliche Entwicklung auf einen Blick mit PDF-Export"
+            "Vollständige Mitgliederprofile mit Kontaktdaten und Funktionen",
+            "Qualifikationsmanagement mit Ablaufdaten und Erinnerungen",
+            "Verfügbarkeitskalender und Schichtplanung",
+            "Tageskalender mit aktueller Einsatzstärke",
+            "Selbstständige Datenpflege durch Mitglieder",
+            "Export für Behörden und Meldewesen"
         ],
-        technicalDetails: [
-            "DSGVO-konforme Datenhaltung mit automatischem Löschkonzept",
-            "Mehrstufiges Berechtigungssystem – jeder sieht nur seine relevanten Daten",
-            "Automatische Freigabe-Workflows für Personaländerungen",
-            "Automatische Erinnerungen bei ablaufenden Qualifikationen und Fristen"
-        ],
-        keywords: ["Feuerwehr Personalverwaltung", "Feuerwehr Mitgliederverwaltung", "Kameradenverwaltung digital", "Personalakte Feuerwehr", "Qualifikationsverwaltung Feuerwehr", "Feuerwehr Übungspräsenz", "KI Personalanalyse Feuerwehr", "Rollenmanagement Feuerwehr", "Beförderung Feuerwehr Software", "RFID Feuerwehr"],
+        keywords: ["Mannschaftsverwaltung Feuerwehr", "Personalverwaltung Feuerwehr", "Mitgliederverwaltung", "Qualifikationen Feuerwehr", "Dienstzeiten", "Verfügbarkeit"],
         icon: Users,
         color: "blue"
     },
     "objektplaene": {
-        title: "Objektpläne & Technische Anlagen",
-        shortDesc: "Digitale Einsatzpläne nach DIN 14095 mit umfassender Verwaltung technischer Anlagen, Alarmhistorie und externem Betreiberportal.",
-        longDesc: "Haben Sie wichtige Gebäudeinformationen immer griffbereit. Das Modul verwaltet Objektpläne, überwacht Prüffristen und stellt Pläne im Einsatz (GPS-basiert) sofort zur Verfügung. Neu in v3.7: Umfassende Verwaltung aller brandschutztechnischen Anlagen (BMZ, FSD, FIZ, FSE, SPZ, Löschanlagen, RWA, Schließanlagen), interaktive Kartenansicht mit farbcodierten Entity-Markern, Alarmhistorie für Fehl-, Täuschungs- und Echtalarme sowie ein Token-basiertes Objektplan-Portal für externe Betreiber.",
+        title: "Objektpläne & Brandschutzunterlagen",
+        shortDesc: "Digitale Objektpläne, Feuerwehrpläne und Brandschutzunterlagen – sofort verfügbar bei Alarm.",
+        longDesc: "Alle Objektpläne, Feuerwehreinsatzpläne und Brandschutzunterlagen digital verwaltet und bei Alarmierung sofort verfügbar. GPS-basierte automatische Vorschläge zeigen die relevanten Pläne für die aktuelle Einsatzstelle. Integration mit dem Lagemonitor für direkte Nutzung im Einsatz.",
         benefits: [
-            "Einsatzbereit: Automatischer Abruf der Pläne bei Alarmierung",
-            "Immer aktuell: Überwachung der regulären Revisionsfristen",
-            "Sicherheit: Taktische Gefahrenschwerpunkte sofort sichtbar",
-            "Standard: Saubere Daten gemäß DIN 14095",
-            "Technische Anlagen: BMZ, FSD, Löschanlagen, RWA und Schließanlagen vollständig erfasst",
-            "Betreiberportal: Externe Betreiber pflegen Daten eigenständig ohne RESQIO-Login"
+            "Verfügbarkeit: Pläne immer aktuell und sofort abrufbar",
+            "Automatisierung: GPS-basierte Vorschläge bei Alarmierung",
+            "Integration: Direkte Nutzung im Lagemonitor",
+            "Sicherheit: Keine veralteten Papierpläne mehr"
         ],
         features: [
-            "Interaktive Karte mit farbcodierten Entity-Markern und Annotationen für taktische Einsatzplanung",
-            "Dokumentenverwaltung (PDF/Bilder) & Versionierung",
-            "Technische Anlagen: BMZ, FSD, FIZ, FSE, SPZ mit PIN-Codes und Standort-Koordinaten",
-            "Löschanlagen: Sprinkler, Schaum, CO2, Pulver, Gas mit Kapazitätsangaben",
-            "Lüftungsanlagen: RWA, maschinelle und natürliche Belüftung",
-            "Schließanlage: Profilzylinder, FSD-Schlüssel, Generalschlüssel mit Nummern und Aufbewahrungsort",
-            "Alarmhistorie: Tracking von Fehl-, Täuschungs- und Echtalarmen sowie Wartungen",
-            "Revisionsbogen-Export: HTML/PDF-Druck aller Objektplan-Daten inkl. technische Anlagen und Kontakte",
-            "Objektplan-Portal: Token-basierter Zugang für externe Betreiber",
-            "Strukturierte Daten: Anlagen, FSD, Gefahrstoffe, Ansprechpartner",
-            "Standardisierter Import & Export",
-            "Integration in Kiosk & Lagemonitor"
+            "Digitale Bibliothek für alle Feuerwehrpläne und -unterlagen",
+            "GPS-basierte automatische Planvorschläge",
+            "Versionierung und Aktualisierungshistorie",
+            "Integration in Lagemonitor und Kiosk",
+            "Offline-Verfügbarkeit für Einsatz ohne Internet",
+            "Kategorisierung nach Objekttyp und Gefährdungsklasse"
         ],
-        keywords: ["Feuerwehrpläne", "DIN 14095", "Objektverwaltung", "Gefahrstoffe", "BMA", "FSD", "Technische Anlagen", "Alarmhistorie", "Betreiberportal", "Revisionsbogen"],
-        icon: Map,
-        color: "blue"
+        keywords: ["Objektpläne digital", "Feuerwehrpläne Software", "Brandschutzunterlagen", "Feuerwehreinsatzplan", "digitale Pläne Feuerwehr"],
+        icon: FolderSearch,
+        color: "indigo"
     },
     "wasserkarte": {
-        title: "Wasserkarte & Infrastruktur-Erfassung",
-        shortDesc: "Interaktives Hydranten- und POI-Management mit Klick-zum-Bearbeiten, OpenFireMap-Integration und mobiler Erfassung.",
-        longDesc: "Die umfassendste Wasserkarten-Lösung für die Feuerwehr. Erfassen Sie Hydranten und Points of Interest direkt auf der Karte mit einem Klick. Die Dual-Modus-Erfassung ermöglicht sowohl Wasserentnahmestellen als auch POIs (Sammelstellen, Gefahrenstellen, Zufahrten) zu verwalten. Klicken Sie auf jeden Marker, um sofort Detailinformationen zu bearbeiten. OpenFireMap zeigt automatisch OSM Feuerwehr-Infrastruktur (Feuerwachen, Sammelplätze, Sirenen). Jeder Hydrant und POI wird mit Ersteller-Information gespeichert. Performance-Optimierung mit intelligentem Zoom-Level-Management verhindert Überlastung. Unterstützt Unterflur- und Überflurhydranten mit vollständigen technischen Daten.",
+        title: "Wasserkarte & Hydranten",
+        shortDesc: "Digitale Hydrantenkarte mit Live-Status, Durchflussmengen und automatischer Einbindung in den Einsatz.",
+        longDesc: "Die integrierte Wasserkarte zeigt alle verfügbaren Löschwasserquellen in Echtzeit. Hydranten, Löschwasserteiche und Brunnen sind mit Status, Leistungsdaten und letztem Prüfdatum erfasst. Bei Alarmierung werden die nächsten verfügbaren Quellen automatisch hervorgehoben.",
         benefits: [
-            "Flexibilität: Hydranten UND Points of Interest auf einer Karte erfassen",
-            "Effizienz: Klick-zum-Bearbeiten - Marker anklicken und sofort ändern",
-            "Integration: OpenFireMap zeigt OSM Feuerwehr-Infrastruktur automatisch",
-            "Transparenz: Wer hat welchen Hydrant/POI erfasst - Ersteller-Anzeige",
-            "Mobilität: Erfassung direkt vor Ort mit Tablet oder Smartphone",
-            "Performance: Intelligentes Laden für flüssiges Arbeiten auch bei vielen Hydranten",
-            "Vielfalt: POIs mit individuellen Icons und Farben kategorisierbar",
-            "Vollständigkeit: Lokale + OpenStreetMap Hydranten kombiniert nutzbar"
+            "Übersicht: Alle Löschwasserquellen auf einen Blick",
+            "Echtzeit: Live-Status und Verfügbarkeit",
+            "Einsatzunterstützung: Automatische Hervorhebung bei Alarmierung",
+            "Wartung: Prüfdaten und Defektmeldungen direkt erfassen"
         ],
         features: [
-            "Infrastruktur-Erfassung: Hydranten und POIs direkt auf Karte platzieren",
-            "Dual-Modus: Umschaltbar zwischen Hydranten- und POI-Erfassung",
-            "Klick-zum-Bearbeiten: Marker anklicken öffnet sofort Bearbeitungsdialog",
-            "OpenFireMap-Integration: OSM Feuerwehr-Infrastruktur (Wachen, Sammelplätze, Sirenen)",
-            "Lokale Hydranten-Layer: Eigene erfasste Hydranten mit grünen 💧 Markern",
-            "Lokale POIs-Layer: POIs mit individuellen Icons und Farben",
-            "Ersteller-Anzeige: Name des Erstellers in Popup und Tabelle",
-            "Technische Vollständigkeit: Typ, Durchmesser, Druck, Durchfluss, Status, Notizen",
-            "Feuerwehr-Standort-Marker: 🚒 zeigt automatisch ersten Standort mit Koordinaten",
-            "Standard-Typ-Dropdown: Vordefinierter Typ für schnelle Erfassung",
-            "Liste erfasster Punkte: Sidebar mit allen gesetzten Punkten, Auswahl und Löschen",
-            "Layer-Control: Toggle-bare Kartenebenen für vollständige Übersicht",
-            "Optimierte Darstellung: Flüssiges Scrollen und Zoomen auch bei großen Datenmengen",
-            "Farbcodierung nach Kapazität/Durchmesser",
-            "Kiosk-Integration & Vollbildmodus",
-            "Filter & Suchfunktionen"
+            "Interaktive Hydrantenkarte mit GPS-Koordinaten",
+            "Status-Tracking (verfügbar/defekt/gesperrt) in Echtzeit",
+            "Durchfluss- und Leistungsdaten pro Hydrant",
+            "Prüffristen und Wartungshistorie",
+            "Integration in Lagemonitor und Kiosk",
+            "Offline-Karten für Einsatz ohne Internet"
         ],
-        technicalDetails: [
-            "Offline-fähig: Karten werden lokal gespeichert für den Einsatz ohne Internet",
-            "Zuverlässig: Automatische Ausweich-Server bei Verbindungsproblemen",
-            "Performant: Auch bei hunderten Hydranten bleibt die Karte flüssig"
-        ],
-        keywords: ["Hydrantenplan", "Löschwasser", "Wasserversorgung", "Digitale Karte", "Unterflurhydrant", "POI", "Infrastruktur-Erfassung", "OpenFireMap", "Klick-zum-Bearbeiten"],
+        keywords: ["Hydrantenkarte digital", "Wasserkarte Feuerwehr", "Hydranten Software", "Löschwasser", "Hydrantenplan"],
         icon: Droplets,
-        color: "sky"
+        color: "blue"
     },
     "wasserfoerderung": {
         title: "Wasserförderung & Löschwasserversorgung",
-        shortDesc: "Präzise Hydraulik-Planung für komplexe Wasserförderungsstrecken.",
-        longDesc: "Planen Sie Wasserförderungsstrecken über weite Distanzen mit wissenschaftlicher Präzision. RESQIO berechnet Druckverluste, optimiert Pumpenstandorte und visualisiert Höhenprofile in Echtzeit. Die Multi-Plan Visualisierung ermöglicht die gleichzeitige Darstellung mehrerer Förderszenarien.",
+        shortDesc: "Planung und Dokumentation von Wasserförderungsstrecken für Großbrände und besondere Lagen.",
+        longDesc: "Das Wasserförderungs-Modul unterstützt bei der Planung und Dokumentation von Löschwasserstrecken für Brände, bei denen die normale Wasserversorgung nicht ausreicht. Pumpenstandorte, Schlauchstrecken und Fördermengen werden digital erfasst und ausgewertet.",
         benefits: [
-            "Effizienz: Bis zu 10 Förderszenarien gleichzeitig planen und vergleichen",
-            "Präzision: Automatisierte Pumpenplatzierung basierend auf Zieldruck",
-            "Analyse: Detaillierte Tabellen aller Druckwerte und Reibungsverluste",
-            "Flexibilität: Direktes Erfassen von Hydranten und POIs auf der Karte"
+            "Planung: Wasserförderungsstrecken vorab planen und simulieren",
+            "Dokumentation: Vollständige Erfassung aller Maßnahmen",
+            "Auswertung: Analyse von Förderleistungen und Optimierungspotential",
+            "Übung: Szenarien für Ausbildung nutzen"
         ],
         features: [
-            "Multi-Plan Management mit Farb-Kodierung",
-            "Intelligente Pumpen-Optimierung & Kavitationsvermeidung",
-            "Hydraulische Analyse mit Druckverlusten",
-            "Layer Management für Überlappungen",
-            "Infrastruktur-Capture: Hydranten direkt auf Karte editieren",
-            "Professionelle Planungsunterlagen als PDF-Export"
+            "Planung von Wasserförderungsstrecken mit Kartenintegration",
+            "Erfassung von Pumpenstandorten und Schlauchstrecken",
+            "Berechnung von Fördermengen und Druckverlusten",
+            "Dokumentation und Berichterstellung",
+            "Szenarien-Bibliothek für Ausbildung"
         ],
-        technicalDetails: [
-            "Echtzeit-Berechnung von Reibungsverlusten",
-            "Geodätische Höhenprofile mit topografischen Karten",
-            "Druckverlusttabellen nach Standardformeln"
-        ],
-        keywords: ["Wasserförderung", "Löschwasser", "Multi-Plan", "Hydraulik", "Pumpenoptimierung", "Förderstrecke"],
+        keywords: ["Wasserförderung Feuerwehr", "Löschwasserversorgung", "Schlauchleitung", "Pendelverkehr", "Wasserversorgung Großbrand"],
         icon: Droplets,
-        color: "blue"
+        color: "cyan"
     },
     "wiki-integration": {
-        title: "Einsatzleiterwiki Integration",
-        shortDesc: "Kritisches Wissen offline verfügbar – immer und überall.",
-        longDesc: "Integration des Einsatzleiterwikis direkt in resqio mit vollständiger Offline-Verfügbarkeit und nativer MKT-Darstellung.",
+        title: "Wiki & Wissensmanagement",
+        shortDesc: "Internes Wiki für Dienstvorschriften, Ausbildungsunterlagen und Feuerwehrwissen – mit KI-Suche.",
+        longDesc: "Das integrierte Wiki-System macht das gesamte Wissen der Feuerwehr für alle zugänglich. Dienstvorschriften, Ausbildungsunterlagen, Objektinformationen und interne Regelungen werden zentral verwaltet und können von jedem Kameraden jederzeit abgerufen werden. Der KI-Assistent beantwortet Fragen direkt aus dem Wiki-Inhalt.",
         benefits: [
-            "Verfügbarkeit: Alle Inhalte offline-first verfügbar",
-            "Struktur: Checklisten als interaktive React-Komponenten",
-            "Look & Feel: MKT-Branding für einheitliches Design",
-            "Taktik: Integration in die Lagekarte und Einsatzdetails"
+            "Wissenserhalt: Wichtiges Wissen geht nicht verloren wenn Mitglieder ausscheiden",
+            "Verfügbarkeit: Informationen immer und überall abrufbar",
+            "KI-Unterstützung: Schnelle Antworten durch KI-Integration",
+            "Aktualität: Einfache Pflege und Versionierung"
         ],
         features: [
-            "DokuWiki Sync & Monitoring",
-            "Offline-Verfügbarkeit ohne Internetzugang",
-            "Native Darstellung von Checklisten",
-            "DokuWiki-Parser für strukturierte JSON-Formate",
-            "Strategischer Schnellzugriff"
+            "Strukturiertes Wiki mit Kategorien und Tags",
+            "KI-Suche und intelligente Volltextsuche",
+            "Versionierung und Änderungshistorie",
+            "Integration in KI-Assistenten",
+            "Offline-Verfügbarkeit",
+            "Einfacher Editor für alle Mitglieder"
         ],
-        keywords: ["Einsatzleiterwiki", "Wissen", "Offline", "DokuWiki", "Checklisten"],
+        keywords: ["Wiki Feuerwehr", "Wissensmanagement", "Dienstvorschriften digital", "Ausbildungsunterlagen", "KI Wissenssuche Feuerwehr"],
         icon: BookOpen,
-        color: "slate"
+        color: "violet"
     },
     "warenbewegung": {
-        title: "Logistik & Waren",
-        shortDesc: "Tracking von Ausrüstung zwischen Standorten.",
-        longDesc: "Behalten Sie den Überblick über Ihr Material, auch wenn es unterwegs ist. Das Modul trackt Bewegungen zwischen Wachen, Werkstätten oder externen Dienstleistern inkl. Lieferscheinen und Rückgabefristen.",
+        title: "Warenbewegung & Verbrauchsmaterial",
+        shortDesc: "Lückenlose Erfassung aller Warenbewegungen – vom Einkauf bis zum Verbrauch bei Einsätzen.",
+        longDesc: "Das Warenbewegungsmodul erfasst alle Materialbewegungen der Feuerwehr lückenlos – vom Einkauf über die Einlagerung bis zum Verbrauch im Einsatz. Bestände werden in Echtzeit aktualisiert, Nachbestellungen automatisch vorgeschlagen und Kosten korrekt den jeweiligen Einsätzen zugeordnet.",
         benefits: [
-            "Transparenz: Wer hat welches Gerät an welcher Wache?",
-            "Kontrolle: Fristenwahrung bei Reparaturen einhalten",
-            "Sauberer Workflow: Professionelle Lieferscheine für die Werkstatt"
+            "Überblick: Aktuelle Bestände immer korrekt",
+            "Kosten: Verbrauch pro Einsatz korrekt erfasst",
+            "Nachbestellung: Automatische Bestandswarnung",
+            "Compliance: Vollständige Nachverfolgbarkeit"
         ],
         features: [
-            "Externe Standorte & Partnerverwaltung",
-            "Bewegungstypen: Ausgang, Eingang, Intern, Reparatur",
-            "Lieferschein-Generierung (PDF)",
-            "Historie pro Gegenstand & Dashboard-Widget",
-            "Multi-Feuerwehr / Abteilungs-Struktur: Rolle und Feuerwehr-Zugehörigkeit pro Person",
-            "Digitaler Inventur-Modus: Soll-Ist-Abgleich der Fahrzeugbeladung via Tablet"
+            "Lagerverwaltung mit Echtzeit-Beständen",
+            "Wareneingangsbuchung und Inventur",
+            "Verbrauchserfassung bei Einsätzen",
+            "Automatische Bestandswarnungen",
+            "Lieferantenverwaltung und Bestellwesen",
+            "Kostenauswertung und Controlling"
         ],
-        keywords: ["Logistik", "Versand", "Reparatur", "Lieferschein", "Standortwechsel", "Multi-Feuerwehr", "Inventur"],
+        keywords: ["Warenbewegung Feuerwehr", "Verbrauchsmaterial", "Lagerverwaltung", "Inventur", "Materialbewirtschaftung"],
         icon: Package,
-        color: "orange"
+        color: "amber"
     },
     "fahrtenbuch": {
-        title: "Fahrtenbuch & KFZ",
-        shortDesc: "Strukturiertes digitales Fahrtenbuch mit Flottenauswertungen, Sammelbericht und automatischer Lückenerkennung.",
-        longDesc: "Digitales Management für Ihre Fahrzeugflotte. Erfassen Sie Fahrten und Tankvorgänge direkt am Tablet. Das System liefert Auswertungen zu Kosten, Kilometern und Wartungsbedarf für HLF, LF, TLF, MTW und alle weiteren Fahrzeugtypen. Der Fahrtenbuch-Sammelbericht fasst mehrere Fahrzeuge und Zeiträume in einem übersichtlichen Querformat-Dokument zusammen – ideal für Jahresberichte und Kontrollen.",
+        title: "Digitales Fahrtenbuch",
+        shortDesc: "Elektronisches Fahrtenbuch für alle Feuerwehrfahrzeuge – rechtssicher, einfach und immer aktuell.",
+        longDesc: "Das digitale Fahrtenbuch ersetzt die Papierversion vollständig. Fahrten werden direkt am Kiosk oder per App erfasst, automatisch mit Fahrzeug- und Personaldaten verknüpft und für steuerliche und verwaltungstechnische Zwecke korrekt dokumentiert. Kraftstoffverbrauch und Kilometerstand werden automatisch ausgewertet.",
         benefits: [
-            "Nachvollziehbarkeit: Fahrtenbuch-Dokumentation nach Vorschrift",
-            "Kostencheck: Verbrauch und Betriebskosten der Fahrzeuge im Blick",
-            "Einfach am Tablet: Fahrten direkt im Gerätehaus erfassen",
-            "Flottenbericht: Alle Fahrzeuge eines Zeitraums auf einen Blick",
-            "Lückenlos: Automatische Erkennung fehlender Kilometereinträge"
+            "Rechtssicherheit: Digitale Dokumentation rechtlich anerkannt",
+            "Einfachheit: Schnelle Erfassung direkt am Fahrzeug",
+            "Auswertung: Statistiken zu Fahrleistung und Kraftstoffverbrauch",
+            "Integration: Verknüpfung mit Einsätzen und Fahrzeugverwaltung"
         ],
         features: [
-            "Stammdatenverwaltung für HLF, LF, TLF, MTW & Kommandowagen",
-            "Digitales Fahrtenbuch mit Besatzungsplanung",
-            "Tankerfassung & Verbrauchsstatistik",
-            "Kiosk-Wizard für schnelle Eingabe",
-            "KM-basierte Wartungsintervalle",
-            "Fahrtenbuch-Sammelbericht: Mehrere Fahrzeuge im Querformat auswerten",
-            "Automatische Lückenerkennung: Fehlende KM-Einträge werden erkannt und vorgeschlagen",
-            "Integration in Einsatzerfassung"
+            "Digitale Fahrterfassung mit Start/Ziel und Kilometerstand",
+            "Automatische Fahrzeugzuordnung",
+            "Kraftstoffverbrauch-Tracking",
+            "Einsatz-Verknüpfung für korrekte Dokumentation",
+            "Export für Steuer und Versicherung",
+            "Fahrten-Statistik und Auswertungen"
         ],
-        keywords: ["Fahrtenbuch", "Fuhrpark", "KFZ", "Tankbuch", "Kilometerstand", "HLF", "LF", "TLF", "MTW", "Sammelbericht"],
+        keywords: ["Fahrtenbuch Feuerwehr", "digitales Fahrtenbuch", "Fahrtennachweis", "Kilometerstand", "Kraftstoff Feuerwehr"],
         icon: Car,
         color: "slate"
     },
     "waescheverwaltung": {
-        title: "Wäsche & Bekleidung",
-        shortDesc: "Hygiene-Management für Schutzkleidung.",
-        longDesc: "Verwalten Sie den Reinigungszyklus Ihrer PSA. Von der Abgabe über die Wäsche bis zur Rückgabe. Mit Statistik über Waschzyklen zur Überwachung der Schutzwirkung.",
+        title: "Wäscheverwaltung & Schutzkleidung",
+        shortDesc: "Digitale Verwaltung von Schutzkleidung und Wäsche – Abgabe, Reinigung und Rückgabe lückenlos dokumentiert.",
+        longDesc: "Die Wäscheverwaltung digitalisiert den gesamten Prozess rund um Schutzkleidung und persönliche Ausrüstung. Von der Abgabe zur Reinigung über die Werkstatt bis zur Rückgabe an den Kameraden – jeder Schritt wird dokumentiert und ist transparent nachvollziehbar.",
         benefits: [
-            "Hygiene: Lückenlose Infektionsschutzkette",
-            "PSA-Schutz: Maximierung der Lebensdauer durch Waschzähler",
-            "Organisation: Pool-Wäsche und persönliche Ausrüstung trennen"
+            "Transparenz: Status jedes Kleidungsstücks jederzeit einsehbar",
+            "Prozesssicherheit: Kein Verlieren von Ausrüstung",
+            "Zeitersparnis: Schnelle Abgabe und Abholung am Kiosk",
+            "Dokumentation: Vollständige Reinigungshistorie"
         ],
         features: [
-            "Workflow: Annahme, Wäsche, Fertig, Abholung",
-            "Kundenverwaltung (auch externe Wehren)",
-            "Statistiken: Waschzähler & Historie",
-            "Scan-Unterstützung & Größenfilter"
+            "Digitale Abgabe und Annahme am Kiosk-Terminal",
+            "Status-Tracking durch den Reinigungsprozess",
+            "Persönliche Zuordnung von Schutzkleidung",
+            "Wäsche-Delegation für Kameraden durch Vorgesetzte",
+            "Erinnerungen bei langer Bearbeitungsdauer",
+            "Statistik und Auswertungen"
         ],
-        keywords: ["Kleiderkammer", "PSA Pflege", "Waschzyklus", "Hygiene", "Einsatzbekleidung"],
+        keywords: ["Wäscheverwaltung Feuerwehr", "Schutzkleidung", "PSA Verwaltung", "Einsatzkleidung", "Reinigung Feuerwehr"],
         icon: Shirt,
-        color: "blue"
+        color: "sky"
     },
     "mannschafts-self-service": {
         title: "Mannschafts-Self-Service",
-        shortDesc: "Immer aktuelle Stammdaten ohne manuellen Aufwand.",
-        longDesc: "Entlasten Sie die Verwaltung durch das neue Self-Service-Portal. Mitglieder können ihre persönlichen Daten sicher und einfach selbst auf dem aktuellen Stand halten.",
+        shortDesc: "Eigenständige Datenpflege für alle Kameraden – Qualifikationen, Kontaktdaten und persönliche Einstellungen.",
+        longDesc: "Der Mannschafts-Self-Service gibt jedem Kameraden die Möglichkeit, seine eigenen Daten zu pflegen und aktuell zu halten. Qualifikationen, Kontaktdaten, Verfügbarkeiten und persönliche Einstellungen können eigenständig verwaltet werden – ohne Eingriff der Führung.",
         benefits: [
-            "Entlastung: Dezentrale Datenpflege durch Mitglieder",
-            "Sicherheit: Token-basierter Login ohne Passwort",
-            "Qualität: Integrierte Prüfung von IBAN und E-Mail",
-            "Transparenz: Qualifikations-Monitor für Mitglieder"
+            "Eigenverantwortung: Jeder Kamerad pflegt seine Daten selbst",
+            "Aktualität: Daten immer auf dem neuesten Stand",
+            "Entlastung: Weniger Verwaltungsaufwand für die Führung",
+            "Transparenz: Jeder sieht seinen eigenen Status"
         ],
         features: [
-            "Token-basierter Login (E-Mail-Link)",
-            "Daten-Validierung (IBAN, E-Mail, Plausibilität)",
-            "Eigener Qualifikations-Monitor",
-            "Status-Reporting für Administratoren",
-            "Mehrfach-Kontaktdaten: 1:n Telefonnummern und E-Mail-Adressen im Self-Service-Portal pflegen",
-            "Excel-Export mit Typ-Kennzeichnung aller Kontaktkanäle"
+            "Eigene Profilpflege für alle Mitglieder",
+            "Qualifikationen und Zertifikate selbst hochladen",
+            "Verfügbarkeitsplanung und Kalender",
+            "Persönliche Benachrichtigungseinstellungen",
+            "Einsatzhistorie und eigene Statistiken"
         ],
-        keywords: ["Self-Service", "Mitgliederportal", "Stammdaten", "Token-Login", "Digitalisierung", "Mehrfach-Kontakte"],
+        keywords: ["Self-Service Feuerwehr", "Mitglieder Portal", "Eigenständige Datenpflege", "Kamerad Portal"],
         icon: UserCheck,
-        color: "emerald"
+        color: "green"
     },
     "budget-finanzen": {
-        title: "Budget & Finanzen",
-        shortDesc: "Verwaltung von Haushaltsmitteln und Ausgaben.",
-        longDesc: "Behalten Sie Ihre Finanzen im Griff. Ideal für Abteilungsbudgets, Kameradschaftskassen oder Beschaffungen. Mit Beleg-Upload und Freigabe-Optionen.",
+        title: "Budget & Finanzverwaltung",
+        shortDesc: "Transparente Finanzverwaltung für Feuerwehren – Budget, Ausgaben und Genehmigungen digital verwaltet.",
+        longDesc: "Die digitale Finanzverwaltung bringt Transparenz in alle Geldflüsse der Feuerwehr. Budgets werden geplant, Ausgaben erfasst und Genehmigungen digital verwaltet. Der Kassier hat jederzeit den vollen Überblick, und die gesamte Mannschaft kann den Budgetstatus transparent einsehen.",
         benefits: [
-            "Budget-Check: Stand der Haushaltsmittel jederzeit abrufbar",
-            "Transparenz: Beleg-Archiv für alle Anschaffungen",
-            "Für jede Wehr: Verwaltung dezentraler Budgetposten"
+            "Transparenz: Alle Ausgaben und Budgets nachvollziehbar",
+            "Kontrolle: Genehmigungsworkflows für Ausgaben",
+            "Effizienz: Schnelle Belegeinreichung und -prüfung",
+            "Berichtswesen: Jahresabschluss und Berichte automatisch"
         ],
         features: [
-            "Budgetposten & Kategorien (Jahresbezogen)",
-            "Einnahmen/Ausgaben mit Beleg-Upload (Foto)",
-            "Kiosk-Erfassung für schnelle Buchungen",
-            "Berichte und Haushaltspläne (PDF)"
+            "Budgetplanung und -überwachung",
+            "Digitale Belegeinreichung mit KI-Kategorisierung",
+            "Genehmigungsworkflow für Ausgaben",
+            "Jahresabschluss-Unterstützung",
+            "Kostenstellenmanagement",
+            "Export für Steuerberater und Behörden"
         ],
-        keywords: ["Kasse", "Budget", "Finanzen", "Rechnung", "Abrechnung"],
-        icon: CreditCard,
+        keywords: ["Finanzverwaltung Feuerwehr", "Budget Feuerwehr", "Kassenbuch digital", "Ausgabenverwaltung", "Genehmigungsworkflow"],
+        icon: BarChart3,
         color: "green"
     },
     "treasury-kassier": {
-        title: "Kassier Modul - Professionelle Vereinsbuchhaltung",
-        shortDesc: "Kassier-Software für Feuerwehrvereine – §2b UStG-konforme Buchhaltung, SEPA-Export, Belegeinreichung und professionelle Jahresberichte.",
-        longDesc: "Das professionelle Finanzmodul für Feuerwehr-Vereine und kommunale Feuerwehren. Von der dezentralen Belegeinreichung über die automatisierte Verbuchung bis zur steuerkonformen Auswertung nach §2b UStG. Neu: Professionelles Rechnungsmanagement mit E-Mail-Versand und PDF-Export, automatisierte JHV-Berichte mit Reverse-Geocoding und Event P&L-Berichte für Veranstaltungs-Controlling. Das Kameradschaftsportal ermöglicht jedem Mitglied die eigenständige Belegeinreichung – der Kassier behält die volle Kontrolle über alle Buchungen.",
+        title: "Treasury & Kassiermodul",
+        shortDesc: "Professionelle Kassenverwaltung für Feuerwehrvereine – mit doppelter Buchführung und Jahresabschluss.",
+        longDesc: "Das Treasury-Modul bietet eine vollständige Kassenverwaltung für Feuerwehrvereine nach deutschen Buchhaltungsstandards. Doppelte Buchführung, Jahresabschluss, Kassenprüfung und Mitgliedsbeitragsverwaltung sind in einer Lösung integriert.",
         benefits: [
-            "Steuerkonformität: Automatische Auswertung nach §2b UStG für gemeinnützige Vereine",
-            "Revisionssicherheit: Lückenlose Buchungsliste für Kassenprüfer und Finanzamt",
-            "Self-Service: Kameraden reichen Belege selbstständig über das Portal ein",
-            "Veranstaltungs-Controlling: Detaillierte Auswertung von Festen und Events",
-            "Effizienz: SEPA-Zahlungsverkehr im PAIN-Format mit Sammelüberweisungen",
-            "Komfort: KI-gestütztes Beleg-Postfach mit automatischer Texterkennung",
-            "Transparenz: Echtzeit-Monitoring von Budgets, Kostenstellen und Veranstaltungen"
+            "Rechtssicherheit: Korrekte Buchführung nach deutschen Standards",
+            "Vollständigkeit: Alle Finanzvorgänge in einer Lösung",
+            "Effizienz: Automatisierte Prozesse sparen Zeit",
+            "Transparenz: Kassenprüfung einfach und nachvollziehbar"
         ],
         features: [
-            "§2b UStG Steuerauswertung: Automatische Berechnung für gemeinnützige Vereine",
-            "Veranstaltungsauswertung: Controlling für Feste, BSW und Events",
-            "Kameradschaftsportal-Kachel: Self-Service Belegeinreichung für alle Mitglieder",
-            "Intelligente Verbuchung: Workflow für Freigabe, Prüfung und Buchung",
-            "KI-gestützte Belegerkennung: Automatische Texterkennung und Kategorisierung eingereichter Belege",
-            "Kameradschaftskassen: Verwaltung interner Vereinskassen mit gesetzlichen Grenzwertprüfungen",
-            "ZIP-Download: Alle Belege eines Zeitraums als Archiv herunterladen",
-            "SEPA-Sammelüberweisungen (PAIN-Format) mit Stapelverarbeitung",
-            "Budget- & Haushalts-Monitoring mit Soll/Ist-Vergleich",
-            "Kostenstellen-Management für detaillierte Zuordnung",
-            "Kiosk-Erfassung: Schnelle Belegerfassung direkt an der Wache",
-            "Revisionssichere Berichte: Export für Kassenprüfer und Finanzamt",
-            "Veranstaltungskalender mit Einnahmen-/Ausgaben-Tracking",
-            "Automatische Beleg-Nummerierung und Archivierung",
-            "Multi-Währungs-Support für internationale Veranstaltungen",
-            "Rechnungsmanagement: Professionelle Rechnungserstellung mit E-Mail-Versand und PDF-Export",
-            "JHV-Bericht: Automatisierte Jahresbericht-Generierung mit Reverse-Geocoding",
-            "Event P&L: Veranstaltungs-Gewinn & Verlust Berichte mit Transaktionsaufschlüsselung",
-            "Excel Export/Import: Für Buchungen und erweiterte Analysen"
+            "Doppelte Buchführung",
+            "Jahresabschluss und Kassenprüfung",
+            "Mitgliedsbeitragsverwaltung",
+            "SEPA-Lastschrift",
+            "Spendenquittungen",
+            "Export für Steuerberater"
         ],
-        technicalDetails: [
-            "Steuerkonforme Auswertungen nach §2b UStG für gemeinnützige Vereine",
-            "SEPA-kompatibel für reibungslosen elektronischen Zahlungsverkehr",
-            "Export-fertig für Steuerberater, Finanzamt und Kassenprüfer",
-            "Revisionssichere Archivierung aller Belege und Buchungen"
-        ],
-        keywords: ["§2b UStG Feuerwehr", "§ 2b ustg Verein", "Kassier Software Feuerwehr", "Feuerwehrverein Buchhaltung", "Vereinsbuchhaltung Software", "SEPA Sammelüberweisung Feuerwehr", "Belegeinreichung Feuerwehr", "Kassenprüfer Bericht", "Steuerkonform Feuerwehr", "Feuerwehr Vereinsfinanzen"],
+        keywords: ["Kassenverwaltung Feuerwehr", "Vereinskasse", "Buchführung Feuerwehr", "Jahresabschluss", "SEPA", "Mitgliedsbeitrag"],
         icon: CreditCard,
-        color: "green"
+        color: "emerald"
     },
     "digitaler-dienstausweis": {
         title: "Digitaler Dienstausweis",
-        shortDesc: "Identifikation via Smartphone Wallet.",
-        longDesc: "Die moderne Art der Ausweisung. Ein kryptographisch gesicherter Dienstausweis für gängige Smartphone Wallets. Dient zur Identifikation und als Login-Medium am Kiosk.",
+        shortDesc: "Digitaler Feuerwehr-Dienstausweis auf dem Smartphone – immer dabei, immer aktuell.",
+        longDesc: "Der digitale Dienstausweis ersetzt den physischen Ausweis auf dem Smartphone. Mit NFC und QR-Code kann er für schnelle Anmeldung am Kiosk, zur Identifikation bei Einsätzen oder als offizieller Nachweis der Feuerwehrzugehörigkeit genutzt werden.",
         benefits: [
-            "Modern: Der Dienstausweis sicher in der Hosentasche",
-            "Authentisch: Signierte Qualifikationen und Beförderungen",
-            "Kontaktlos: Schnellanmeldung am Kiosk-Terminal via Wallet"
+            "Immer dabei: Auf dem Smartphone – kein Vergessen möglich",
+            "Aktuell: Automatisch aktualisiert mit aktuellen Qualifikationen",
+            "Multifunktional: Login, Identifikation und Nachweis in einem",
+            "Sicher: NFC und QR-Code mit Authentifizierung"
         ],
         features: [
-            "Smartphone-Wallet Integration (Apple Wallet & Google Wallet)",
-            "Dynamische Codes (zeitbasiert)",
-            "Anzeige von Qualifikationen & Abzeichen",
-            "Öffentliches Verifikations-Portal via QR-Code (revisionssicher)",
-            "NFC-Experience: Kontaktlose Anmeldung an Kiosk-Terminals",
-            "Digitale Medaillenvitrine: Leistungsabzeichen und Ehrungen in der App"
+            "Digitaler Ausweis auf dem Smartphone",
+            "NFC und QR-Code für schnelle Nutzung",
+            "Aktuelle Qualifikationen und Funktionen",
+            "Kiosk-Login per Dienstausweis",
+            "Offizielle Identifikation bei Einsätzen"
         ],
-        keywords: ["Wallet", "Dienstausweis", "Digitale ID", "NFC", "Verifikation", "Apple Wallet", "Google Wallet", "Medaillenvitrine"],
-        icon: ShieldCheck,
-        color: "indigo"
+        keywords: ["Digitaler Dienstausweis Feuerwehr", "Feuerwehrausweis App", "NFC Feuerwehr", "QR Code Ausweis"],
+        icon: CreditCard,
+        color: "blue"
     },
     "schnittstellen": {
-        title: "Integration & API",
-        shortDesc: "Bidirektionale REST API, MQTT-Broker & individuelle Middleware.",
-        longDesc: "RESQIO ist offen für Ihre Systemlandschaft. Die vollständige REST API ermöglicht nicht nur das Auslesen, sondern auch das Schreiben und Aktualisieren von Daten in der Anwendung. Verbinden Sie Alarmierungssysteme, IoT-Geräte und Drittsysteme über MQTT oder REST. Wir entwickeln auf Anfrage individuelle Middleware-Lösungen für komplexe Integrationsszenarien.",
+        title: "Schnittstellen & Integrationen",
+        shortDesc: "Offene API und Schnittstellen zu Leitstellen, Alarmsystemen und anderen Softwarelösungen.",
+        longDesc: "RESQIO integriert sich nahtlos in die bestehende IT-Infrastruktur der Feuerwehr. Über offene APIs und standardisierte Schnittstellen können Leitstellen, Alarmsysteme, Gemeindesoftware und andere Lösungen angebunden werden. MQTT-Broker und Webhook-Unterstützung ermöglichen flexible Anbindung.",
         benefits: [
-            "Flexibilität: Beliebig viele Kalender-Quellen gleichzeitig synchronisieren",
-            "Bidirektional: Daten auslesen UND in RESQIO schreiben via REST API",
-            "BSW-Automation: Brandsicherheitswachen automatisch aus Kalendern importieren",
-            "Transparenz: Status jeder Kalenderquelle einzeln einsehbar mit Fehlerprotokoll",
-            "Automatisierung: Alarmierung triggert automatisch die Einsatzerfassung",
-            "Echtzeit: Hochperformante MQTT-Anbindung für IoT-Anwendungen",
-            "Export: CardDAV/VCF-Export inklusive Notfallkontakte",
-            "Individualität: Maßgeschneiderte Middleware für Ihre Systemlandschaft"
+            "Offenheit: Standard-APIs für einfache Integration",
+            "Flexibilität: Anbindung an bestehende Systeme",
+            "Zukunftssicherheit: Neue Integrationen einfach ergänzbar",
+            "Automatisierung: Daten fließen automatisch zwischen Systemen"
         ],
         features: [
-            "Vollständige REST API (GET, POST, PUT, DELETE) für alle Module",
-            "API-Schnittstelle zum Setzen von Informationen in der Anwendung",
-            "Webhooks für ereignisgesteuerte Workflows",
-            "Echtzeit-MQTT Broker für IoT-Anwendungen",
-            "Multi-URL Kalendersynchronisation: Beliebig viele ICS-Quellen pro Typ (1:n statt 1:1)",
-            "BSW-Integration: Automatischer Import von Brandsicherheitswachen aus externen Kalendern",
-            "Sync-Status pro Quelle: Echtzeit-Anzeige mit Fehlermeldungen und letztem Sync-Zeitpunkt",
-            "Individuelle Einstellungen: Jede Quelle mit eigenen Zeitfenstern oder globalen Settings",
-            "Aktivierung/Deaktivierung: Quellen temporär deaktivieren ohne Löschen",
-            "CardDAV-Synchronisation: Kontakte inkl. Notfallkontakte als vCard exportierbar",
-            "Zentrales Email Template Management (Branding & Variablen)",
-            "Individuelle Middleware-Entwicklung auf Anfrage",
-            "KI-Parsing für unstrukturierte Alarm-Daten",
-            "Nahtlose Kalender- & Kontakt-Synchronisation"
+            "REST API für alle Datenzugriffe",
+            "MQTT-Broker für Echtzeit-Kommunikation",
+            "Webhook-Unterstützung für Events",
+            "Leitstellen-Integration",
+            "FMS-Status-Integration",
+            "DATEV und Buchhaltungsexport"
         ],
-        keywords: ["API", "REST API", "Schnittstelle", "Alarmserver", "Integration", "IoT", "MQTT", "Middleware"],
+        keywords: ["API Feuerwehr Software", "Schnittstellen", "Leitstellen Integration", "MQTT", "FMS", "Webhook"],
         icon: Link2,
-        color: "blue"
+        color: "slate"
     },
     "email-templates": {
-        title: "Email Template Management",
-        shortDesc: "Professionelle Kommunikation mit einheitlichem Branding.",
-        longDesc: "Zentrale Steuerung aller ausgehenden Benachrichtigungen. RESQIO sorgt dafür, dass jede E-Mail – vom Wartungshinweis bis zur Einladung – professionell und konsistent aussieht. Mit dem visuellen Template-Editor erstellen Sie ansprechende E-Mails mit dynamischen Platzhaltern.",
+        title: "E-Mail & Kommunikation",
+        shortDesc: "Professionelle E-Mail-Templates und automatische Benachrichtigungen für alle Feuerwehr-Kommunikation.",
+        longDesc: "Das Kommunikationsmodul automatisiert die gesamte E-Mail-Kommunikation der Feuerwehr. Von Termineinladungen über Wartungserinnerungen bis zu offiziellen Benachrichtigungen – alle E-Mails werden professionell und einheitlich versendet. Anpassbare Templates ermöglichen individuelles Corporate Design.",
         benefits: [
-            "Professionalität: Einheitliches Corporate Design über alle Systembenachrichtigungen",
-            "Effizienz: Vorlagen mit dynamischen Variablen für personalisierte Massenmails",
-            "Kontrolle: Echtzeit-Vorschau vor dem Versand",
-            "Zuverlässigkeit: Integration moderner E-Mail-Gateways"
+            "Professionalität: Einheitliches Erscheinungsbild in allen E-Mails",
+            "Automatisierung: Wichtige E-Mails werden automatisch versendet",
+            "Zeitersparnis: Keine manuelle Erstellung von Standard-E-Mails",
+            "Zuverlässigkeit: Keine wichtigen Benachrichtigungen vergessen"
         ],
         features: [
-            "Visual Template Editor mit WYSIWYG-Ansicht",
-            "Dynamische Platzhalter für Personalisierung",
-            "Global Layouts: Einheitliche Header & Footer",
-            "Vorschau-Modus für alle Templates",
-            "Zentraler Versand-Service (Resend-Integration)",
-            "Versionierung von Template-Änderungen"
+            "Anpassbare E-Mail-Templates",
+            "Automatische Benachrichtigungen für alle Ereignisse",
+            "Massen-E-Mail für die Mannschaft",
+            "E-Mail-Protokoll und Zustellbestätigung",
+            "Integration mit allen Modulen"
         ],
-        keywords: ["E-Mail Vorlagen", "Template Management", "Benachrichtigungen", "Branding", "Newsletter"],
+        keywords: ["E-Mail Feuerwehr", "Benachrichtigungen", "Newsletter Feuerwehr", "automatische E-Mails"],
         icon: Mail,
-        color: "indigo"
+        color: "sky"
     },
     "reporting": {
-        title: "Statistik, Reporting & Security-Audit",
-        shortDesc: "Umfassende Auswertungen mit vollständigem Druckexport, KI-Dashboard, Login-Audit und Sicherheitsanalysen.",
-        longDesc: "Das vollständigste Statistik- und Controlling-System für die Feuerwehr. Treffen Sie datenbasierte Entscheidungen auf Basis detaillierter Einblicke in alle Bereiche. Jede Statistikseite ist als professionelles Dokument mit Briefkopf und Unterschriftsfeld exportierbar – ideal für Jahresberichte und Kassenprüfungen. Das KI-Dashboard gibt Ihnen volle Transparenz über die KI-Nutzung Ihrer Wehr. Die Login-Audit-Funktion protokolliert alle Anmeldungen und hilft Ihnen, Sicherheitsrisiken frühzeitig zu erkennen.",
+        title: "Reporting & Statistiken",
+        shortDesc: "Umfassende Auswertungen und Berichte für Führung, Gemeinde und Behörden.",
+        longDesc: "Das Reporting-Modul liefert alle Auswertungen, die eine moderne Feuerwehr benötigt. Einsatzstatistiken, Personalauswertungen, Wartungsberichte und Finanzreports werden automatisch erstellt und können direkt für Gemeinde, Landkreis und Behörden exportiert werden.",
         benefits: [
-            "Sicherheit: Login-Audit mit IP-Adressen, Gerätetypen und Fehler-Analyse",
-            "KI-Controlling: Vollständige Übersicht über KI-Nutzung und Kosten mit Prognosen",
-            "Aktivität: Anmelde-Statistik pro Person zeigt aktivste Nutzer",
-            "Pflichtaufgabe: Jahresstatistik der Branddirektion auf Knopfdruck",
-            "Vorausschauend: Langzeittrends in der Einsatzfrequenz erkennen",
-            "Nachweisbar: Dokumentation der Übungsbeteiligung und Belastung",
-            "Granular: RBAC-Berechtigungen für jeden Statistik-Bereich"
+            "Automatisierung: Berichte auf Knopfdruck",
+            "Vielfalt: Alle relevanten Auswertungen in einer Lösung",
+            "Export: Direkte Weiterverwendung für Behörden",
+            "Einblick: Datenbasierte Entscheidungsgrundlage"
         ],
         features: [
-            "KI-Dashboard: KPI-Übersicht (Anfragen, Tokens, Kosten), Feature-Verteilung, Modell-Analyse",
-            "Login-Audit & Analyse: Grafische Visualisierung von Anmeldeereignissen mit Area-Charts",
-            "Anmelde-Statistik: Häufigkeit der Anmeldungen pro Person mit Badge-Anzeige",
-            "IP-Adressen-Protokollierung: Tracking von Gerätetypen und Standorten",
-            "Fehler-Analyse: Aggregierte Auswertung zur Identifizierung von Sicherheitsrisiken",
-            "Chart-Drill-Down: Interaktive Vertiefung in Zeitreihen und Kategorien",
-            "Heatmap-Ansicht: Einsatzverteilung nach Wochentag und Uhrzeit",
-            "Jahres-Schnellauswahl: Direkter Wechsel zwischen Auswertungsjahren",
-            "Erweiterte Fahrzeug-Auswertungen: Kraftstoff-Tabelle, Aktivitäten-Tab, Auswertung je Fahrer",
-            "Gerätealtersanalyse: Auswertung nach Anschaffungsjahr und Restlebensdauer",
-            "Verbrauchsmaterial-Auswertung: Einsatz- und Übungsbedarf statistisch erfasst",
-            "Objektplan-Nutzungsstatistik: Welche Pläne werden wann abgerufen",
-            "HTML/PDF Export: Alle Statistikseiten als professionelle Berichte exportierbar",
-            "CSV-Export: Export aller Statistikdaten für externe Analyse",
-            "Dashboard mit Kacheln für alle Module (Personal, Einsatz, KI)",
-            "Jahresbericht (PDF/Excel) mit vollständiger Dokumentation",
-            "Druckzentrum: Listen, Etiketten, Laufkarten, Zugangskarten",
-            "Spezial-Reports: Beförderung, Exposition, Übungsbeteiligung, Teilnahme-Statistik",
-            "Top-Nutzer-Ranking: Aktivste Systemnutzer mit Statistiken",
-            "Granulare RBAC: Berechtigungen für jeden Statistik-Bereich einzeln steuerbar",
-            "Professionelles Layout: Einheitlicher Briefkopf, Tabellen und Unterschriftsfelder über alle Berichte"
+            "Einsatzstatistiken und Jahresberichte",
+            "Personalauswertungen und Dienstzeiten",
+            "Wartungs- und Prüfberichte",
+            "Finanzreports",
+            "Exportformate für alle Behörden",
+            "Individuelle Auswertungen und Dashboards"
         ],
-        technicalDetails: [
-            "Übersichtliche Diagramme für zeitbasierte Auswertungen",
-            "Rollenbasierter Datenzugriff – jeder sieht nur, was er soll",
-            "Automatische Datenhaltung nach gesetzlichen Vorgaben",
-            "PDF-Export direkt aus dem Browser – ohne Zusatzsoftware"
-        ],
-        keywords: ["Statistik", "Jahresbericht", "Auswertung", "Drucken", "Controlling", "Login-Audit", "KI-Dashboard", "Sicherheit", "RBAC", "Export-Coverage"],
+        keywords: ["Reporting Feuerwehr", "Jahresbericht", "Statistiken", "Auswertungen", "Einsatzstatistik"],
         icon: BarChart3,
-        color: "purple"
+        color: "violet"
     },
     "brandschutz": {
-        title: "Vorbeugender Brandschutz & Brandschau",
-        shortDesc: "Digitalisierte Sicherheit für Ihre Kommune.",
-        longDesc: "Verwalten Sie Brandverhütungsschauen effizient und rechtssicher. resqio führt Sie durch den gesamten Prozess von der Terminierung bis zur Mängelnachverfolgung.",
+        title: "Brandschutz & Technische Anlagen",
+        shortDesc: "Verwaltung von Brandmeldeanlagen, Löschanlagen und anderen technischen Brandschutzanlagen.",
+        longDesc: "Das Brandschutz-Modul verwaltet alle technischen Brandschutzanlagen – von der Brandmeldeanlage über Löschanlagen bis zu Rauchwarnmeldern. Prüffristen, Wartungshistorie und Alarmierungspläne werden zentral dokumentiert und überwacht.",
         benefits: [
-            "Dokumentation: Lückenlose Historie aller Brandschauen",
-            "Präzision: Mängel-Dokumentation mit Fotos und Prioritäten",
-            "Automation: Berichte und Revisionsschreiben auf Knopfdruck",
-            "Sicherheit: Fristen-Controlling mit Wiedervorlage"
+            "Überblick: Alle Anlagen mit aktuellem Status",
+            "Prüffristen: Automatische Überwachung und Erinnerungen",
+            "Dokumentation: Vollständige Wartungshistorie",
+            "Compliance: Gesetzliche Anforderungen im Griff"
         ],
         features: [
-            "Mobile Mängel-Dokumentation (Tablet-First)",
-            "Automatisierte Berichte & Revisionsschreiben",
-            "Lebenszyklus-Historie pro Objekt",
-            "Fristen-Controlling & Terminierung"
+            "Anlagenregister mit technischen Daten",
+            "Prüffristen-Tracking",
+            "Wartungshistorie und Dokumentation",
+            "Alarmierungspläne und Zuständigkeiten",
+            "Integration in Objektpläne"
         ],
-        keywords: ["Brandschau", "Vorbeugender Brandschutz", "Mängel", "Revisionsfristen", "Brandschutzbeauftragter"],
-        icon: Building2,
-        color: "blue"
+        keywords: ["Brandmeldeanlage", "Löschanlage", "technischer Brandschutz", "BMA Verwaltung", "Prüfung Brandschutzanlage"],
+        icon: ShieldCheck,
+        color: "red"
     },
     "inventur": {
-        title: "Inventur & Bestand",
-        shortDesc: "Flexible Inventurprozesse für Standort & Kategorien.",
-        longDesc: "Behalten Sie den Bestand im Blick. RESQIO bietet verschiedene Inventur-Modi: Von der schnellen Standort-Inventur per Scanner bis zur detaillierten Soll-Ist-Prüfung von Fahrzeugbeladungen.",
+        title: "Inventur & Bestandserfassung",
+        shortDesc: "Digitale Inventur mit Barcode-Scan und automatischem Abgleich mit dem Geräteverzeichnis.",
+        longDesc: "Die digitale Inventur ermöglicht eine schnelle und fehlerfreie Bestandserfassung. Per Barcode- oder QR-Code-Scan werden alle Geräte erfasst und automatisch mit dem Geräteverzeichnis abgeglichen. Abweichungen werden sofort angezeigt und können direkt bearbeitet werden.",
         benefits: [
-            "Sicherheit: Regelmäßige Prüfung der Fahrzeugbeladung",
-            "Wahlfreiheit: Standort-, Kategorie- oder Beladungs-Inventur",
-            "Schnelligkeit: Optimierter Scan-Vorgang am Gerätewagen"
+            "Geschwindigkeit: Inventur in der Hälfte der Zeit",
+            "Genauigkeit: Keine Übertragungsfehler mehr",
+            "Vollständigkeit: Automatischer Abgleich mit Geräteverzeichnis",
+            "Aktualität: Bestände sofort aktualisiert"
         ],
         features: [
-            "Scan-Modus & Manuelle Erfassung",
-            "Ausrüstungsvorlagen (Soll-Ist-Abgleich)",
-            "Standort- & Kategorie-Inventur",
-            "Abschlussdokumentation & Differenzbericht"
+            "Barcode und QR-Code Scan",
+            "Automatischer Abgleich mit Geräteverzeichnis",
+            "Abweichungsanzeige und Sofortkorrektur",
+            "Inventur-Protokoll",
+            "Kiosk-Integration für Hallen-Inventur"
         ],
-        keywords: ["Inventur", "Bestandsprüfung", "Lagerbestand", "Soll-Ist", "Scanner"],
+        keywords: ["Inventur Feuerwehr", "Bestandserfassung", "Barcode Scan", "QR Code Inventur", "Geräteverzeichnis"],
         icon: ClipboardList,
-        color: "zinc"
+        color: "amber"
     },
     "formular-center": {
-        title: "Formular-Center",
-        shortDesc: "Zentraler Zugriff auf Vorlagen und Dokumente.",
-        longDesc: "Strukturierte Ablage für alle wichtigen Formulare und Dokumente Ihrer Feuerwehr. Kategorisiert, durchsuchbar und direkt druckbereit - auch am Kiosk.",
+        title: "Formular-Center & Druckvorlagen",
+        shortDesc: "Alle Formulare und Druckvorlagen der Feuerwehr digital – ausfüllen, drucken und archivieren.",
+        longDesc: "Das Formular-Center stellt alle benötigten Formulare und Druckvorlagen zentral bereit. Von FwDV-konformen Formularen über Anträge bis zu individuellen Vorlagen – alles digital ausfüllbar, druckbar und archivierbar. KI-Unterstützung beim Ausfüllen spart Zeit.",
         benefits: [
-            "Ordnung: Alle Dienstvorschriften und Formulare zentral griffbereit",
-            "Sofortzugriff: Direktes ausdrucken vom Termin oder Kiosk aus",
-            "Immer aktuell: Versionsstand aller wichtigen Vordrucke im Griff"
+            "Vollständigkeit: Alle Formulare an einem Ort",
+            "Aktualität: Immer aktuelle Vorlagen",
+            "Einfachheit: Digital ausfüllen und drucken",
+            "Archivierung: Ausgefüllte Formulare gespeichert"
         ],
         features: [
-            "Ordnerstruktur & Kategorien",
-            "PDF-Vorschau & Druckfunktion",
-            "Formular-Markierung & Favoriten",
-            "Kiosk-Integration"
+            "Bibliothek mit allen Standard-Formularen",
+            "Digitales Ausfüllen mit KI-Unterstützung",
+            "PDF-Export und Druckfunktion",
+            "Archivierung ausgefüllter Formulare",
+            "Individuelle Vorlagen erstellen"
         ],
-        keywords: ["Dienstvorschriften", "Vordrucke", "Feuerwehr Formulare", "Dienstanweisung", "Einsatzmittel"],
-        icon: FolderSearch,
+        keywords: ["Formulare Feuerwehr", "Druckvorlagen", "FwDV Formulare", "digitale Formulare", "Vorlagen Feuerwehr"],
+        icon: FileText,
         color: "slate"
     },
     "maengelmanagement": {
         title: "Mängelmanagement",
-        shortDesc: "Zentrale Erfassung und Bearbeitung von Defekten.",
-        longDesc: "Ein defektes Gerät darf nicht unbemerkt bleiben. Der Mängelmelder ermöglicht eine niederschwellige Meldung (auch via Code-Scan). Die Verwaltung sorgt für Priorisierung, Zuweisung und dokumentierte Behebung.",
+        shortDesc: "Digitale Mängelerfassung und -behebung – vom QR-Code-Scan bis zur Erledigung.",
+        longDesc: "Das Mängelmanagement digitalisiert die Erfassung und Behebung von Defekten und Mängeln. Per QR-Code-Scan am betroffenen Gerät kann jeder Kamerad einen Mangel melden – mit Foto, Beschreibung und Dringlichkeit. Zuständige werden automatisch benachrichtigt und der Bearbeitungsstatus ist für alle transparent.",
         benefits: [
-            "Schnelle Hilfe: Defekte sofort ohne Hürden dem Gerätewart melden",
-            "Info: Jeder Kamerad sieht den aktuellen Reparatur-Status",
-            "Einfach: QR-Code am Gerät scannen und Mangel abschicken"
+            "Einfachheit: Mangel in 30 Sekunden melden",
+            "Transparenz: Status jedes Mangels für alle sichtbar",
+            "Nachverfolgbarkeit: Vollständige Bearbeitungshistorie",
+            "Automatisierung: Automatische Benachrichtigung der Zuständigen"
         ],
         features: [
-            "Öffentlicher Mängelmelder",
-            "Status-Tracking (Gemeldet, In Arbeit, Erledigt)",
-            "Foto-Dokumentation & Kommentare",
-            "Integration in Wartung & Ausrüstung"
+            "QR-Code-Scan am Gerät für schnelle Mängelerfassung",
+            "Foto und Beschreibung",
+            "Dringlichkeitsstufen",
+            "Automatische Benachrichtigung",
+            "Status-Tracking bis zur Erledigung",
+            "Integration mit Wartungsmanagement"
         ],
-        keywords: ["Mängelmelder", "Defekt", "Reparatur", "Gerätewart", "Instandsetzung"],
-        icon: Wrench,
-        color: "orange"
+        keywords: ["Mängelmanagement Feuerwehr", "Defektmeldung", "Schadensmeldung", "QR Code Mangel"],
+        icon: AlertTriangle,
+        color: "red"
     },
     "ki-integration": {
-        title: "KI-Assistenz & Intelligente Automatisierung",
-        shortDesc: "Künstliche Intelligenz für Texte, Planung, Optimierung und intelligente Datenverarbeitung.",
-        longDesc: "RESQIO nutzt modernste KI-Technologie, um Ihre Feuerwehr intelligent zu unterstützen. Das umfassende KI-Dashboard bietet volle Transparenz über Nutzung, Kosten und Feature-Verteilung. Im Kiosk steht allen Führungskräften ein gemeinsamer KI-Assistent mit Spracheingabe zur Verfügung. Von der automatischen Textoptimierung über den interaktiven KI-Chatbot bis zur intelligenten Pumpenoptimierung bei der Wasserförderung. Die KI analysiert Ihre Personalstruktur, optimiert Adressen automatisch und mappt Objektdaten ohne manuelle Eingabe. Rate Limiting und granulare Berechtigungen sorgen für kontrollierten Einsatz. So verwandeln Sie Daten in Erkenntnisse und sparen wertvolle Zeit bei administrativen Aufgaben.",
+        title: "KI-Integration & Assistenz",
+        shortDesc: "Integrierter KI-Assistent für schnelle Antworten, Berichte und intelligente Unterstützung im Alltag.",
+        longDesc: "Der integrierte KI-Assistent von RESQIO ist in alle Module eingebettet und unterstützt bei täglichen Aufgaben. Von der Erstellung von Einsatzberichten über die Beantwortung von Fragen aus dem internen Wiki bis zur Analyse von Einsatzdaten – die KI ist immer verfügbar und lernt aus dem Kontext der Feuerwehr.",
         benefits: [
-            "Kontrolle: KI-Dashboard mit vollständiger Übersicht über Nutzung, Kosten und Prognosen",
-            "Teamwork: Gemeinsamer Kiosk-Chat für alle Führungskräfte mit Wiki-Integration",
-            "Hands-free: Spracheingabe ermöglicht KI-Nutzung auch im Einsatz",
-            "Effizienz: KI-Chatbot beantwortet Fragen zu Systemdaten, Wiki-Inhalten und Prozessen in Echtzeit",
-            "Qualität: Perfekt formulierte Einsatzberichte und Protokolle per Mausklick",
-            "Automatisierung: Intelligentes Mapping von Objektdaten ohne manuelle Datenpflege",
-            "Präzision: KI-gestützte Pumpenoptimierung für komplexe Wasserförderungsstrecken",
-            "Smart Data: Automatische Adressoptimierung und Geocodierung",
-            "Vorausschauend: Personal-Lücken-Analyse und strategische Personalplanung",
-            "Tempo: Administrativer Aufwand wird um bis zu 70% reduziert"
+            "Zeitersparnis: Berichte und Dokumente in Sekunden erstellt",
+            "Wissen: Sofortige Antworten aus dem internen Wiki",
+            "Analyse: KI-gestützte Auswertung von Einsatzdaten",
+            "Unterstützung: Hilfe bei komplexen Aufgaben"
         ],
         features: [
-            "KI-Dashboard: Umfassende Übersicht mit KPI (Anfragen, Tokens, Kosten), Feature-Verteilung und Modell-Analyse",
-            "Top-Nutzer Ranking: Identifikation aktivster Nutzer mit Anfragen und Token-Verbrauch",
-            "Kostenprognose: Geschätzte Monatskosten basierend auf historischen Daten",
-            "KI-Chatbot: Interaktiver Assistent für Führungskräfte mit Zugriff auf alle Systemdaten",
-            "Kiosk KI-Assistent: Gemeinsamer Chat für alle Führungskräfte mit automatischer 24h-Löschung",
-            "Spracheingabe: Deutsche Spracherkennung für hands-free Nutzung auch im Einsatz",
-            "Wiki-Suche: KI durchsucht Einsatzleiterwiki mit Quellenangaben",
-            "Direkter Systemzugriff: Echtzeit-Abfrage von Einsätzen, Ausrüstung und Personal",
-            "Lesezeichen-Funktion: Wichtige Nachrichten markieren und vor Löschung schützen",
-            "Chat-Speicherung: Konversationen permanent speichern und später abrufen",
-            "KI-Textoptimierung: Professionelle Berichte, Protokolle und Dokumentationen",
-            "Kontrollierter Einsatz: Individuelle Nutzungslimits pro Kamerad einstellbar",
-            "Intelligente Adressoptimierung: Automatische Korrektur und Standardisierung",
-            "Automatisches Objektdaten-Mapping: KI erkennt und strukturiert Gebäudeinformationen",
-            "KI-Pumpenoptimierung: Intelligente Berechnung optimaler Pumpenstandorte",
-            "Smart Parsing: Verarbeitung unstrukturierter Alarm- und Einsatzdaten",
-            "Personal-Lücken-Analyse: Vorausschauende Verfügbarkeits-Prognosen",
-            "Qualifikationsverfall-Cluster: Gruppierung ablaufender Qualifikationen für gezielte Nachschulung",
-            "Retention-Risk-Analyse: Früherkennung von Personalrisiken und Fluktuationsgefahr",
-            "Szenario-Simulation: KI-gestützte Besetzungsplanung für verschiedene Einsatzszenarien",
-            "KI-Karriereplaner: Individuelle Lehrgangs-Empfehlungen basierend auf Potenzialanalyse",
-            "Automatische Beförderungsvorschläge nach Dienstzeit und Qualifikationen",
-            "Geocodierung & Koordinaten-Optimierung für Einsatzorte",
-            "CSV-Export: Export der KI-Nutzungsdaten für externe Analyse",
-            "Intelligente Volltextsuche über alle Module hinweg"
+            "KI-Berichtsassistent für Einsatzberichte",
+            "Wiki-Integration für Wissenszugriff",
+            "Spracheingabe im Kiosk-Modus",
+            "KI-Kategorisierung von Belegen",
+            "Intelligente Suche in allen Modulen",
+            "Kontextbezogene Hilfe und Tipps"
         ],
-        technicalDetails: [
-            "Modernste KI-Modelle für Textgenerierung und Analyse",
-            "Intelligente Algorithmen für vorausschauende Personalplanung",
-            "KI-optimierte Berechnungen für Wasserförderung und Hydraulik",
-            "Automatische Plausibilitätsprüfung bei Adress- und Koordinatendaten"
-        ],
-        keywords: ["KI", "AI", "Künstliche Intelligenz", "Chatbot", "Textgenerator", "Automatisierung", "Machine Learning", "Adressoptimierung", "Pumpenoptimierung", "Smart Data"],
+        keywords: ["KI Feuerwehr", "Künstliche Intelligenz Feuerwehr", "KI Assistent", "ChatGPT Feuerwehr", "digitale Transformation Feuerwehr"],
         icon: Brain,
         color: "purple"
     },
     "planspiel": {
-        title: "Planspiel System - Professionelle Feuerwehr-Ausbildung",
-        shortDesc: "Komplettes Trainings- und Simulationssystem mit 6.090 hochwertigen Codes in 74 Kategorien, 200+ Missionen und 45+ Trainingsszenarien für realitätsnahe Übungen.",
-        longDesc: "Das Planspiel System revolutioniert die Feuerwehr-Ausbildung durch gamifizierte Trainingsszenarien. Basierend auf dem EinsatzLeiterWiki bietet es 200+ realistische Einsatzmissionen, die speziell auf 6-8 Minuten Übungssessions optimiert wurden. Ausbilder steuern das komplette Training über die Game Master Oberfläche, während Teilnehmer über Fahrzeug-spezifische Ansichten und ein Dispatcher-System interagieren. Mit 6.090 qualitätsgesicherten Aufgabencodes (≥700 Zeichen Aufgabe, ≥300 Zeichen Lösung, 0 Duplikate) aus 74 Kategorien mit UN-Nummern und Einsatzleiterwiki-Referenzen wird jede Übung zur praxisnahen Herausforderung.",
+        title: "Planspiel & Ausbildungssimulation",
+        shortDesc: "Interaktive Planspielsimulation für taktische Ausbildung und Einsatztraining.",
+        longDesc: "Das Planspiel-Modul ermöglicht realitätsnahe taktische Ausbildungsszenarien ohne echten Einsatz. Führungskräfte trainieren Entscheidungsprozesse, Ressourcenplanung und Kommunikation in simulierten Einsatzlagen. Verschiedene Schwierigkeitsstufen und vordefinierte Szenarien machen das Training abwechslungsreich.",
         benefits: [
-            "Umfang: 200+ Einsatzmissionen aus EinsatzLeiterWiki für authentische Szenarien",
-            "Vielfalt: 6.090 qualitätsgesicherte Aufgabencodes aus 74 Kategorien mit UN-Nummern",
-            "Effizienz: 45+ Trainingsszenarien auf 6-8 Minuten optimiert für maximalen Lerneffekt",
-            "Qualität: Jeder Code mit ≥700 Zeichen Aufgabe und ≥300 Zeichen Lösung, 0 Duplikate",
-            "Führung: Game Master UI für vollständige Kontrolle über Training und Ablauf",
-            "Realismus: Dispatcher UI simuliert echte Leitstellen-Kommunikation",
-            "Moderne Szenarien: Spezialthemen wie E-Auto-Brände, KFZ-Technik und Fahrzeugtechnik Feuerwehr",
-            "Ausbildungsstandards: Abdeckung von FwDV, UVV und Unfallverhütungsvorschriften",
-            "Dokumentation: Druckvorlagen für physische Code-Karten und Spielmaterial",
-            "Auswertung: Umfassende Nachbesprechung mit Evaluation-Ansicht und Statistiken"
+            "Realitätsnähe: Echte Entscheidungssituationen simuliert",
+            "Sicherheit: Training ohne Risiko",
+            "Wiederholbarkeit: Szenarien beliebig oft trainieren",
+            "Auswertung: Detaillierte Analyse der Trainingsergebnisse"
         ],
         features: [
-            "200+ Einsatzmissionen: Professionell kuratierte Szenarien aus EinsatzLeiterWiki",
-            "6.090 Aufgabencodes in 74 Kategorien mit UN-Nummern und Wiki-Referenzen",
-            "45+ Trainingsszenarien: Vorgefertigte Übungen mit verschiedenen Schwierigkeitsgraden (Einsteiger bis Experte)",
-            "Qualitätssicherung: ≥700 Chars Aufgabe, ≥300 Chars Lösung, 0 Duplikate",
-            "Game Master Oberfläche: Zentrale Steuerung für Ausbilder mit Session-Management und Echtzeit-Überwachung",
-            "Dispatcher UI: Realistische Leitstellen-Simulation für authentische Alarmierung und Kommunikation",
-            "Fahrzeug-Ansichten: Spezifische Interfaces für HLF, LF, TLF, DLK mit Code-System-Integration",
-            "6-8 Minuten Optimierung: Missionen zeitlich perfekt getaktet für effektive Kurzübungen",
-            "Einsatz-Kategorien: Klassische Szenarien (Brand, TH, VU, Gefahrgut, Wasser, Personen, Tier)",
-            "Spezial-Kategorien: Moderne Szenarien (E-Auto, LKW, KFZ-Technik, Fahrzeugtechnik Feuerwehr, Atemschutz vertieft)",
-            "Ausbildungs-Kategorien: Foto, Wissen/Quiz, Praxis, FwDV, UVV, Funkkommunikation, Rettung/Erste Hilfe",
-            "Quiz-Master Integration: Verknüpfung mit Szenario-basiertem Quiz-System für Wissensabfrage",
-            "Druckvorlagen: Professionelle Templates für physische Code-Karten und Übungsmaterial",
-            "Evaluation & Nachbesprechung: Detaillierte Auswertungs-Ansicht mit Punkteverteilung und Feedback",
-            "Fortschritts-Tracking: Automatische Erfassung von Trainingsfortschritten pro Teilnehmer",
-            "Szenario-Editor: Eigene Missionen und Code-Kombinationen erstellen und verwalten",
-            "Multi-Team Support: Mehrere Teams können parallel verschiedene Szenarien trainieren",
-            "Statistik-Dashboard: Übersicht über absolvierte Trainings, Erfolgsquoten und Schwachstellen"
+            "Vordefinierte Einsatzszenarien",
+            "Taktische Karte mit simulierten Ressourcen",
+            "Führungskräfte-Training",
+            "Auswertung und Feedback",
+            "Eigene Szenarien erstellen"
         ],
-        keywords: ["Planspiel", "Training", "Simulation", "Ausbildung", "Übung", "Game Master", "Dispatcher", "Szenarien", "EinsatzLeiterWiki", "Gamification"],
+        keywords: ["Planspiel Feuerwehr", "Taktikausbildung", "Simulation Feuerwehr", "Führungstraining", "Ausbildung digital"],
         icon: Gamepad2,
-        color: "green"
+        color: "violet"
     },
     "wirt-modul": {
-        title: "Wirt-Modul - Gastronomie & Getränkeverwaltung",
-        shortDesc: "Vollständiges Verwaltungssystem für Getränke, Snacks und Vereinsgastronomie mit Kiosk-Integration und Statistiken.",
-        longDesc: "Das Wirt-Modul digitalisiert die Vereinsgastronomie Ihrer Feuerwehr. Verwalten Sie Ihr komplettes Sortiment an Getränken und Snacks zentral, erfassen Sie Verkäufe direkt am Kiosk-Tablet und behalten Sie jederzeit den Überblick über Verbrauch und Umsätze. Die Shopping-Cart-Funktion ermöglicht schnelles Erfassen mehrerer Produkte gleichzeitig, während umfangreiche Statistiken Ihnen zeigen, welche Produkte am beliebtesten sind und wann Nachbestellungen fällig werden.",
+        title: "Wirt-Modul & Veranstaltungsmanagement",
+        shortDesc: "Digitale Verwaltung von Feuerwehrfesten, Veranstaltungen und Getränkeverkauf.",
+        longDesc: "Das Wirt-Modul unterstützt bei der Organisation und Durchführung von Feuerwehrfesten und Vereinsveranstaltungen. Von der Planung über den Getränkeverkauf bis zur Abrechnung – alles digital und übersichtlich.",
         benefits: [
-            "Effizienz: Schnelle Erfassung von Verkäufen direkt am Kiosk-Tablet mit Touch-Optimierung",
-            "Übersicht: Zentrale Verwaltung aller Produkte mit Kategorien, Preisen und Beständen",
-            "Transparenz: Umfassende Statistiken zeigen Verbrauchstrends und Umsatzentwicklung",
-            "Flexibilität: Shopping-Cart ermöglicht Multi-Produkt-Auswahl in einem Durchgang",
-            "Kontrolle: Bestandsverwaltung mit Warnungen bei niedrigen Lagerbeständen",
-            "Vereinfachung: Keine separate Kasse nötig - alles digital über RESQIO"
+            "Organisation: Veranstaltungen zentral planen und verwalten",
+            "Einnahmen: Getränkeverkauf digital erfassen",
+            "Abrechnung: Schnelle und korrekte Kassenabrechnung",
+            "Übersicht: Alle Veranstaltungen auf einen Blick"
         ],
         features: [
-            "Produkt-Management: Vollständige Verwaltung von Getränken, Snacks und weiteren Artikeln",
-            "Kategorien & Preise: Flexible Kategorisierung mit individueller Preisgestaltung",
-            "Kiosk-Shopping-Cart: Touch-optimierte Oberfläche für schnelle Multi-Produkt-Auswahl",
-            "Bestandsverwaltung: Automatisches Tracking von Lagerbeständen mit Mindestbestands-Warnungen",
-            "Verkaufserfassung: Schnelle Buchung von Verkäufen mit Zeitstempel und Mitgliederzuordnung",
-            "Verbrauchsstatistiken: Detaillierte Auswertungen nach Produkt, Zeitraum und Kategorie",
-            "Umsatzberichte: Übersicht über Einnahmen mit Export-Funktionen für Buchhaltung",
-            "Settings-Dialog: Zentrale Konfiguration von Produkten, Kategorien und Preisen",
-            "Full-Page Kiosk-View: Dedizierte Vollbild-Ansicht für optimale Tablet-Nutzung",
-            "Beliebtheits-Ranking: Automatische Ermittlung der meistverkauften Produkte",
-            "Zeitbasierte Analysen: Verbrauchstrends nach Wochentagen und Uhrzeiten",
-            "Schnellzugriff-Favoriten: Häufig verkaufte Produkte prominent platziert"
+            "Veranstaltungsplanung und -verwaltung",
+            "Getränkekarte und Kassensystem",
+            "Tagesabrechnung",
+            "Einnahmen-Tracking",
+            "Personalplanung für Veranstaltungen"
         ],
-        keywords: ["Gastronomie", "Getränke", "Wirt", "Verkauf", "Kiosk", "Snacks", "Vereinsgastronomie", "Bestand", "Umsatz"],
+        keywords: ["Feuerwehrfest", "Veranstaltungsmanagement", "Kassensystem Verein", "Getränkeverkauf", "Vereinsfest"],
         icon: Beer,
         color: "amber"
     },
     "kreis-platform": {
-        title: "RESQIO Kreismodul",
-        shortDesc: "Die zentrale Plattform für Ihren Landkreis — alle Wehren vernetzt, volle Datensouveränität, minimaler Aufwand.",
-        longDesc: "Das RESQIO Kreismodul vernetzt alle Feuerwehren Ihres Landkreises in einer zentralen Plattform. Kreisbrandmeister und Landratsämter erhalten sofortigen Überblick über Personalstärken, Qualifikationen, Ausrüstung und Verfügbarkeiten — ohne dass personenbezogene Daten die einzelnen Wehren verlassen. Schulungen koordinieren, Werkstatt-Termine buchen, Ressourcen kreisweit auffinden: alles an einem Ort, vollständig verschlüsselt und DSGVO-konform.",
+        title: "Kreisplattform & Verbandsintegration",
+        shortDesc: "Übergreifende Plattform für Feuerwehrverbände und Landkreise – alle Einheiten vernetzt.",
+        longDesc: "Die Kreisplattform vernetzt alle Feuerwehren eines Landkreises oder Verbands in einer gemeinsamen Plattform. Gegenseitige Alarmierung, Ressourcenabfragen und übergreifende Statistiken ermöglichen eine effiziente Zusammenarbeit bei Großeinsätzen und in der täglichen Verwaltung.",
         benefits: [
-            "Datensouveränität: Jede Feuerwehr behält die volle Kontrolle über ihre Daten und entscheidet selbst, was freigegeben wird",
-            "Durchgehende Verschlüsselung: Alle Datenübertragungen sind Ende-zu-Ende verschlüsselt — unbefugter Zugriff ausgeschlossen",
-            "Flexible Vernetzung: Beliebig viele Wehren anbinden, auch über Kreisgrenzen hinweg",
-            "Verbindung in 2 Minuten: Per Einladungslink oder QR-Code — kein IT-Aufwand nötig",
-            "Intelligente Analysen: Qualifikationslücken erkennen und Beschaffungsbedarfe vorausschauend planen",
-            "Zentrale Schulungsverwaltung: Online-Anmeldung mit automatischer Platzvergabe und Rückmeldung an die Personalakte",
-            "Digitales Werkstatt-Management: Atemschutz- und Schlauchwerkstatt mit Online-Buchung und Kapazitätsplanung",
-            "Kreisweites Ressourcen-Register: Sonderausrüstungen mit Verfügbarkeitsampel und Anfrage-Workflow",
-            "Maximaler Datenschutz: Anonymisierte Statistiken — bei weniger als 5 Personen wird nur \u201Eunter 5\u201C angezeigt",
-            "Hosting in Deutschland: Betrieb auf eigenem Server oder in der Cloud — Sie entscheiden, DSGVO-konform"
+            "Vernetzung: Alle Feuerwehren des Kreises verbunden",
+            "Großeinsätze: Übergreifende Ressourcenplanung",
+            "Statistiken: Kreisweite Auswertungen",
+            "Effizienz: Gemeinsame Verwaltungsprozesse"
         ],
         features: [
-            "Sichere Vernetzung: Beliebig viele Feuerwehren anbinden mit Echtzeit-Verbindungsüberwachung",
-            "Kreisweites Dashboard: Personalstärken, Qualifikationen, Kreiskarte mit Feuerwehr-Standorten auf einen Blick",
-            "Schulungskalender: AGT, Maschinisten, Gruppenführer, Zugführer, CSA — mit Platzverwaltung und Wartelisten",
-            "Intelligente Platzvergabe: Automatische Kontingent-Verteilung basierend auf Qualifikationsbedarf und Dringlichkeit",
-            "Atemschutzwerkstatt: Online-Terminbuchung mit Kalender, Kapazitätsplanung und automatischer Ergebnisrückmeldung",
-            "Schlauchwerkstatt: Digitale Buchung für Schlauchpflege und -prüfung mit Kapazitätsplanung",
-            "Atemübungsstrecke: Buchung und Verwaltung mit integriertem Sicherheitskonzept und Ausbildungsnachweis",
-            "Sonderausrüstungs-Register: Kreisweite Übersicht mit Verfügbarkeitsampel und geografischer Suche",
-            "Personalstatistiken: Anonymisierte Übersicht mit FwDV-konformen Soll-Ist-Vergleichen",
-            "Fahrzeug-Dashboard: Kreisweite Koordination für Großlagen mit Verfügbarkeitskarte",
-            "Wasserversorgungskarte: Hydranten, Brunnen, Zisternen — mit Gap-Analyse für Versorgungslücken",
-            "Kreislager: Zentrale Bestandsführung mit Mindestmengen-Warnungen und automatischer Reservierung",
-            "Gemeinsame Beschaffung: Sammelbestellungen für bessere Konditionen — Bedarfsmeldungen aggregieren",
-            "Schwarzes Brett: Kreisweite Mitteilungen mit Prioritätsstufen und Lesebestätigungen",
-            "Dokumenten-Portal: Vorschriften, Formulare und Einsatzpläne zentral verwalten mit Versionskontrolle",
-            "KI-Assistent: Qualifikationstrends erkennen, Beschaffungsbedarfe vorhersagen, Ressourcen standortbezogen finden",
-            "Übungskoordination: Kreisweiter Kalender mit Konflikt-Warnung und kooperativem Planungsmodus",
-            "Flexible Anbindung: Feuerwehren, Werkstätten, Übungsstrecken, Ausbildungszentren und mehr"
+            "Kreis-Dashboard mit allen Einheiten",
+            "Gegenseitige Alarmierung und Unterstützungsanfragen",
+            "Kreisweite Ressourcenübersicht",
+            "Übergreifende Statistiken und Berichte",
+            "Gemeinsame Dokumentenbibliothek"
         ],
-        technicalDetails: [
-            "Eigenständige Plattform: Komplett unabhängig — keine Eingriffe in bestehende Systeme nötig",
-            "Durchgehende Verschlüsselung aller Datenübertragungen mit automatischer Zertifikats-Rotation",
-            "Flexibles Hosting: Eigener Server, kommunales Rechenzentrum oder Cloud — Sie entscheiden",
-            "DSGVO-konform: Keine personenbezogenen Daten auf Kreisebene, automatische Löschung bei Trennung"
-        ],
-        keywords: ["Kreisfeuerwehrverband Software", "Kreismodul", "Kreisbrandmeister Software", "Landratsamt Feuerwehr", "Kreisverwaltung Feuerwehr", "Feuerwehr Kreisebene", "Föderale Plattform", "Ressourcen-Register", "Schulungsverwaltung Feuerwehr", "Atemschutzwerkstatt Software", "Schlauchwerkstatt", "DSGVO Feuerwehr", "Datensouveränität", "Feuerwehr Vernetzung", "Personalverwaltung Feuerwehr", "Qualifikationsverwaltung", "FwDV Auswertung", "Sonderausrüstung Feuerwehr"],
+        keywords: ["Kreisfeuerwehr Software", "Verband Feuerwehr", "Landkreis Feuerwehr", "übergreifende Plattform", "Gegenseitige Alarmierung"],
         icon: Globe,
-        color: "violet"
+        color: "blue"
     },
     "arbeitsstunden": {
-        title: "Arbeitsstunden & Zeiterfassung",
-        shortDesc: "Systematisches Work Hours Tracking mit Equipment-Referenz, Bulk-Erfassung und vollständigen Statistik-Exporten.",
-        longDesc: "Erfassen Sie Arbeitsstunden professionell und verknüpfen Sie sie direkt mit Geräten und Projekten. Das Modul bietet Bulk-Erfassung für mehrere Einträge gleichzeitig, flexible Kategorisierung nach Arbeitstypen und vollständige Statistik-Exporte mit Top 5 Kategorien/Personen, Quellen-Analyse und monatlichen Auswertungen. Die Kiosk-Integration ermöglicht die Erfassung direkt an der Wache.",
+        title: "Arbeitsstunden & Tätigkeitsnachweise",
+        shortDesc: "Digitale Erfassung von Arbeitsstunden und Tätigkeitsnachweisen für alle Feuerwehrmitglieder.",
+        longDesc: "Das Arbeitsstunden-Modul erfasst alle geleisteten Stunden der Feuerwehrmitglieder – ob Übungen, Einsätze, Wartungsarbeiten oder Verwaltungsaufgaben. Tätigkeitsnachweise werden automatisch erstellt und können für Gemeinde, Arbeitgeber oder Steuerberater exportiert werden.",
         benefits: [
-            "Präzision: Arbeitsstunden direkt Geräten und Projekten zuordnen",
-            "Effizienz: Bulk-Erfassung für mehrere Einträge gleichzeitig",
-            "Mobilität: Eigene Kiosk-Kachel mit Wizard-UI für schnelle Erfassung",
-            "Transparenz: Vollständiger Drucken-Export mit Top 5 Kategorien und Personen"
+            "Vollständigkeit: Alle Stunden erfasst und dokumentiert",
+            "Automatisierung: Stunden aus Einsätzen automatisch übernommen",
+            "Nachweise: Tätigkeitsnachweise auf Knopfdruck",
+            "Fairness: Transparent für alle Mitglieder"
         ],
         features: [
-            "Equipment-Referenz: Arbeitsstunden mit Geräten verknüpfen",
-            "Bulk-Erfassung: Mehrere Einträge gleichzeitig anlegen",
-            "Kiosk-Integration: Eigene Kachel mit Wizard-UI und Equipment-Tabelle",
-            "Flexible Kategorisierung: Verschiedene Arbeitstypen definierbar",
-            "Statistik-Export: Top 5 Kategorien/Personen, Nach Quelle, Nach Kategorie, Nach Monat, Pro Person",
-            "PDF-Export: Druckfertiger Export mit vollständiger Auswertung"
+            "Manuelle und automatische Stundenerfassung",
+            "Kategorisierung nach Tätigkeitsart",
+            "Tätigkeitsnachweise als PDF",
+            "Jahresauswertung pro Mitglied",
+            "Export für Gemeinde und Arbeitgeber"
         ],
-        keywords: ["Arbeitsstunden", "Zeiterfassung", "Work Hours", "Equipment-Tracking", "Kiosk", "Bulk-Erfassung", "Statistik-Export"],
+        keywords: ["Arbeitsstunden Feuerwehr", "Tätigkeitsnachweis", "Stundendokumentation", "Ehrenamtsnachweis"],
         icon: Clock,
-        color: "teal"
+        color: "slate"
     },
     "bsw-events": {
-        title: "Brandsicherheitswache & Veranstaltungen",
-        shortDesc: "Professionelle Verwaltung und Abrechnung von Brandsicherheitswachen und kommunalen Veranstaltungen.",
-        longDesc: "Planen und rechnen Sie Brandsicherheitswachen professionell ab. RESQIO automatisiert den Prozess von der ersten Anfrage bis zur finalen Fakturierung. Mit zentraler Klientenverwaltung, Smart Invoicing basierend auf Tarifsätzen und Fahrzeugvorhaltung sowie standardisierten Vorlagen für effiziente Einsatzplanung bei wiederkehrenden Veranstaltungen.",
+        title: "BSW-Events & Veranstaltungskalender",
+        shortDesc: "Übergreifender Veranstaltungskalender für Bezirk, Kreis und Verband.",
+        longDesc: "Der BSW-Event-Kalender aggregiert alle relevanten Veranstaltungen aus dem Feuerwehrverband, Bezirk und Kreis in einer übersichtlichen Ansicht. Mitglieder behalten den Überblick über Wettkämpfe, Lehrgänge und Veranstaltungen auf übergeordneter Ebene.",
         benefits: [
-            "Automatisierung: Vom Antrag bis zur Rechnung in einem Workflow",
-            "Klientenverwaltung: Alle Veranstalter und Ansprechpartner zentral verwaltet",
-            "Fakturierung: Automatisierte Berechnung nach Tarifsätzen, Stunden und Fahrzeugvorhaltung",
-            "Effizienz: Standardisierte Vorlagen für wiederkehrende Standardveranstaltungen"
+            "Überblick: Alle relevanten Veranstaltungen auf einen Blick",
+            "Aktualität: Automatisch aktualisiert",
+            "Integration: Direkt in den lokalen Kalender integriert",
+            "Hierarchie: Verbands-, Bezirks- und Kreisebene"
         ],
         features: [
-            "Zentrale Klientenverwaltung: Veranstalter und Ansprechpartner in strukturierter Datenbank",
-            "Smart Invoicing: Automatisierte Berechnung basierend auf Tarifsätzen und Fahrzeugvorhaltung",
-            "Standardisierte Vorlagen: Hinterlegte Einsatzprofile für Standardveranstaltungen",
-            "BSW-Kalender: Termine mit automatischer Synchronisation über iCal",
-            "Abrechnungsmanagement: PDF-Rechnungen und Zusammenfassungen",
-            "Integration: Nahtlose Verknüpfung mit Einsatz- und Treasury-Modul"
+            "Aggregierter Veranstaltungskalender",
+            "Filterfunktion nach Ebene und Kategorie",
+            "Anmeldung und Teilnahmeverwaltung",
+            "Integration in lokalen Kalender",
+            "Push-Benachrichtigungen"
         ],
-        keywords: ["Brandsicherheitswache", "BSW", "Veranstaltung", "Events", "Abrechnung", "Fakturierung", "Klientenverwaltung", "Smart Invoicing"],
+        keywords: ["BSW Feuerwehr", "Veranstaltungskalender", "Wettkampf Feuerwehr", "Bezirk Feuerwehr"],
         icon: Calendar,
-        color: "rose"
+        color: "orange"
     },
-
     "stab-modul": {
         title: "Stab & Führungsunterstützung",
-        shortDesc: "Digitale Stabsarbeit für komplexe Einsatzlagen – von der Lageerfassung über die Führungsdokumentation bis zur strukturierten Nachbereitung.",
-        longDesc: "Das Stab-Modul unterstützt Führungskräfte bei anspruchsvollen Einsätzen und Großschadenslagen. Strukturierte Werkzeuge für alle Sachgebiete des Stabes, ein Live-Einsatztagebuch, eine interaktive Lagekarte mit taktischen Zeichen sowie eine vollständige Einsatzdokumentation sorgen dafür, dass Entscheidungen nachvollziehbar bleiben und die Stabsarbeit auch unter Druck geordnet verläuft. MANV-Unterstützung, GPS-gestütztes Ressourcentracking und automatisch generierte Abschlussberichte runden das Modul ab.",
+        shortDesc: "Digitale Stabsarbeit für Großschadenlagen: MANV-Sichtungsliste, Funk-Protokoll, Einsatztagebuch und Einsatznachbereitung",
+        longDesc: "Das Stab-Modul unterstützt Führungskräfte bei anspruchsvollen Einsätzen und Großschadenslagen. Strukturierte Werkzeuge für alle Sachgebiete des Stabes (S1–S6), ein vollständiges digitales Einsatztagebuch mit Zeitstempeln, eine interaktive Lagekarte mit taktischen Zeichen sowie eine vollständige Einsatzdokumentation sorgen dafür, dass Entscheidungen nachvollziehbar bleiben und die Stabsarbeit auch unter Druck geordnet verläuft. MANV-Sichtungsliste mit GPS-Verortung, strukturiertes Funk-Protokoll mit Kanal-Management, Druckvorlagen-Generator für professionelle Stabsdokumente sowie ein Lessons-Learned-System für strukturierte Einsatznachbereitung runden das Modul ab. Wiederverwendbare Szenarien-Vorlagen erleichtern Training und Übungen.",
         benefits: [
             "Überblick: Alle einsatzrelevanten Informationen zentral und in Echtzeit",
             "Koordination: Klare Zuständigkeiten für alle Sachgebiete des Stabes",
@@ -1028,20 +820,18 @@ export const modules: Record<string, ModuleData> = {
             "Ausdruck: Einsatzblatt als Druckdokument für Übergabe und Abschluss"
         ],
         features: [
-            "Stabsbesetzung mit definierten Rollen und Sachgebietszuständigkeiten",
-            "Live-Einsatztagebuch mit Echtzeiterfassung und Revisionshistorie",
-            "Besprechungsmanagement mit Tagesordnung und Ergebnisprotokoll",
-            "Einsatzabschnittsverwaltung und Kräftezuordnung",
-            "Interaktive Lagekarte mit taktischen Zeichen (DIN 14034-3)",
-            "MANV-Patientenliste mit GPS-gestütztem Echtzeit-Tracking der Ressourcen",
-            "Funk- und Kommunikationsprotokoll",
-            "Gebietsanalyse mit Schadenkonten und Gefährdungsbewertung",
-            "Einsatzvorlagen und Szenarien für wiederkehrende Lagen",
-            "Automatischer Einsatzblatt-Generator als Druckdokument",
-            "Lessons Learned und Qualitätssicherung nach dem Einsatz",
-            "KI-gestützte Zusammenfassung von Lagebesprechungen"
+            "MANV-Sichtungsliste mit GPS-Verortung – Sichtungskategorien I–IV nach Patientenlage",
+            "Funkprotokoll mit Kanal-Management – strukturierte Kommunikationsdokumentation",
+            "Entscheidungsprotokoll – Stabsentscheidungen nachvollziehbar und revisionsfest dokumentiert",
+            "Notizen-System mit Anhang-Upload – Dateien und Fotos direkt im Stab hinterlegen",
+            "Szenarien-Vorlagen – wiederverwendbare Einsatzszenarien für Training und Übungen",
+            "Druckvorlagen-Generator – professionelle Stabsdokumente auf Knopfdruck drucken",
+            "Lessons-Learned-System – strukturierte Einsatznachbereitung für kontinuierliche Verbesserung",
+            "Gebietsanalyse und geografische Lagedarstellung für den Stab",
+            "Vollständiges digitales Einsatztagebuch mit Zeitstempeln",
+            "Alle Stabsfunktionen S1–S6 digital unterstützt"
         ],
-        keywords: ["Stabsarbeit", "Führungsunterstützung", "Einsatztagebuch", "Einsatzleitung", "Führungsstab", "MANV", "Großschadenslage", "Taktische Zeichen", "Lagekarte", "Stab Feuerwehr", "Führungsorganisation"],
+        keywords: ["Stabsarbeit", "Führungsunterstützung", "Einsatztagebuch", "Einsatzleitung", "Führungsstab", "MANV", "Großschadenslage", "Taktische Zeichen", "Lagekarte", "Stab Feuerwehr", "Führungsorganisation", "MANV Software Feuerwehr", "digitales Einsatztagebuch Feuerwehr", "Stabsarbeit Software Feuerwehr", "Führungsunterstützung Feuerwehr digital", "Großschadenslage Software"],
         icon: Shield,
         color: "slate"
     },
@@ -1128,5 +918,42 @@ export const modules: Record<string, ModuleData> = {
         keywords: ["Beförderungssystem", "Beförderung Feuerwehr", "Dienstgrade", "Qualifikationen", "Dienstzeit", "Beförderungsvoraussetzungen"],
         icon: TrendingUp,
         color: "amber"
+    },
+    "alarmmonitor": {
+        title: "Alarmmonitor",
+        shortDesc: "Live-Alarmdarstellung im Gerätehaus – Einsatzdaten bei Alarmierung sofort sichtbar",
+        longDesc: "Der RESQIO Alarmmonitor verwandelt jeden Bildschirm im Gerätehaus in ein professionelles Einsatz-Display. Bei Alarmierung werden alle relevanten Einsatzdaten sofort angezeigt: Einsatzort, Stichwort, alarmierte Fahrzeuge und Personalstatus. Im Ruhemodus zeigt der Monitor nützliche Informationen wie Hydrantenkarte, Wetterradar, Fahrzeugstatus und aktuelle Diensteinteilung – damit das Gerätehaus immer informiert ist.",
+        benefits: [
+            "Keine Informationslücken bei Alarmierung – alle Daten sofort sichtbar",
+            "Ruhemodus mit nützlichen Infos für den Alltag im Gerätehaus",
+            "Einfache Installation auf jedem Bildschirm oder TV",
+            "Vollständige Integration in das RESQIO-Ökosystem",
+        ],
+        features: [
+            "Live-Alarmdarstellung mit Einsatzort, Stichwort und Einsatzkräften bei Alarmierung",
+            "Fahrzeugstatus-Übersicht – welche Fahrzeuge sind verfügbar, im Einsatz oder in Wartung",
+            "Personalstatus auf einem Blick – wer ist verfügbar, wer ist alarmiert",
+            "Hydrantenkarte im Ruhemodus – immer die nächste Wasserversorgung im Blick",
+            "Wetterradar-Integration für aktuelle Wetterlage",
+            "FMS-Integration für Echtzeit-Fahrzeugstatus via Funk",
+            "MQTT-Broker und Webhook-Unterstützung für flexible Alarmierungsquellen",
+            "Automatischer Ruhemodus nach Einsatzende mit konfigurierbaren Inhalten",
+            "Touchscreen-optimiert und für alle Bildschirmgrößen geeignet",
+            "Vollständig offline-fähig für zuverlässige Darstellung auch ohne Internet",
+        ],
+        keywords: [
+            "Alarmmonitor Feuerwehr",
+            "Einsatzanzeige Gerätehaus",
+            "digitaler Alarmmonitor Feuerwehr",
+            "Feuerwehr Display Alarm",
+            "Alarmierungsanzeige Feuerwehr",
+            "FMS Monitor Feuerwehr",
+            "Einsatzdaten Anzeige Feuerwehr",
+            "Gerätehaus Monitor",
+            "MQTT Alarmmonitor",
+            "Feuerwehr Statusanzeige",
+        ],
+        icon: Bell,
+        color: "red"
     }
 };
