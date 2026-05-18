@@ -44,8 +44,8 @@ const HeroSection = () => {
 
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 leading-relaxed">
             RESQIO ist mehr als nur Verwaltungssoftware – wir sind die intelligente Kommandozentrale
-            für die moderne Feuerwehr. Von der Ausrüstungsprüfung bis zur KI-gestützten
-            Einsatznachbereitung.
+            für die moderne Feuerwehr. Von der Ausrüstungsprüfung über das Kreismodul bis zur
+            KI-gestützten Einsatznachbereitung.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -74,16 +74,16 @@ const HeroSection = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8">
             <div className="space-y-1">
-              <p className="text-2xl font-bold text-primary-foreground">2026</p>
-              <p className="text-sm text-primary-foreground/60">An 365 Tagen einsatzbereit</p>
+              <p className="text-2xl font-bold text-primary-foreground">365 Tage</p>
+              <p className="text-sm text-primary-foreground/60">Einsatzbereit im Jahr</p>
             </div>
             <div className="space-y-1">
-              <p className="text-2xl font-bold text-primary-foreground">5.000+</p>
-              <p className="text-sm text-primary-foreground/60">Gegenstände verwaltet</p>
-            </div>
-            <div className="space-y-1">
-              <p className="text-2xl font-bold text-primary-foreground">40+</p>
+              <p className="text-2xl font-bold text-primary-foreground">55+</p>
               <p className="text-sm text-primary-foreground/60">Einsatzmodule verfügbar</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-2xl font-bold text-primary-foreground">57</p>
+              <p className="text-sm text-primary-foreground/60">Kiosk-Module touchscreen-optimiert</p>
             </div>
             <div className="space-y-1 text-primary-foreground/80 flex items-center gap-2">
               <Shield className="w-5 h-5 text-accent" />

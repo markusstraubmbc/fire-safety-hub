@@ -11,6 +11,30 @@ const FAQ_JSON_LD = {
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "Was kostet RESQIO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Preise richten sich nach der Größe und den Anforderungen Ihrer Feuerwehr. Kontaktieren Sie uns für ein individuelles Angebot unter support@resqio.de oder über das Kontaktformular auf resqio.de."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gibt es ein Kreismodul für Kreisfeuerwehrverbände?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja! Das RESQIO Kreismodul ist speziell für Kreisbrandmeister und Kreisfeuerwehrverbände entwickelt. Es ermöglicht die zentrale Verwaltung aller angeschlossenen Wehren mit voller Datensouveränität, gemeinsamen Ressourcen-Übersichten und kreisweiten Auswertungen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gibt es eine mobile App und einen Kiosk-Modus?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RESQIO ist vollständig mobil-optimiert und läuft im Browser auf jedem Smartphone und Tablet. Der Kiosk-Modus mit 57 touchscreen-optimierten Modulen für Tablets im Gerätehaus unterstützt RFID-Login, PIN und QR-Code."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Ist die Software rechtssicher?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -47,14 +71,6 @@ const FAQ_JSON_LD = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Wir setzen auf Partnerschaft auf Augenhöhe. Kontaktieren Sie uns für Details zu unseren flexiblen Modellen, die auf die Bedürfnisse von Feuerwehren zugeschnitten sind."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Was kostet RESQIO?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Die Preise richten sich nach der Größe und den Anforderungen Ihrer Feuerwehr. Kontaktieren Sie uns für ein individuelles Angebot unter support@resqio.de oder über das Kontaktformular auf resqio.de."
       }
     }
   ]
@@ -106,6 +122,7 @@ const Index = () => {
   const futureFactory = useCallback(() => import("@/components/FutureSection"), []);
   const pricingFactory = useCallback(() => import("@/components/PricingSection"), []);
   const regionalFactory = useCallback(() => import("@/components/RegionalSection"), []);
+  const faqFactory = useCallback(() => import("@/components/FaqSection"), []);
   const contactFactory = useCallback(() => import("@/components/ContactSection"), []);
 
   return (
@@ -121,6 +138,7 @@ const Index = () => {
         <LazySection factory={futureFactory} rootMargin="50px" />
         <LazySection factory={pricingFactory} rootMargin="50px" />
         <LazySection factory={regionalFactory} rootMargin="50px" />
+        <LazySection factory={faqFactory} rootMargin="50px" />
         <LazySection factory={contactFactory} rootMargin="50px" />
       </main>
       <Footer />
