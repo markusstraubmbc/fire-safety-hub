@@ -1,4 +1,4 @@
-import { Mic, FileText, Map, Users, Zap, Brain, Sparkles } from "lucide-react";
+import { Mic, FileText, Map, Users, Zap, Sparkles, Brain } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -8,7 +8,7 @@ const aiFeatures = [
     title: "Sprechen statt tippen",
     subtitle: "KI-Diktiermodul",
     description:
-      "Einsatzberichte einfach per Sprache diktieren – RESQIO transkribiert und strukturiert den Text automatisch zu einem professionellen Protokoll. Kein langes Tippen, kein Vergessen von Details.",
+      "Einsatzberichte per Sprache diktieren – RESQIO transkribiert und strukturiert den Text automatisch zu einem professionellen Protokoll.",
     highlight: "Bis zu 80 % schneller als handschriftlich",
   },
   {
@@ -16,7 +16,7 @@ const aiFeatures = [
     title: "Berichte schreiben sich selbst",
     subtitle: "KI-Berichtsassistent",
     description:
-      "Aus Einsatzdaten und Notizen erstellt der KI-Assistent vollständige, druckreife Berichte – in der richtigen Fachsprache, ohne Tippfehler und in Minuten statt Stunden.",
+      "Aus Einsatzdaten und Notizen erstellt der KI-Assistent vollständige, druckreife Berichte – in Minuten statt Stunden.",
     highlight: "Professionelle Berichte auf Knopfdruck",
   },
   {
@@ -24,7 +24,7 @@ const aiFeatures = [
     title: "Die Lage immer im Blick",
     subtitle: "Intelligentes Lage-Mapping",
     description:
-      "Hydranten, Objektpläne, Fahrzeugpositionen und Gefahrenpunkte erscheinen automatisch auf der Karte – immer aktuell, ohne manuelle Datenpflege.",
+      "Hydranten, Objektpläne und Fahrzeugpositionen erscheinen automatisch auf der Karte – immer aktuell, ohne manuelle Datenpflege.",
     highlight: "Echtzeit-Überblick ohne Aufwand",
   },
   {
@@ -32,7 +32,7 @@ const aiFeatures = [
     title: "Personalplanung, die mitdenkt",
     subtitle: "KI-Personalanalyse",
     description:
-      "RESQIO erkennt, wer für Beförderungen bereit ist, welche Qualifikationen fehlen und wie Sie Ihre Mannschaft optimal entwickeln – automatisch aus Ihren Daten.",
+      "RESQIO erkennt, wer für Beförderungen bereit ist und welche Qualifikationen fehlen – automatisch aus Ihren vorhandenen Daten.",
     highlight: "Strategische Empfehlungen ohne Aufwand",
   },
   {
@@ -40,16 +40,8 @@ const aiFeatures = [
     title: "Immer die optimale Lösung",
     subtitle: "KI-Pumpenoptimierung",
     description:
-      "Bei komplexen Wasserversorgungsstrecken berechnet die KI sofort die beste Pumpenkonfiguration. Weniger Rechenzeit für den Maschinisten, mehr Sicherheit im Einsatz.",
+      "Bei komplexen Wasserversorgungsstrecken berechnet die KI sofort die beste Pumpenkonfiguration für mehr Sicherheit im Einsatz.",
     highlight: "Optimale Konfiguration in Sekunden",
-  },
-  {
-    icon: Brain,
-    title: "Daten finden sich selbst",
-    subtitle: "Automatisches Objektdaten-Mapping",
-    description:
-      "RESQIO erkennt Gebäude und verknüpft automatisch alle Pläne, Gefahrhinweise und Kontaktdaten – Ihre Kameraden finden alles sofort, auch im Einsatzstress.",
-    highlight: "Intelligente Verknüpfung ohne Mehrarbeit",
   },
 ];
 
@@ -61,13 +53,8 @@ const NeuralNetworkSVG = () => (
     aria-hidden="true"
   >
     <style>{`
-      @keyframes ki-pulse {
-        0%, 100% { opacity: 0.5; }
-        50%       { opacity: 1; }
-      }
-      @keyframes ki-dash {
-        to { stroke-dashoffset: -24; }
-      }
+      @keyframes ki-pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+      @keyframes ki-dash { to { stroke-dashoffset: -24; } }
       .ki-node { animation: ki-pulse 2.4s ease-in-out infinite; }
       .ki-n2   { animation: ki-pulse 2.4s ease-in-out infinite 0.4s; }
       .ki-n3   { animation: ki-pulse 2.4s ease-in-out infinite 0.8s; }
@@ -82,26 +69,19 @@ const NeuralNetworkSVG = () => (
       .ki-l6   { stroke-dasharray: 6 4; animation: ki-dash 1.8s linear infinite 1.5s; }
       .ki-center-ring { animation: ki-pulse 3s ease-in-out infinite; }
     `}</style>
-
-    {/* Spokes from centre to outer nodes */}
     <line x1="100" y1="100" x2="100" y2="28"  stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" className="ki-line" />
-    <line x1="100" y1="100" x2="163" y2="64" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" className="ki-l2" />
+    <line x1="100" y1="100" x2="163" y2="64"  stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" className="ki-l2" />
     <line x1="100" y1="100" x2="163" y2="136" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" className="ki-l3" />
     <line x1="100" y1="100" x2="100" y2="172" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" className="ki-l4" />
     <line x1="100" y1="100" x2="37"  y2="136" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" className="ki-l5" />
     <line x1="100" y1="100" x2="37"  y2="64"  stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" className="ki-l6" />
-
-    {/* Outer nodes */}
     <circle cx="100" cy="28"  r="9" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5" className="ki-node" />
-    <circle cx="163" cy="64" r="9" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5" className="ki-n2" />
+    <circle cx="163" cy="64"  r="9" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5" className="ki-n2" />
     <circle cx="163" cy="136" r="9" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5" className="ki-n3" />
     <circle cx="100" cy="172" r="9" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5" className="ki-n4" />
     <circle cx="37"  cy="136" r="9" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5" className="ki-n5" />
     <circle cx="37"  cy="64"  r="9" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5" className="ki-n6" />
-
-    {/* Centre – glow ring */}
     <circle cx="100" cy="100" r="28" fill="none" stroke="currentColor" strokeOpacity="0.2" strokeWidth="6" className="ki-center-ring" />
-    {/* Centre – solid disc */}
     <circle cx="100" cy="100" r="20" fill="currentColor" fillOpacity="0.18" stroke="currentColor" strokeWidth="2" />
     <circle cx="100" cy="100" r="11" fill="currentColor" fillOpacity="0.35" />
   </svg>
@@ -111,93 +91,86 @@ const AIFeaturesSection = () => {
   return (
     <section
       id="ki-features"
-      className="relative py-16 md:py-24 overflow-hidden"
+      className="relative py-12 md:py-16 overflow-hidden"
     >
-      {/* Hintergrund-Gradienten & animierte Blobs */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/[0.03] to-muted/20 pointer-events-none" />
       <div
         className="absolute -top-24 left-1/4 w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl animate-pulse pointer-events-none"
         style={{ animationDuration: "4s" }}
       />
-      <div
-        className="absolute -bottom-16 right-1/4 w-80 h-80 rounded-full bg-primary/5 blur-3xl animate-pulse pointer-events-none"
-        style={{ animationDuration: "6s", animationDelay: "2s" }}
-      />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Header: Text + Hero-Bild nebeneinander auf Desktop */}
-        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 mb-16">
-          {/* Text-Seite */}
+        {/* Header: Text links, Bild rechts */}
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-10">
+          {/* Text */}
           <div className="flex-1 text-center lg:text-left">
-            <div className="relative mx-auto lg:mx-0 mb-6 w-24 h-24 text-primary">
+            <div className="relative mx-auto lg:mx-0 mb-4 w-16 h-16 text-primary">
               <NeuralNetworkSVG />
             </div>
             <Badge
               variant="outline"
-              className="mb-4 text-primary border-primary/30 bg-primary/5 px-4 py-1.5"
+              className="mb-3 text-primary border-primary/30 bg-primary/5 px-3 py-1"
             >
               <Sparkles className="w-3.5 h-3.5 mr-1.5" />
               Integrierte Künstliche Intelligenz
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
               RESQIO denkt mit –{" "}
               <span className="text-primary italic">damit Sie es nicht müssen</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-xl">
-              Echte KI-Funktionen, die Ihnen konkrete Arbeit abnehmen. Kein technisches Fachwissen
-              nötig – einfach einschalten und sofort profitieren.
+            <p className="text-base text-muted-foreground max-w-lg">
+              Echte KI-Funktionen, die Ihnen konkrete Arbeit abnehmen – kein technisches
+              Fachwissen nötig.
             </p>
           </div>
 
           {/* Hero-Bild */}
-          <div className="flex-1 w-full max-w-lg lg:max-w-none">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/60">
+          <div className="flex-1 w-full max-w-md lg:max-w-none">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl ring-1 ring-border/60 bg-muted/40 aspect-[3/2]">
               <img
                 src="/images/ki-features-hero.webp"
-                alt="Feuerwehrmann nutzt RESQIO KI-Funktionen auf dem Tablet im Einsatz"
-                className="w-full h-auto object-cover"
+                alt="Feuerwehrmann mit RESQIO KI auf dem Tablet"
+                className="w-full h-full object-cover"
                 loading="lazy"
-                width={640}
-                height={427}
+                width={480}
+                height={320}
               />
-              {/* leichter Farbüberzug für Markenkonsistenz */}
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent pointer-events-none" />
-              {/* Floating Badge */}
-              <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-background/90 backdrop-blur-sm border border-border rounded-xl px-3 py-2 shadow-lg">
-                <Sparkles className="w-4 h-4 text-primary shrink-0" />
-                <span className="text-xs font-semibold text-foreground">6 KI-Assistenten an Bord</span>
+              <div className="absolute bottom-3 left-3 flex items-center gap-2 bg-background/90 backdrop-blur-sm border border-border rounded-xl px-3 py-1.5 shadow-md">
+                <Sparkles className="w-3.5 h-3.5 text-primary shrink-0" />
+                <span className="text-xs font-semibold text-foreground">5 KI-Assistenten an Bord</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Feature-Karten */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* Feature-Karten – 2 Spalten auf md, 3 auf lg (5 Karten: 2+3) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {aiFeatures.map((feature, index) => (
             <Card
               key={index}
-              className="group relative overflow-hidden border-border hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card/60 backdrop-blur-sm"
+              className="group relative overflow-hidden border-border hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 bg-card/60 backdrop-blur-sm"
             >
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/0 via-primary to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <CardContent className="p-6 flex flex-col h-full">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors border border-primary/5">
-                    <feature.icon className="w-6 h-6 text-primary" />
+              <CardContent className="p-5 flex flex-col h-full">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors border border-primary/5">
+                    <feature.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs font-bold text-primary/60 uppercase tracking-wider mb-1">
+                    <p className="text-xs font-bold text-primary/60 uppercase tracking-wider mb-0.5">
                       {feature.subtitle}
                     </p>
-                    <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
+                    <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
                       {feature.title}
                     </h3>
                   </div>
                 </div>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-3 flex-1">
                   {feature.description}
                 </p>
-                <div className="flex items-center gap-2 text-xs font-semibold text-primary bg-primary/5 border border-primary/10 rounded-lg px-3 py-2 mt-auto">
-                  <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                <div className="flex items-center gap-2 text-xs font-semibold text-primary bg-primary/5 border border-primary/10 rounded-lg px-3 py-1.5 mt-auto">
+                  <Sparkles className="w-3 h-3 shrink-0" />
                   <span>{feature.highlight}</span>
                 </div>
               </CardContent>
@@ -206,14 +179,13 @@ const AIFeaturesSection = () => {
         </div>
 
         {/* DSGVO-Hinweis */}
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-3 bg-muted/80 border border-border rounded-2xl px-6 py-4 max-w-2xl mx-auto">
-            <Brain className="w-5 h-5 text-primary shrink-0" />
-            <p className="text-sm text-muted-foreground text-left">
+        <div className="mt-8 text-center">
+          <div className="inline-flex items-center gap-3 bg-muted/80 border border-border rounded-2xl px-5 py-3 max-w-xl mx-auto">
+            <Brain className="w-4 h-4 text-primary shrink-0" />
+            <p className="text-xs text-muted-foreground text-left">
               Alle KI-Funktionen laufen{" "}
               <span className="font-bold text-foreground">direkt in RESQIO</span> – keine
-              externen Dienste, keine Datenweitergabe, vollständig DSGVO-konform und sicher in
-              Deutschland gehostet.
+              externen Dienste, vollständig DSGVO-konform und sicher in Deutschland gehostet.
             </p>
           </div>
         </div>
