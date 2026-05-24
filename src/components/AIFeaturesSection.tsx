@@ -1,4 +1,4 @@
-import { Mic, FileText, Map, Users, Zap, Sparkles, Brain } from "lucide-react";
+import { Mic, FileText, Map, Users, Zap, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -96,7 +96,6 @@ const AIFeaturesSection = () => {
       />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Header zentriert */}
         <div className="text-center mb-8 md:mb-10">
           <div className="relative mx-auto mb-4 w-14 h-14 text-primary">
             <NeuralNetworkSVG />
@@ -118,7 +117,6 @@ const AIFeaturesSection = () => {
           </p>
         </div>
 
-        {/* Feature-Karten: 1 Spalte mobil, 2 auf sm, 3 auf lg */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           {aiFeatures.map((feature, index) => (
             <Card
@@ -129,7 +127,7 @@ const AIFeaturesSection = () => {
               <CardContent className="p-4 md:p-5 flex flex-col h-full">
                 <div className="flex items-start gap-3 mb-2.5">
                   <div className="w-9 h-9 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors border border-primary/5">
-                    <feature.icon className="w-4.5 h-4.5 text-primary" style={{ width: "1.1rem", height: "1.1rem" }} />
+                    <feature.icon className="w-4 h-4 text-primary" />
                   </div>
                   <div className="min-w-0">
                     <p className="text-[10px] font-bold text-primary/60 uppercase tracking-wider mb-0.5">
