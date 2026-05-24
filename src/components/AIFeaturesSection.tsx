@@ -53,14 +53,84 @@ const aiFeatures = [
   },
 ];
 
+const NeuralNetworkSVG = () => (
+  <svg
+    viewBox="0 0 200 200"
+    className="w-full h-full"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <style>{`
+      @keyframes ki-pulse {
+        0%, 100% { opacity: 0.5; }
+        50%       { opacity: 1; }
+      }
+      @keyframes ki-dash {
+        to { stroke-dashoffset: -24; }
+      }
+      .ki-node { animation: ki-pulse 2.4s ease-in-out infinite; }
+      .ki-n2   { animation: ki-pulse 2.4s ease-in-out infinite 0.4s; }
+      .ki-n3   { animation: ki-pulse 2.4s ease-in-out infinite 0.8s; }
+      .ki-n4   { animation: ki-pulse 2.4s ease-in-out infinite 1.2s; }
+      .ki-n5   { animation: ki-pulse 2.4s ease-in-out infinite 1.6s; }
+      .ki-n6   { animation: ki-pulse 2.4s ease-in-out infinite 2.0s; }
+      .ki-line { stroke-dasharray: 6 4; animation: ki-dash 1.8s linear infinite; }
+      .ki-l2   { stroke-dasharray: 6 4; animation: ki-dash 1.8s linear infinite 0.3s; }
+      .ki-l3   { stroke-dasharray: 6 4; animation: ki-dash 1.8s linear infinite 0.6s; }
+      .ki-l4   { stroke-dasharray: 6 4; animation: ki-dash 1.8s linear infinite 0.9s; }
+      .ki-l5   { stroke-dasharray: 6 4; animation: ki-dash 1.8s linear infinite 1.2s; }
+      .ki-l6   { stroke-dasharray: 6 4; animation: ki-dash 1.8s linear infinite 1.5s; }
+      .ki-center-ring { animation: ki-pulse 3s ease-in-out infinite; }
+    `}</style>
+
+    {/* Spokes from centre to outer nodes */}
+    <line x1="100" y1="100" x2="100" y2="28"  stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" className="ki-line" />
+    <line x1="100" y1="100" x2="163" y2="64" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" className="ki-l2" />
+    <line x1="100" y1="100" x2="163" y2="136" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" className="ki-l3" />
+    <line x1="100" y1="100" x2="100" y2="172" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" className="ki-l4" />
+    <line x1="100" y1="100" x2="37"  y2="136" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" className="ki-l5" />
+    <line x1="100" y1="100" x2="37"  y2="64"  stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" className="ki-l6" />
+
+    {/* Outer nodes */}
+    <circle cx="100" cy="28"  r="9" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5" className="ki-node" />
+    <circle cx="163" cy="64" r="9" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5" className="ki-n2" />
+    <circle cx="163" cy="136" r="9" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5" className="ki-n3" />
+    <circle cx="100" cy="172" r="9" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5" className="ki-n4" />
+    <circle cx="37"  cy="136" r="9" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5" className="ki-n5" />
+    <circle cx="37"  cy="64"  r="9" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5" className="ki-n6" />
+
+    {/* Centre – outer glow ring */}
+    <circle cx="100" cy="100" r="28" fill="none" stroke="currentColor" strokeOpacity="0.2" strokeWidth="6" className="ki-center-ring" />
+    {/* Centre – solid disc */}
+    <circle cx="100" cy="100" r="20" fill="currentColor" fillOpacity="0.18" stroke="currentColor" strokeWidth="2" />
+    <circle cx="100" cy="100" r="11" fill="currentColor" fillOpacity="0.35" />
+  </svg>
+);
+
 const AIFeaturesSection = () => {
   return (
     <section
       id="ki-features"
-      className="py-16 md:py-24 bg-gradient-to-b from-background via-primary/[0.03] to-muted/20 overflow-hidden"
+      className="relative py-16 md:py-24 overflow-hidden"
     >
-      <div className="container mx-auto px-4">
+      {/* ---- Hintergrund-Gradienten & animierte Blobs ---- */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/[0.03] to-muted/20 pointer-events-none" />
+      <div
+        className="absolute -top-24 left-1/4 w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl animate-pulse pointer-events-none"
+        style={{ animationDuration: "4s" }}
+      />
+      <div
+        className="absolute -bottom-16 right-1/4 w-80 h-80 rounded-full bg-primary/5 blur-3xl animate-pulse pointer-events-none"
+        style={{ animationDuration: "6s", animationDelay: "2s" }}
+      />
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* ---- Header mit SVG-Illustration ---- */}
         <div className="text-center mb-16">
+          <div className="relative mx-auto mb-6 w-28 h-28 text-primary">
+            <NeuralNetworkSVG />
+          </div>
+
           <Badge
             variant="outline"
             className="mb-4 text-primary border-primary/30 bg-primary/5 px-4 py-1.5"
@@ -78,6 +148,7 @@ const AIFeaturesSection = () => {
           </p>
         </div>
 
+        {/* ---- Feature-Karten ---- */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {aiFeatures.map((feature, index) => (
             <Card
@@ -111,6 +182,7 @@ const AIFeaturesSection = () => {
           ))}
         </div>
 
+        {/* ---- DSGVO-Hinweis ---- */}
         <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-3 bg-muted/80 border border-border rounded-2xl px-6 py-4 max-w-2xl mx-auto">
             <Brain className="w-5 h-5 text-primary shrink-0" />
