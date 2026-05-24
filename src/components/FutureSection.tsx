@@ -5,10 +5,11 @@ import { scrollToSection } from "@/lib/utils";
 const FutureSection = () => {
 
     const benefits = [
-        "Digitaler Dienstausweis für das Wallet",
-        "Papierlose Verwaltung auf dem neuesten Stand",
-        "Optimiert für Smartphone & Tablet",
-        "Sichere & moderne Datenarchitektur",
+        "KI-Berichte: Sprechen Sie – RESQIO schreibt für Sie",
+        "Lage-Mapping: Einsatzinfos automatisch auf der Karte",
+        "Digitaler Dienstausweis im Apple & Google Wallet",
+        "Papierlose Verwaltung, mobil und immer aktuell",
+        "Intelligente Personalentwicklung durch KI-Analyse",
     ];
 
     return (
@@ -20,10 +21,11 @@ const FutureSection = () => {
                             Bereit für die <span className="text-primary italic">Zukunft?</span>
                         </h2>
                         <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                            Die Digitalisierung der Feuerwehr beginnt beim Mitglied. Mit resqio
-                            bringen Sie Ihre Organisation auf das nächste Level – vom digitalen
-                            Dienstausweis im Apple oder Google Wallet bis hin zur vollautomatisierten
-                            Verwaltung. Modern, intuitiv und immer griffbereit.
+                            Die Digitalisierung der Feuerwehr geht weiter – mit integrierter KI, die Ihnen
+                            echte Arbeit abnimmt. Diktieren Sie Einsatzberichte, lassen Sie die Lage automatisch
+                            auf der Karte erscheinen und planen Sie Ihre Mannschaft mit intelligenter
+                            Unterstützung. Modern, intuitiv und immer griffbereit – von Kameraden für
+                            Kameraden entwickelt.
                         </p>
 
                         <ul className="space-y-4 mb-10">

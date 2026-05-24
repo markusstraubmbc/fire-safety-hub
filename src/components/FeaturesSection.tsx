@@ -32,6 +32,8 @@ import {
   CalendarDays,
   TrendingUp,
   Bell,
+  Mic,
+  Sparkles,
   LucideIcon,
   ArrowRight,
 } from "lucide-react";
@@ -51,123 +53,157 @@ export const features: Feature[] = [
   {
     icon: LayoutDashboard,
     title: "Dashboard & Übersicht",
-    description: "Zentrale Übersicht über alle wichtigen Kennzahlen, Statusmeldungen und anstehende Aufgaben.",
+    description:
+      "Zentrale Übersicht über alle wichtigen Kennzahlen, Statusmeldungen und anstehende Aufgaben.",
     slug: "kommandozentrale",
   },
   {
     icon: Map,
     title: "Lagemonitor & Führung",
-    description: "Echtzeit-Führungssystem mit integrierten Wasserkarten, Hydrantenmanagement, lokalem POI-Management (Sammelstellen, Gefahren) und KI-gestütztem Dokumentenzugriff für relevante Objektpläne.",
+    description:
+      "Echtzeit-Führungssystem mit integrierten Wasserkarten, Hydrantenmanagement, lokalem POI-Management (Sammelstellen, Gefahren) und KI-gestütztem Dokumentenzugriff für relevante Objektpläne.",
     slug: "lagemonitor",
   },
   {
     icon: FileText,
     title: "Einsätze & Übungen",
-    description: "Vollständige Dokumentation, Planung und Auswertung inkl. KI-Textassistenz.",
+    description:
+      "Vollständige Dokumentation, Planung und Auswertung inkl. KI-Textassistenz für professionelle Einsatzberichte.",
     slug: "einsatzerfassung",
   },
   {
     icon: Users,
     title: "Personal & Kameraden",
-    description: "Vollständiges Personalmanagement mit Überprüfungsportal, Verifikationssystem und Feedback, granularem Rollenmanagement sowie KI-gestützten Analysen für strategische Personalplanung.",
+    description:
+      "Vollständiges Personalmanagement mit Überprüfungsportal, Verifikationssystem und Feedback, granularem Rollenmanagement sowie KI-gestützten Analysen für strategische Personalplanung.",
     slug: "mannschaftsverwaltung",
   },
   {
     icon: ClipboardList,
     title: "Ausrüstungsverwaltung",
-    description: "Lückenlose Dokumentation und Verwaltung aller Ausrüstungsgegenstände.",
+    description:
+      "Lückenlose Dokumentation und Verwaltung aller Ausrüstungsgegenstände.",
     slug: "ausruestungsverwaltung",
   },
   {
     icon: Wrench,
     title: "Wartungsmanagement",
-    description: "Planung, Durchführung und Dokumentation aller Prüfarbeiten und Fristen – inklusive digitaler Unterschrift des Prüfers direkt auf dem Protokoll.",
+    description:
+      "Planung, Durchführung und Dokumentation aller Prüfarbeiten und Fristen – inklusive digitaler Unterschrift des Prüfers direkt auf dem Protokoll.",
     slug: "wartungsmanagement",
   },
   {
     icon: Monitor,
     title: "Kiosk-Modus",
-    description: "57 Module touchscreen-optimiert für die Mannschaft. Von Wartungs-Wizards über Fahrtenbuch bis Belegeinreichung – alle Aufgaben selbstständig am Tablet erledigen. Mit KI-Assistent und RFID-Login.",
+    description:
+      "57 Module touchscreen-optimiert für die Mannschaft. Von Wartungs-Wizards über Fahrtenbuch bis Belegeinreichung – alle Aufgaben selbstständig am Tablet erledigen. Mit KI-Assistent und RFID-Login.",
     slug: "kiosk-modus",
   },
   {
     icon: AlertTriangle,
     title: "Atemschutzüberwachung",
-    description: "Digitale ASÜ und Tauglichkeitsverwaltung für maximale Sicherheit.",
+    description:
+      "Digitale ASÜ und Tauglichkeitsverwaltung für maximale Sicherheit.",
     slug: "atemschutzueberwachung",
   },
   {
     icon: Bell,
     title: "Alarmmonitor",
-    description: "Live-Alarmdarstellung im Gerätehaus: Einsatzdaten, Fahrzeugstatus und Hydrantenkarte bei Alarmierung sofort sichtbar. Mit FMS-Integration via MQTT/Webhook und Ruhemodus-Anzeige.",
+    description:
+      "Live-Alarmdarstellung im Gerätehaus: Einsatzdaten, Fahrzeugstatus und Hydrantenkarte bei Alarmierung sofort sichtbar. Mit FMS-Integration via MQTT/Webhook und Ruhemodus-Anzeige.",
     slug: "alarmmonitor",
+  },
+  {
+    icon: Mic,
+    title: "KI-Diktiermodul",
+    description:
+      "Einsatzberichte einfach per Sprache diktieren – RESQIO schreibt automatisch mit. Aus gesprochenen Worten wird ein strukturiertes, druckreifes Protokoll – ganz ohne Tipparbeit.",
+    slug: "ki-integration",
+  },
+  {
+    icon: Sparkles,
+    title: "KI-Berichtsassistent",
+    description:
+      "Professionelle Berichte ohne Schreibaufwand: Aus Ihren Einsatzdaten erstellt die KI vollständige, rechtssichere Dokumentationen – in Minuten statt Stunden.",
+    slug: "ki-integration",
   },
 
   // Specialized Modules
   {
     icon: Map,
     title: "Objektpläne",
-    description: "Digitale Bereitstellung und Prüfung von Feuerwehrplänen mit Standort-Unterstützung.",
+    description:
+      "Digitale Bereitstellung und Prüfung von Feuerwehrplänen mit Standort-Unterstützung.",
     slug: "objektplaene",
   },
   {
     icon: Droplets,
     title: "Wasserförderung Profi",
-    description: "Multi-Plan Visualisierung komplexer Förderstrecken mit Isochronen-Analyse.",
+    description:
+      "Multi-Plan Visualisierung komplexer Förderstrecken mit Isochronen-Analyse.",
     slug: "wasserfoerderung",
   },
   {
     icon: Building2,
     title: "Vorbeugender Brandschutz",
-    description: "Digitalisierte Brandschau, Mängel-Dokumentation und Fristen-Controlling.",
+    description:
+      "Digitalisierte Brandschau, Mängel-Dokumentation und Fristen-Controlling.",
     slug: "brandschutz",
   },
   {
     icon: Package,
     title: "Logistik & Waren",
-    description: "Tracking von Ausrüstung zwischen Standorten, Werkstätten und Lieferanten.",
+    description:
+      "Tracking von Ausrüstung zwischen Standorten, Werkstätten und Lieferanten.",
     slug: "warenbewegung",
   },
   {
     icon: Car,
     title: "Fahrtenbuch & KFZ",
-    description: "Digitales Fahrtenbuch für Ihre gesamte Flotte. Erfassen Sie Fahrten von HLF, LF, TLF, MTW und Kommandowagen direkt am Tablet. Verbrauchsstatistiken und KM-basierte Wartungsintervalle inklusive.",
+    description:
+      "Digitales Fahrtenbuch für Ihre gesamte Flotte. Erfassen Sie Fahrten von HLF, LF, TLF, MTW und Kommandowagen direkt am Tablet. Verbrauchsstatistiken und KM-basierte Wartungsintervalle inklusive.",
     slug: "fahrtenbuch",
   },
   {
     icon: Shirt,
     title: "Wäsche & Bekleidung",
-    description: "Hygiene-Management für Schutzkleidung und Pool-Wäsche.",
+    description:
+      "Hygiene-Management für Schutzkleidung und Pool-Wäsche.",
     slug: "waescheverwaltung",
   },
   {
     icon: CreditCard,
     title: "Budget & Finanzen",
-    description: "Einfache Verwaltung von Haushaltsmitteln, Ausgaben und Belegen für Abteilungen.",
+    description:
+      "Einfache Verwaltung von Haushaltsmitteln, Ausgaben und Belegen für Abteilungen.",
     slug: "budget-finanzen",
   },
   {
     icon: CreditCard,
     title: "Kassier Modul",
-    description: "Professionelle Vereinsbuchhaltung mit §2b UStG-Auswertung, Veranstaltungscontrolling und Self-Service Belegeinreichung über Kameradschaftsportal. SEPA-Export und revisionssichere Berichte.",
+    description:
+      "Professionelle Vereinsbuchhaltung mit §2b UStG-Auswertung, Veranstaltungscontrolling und Self-Service Belegeinreichung über Kameradschaftsportal. SEPA-Export und revisionssichere Berichte.",
     slug: "treasury-kassier",
   },
   {
     icon: UserCheck,
     title: "Mannschafts-Self-Service",
-    description: "Portal für Mitglieder zur eigenständigen Stammdaten- und Qualifikationspflege.",
+    description:
+      "Portal für Mitglieder zur eigenständigen Stammdaten- und Qualifikationspflege.",
     slug: "mannschafts-self-service",
   },
   {
     icon: ShieldCheck,
     title: "Digitaler Dienstausweis",
-    description: "Identifikation via Smartphone Wallet und kontaktlosem Login.",
+    description:
+      "Identifikation via Smartphone Wallet und kontaktlosem Login.",
     slug: "digitaler-dienstausweis",
   },
   {
     icon: BookOpen,
     title: "Einsatzleiterwiki",
-    description: "Offline-Integration des Wissensmanagements direkt in die Lagekarte.",
+    description:
+      "Offline-Integration des Wissensmanagements direkt in die Lagekarte.",
     slug: "wiki-integration",
   },
 
@@ -175,104 +211,121 @@ export const features: Feature[] = [
   {
     icon: Mail,
     title: "Email Template Management",
-    description: "Professionelle Kommunikation mit einheitlichem Branding und dynamischen Vorlagen.",
+    description:
+      "Professionelle Kommunikation mit einheitlichem Branding und dynamischen Vorlagen.",
     slug: "email-templates",
   },
   {
     icon: Link2,
     title: "Integration & API",
-    description: "Bidirektionale REST API zum Lesen und Schreiben von Daten. MQTT-Broker, Webhooks und individuelle Middleware für nahtlose Systemintegration.",
+    description:
+      "Bidirektionale REST API zum Lesen und Schreiben von Daten. MQTT-Broker, Webhooks und individuelle Middleware für nahtlose Systemintegration.",
     slug: "schnittstellen",
   },
   {
     icon: BarChart3,
     title: "Statistik & Reporting",
-    description: "Umfangreiche Auswertungen, Jahresberichte und Druckzentrum.",
+    description:
+      "Umfangreiche Auswertungen, Jahresberichte und Druckzentrum.",
     slug: "reporting",
   },
   {
     icon: ClipboardList,
     title: "Inventur & Bestand",
-    description: "Flexible Inventurprozesse für Standort & Kategorien mit Scanner-Support.",
+    description:
+      "Flexible Inventurprozesse für Standort & Kategorien mit Scanner-Support.",
     slug: "inventur",
   },
   {
     icon: FolderSearch,
     title: "Formular-Center",
-    description: "Zentraler Zugriff auf Vorlagen, Dokumente und Dienstanweisungen.",
+    description:
+      "Zentraler Zugriff auf Vorlagen, Dokumente und Dienstanweisungen.",
     slug: "formular-center",
   },
   {
     icon: Wrench,
     title: "Mängelmanagement",
-    description: "Zentrale Erfassung und Bearbeitung von Defekten, auch öffentlich.",
+    description:
+      "Zentrale Erfassung und Bearbeitung von Defekten, auch öffentlich.",
     slug: "maengelmanagement",
   },
   {
     icon: Brain,
     title: "KI-Assistenz & Automatisierung",
-    description: "Intelligenter Chatbot, automatische Textoptimierung, Adressoptimierung, KI-Pumpenoptimierung und automatisches Objektdaten-Mapping. Machine Learning für vorausschauende Personalplanung.",
+    description:
+      "Ihr KI-Assistent für den Alltag: Von der Adressoptimierung über KI-gestützte Pumpenberechnung bis zur intelligenten Personalplanung. Spart Zeit, vermeidet Fehler und macht Ihre Verwaltung smarter.",
     slug: "ki-integration",
   },
   {
     icon: Gamepad2,
     title: "Planspiel System",
-    description: "Komplettes Trainings- und Simulationssystem mit über 6.000 Codes in 74 Kategorien, mehr als 200 vorgefertigten Einsatzszenarien und professionellem Bewertungssystem für die Feuerwehr-Ausbildung.",
+    description:
+      "Komplettes Trainings- und Simulationssystem mit über 6.000 Codes in 74 Kategorien, mehr als 200 vorgefertigten Einsatzszenarien und professionellem Bewertungssystem für die Feuerwehr-Ausbildung.",
     slug: "planspiel",
   },
   {
     icon: Beer,
     title: "Wirt-Modul",
-    description: "Vollständiges Verwaltungssystem für Vereinsgastronomie. Getränke, Snacks und Verkaufserfassung direkt am Kiosk-Tablet mit Statistiken und Bestandsverwaltung.",
+    description:
+      "Vollständiges Verwaltungssystem für Vereinsgastronomie. Getränke, Snacks und Verkaufserfassung direkt am Kiosk-Tablet mit Statistiken und Bestandsverwaltung.",
     slug: "wirt-modul",
   },
   {
     icon: Globe,
     title: "RESQIO Kreis-Platform",
-    description: "Alle Wehren im Landkreis. Ein System. Volle Datensouveränität.",
+    description:
+      "Alle Wehren im Landkreis. Ein System. Volle Datensouveränität.",
     href: "/kreis",
     slug: "kreis-platform",
   },
   {
     icon: Clock,
     title: "Arbeitsstunden & Zeiterfassung",
-    description: "Systematische Erfassung von Arbeitsstunden mit Geräte-Zuordnung, Bulk-Erfassung und Kiosk-Integration für die ehrenamtliche Arbeit.",
+    description:
+      "Systematische Erfassung von Arbeitsstunden mit Geräte-Zuordnung, Bulk-Erfassung und Kiosk-Integration für die ehrenamtliche Arbeit.",
     slug: "arbeitsstunden",
   },
   {
     icon: Calendar,
     title: "BSW & Veranstaltungen",
-    description: "Professionelle Verwaltung von Brandsicherheitswachen und kommunalen Veranstaltungen mit Klientenverwaltung und automatisierter Abrechnung.",
+    description:
+      "Professionelle Verwaltung von Brandsicherheitswachen und kommunalen Veranstaltungen mit Klientenverwaltung und automatisierter Abrechnung.",
     slug: "bsw-events",
   },
   {
     icon: Shield,
     title: "Stab & Führungsunterstützung",
-    description: "Digitale Stabsarbeit für Großschadenlagen: MANV-Sichtungsliste, Funk-Protokoll, Entscheidungsprotokoll, Einsatztagebuch und strukturierte Einsatznachbereitung für alle Stabsfunktionen S1–S6.",
+    description:
+      "Digitale Stabsarbeit für Großschadenlagen: MANV-Sichtungsliste, Funk-Protokoll, Entscheidungsprotokoll, Einsatztagebuch und strukturierte Einsatznachbereitung für alle Stabsfunktionen S1–S6.",
     slug: "stab-modul",
   },
   {
     icon: Truck,
     title: "Fahrzeugverwaltung & Flotte",
-    description: "Zentrale Verwaltung aller Fahrzeuge und Anhänger mit Stammdaten, Flottenstatus und Einsatzbereitschaft im Überblick.",
+    description:
+      "Zentrale Verwaltung aller Fahrzeuge und Anhänger mit Stammdaten, Flottenstatus und Einsatzbereitschaft im Überblick.",
     slug: "fahrzeugverwaltung",
   },
   {
     icon: GraduationCap,
     title: "Lehrgänge & Qualifikationsmanagement",
-    description: "Planung, Verwaltung und Nachverfolgung von Lehrgängen und Qualifikationen für alle Mitglieder.",
+    description:
+      "Planung, Verwaltung und Nachverfolgung von Lehrgängen und Qualifikationen für alle Mitglieder.",
     slug: "lehrgaenge",
   },
   {
     icon: CalendarDays,
     title: "Kalender & Terminverwaltung",
-    description: "Zentraler Kalender für Übungen, Termine und Veranstaltungen mit Übersicht und Benachrichtigungen.",
+    description:
+      "Zentraler Kalender für Übungen, Termine und Veranstaltungen mit Übersicht und Benachrichtigungen.",
     slug: "kalender",
   },
   {
     icon: TrendingUp,
     title: "Beförderungssystem",
-    description: "Strukturierte Verwaltung von Beförderungsvorschlägen und Dienstgradentwicklung nach Landesvorgaben.",
+    description:
+      "Strukturierte Verwaltung von Beförderungsvorschlägen und Dienstgradentwicklung nach Landesvorgaben.",
     slug: "befoerderungssystem",
   },
 ];
