@@ -19,10 +19,18 @@ const FAQ_JSON_LD = {
     },
     {
       "@type": "Question",
-      "name": "Gibt es ein Kreismodul für Kreisfeuerwehrverbände?",
+      "name": "Gibt es ein Kreismodul für Kreisfeuerwehrverbaende?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja! Das RESQIO Kreismodul ist speziell für Kreisbrandmeister und Kreisfeuerwehrverbände entwickelt. Es ermöglicht die zentrale Verwaltung aller angeschlossenen Wehren mit voller Datensouveränität, gemeinsamen Ressourcen-Übersichten und kreisweiten Auswertungen."
+        "text": "Ja! Das RESQIO Kreismodul ist speziell für Kreisbrandmeister und Kreisfeuerwehrverbaende entwickelt. Es ermöglicht die zentrale Verwaltung aller angeschlossenen Wehren mit voller Datensouveränität, gemeinsamen Ressourcen-Übersichten und kreisweiten Auswertungen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gibt es ein KI-Diktiermodul für Einsatzberichte?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja! Mit dem integrierten KI-Diktiermodul können Sie Einsatzberichte einfach per Sprache diktieren. RESQIO transkribiert und strukturiert den Text automatisch zu einem professionellen Protokoll – kein langes Tippen mehr."
       }
     },
     {
@@ -89,7 +97,6 @@ const Index = () => {
     return () => { document.getElementById("homepage-faq-jsonld")?.remove(); };
   }, []);
 
-  // Handle hash navigation (e.g. from /modul/xyz to /#kontakt)
   useEffect(() => {
     const hash = location.hash?.replace("#", "");
     if (!hash) return;
@@ -101,7 +108,6 @@ const Index = () => {
         el.scrollIntoView({ behavior: "smooth" });
         return;
       }
-      // Lazy sections may not be rendered yet – scroll down to trigger loading
       if (attempts === 0) {
         window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
       }
@@ -110,12 +116,12 @@ const Index = () => {
         setTimeout(tryScroll, 300);
       }
     };
-    // Small delay to let the page mount
     setTimeout(tryScroll, 100);
   }, [location.hash]);
 
   const featuresFactory = useCallback(() => import("@/components/FeaturesSection"), []);
   const personaFactory = useCallback(() => import("@/components/PersonaSection"), []);
+  const aiFeaturesFactory = useCallback(() => import("@/components/AIFeaturesSection"), []);
   const showcaseFactory = useCallback(() => import("@/components/SoftwareShowcaseSection"), []);
   const integrationsFactory = useCallback(() => import("@/components/IntegrationsSection"), []);
   const processFactory = useCallback(() => import("@/components/ProcessSection"), []);
@@ -132,6 +138,7 @@ const Index = () => {
         <HeroSection />
         <LazySection factory={featuresFactory} rootMargin="50px" />
         <LazySection factory={personaFactory} rootMargin="50px" />
+        <LazySection factory={aiFeaturesFactory} rootMargin="50px" />
         <LazySection factory={showcaseFactory} rootMargin="50px" />
         <LazySection factory={integrationsFactory} rootMargin="50px" />
         <LazySection factory={processFactory} rootMargin="50px" />

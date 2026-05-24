@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Clock, CheckCircle } from "lucide-react";
+import { ArrowRight, Shield, Sparkles } from "lucide-react";
 import { scrollToSection } from "@/lib/utils";
 import heroImage from "@/assets/german_firefighters_fixed_bg.png";
 import heroImageWebp from "@/assets/german_firefighters_fixed_bg.webp";
@@ -34,7 +34,7 @@ const HeroSection = () => {
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 bg-primary/20 text-primary-foreground px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Shield className="w-4 h-4" />
-            Das digitale Rückgrat Ihrer Wehr – von Kameraden für Kameraden
+            Das KI-gestützte Rückgrat Ihrer Wehr – von Kameraden für Kameraden
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
@@ -44,8 +44,9 @@ const HeroSection = () => {
 
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 leading-relaxed">
             RESQIO ist mehr als nur Verwaltungssoftware – wir sind die intelligente Kommandozentrale
-            für die moderne Feuerwehr. Von der Ausrüstungsprüfung über das Kreismodul bis zur
-            KI-gestützten Einsatznachbereitung.
+            für die moderne Feuerwehr. Diktieren Sie Einsatzberichte per Sprache, lassen Sie die Lage
+            automatisch auf der Karte erscheinen und profitieren Sie von KI-gestützter Personal- und
+            Einsatzplanung.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -85,9 +86,12 @@ const HeroSection = () => {
               <p className="text-2xl font-bold text-primary-foreground">57</p>
               <p className="text-sm text-primary-foreground/60">Kiosk-Module touchscreen-optimiert</p>
             </div>
-            <div className="space-y-1 text-primary-foreground/80 flex items-center gap-2">
-              <Shield className="w-5 h-5 text-accent" />
-              <span className="text-sm font-medium">Sicher in DE</span>
+            <div className="space-y-1">
+              <p className="text-2xl font-bold text-primary-foreground flex items-center gap-1.5">
+                6+
+                <Sparkles className="w-5 h-5 text-accent" />
+              </p>
+              <p className="text-sm text-primary-foreground/60">KI-Assistenten integriert</p>
             </div>
           </div>
 
