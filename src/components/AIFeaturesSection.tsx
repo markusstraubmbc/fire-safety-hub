@@ -9,7 +9,7 @@ const aiFeatures = [
     subtitle: "KI-Diktiermodul",
     description:
       "Einsatzberichte einfach per Sprache diktieren – RESQIO transkribiert und strukturiert den Text automatisch zu einem professionellen Protokoll. Kein langes Tippen, kein Vergessen von Details.",
-    highlight: "Bis zu 80 % schneller als handschriftlich",
+    highlight: "Bis zu 80 % schneller als handschriftlich",
   },
   {
     icon: FileText,
@@ -125,27 +125,50 @@ const AIFeaturesSection = () => {
       />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Header mit SVG-Illustration */}
-        <div className="text-center mb-16">
-          <div className="relative mx-auto mb-6 w-28 h-28 text-primary">
-            <NeuralNetworkSVG />
+        {/* Header: Text + Hero-Bild nebeneinander auf Desktop */}
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 mb-16">
+          {/* Text-Seite */}
+          <div className="flex-1 text-center lg:text-left">
+            <div className="relative mx-auto lg:mx-0 mb-6 w-24 h-24 text-primary">
+              <NeuralNetworkSVG />
+            </div>
+            <Badge
+              variant="outline"
+              className="mb-4 text-primary border-primary/30 bg-primary/5 px-4 py-1.5"
+            >
+              <Sparkles className="w-3.5 h-3.5 mr-1.5" />
+              Integrierte Künstliche Intelligenz
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              RESQIO denkt mit –{" "}
+              <span className="text-primary italic">damit Sie es nicht müssen</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-xl">
+              Echte KI-Funktionen, die Ihnen konkrete Arbeit abnehmen. Kein technisches Fachwissen
+              nötig – einfach einschalten und sofort profitieren.
+            </p>
           </div>
 
-          <Badge
-            variant="outline"
-            className="mb-4 text-primary border-primary/30 bg-primary/5 px-4 py-1.5"
-          >
-            <Sparkles className="w-3.5 h-3.5 mr-1.5" />
-            Integrierte Künstliche Intelligenz
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            RESQIO denkt mit –{" "}
-            <span className="text-primary italic">damit Sie es nicht müssen</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Echte KI-Funktionen, die Ihnen konkrete Arbeit abnehmen. Kein technisches Fachwissen
-            nötig – einfach einschalten und sofort profitieren.
-          </p>
+          {/* Hero-Bild */}
+          <div className="flex-1 w-full max-w-lg lg:max-w-none">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/60">
+              <img
+                src="/images/ki-features-hero.webp"
+                alt="Feuerwehrmann nutzt RESQIO KI-Funktionen auf dem Tablet im Einsatz"
+                className="w-full h-auto object-cover"
+                loading="lazy"
+                width={640}
+                height={427}
+              />
+              {/* leichter Farbüberzug für Markenkonsistenz */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent pointer-events-none" />
+              {/* Floating Badge */}
+              <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-background/90 backdrop-blur-sm border border-border rounded-xl px-3 py-2 shadow-lg">
+                <Sparkles className="w-4 h-4 text-primary shrink-0" />
+                <span className="text-xs font-semibold text-foreground">6 KI-Assistenten an Bord</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Feature-Karten */}
