@@ -34,6 +34,7 @@ import {
   Bell,
   Mic,
   Sparkles,
+  MessageSquare,
   LucideIcon,
   ArrowRight,
 } from "lucide-react";
@@ -82,7 +83,7 @@ export const features: Feature[] = [
     icon: ClipboardList,
     title: "Ausrüstungsverwaltung",
     description:
-      "Lückenlose Dokumentation und Verwaltung aller Ausrüstungsgegenstände.",
+      "Lückenlose Verwaltung aller Geräte mit Prüffristen, DGUV-Lebensdauer, Beladeplan, internem Ausleihsystem und automatischer Rückruf-Erkennung.",
     slug: "ausruestungsverwaltung",
   },
   {
@@ -96,7 +97,7 @@ export const features: Feature[] = [
     icon: Monitor,
     title: "Kiosk-Modus",
     description:
-      "57 Module touchscreen-optimiert für die Mannschaft. Von Wartungs-Wizards über Fahrtenbuch bis Belegeinreichung – alle Aufgaben selbstständig am Tablet erledigen. Mit KI-Assistent und RFID-Login.",
+      "57 Module touchscreen-optimiert für Mannschaft und Gerätewart. Wartung, Fahrtenbuch, Beladeplan, Rückrufe und Belegeinreichung – auch offline. Mit KI-Assistent und RFID-Login.",
     slug: "kiosk-modus",
   },
   {
@@ -216,6 +217,13 @@ export const features: Feature[] = [
     slug: "email-templates",
   },
   {
+    icon: MessageSquare,
+    title: "Kommunikationscenter",
+    description:
+      "Automatische Benachrichtigungen per E-Mail, WhatsApp oder Telegram – bei fälliger Wartung, ablaufender Qualifikation, neuem Mangel oder Hersteller-Rückruf.",
+    slug: "kommunikationscenter",
+  },
+  {
     icon: Link2,
     title: "Integration & API",
     description:
@@ -297,7 +305,7 @@ export const features: Feature[] = [
     icon: Shield,
     title: "Stab & Führungsunterstützung",
     description:
-      "Digitale Stabsarbeit für Großschadenlagen: MANV-Sichtungsliste, Funk-Protokoll, Entscheidungsprotokoll, Einsatztagebuch und strukturierte Einsatznachbereitung für alle Stabsfunktionen S1–S6.",
+      "Digitale Stabsarbeit für Großschadenlagen: Personalmeldestelle, GPS-Tracking, MANV-Sichtungsliste, Hochwasser-Lageentwicklung, Funk-Protokoll und strukturierte Einsatznachbereitung für S1–S6.",
     slug: "stab-modul",
   },
   {

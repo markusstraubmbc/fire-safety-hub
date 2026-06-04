@@ -32,6 +32,7 @@ import {
     GraduationCap,
     TrendingUp,
     Bell,
+    MessageSquare,
     LucideIcon
 } from "lucide-react";
 
@@ -72,12 +73,13 @@ export const modules: Record<string, ModuleData> = {
     "ausruestungsverwaltung": {
         title: "Ausrüstungsverwaltung",
         shortDesc: "Vollständige Verwaltung der gesamten Ausrüstung – von Schutzausrüstung über Atemschutzgeräte bis zu Sonderwerkzeug.",
-        longDesc: "Die zentrale Ausrüstungsverwaltung bietet einen vollständigen Überblick über das gesamte Material der Feuerwehr. Jedes Gerät, jede Ausrüstung und jedes Fahrzeugzubehör wird erfasst, überwacht und dokumentiert. Standorte, Prüfdaten und Verfügbarkeit sind jederzeit einsehbar.",
+        longDesc: "Die zentrale Ausrüstungsverwaltung bietet einen vollständigen Überblick über das gesamte Material der Feuerwehr. Jedes Gerät wird erfasst, überwacht und dokumentiert – inklusive Standort, Prüfdaten, gesetzlicher Lebensdauer und Verfügbarkeit. Hersteller-Rückrufe werden automatisch erkannt, die Ausleihe intern geregelt und die Fahrzeugbeladung per Beladeplan lückenlos nachgehalten.",
         benefits: [
-            "Transparenz: Jedes Gerät mit aktuellem Status und Standort",
-            "Prüffristen: Automatische Überwachung und Erinnerungen",
-            "Verfügbarkeit: Sofort sehen was einsatzbereit ist und was nicht",
-            "Dokumentation: Vollständige Geschichte jedes Geräts"
+            "Transparenz: Jedes Gerät mit aktuellem Status, Standort und Lebensdauer-Übersicht",
+            "Prüffristen: Automatische Überwachung und Erinnerungen nach DGUV und Herstellervorgaben",
+            "Sicherheit: Hersteller-Rückrufe automatisch erkennen und betroffene Geräte sperren",
+            "Beladeplan: Soll-/Ist-Vergleich für die Fahrzeugbeladung auf einen Blick",
+            "Ausleihe: Internes Ausleihsystem – wer hat welches Gerät, bis wann?"
         ],
         features: [
             "Gerätedatenbank mit QR-Code und Barcode-Integration",
@@ -85,9 +87,13 @@ export const modules: Record<string, ModuleData> = {
             "Standortverwaltung und Fahrzeugzuordnung",
             "Einsatzhistorie pro Gerät",
             "Schadenmeldung und Reparaturtracking",
-            "Export für Inventur und Versicherungszwecke"
+            "Export für Inventur und Versicherungszwecke",
+            "Hersteller-Rückrufe: Betroffene Geräte werden automatisch erkannt und bis zur Klärung gekennzeichnet",
+            "Interne Ausleihe & Reservierung: Wer hat welches Gerät – mit Fälligkeitsdatum und Erinnerung",
+            "Beladeplan & Verlastung: Geräteräume definieren, Soll-Beladung festlegen, Abweichungen sofort erkennen",
+            "DGUV-konforme Lebensdauer-Kategorien: Maximale Nutzungsdauer für Helme, Atemschutzgeräte, Seile und mehr automatisch hinterlegt"
         ],
-        keywords: ["Ausrüstungsverwaltung", "Geräteverwaltung Feuerwehr", "Inventar Feuerwehr", "Prüffristen", "QR Code Feuerwehr"],
+        keywords: ["Ausrüstungsverwaltung", "Geräteverwaltung Feuerwehr", "Inventar Feuerwehr", "Prüffristen", "QR Code Feuerwehr", "Beladeplan Feuerwehr", "Hersteller Rückruf Feuerwehr", "DGUV Lebensdauer Ausrüstung"],
         icon: Package,
         color: "orange"
     },
@@ -110,7 +116,8 @@ export const modules: Record<string, ModuleData> = {
             "Zeiterfassung & Kostenkalkulation pro Wartung",
             "Digitale Unterschrift des Prüfers direkt auf dem Wartungsprotokoll – rechtssicher und revisionsfest",
             "Prüfprotokolle als PDF mit eingebetteter Signatur – ideal für DGUV-Nachweise und Versicherungen",
-            "Qualifikationsnachweis: Wer hat wann mit welcher Prüfer-ID geprüft?"
+            "Qualifikationsnachweis: Wer hat wann mit welcher Prüfer-ID geprüft?",
+            "DGUV-Lebensdauer-Kategorien: Maximale Nutzungsdauer direkt am Gerät hinterlegen – für Atemschutzgeräte, Helme, Seile, Schutzkleidung und mehr"
         ],
         keywords: ["Gerätewart Software", "Gerätewart App", "Feuerwehr Gerätewart", "Wartungsplaner Feuerwehr", "Prüffristen Software", "DGUV Prüfung", "Prüfbuch digital", "UVV Prüfung Feuerwehr", "Gerätebuch digital", "Checklisten Wartung", "Instandhaltung Feuerwehr", "Wartungsprotokoll Unterschrift digital", "digitale Unterschrift Gerätewart Feuerwehr", "Prüfprotokoll Feuerwehr Unterschrift", "DGUV Prüfnachweis digital"],
         icon: Wrench,
@@ -118,7 +125,7 @@ export const modules: Record<string, ModuleData> = {
     },
     "kiosk-modus": {
         title: "Kiosk-Modus - Die zentrale Mannschaftsoberfläche",
-        shortDesc: "57 Module touchscreen-optimiert – die Mannschaft erledigt alle Aufgaben selbstständig am Tablet.",
+        shortDesc: "57 Module touchscreen-optimiert – die Mannschaft und der Gerätewart erledigen alle Aufgaben selbstständig am Tablet, auch ohne Internet.",
         longDesc: "Der RESQIO Kiosk-Modus ist die zentrale Schnittstelle zwischen System und Mannschaft. Auf großen Touchscreens oder Tablets in der Fahrzeughalle stehen der gesamten Mannschaft 57 speziell optimierte Module zur Verfügung – von der Fahrtenbuchpflege über die Gerätewartung bis zur Belegeinreichung. Jeder Kamerad kann alle Aufgaben rund um seine Funktion eigenständig erledigen, ohne am Desktop-PC arbeiten zu müssen. Der integrierte KI-Assistent mit Spracheingabe unterstützt Führungskräfte mit sofortigem Zugriff auf Wiki-Inhalte und Systemdaten. Dedizierte URL-Routen für jeden Bereich ermöglichen korrekte Browser-Navigation. Wizard-geführte Workflows machen komplexe Tätigkeiten kinderleicht. Unified Login via RFID-Chip, PIN oder QR-Code ermöglicht sekundenschnelle Anmeldung ohne Tastatur.",
         benefits: [
             "Vollständigkeit: 57 Module für alle Tätigkeiten der Mannschaft am Kiosk verfügbar",
@@ -163,7 +170,9 @@ export const modules: Record<string, ModuleData> = {
             "Ausrüstungs-Wizard: Neue Geräte direkt am Tablet erfassen mit Foto, Barcode-Scan und Standortzuweisung",
             "Echtzeit-Synchronisation: Änderungen an Whiteboards und Status werden sofort auf allen Geräten sichtbar",
             "Technische Anlagen: Sofortige Einsatzübersicht über BMA, Löschanlagen, RWA und Schließanlagen am Stellplatz-Tablet",
-            "Wäsche-Delegation: Wäscheanfragen für andere Kameraden stellen – ideal für Gerätewarte und Führungskräfte"
+            "Wäsche-Delegation: Wäscheanfragen für andere Kameraden stellen – ideal für Gerätewarte und Führungskräfte",
+            "Gerätewart-Vollausbau: Von der Inspektion über Dokumente und Rückrufe bis zur Aussonderung – der komplette Gerätewart-Workflow direkt am Kiosk",
+            "Offline-Sync: Änderungen werden lokal gespeichert und automatisch übertragen sobald die Verbindung wiederhergestellt ist"
         ],
         technicalDetails: [
             "Touch-optimiert für Bildschirme ab 10 Zoll bis 55 Zoll Hallen-Displays",
@@ -489,13 +498,14 @@ export const modules: Record<string, ModuleData> = {
     },
     "treasury-kassier": {
         title: "Treasury & Kassiermodul",
-        shortDesc: "Professionelle Kassenverwaltung für Feuerwehrvereine – mit doppelter Buchführung und Jahresabschluss.",
-        longDesc: "Das Treasury-Modul bietet eine vollständige Kassenverwaltung für Feuerwehrvereine nach deutschen Buchhaltungsstandards. Doppelte Buchführung, Jahresabschluss, Kassenprüfung und Mitgliedsbeitragsverwaltung sind in einer Lösung integriert.",
+        shortDesc: "Professionelle Kassenverwaltung für Feuerwehrvereine – mit doppelter Buchführung, Jahresabschluss und GoBD-konformer Aufwandsentschädigung.",
+        longDesc: "Das Treasury-Modul bietet eine vollständige Kassenverwaltung für Feuerwehrvereine nach deutschen Buchhaltungsstandards. Doppelte Buchführung, Jahresabschluss, Kassenprüfung und Mitgliedsbeitragsverwaltung sind in einer Lösung integriert. Aufwandsentschädigungen werden revisionssicher dokumentiert und Jahresbescheinigungen auf Knopfdruck erstellt.",
         benefits: [
             "Rechtssicherheit: Korrekte Buchführung nach deutschen Standards",
             "Vollständigkeit: Alle Finanzvorgänge in einer Lösung",
             "Effizienz: Automatisierte Prozesse sparen Zeit",
-            "Transparenz: Kassenprüfung einfach und nachvollziehbar"
+            "Transparenz: Kassenprüfung einfach und nachvollziehbar",
+            "Aufwandsentschädigung: GoBD-konform dokumentiert, Jahresbescheinigungen auf Knopfdruck"
         ],
         features: [
             "Doppelte Buchführung",
@@ -503,9 +513,11 @@ export const modules: Record<string, ModuleData> = {
             "Mitgliedsbeitragsverwaltung",
             "SEPA-Lastschrift",
             "Spendenquittungen",
-            "Export für Steuerberater"
+            "Export für Steuerberater",
+            "Aufwandsentschädigungen: GoBD-konforme Dokumentation mit revisionssicherer Protokollierung",
+            "Jahresbescheinigungen für Mitglieder auf Knopfdruck erstellen"
         ],
-        keywords: ["Kassenverwaltung Feuerwehr", "Vereinskasse", "Buchführung Feuerwehr", "Jahresabschluss", "SEPA", "Mitgliedsbeitrag"],
+        keywords: ["Kassenverwaltung Feuerwehr", "Vereinskasse", "Buchführung Feuerwehr", "Jahresabschluss", "SEPA", "Mitgliedsbeitrag", "Aufwandsentschädigung Feuerwehr", "GoBD Feuerwehr"],
         icon: CreditCard,
         color: "emerald"
     },
@@ -809,18 +821,23 @@ export const modules: Record<string, ModuleData> = {
     },
     "stab-modul": {
         title: "Stab & Führungsunterstützung",
-        shortDesc: "Digitale Stabsarbeit für Großschadenlagen: MANV-Sichtungsliste, Funk-Protokoll, Einsatztagebuch und Einsatznachbereitung",
-        longDesc: "Das Stab-Modul unterstützt Führungskräfte bei anspruchsvollen Einsätzen und Großschadenslagen. Strukturierte Werkzeuge für alle Sachgebiete des Stabes (S1–S6), ein vollständiges digitales Einsatztagebuch mit Zeitstempeln, eine interaktive Lagekarte mit taktischen Zeichen sowie eine vollständige Einsatzdokumentation sorgen dafür, dass Entscheidungen nachvollziehbar bleiben und die Stabsarbeit auch unter Druck geordnet verläuft. MANV-Sichtungsliste mit GPS-Verortung, strukturiertes Funk-Protokoll mit Kanal-Management, Druckvorlagen-Generator für professionelle Stabsdokumente sowie ein Lessons-Learned-System für strukturierte Einsatznachbereitung runden das Modul ab. Wiederverwendbare Szenarien-Vorlagen erleichtern Training und Übungen.",
+        shortDesc: "Digitale Stabsarbeit für Großschadenlagen: Personalmeldestelle, GPS-Tracking, MANV-Sichtungsliste, Funk-Protokoll, Einsatztagebuch und Hochwasser-Lageentwicklung.",
+        longDesc: "Das Stab-Modul unterstützt Führungskräfte bei anspruchsvollen Einsätzen und Großschadenslagen. Strukturierte Werkzeuge für alle Sachgebiete des Stabes (S1–S6), ein vollständiges digitales Einsatztagebuch mit Zeitstempeln, eine interaktive Lagekarte mit GPS-Echtzeit-Tracking sowie eine vollständige Einsatzdokumentation sorgen dafür, dass Entscheidungen nachvollziehbar bleiben. Die integrierte Personalmeldestelle erfasst alle eingesetzten Kräfte – auch externe Organisationen – mit Stärkemeldungen und Schichtwechsel-Protokoll. Bei Hochwasserlagen und Katastrophenschutzeinsätzen stehen Pegelstände und Lageentwicklung direkt im Stab zur Verfügung.",
         benefits: [
             "Überblick: Alle einsatzrelevanten Informationen zentral und in Echtzeit",
+            "Personalstärke: Wer ist wann vor Ort – auch externe Kräfte und Hilfsorganisationen erfasst",
             "Koordination: Klare Zuständigkeiten für alle Sachgebiete des Stabes",
             "Nachvollziehbarkeit: Lückenlose Dokumentation aller Führungsentscheidungen",
             "Qualitätssicherung: Strukturierte Nachbereitung mit Lessons Learned",
             "Großschadenslage: MANV-Unterstützung und ressourcenübergreifende Koordination",
-            "Ausdruck: Einsatzblatt als Druckdokument für Übergabe und Abschluss"
+            "Hochwasser: Pegelstände und Lageentwicklung live im Stab verfügbar"
         ],
         features: [
-            "MANV-Sichtungsliste mit GPS-Verortung – Sichtungskategorien I–IV nach Patientenlage",
+            "Personalmeldestelle: An- und Abmeldung aller Kräfte per RFID, PIN, QR-Code oder Liste – auch externe Organisationen",
+            "Stärkemeldung und Schichtwechsel-Protokoll auf Knopfdruck drucken",
+            "GPS-Echtzeit-Tracking: Fahrzeuge und Einsatzkräfte live auf der Lagekarte verfolgen",
+            "Hochwasser & Lageentwicklung: Pegelstände live eingebunden, Einsatzentwicklung für Katastrophenschutz verfolgen",
+            "MANV-Sichtungsliste mit Triage T1–T4 – Patientenverwaltung und Transportübersicht",
             "Funkprotokoll mit Kanal-Management – strukturierte Kommunikationsdokumentation",
             "Entscheidungsprotokoll – Stabsentscheidungen nachvollziehbar und revisionsfest dokumentiert",
             "Notizen-System mit Anhang-Upload – Dateien und Fotos direkt im Stab hinterlegen",
@@ -955,5 +972,30 @@ export const modules: Record<string, ModuleData> = {
         ],
         icon: Bell,
         color: "red"
+    },
+    "kommunikationscenter": {
+        title: "Kommunikationscenter",
+        shortDesc: "Die richtigen Informationen zur richtigen Zeit – automatische Benachrichtigungen per E-Mail, WhatsApp oder Telegram.",
+        longDesc: "Das Kommunikationscenter sorgt dafür, dass keine wichtige Information untergeht. Ob fällige Wartung, ablaufende Qualifikation, neuer Mangel oder eingereichter Beleg – alle Beteiligten werden automatisch über den Kanal benachrichtigt, den sie bevorzugen. E-Mail, WhatsApp und Telegram lassen sich unabhängig voneinander aktivieren. Kein manuelles Nachfassen mehr, kein übersehener Hinweis.",
+        benefits: [
+            "Zuverlässigkeit: Kein wichtiger Hinweis geht mehr unter – automatischer Versand ohne manuelles Eingreifen",
+            "Kanalfreiheit: Jede Person wählt E-Mail, WhatsApp oder Telegram – oder eine Kombination",
+            "Breite Abdeckung: Wartung, Mängel, Qualifikationen, Belege, Rückrufe und mehr",
+            "Einfache Konfiguration: Empfänger-Gruppen und Kanäle ohne technische Kenntnisse einrichten"
+        ],
+        features: [
+            "Automatische Benachrichtigungen bei fälligen Wartungen und Prüffristen",
+            "Hinweise bei ablaufenden Qualifikationen und Untersuchungsfristen",
+            "Meldungen bei neuen Mängeln und Eskalationen",
+            "Bestätigungen bei eingereichten und genehmigten Belegen",
+            "Hinweise bei Hersteller-Rückrufen betroffener Geräte",
+            "Erinnerungen bei überfälligen Wäscheaufträgen",
+            "Empfänger-Gruppen und Verteiler frei konfigurierbar",
+            "Individuelle Kanalwahl pro Person und Benachrichtigungsbereich",
+            "Unterdrückung bei ungültigen Kontaktdaten – ohne stille Fehler"
+        ],
+        keywords: ["Benachrichtigungen Feuerwehr", "WhatsApp Feuerwehr Software", "Telegram Feuerwehr", "automatische Meldungen Feuerwehr", "Kommunikation Feuerwehr Software"],
+        icon: MessageSquare,
+        color: "sky"
     }
 };
