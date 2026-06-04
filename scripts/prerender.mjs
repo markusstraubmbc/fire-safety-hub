@@ -146,18 +146,23 @@ function createPage({ title, description, keywords, canonicalUrl, bodyContent, n
   const homeBody = `<main>
 <header><nav aria-label="Hauptnavigation"><a href="/">RESQIO</a></nav></header>
 <section><h1>RESQIO – Die intelligente Feuerwehr-Verwaltungssoftware</h1>
-<p>Von der rechtssicheren Ausrüstungsprüfung bis zur KI-optimierten Einsatznachbereitung – RESQIO vereint alle Prozesse Ihrer Feuerwehr in einer modernen Plattform.</p>
+<p>Von der rechtssicheren Ausrüstungsprüfung bis zur KI-optimierten Einsatznachbereitung – RESQIO vereint alle Prozesse Ihrer Feuerwehr in einer modernen Plattform. 57+ Module, GPS-Lagekarte, automatische Benachrichtigungen per WhatsApp/Telegram/E-Mail, Offline-Kiosk und Digitaler Dienstausweis.</p>
 <p><a href="mailto:support@resqio.de">Jetzt Demo anfordern</a></p></section>
 <section><h2>Unsere Module</h2><ul>
 ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> – ${escAttr(m.shortDesc)}</li>`).join("\n")}
 </ul></section>
 <section><h2>Warum RESQIO?</h2>
 <ul>
-<li>All-in-One Lösung für Feuerwehren</li>
-<li>DGUV-konformes Wartungsmanagement</li>
-<li>KI-gestützte Einsatzauswertung</li>
-<li>Made in Germany – DSGVO-konform</li>
-<li>Kiosk-Modus für Feuerwehrhäuser</li>
+<li>All-in-One Lösung mit 57+ Modulen für Feuerwehren</li>
+<li>DGUV-konformes Wartungsmanagement mit Foto und Signatur</li>
+<li>KI-gestützte Einsatzauswertung und Berichtserstellung</li>
+<li>Kommunikationscenter: automatische Benachrichtigungen per E-Mail, WhatsApp oder Telegram</li>
+<li>GPS-Echtzeit-Tracking auf der Lagekarte</li>
+<li>Personalmeldestelle für Großschadenlagen und Katastrophenschutz</li>
+<li>Beladeplan & Verlastung: Soll-/Ist-Vergleich für Fahrzeugbeladung</li>
+<li>Offline-Kiosk: Gerätewart-Vollausbau auch ohne Internet</li>
+<li>GoBD-konforme Aufwandsentschädigung mit Jahresbescheinigungen</li>
+<li>Made in Germany – DSGVO-konform, Serverstandort Deutschland</li>
 </ul></section>
 <section><h2>Preise</h2>
 <p>All in One (bis 5.000 Einwohner): 399 € / Jahr</p>
