@@ -66,7 +66,7 @@ export const modules: Record<string, ModuleData> = {
             "Integrierte Benachrichtigungen und Alarme",
             "Rollenbasierter Zugriff für verschiedene Führungsebenen"
         ],
-        keywords: ["Kommandozentrale", "Führungssoftware Feuerwehr", "Einsatzleitung", "Echtzeit Dashboard", "Feuerwehr Software"],
+        keywords: ["Kommandozentrale", "Führungssoftware Feuerwehr", "Einsatzleitung", "Echtzeit Dashboard", "Feuerwehr Software", "Verwaltungssoftware", "Management System", "Cloud Lösung", "SaaS Feuerwehr", "Feuerwehr-Verwaltung", "Online Verwaltung", "Alternative PRIOS", "Alternative EinsatzManager"],
         icon: LayoutDashboard,
         color: "red"
     },
