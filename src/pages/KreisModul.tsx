@@ -131,55 +131,9 @@ const KreisModul = () => {
     document.getElementById("product-jsonld")?.remove();
     document.head.appendChild(productScript);
 
-    // FAQ JSON-LD for SEO rich snippets
-    const faqScript = document.createElement("script");
-    faqScript.type = "application/ld+json";
-    faqScript.id = "faq-jsonld";
-    faqScript.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Was ist das RESQIO Kreismodul?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Das RESQIO Kreismodul ist eine eigenständige Plattform für Kreisfeuerwehrverbände und Landratsämter. Es vernetzt alle Feuerwehren eines Landkreises und bietet zentrale Verwaltung von Schulungen, Werkstätten, Ressourcen und Personalstatistiken — bei voller Datensouveränität der einzelnen Wehren.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Ist das Kreismodul DSGVO-konform?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Ja, das Kreismodul arbeitet nach dem Prinzip Privacy by Design. Personenbezogene Daten verbleiben bei den einzelnen Feuerwehren. Auf Kreisebene werden ausschließlich anonymisierte und aggregierte Statistiken angezeigt. Alle Datenübertragungen sind Ende-zu-Ende verschlüsselt.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Wie werden die Feuerwehren angebunden?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Feuerwehren verbinden sich per Einladungslink oder QR-Code mit dem Kreismodul. Der gesamte Pairing-Prozess dauert weniger als 2 Minuten. Jede Wehr entscheidet selbst, welche Daten sie freigibt.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Welche Funktionen bietet das Kreismodul?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Das Kreismodul umfasst u.a. ein kreisweites Dashboard, Schulungsmanagement mit Online-Anmeldung, Atemschutz- und Schlauchwerkstatt-Buchung, ein Sonderausrüstungs-Register, Personalstatistiken, Fahrzeug-Dashboard, Wasserversorgungskarte, Dokumenten-Portal, Schwarzes Brett, KI-Assistent und Übungskoordination.",
-          },
-        },
-      ],
-    });
-    document.getElementById("faq-jsonld")?.remove();
-    document.head.appendChild(faqScript);
-
     return () => {
       document.getElementById("breadcrumb-jsonld")?.remove();
       document.getElementById("product-jsonld")?.remove();
-      document.getElementById("faq-jsonld")?.remove();
     };
   }, []);
 
