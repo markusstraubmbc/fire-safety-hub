@@ -8,7 +8,7 @@
  * Run after `vite build`: node scripts/prerender.mjs
  */
 
-import { readFileSync, writeFileSync, mkdirSync } from "fs";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -172,7 +172,7 @@ ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> –
 <footer><p>© RESQIO – Markus Straub | <a href="/impressum">Impressum</a> | <a href="/datenschutz">Datenschutz</a> | <a href="mailto:support@resqio.de">Kontakt</a></p></footer>
 </main>`;
 
-  const html = createPage({
+  let html = createPage({
     title: "RESQIO - Intelligent. Vernetzt. Vielfältig. | Feuerwehr-Verwaltungssoftware",
     description: "RESQIO - Professionelle Feuerwehr-Verwaltungssoftware. Rechtssicheres Wartungsmanagement nach DGUV, KI-gestützte Einsatzauswertung, Wasserförderungs-Planung & digitaler Dienstausweis. Made in Germany.",
     keywords: "Feuerwehrsoftware, Verwaltungssoftware Feuerwehr, Geräteverwaltung, Wartungsplaner, DGUV Prüfung, Atemschutzüberwachung, Einsatzerfassung, Objektpläne DIN 14095",
@@ -191,6 +191,33 @@ ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> –
       },
     },
   });
+
+  // FAQPage schema (same id as the client-side script in Index.tsx, which
+  // removes any existing #homepage-faq-jsonld before re-adding — no duplicates)
+  const faqJsonLd = JSON.parse(
+    readFileSync(join(__dirname, "..", "src", "data", "faq-jsonld.json"), "utf-8")
+  );
+  html = html.replace(
+    "</head>",
+    `  <script type="application/ld+json" id="homepage-faq-jsonld">${JSON.stringify(faqJsonLd)}</script>\n</head>`
+  );
+
+  // Preload the LCP hero image (hashed Vite asset names, homepage only)
+  const assets = readdirSync(join(distDir, "assets"));
+  const heroAsset = (prefix) => {
+    const file = assets.find((f) => f.startsWith(prefix) && f.endsWith(".webp"));
+    return file ? `/assets/${file}` : null;
+  };
+  const hero640 = heroAsset("hero-640w");
+  const hero1024 = heroAsset("hero-1024w");
+  const hero1920 = heroAsset("german_firefighters_fixed_bg");
+  if (hero640 && hero1024 && hero1920) {
+    const preload = `  <link rel="preload" as="image" type="image/webp" href="${hero1024}" imagesrcset="${hero640} 640w, ${hero1024} 1024w, ${hero1920} 1920w" imagesizes="100vw" fetchpriority="high" />\n`;
+    html = html.replace("</head>", preload + "</head>");
+    console.log("Injected hero image preload into homepage.");
+  } else {
+    console.warn("Hero assets not found in dist/assets — skipping preload injection.");
+  }
 
   writeFileSync(join(distDir, "index.html"), html, "utf-8");
   console.log("Prerendered homepage.");

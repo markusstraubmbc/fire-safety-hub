@@ -15,8 +15,8 @@
   <!-- Critical CSS: Above-the-fold rendering -->
   <link rel="stylesheet" href="/critical.css" />
 
-  <!-- Preload critical assets -->
-  <link rel="preload" href="/logo.png" as="image" fetchpriority="high" />
+  <!-- Preload critical assets (Header-Logo; Hero-Preload wird vom Prerender-Skript pro Seite injiziert) -->
+  <link rel="preload" href="/logo-80.webp" as="image" type="image/webp" />
 
   <!-- Fonts: dns-prefetch (fallback) + Preconnect + Combined load (Latin subset only) -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -31,8 +31,10 @@
   <meta name="description"
     content="RESQIO – Die intelligente Feuerwehr-Software mit KI. Einsatzberichte per Sprache diktieren, GPS-Lagekarte, automatische Benachrichtigungen (E-Mail/WhatsApp/Telegram), Wartungsplanung (DGUV), Offline-Kiosk, Personalmeldestelle, Kreismodul & Digitaler Dienstausweis. Made in Germany – DSGVO-konform." />
   <meta name="author" content="Markus Straub" />
+  <!-- Hinweis: Google ignoriert meta keywords seit 2009 – Liste bewusst kurz gehalten.
+       Long-Tail-Keywords gehören in sichtbaren Content (Modul-Seiten, /wissen) statt hierher. -->
   <meta name="keywords"
-    content="Feuerwehr Management Software, Feuerwehrsoftware, Gerätewart Software, Gerätewart App, Atemschutzüberwachung digital, digitale Atemschutzüberwachung, ASÜ Software, Feuerwehr Personalverwaltung, Lagekarte Feuerwehr Software, Verwaltungssoftware Feuerwehr, Freiwillige Feuerwehr Software, Wartungsplaner Feuerwehr, DGUV Prüfung Software, Prüffristen Feuerwehr, Einsatzerfassung digital, Feuerwehr Einsatzdokumentation, Objektpläne DIN 14095, Wasserförderung Software, Hydrantenplan digital, Qualifikationsverwaltung Feuerwehr, Lehrgangsverwaltung, KI Feuerwehr, Künstliche Intelligenz Feuerwehr Software, KI Diktiermodul Feuerwehr, Spracherkennung Feuerwehr Software, Einsatzbericht diktieren Feuerwehr, KI Berichtsassistent Feuerwehr, automatischer Einsatzbericht KI, Lage-Mapping Feuerwehr KI, KI Lage Software Feuerwehr, KI Personalplanung Feuerwehr, KI Pumpenoptimierung Feuerwehr, Digitaler Dienstausweis Feuerwehr, Stab Feuerwehr Software, Führungsunterstützung digital, Fahrzeugverwaltung Feuerwehr, Kreisfeuerwehrverband Software, Kreisbrandmeister Software, Kreismodul Feuerwehr, FwDV Software, DSGVO Feuerwehr, Brandschutz Software, Brandschau Software, §2b UStG Feuerwehr, Kassier Software Feuerwehr, SEPA Zahlungsverkehr Feuerwehr, Feuerwehr App, Kiosk-Modus Feuerwehr, RFID Login Feuerwehr, Planspiel Feuerwehr Ausbildung, Wirt-Modul Feuerwehr Gastronomie, BSW Software, Brandsicherheitswache Software, Feuerwehr Zeiterfassung ehrenamtlich, Digitaler Dienstausweis Apple Wallet Google Wallet, Feuerwehr Beförderungssystem, Ressourcenverwaltung Feuerwehr, Feuerwehr Wiki Offline, Mängelmanagement Feuerwehr, Feuerwehr Inventur Software, Feuerwehr Vereinsverwaltung, Kommunikationscenter Feuerwehr, WhatsApp Benachrichtigungen Feuerwehr, Telegram Feuerwehr Software, automatische Benachrichtigungen Feuerwehr, Beladeplan Feuerwehr, Verlastung Feuerwehr, Fahrzeugbeladung digital, Hersteller Rückruf Feuerwehr, DGUV Lebensdauer Ausrüstung, Feuerwehr Ausleihe Geräte, Personalmeldestelle Feuerwehr, Stärkemeldung digital, GPS Lagekarte Feuerwehr, GPS Tracking Feuerwehr, Hochwasser Feuerwehr Software, Großschadenslage Software, MANV Software Feuerwehr, GoBD Aufwandsentschädigung Feuerwehr, Offline Kiosk Feuerwehr, Feuerwehr Offline App" />
+    content="Feuerwehr Software, Feuerwehrsoftware, Verwaltungssoftware Feuerwehr, Gerätewart Software, Wartungsplaner Feuerwehr, DGUV Prüfung Software, Atemschutzüberwachung digital, Einsatzverwaltung Feuerwehr, Lagekarte Feuerwehr, Kiosk-Modus Feuerwehr, Digitaler Dienstausweis Feuerwehr, Kreisfeuerwehrverband Software, KI Feuerwehr Software, Objektpläne DIN 14095, Freiwillige Feuerwehr Software" />
 
   <!-- Crawler & Indexing Directives -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
