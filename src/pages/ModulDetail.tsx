@@ -76,13 +76,13 @@ const ModulDetail = () => {
       updateMetaTag("og:description", module.shortDesc);
       updateMetaTag("og:type", "website");
       updateMetaTag("og:url", pageUrl);
-      updateMetaTag("og:image", "https://resqio.de/logo-200.png");
+      updateMetaTag("og:image", "https://resqio.de/og-image.png");
 
       // Twitter tags
       updateMetaTag("twitter:card", "summary_large_image");
       updateMetaTag("twitter:title", pageTitle);
       updateMetaTag("twitter:description", module.shortDesc);
-      updateMetaTag("twitter:image", "https://resqio.de/logo-200.png");
+      updateMetaTag("twitter:image", "https://resqio.de/og-image.png");
 
       // Canonical URL
       updateLinkTag("canonical", pageUrl);
