@@ -18,7 +18,25 @@ const BASE_URL = "https://resqio.de";
 const TODAY = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
 
 // --- Read the built index.html as base template ---
-const template = readFileSync(join(distDir, "index.html"), "utf-8");
+let template = readFileSync(join(distDir, "index.html"), "utf-8");
+
+// Selbst gehostete Poppins-Webfonts auf allen Seiten preloaden (kritisch für FCP/LCP):
+// 400 (Fließtext) und 700 (Headlines) – weitere Gewichte laden regulär über das CSS.
+{
+  const distAssets = readdirSync(join(distDir, "assets"));
+  const fontPreloads = ["poppins-latin-400-normal", "poppins-latin-700-normal"]
+    .map((prefix) => distAssets.find((f) => f.startsWith(prefix) && f.endsWith(".woff2")))
+    .filter(Boolean)
+    .map(
+      (f) =>
+        `  <link rel="preload" as="font" type="font/woff2" href="/assets/${f}" crossorigin />\n`
+    )
+    .join("");
+  if (fontPreloads) {
+    template = template.replace("</head>", fontPreloads + "</head>");
+    console.log("Injected font preloads into template.");
+  }
+}
 
 // --- Parse module data from TypeScript source ---
 const moduleDataSrc = readFileSync(
@@ -263,8 +281,9 @@ ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> –
 }
 
 // --- 2. Generate MODULE pages ---
+const linkableSlugs = modules.map((m) => m.slug).filter((s) => s !== "kreis-platform");
 for (const mod of modules) {
-  const pageTitle = `${mod.title} | RESQIO`;
+  const pageTitle = `${mod.title} | RESQIO Feuerwehr-Software`;
   const pageUrl = `${BASE_URL}/modul/${mod.slug}`;
 
   const breadcrumbLd = {
@@ -277,7 +296,18 @@ for (const mod of modules) {
     ],
   };
 
-  const bodyContent = `<main><h1>${escAttr(mod.title)} | RESQIO Feuerwehr-Software</h1><p>${escAttr(mod.shortDesc)}</p><p>RESQIO – Die intelligente Feuerwehr-Verwaltungssoftware. <a href="/">Zur Startseite</a> | <a href="mailto:support@resqio.de">Demo anfordern</a></p></main>`;
+  // Interne Querverlinkung (gleiche Logik wie ModulDetail.tsx): die 4 folgenden Module, zyklisch
+  const others = linkableSlugs.filter((s) => s !== mod.slug);
+  const idx = Math.max(0, modules.findIndex((m) => m.slug === mod.slug)) % others.length;
+  const related = [...others, ...others].slice(idx, idx + 4);
+  const relatedLinks = related
+    .map((s) => {
+      const rel = modules.find((m) => m.slug === s);
+      return `<li><a href="/modul/${s}">${escAttr(rel ? rel.title : s)}</a></li>`;
+    })
+    .join("");
+
+  const bodyContent = `<main><h1>${escAttr(mod.title)} | RESQIO Feuerwehr-Software</h1><p>${escAttr(mod.shortDesc)}</p><h2>Weitere Module</h2><ul>${relatedLinks}</ul><p>RESQIO – Die intelligente Feuerwehr-Verwaltungssoftware. <a href="/">Zur Startseite</a> | <a href="/wissen">Wissen & Ratgeber</a> | <a href="mailto:support@resqio.de">Demo anfordern</a></p></main>`;
 
   const html = createPage({
     title: pageTitle,

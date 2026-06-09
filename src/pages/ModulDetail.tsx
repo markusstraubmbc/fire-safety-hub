@@ -1,5 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { modules } from "@/data/module-data";
+import { trackEvent } from "@/lib/consent";
 import { Button } from "@/components/ui/button";
 import {
   ArrowLeft,
@@ -33,7 +34,7 @@ const ModulDetail = () => {
     window.scrollTo(0, 0);
 
     if (module) {
-      const pageTitle = `${module.title} | RESQIO`;
+      const pageTitle = `${module.title} | RESQIO Feuerwehr-Software`;
       const pageUrl = `https://resqio.de/modul/${slug}`;
 
       document.title = pageTitle;
@@ -178,6 +179,12 @@ const ModulDetail = () => {
 
   const Icon = module.icon;
 
+  // Deterministische Querverlinkung: die 4 auf das aktuelle Modul folgenden
+  // Module (zyklisch, ohne kreis-platform) – stärkt die interne Verlinkung.
+  const allSlugs = Object.keys(modules).filter((s) => s !== "kreis-platform" && s !== slug);
+  const currentIdx = Math.max(0, Object.keys(modules).indexOf(slug || ""));
+  const relatedSlugs = [...allSlugs, ...allSlugs].slice(currentIdx % allSlugs.length, (currentIdx % allSlugs.length) + 4);
+
   return (
     <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
       {/* Background Decor */}
@@ -216,7 +223,11 @@ const ModulDetail = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Link to="/#kontakt" className="w-full sm:w-auto">
+                <Link
+                  to="/#kontakt"
+                  className="w-full sm:w-auto"
+                  onClick={() => trackEvent("cta_click", { location: "modul_detail", module: slug })}
+                >
                   <Button size="lg" className="w-full sm:w-auto h-12 sm:h-14 px-6 sm:px-8 bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
                     Jetzt Demo anfordern
                   </Button>
@@ -374,6 +385,29 @@ const ModulDetail = () => {
               </div>
             </div>
           </div>
+
+          {/* Weitere Module (interne Verlinkung) */}
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Weitere Module entdecken</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {relatedSlugs.map((relSlug) => {
+                const rel = modules[relSlug];
+                if (!rel) return null;
+                return (
+                  <Link
+                    key={relSlug}
+                    to={`/modul/${relSlug}`}
+                    className="group p-5 bg-card/40 border border-border rounded-2xl hover:border-primary/30 hover:bg-card/70 transition-all"
+                  >
+                    <p className="font-bold text-foreground group-hover:text-primary transition-colors mb-1">
+                      {rel.title}
+                    </p>
+                    <p className="text-sm text-muted-foreground line-clamp-2">{rel.shortDesc}</p>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
         </div>
       </main>
 

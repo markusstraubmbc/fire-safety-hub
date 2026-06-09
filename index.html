@@ -18,14 +18,10 @@
   <!-- Preload critical assets (Header-Logo; Hero-Preload wird vom Prerender-Skript pro Seite injiziert) -->
   <link rel="preload" href="/logo-80.webp" as="image" type="image/webp" />
 
-  <!-- Fonts: dns-prefetch (fallback) + Preconnect + Combined load (Latin subset only) -->
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Single combined request saves 2 TCP connections vs. 3 separate requests -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Merriweather:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap&subset=latin" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Merriweather:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap&subset=latin" /></noscript>
+  <!-- Fonts: Poppins wird selbst gehostet (@fontsource, Import in src/main.tsx).
+       Keine Google-Fonts-Verbindung mehr: spart 2 Verbindungen im kritischen Pfad
+       und vermeidet die IP-Übertragung an Google (DSGVO, LG München I 3 O 17493/20).
+       Merriweather/JetBrains Mono wurden nirgends verwendet und entfallen ersatzlos. -->
 
   <title>RESQIO – Feuerwehr-Software mit KI | Gerätewart, Einsatz, Lagekarte & Mehr</title>
   <meta name="description"
