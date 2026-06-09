@@ -149,11 +149,17 @@ const Datenschutz = () => {
                     Rechtsgrundlage und Zweck
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Die Verarbeitung erfolgt auf Grundlage unseres berechtigten
-                    Interesses gemäß Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes
-                    Interesse besteht in der statistischen Auswertung des
-                    Nutzerverhaltens zur Optimierung unseres Webangebots und zur
-                    Erfolgsmessung unserer Marketingmaßnahmen.
+                    Die Verarbeitung erfolgt ausschließlich auf Grundlage Ihrer
+                    Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO sowie § 25 Abs. 1
+                    TDDDG, die Sie über unseren Cookie-Banner erteilen können.
+                    Ohne Ihre Einwilligung wird Google Analytics nicht geladen und
+                    es werden keine Analyse-Cookies gesetzt (Google Consent Mode v2,
+                    Standardeinstellung: abgelehnt). Zweck der Verarbeitung ist die
+                    statistische Auswertung des Nutzerverhaltens zur Optimierung
+                    unseres Webangebots und zur Erfolgsmessung unserer
+                    Marketingmaßnahmen. Sie können Ihre Einwilligung jederzeit mit
+                    Wirkung für die Zukunft widerrufen, indem Sie die
+                    Cookie-Einstellungen über den Link im Seitenfuß erneut öffnen.
                   </p>
 
                   <h3 className="text-lg font-medium text-foreground mb-2 mt-4">

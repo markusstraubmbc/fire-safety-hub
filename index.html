@@ -191,11 +191,18 @@
       "inLanguage": "de"
     }
   </script>
-  <!-- Google Analytics 4 (GA4) — Mess-ID: G-1JZGKRM9GC -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1JZGKRM9GC"></script>
+  <!-- Google Analytics 4 (G-1JZGKRM9GC) mit Consent Mode v2:
+       gtag.js wird NICHT hier geladen, sondern erst nach Einwilligung über den
+       ConsentBanner (src/lib/consent.ts). Default: alles denied (DSGVO). -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied'
+    });
     gtag('js', new Date());
     gtag('config', 'G-1JZGKRM9GC', {
       anonymize_ip: true,

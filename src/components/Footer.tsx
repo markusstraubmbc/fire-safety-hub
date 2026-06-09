@@ -1,5 +1,6 @@
 import { Shield } from "lucide-react";
 import { Link } from "react-router-dom";
+import { openConsentBanner } from "@/lib/consent";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -27,6 +28,16 @@ const Footer = () => {
             <Link to="/datenschutz" className="hover:text-primary transition-colors">
               Datenschutz
             </Link>
+            <Link to="/wissen" className="hover:text-primary transition-colors">
+              Wissen
+            </Link>
+            <button
+              type="button"
+              onClick={openConsentBanner}
+              className="hover:text-primary transition-colors"
+            >
+              Cookie-Einstellungen
+            </button>
             <a href="mailto:support@resqio.io" className="hover:text-primary transition-colors flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
               support@resqio.io
