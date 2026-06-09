@@ -57,6 +57,39 @@ function parseModules(src) {
 const modules = parseModules(moduleDataSrc);
 console.log(`Found ${modules.length} modules to prerender.`);
 
+// --- Parse Wissen articles from TypeScript source ---
+const wissenDataSrc = readFileSync(
+  join(__dirname, "..", "src", "data", "wissen-data.ts"),
+  "utf-8"
+);
+
+function parseWissen(src) {
+  const articles = [];
+  const parts = src.split(/\n\s{2}"([a-z][a-z0-9-]*)":\s*\{/);
+  for (let i = 1; i < parts.length; i += 2) {
+    const slug = parts[i];
+    const block = parts[i + 1] || "";
+    const titleMatch = block.match(/title:\s*\n?\s*"([^"]+)"/);
+    const descMatch = block.match(/description:\s*\n?\s*"([^"]+)"/);
+    const introMatch = block.match(/intro:\s*\n?\s*"([^"]+)"/);
+    const keywordsMatch = block.match(/keywords:\s*\[([\s\S]*?)\]/);
+    const keywords = keywordsMatch
+      ? (keywordsMatch[1].match(/"([^"]+)"/g) || []).map((k) => k.replace(/"/g, "")).join(", ")
+      : "";
+    articles.push({
+      slug,
+      title: titleMatch ? titleMatch[1] : slug,
+      description: descMatch ? descMatch[1] : "",
+      intro: introMatch ? introMatch[1] : "",
+      keywords,
+    });
+  }
+  return articles;
+}
+
+const wissen = parseWissen(wissenDataSrc);
+console.log(`Found ${wissen.length} Wissen articles to prerender.`);
+
 // --- HTML escaping for attribute values ---
 function escAttr(str) {
   return str.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -169,7 +202,7 @@ ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> –
 <p>Professional (bis 10.000 Einwohner): 599 € / Jahr</p>
 <p>Enterprise (Städte & Kreise): Auf Anfrage</p>
 </section>
-<footer><p>© RESQIO – Markus Straub | <a href="/impressum">Impressum</a> | <a href="/datenschutz">Datenschutz</a> | <a href="mailto:support@resqio.de">Kontakt</a></p></footer>
+<footer><p>© RESQIO – Markus Straub | <a href="/wissen">Wissen & Ratgeber</a> | <a href="/impressum">Impressum</a> | <a href="/datenschutz">Datenschutz</a> | <a href="mailto:support@resqio.de">Kontakt</a></p></footer>
 </main>`;
 
   let html = createPage({
@@ -197,6 +230,9 @@ ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> –
   const faqJsonLd = JSON.parse(
     readFileSync(join(__dirname, "..", "src", "data", "faq-jsonld.json"), "utf-8")
   );
+  // Idempotent, falls das Skript mehrfach auf dasselbe dist/ läuft
+  html = html.replace(/\s*<script type="application\/ld\+json" id="homepage-faq-jsonld">[\s\S]*?<\/script>/g, "");
+  html = html.replace(/\s*<link rel="preload" as="image" type="image\/webp"[^>]*imagesrcset[^>]*\/>/g, "");
   html = html.replace(
     "</head>",
     `  <script type="application/ld+json" id="homepage-faq-jsonld">${JSON.stringify(faqJsonLd)}</script>\n</head>`
@@ -210,7 +246,10 @@ ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> –
   };
   const hero640 = heroAsset("hero-640w");
   const hero1024 = heroAsset("hero-1024w");
-  const hero1920 = heroAsset("german_firefighters_fixed_bg");
+  // Vite dedupliziert byte-identische Assets: die 1920w-Variante kann auf
+  // dieselbe Datei wie hero-1024w zeigen, wenn sie identisch ist.
+  const hero1920 =
+    heroAsset("german_firefighters_fixed_bg") || heroAsset("hero-1920w") || hero1024;
   if (hero640 && hero1024 && hero1920) {
     const preload = `  <link rel="preload" as="image" type="image/webp" href="${hero1024}" imagesrcset="${hero640} 640w, ${hero1024} 1024w, ${hero1920} 1920w" imagesizes="100vw" fetchpriority="high" />\n`;
     html = html.replace("</head>", preload + "</head>");
@@ -340,6 +379,76 @@ for (const mod of modules) {
   console.log("Prerendered Kreismodul page.");
 }
 
+// --- 3b. Generate Wissen index page ---
+{
+  const wissenUrl = `${BASE_URL}/wissen`;
+  const bodyContent = `<main>
+<h1>Wissen für die moderne Feuerwehr – Ratgeber & Fachbeiträge</h1>
+<p>Praxisnahe Leitfäden zu Prüffristen, Atemschutz-Dokumentation und Digitalisierung – geschrieben für Gerätewarte, Kommandanten und Gemeinden.</p>
+<ul>
+${wissen.map((a) => `<li><a href="/wissen/${a.slug}">${escAttr(a.title)}</a> – ${escAttr(a.description)}</li>`).join("\n")}
+</ul>
+<p><a href="/">Zur Startseite</a></p>
+</main>`;
+
+  const html = createPage({
+    title: "Wissen für Feuerwehren: DGUV, FwDV 7 & Digitalisierung | RESQIO",
+    description:
+      "Fachwissen für Gerätewarte und Kommandanten: DGUV-Prüffristen, Atemschutz-Dokumentation nach FwDV 7 und Leitfäden zur Digitalisierung der Feuerwehr.",
+    keywords: "Feuerwehr Wissen, DGUV Prüffristen, FwDV 7, Feuerwehr Digitalisierung, Gerätewart Ratgeber",
+    canonicalUrl: wissenUrl,
+    bodyContent,
+  });
+  mkdirSync(join(distDir, "wissen"), { recursive: true });
+  writeFileSync(join(distDir, "wissen", "index.html"), html, "utf-8");
+  console.log("Prerendered Wissen index page.");
+}
+
+// --- 3c. Generate Wissen article pages ---
+for (const artikel of wissen) {
+  const pageUrl = `${BASE_URL}/wissen/${artikel.slug}`;
+  const pageTitle = `${artikel.title} | RESQIO Wissen`;
+
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: artikel.title,
+    description: artikel.description,
+    inLanguage: "de",
+    mainEntityOfPage: pageUrl,
+    image: `${BASE_URL}/og-image.png`,
+    author: { "@type": "Organization", name: "RESQIO", url: BASE_URL },
+    publisher: {
+      "@type": "Organization",
+      name: "RESQIO",
+      url: BASE_URL,
+      logo: { "@type": "ImageObject", url: `${BASE_URL}/logo.png` },
+    },
+  };
+
+  const bodyContent = `<main><article><h1>${escAttr(artikel.title)}</h1><p>${escAttr(artikel.intro || artikel.description)}</p><p><a href="/wissen">Alle Artikel</a> | <a href="/">Zur Startseite</a> | <a href="mailto:support@resqio.de">Demo anfordern</a></p></article></main>`;
+
+  let html = createPage({
+    title: pageTitle,
+    description: artikel.description,
+    keywords: artikel.keywords,
+    canonicalUrl: pageUrl,
+    bodyContent,
+  });
+
+  // Gleiche Script-ID wie in WissenArtikel.tsx: der Client entfernt das
+  // bestehende Element per ID, bevor er sein eigenes einfügt — keine Duplikate.
+  html = html.replace(
+    "</head>",
+    `  <script type="application/ld+json" id="wissen-article-jsonld">${JSON.stringify(articleLd)}</script>\n</head>`
+  );
+
+  const outDir = join(distDir, "wissen", artikel.slug);
+  mkdirSync(outDir, { recursive: true });
+  writeFileSync(join(outDir, "index.html"), html, "utf-8");
+}
+console.log(`Prerendered ${wissen.length} Wissen articles.`);
+
 // --- 4. Generate Impressum page ---
 {
   const html = createPage({
@@ -392,11 +501,22 @@ for (const mod of modules) {
   // Kreismodul dedicated page
   urls.push({ loc: `${BASE_URL}/kreis`, priority: "0.9", changefreq: "weekly" });
 
-  // Module pages
+  // Module pages (kreis-platform ausgenommen: 301-Redirect auf /kreis)
   for (const mod of modules) {
+    if (mod.slug === "kreis-platform") continue;
     urls.push({
       loc: `${BASE_URL}/modul/${mod.slug}`,
       priority: "0.8",
+      changefreq: "monthly",
+    });
+  }
+
+  // Wissen index + articles
+  urls.push({ loc: `${BASE_URL}/wissen`, priority: "0.8", changefreq: "weekly" });
+  for (const artikel of wissen) {
+    urls.push({
+      loc: `${BASE_URL}/wissen/${artikel.slug}`,
+      priority: "0.7",
       changefreq: "monthly",
     });
   }
