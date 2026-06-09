@@ -1,6 +1,5 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { modules } from "@/data/module-data";
-import { trackEvent } from "@/lib/consent";
 import { Button } from "@/components/ui/button";
 import {
   ArrowLeft,
@@ -223,11 +222,7 @@ const ModulDetail = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Link
-                  to="/#kontakt"
-                  className="w-full sm:w-auto"
-                  onClick={() => trackEvent("cta_click", { location: "modul_detail", module: slug })}
-                >
+                <Link to="/#kontakt" className="w-full sm:w-auto">
                   <Button size="lg" className="w-full sm:w-auto h-12 sm:h-14 px-6 sm:px-8 bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
                     Jetzt Demo anfordern
                   </Button>

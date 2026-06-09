@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/lib/utils";
-import { trackEvent } from "@/lib/consent";
 
 /**
  * Sticky CTA-Leiste für Mobile: erscheint nach dem Scrollen am unteren Rand
@@ -29,7 +28,6 @@ const MobileCtaBar = () => {
   }, []);
 
   const handleClick = () => {
-    trackEvent("cta_click", { location: "mobile_bar", page: location.pathname });
     if (location.pathname === "/") {
       scrollToSection("kontakt");
     } else {

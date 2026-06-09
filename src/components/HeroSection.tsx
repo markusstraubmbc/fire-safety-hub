@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Sparkles } from "lucide-react";
 import { scrollToSection } from "@/lib/utils";
-import { trackEvent } from "@/lib/consent";
 import heroImage from "@/assets/german_firefighters_fixed_bg.png";
 import heroImageWebp from "@/assets/german_firefighters_fixed_bg.webp";
 import hero640 from "@/assets/hero-640w.webp";
@@ -52,10 +51,7 @@ const HeroSection = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <Button
-              onClick={() => {
-                trackEvent("cta_click", { location: "hero" });
-                scrollToSection("kontakt");
-              }}
+              onClick={() => scrollToSection("kontakt")}
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90 text-base sm:text-lg px-6 sm:px-8"
             >
