@@ -15,24 +15,22 @@
   <!-- Critical CSS: Above-the-fold rendering -->
   <link rel="stylesheet" href="/critical.css" />
 
-  <!-- Preload critical assets -->
-  <link rel="preload" href="/logo.png" as="image" fetchpriority="high" />
+  <!-- Preload critical assets (Header-Logo; Hero-Preload wird vom Prerender-Skript pro Seite injiziert) -->
+  <link rel="preload" href="/logo-80.webp" as="image" type="image/webp" />
 
-  <!-- Fonts: dns-prefetch (fallback) + Preconnect + Combined load (Latin subset only) -->
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Single combined request saves 2 TCP connections vs. 3 separate requests -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Merriweather:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap&subset=latin" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Merriweather:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap&subset=latin" /></noscript>
+  <!-- Fonts: Poppins wird selbst gehostet (@fontsource, Import in src/main.tsx).
+       Keine Google-Fonts-Verbindung mehr: spart 2 Verbindungen im kritischen Pfad
+       und vermeidet die IP-Übertragung an Google (DSGVO, LG München I 3 O 17493/20).
+       Merriweather/JetBrains Mono wurden nirgends verwendet und entfallen ersatzlos. -->
 
   <title>RESQIO – Feuerwehr-Software mit KI | Gerätewart, Einsatz, Lagekarte & Mehr</title>
   <meta name="description"
     content="RESQIO – Die intelligente Feuerwehr-Software mit KI. Einsatzberichte per Sprache diktieren, GPS-Lagekarte, automatische Benachrichtigungen (E-Mail/WhatsApp/Telegram), Wartungsplanung (DGUV), Offline-Kiosk, Personalmeldestelle, Kreismodul & Digitaler Dienstausweis. Made in Germany – DSGVO-konform." />
   <meta name="author" content="Markus Straub" />
+  <!-- Hinweis: Google ignoriert meta keywords seit 2009 – Liste bewusst kurz gehalten.
+       Long-Tail-Keywords gehören in sichtbaren Content (Modul-Seiten, /wissen) statt hierher. -->
   <meta name="keywords"
-    content="Feuerwehr Management Software, Feuerwehrsoftware, Gerätewart Software, Gerätewart App, Atemschutzüberwachung digital, digitale Atemschutzüberwachung, ASÜ Software, Feuerwehr Personalverwaltung, Lagekarte Feuerwehr Software, Verwaltungssoftware Feuerwehr, Freiwillige Feuerwehr Software, Wartungsplaner Feuerwehr, DGUV Prüfung Software, Prüffristen Feuerwehr, Einsatzerfassung digital, Feuerwehr Einsatzdokumentation, Objektpläne DIN 14095, Wasserförderung Software, Hydrantenplan digital, Qualifikationsverwaltung Feuerwehr, Lehrgangsverwaltung, KI Feuerwehr, Künstliche Intelligenz Feuerwehr Software, KI Diktiermodul Feuerwehr, Spracherkennung Feuerwehr Software, Einsatzbericht diktieren Feuerwehr, KI Berichtsassistent Feuerwehr, automatischer Einsatzbericht KI, Lage-Mapping Feuerwehr KI, KI Lage Software Feuerwehr, KI Personalplanung Feuerwehr, KI Pumpenoptimierung Feuerwehr, Digitaler Dienstausweis Feuerwehr, Stab Feuerwehr Software, Führungsunterstützung digital, Fahrzeugverwaltung Feuerwehr, Kreisfeuerwehrverband Software, Kreisbrandmeister Software, Kreismodul Feuerwehr, FwDV Software, DSGVO Feuerwehr, Brandschutz Software, Brandschau Software, §2b UStG Feuerwehr, Kassier Software Feuerwehr, SEPA Zahlungsverkehr Feuerwehr, Feuerwehr App, Kiosk-Modus Feuerwehr, RFID Login Feuerwehr, Planspiel Feuerwehr Ausbildung, Wirt-Modul Feuerwehr Gastronomie, BSW Software, Brandsicherheitswache Software, Feuerwehr Zeiterfassung ehrenamtlich, Digitaler Dienstausweis Apple Wallet Google Wallet, Feuerwehr Beförderungssystem, Ressourcenverwaltung Feuerwehr, Feuerwehr Wiki Offline, Mängelmanagement Feuerwehr, Feuerwehr Inventur Software, Feuerwehr Vereinsverwaltung, Kommunikationscenter Feuerwehr, WhatsApp Benachrichtigungen Feuerwehr, Telegram Feuerwehr Software, automatische Benachrichtigungen Feuerwehr, Beladeplan Feuerwehr, Verlastung Feuerwehr, Fahrzeugbeladung digital, Hersteller Rückruf Feuerwehr, DGUV Lebensdauer Ausrüstung, Feuerwehr Ausleihe Geräte, Personalmeldestelle Feuerwehr, Stärkemeldung digital, GPS Lagekarte Feuerwehr, GPS Tracking Feuerwehr, Hochwasser Feuerwehr Software, Großschadenslage Software, MANV Software Feuerwehr, GoBD Aufwandsentschädigung Feuerwehr, Offline Kiosk Feuerwehr, Feuerwehr Offline App" />
+    content="Feuerwehr Software, Feuerwehrsoftware, Verwaltungssoftware Feuerwehr, Gerätewart Software, Wartungsplaner Feuerwehr, DGUV Prüfung Software, Atemschutzüberwachung digital, Einsatzverwaltung Feuerwehr, Lagekarte Feuerwehr, Kiosk-Modus Feuerwehr, Digitaler Dienstausweis Feuerwehr, Kreisfeuerwehrverband Software, KI Feuerwehr Software, Objektpläne DIN 14095, Freiwillige Feuerwehr Software" />
 
   <!-- Crawler & Indexing Directives -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -48,11 +46,11 @@
   <meta property="og:title" content="RESQIO – Die intelligente Feuerwehr-Software mit KI" />
   <meta property="og:description"
     content="Von der rechtssicheren Ausrüstungsprüfung bis zum KI-Diktiermodul – RESQIO vereint alle Prozesse Ihrer Feuerwehr in einer Plattform. Mit GPS-Lagekarte, Kommunikationscenter (E-Mail/WhatsApp/Telegram), Offline-Kiosk, Personalmeldestelle & Digitalem Dienstausweis." />
-  <meta property="og:image" content="https://resqio.de/logo-200.png" />
+  <meta property="og:image" content="https://resqio.de/og-image.png" />
   <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="200" />
-  <meta property="og:image:height" content="200" />
-  <meta property="og:image:alt" content="RESQIO Logo – Feuerwehr-Verwaltungssoftware mit KI" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="RESQIO – Die intelligente Feuerwehr-Software mit KI" />
   <meta property="og:site_name" content="RESQIO" />
 
   <!-- Twitter -->
@@ -61,7 +59,7 @@
   <meta property="twitter:title" content="RESQIO – Das KI-gestützte Rückgrat Ihrer Feuerwehr" />
   <meta property="twitter:description"
     content="Einsatzbereit. Geprüft. Dokumentiert. Made in Germany. 57+ Module: KI-Diktiermodul, GPS-Lagekarte, Offline-Kiosk, Kommunikationscenter (WhatsApp/Telegram), Personalmeldestelle, Beladeplan & Digitaler Dienstausweis." />
-  <meta property="twitter:image" content="https://resqio.de/logo-200.png" />
+  <meta property="twitter:image" content="https://resqio.de/og-image.png" />
   <meta property="twitter:image:alt" content="RESQIO – Feuerwehr-Verwaltungssoftware mit KI" />
 
   <!-- Structured Data / JSON-LD -->
@@ -189,11 +187,18 @@
       "inLanguage": "de"
     }
   </script>
-  <!-- Google Analytics 4 (GA4) — Mess-ID: G-1JZGKRM9GC -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1JZGKRM9GC"></script>
+  <!-- Google Analytics 4 (G-1JZGKRM9GC) mit Consent Mode v2:
+       gtag.js wird NICHT hier geladen, sondern erst nach Einwilligung über den
+       ConsentBanner (src/lib/consent.ts). Default: alles denied (DSGVO). -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied'
+    });
     gtag('js', new Date());
     gtag('config', 'G-1JZGKRM9GC', {
       anonymize_ip: true,
