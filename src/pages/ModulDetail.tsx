@@ -14,6 +14,7 @@ import {
 import { useEffect, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MobileCtaBar from "@/components/MobileCtaBar";
 
 const ModulDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -377,6 +378,7 @@ const ModulDetail = () => {
       </main>
 
       <Footer />
+      <MobileCtaBar />
     </div>
   );
 };

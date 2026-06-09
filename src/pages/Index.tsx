@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import { LazySection } from "@/hooks/use-lazy-section";
+import MobileCtaBar from "@/components/MobileCtaBar";
 import FAQ_JSON_LD from "@/data/faq-jsonld.json";
 
 const Index = () => {
@@ -71,6 +72,7 @@ const Index = () => {
         <LazySection factory={contactFactory} rootMargin="50px" />
       </main>
       <Footer />
+      <MobileCtaBar />
     </div>
   );
 };
