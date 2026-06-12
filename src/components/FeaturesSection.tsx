@@ -35,6 +35,15 @@ import {
   Mic,
   Sparkles,
   MessageSquare,
+  Wind,
+  Megaphone,
+  HeartPulse,
+  CarFront,
+  PartyPopper,
+  Handshake,
+  ShieldAlert,
+  PackageOpen,
+  Landmark,
   LucideIcon,
   ArrowRight,
 } from "lucide-react";
@@ -335,6 +344,76 @@ export const features: Feature[] = [
     description:
       "Strukturierte Verwaltung von Beförderungsvorschlägen und Dienstgradentwicklung nach Landesvorgaben.",
     slug: "befoerderungssystem",
+  },
+  {
+    icon: Wind,
+    title: "Gefahrstoff-Ausbreitung",
+    description:
+      "Unterstützung bei Gefahrstofflagen – mögliche Ausbreitung auf der Lagekarte einschätzen, Bereiche ableiten und Stoffinformationen nachschlagen.",
+    slug: "gefahrstoff-ausbreitung",
+  },
+  {
+    icon: Landmark,
+    title: "Verwaltungsstab",
+    description:
+      "Digitale Unterstützung für den Verwaltungsstab bei großen Lagen – Kommunikation, Versorgungsplanung und Lageberichte an einem Ort.",
+    slug: "verwaltungsstab",
+  },
+  {
+    icon: UserCheck,
+    title: "Personalmeldestelle",
+    description:
+      "Bei größeren Lagen den Überblick behalten, wer vor Ort ist – An- und Abmeldung auch externer Kräfte mit druckbaren Stärkeübersichten.",
+    slug: "personalmeldestelle",
+  },
+  {
+    icon: CarFront,
+    title: "Rettungsdatenblätter",
+    description:
+      "Fahrzeuginformationen für die technische Hilfeleistung direkt nachschlagen – wertvolle Unterstützung bei Verkehrsunfällen.",
+    slug: "rettungsdatenblaetter",
+  },
+  {
+    icon: PartyPopper,
+    title: "Veranstaltungen & Arbeitsdienste",
+    description:
+      "Feste, Arbeitsdienste und Versammlungen planen – mit Standplänen, Schichteinteilung, Helfer-Anmeldungen und Terminabstimmung.",
+    slug: "veranstaltungen",
+  },
+  {
+    icon: Handshake,
+    title: "Ausleihe & Reservierung",
+    description:
+      "Geräte intern ausleihen und vormerken – wer hat was, bis wann? Mit Erinnerung bei überfälligen Rückgaben.",
+    slug: "ausleihe",
+  },
+  {
+    icon: ShieldAlert,
+    title: "Hersteller-Rückrufe",
+    description:
+      "Sicherheitsrückrufe im Blick behalten – Hinweise zu möglicherweise betroffenen Geräten im eigenen Bestand.",
+    slug: "rueckrufverwaltung",
+  },
+  {
+    icon: PackageOpen,
+    title: "Beladeplan & Verlastung",
+    description:
+      "Welches Gerät liegt auf welchem Fahrzeug in welchem Geräteraum? Soll-/Ist-Vergleich und Vorlagen für gängige Fahrzeugtypen.",
+    slug: "beladeplan",
+  },
+  {
+    icon: Megaphone,
+    title: "Bürgermeldungen",
+    description:
+      "Bürger melden Gefahrenstellen und Hinweise online – die Feuerwehr behält eingehende Meldungen übersichtlich im Blick.",
+    slug: "buergermeldungen",
+  },
+  {
+    icon: HeartPulse,
+    title: "Digitales Verbandbuch",
+    description:
+      "Erste-Hilfe-Leistungen einfach am Tablet dokumentieren – mit Übersichten und Auswertungen statt Papierheft.",
+    slug: "verbandbuch",
   },
 ];
 

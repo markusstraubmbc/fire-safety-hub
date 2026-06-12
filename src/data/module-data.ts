@@ -33,6 +33,15 @@ import {
     TrendingUp,
     Bell,
     MessageSquare,
+    Wind,
+    Megaphone,
+    HeartPulse,
+    CarFront,
+    PartyPopper,
+    Handshake,
+    ShieldAlert,
+    PackageOpen,
+    Landmark,
     LucideIcon
 } from "lucide-react";
 
@@ -88,12 +97,14 @@ export const modules: Record<string, ModuleData> = {
             "Einsatzhistorie pro Gerät",
             "Schadenmeldung und Reparaturtracking",
             "Export für Inventur und Versicherungszwecke",
-            "Hersteller-Rückrufe: Betroffene Geräte werden automatisch erkannt und bis zur Klärung gekennzeichnet",
-            "Interne Ausleihe & Reservierung: Wer hat welches Gerät – mit Fälligkeitsdatum und Erinnerung",
-            "Beladeplan & Verlastung: Geräteräume definieren, Soll-Beladung festlegen, Abweichungen sofort erkennen",
-            "DGUV-konforme Lebensdauer-Kategorien: Maximale Nutzungsdauer für Helme, Atemschutzgeräte, Seile und mehr automatisch hinterlegt"
+            "Hersteller-Rückrufe: Hinweise zu möglicherweise betroffenen Geräten – mit Kennzeichnung bis zur Klärung",
+            "Interne Ausleihe & Reservierung: Wer hat welches Gerät – mit Rückgabedatum und Erinnerung",
+            "Beladeplan & Verlastung: Geräteräume definieren, Soll-Beladung festlegen, Abweichungen erkennen",
+            "Lebensdauer-Kategorien in Anlehnung an gängige Vorgaben – z. B. für Helme, Atemschutzgeräte oder Seile",
+            "Garantie-, Versicherungs- und Lieferanteninformationen je Gerät hinterlegbar",
+            "Kostenüberblick über die Nutzungsdauer eines Geräts – von der Anschaffung bis zur Aussonderung"
         ],
-        keywords: ["Ausrüstungsverwaltung", "Geräteverwaltung Feuerwehr", "Inventar Feuerwehr", "Prüffristen", "QR Code Feuerwehr", "Beladeplan Feuerwehr", "Hersteller Rückruf Feuerwehr", "DGUV Lebensdauer Ausrüstung"],
+        keywords: ["Ausrüstungsverwaltung", "Geräteverwaltung Feuerwehr", "Inventar Feuerwehr", "Prüffristen", "QR Code Feuerwehr", "Beladeplan Feuerwehr", "Hersteller Rückruf Feuerwehr", "DGUV Lebensdauer Ausrüstung", "Gerätekosten Feuerwehr", "Garantie Verwaltung Ausrüstung"],
         icon: Package,
         color: "orange"
     },
@@ -117,7 +128,11 @@ export const modules: Record<string, ModuleData> = {
             "Digitale Unterschrift des Prüfers direkt auf dem Wartungsprotokoll – rechtssicher und revisionsfest",
             "Prüfprotokolle als PDF mit eingebetteter Signatur – ideal für DGUV-Nachweise und Versicherungen",
             "Qualifikationsnachweis: Wer hat wann mit welcher Prüfer-ID geprüft?",
-            "DGUV-Lebensdauer-Kategorien: Maximale Nutzungsdauer direkt am Gerät hinterlegen – für Atemschutzgeräte, Helme, Seile, Schutzkleidung und mehr"
+            "DGUV-Lebensdauer-Kategorien: Maximale Nutzungsdauer direkt am Gerät hinterlegen – für Atemschutzgeräte, Helme, Seile, Schutzkleidung und mehr",
+            "Prüfwerte mit Sollbereichen: Messwerte erfassen und direkt erkennen, ob sie im grünen Bereich liegen",
+            "Vorschläge für Prüfwerte und Checklisten – auf Wunsch mit KI-Unterstützung, angelehnt an gängige Normen",
+            "Nachprüfungen nach Einsätzen: Einsatzrelevante Prüfungen können sich automatisch anstoßen lassen",
+            "Wartungsvorlagen auch direkt am Tablet anlegen und pflegen"
         ],
         keywords: ["Gerätewart Software", "Gerätewart App", "Feuerwehr Gerätewart", "Wartungsplaner Feuerwehr", "Prüffristen Software", "DGUV Prüfung", "Prüfbuch digital", "UVV Prüfung Feuerwehr", "Gerätebuch digital", "Checklisten Wartung", "Instandhaltung Feuerwehr", "Wartungsprotokoll Unterschrift digital", "digitale Unterschrift Gerätewart Feuerwehr", "Prüfprotokoll Feuerwehr Unterschrift", "DGUV Prüfnachweis digital"],
         icon: Wrench,
@@ -238,6 +253,7 @@ export const modules: Record<string, ModuleData> = {
         features: [
             "Echtzeit-Monitoring aktiver Trupps (Druck, Zeit)",
             "Automatische Berechnung von Rückweg und Warnschwellen",
+            "Notfall-Warnung (MAYDAY) als deutliche Vollbild-Anzeige mit Bestätigung",
             "Integration in Einsatzbericht & PDF-Protokoll",
             "Fristenmanagement & Belastungsübungs-Tracking",
             "Dashboard-Widget für Atemschutz-Pool-Status"
@@ -272,9 +288,12 @@ export const modules: Record<string, ModuleData> = {
             "KI-Berichtsassistent: Professionelle Einsatzberichte in Sekunden generiert",
             "Eintreffzeit-Analyse: Visualisierung und Vergleich von Reaktionszeiten",
             "Fahrzeug- und Personalzuordnung mit Stärkeerfassung",
+            "Alarmierungs-E-Mails der Leitstelle können beim Anlegen von Einsätzen unterstützen",
+            "Rettungsdatenblätter für die technische Hilfeleistung direkt nachschlagbar",
+            "Gemeinsamer Checkout nach Einsatzende – inklusive Hinweis auf Ruhezeiten",
             "Integration mit Leitstellen-Daten und FMS-Status"
         ],
-        keywords: ["Einsatzdokumentation Feuerwehr", "Einsatzbericht digital", "Feuerwehr Einsatzmanagement", "Alarmierung Software", "Einsatzprotokoll", "Quiz Feuerwehr Training", "Verbrauchsmaterial Tracking"],
+        keywords: ["Einsatzdokumentation Feuerwehr", "Einsatzbericht digital", "Feuerwehr Einsatzmanagement", "Alarmierung Software", "Einsatzprotokoll", "Quiz Feuerwehr Training", "Verbrauchsmaterial Tracking", "Einsatz aus Alarm E-Mail"],
         icon: ClipboardList,
         color: "red"
     },
@@ -293,10 +312,14 @@ export const modules: Record<string, ModuleData> = {
             "Qualifikationsmanagement mit Ablaufdaten und Erinnerungen",
             "Verfügbarkeitskalender und Schichtplanung",
             "Tageskalender mit aktueller Einsatzstärke",
+            "Auswertungen zur Alters- und Personalstruktur – mit Blick auf die kommenden Jahre",
+            "Meilensteinplanung: Werdegang und Entwicklungsschritte je Mitglied im Blick",
+            "Persönliches Profil-Dashboard für jedes Mitglied",
             "Selbstständige Datenpflege durch Mitglieder",
+            "Datenschutz-Werkzeuge – z. B. für Löschungen mit Nachweis",
             "Export für Behörden und Meldewesen"
         ],
-        keywords: ["Mannschaftsverwaltung Feuerwehr", "Personalverwaltung Feuerwehr", "Mitgliederverwaltung", "Qualifikationen Feuerwehr", "Dienstzeiten", "Verfügbarkeit"],
+        keywords: ["Mannschaftsverwaltung Feuerwehr", "Personalverwaltung Feuerwehr", "Mitgliederverwaltung", "Qualifikationen Feuerwehr", "Dienstzeiten", "Verfügbarkeit", "Altersstruktur Feuerwehr", "Personalentwicklung Feuerwehr"],
         icon: Users,
         color: "blue"
     },
@@ -358,10 +381,13 @@ export const modules: Record<string, ModuleData> = {
             "Planung von Wasserförderungsstrecken mit Kartenintegration",
             "Erfassung von Pumpenstandorten und Schlauchstrecken",
             "Berechnung von Fördermengen und Druckverlusten",
+            "Erweiterte Pumpenplanung – z. B. Startpumpe oder Pumpe direkt an der Wasserquelle",
+            "Karte und Höhenprofil können in die Ausdrucke übernommen werden",
+            "Taktische Übersicht für Gruppen- und Zugführer am Tablet",
             "Dokumentation und Berichterstellung",
             "Szenarien-Bibliothek für Ausbildung"
         ],
-        keywords: ["Wasserförderung Feuerwehr", "Löschwasserversorgung", "Schlauchleitung", "Pendelverkehr", "Wasserversorgung Großbrand"],
+        keywords: ["Wasserförderung Feuerwehr", "Löschwasserversorgung", "Schlauchleitung", "Pendelverkehr", "Wasserversorgung Großbrand", "Druckverlust Berechnung Feuerwehr", "Höhenprofil Wasserförderung"],
         icon: Droplets,
         color: "cyan"
     },
@@ -514,6 +540,10 @@ export const modules: Record<string, ModuleData> = {
             "SEPA-Lastschrift",
             "Spendenquittungen",
             "Export für Steuerberater",
+            "Beleg-Scan mit Erkennungsunterstützung – Felder können beim Einreichen vorbefüllt werden",
+            "Belege einfach per Drag & Drop einreichen",
+            "Liquiditätsvorschau auf Basis wiederkehrender Einnahmen und Ausgaben",
+            "Kameradschaftskassen mit Blick auf geltende Freigrenzen",
             "Aufwandsentschädigungen: GoBD-konforme Dokumentation mit revisionssicherer Protokollierung",
             "Jahresbescheinigungen für Mitglieder auf Knopfdruck erstellen"
         ],
@@ -558,9 +588,13 @@ export const modules: Record<string, ModuleData> = {
             "Webhook-Unterstützung für Events",
             "Leitstellen-Integration",
             "FMS-Status-Integration",
+            "E-Mail-Import: Alarmierungs-Mails können ausgewertet und Einsätzen zugeordnet werden",
+            "Anbindung an RescueTrack – z. B. für Fahrzeugpositionen und Statusdaten",
+            "Zugriff auf Rettungsdatenblatt-Dienste für die technische Hilfeleistung",
+            "Einbindung offizieller Hydrantendaten externer Anbieter",
             "DATEV und Buchhaltungsexport"
         ],
-        keywords: ["API Feuerwehr Software", "Schnittstellen", "Leitstellen Integration", "MQTT", "FMS", "Webhook"],
+        keywords: ["API Feuerwehr Software", "Schnittstellen", "Leitstellen Integration", "MQTT", "FMS", "Webhook", "RescueTrack Anbindung", "Alarm E-Mail Import"],
         icon: Link2,
         color: "slate"
     },
@@ -576,9 +610,10 @@ export const modules: Record<string, ModuleData> = {
         ],
         features: [
             "Anpassbare E-Mail-Templates",
-            "Automatische Benachrichtigungen für alle Ereignisse",
+            "Eigene Vorlagen anlegen, duplizieren und pflegen",
+            "Automatische Benachrichtigungen für viele Ereignisse",
             "Massen-E-Mail für die Mannschaft",
-            "E-Mail-Protokoll und Zustellbestätigung",
+            "Versandprotokoll mit Überblick über die Zustellung",
             "Integration mit allen Modulen"
         ],
         keywords: ["E-Mail Feuerwehr", "Benachrichtigungen", "Newsletter Feuerwehr", "automatische E-Mails"],
@@ -600,10 +635,12 @@ export const modules: Record<string, ModuleData> = {
             "Personalauswertungen und Dienstzeiten",
             "Wartungs- und Prüfberichte",
             "Finanzreports",
+            "Vielfältige weitere Auswertungen – z. B. Jahresvergleiche, saisonale Trends oder Kostenbetrachtungen je Fahrzeug",
+            "Änderungsprotokoll: Nachvollziehen, wer was wann angepasst hat",
             "Exportformate für alle Behörden",
             "Individuelle Auswertungen und Dashboards"
         ],
-        keywords: ["Reporting Feuerwehr", "Jahresbericht", "Statistiken", "Auswertungen", "Einsatzstatistik"],
+        keywords: ["Reporting Feuerwehr", "Jahresbericht", "Statistiken", "Auswertungen", "Einsatzstatistik", "Kennzahlen Feuerwehr"],
         icon: BarChart3,
         color: "violet"
     },
@@ -704,13 +741,17 @@ export const modules: Record<string, ModuleData> = {
         ],
         features: [
             "KI-Berichtsassistent für Einsatzberichte",
+            "Diktierfunktion: Texte in vielen Bereichen einfach einsprechen statt tippen",
             "Wiki-Integration für Wissenszugriff",
-            "Spracheingabe im Kiosk-Modus",
-            "KI-Kategorisierung von Belegen",
+            "Belegerkennung: Gescannte Rechnungen können beim Ausfüllen unterstützen",
+            "Alarmierungs-E-Mails der Leitstelle können beim Anlegen von Einsätzen helfen",
+            "Auswertungen zu Personal- und Altersstruktur mit Blick in die kommenden Jahre",
+            "KI-Unterstützung in der Stabsarbeit – z. B. bei Briefings und Zusammenfassungen",
             "Intelligente Suche in allen Modulen",
-            "Kontextbezogene Hilfe und Tipps"
+            "Kontextbezogene Hilfe und Tipps",
+            "Wahlmöglichkeit beim KI-Anbieter – je nach Präferenz der Feuerwehr"
         ],
-        keywords: ["KI Feuerwehr", "Künstliche Intelligenz Feuerwehr", "KI Assistent", "ChatGPT Feuerwehr", "digitale Transformation Feuerwehr"],
+        keywords: ["KI Feuerwehr", "Künstliche Intelligenz Feuerwehr", "KI Assistent", "ChatGPT Feuerwehr", "digitale Transformation Feuerwehr", "Diktierfunktion Feuerwehr", "Spracheingabe Einsatzbericht", "Personalprognose Feuerwehr"],
         icon: Brain,
         color: "purple"
     },
@@ -738,7 +779,7 @@ export const modules: Record<string, ModuleData> = {
     "wirt-modul": {
         title: "Wirt-Modul & Veranstaltungsmanagement",
         shortDesc: "Digitale Verwaltung von Feuerwehrfesten, Veranstaltungen und Getränkeverkauf.",
-        longDesc: "Das Wirt-Modul unterstützt bei der Organisation und Durchführung von Feuerwehrfesten und Vereinsveranstaltungen. Von der Planung über den Getränkeverkauf bis zur Abrechnung – alles digital und übersichtlich.",
+        longDesc: "Das Wirt-Modul unterstützt bei der Bewirtung auf Feuerwehrfesten und Vereinsveranstaltungen. Vom Getränkeverkauf über den Kassenstand bis zur Abrechnung – alles digital und übersichtlich. Für die Organisation der Veranstaltung selbst – mit Standplänen, Schichten und Helfer-Anmeldungen – steht ergänzend das Modul Veranstaltungen & Arbeitsdienste bereit.",
         benefits: [
             "Organisation: Veranstaltungen zentral planen und verwalten",
             "Einnahmen: Getränkeverkauf digital erfassen",
@@ -822,7 +863,7 @@ export const modules: Record<string, ModuleData> = {
     "stab-modul": {
         title: "Stab & Führungsunterstützung",
         shortDesc: "Digitale Stabsarbeit für Großschadenlagen: Personalmeldestelle, GPS-Tracking, MANV-Sichtungsliste, Funk-Protokoll, Einsatztagebuch und Hochwasser-Lageentwicklung.",
-        longDesc: "Das Stab-Modul unterstützt Führungskräfte bei anspruchsvollen Einsätzen und Großschadenslagen. Strukturierte Werkzeuge für alle Sachgebiete des Stabes (S1–S6), ein vollständiges digitales Einsatztagebuch mit Zeitstempeln, eine interaktive Lagekarte mit GPS-Echtzeit-Tracking sowie eine vollständige Einsatzdokumentation sorgen dafür, dass Entscheidungen nachvollziehbar bleiben. Die integrierte Personalmeldestelle erfasst alle eingesetzten Kräfte – auch externe Organisationen – mit Stärkemeldungen und Schichtwechsel-Protokoll. Bei Hochwasserlagen und Katastrophenschutzeinsätzen stehen Pegelstände und Lageentwicklung direkt im Stab zur Verfügung.",
+        longDesc: "Das Stab-Modul unterstützt Führungskräfte bei anspruchsvollen Einsätzen und Großschadenslagen. Strukturierte Werkzeuge für alle Sachgebiete des Stabes (S1–S6), ein digitales Einsatztagebuch mit Zeitstempeln, eine interaktive Lagekarte mit GPS-Tracking sowie eine durchgängige Einsatzdokumentation helfen dabei, dass Entscheidungen nachvollziehbar bleiben. Die integrierte Personalmeldestelle erfasst die eingesetzten Kräfte – auch externe Organisationen – mit Stärkemeldungen und Schichtwechsel-Protokoll. Bei Hochwasserlagen und Katastrophenschutzeinsätzen stehen Pegelstände und Lageentwicklung direkt im Stab zur Verfügung. Ergänzend stehen eigene Bereiche für den Verwaltungsstab, die Personalmeldestelle und die Gefahrstoff-Ausbreitung bereit.",
         benefits: [
             "Überblick: Alle einsatzrelevanten Informationen zentral und in Echtzeit",
             "Personalstärke: Wer ist wann vor Ort – auch externe Kräfte und Hilfsorganisationen erfasst",
@@ -846,7 +887,14 @@ export const modules: Record<string, ModuleData> = {
             "Lessons-Learned-System – strukturierte Einsatznachbereitung für kontinuierliche Verbesserung",
             "Gebietsanalyse und geografische Lagedarstellung für den Stab",
             "Vollständiges digitales Einsatztagebuch mit Zeitstempeln",
-            "Alle Stabsfunktionen S1–S6 digital unterstützt"
+            "Alle Stabsfunktionen S1–S6 digital unterstützt",
+            "GPS-Verlaufswiedergabe: Bewegungen von Fahrzeugen und Kräften im Nachhinein nachvollziehen",
+            "Erreichbarkeitszonen auf der Lagekarte – hilfreich bei Einsatzplanung und Ressourcenverteilung",
+            "Zonen auf der Lagekarte können bei Ein- und Austritt Hinweise im Einsatztagebuch erzeugen",
+            "Ressourcen-Anforderungen mit nachvollziehbarem Bearbeitungsstand",
+            "Lagebesprechungen planbar – auf Wunsch mit Erinnerung an die Teilnehmer",
+            "Gefahren-Übersicht je Einsatz für eine strukturierte Lageerfassung",
+            "Aufgaben im Stabsboard mit Unteraufgaben und Checklisten gliederbar"
         ],
         keywords: ["Stabsarbeit", "Führungsunterstützung", "Einsatztagebuch", "Einsatzleitung", "Führungsstab", "MANV", "Großschadenslage", "Taktische Zeichen", "Lagekarte", "Stab Feuerwehr", "Führungsorganisation", "MANV Software Feuerwehr", "digitales Einsatztagebuch Feuerwehr", "Stabsarbeit Software Feuerwehr", "Führungsunterstützung Feuerwehr digital", "Großschadenslage Software"],
         icon: Shield,
@@ -865,11 +913,14 @@ export const modules: Record<string, ModuleData> = {
         features: [
             "Fahrzeugsprofile mit Stammdaten (Kennzeichen, Typ, Ausstattung)",
             "Statusverfolgung und Einsatzbereitschaft",
+            "Interne Fahrzeug-Reservierung mit Kalenderansicht und Freigabeprozess",
+            "Mehrere Fahrzeuge in einem Schritt reservierbar – auf Wunsch mit Kalender-Einladung per E-Mail",
             "Verknüpfung mit Einsätzen und Fahrtenbucheinträgen",
             "Fahrzeugbezogene Wartungsintervalle und -dokumentation",
+            "Beladeplan je Fahrzeug – welche Geräte sind wo verlastet",
             "Übersicht über Fahrzeugzuordnungen im Einsatz"
         ],
-        keywords: ["Fahrzeugverwaltung", "Fuhrpark", "Flottenmanagement", "Feuerwehrfahrzeuge", "KFZ Verwaltung", "Fahrzeugstatus", "Einsatzfahrzeuge"],
+        keywords: ["Fahrzeugverwaltung", "Fuhrpark", "Flottenmanagement", "Feuerwehrfahrzeuge", "KFZ Verwaltung", "Fahrzeugstatus", "Einsatzfahrzeuge", "Fahrzeug Reservierung Feuerwehr", "Fahrzeug buchen Verein"],
         icon: Truck,
         color: "orange"
     },
@@ -886,11 +937,14 @@ export const modules: Record<string, ModuleData> = {
         features: [
             "Lehrgangserfassung mit Datum, Abschluss und Ablaufdatum",
             "Qualifikationsübersicht pro Mitglied",
+            "Fähigkeitsübersicht der gesamten Mannschaft mit Ampelfarben – auch als Excel-Export",
+            "Erinnerungen vor ablaufenden Qualifikationen – je Fähigkeit individuell gestaltbar",
+            "Profile für mehrere Bundesländer – Dienstgrade, Lehrgänge und Ehrungen passend zum eigenen Land",
             "Aggregierte Auswertung des Aus- und Fortbildungsstands",
             "Verknüpfung mit Beförderungsvoraussetzungen",
             "Export und Nachweisführung"
         ],
-        keywords: ["Lehrgänge", "Qualifikationsmanagement", "Fortbildung", "Ausbildung Feuerwehr", "Beförderungsvoraussetzungen", "Truppführer", "Lehrgangsnachweis"],
+        keywords: ["Lehrgänge", "Qualifikationsmanagement", "Fortbildung", "Ausbildung Feuerwehr", "Beförderungsvoraussetzungen", "Truppführer", "Lehrgangsnachweis", "Qualifikationsmatrix Feuerwehr", "Dienstgrade Bundesland"],
         icon: GraduationCap,
         color: "emerald"
     },
@@ -908,10 +962,11 @@ export const modules: Record<string, ModuleData> = {
             "Zentraler Terminkalender für die gesamte Organisation",
             "Verschiedene Terminarten (Übung, Veranstaltung, Dienst, Wartung)",
             "Teilnehmerverwaltung und Rückmeldung",
+            "Terminabstimmung nach dem Umfrage-Prinzip – Mitglieder stimmen über persönliche Links ab, ohne Anmeldung",
             "Einbindung externer Kalenderquellen",
             "Verknüpfung mit Einsätzen und Mannschaftsverwaltung"
         ],
-        keywords: ["Kalender", "Terminverwaltung", "Übungsplanung", "Dienstplanung", "Feuerwehr Kalender", "Veranstaltungsplanung"],
+        keywords: ["Kalender", "Terminverwaltung", "Übungsplanung", "Dienstplanung", "Feuerwehr Kalender", "Veranstaltungsplanung", "Terminabstimmung Feuerwehr", "Terminumfrage Verein"],
         icon: CalendarDays,
         color: "sky"
     },
@@ -952,6 +1007,9 @@ export const modules: Record<string, ModuleData> = {
             "Personalstatus auf einem Blick – wer ist verfügbar, wer ist alarmiert",
             "Hydrantenkarte im Ruhemodus – immer die nächste Wasserversorgung im Blick",
             "Wetterradar-Integration für aktuelle Wetterlage",
+            "Live-Karte mit Positionen von Fahrzeugen und Kräften – sofern GPS-Daten vorliegen",
+            "Mehrseiten-Rotation: Mehrere Informationsseiten laufen automatisch durch",
+            "Personalübersicht – z. B. wer anwesend, im Einsatz oder verfügbar ist",
             "FMS-Integration für Echtzeit-Fahrzeugstatus via Funk",
             "MQTT-Broker und Webhook-Unterstützung für flexible Alarmierungsquellen",
             "Automatischer Ruhemodus nach Einsatzende mit konfigurierbaren Inhalten",
@@ -976,26 +1034,242 @@ export const modules: Record<string, ModuleData> = {
     "kommunikationscenter": {
         title: "Kommunikationscenter",
         shortDesc: "Die richtigen Informationen zur richtigen Zeit – automatische Benachrichtigungen per E-Mail, WhatsApp oder Telegram.",
-        longDesc: "Das Kommunikationscenter sorgt dafür, dass keine wichtige Information untergeht. Ob fällige Wartung, ablaufende Qualifikation, neuer Mangel oder eingereichter Beleg – alle Beteiligten werden automatisch über den Kanal benachrichtigt, den sie bevorzugen. E-Mail, WhatsApp und Telegram lassen sich unabhängig voneinander aktivieren. Kein manuelles Nachfassen mehr, kein übersehener Hinweis.",
+        longDesc: "Das Kommunikationscenter hilft dabei, dass wichtige Informationen nicht untergehen. Ob fällige Wartung, ablaufende Qualifikation, neuer Mangel oder eingereichter Beleg – die Beteiligten können über den Kanal informiert werden, den sie bevorzugen. E-Mail, WhatsApp, Telegram und Push-Nachrichten lassen sich unabhängig voneinander aktivieren, und jedes Mitglied kann eigene Wünsche zu seinen Kanälen hinterlegen. Ein Überblick über versendete Nachrichten zeigt, was angekommen ist.",
         benefits: [
-            "Zuverlässigkeit: Kein wichtiger Hinweis geht mehr unter – automatischer Versand ohne manuelles Eingreifen",
-            "Kanalfreiheit: Jede Person wählt E-Mail, WhatsApp oder Telegram – oder eine Kombination",
+            "Zuverlässigkeit: Wichtige Hinweise erreichen die richtigen Personen – ohne manuelles Nachfassen",
+            "Kanalfreiheit: E-Mail, WhatsApp, Telegram oder Push-Nachricht – auch in Kombination",
             "Breite Abdeckung: Wartung, Mängel, Qualifikationen, Belege, Rückrufe und mehr",
             "Einfache Konfiguration: Empfänger-Gruppen und Kanäle ohne technische Kenntnisse einrichten"
         ],
         features: [
-            "Automatische Benachrichtigungen bei fälligen Wartungen und Prüffristen",
+            "Benachrichtigungen bei fälligen Wartungen und Prüffristen",
             "Hinweise bei ablaufenden Qualifikationen und Untersuchungsfristen",
             "Meldungen bei neuen Mängeln und Eskalationen",
             "Bestätigungen bei eingereichten und genehmigten Belegen",
             "Hinweise bei Hersteller-Rückrufen betroffener Geräte",
             "Erinnerungen bei überfälligen Wäscheaufträgen",
+            "Push-Nachrichten direkt aufs Gerät – je Bereich aktivierbar",
             "Empfänger-Gruppen und Verteiler frei konfigurierbar",
-            "Individuelle Kanalwahl pro Person und Benachrichtigungsbereich",
-            "Unterdrückung bei ungültigen Kontaktdaten – ohne stille Fehler"
+            "Individuelle Kanal-Wünsche pro Mitglied berücksichtigt",
+            "Überblick über versendete Nachrichten und deren Zustellung",
+            "Sammelbenachrichtigungen statt vieler Einzel-Hinweise möglich"
         ],
-        keywords: ["Benachrichtigungen Feuerwehr", "WhatsApp Feuerwehr Software", "Telegram Feuerwehr", "automatische Meldungen Feuerwehr", "Kommunikation Feuerwehr Software"],
+        keywords: ["Benachrichtigungen Feuerwehr", "WhatsApp Feuerwehr Software", "Telegram Feuerwehr", "Push Benachrichtigung Feuerwehr", "automatische Meldungen Feuerwehr", "Kommunikation Feuerwehr Software"],
         icon: MessageSquare,
         color: "sky"
+    },
+    "gefahrstoff-ausbreitung": {
+        title: "Gefahrstoff-Ausbreitung & Evakuierung",
+        shortDesc: "Unterstützung bei Gefahrstofflagen – Ausbreitung einschätzen, Bereiche ableiten und Stoffinformationen nachschlagen.",
+        longDesc: "Bei einem Gefahrstoff-Austritt zählt jede Minute. RESQIO unterstützt die Einsatzleitung dabei, sich schnell ein Bild von der möglichen Ausbreitung zu machen – direkt auf der Lagekarte und unter Einbeziehung der aktuellen Wetterlage. Daraus lassen sich Absperr- und Evakuierungsbereiche ableiten, die das gesamte Führungsteam einsehen kann. Eine hinterlegte Stoffdatenbank und Kontakte zu Fachberatern helfen bei der Einschätzung vor Ort. Das Modul versteht sich als Entscheidungsunterstützung – es ergänzt die Lagebeurteilung, ersetzt aber keinen Fachberater.",
+        benefits: [
+            "Schnelle Orientierung: Mögliche Ausbreitung direkt auf der Lagekarte einschätzen",
+            "Gemeinsames Lagebild: Abgeleitete Bereiche sind für das Führungsteam sichtbar",
+            "Stoffwissen griffbereit: Hinterlegte Informationen zu gängigen Gefahrstoffen",
+            "Fachberater im Blick: Wichtige Ansprechpartner und Notrufkontakte hinterlegbar"
+        ],
+        features: [
+            "Ausbreitungseinschätzung auf der Lagekarte unter Berücksichtigung der Wetterlage",
+            "Ableitung von Absperr- und Evakuierungsbereichen zur Abstimmung in der Einsatzleitung",
+            "Stoffdatenbank mit Informationen zu zahlreichen Gefahrstoffen",
+            "Hinweise zur passenden Schutzausrüstung je nach Lage",
+            "Fachberater- und Notrufkontakte zentral hinterlegbar",
+            "Nahtlose Einbindung in Stabsarbeit und Lagekarte"
+        ],
+        keywords: ["Gefahrstoff Ausbreitung Feuerwehr", "Gefahrgut Software Feuerwehr", "ABC-Einsatz Software", "Evakuierungsbereich Feuerwehr", "Gefahrstoffdatenbank Feuerwehr", "Gefahrgutunfall Unterstützung"],
+        icon: Wind,
+        color: "amber"
+    },
+    "buergermeldungen": {
+        title: "Bürgermeldungen & Bürgerportal",
+        shortDesc: "Bürger melden Gefahrenstellen und Hinweise direkt online – die Feuerwehr behält alles im Blick.",
+        longDesc: "Ob umgestürzter Baum, beschädigter Hydrant oder eine unklare Gefahrenstelle: Über das Bürgerportal können Bürgerinnen und Bürger Hinweise unkompliziert online melden – zum Beispiel eingebunden auf der Website der Gemeinde oder Feuerwehr. Eingehende Meldungen laufen übersichtlich in RESQIO zusammen, die zuständigen Personen können informiert werden und behalten den Bearbeitungsstand im Blick. Auf Wunsch erhalten die Meldenden eine Eingangsbestätigung.",
+        benefits: [
+            "Kurzer Draht: Hinweise aus der Bevölkerung erreichen die Feuerwehr ohne Umwege",
+            "Überblick: Eingehende Meldungen gesammelt an einem Ort",
+            "Information: Zuständige Personen können benachrichtigt werden",
+            "Außenwirkung: Moderner Service für Gemeinde und Bürger"
+        ],
+        features: [
+            "Online-Meldeformular, einbindbar in bestehende Gemeinde- oder Feuerwehr-Websites",
+            "Übersicht aller eingegangenen Meldungen mit Bearbeitungsstand",
+            "Benachrichtigung der zuständigen Personen möglich",
+            "Anpassbare Eingangsbestätigungen für die Meldenden",
+            "Übersichtliche Darstellung im Dashboard"
+        ],
+        keywords: ["Bürgermeldungen Gemeinde", "Mängelmelder Gemeinde", "Bürgerportal Feuerwehr", "Gefahrenstelle melden", "Hinweisportal Kommune"],
+        icon: Megaphone,
+        color: "blue"
+    },
+    "verbandbuch": {
+        title: "Digitales Verbandbuch",
+        shortDesc: "Erste-Hilfe-Leistungen einfach digital dokumentieren – übersichtlich, auswertbar und am Tablet erfassbar.",
+        longDesc: "Kleine Verletzungen und Erste-Hilfe-Leistungen gehören dokumentiert – das digitale Verbandbuch macht diesen Schritt so einfach wie möglich. Einträge lassen sich in wenigen Schritten direkt am Tablet im Gerätehaus erfassen, auf Wunsch auch dann, wenn gerade keine Internetverbindung besteht. Verschiedene Eintragsarten, Übersichten und Auswertungen helfen dabei, den Überblick zu behalten. Die Dokumentation orientiert sich an den üblichen Anforderungen der Unfallversicherungsträger.",
+        benefits: [
+            "Einfache Erfassung: Einträge in wenigen Schritten direkt am Tablet",
+            "Ordnung: Verschiedene Eintragsarten für unterschiedliche Vorkommnisse",
+            "Überblick: Übersichten, Filter und Auswertungen statt Papier-Zettelwirtschaft",
+            "Vertraulichkeit: Zugriff nur für berechtigte Personen"
+        ],
+        features: [
+            "Geführte Erfassung am Kiosk-Tablet in wenigen Schritten",
+            "Eintragsarten für Unfälle, Vorfälle und sonstige Ereignisse",
+            "Erfassung auch bei fehlender Internetverbindung möglich",
+            "Übersichtsseite mit Filterung und Auswertungen",
+            "Export-Möglichkeiten für interne Zwecke",
+            "Orientiert an den Anforderungen der Unfallversicherungsträger"
+        ],
+        keywords: ["digitales Verbandbuch", "Verbandbuch Feuerwehr", "Verbandbuch App", "Erste-Hilfe Dokumentation", "Verbandbuch DGUV"],
+        icon: HeartPulse,
+        color: "red"
+    },
+    "rettungsdatenblaetter": {
+        title: "Rettungsdatenblätter & Fahrzeugdaten",
+        shortDesc: "Rettungsdatenblätter für die technische Hilfeleistung direkt im System nachschlagen – wertvolle Unterstützung bei Verkehrsunfällen.",
+        longDesc: "Bei Verkehrsunfällen kommt es auf gute Informationen an: Wo verlaufen Karosserieverstärkungen, wo sitzen Batterien und Airbags? RESQIO bietet einen direkten Zugang zu Rettungsdatenblättern und Fahrzeuginformationen für die technische Rettung. Die Suche ist einfach gehalten, häufig genutzte Fahrzeuge bleiben schnell wieder auffindbar – damit die Informationen dann zur Hand sind, wenn sie gebraucht werden.",
+        benefits: [
+            "Sicherheit: Wichtige Fahrzeuginformationen für die technische Rettung griffbereit",
+            "Geschwindigkeit: Einfache Suche statt langem Blättern",
+            "Praxisnah: Zuletzt gesuchte Fahrzeuge schnell wieder auffindbar",
+            "Eingebunden: Direkt aus RESQIO heraus nutzbar – auch am Tablet"
+        ],
+        features: [
+            "Zugriff auf Rettungsdatenblätter für die technische Hilfeleistung",
+            "Einfache Fahrzeugsuche mit Merkliste der letzten Suchen",
+            "Nutzung am Desktop, Tablet oder im Einsatzfahrzeug",
+            "Ergänzung zu Einsatzdokumentation und Lagekarte"
+        ],
+        keywords: ["Rettungsdatenblatt Feuerwehr", "Rettungskarte Fahrzeug", "technische Hilfeleistung Software", "Verkehrsunfall Feuerwehr", "Crash Recovery System"],
+        icon: CarFront,
+        color: "orange"
+    },
+    "veranstaltungen": {
+        title: "Veranstaltungen & Arbeitsdienste",
+        shortDesc: "Feste, Arbeitsdienste und Versammlungen planen – mit Standplänen, Schichteinteilung, Anmeldungen und Terminabstimmung.",
+        longDesc: "Vom Feuerwehrfest über den Arbeitsdienst bis zur Jahreshauptversammlung: Das Veranstaltungs-Modul unterstützt bei Planung, Organisation und Nachbereitung. Helfer können sich anmelden, Schichten und Standorte lassen sich übersichtlich einteilen, und mit der integrierten Terminabstimmung findet sich der passende Termin für alle Beteiligten. Übersichten und Pläne lassen sich sauber ausdrucken – auch bei größeren Veranstaltungen.",
+        benefits: [
+            "Alles an einem Ort: Planung, Helferverwaltung und Nachbereitung gebündelt",
+            "Klare Einteilung: Wer steht wann an welchem Stand oder in welcher Schicht",
+            "Einfache Rückmeldung: Mitglieder melden sich unkompliziert an oder ab",
+            "Terminfindung: Terminvorschläge mit persönlichen Rückmelde-Links abstimmen"
+        ],
+        features: [
+            "Veranstaltungstypen für Feste, Arbeitsdienste, Übungen und Versammlungen",
+            "Standpläne und Schichteinteilung mit übersichtlicher Darstellung",
+            "An- und Abmeldungen der Helfer, auch über persönliche Links",
+            "Terminabstimmung nach dem Umfrage-Prinzip – Rückmeldung ohne Anmeldung möglich",
+            "Zielgruppen je Veranstaltung und Einladungen per E-Mail",
+            "Druckbare Übersichten für Standplan, Schichtplan und Teilnehmerlisten"
+        ],
+        keywords: ["Veranstaltungsplanung Feuerwehr", "Arbeitsdienst Feuerwehr", "Feuerwehrfest planen", "Helferplanung", "Terminabstimmung Feuerwehr", "Schichtplan Feuerwehrfest"],
+        icon: PartyPopper,
+        color: "violet"
+    },
+    "ausleihe": {
+        title: "Ausleihe & Reservierung",
+        shortDesc: "Geräte intern ausleihen und vormerken – wer hat was, bis wann?",
+        longDesc: "Werkzeuge, Messgeräte oder Sonderausrüstung wandern im Alltag schnell von Hand zu Hand – und manchmal weiß am Ende niemand mehr, wo etwas geblieben ist. Mit der internen Ausleihe lässt sich festhalten, wer ein Gerät übernommen hat und bis wann es zurückerwartet wird. Reservierungen helfen bei der Planung, und bei überfälligen Rückgaben kann das System erinnern. Die Ausleihe ist auch direkt am Kiosk-Tablet nutzbar.",
+        benefits: [
+            "Übersicht: Auf einen Blick sehen, welche Geräte gerade unterwegs sind",
+            "Verbindlichkeit: Rückgabedatum bei der Ausleihe festhalten",
+            "Planung: Geräte für Übungen oder Termine im Voraus vormerken",
+            "Einfachheit: Ausleihe und Rückgabe direkt am Tablet erfassbar"
+        ],
+        features: [
+            "Ausleihe an Mitglieder mit Rückgabedatum",
+            "Reservierungen für kommende Termine",
+            "Hinweise bei überfälligen Rückgaben",
+            "Dokumentation in der Gerätehistorie",
+            "Nutzung am Desktop und am Kiosk-Tablet"
+        ],
+        keywords: ["Geräte Ausleihe Feuerwehr", "Ausleihverwaltung", "Geräte reservieren Feuerwehr", "Leihgeräte Verwaltung", "Werkzeug Ausleihe Verein"],
+        icon: Handshake,
+        color: "green"
+    },
+    "rueckrufverwaltung": {
+        title: "Hersteller-Rückrufe",
+        shortDesc: "Sicherheitsrückrufe im Blick behalten – Hinweise zu möglicherweise betroffenen Geräten im eigenen Bestand.",
+        longDesc: "Hersteller-Rückrufe zu sicherheitsrelevanter Ausrüstung gehen im Alltag leicht unter. RESQIO hilft dabei, Rückrufe strukturiert zu erfassen und mit dem eigenen Gerätebestand abzugleichen. Informationen aus öffentlichen Rückruf-Quellen können einbezogen werden, möglicherweise betroffene Geräte werden gekennzeichnet und können bis zur Klärung entsprechend behandelt werden. Wer ein betroffenes Gerät am Tablet öffnet, sieht direkt einen Hinweis.",
+        benefits: [
+            "Sicherheit: Rückrufe geraten nicht in Vergessenheit",
+            "Abgleich: Hinweise auf möglicherweise betroffene Geräte im eigenen Bestand",
+            "Transparenz: Kennzeichnung betroffener Geräte bis zur Klärung",
+            "Nachvollziehbarkeit: Vorgänge in der Gerätehistorie dokumentiert"
+        ],
+        features: [
+            "Erfassung und Verwaltung von Hersteller-Rückrufen",
+            "Einbeziehung öffentlicher Rückruf-Informationen möglich",
+            "Abgleich mit dem eigenen Gerätebestand und Kennzeichnung",
+            "Warnhinweis beim Öffnen betroffener Geräte am Kiosk",
+            "Übersicht mit Status und Herstellerinformationen"
+        ],
+        keywords: ["Hersteller Rückruf Feuerwehr", "Sicherheitsrückruf Ausrüstung", "Rückrufverwaltung", "Produktrückruf Feuerwehr", "PSA Rückruf"],
+        icon: ShieldAlert,
+        color: "red"
+    },
+    "beladeplan": {
+        title: "Beladeplan & Verlastung",
+        shortDesc: "Festhalten, welches Gerät auf welchem Fahrzeug in welchem Geräteraum verlastet ist – mit Soll-/Ist-Vergleich.",
+        longDesc: "Wo liegt der Trennschleifer, in welchem Geräteraum sitzt die Tauchpumpe? Der Beladeplan bildet die Verlastung der Fahrzeuge digital ab: Geräteräume werden definiert, die Soll-Beladung festgelegt und mit dem tatsächlichen Bestand verglichen. Vorlagen für gängige Fahrzeugtypen erleichtern den Einstieg, und Abweichungen werden sichtbar, bevor sie im Einsatz auffallen.",
+        benefits: [
+            "Klarheit: Die Beladung jedes Fahrzeugs digital dokumentiert",
+            "Kontrolle: Soll-/Ist-Vergleich zeigt Abweichungen auf",
+            "Schneller Start: Vorlagen für gängige Fahrzeugtypen als Ausgangspunkt",
+            "Alltagstauglich: Auch am Kiosk-Tablet in der Fahrzeughalle nutzbar"
+        ],
+        features: [
+            "Geräteräume je Fahrzeug frei definierbar",
+            "Soll-Beladung festlegen und mit dem Ist-Zustand vergleichen",
+            "Beladungs-Vorlagen für gängige Fahrzeugtypen",
+            "Verlastung einzelner Geräte in der Gerätehistorie nachvollziehbar",
+            "Druck- und Exportmöglichkeiten für die Beladeübersicht"
+        ],
+        keywords: ["Beladeplan Feuerwehr", "Verlastung Feuerwehrfahrzeug", "Normbeladung Feuerwehr", "Beladeliste Fahrzeug", "Geräteraum Verwaltung"],
+        icon: PackageOpen,
+        color: "orange"
+    },
+    "personalmeldestelle": {
+        title: "Personalmeldestelle",
+        shortDesc: "Bei größeren Lagen den Überblick behalten, wer vor Ort ist – auch externe Kräfte und Hilfsorganisationen.",
+        longDesc: "Bei Großschadenslagen, Unwettern oder lang andauernden Einsätzen ist eine zentrale Frage entscheidend: Wer ist gerade vor Ort – und seit wann? Die Personalmeldestelle unterstützt die An- und Abmeldung aller eingesetzten Kräfte, auch von externen Organisationen. Stärkeübersichten lassen sich für die Lageführung ausdrucken, Schichtwechsel werden nachvollziehbar dokumentiert, und bei sehr langen Anwesenheiten kann das System auf eine nötige Ablösung hinweisen.",
+        benefits: [
+            "Überblick: Aktuelle Anwesenheit der eingesetzten Kräfte auf einen Blick",
+            "Offen für alle: Auch externe Organisationen und Hilfskräfte erfassbar",
+            "Fürsorge: Hinweise bei sehr langen Schichten möglich",
+            "Lageführung: Stärkeübersichten und Protokolle druckbar"
+        ],
+        features: [
+            "An- und Abmeldung über verschiedene Wege – z. B. Chip, PIN, QR-Code oder manuell",
+            "Erfassung externer Organisationen und ihrer Kräfte",
+            "Stärkemeldung und Schichtwechsel-Protokoll zum Ausdrucken",
+            "Selbstanmeldung über einen geteilten Zugang möglich",
+            "Anbindung an Stabsarbeit und Einsatzdokumentation",
+            "Datenschutzfreundliche Aufbewahrung der Daten"
+        ],
+        keywords: ["Personalmeldestelle Software", "Anwesenheit Großschadenslage", "Stärkemeldung Feuerwehr", "Check-In Einsatzkräfte", "Personalübersicht Einsatz"],
+        icon: UserCheck,
+        color: "cyan"
+    },
+    "verwaltungsstab": {
+        title: "Verwaltungsstab",
+        shortDesc: "Digitale Unterstützung für den Verwaltungsstab bei Großschadenslagen – Kommunikation, Versorgung und Lageberichte.",
+        longDesc: "Neben dem Führungsstab spielt bei großen Lagen auch der Verwaltungsstab eine zentrale Rolle. RESQIO unterstützt diese Arbeit mit passenden Werkzeugen: Kommunikationsvorgänge lassen sich nachvollziehbar festhalten, die Versorgung und Unterbringung betroffener Personen planen und Lageberichte strukturiert erstellen – auf Wunsch mit KI-Unterstützung. Alle Beteiligten arbeiten auf einem gemeinsamen Stand, und die Nachbereitung hilft, aus jeder Lage zu lernen.",
+        benefits: [
+            "Struktur: Klare Werkzeuge für die Aufgaben des Verwaltungsstabs",
+            "Gemeinsamer Stand: Alle Stabsmitglieder sehen aktuelle Informationen",
+            "Versorgung im Blick: Planung für Unterkünfte und Verpflegung",
+            "Lernende Organisation: Strukturierte Nachbereitung nach der Lage"
+        ],
+        features: [
+            "Kommunikationsübersicht für eingehende und ausgehende Vorgänge",
+            "Versorgungs- und Unterkunftsplanung für betroffene Personen",
+            "Lageberichte strukturiert erstellen – auf Wunsch mit KI-Unterstützung",
+            "Abstimmung mit dem Führungsstab, z. B. bei Ressourcen-Anfragen",
+            "Besetzungsübersicht: Wer ist aktuell im Stab im Dienst",
+            "Nachbereitung und Abschluss-Review nach der Lage"
+        ],
+        keywords: ["Verwaltungsstab Software", "Stabsarbeit Verwaltung", "Krisenstab Gemeinde", "Großschadenslage Verwaltung", "Katastrophenschutz Software"],
+        icon: Landmark,
+        color: "slate"
     }
 };

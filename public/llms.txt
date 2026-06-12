@@ -221,12 +221,12 @@ Offline-Wissensmanagement.
 Hydrantenplan und Wasserentnahme.
 - **Beschreibung**: Map-basiertes Management von Wasserentnahmestellen und Hydranten.
 - **Funktionen**: OpenFireMap-Integration, Offline-Caching, Filterung nach Kapazität und Typ.
-- **Modul-URL**: https://resqio.de/modul/wasserversorgung
+- **Modul-URL**: https://resqio.de/modul/wasserkarte
 
 ### 33. Stab & Führungsunterstützung
 Digitale Stabsarbeit für Großschadenlagen.
-- **Beschreibung**: Vollständige digitale Unterstützung für Führungsstäbe bei Großschadenlagen, komplexen Einsätzen und Übungen. Unterstützt alle Stabsfunktionen (S1–S6), strukturierte Lageführung und Nachbereitung mit Lessons Learned.
-- **Funktionen**: Einsatztagebuch, Kanban-Aufgabenboard, Besprechungsprotokoll, MANV-Patientenliste, interaktive 3D-Lagekarte, taktische Zeichen (DIN 14034-3), Funk-Protokoll, Gebietsanalyse, Einsatzabschnitte, Lessons Learned, KI-Besprechungszusammenfassung.
+- **Beschreibung**: Digitale Unterstützung für Führungsstäbe bei Großschadenlagen, komplexen Einsätzen und Übungen. Unterstützt die Stabsfunktionen (S1–S6), strukturierte Lageführung und Nachbereitung mit Lessons Learned.
+- **Funktionen**: Einsatztagebuch, Kanban-Aufgabenboard, Besprechungsprotokoll, MANV-Patientenliste, interaktive 3D-Lagekarte, taktische Zeichen (DIN 14034-3), Funk-Protokoll, Gebietsanalyse, Einsatzabschnitte, GPS-Verlaufswiedergabe, Erreichbarkeitszonen, Lessons Learned, KI-Besprechungszusammenfassung.
 - **Modul-URL**: https://resqio.de/modul/stab-modul
 
 ### 34. Fahrzeugverwaltung & Flotte
@@ -252,6 +252,78 @@ Strukturierte Beförderungsverwaltung.
 - **Beschreibung**: Verwaltung von Beförderungsvorschlägen und Dienstgradentwicklung nach Landesvorgaben.
 - **Funktionen**: Beförderungsvorschläge, Fristen-Tracking, Dienstgradhistorie, Export für Landesstellen.
 - **Modul-URL**: https://resqio.de/modul/befoerderungssystem
+
+### 38. Alarmmonitor
+Vollbild-Einsatzanzeige für das Gerätehaus.
+- **Beschreibung**: Verwandelt Bildschirme im Gerätehaus in ein Einsatz-Display – bei Alarmierung werden relevante Einsatzdaten angezeigt, im Ruhemodus nützliche Alltagsinformationen.
+- **Funktionen**: Live-Alarmdarstellung, Karte, Fahrzeug- und Personalstatus, Live-Positionen (sofern GPS-Daten vorliegen), Mehrseiten-Rotation, Wetter und Warnungen, Screensaver-Dashboard.
+- **Modul-URL**: https://resqio.de/modul/alarmmonitor
+
+### 39. Kommunikationscenter
+Benachrichtigungen über mehrere Kanäle.
+- **Beschreibung**: Hilft dabei, dass wichtige Hinweise – etwa zu Wartungen, Qualifikationen oder Mängeln – die richtigen Personen über deren bevorzugten Kanal erreichen.
+- **Funktionen**: E-Mail, WhatsApp, Telegram und Push-Nachrichten, Empfänger-Verteiler, persönliche Kanal-Wünsche, Überblick über versendete Nachrichten, Sammelbenachrichtigungen.
+- **Modul-URL**: https://resqio.de/modul/kommunikationscenter
+
+### 40. Gefahrstoff-Ausbreitung & Evakuierung
+Entscheidungsunterstützung bei Gefahrstofflagen.
+- **Beschreibung**: Unterstützt die Einsatzleitung dabei, die mögliche Ausbreitung eines Gefahrstoffs einzuschätzen und Absperr- bzw. Evakuierungsbereiche abzuleiten – als Ergänzung zur Lagebeurteilung, nicht als Ersatz für Fachberater.
+- **Funktionen**: Ausbreitungseinschätzung auf der Lagekarte, Einbeziehung der Wetterlage, Stoffdatenbank, Hinweise zur Schutzausrüstung, Fachberater-Kontakte.
+- **Modul-URL**: https://resqio.de/modul/gefahrstoff-ausbreitung
+
+### 41. Bürgermeldungen & Bürgerportal
+Online-Hinweise aus der Bevölkerung.
+- **Beschreibung**: Bürger melden Gefahrenstellen und Hinweise über ein einbindbares Web-Portal; die Feuerwehr behält Meldungen und Bearbeitungsstand im Blick.
+- **Funktionen**: Online-Meldeformular, Meldungsübersicht, Benachrichtigung Zuständiger, anpassbare Eingangsbestätigungen.
+- **Modul-URL**: https://resqio.de/modul/buergermeldungen
+
+### 42. Digitales Verbandbuch
+Erste-Hilfe-Dokumentation am Tablet.
+- **Beschreibung**: Erste-Hilfe-Leistungen einfach digital festhalten – orientiert an den üblichen Anforderungen der Unfallversicherungsträger.
+- **Funktionen**: Geführte Erfassung am Kiosk, Eintragsarten, Erfassung auch ohne Internetverbindung möglich, Übersichten und Auswertungen, Export.
+- **Modul-URL**: https://resqio.de/modul/verbandbuch
+
+### 43. Rettungsdatenblätter & Fahrzeugdaten
+Unterstützung bei der technischen Hilfeleistung.
+- **Beschreibung**: Rettungsdatenblätter und Fahrzeuginformationen für Verkehrsunfälle direkt im System nachschlagen.
+- **Funktionen**: Fahrzeugsuche, Merkliste der letzten Suchen, Nutzung am Desktop und Tablet.
+- **Modul-URL**: https://resqio.de/modul/rettungsdatenblaetter
+
+### 44. Veranstaltungen & Arbeitsdienste
+Planung von Festen, Arbeitsdiensten und Versammlungen.
+- **Beschreibung**: Unterstützt Planung, Helferverwaltung und Nachbereitung von Veranstaltungen aller Art.
+- **Funktionen**: Standpläne, Schichteinteilung, Helfer-An-/Abmeldungen, Terminabstimmung mit Rückmelde-Links, Zielgruppen, druckbare Übersichten.
+- **Modul-URL**: https://resqio.de/modul/veranstaltungen
+
+### 45. Ausleihe & Reservierung
+Interne Geräte-Ausleihe.
+- **Beschreibung**: Festhalten, wer ein Gerät übernommen hat und bis wann es zurückerwartet wird – inklusive Vormerkungen.
+- **Funktionen**: Ausleihe mit Rückgabedatum, Reservierungen, Hinweise bei Überfälligkeit, Dokumentation in der Gerätehistorie.
+- **Modul-URL**: https://resqio.de/modul/ausleihe
+
+### 46. Hersteller-Rückrufe
+Sicherheitsrückrufe im Blick.
+- **Beschreibung**: Rückrufe strukturiert erfassen und mit dem eigenen Gerätebestand abgleichen – möglicherweise betroffene Geräte werden gekennzeichnet.
+- **Funktionen**: Rückrufverwaltung, Einbeziehung öffentlicher Rückruf-Informationen, Kennzeichnung betroffener Geräte, Warnhinweis am Kiosk.
+- **Modul-URL**: https://resqio.de/modul/rueckrufverwaltung
+
+### 47. Beladeplan & Verlastung
+Fahrzeugbeladung digital abbilden.
+- **Beschreibung**: Dokumentiert, welches Gerät auf welchem Fahrzeug in welchem Geräteraum verlastet ist.
+- **Funktionen**: Geräteräume je Fahrzeug, Soll-/Ist-Vergleich, Beladungs-Vorlagen für gängige Fahrzeugtypen, Druck und Export.
+- **Modul-URL**: https://resqio.de/modul/beladeplan
+
+### 48. Personalmeldestelle
+Anwesenheitsübersicht bei größeren Lagen.
+- **Beschreibung**: An- und Abmeldung aller eingesetzten Kräfte – auch externer Organisationen – mit Stärkeübersichten für die Lageführung.
+- **Funktionen**: Erfassung über Chip, PIN, QR-Code oder manuell, Stärkemeldung und Schichtwechsel-Protokoll, Selbstanmeldung, Hinweise bei langen Schichten.
+- **Modul-URL**: https://resqio.de/modul/personalmeldestelle
+
+### 49. Verwaltungsstab
+Digitale Unterstützung für den Verwaltungsstab.
+- **Beschreibung**: Werkzeuge für die Arbeit des Verwaltungsstabs bei Großschadenslagen – Kommunikation, Versorgung und Lageberichte.
+- **Funktionen**: Kommunikationsübersicht, Versorgungs- und Unterkunftsplanung, Lageberichte (auf Wunsch mit KI-Unterstützung), Besetzungsübersicht, Abschluss-Review.
+- **Modul-URL**: https://resqio.de/modul/verwaltungsstab
 
 ## Technische Details
 
