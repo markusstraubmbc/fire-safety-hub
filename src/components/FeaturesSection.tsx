@@ -40,6 +40,7 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { Reveal } from "@/components/Reveal";
 
 export interface Feature {
   icon: LucideIcon;
@@ -342,7 +343,7 @@ const FeaturesSection = () => {
   return (
     <section id="funktionen" className="py-16 md:py-24 bg-muted/50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <Reveal className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Alle Funktionen im Überblick
           </h2>
@@ -350,19 +351,19 @@ const FeaturesSection = () => {
             RESQIO vereint alle Prozesse in einer intuitiven, hochperformanten Plattform –
             von der Geräteverwaltung bis zur KI-gestützten Personalplanung.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {features.map((feature, index) => (
+            <Reveal key={index} delay={(index % 4) * 80} className="h-full">
             <Link
-              key={index}
               to={feature.href || (feature.slug ? `/modul/${feature.slug}` : "#")}
-              className="block group"
+              className="block group h-full"
             >
-              <Card className="h-full transition-all duration-300 hover:shadow-xl hover:border-primary/50 group-hover:-translate-y-2 bg-card/60 backdrop-blur-sm shadow-sm">
+              <Card className="h-full transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/50 group-hover:-translate-y-2 bg-card/60 backdrop-blur-sm shadow-sm">
                 <CardContent className="p-4 sm:p-6 h-full flex flex-col relative">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors border border-primary/5">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300 border border-primary/5">
                       <feature.icon className="w-6 h-6 text-primary" />
                     </div>
                     <div className="min-w-0 pt-1">
@@ -384,6 +385,7 @@ const FeaturesSection = () => {
                 </CardContent>
               </Card>
             </Link>
+            </Reveal>
           ))}
         </div>
       </div>
