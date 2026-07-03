@@ -122,42 +122,42 @@ const Header = memo(() => {
           <nav className="hidden md:flex items-center gap-8">
             <button
               onClick={() => scrollToSection("home")}
-              className={`transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+              className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection("funktionen")}
-              className={`transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+              className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
               Funktionen
             </button>
             <button
               onClick={() => scrollToSection("software-showcase")}
-              className={`transition-colors font-medium text-nowrap ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+              className={`nav-underline transition-colors font-medium text-nowrap ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
               Software Einblicke
             </button>
             <button
               onClick={() => scrollToSection("future")}
-              className={`transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+              className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
               Zukunft
             </button>
             <button
               onClick={() => scrollToSection("pricing")}
-              className={`transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+              className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
               Modelle
             </button>
             <Link
               to="/kreis"
-              className={`transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+              className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
               Kreis
@@ -187,7 +187,7 @@ const Header = memo(() => {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-border flex flex-col gap-2 max-h-[calc(100vh-80px)] overflow-y-auto">
+          <nav className="md:hidden py-4 border-t border-border flex flex-col gap-2 max-h-[calc(100vh-80px)] overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-300">
             <button
               onClick={() => scrollToSection("home")}
               className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"

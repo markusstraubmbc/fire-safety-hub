@@ -44,7 +44,7 @@ export function LazySection({ factory, rootMargin = "200px" }: LazySectionProps)
   }, [isVisible, Component, factory]);
 
   return (
-    <div ref={ref}>
+    <div ref={ref} className={Component ? "animate-fade-in" : undefined}>
       {Component ? (
         <Suspense fallback={<SectionPlaceholder />}>
           <Component />

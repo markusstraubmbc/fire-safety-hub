@@ -1,4 +1,5 @@
 import { PlayCircle, UploadCloud, Rocket } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import processVisual from "@/assets/process-visual.png";
 import processVisualWebp from "@/assets/process-visual.webp";
 
@@ -30,7 +31,7 @@ const ProcessSection = () => {
     return (
         <section className="py-24 bg-muted/30 border-y border-border/40 relative overflow-hidden">
             <div className="container mx-auto px-4">
-                <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+                <Reveal className="text-center max-w-3xl mx-auto mb-20 space-y-4">
                     <h2 className="text-3xl md:text-5xl font-bold text-foreground">
                         In 3 Schritten zur <br />
                         <span className="text-primary italic">digitalen Wache</span>
@@ -38,14 +39,14 @@ const ProcessSection = () => {
                     <p className="text-xl text-muted-foreground">
                         Digitalisierung muss nicht kompliziert sein. Wir begleiten Sie auf dem Weg zur modernen Feuerwehr.
                     </p>
-                </div>
+                </Reveal>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
                     {/* Left: Steps Illustration */}
-                    <div className="relative order-2 lg:order-1">
+                    <Reveal className="relative order-2 lg:order-1">
                         <div className="absolute -inset-10 bg-primary/10 rounded-full blur-[100px] opacity-20" />
-                        <div className="relative rounded-[2.5rem] border border-border p-2 bg-background shadow-xl overflow-hidden">
+                        <div className="relative rounded-[2.5rem] border border-border p-2 bg-background shadow-xl overflow-hidden transition-transform duration-500 hover:scale-[1.02]">
                             <picture>
                                 <source srcSet={processVisualWebp} type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
                                 <img
@@ -60,16 +61,16 @@ const ProcessSection = () => {
                                 />
                             </picture>
                         </div>
-                    </div>
+                    </Reveal>
 
                     {/* Right: Detailed Steps */}
                     <div className="space-y-10 order-1 lg:order-2">
                         {steps.map((step, index) => (
-                            <div key={index} className="flex gap-8 relative group">
+                            <Reveal key={index} delay={index * 150} className="flex gap-8 relative group">
                                 {index < steps.length - 1 && (
                                     <div className="absolute left-7 top-14 bottom-[-40px] w-px bg-gradient-to-b from-primary/30 to-transparent lg:block hidden" />
                                 )}
-                                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/5 border border-primary/20 flex items-center justify-center relative z-10 group-hover:bg-primary/10 group-hover:border-primary/40 transition-all">
+                                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/5 border border-primary/20 flex items-center justify-center relative z-10 group-hover:bg-primary/10 group-hover:border-primary/40 group-hover:scale-105 transition-all duration-300">
                                     <span className="text-xs font-bold text-primary/40 absolute -top-2 -left-2 bg-background px-1 border border-border rounded">{step.number}</span>
                                     <step.icon className={`w-7 h-7 text-primary`} />
                                 </div>
@@ -79,7 +80,7 @@ const ProcessSection = () => {
                                         {step.desc}
                                     </p>
                                 </div>
-                            </div>
+                            </Reveal>
                         ))}
                     </div>
 
