@@ -34,11 +34,17 @@ import {
   Bell,
   Mic,
   Sparkles,
+  MessageSquare,
+  Wind,
+  HeartPulse,
+  CloudOff,
+  PartyPopper,
   LucideIcon,
   ArrowRight,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { Reveal } from "@/components/Reveal";
 
 export interface Feature {
   icon: LucideIcon;
@@ -82,7 +88,7 @@ export const features: Feature[] = [
     icon: ClipboardList,
     title: "Ausrüstungsverwaltung",
     description:
-      "Lückenlose Dokumentation und Verwaltung aller Ausrüstungsgegenstände.",
+      "Lückenlose Verwaltung aller Geräte mit Prüffristen, DGUV-Lebensdauer, Beladeplan, internem Ausleihsystem und automatischer Rückruf-Erkennung.",
     slug: "ausruestungsverwaltung",
   },
   {
@@ -96,7 +102,7 @@ export const features: Feature[] = [
     icon: Monitor,
     title: "Kiosk-Modus",
     description:
-      "57 Module touchscreen-optimiert für die Mannschaft. Von Wartungs-Wizards über Fahrtenbuch bis Belegeinreichung – alle Aufgaben selbstständig am Tablet erledigen. Mit KI-Assistent und RFID-Login.",
+      "57 Module touchscreen-optimiert für Mannschaft und Gerätewart. Wartung, Fahrtenbuch, Beladeplan, Rückrufe und Belegeinreichung – auch offline. Mit KI-Assistent und RFID-Login.",
     slug: "kiosk-modus",
   },
   {
@@ -216,6 +222,13 @@ export const features: Feature[] = [
     slug: "email-templates",
   },
   {
+    icon: MessageSquare,
+    title: "Kommunikationscenter",
+    description:
+      "Automatische Benachrichtigungen per E-Mail, WhatsApp oder Telegram – bei fälliger Wartung, ablaufender Qualifikation, neuem Mangel oder Hersteller-Rückruf.",
+    slug: "kommunikationscenter",
+  },
+  {
     icon: Link2,
     title: "Integration & API",
     description:
@@ -252,9 +265,9 @@ export const features: Feature[] = [
   },
   {
     icon: Brain,
-    title: "KI-Assistenz & Automatisierung",
+    title: "KI-Assistenz & souveräne KI",
     description:
-      "Ihr KI-Assistent für den Alltag: Von der Adressoptimierung über KI-gestützte Pumpenberechnung bis zur intelligenten Personalplanung. Spart Zeit, vermeidet Fehler und macht Ihre Verwaltung smarter.",
+      "Ihr KI-Assistent für den Alltag: Belege per Foto verbuchen (OCR), Berichte diktieren, Texte optimieren, Personal strategisch planen. Souverän und DSGVO-konform – Ihre Daten bleiben in Deutschland, die Entscheidung immer beim Menschen.",
     slug: "ki-integration",
   },
   {
@@ -297,7 +310,7 @@ export const features: Feature[] = [
     icon: Shield,
     title: "Stab & Führungsunterstützung",
     description:
-      "Digitale Stabsarbeit für Großschadenlagen: MANV-Sichtungsliste, Funk-Protokoll, Entscheidungsprotokoll, Einsatztagebuch und strukturierte Einsatznachbereitung für alle Stabsfunktionen S1–S6.",
+      "Digitale Stabsarbeit für Großschadenlagen: Personalmeldestelle, GPS-Tracking, MANV-Sichtungsliste, Hochwasser-Lageentwicklung, Funk-Protokoll und strukturierte Einsatznachbereitung für S1–S6.",
     slug: "stab-modul",
   },
   {
@@ -328,13 +341,48 @@ export const features: Feature[] = [
       "Strukturierte Verwaltung von Beförderungsvorschlägen und Dienstgradentwicklung nach Landesvorgaben.",
     slug: "befoerderungssystem",
   },
+  {
+    icon: UserCheck,
+    title: "Personalmeldestelle",
+    description:
+      "Digitale Anwesenheits- und Schichtverwaltung für Großschadenslagen: Check-In per Dienstausweis, PIN oder QR-Code, Live-Stärkemeldung und Warnung bei überlangen Schichten – auch offline.",
+    slug: "personalmeldestelle",
+  },
+  {
+    icon: Wind,
+    title: "Gefahrstoff & Ausbreitung",
+    description:
+      "Ausbreitungsprognose für Gefahrstofflagen direkt auf der Lagekarte, inkl. Absperr- und Evakuierungsvorschlag anhand von Wind und Wetter sowie umfangreicher Stoffdatenbank.",
+    slug: "gefahrstoff-ausbreitung",
+  },
+  {
+    icon: PartyPopper,
+    title: "Veranstaltungen & Arbeitsdienste",
+    description:
+      "Arbeitsdienste, Übungen und Termine zentral planen – mit Selbst-Anmeldung der Mitglieder, Einteilung nach Bereichen und Zeitfenstern sowie automatischen Erinnerungen.",
+    slug: "veranstaltungen",
+  },
+  {
+    icon: HeartPulse,
+    title: "Verbandbuch & Vorfälle",
+    description:
+      "Verbandbuch nach DGUV 204-021 rechtssicher digital führen: Verletzungen, Unfälle und Vorfälle mit digitaler Unterschrift dokumentieren und revisionssicher aufbewahren.",
+    slug: "verbandbuch",
+  },
+  {
+    icon: CloudOff,
+    title: "Offline-Modus",
+    description:
+      "Funktioniert auch ohne Internet: Objektpläne, Kontakte, Geräte und Hydranten bleiben lokal verfügbar, Eingaben werden automatisch nachgetragen, sobald wieder Verbindung besteht.",
+    slug: "offline-modus",
+  },
 ];
 
 const FeaturesSection = () => {
   return (
     <section id="funktionen" className="py-16 md:py-24 bg-muted/50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <Reveal className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Alle Funktionen im Überblick
           </h2>
@@ -342,19 +390,19 @@ const FeaturesSection = () => {
             RESQIO vereint alle Prozesse in einer intuitiven, hochperformanten Plattform –
             von der Geräteverwaltung bis zur KI-gestützten Personalplanung.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {features.map((feature, index) => (
+            <Reveal key={index} delay={(index % 4) * 80} className="h-full">
             <Link
-              key={index}
               to={feature.href || (feature.slug ? `/modul/${feature.slug}` : "#")}
-              className="block group"
+              className="block group h-full"
             >
-              <Card className="h-full transition-all duration-300 hover:shadow-xl hover:border-primary/50 group-hover:-translate-y-2 bg-card/60 backdrop-blur-sm shadow-sm">
+              <Card className="h-full transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/50 group-hover:-translate-y-2 bg-card/60 backdrop-blur-sm shadow-sm">
                 <CardContent className="p-4 sm:p-6 h-full flex flex-col relative">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors border border-primary/5">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300 border border-primary/5">
                       <feature.icon className="w-6 h-6 text-primary" />
                     </div>
                     <div className="min-w-0 pt-1">
@@ -376,6 +424,7 @@ const FeaturesSection = () => {
                 </CardContent>
               </Card>
             </Link>
+            </Reveal>
           ))}
         </div>
       </div>

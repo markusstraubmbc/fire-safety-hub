@@ -160,12 +160,24 @@ All user-facing content is in German (Deutsch). Maintain German language for:
 > Note: `npm run build` and `npm run build:dev` automatically call the sitemap generator via the `prebuild` hook, so CI/CD deployments always produce a fresh sitemap. Manual dev work requires running `npm run generate-sitemap` explicitly.
 
 ### Sitemap Auto-Generation
-- **Script**: `scripts/generate-sitemap.cjs`
-- **Source of truth**: slug keys in the `modules` object in `src/data/module-data.ts`
-- **Output**: `public/sitemap.xml` (33 URLs: homepage + /kreis + 31 module pages)
+- **Script**: `scripts/generate-sitemap.cjs` (and `scripts/prerender.mjs` regenerates `dist/sitemap.xml` at build time)
+- **Source of truth**: slug keys in the `modules` object in `src/data/module-data.ts` AND article keys in `src/data/wissen-data.ts`
+- **Output**: `public/sitemap.xml` (homepage + /kreis + module pages + /wissen + article pages)
 - **Excluded slugs**: `kreis-platform` (has a dedicated `/kreis` page, handled by a Vercel 301 redirect)
 - **lastmod**: always set to today's date at generation time, so Google sees fresh dates after every build
 - **NEVER edit `public/sitemap.xml` manually** — changes will be overwritten on the next build
+
+### Wissen / Ratgeber Section (SEO content)
+- **Data source**: `src/data/wissen-data.ts` (articles as `Record<slug, WissenArticle>`)
+- **Routes**: `/wissen` (listing, `src/pages/Wissen.tsx`) and `/wissen/:slug` (`src/pages/WissenArtikel.tsx`)
+- Articles are prerendered by `scripts/prerender.mjs` (meta tags + Article/Breadcrumb JSON-LD) and included in the sitemap
+- After adding/changing an article: run `npm run generate-sitemap` and commit `public/sitemap.xml` along with `wissen-data.ts`
+- JSON-LD scripts use stable element IDs (`wissen-article-jsonld`, `homepage-faq-jsonld`): the client removes the prerendered script by ID before re-adding — never inject schema without reusing these IDs (duplicate schemas caused Search Console errors before)
+
+### Analytics & Consent (DSGVO)
+- GA4 is loaded ONLY after consent: `src/lib/consent.ts` + `src/components/ConsentBanner.tsx` (Google Consent Mode v2, default: denied — set inline in `index.html`)
+- Never add `<script src="googletagmanager.com/...">` directly to `index.html`
+- Conversion event: `trackEvent("generate_lead")` fires on successful contact form submit (`ContactSection.tsx`)
 
 ### Adding a New Section to Landing Page
 1. Create component in `src/components/` as `{Name}Section.tsx`

@@ -88,11 +88,60 @@ export default {
   				to: {
   					height: '0'
   				}
+  			},
+  			'fade-in-up': {
+  				from: {
+  					opacity: '0',
+  					transform: 'translateY(24px)'
+  				},
+  				to: {
+  					opacity: '1',
+  					transform: 'translateY(0)'
+  				}
+  			},
+  			'fade-in': {
+  				from: {
+  					opacity: '0'
+  				},
+  				to: {
+  					opacity: '1'
+  				}
+  			},
+  			'scale-in': {
+  				from: {
+  					opacity: '0',
+  					transform: 'scale(0.94)'
+  				},
+  				to: {
+  					opacity: '1',
+  					transform: 'scale(1)'
+  				}
+  			},
+  			float: {
+  				'0%, 100%': {
+  					transform: 'translateY(0)'
+  				},
+  				'50%': {
+  					transform: 'translateY(-10px)'
+  				}
+  			},
+  			'hero-zoom': {
+  				from: {
+  					transform: 'scale(1)'
+  				},
+  				to: {
+  					transform: 'scale(1.08)'
+  				}
   			}
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+  			'fade-in-up': 'fade-in-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both',
+  			'fade-in': 'fade-in 0.6s ease-out both',
+  			'scale-in': 'scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both',
+  			float: 'float 4s ease-in-out infinite',
+  			'hero-zoom': 'hero-zoom 18s ease-out forwards'
   		},
   		boxShadow: {
   			'2xs': 'var(--shadow-2xs)',

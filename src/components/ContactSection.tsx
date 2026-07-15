@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import { trackEvent } from "@/lib/consent";
 
 const COOLDOWN_MS = 60 * 1000; // 1 Minute
 
@@ -64,6 +65,7 @@ const ContactSection = () => {
       setTimeout(() => setIsCooldown(false), COOLDOWN_MS);
 
       toast.success("Nachricht erfolgreich gesendet! Wir melden uns zeitnah bei Ihnen.");
+      trackEvent("generate_lead", { method: "contact_form" });
       reset();
     } catch (err) {
       const msg = err instanceof Error ? err.message : "";

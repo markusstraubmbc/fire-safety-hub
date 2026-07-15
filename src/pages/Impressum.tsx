@@ -51,10 +51,10 @@ const Impressum = () => {
                   <p className="text-muted-foreground">
                     E-Mail:{" "}
                     <a
-                      href="mailto:support@resqio.io"
+                      href="mailto:support@resqio.de"
                       className="text-primary hover:underline"
                     >
-                      support@resqio.io
+                      support@resqio.de
                     </a>
                   </p>
                 </section>
@@ -67,6 +67,23 @@ const Impressum = () => {
                     Markus Straub<br />
                     Eschenstraße 37<br />
                     72141 Walddorfhäslach
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold text-foreground mb-3">
+                    Hinweis zur Webanalyse
+                  </h2>
+                  <p className="text-muted-foreground text-sm">
+                    Diese Website verwendet Google Analytics 4, einen Webanalysedienst
+                    der Google Ireland Limited. Dabei werden Nutzungsdaten (z. B. aufgerufene
+                    Seiten, Verweildauer, Herkunft) anonymisiert erfasst und ausgewertet.
+                    Die IP-Adresse wird vor der Speicherung gekürzt (IP-Anonymisierung).
+                    Mess-ID: <strong>G-1JZGKRM9GC</strong>. Weitere Informationen zum
+                    Datenschutz sowie zu Ihren Widerspruchsrechten finden Sie in unserer{" "}
+                    <a href="/datenschutz" className="text-primary hover:underline">
+                      Datenschutzerklärung
+                    </a>.
                   </p>
                 </section>
 

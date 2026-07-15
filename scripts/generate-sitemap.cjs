@@ -15,6 +15,7 @@ const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
 const MODULE_DATA = path.join(ROOT, "src/data/module-data.ts");
+const WISSEN_DATA = path.join(ROOT, "src/data/wissen-data.ts");
 const SITEMAP_OUT = path.join(ROOT, "public/sitemap.xml");
 
 const EXCLUDED_SLUGS = new Set(["kreis-platform"]);
@@ -24,6 +25,12 @@ const source = fs.readFileSync(MODULE_DATA, "utf8");
 const slugMatches = [...source.matchAll(/"([a-z][a-z0-9-]*)"\s*:\s*\{/g)];
 const allSlugs = slugMatches.map((m) => m[1]);
 const moduleSlugs = allSlugs.filter((s) => !EXCLUDED_SLUGS.has(s));
+
+// Parse article slugs from wissen-data.ts the same way
+const wissenSource = fs.readFileSync(WISSEN_DATA, "utf8");
+const wissenSlugs = [...wissenSource.matchAll(/^\s{2}"([a-z][a-z0-9-]*)"\s*:\s*\{/gm)].map(
+  (m) => m[1]
+);
 
 if (moduleSlugs.length === 0) {
   console.error("generate-sitemap: no slugs found — check module-data.ts regex");
@@ -43,7 +50,16 @@ const modulePages = moduleSlugs.map((slug) => ({
   priority: "0.8",
 }));
 
-const allPages = [...staticPages, ...modulePages];
+const wissenPages = [
+  { loc: "https://resqio.de/wissen", changefreq: "weekly", priority: "0.8" },
+  ...wissenSlugs.map((slug) => ({
+    loc: `https://resqio.de/wissen/${slug}`,
+    changefreq: "monthly",
+    priority: "0.7",
+  })),
+];
+
+const allPages = [...staticPages, ...modulePages, ...wissenPages];
 
 const urlEntries = allPages
   .map(
