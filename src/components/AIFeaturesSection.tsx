@@ -1,8 +1,16 @@
-import { Mic, FileText, Map, Users, Zap, Sparkles } from "lucide-react";
+import { Mic, FileText, Map, Users, Zap, Sparkles, ReceiptText, ShieldCheck, MessageCircleQuestion } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 
 const aiFeatures = [
+  {
+    icon: ReceiptText,
+    title: "Belege einfach abfotografieren",
+    subtitle: "KI-Belegerkennung (OCR)",
+    description:
+      "Rechnung oder Kassenbon fotografieren – die KI liest Betrag, Datum und Lieferant automatisch aus und schlägt die Verbuchung vor. Kein Abtippen mehr.",
+    highlight: "Belege in Sekunden verbucht",
+  },
   {
     icon: Mic,
     title: "Sprechen statt tippen",
@@ -18,6 +26,14 @@ const aiFeatures = [
     description:
       "Aus Einsatzdaten und Notizen erstellt der KI-Assistent vollständige, druckreife Berichte – in Minuten statt Stunden.",
     highlight: "Professionelle Berichte auf Knopfdruck",
+  },
+  {
+    icon: MessageCircleQuestion,
+    title: "Fragen einfach stellen",
+    subtitle: "KI-Wissensassistent",
+    description:
+      "Fragen in normaler Sprache stellen und sofort Antworten aus dem internen Wiki und der Hilfe erhalten – ohne langes Suchen.",
+    highlight: "Antworten sofort statt Suchen",
   },
   {
     icon: Map,
@@ -113,7 +129,8 @@ const AIFeaturesSection = () => {
           </h2>
           <p className="text-sm md:text-base text-muted-foreground max-w-lg mx-auto">
             Echte KI-Funktionen, die Ihnen konkrete Arbeit abnehmen – kein technisches
-            Fachwissen nötig.
+            Fachwissen nötig. Souverän, datenschutzkonform und mit dem Menschen als
+            letzter Instanz.
           </p>
         </div>
 
@@ -148,6 +165,28 @@ const AIFeaturesSection = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-8 md:mt-10 max-w-4xl mx-auto">
+          <div className="relative overflow-hidden rounded-2xl border border-primary/15 bg-primary/[0.04] p-5 md:p-6">
+            <div className="flex flex-col sm:flex-row items-start gap-4">
+              <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/10 flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-base md:text-lg font-bold text-foreground mb-1.5">
+                  Souveräne KI – Ihre Daten bleiben geschützt
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Die KI-Verarbeitung erfolgt DSGVO-konform, Ihre Daten werden nicht für Werbung
+                  oder Modelltraining Dritter verwendet. Jede KI-Ausgabe ist klar als
+                  KI-generiert gekennzeichnet – und die endgültige Entscheidung trifft immer ein
+                  Mensch, nie die Maschine. So nutzen Sie die Vorteile moderner KI, ohne die
+                  Kontrolle abzugeben.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
