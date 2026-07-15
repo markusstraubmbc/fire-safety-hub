@@ -35,6 +35,10 @@ import {
   Mic,
   Sparkles,
   MessageSquare,
+  Wind,
+  HeartPulse,
+  CloudOff,
+  PartyPopper,
   LucideIcon,
   ArrowRight,
 } from "lucide-react";
@@ -261,9 +265,9 @@ export const features: Feature[] = [
   },
   {
     icon: Brain,
-    title: "KI-Assistenz & Automatisierung",
+    title: "KI-Assistenz & souveräne KI",
     description:
-      "Ihr KI-Assistent für den Alltag: Von der Adressoptimierung über KI-gestützte Pumpenberechnung bis zur intelligenten Personalplanung. Spart Zeit, vermeidet Fehler und macht Ihre Verwaltung smarter.",
+      "Ihr KI-Assistent für den Alltag: Belege per Foto verbuchen (OCR), Berichte diktieren, Texte optimieren, Personal strategisch planen. Souverän und DSGVO-konform – Ihre Daten bleiben in Deutschland, die Entscheidung immer beim Menschen.",
     slug: "ki-integration",
   },
   {
@@ -336,6 +340,41 @@ export const features: Feature[] = [
     description:
       "Strukturierte Verwaltung von Beförderungsvorschlägen und Dienstgradentwicklung nach Landesvorgaben.",
     slug: "befoerderungssystem",
+  },
+  {
+    icon: UserCheck,
+    title: "Personalmeldestelle",
+    description:
+      "Digitale Anwesenheits- und Schichtverwaltung für Großschadenslagen: Check-In per Dienstausweis, PIN oder QR-Code, Live-Stärkemeldung und Warnung bei überlangen Schichten – auch offline.",
+    slug: "personalmeldestelle",
+  },
+  {
+    icon: Wind,
+    title: "Gefahrstoff & Ausbreitung",
+    description:
+      "Ausbreitungsprognose für Gefahrstofflagen direkt auf der Lagekarte, inkl. Absperr- und Evakuierungsvorschlag anhand von Wind und Wetter sowie umfangreicher Stoffdatenbank.",
+    slug: "gefahrstoff-ausbreitung",
+  },
+  {
+    icon: PartyPopper,
+    title: "Veranstaltungen & Arbeitsdienste",
+    description:
+      "Arbeitsdienste, Übungen und Termine zentral planen – mit Selbst-Anmeldung der Mitglieder, Einteilung nach Bereichen und Zeitfenstern sowie automatischen Erinnerungen.",
+    slug: "veranstaltungen",
+  },
+  {
+    icon: HeartPulse,
+    title: "Verbandbuch & Vorfälle",
+    description:
+      "Verbandbuch nach DGUV 204-021 rechtssicher digital führen: Verletzungen, Unfälle und Vorfälle mit digitaler Unterschrift dokumentieren und revisionssicher aufbewahren.",
+    slug: "verbandbuch",
+  },
+  {
+    icon: CloudOff,
+    title: "Offline-Modus",
+    description:
+      "Funktioniert auch ohne Internet: Objektpläne, Kontakte, Geräte und Hydranten bleiben lokal verfügbar, Eingaben werden automatisch nachgetragen, sobald wieder Verbindung besteht.",
+    slug: "offline-modus",
   },
 ];
 

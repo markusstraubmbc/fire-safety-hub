@@ -33,6 +33,10 @@ import {
     TrendingUp,
     Bell,
     MessageSquare,
+    Wind,
+    HeartPulse,
+    CloudOff,
+    PartyPopper,
     LucideIcon
 } from "lucide-react";
 
@@ -693,24 +697,30 @@ export const modules: Record<string, ModuleData> = {
         color: "red"
     },
     "ki-integration": {
-        title: "KI-Integration & Assistenz",
-        shortDesc: "Integrierter KI-Assistent für schnelle Antworten, Berichte und intelligente Unterstützung im Alltag.",
-        longDesc: "Der integrierte KI-Assistent von RESQIO ist in alle Module eingebettet und unterstützt bei täglichen Aufgaben. Von der Erstellung von Einsatzberichten über die Beantwortung von Fragen aus dem internen Wiki bis zur Analyse von Einsatzdaten – die KI ist immer verfügbar und lernt aus dem Kontext der Feuerwehr.",
+        title: "KI-Integration & souveräne Assistenz",
+        shortDesc: "Souveräne KI, die echte Arbeit abnimmt: Berichte schreiben, Belege per Foto verbuchen, Texte optimieren – Ihre Daten bleiben dabei geschützt in Deutschland.",
+        longDesc: "Der KI-Assistent von RESQIO ist in alle Module eingebettet und nimmt Ihnen konkrete Arbeit ab – vom Einsatzbericht über die Belegverbuchung bis zur Personalplanung. Dabei setzt RESQIO auf souveräne KI: Die Verarbeitung läuft über in Deutschland gehostete, DSGVO-konforme Dienste, und Sie behalten immer die Kontrolle. Jede KI-Ausgabe ist klar als KI-generiert gekennzeichnet, und die endgültige Entscheidung trifft immer ein Mensch – nie die Maschine.",
         benefits: [
-            "Zeitersparnis: Berichte und Dokumente in Sekunden erstellt",
-            "Wissen: Sofortige Antworten aus dem internen Wiki",
-            "Analyse: KI-gestützte Auswertung von Einsatzdaten",
-            "Unterstützung: Hilfe bei komplexen Aufgaben"
+            "Souveränität: Verarbeitung DSGVO-konform, Daten bleiben in Deutschland – keine Weitergabe an Werbenetzwerke",
+            "Zeitersparnis: Berichte, Belege und Texte in Sekunden statt Stunden",
+            "Sicherheit: Jede KI-Ausgabe ist als KI-generiert gekennzeichnet – die letzte Entscheidung trifft immer der Mensch",
+            "Rundum-Unterstützung: Ein Assistent für Einsatz, Verwaltung, Kasse und Ausbildung",
+            "Transparenz: Nachvollziehbar, wo KI eingesetzt wird – im Sinne des EU AI Act"
         ],
         features: [
-            "KI-Berichtsassistent für Einsatzberichte",
-            "Wiki-Integration für Wissenszugriff",
-            "Spracheingabe im Kiosk-Modus",
-            "KI-Kategorisierung von Belegen",
-            "Intelligente Suche in allen Modulen",
-            "Kontextbezogene Hilfe und Tipps"
+            "Beleg-OCR: Rechnung oder Kassenbon einfach abfotografieren – die KI liest Betrag, Datum und Lieferant automatisch aus und schlägt die Verbuchung vor",
+            "KI-Berichtsassistent: Aus Einsatzdaten und Stichpunkten entsteht ein vollständiger, druckreifer Einsatzbericht",
+            "Diktieren statt tippen: Berichte und Notizen einfach einsprechen – die KI transkribiert und strukturiert automatisch",
+            "Text-Assistent: Formulierungen verbessern, Rechtschreibung korrigieren, Texte professionell aufbereiten – überall in RESQIO",
+            "Rechnungs- & Abrechnungshilfe: Kostenbescheide und Abrechnungstexte werden auf Basis der Einsatzdaten vorformuliert",
+            "Wissensassistent: Fragen in natürlicher Sprache stellen und sofort Antworten aus dem internen Wiki und der Hilfe erhalten",
+            "KI-Personalanalyse: Erkennt, wer für Beförderungen bereit ist und welche Qualifikationen fehlen",
+            "Gefahrstoff-Assistenz: Unterstützung bei der Einschätzung von Gefahrstofflagen und Schutzempfehlungen (immer mit Fachberater-Vorbehalt)",
+            "Pumpen- & Adressoptimierung: Optimale Wasserförderung berechnen, Adressen automatisch normalisieren",
+            "Anbieter-Wahl: Die genutzte KI lässt sich zwischen mehreren Anbietern umschalten – volle Flexibilität für Ihre Datenschutz-Anforderungen",
+            "Kostentransparenz: Übersicht, wo und in welchem Umfang KI genutzt wird"
         ],
-        keywords: ["KI Feuerwehr", "Künstliche Intelligenz Feuerwehr", "KI Assistent", "ChatGPT Feuerwehr", "digitale Transformation Feuerwehr"],
+        keywords: ["KI Feuerwehr", "souveräne KI", "KI Datenschutz Deutschland", "Künstliche Intelligenz Feuerwehr", "KI Assistent", "Beleg OCR Feuerwehr", "DSGVO KI", "EU AI Act", "digitale Transformation Feuerwehr"],
         icon: Brain,
         color: "purple"
     },
@@ -997,5 +1007,120 @@ export const modules: Record<string, ModuleData> = {
         keywords: ["Benachrichtigungen Feuerwehr", "WhatsApp Feuerwehr Software", "Telegram Feuerwehr", "automatische Meldungen Feuerwehr", "Kommunikation Feuerwehr Software"],
         icon: MessageSquare,
         color: "sky"
+    },
+    "personalmeldestelle": {
+        title: "Personalmeldestelle",
+        shortDesc: "Wer ist da, wer ist im Einsatz, wer braucht Ablösung? Die digitale Anwesenheits- und Schichtverwaltung für Großschadenslagen.",
+        longDesc: "Bei Hochwasser, MANV oder langen Einsätzen zählt jede Person. Die Personalmeldestelle erfasst An- und Abwesenheit von eigenen Kräften und externen Helfern in Echtzeit – ob per Dienstausweis, PIN, QR-Code oder von Hand. Die Einsatzleitung sieht jederzeit die aktuelle Stärke, weiß, wer schon zu lange im Dienst ist, und kann Schichten geordnet wechseln. Alles rechtssicher dokumentiert und DSGVO-konform.",
+        benefits: [
+            "Überblick: Aktuelle Stärke – anwesend, im Einsatz, in Pause, abgereist – jederzeit auf einen Blick",
+            "Sicherheit: Automatische Warnung, wenn Kräfte zu lange ohne Ablösung im Dienst sind",
+            "Schnelle Erfassung: Check-In per Dienstausweis, PIN, QR-Code oder manuell – auch für externe Organisationen",
+            "Ordnung: Geordneter Schichtwechsel mit lückenloser Dokumentation",
+            "Datenschutz: DSGVO-konforme Speicherung mit automatischen Löschfristen"
+        ],
+        features: [
+            "Check-In/Check-Out per Dienstausweis, PIN, QR-Code oder von Hand",
+            "Erfassung externer Organisationen und Helfer",
+            "Live-Stärkemeldung für die Einsatzleitung",
+            "Warnung bei überlangen Schichten",
+            "Selbst-Anmeldung über QR-Code ohne Login",
+            "Verschiedene Druckvarianten: Stärkemeldung, Lageprotokoll, Meldekarten und Schichtwechsel",
+            "Auch offline nutzbar – Erfassung geht bei Netzausfall weiter",
+            "Automatische Verknüpfung mit dem Einsatz und der Nachbereitung"
+        ],
+        keywords: ["Personalmeldestelle Feuerwehr", "Anwesenheitserfassung Einsatz", "Stärkemeldung Feuerwehr", "Check-In Feuerwehr", "MANV Personalerfassung", "Schichtverwaltung Einsatz"],
+        icon: UserCheck,
+        color: "green"
+    },
+    "gefahrstoff-ausbreitung": {
+        title: "Gefahrstoff & Ausbreitungsprognose",
+        shortDesc: "Gefahrstofflagen besser einschätzen: Ausbreitung visualisieren, Absperrbereiche berechnen und Schutzempfehlungen erhalten.",
+        longDesc: "Bei Gefahrstoffeinsätzen unterstützt RESQIO die Einsatzleitung mit einer anschaulichen Ausbreitungsprognose. Auf Basis von Stoffdaten, Wetter und Windrichtung wird die mögliche Ausbreitung als Gefahrenzone direkt auf der Lagekarte dargestellt – inklusive vorgeschlagenem Absperr- und Evakuierungsbereich. Eine umfangreiche Stoffdatenbank und Schutzempfehlungen helfen bei der ersten Einschätzung. Als Entscheidungshilfe gedacht – der Fachberater bleibt unverzichtbar.",
+        benefits: [
+            "Schnelle Einschätzung: Mögliche Ausbreitung sofort auf der Karte sichtbar",
+            "Sicherheit: Vorschlag für Absperr- und Evakuierungsbereich anhand von Wind und Wetter",
+            "Wissen: Umfangreiche Stoffdatenbank mit Kennzahlen und Schutzhinweisen",
+            "Kontrolle: Zonen werden erst nach ausdrücklicher Bestätigung der Einsatzleitung geteilt"
+        ],
+        features: [
+            "Ausbreitungsprognose als Gefahrenzone auf der Lagekarte",
+            "Automatische Berücksichtigung von Windrichtung und Wetterlage",
+            "Vorschlag für Absperr- und Evakuierungsbereiche",
+            "Stoffdatenbank mit toxikologischen Kennzahlen und Grenzwerten",
+            "Schutzempfehlungen und Kontakte zu Fachberatern (z. B. TUIS, Giftnotruf)",
+            "Nachschlagewerk für Isolierungs- und Sicherheitsabstände",
+            "Manuelle Bestätigung, bevor Zonen für alle sichtbar werden"
+        ],
+        keywords: ["Gefahrstoff Feuerwehr", "Ausbreitungsprognose Gefahrgut", "Gefahrgut Software Feuerwehr", "ABC Einsatz", "Ausbreitungsberechnung", "Evakuierungsbereich Feuerwehr"],
+        icon: Wind,
+        color: "amber"
+    },
+    "veranstaltungen": {
+        title: "Veranstaltungen & Arbeitsdienste",
+        shortDesc: "Arbeitsdienste, Übungen und Termine organisieren – mit Selbst-Anmeldung der Mitglieder und klarer Einteilung.",
+        longDesc: "Ob Arbeitsdienst, Ausbildung oder Vereinsveranstaltung: Mit dem Veranstaltungsmodul planen Sie Termine zentral und lassen sich Mitglieder eigenständig anmelden. Arbeitsbereiche und Zeitfenster werden übersichtlich eingeteilt, Zu- und Absagen laufen automatisch zusammen. Optional mit Genehmigung, Zielgruppen-Filter und Terminabfrage im Doodle-Stil.",
+        benefits: [
+            "Entlastung: Mitglieder melden sich selbst an – kein Nachtelefonieren",
+            "Übersicht: Wer kommt wann und für welchen Bereich – alles zusammengeführt",
+            "Flexibilität: Zeitfenster, Arbeitsbereiche, Zielgruppen und Genehmigungen frei kombinierbar",
+            "Erinnerungen: Automatische Benachrichtigungen an alle Beteiligten"
+        ],
+        features: [
+            "Zentrale Terminplanung für Arbeitsdienste, Übungen und Veranstaltungen",
+            "Selbst-Anmeldung der Mitglieder – auch am Kiosk-Tablet",
+            "Einteilung nach Arbeitsbereichen und Zeitfenstern",
+            "Optionaler Genehmigungsworkflow und Zielgruppen-Filter",
+            "Terminabfrage im Doodle-Stil zur Terminfindung",
+            "Wiederverwendbare Vorlagen für regelmäßige Termine",
+            "Automatische Erinnerungen und Teilnehmerlisten"
+        ],
+        keywords: ["Arbeitsdienst Feuerwehr", "Veranstaltungen Feuerwehr", "Dienstplan Feuerwehr", "Anmeldung Feuerwehr", "Terminplanung Feuerwehr"],
+        icon: PartyPopper,
+        color: "amber"
+    },
+    "verbandbuch": {
+        title: "Verbandbuch & Vorfälle",
+        shortDesc: "Verbandbuch nach DGUV rechtssicher digital führen – Verletzungen und Vorfälle mit Unterschrift dokumentieren.",
+        longDesc: "Jede Verletzung im Dienst muss dokumentiert werden. Das digitale Verbandbuch erfüllt die Anforderungen der DGUV (204-021) und hält Erste-Hilfe-Leistungen, Unfälle und Vorfälle revisionssicher fest – inklusive digitaler Unterschrift. So sind alle Nachweise vollständig, sicher aufbewahrt und im Ernstfall sofort auffindbar.",
+        benefits: [
+            "Rechtssicherheit: Dokumentation nach den Vorgaben der DGUV",
+            "Vollständigkeit: Keine verlorenen Zettel mehr – alles zentral und sicher gespeichert",
+            "Nachweis: Digitale Unterschrift direkt beim Eintrag",
+            "Datenschutz: Sensible Gesundheitsdaten geschützt und mit Löschfristen"
+        ],
+        features: [
+            "Digitales Verbandbuch nach DGUV 204-021",
+            "Erfassung von Verletzungen, Unfällen und Vorfällen",
+            "Digitale Unterschrift direkt am Eintrag",
+            "Unfallbeschreibung und Zeugenangaben",
+            "Sichere, revisionssichere Aufbewahrung",
+            "Schneller Zugriff im Bedarfsfall"
+        ],
+        keywords: ["Verbandbuch Feuerwehr", "Verbandbuch digital", "DGUV 204-021", "Erste Hilfe Dokumentation", "Unfalldokumentation Feuerwehr"],
+        icon: HeartPulse,
+        color: "red"
+    },
+    "offline-modus": {
+        title: "Offline-Modus & Ausfallsicherheit",
+        shortDesc: "Funktioniert auch ohne Internet: Kiosk und wichtige Daten bleiben im Gerätehaus jederzeit einsatzbereit.",
+        longDesc: "Gerade im Einsatz oder in Gerätehäusern mit schwachem Empfang darf die Software nicht stehenbleiben. RESQIO hält die wichtigsten Daten – Objektpläne, Kontakte, Geräte, Hydranten, Fahrzeuge und Qualifikationen – lokal bereit. Erfassungen wie Check-Ins oder Verbrauch werden auch offline gespeichert und automatisch nachgetragen, sobald wieder eine Verbindung besteht. Zuverlässig, ohne doppelte Einträge.",
+        benefits: [
+            "Verfügbarkeit: Wichtige Daten auch ohne Internet abrufbar",
+            "Zuverlässigkeit: Eingaben gehen bei Netzausfall nicht verloren",
+            "Automatik: Nachträgliche Synchronisation ohne manuelles Zutun",
+            "Sicherheit: Keine doppelten Einträge, auch bei Verbindungsabbrüchen"
+        ],
+        features: [
+            "Lokale Bereithaltung von Objektplänen, Kontakten, Geräten und Hydranten",
+            "Offline-Erfassung von Check-Ins und Verbrauch mit späterem Abgleich",
+            "Konfigurierbar, welche Daten offline verfügbar sind",
+            "Automatische Synchronisation bei wiederhergestellter Verbindung",
+            "Schutz vor doppelten Buchungen",
+            "Überwachung des Sync-Status je Gerät"
+        ],
+        keywords: ["Feuerwehr Software offline", "Offline Modus Kiosk", "Ausfallsicherheit Feuerwehr", "Gerätehaus ohne Internet", "Offline-fähige Software Feuerwehr"],
+        icon: CloudOff,
+        color: "slate"
     }
 };
