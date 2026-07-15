@@ -12,10 +12,10 @@
     },
     {
       "@type": "Question",
-      "name": "Gibt es ein Kreismodul für Kreisfeuerwehrverbaende?",
+      "name": "Gibt es ein Kreismodul für Kreisfeuerwehrverbände?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja! Das RESQIO Kreismodul ist speziell für Kreisbrandmeister und Kreisfeuerwehrverbaende entwickelt. Es ermöglicht die zentrale Verwaltung aller angeschlossenen Wehren mit voller Datensouveränität, gemeinsamen Ressourcen-Übersichten und kreisweiten Auswertungen."
+        "text": "Ja! Das RESQIO Kreismodul ist speziell für Kreisbrandmeister und Kreisfeuerwehrverbände entwickelt. Es ermöglicht die zentrale Verwaltung aller angeschlossenen Wehren mit voller Datensouveränität, gemeinsamen Ressourcen-Übersichten und kreisweiten Auswertungen."
       }
     },
     {
