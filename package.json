@@ -6,15 +6,16 @@
   "scripts": {
     "dev": "vite",
     "generate-sitemap": "node scripts/generate-sitemap.cjs",
-    "prebuild": "node scripts/generate-sitemap.cjs",
+    "prebuild": "node scripts/generate-sitemap.cjs && node scripts/generate-llms.cjs",
     "build": "vite build && node scripts/prerender.mjs",
-    "build:dev": "node scripts/generate-sitemap.cjs && vite build --mode development",
+    "build:dev": "node scripts/generate-sitemap.cjs && node scripts/generate-llms.cjs && vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",
-    "prepare": "husky"
+    "prepare": "husky",
+    "generate-llms": "node scripts/generate-llms.cjs"
   },
   "dependencies": {
     "@fontsource/poppins": "^5.2.7",

@@ -2,6 +2,8 @@
 
 > RESQIO ist eine umfassende, webbasierte Softwarelösung für Feuerwehren und Hilfsorganisationen im deutschsprachigen Raum. Sie digitalisiert und optimiert Verwaltungs-, Einsatz- und Übungsprozesse. Die Plattform zeichnet sich durch eine moderne Benutzeroberfläche, Modularität und KI-Integration aus.
 
+Diese Datei wird aus den Projektdaten generiert (scripts/generate-llms.cjs) und nicht von Hand gepflegt.
+
 ## Über RESQIO
 
 - **Hersteller**: Markus Straub, Walddorfhäslach, Baden-Württemberg, Deutschland
@@ -31,236 +33,335 @@ Die Preise richten sich nach der Größe und den Anforderungen der Feuerwehr. In
 
 ## Module im Detail
 
-### 1. Kommandozentrale (Dashboard)
-Zentrale Übersicht für Führungskräfte.
-- **Beschreibung**: Bietet Transparenz über Einsatzbereitschaft, offene Aufgaben, Lizenzstatus und Systemzustand.
-- **Funktionen**: Live-Statistiken, Frühwarnsystem für Fristen, User-Analytics, Widget-basiertes Layout.
-- **Modul-URL**: https://resqio.de/modul/kommandozentrale
+### 1. Kommandozentrale
+Die intelligente Zentrale für Führungskräfte – Echtzeit-Überblick über alle Einheiten, Ressourcen und Einsätze.
+
+- **Beschreibung**: Die Kommandozentrale ist das Herzstück von RESQIO. Sie bündelt alle einsatzrelevanten Informationen in einer übersichtlichen Oberfläche und ermöglicht Führungskräften, jederzeit den vollen Überblick zu behalten. Von der Alarmierung bis zur Nachbereitung – alles an einem Ort.
+- **Funktionen**: Live-Dashboard mit Einsatz- und Ressourcenstatus | Schnellzugriff auf alle Module und häufige Aktionen | Personalisierbare Widgets und Ansichten | Integrierte Benachrichtigungen und Alarme | Rollenbasierter Zugriff für verschiedene Führungsebenen
+- **URL**: https://resqio.de/modul/kommandozentrale
 
 ### 2. Ausrüstungsverwaltung
-Vollständiges Inventar-Management.
-- **Beschreibung**: Dokumentation des gesamten Inventars von Anschaffung bis Aussonderung.
-- **Funktionen**: Barcode/QR-Code Scanner, Lifecycle-Management, Kostenanalyse, Massenbearbeitung, Bundle-Verwaltung (Sets).
-- **Modul-URL**: https://resqio.de/modul/ausruestungsverwaltung
+Vollständige Verwaltung der gesamten Ausrüstung – von Schutzausrüstung über Atemschutzgeräte bis zu Sonderwerkzeug.
+
+- **Beschreibung**: Die zentrale Ausrüstungsverwaltung bietet einen vollständigen Überblick über das gesamte Material der Feuerwehr. Jedes Gerät wird erfasst, überwacht und dokumentiert – inklusive Standort, Prüfdaten, gesetzlicher Lebensdauer und Verfügbarkeit. Hersteller-Rückrufe werden automatisch erkannt, die Ausleihe intern geregelt und die Fahrzeugbeladung per Beladeplan lückenlos nachgehalten.
+- **Funktionen**: Gerätedatenbank mit QR-Code und Barcode-Integration | Prüffristen-Tracking und automatische Erinnerungen | Standortverwaltung und Fahrzeugzuordnung | Einsatzhistorie pro Gerät | Schadenmeldung und Reparaturtracking | Export für Inventur und Versicherungszwecke
+- **URL**: https://resqio.de/modul/ausruestungsverwaltung
 
 ### 3. Wartungsmanagement
-Planung und Dokumentation von Prüfungen.
-- **Beschreibung**: Sicherstellung der Einsatzbereitschaft gemäß DGUV und Herstellervorgaben.
-- **Funktionen**: Automatische Termine, Checklisten, Mängeldokumentation, externe Prüfer, Zeiterfassung.
-- **Modul-URL**: https://resqio.de/modul/wartungsmanagement
+Digitale Prüf- und Wartungsverwaltung mit Unterschrift für alle Feuerwehrgeräte und Fristen
 
-### 4. Kiosk-Modus
-Zentrale Oberfläche für die Mannschaft (Touch-optimiert).
-- **Beschreibung**: Ermöglicht der Mannschaft die selbstständige Erledigung von Aufgaben ohne PC-Zugang.
-- **Funktionen**: 57 Module, RFID/QR-Login, Fahrtenbuch-Wizard, Mängelmelder, Wäsche-Management, Inventur-Modus, KI-Assistent.
-- **Modul-URL**: https://resqio.de/modul/kiosk-modus
+- **Beschreibung**: Die zentrale Gerätewart-Software für einsatzbereite Feuerwehren. Prüffristen nach DGUV und Herstellervorgaben werden automatisch überwacht, Checklisten geführt und Arbeitszeiten dokumentiert. Extern durchgeführte Wartungen durch Fachfirmen lassen sich nahtlos integrieren.
+- **Funktionen**: Wartungsvorlagen mit Intervallen, Checklisten & PDF-Export | Automatische Generierung von Wartungsterminen & Erinnerungen | Dokumentation mit Fotos, Zeitaufwand und ausführender Person | Geführte Intervalle pro Kategorie (Voranzeige & Wiederholung) | Integration externer Dienstleister & Ad-Hoc Wartungen | Zeiterfassung & Kostenkalkulation pro Wartung
+- **URL**: https://resqio.de/modul/wartungsmanagement
+
+### 4. Kiosk-Modus - Die zentrale Mannschaftsoberfläche
+57 Module touchscreen-optimiert – die Mannschaft und der Gerätewart erledigen alle Aufgaben selbstständig am Tablet, auch ohne Internet.
+
+- **Beschreibung**: Der RESQIO Kiosk-Modus ist die zentrale Schnittstelle zwischen System und Mannschaft. Auf großen Touchscreens oder Tablets in der Fahrzeughalle stehen der gesamten Mannschaft 57 speziell optimierte Module zur Verfügung – von der Fahrtenbuchpflege über die Gerätewartung bis zur Belegeinreichung. Jeder Kamerad kann alle Aufgaben rund um seine Funktion eigenständig erledigen, ohne am Desktop-PC arbeiten zu müssen. Der integrierte KI-Assistent mit Spracheingabe unterstützt Führungskräfte mit sofortigem Zugriff auf Wiki-Inhalte und Systemdaten. Dedizierte URL-Routen für jeden Bereich ermöglichen korrekte Browser-Navigation. Wizard-geführte Workflows machen komplexe Tätigkeiten kinderleicht. Unified Login via RFID-Chip, PIN oder QR-Code ermöglicht sekundenschnelle Anmeldung ohne Tastatur.
+- **Funktionen**: 57 Kiosk-optimierte Module für alle Mannschaftsaufgaben | Funktionsbereich: Einsatz, Wartung, Fahrtenbuch, Mängel, Wäsche, Inventur, Finanzen | Rollenspezifische Kacheln: AGT-Bereich, Gerätewart-Tools, Kassier-Funktionen | Unified Login: RFID-Chip, PIN, QR-Code, Digitaler Dienstausweis | KI-Assistent mit Spracheingabe: Gemeinsamer Chat für Führungskräfte mit Voice-Input und Wiki-Zugriff | Intelligente Wartungs-Wizards mit Schritt-für-Schritt-Führung und Foto-Upload
+- **URL**: https://resqio.de/modul/kiosk-modus
 
 ### 5. Lagemonitor & Führung
-Echtzeit-Führungssystem für den Einsatz.
-- **Beschreibung**: Interaktive Lagekarte mit Hydranten, POIs, taktischen Zeichen (DIN 14034-3) und Dokumentenzugriff.
-- **Funktionen**: Wasserkarten mit Durchflussmengen, KI-Dokumentenbereitstellung, Abschnittsbildung, Führungskräfte-Synchronisation.
-- **Modul-URL**: https://resqio.de/modul/lagemonitor
+Digitale Lagekarte und Führungssystem für die Feuerwehr – Echtzeit-Hydrantenübersicht, taktische Zeichen, POI-Management und KI-gestützter Dokumentenzugriff.
 
-### 6. Atemschutzüberwachung (ASÜ)
-Sicherheit für den Atemschutzeinsatz.
-- **Beschreibung**: Überwachung aktiver Trupps und Verwaltung der Tauglichkeit (G26.3).
-- **Funktionen**: Echtzeit-Monitoring (Druck/Zeit), Rückwegberechnung, FwDV 7 konform, RFID-Scan.
-- **Modul-URL**: https://resqio.de/modul/atemschutzueberwachung
+- **Beschreibung**: Die zentrale Kommandozentrale für die Einsatzleitung. Der Lagemonitor vereint alle taktisch relevanten Informationen in einer intelligenten Oberfläche: Interaktive Wasserkarten zeigen verfügbare Hydranten in Echtzeit, lokale POIs (Sammelstellen, Gefahrenstellen, Zufahrten) sind sofort abrufbar, und das KI-gestützte Dokumentenmanagement liefert relevante Objektpläne und Einsatzunterlagen automatisch. Von Lagemeldungen über Fahrzeugstatus bis zur Atemschutzüberwachung – alles auf einen Blick.
+- **Funktionen**: Integrierte Wasserkarten mit Hydranten-Overlay und Durchfluss-Informationen | Lokales POI-Management: Sammelstellen, Gefahrenstellen, Zufahrten und Sperrungen | Intelligentes Hydrantenmanagement mit Status-Tracking (verfügbar/defekt/gesperrt) | KI-gestütztes Dokumentenmanagement: Automatische Bereitstellung relevanter Pläne | Modulare Spalten: Status, Lagemeldungen, Karte, Personal, Hydranten, Dokumente, Bilder | Führungskräfte-Monitor (Quick Overview) für mobile Endgeräte
+- **URL**: https://resqio.de/modul/lagemonitor
 
-### 7. Einsatzerfassung
-Vollständiges Einsatzmanagement und Dokumentation.
-- **Beschreibung**: Von Alarmierung bis zum fertigen Bericht.
-- **Funktionen**: KI-Berichtsassistent, Übungs-Quizmaster, QR-Portal für externe Kräfte, Verbrauchsmaterial-Tracking.
-- **Modul-URL**: https://resqio.de/modul/einsatzerfassung
+### 6. Digitale Atemschutzüberwachung
+Digitale Atemschutzüberwachung für Feuerwehren – Echtzeit-Truppmonitoring, G26.3-Tauglichkeitsverwaltung und FwDV 7 konforme Dokumentation in einer Lösung.
 
-### 8. Personal & Mannschaftsverwaltung
-Verwaltung der Kameraden und Qualifikationen.
-- **Beschreibung**: Stammdaten, Qualifikationen, Beförderungen und Verfügbarkeitsanalyse.
-- **Funktionen**: Überprüfungsportal, Rollenmanagement, KI-Personalanalyse, Beförderungsvorschläge, Notfallkontakte.
-- **Modul-URL**: https://resqio.de/modul/mannschaftsverwaltung
+- **Beschreibung**: Maximale Sicherheit im Atemschutzeinsatz – digital und lückenlos. Das Modul kombiniert die operative Überwachung im Einsatz (Timer, Drücke, Trupps) mit der administrativen Verwaltung der Tauglichkeit und Belastungsübungen. Alle AGT-Einsätze werden automatisch dokumentiert und stehen für Auswertungen zur Verfügung.
+- **Funktionen**: Echtzeit-Monitoring aktiver Trupps (Druck, Zeit) | Automatische Berechnung von Rückweg und Warnschwellen | Integration in Einsatzbericht & PDF-Protokoll | Fristenmanagement & Belastungsübungs-Tracking | Dashboard-Widget für Atemschutz-Pool-Status
+- **URL**: https://resqio.de/modul/atemschutzueberwachung
 
-### 9. Objektpläne
-Digitale Einsatzpläne nach DIN 14095.
-- **Beschreibung**: Bereitstellung von Feuerwehrplänen nach DIN 14095 mit GPS-Abruf.
-- **Funktionen**: GPS-basierter Abruf im Einsatz, Revisionsfristen-Überwachung, Gefahrstoffdatenbank.
-- **Modul-URL**: https://resqio.de/modul/objektplaene
+### 7. Einsätze & Übungen - Vollspektrum Einsatzmanagement
+Vollständige Einsatzabwicklung von Alarmierung bis Nachbereitung - mit Quiz-Training, Navigation, externem Portal und Verbrauchsmaterial-Tracking.
 
-### 10. Wasserförderung
-Hydraulische Planung langer Förderstrecken.
-- **Beschreibung**: Berechnung von Pumpenstandorten und Druckverlusten für komplexe Strecken.
-- **Funktionen**: Höhenprofil-Analyse, Multi-Plan Simulation, Kavitationswarnung, Isochronen-Analyse.
-- **Modul-URL**: https://resqio.de/modul/wasserfoerderung
+- **Beschreibung**: Das umfassendste Einsatzmanagement-System für moderne Feuerwehren. Von der Alarmierung über die Dokumentation bis zur strategischen Nachbereitung. Der integrierte Quiz-Master ermöglicht realitätsnahe Szenario-Schulungen. Bei Großeinsätzen können externe Feuerwehren via QR-Code ohne Login Statusmeldungen und Lagemeldungen mit Fotos abgeben. Die Multi-App-Navigation führt Sie mit Ihrer bevorzugten App (Google Maps, Apple Maps, Waze, OSM) direkt zur Einsatzstelle. Verbrauchsmaterialien wie Ölbinder, Schaummittel und Medizin werden automatisch erfasst und nachverfolgt. KI-Textassistenz und automatisches Geocoding runden das System ab.
+- **Funktionen**: Quiz-Master: Interaktives Szenario-basiertes Quiz-System mit automatischem Session-Tracking, Punktevergabe und Erfolgsstatistiken für realitätsnahe Wissensabfragen | Externes Feuerwehr-Portal: QR-Code-Zugang für externe Kräfte bei Großeinsätzen | Status-Meldungen: Vordefinierte Status (Anfahrt, Vor Ort, Verfügbar, Zurückgekehrt) per One-Tap | Lagemeldungen mit Foto: Situationsberichte mit Bildanhang und Wichtig-Markierung | Material-Erfassung: Vordefinierte Verbrauchsmaterialien plus manuelle Eingabe | Multi-App-Navigation: Integration von Google Maps, Apple Maps, Waze und OpenStreetMap
+- **URL**: https://resqio.de/modul/einsatzerfassung
 
-### 11. Vorbeugender Brandschutz
-Brandschau und Mängelmanagement.
-- **Beschreibung**: Digitalisierte Durchführung von Brandschauen mit Fristencontrolling.
-- **Funktionen**: Mängelerfassung vor Ort, Fristenmanagement, Berichtsgenerierung, Begehungshistorie.
-- **Modul-URL**: https://resqio.de/modul/brandschutz
+### 8. Mannschaftsverwaltung
+Vollständige digitale Personalverwaltung für Feuerwehren – Mitglieder, Qualifikationen, Dienstzeiten und Verfügbarkeit in einer zentralen Lösung.
 
-### 12. Logistik & Warenbewegung
-Tracking von Materialflüssen.
-- **Beschreibung**: Überwachung von Ausrüstung bei Versand, Reparatur und Lagerumlagerung.
-- **Funktionen**: Lieferscheine, Statusverfolgung (Werkstatt, Extern), Standortzuweisung.
-- **Modul-URL**: https://resqio.de/modul/warenbewegung
+- **Beschreibung**: Die Mannschaftsverwaltung ist das Rückgrat jeder gut organisierten Feuerwehr. Alle Mitgliederdaten, Qualifikationen, Ausbildungen und Dienstzeiten werden zentral verwaltet. Der Tageskalender zeigt die aktuelle Verfügbarkeit aller Kameraden, während das Schichtplanungs-Modul eine vorausschauende Personalplanung ermöglicht.
+- **Funktionen**: Vollständige Mitgliederprofile mit Kontaktdaten und Funktionen | Qualifikationsmanagement mit Ablaufdaten und Erinnerungen | Verfügbarkeitskalender und Schichtplanung | Tageskalender mit aktueller Einsatzstärke | Selbstständige Datenpflege durch Mitglieder | Export für Behörden und Meldewesen
+- **URL**: https://resqio.de/modul/mannschaftsverwaltung
 
-### 13. Fahrtenbuch
-Fuhrparkmanagement und KFZ-Dokumentation.
-- **Beschreibung**: Digitales Fahrtenbuch für HLF, LF, TLF, MTW und Kommandowagen.
-- **Funktionen**: Besatzungserfassung, Verbrauchsstatistik, KFZ-Kostenkontrolle, Sammelbericht, Lückenerkennung.
-- **Modul-URL**: https://resqio.de/modul/fahrtenbuch
+### 9. Objektpläne & Brandschutzunterlagen
+Digitale Objektpläne, Feuerwehrpläne und Brandschutzunterlagen – sofort verfügbar bei Alarm.
 
-### 14. Wäscheverwaltung
-Kleiderkammer und Hygiene-Management.
-- **Beschreibung**: Management der Persönlichen Schutzausrüstung (PSA) und Reinigung.
-- **Funktionen**: Waschzyklen-Zähler, Pool-Wäsche vs. persönliche Ausrüstung, Status-Tracking.
-- **Modul-URL**: https://resqio.de/modul/waescheverwaltung
+- **Beschreibung**: Alle Objektpläne, Feuerwehreinsatzpläne und Brandschutzunterlagen digital verwaltet und bei Alarmierung sofort verfügbar. GPS-basierte automatische Vorschläge zeigen die relevanten Pläne für die aktuelle Einsatzstelle. Integration mit dem Lagemonitor für direkte Nutzung im Einsatz.
+- **Funktionen**: Digitale Bibliothek für alle Feuerwehrpläne und -unterlagen | GPS-basierte automatische Planvorschläge | Versionierung und Aktualisierungshistorie | Integration in Lagemonitor und Kiosk | Offline-Verfügbarkeit für Einsatz ohne Internet | Kategorisierung nach Objekttyp und Gefährdungsklasse
+- **URL**: https://resqio.de/modul/objektplaene
 
-### 15. Mannschafts-Self-Service
-Mitgliederportal für eigenständige Datenpflege.
-- **Beschreibung**: Eigenständige Stammdaten- und Qualifikationspflege durch Mitglieder.
-- **Funktionen**: Token-Login (passwortlos), Stammdaten-Update, Qualifikations-Einsicht, Belegeinreichung.
-- **Modul-URL**: https://resqio.de/modul/mannschafts-self-service
+### 10. Wasserkarte & Hydranten
+Digitale Hydrantenkarte mit Live-Status, Durchflussmengen und automatischer Einbindung in den Einsatz.
 
-### 16. Budget & Finanzen
-Einfache Kassenführung für Abteilungen.
-- **Beschreibung**: Verwaltung von Budgets, Ausgaben und Belegen.
-- **Funktionen**: Beleg-Upload, Freigabeprozesse, Haushaltsstellen.
-- **Modul-URL**: https://resqio.de/modul/budget-finanzen
+- **Beschreibung**: Die integrierte Wasserkarte zeigt alle verfügbaren Löschwasserquellen in Echtzeit. Hydranten, Löschwasserteiche und Brunnen sind mit Status, Leistungsdaten und letztem Prüfdatum erfasst. Bei Alarmierung werden die nächsten verfügbaren Quellen automatisch hervorgehoben.
+- **Funktionen**: Interaktive Hydrantenkarte mit GPS-Koordinaten | Status-Tracking (verfügbar/defekt/gesperrt) in Echtzeit | Durchfluss- und Leistungsdaten pro Hydrant | Prüffristen und Wartungshistorie | Integration in Lagemonitor und Kiosk | Offline-Karten für Einsatz ohne Internet
+- **URL**: https://resqio.de/modul/wasserkarte
 
-### 17. Treasury / Kassier
-Professionelle Vereinsbuchhaltung.
-- **Beschreibung**: Finanzverwaltung für Feuerwehrvereine (§2b UStG) mit SEPA-Export.
-- **Funktionen**: SEPA-Sammelüberweisungen, Veranstaltungsabrechnung, KI-Belegerkennung, Kameradschaftskassen, ZIP-Download.
-- **Modul-URL**: https://resqio.de/modul/treasury-kassier
+### 11. Wasserförderung & Löschwasserversorgung
+Planung und Dokumentation von Wasserförderungsstrecken für Großbrände und besondere Lagen.
 
-### 18. Digitaler Dienstausweis
-Identifikation via Smartphone Wallet.
-- **Beschreibung**: Digitaler Feuerwehr-Dienstausweis für Apple Wallet und Google Wallet.
-- **Funktionen**: QR-Code für Kiosk-Login, Qualifikationsanzeige, fälschungssicher, kontaktloses Login.
-- **Modul-URL**: https://resqio.de/modul/digitaler-dienstausweis
+- **Beschreibung**: Das Wasserförderungs-Modul unterstützt bei der Planung und Dokumentation von Löschwasserstrecken für Brände, bei denen die normale Wasserversorgung nicht ausreicht. Pumpenstandorte, Schlauchstrecken und Fördermengen werden digital erfasst und ausgewertet.
+- **Funktionen**: Planung von Wasserförderungsstrecken mit Kartenintegration | Erfassung von Pumpenstandorten und Schlauchstrecken | Berechnung von Fördermengen und Druckverlusten | Dokumentation und Berichterstellung | Szenarien-Bibliothek für Ausbildung
+- **URL**: https://resqio.de/modul/wasserfoerderung
 
-### 19. Integration & API
-Offene Schnittstellen für Systemintegration.
-- **Beschreibung**: Bidirektionale REST API, MQTT-Broker und Webhooks für Drittanbindungen.
-- **Funktionen**: REST API, MQTT (IoT), Kalender-Sync (Almos/Divera), Webhooks, individuelle Middleware.
-- **Modul-URL**: https://resqio.de/modul/schnittstellen
+### 12. Wiki & Wissensmanagement
+Internes Wiki für Dienstvorschriften, Ausbildungsunterlagen und Feuerwehrwissen – mit KI-Suche.
 
-### 20. Email Template Management
-Kommunikations-Branding.
-- **Beschreibung**: Einheitliches E-Mail-Design mit dynamischen Vorlagen.
-- **Funktionen**: Drag-and-Drop Editor, Variablen-Support, Vorschau.
-- **Modul-URL**: https://resqio.de/modul/email-templates
+- **Beschreibung**: Das integrierte Wiki-System macht das gesamte Wissen der Feuerwehr für alle zugänglich. Dienstvorschriften, Ausbildungsunterlagen, Objektinformationen und interne Regelungen werden zentral verwaltet und können von jedem Kameraden jederzeit abgerufen werden. Der KI-Assistent beantwortet Fragen direkt aus dem Wiki-Inhalt.
+- **Funktionen**: Strukturiertes Wiki mit Kategorien und Tags | KI-Suche und intelligente Volltextsuche | Versionierung und Änderungshistorie | Integration in KI-Assistenten | Offline-Verfügbarkeit | Einfacher Editor für alle Mitglieder
+- **URL**: https://resqio.de/modul/wiki-integration
 
-### 21. Statistik & Reporting
-Auswertungen, Jahresberichte und Druckzentrum.
-- **Beschreibung**: Datenanalyse und Berichtswesen für Entscheidungsträger.
-- **Funktionen**: Jahresberichte, Heatmap, Chart-Drill-Down, Gerätealtersanalyse, Fahrzeug-Aktivitäts-Tab, HTML/PDF Export.
-- **Modul-URL**: https://resqio.de/modul/reporting
+### 13. Warenbewegung & Verbrauchsmaterial
+Lückenlose Erfassung aller Warenbewegungen – vom Einkauf bis zum Verbrauch bei Einsätzen.
 
-### 22. Inventur & Bestand
-Bestandsprüfung mit Scanner-Support.
-- **Beschreibung**: Soll-Ist-Abgleich von Fahrzeugen und Lagern.
-- **Funktionen**: Scan-gestützte Inventur, Differenzlisten, Kategoriefilter.
-- **Modul-URL**: https://resqio.de/modul/inventur
+- **Beschreibung**: Das Warenbewegungsmodul erfasst alle Materialbewegungen der Feuerwehr lückenlos – vom Einkauf über die Einlagerung bis zum Verbrauch im Einsatz. Bestände werden in Echtzeit aktualisiert, Nachbestellungen automatisch vorgeschlagen und Kosten korrekt den jeweiligen Einsätzen zugeordnet.
+- **Funktionen**: Lagerverwaltung mit Echtzeit-Beständen | Wareneingangsbuchung und Inventur | Verbrauchserfassung bei Einsätzen | Automatische Bestandswarnungen | Lieferantenverwaltung und Bestellwesen | Kostenauswertung und Controlling
+- **URL**: https://resqio.de/modul/warenbewegung
 
-### 23. Formular-Center
-Dokumentenablage und Vorlagenmanagement.
-- **Beschreibung**: Zentraler Zugriff auf Vordrucke, Dienstanweisungen und Dokumente.
-- **Funktionen**: PDF-Vorschau, Drucken am Kiosk, Kategorisierung.
-- **Modul-URL**: https://resqio.de/modul/formular-center
+### 14. Digitales Fahrtenbuch
+Elektronisches Fahrtenbuch für alle Feuerwehrfahrzeuge – rechtssicher, einfach und immer aktuell.
 
-### 24. Mängelmanagement
-Defekt-Meldesystem für Kameraden.
-- **Beschreibung**: Zentraler Prozess für Reparatur-Tickets von der Meldung bis zur Behebung.
-- **Funktionen**: QR-Meldung durch Mannschaft, Ticket-System für Gerätewarte, Statusverfolgung.
-- **Modul-URL**: https://resqio.de/modul/maengelmanagement
+- **Beschreibung**: Das digitale Fahrtenbuch ersetzt die Papierversion vollständig. Fahrten werden direkt am Kiosk oder per App erfasst, automatisch mit Fahrzeug- und Personaldaten verknüpft und für steuerliche und verwaltungstechnische Zwecke korrekt dokumentiert. Kraftstoffverbrauch und Kilometerstand werden automatisch ausgewertet.
+- **Funktionen**: Digitale Fahrterfassung mit Start/Ziel und Kilometerstand | Automatische Fahrzeugzuordnung | Kraftstoffverbrauch-Tracking | Einsatz-Verknüpfung für korrekte Dokumentation | Export für Steuer und Versicherung | Fahrten-Statistik und Auswertungen
+- **URL**: https://resqio.de/modul/fahrtenbuch
 
-### 25. KI-Assistenz & Automatisierung
-Künstliche Intelligenz für die Feuerwehr.
-- **Beschreibung**: LLM-gestützte Assistenz für Berichte, Personalplanung und Datenanalyse.
-- **Funktionen**: KI-Chatbot, automatische Textoptimierung, Adresskorrekturen, Personalprognosen, Qualifikationsverfall-Cluster, Retention-Risk-Analyse, Szenario-Simulation.
-- **Modul-URL**: https://resqio.de/modul/ki-integration
+### 15. Wäscheverwaltung & Schutzkleidung
+Digitale Verwaltung von Schutzkleidung und Wäsche – Abgabe, Reinigung und Rückgabe lückenlos dokumentiert.
 
-### 26. Planspiel System
-Ausbildung und Einsatzsimulation.
-- **Beschreibung**: Virtuelles Planübungssystem mit über 6.000 Codes und 200+ Szenarien.
-- **Funktionen**: Game Master Modus, Dispatcher Simulation, Bewertungssystem, 74 Kategorien.
-- **Modul-URL**: https://resqio.de/modul/planspiel
+- **Beschreibung**: Die Wäscheverwaltung digitalisiert den gesamten Prozess rund um Schutzkleidung und persönliche Ausrüstung. Von der Abgabe zur Reinigung über die Werkstatt bis zur Rückgabe an den Kameraden – jeder Schritt wird dokumentiert und ist transparent nachvollziehbar.
+- **Funktionen**: Digitale Abgabe und Annahme am Kiosk-Terminal | Status-Tracking durch den Reinigungsprozess | Persönliche Zuordnung von Schutzkleidung | Wäsche-Delegation für Kameraden durch Vorgesetzte | Erinnerungen bei langer Bearbeitungsdauer | Statistik und Auswertungen
+- **URL**: https://resqio.de/modul/waescheverwaltung
 
-### 27. Wirt-Modul
-Getränke und Verpflegung am Kiosk.
-- **Beschreibung**: Digitale Strichliste und Kasse für die Vereinsgastronomie.
-- **Funktionen**: Kiosk-Verkaufsoberfläche, Lagerbestand, Abrechnung, Statistiken.
-- **Modul-URL**: https://resqio.de/modul/wirt-modul
+### 16. Mannschafts-Self-Service
+Eigenständige Datenpflege für alle Kameraden – Qualifikationen, Kontaktdaten und persönliche Einstellungen.
 
-### 28. RESQIO Kreis-Platform (RKP)
-Föderale Plattform für Kreisfeuerwehrverbände.
-- **Beschreibung**: Koordination und Verwaltung mehrerer Feuerwehren auf Kreisebene mit voller Datensouveränität.
-- **Funktionen**: Echtzeit-Monitoring, Schulungskalender, Atemschutzwerkstatt-Buchung, kreisweites Sonderausrüstungs-Register, Fahrzeug-Dashboard, Kreislager, KI-Assistent.
+- **Beschreibung**: Der Mannschafts-Self-Service gibt jedem Kameraden die Möglichkeit, seine eigenen Daten zu pflegen und aktuell zu halten. Qualifikationen, Kontaktdaten, Verfügbarkeiten und persönliche Einstellungen können eigenständig verwaltet werden – ohne Eingriff der Führung.
+- **Funktionen**: Eigene Profilpflege für alle Mitglieder | Qualifikationen und Zertifikate selbst hochladen | Verfügbarkeitsplanung und Kalender | Persönliche Benachrichtigungseinstellungen | Einsatzhistorie und eigene Statistiken
+- **URL**: https://resqio.de/modul/mannschafts-self-service
+
+### 17. Budget & Finanzverwaltung
+Transparente Finanzverwaltung für Feuerwehren – Budget, Ausgaben und Genehmigungen digital verwaltet.
+
+- **Beschreibung**: Die digitale Finanzverwaltung bringt Transparenz in alle Geldflüsse der Feuerwehr. Budgets werden geplant, Ausgaben erfasst und Genehmigungen digital verwaltet. Der Kassier hat jederzeit den vollen Überblick, und die gesamte Mannschaft kann den Budgetstatus transparent einsehen.
+- **Funktionen**: Budgetplanung und -überwachung | Digitale Belegeinreichung mit KI-Kategorisierung | Genehmigungsworkflow für Ausgaben | Jahresabschluss-Unterstützung | Kostenstellenmanagement | Export für Steuerberater und Behörden
+- **URL**: https://resqio.de/modul/budget-finanzen
+
+### 18. Treasury & Kassiermodul
+Professionelle Kassenverwaltung für Feuerwehrvereine – mit doppelter Buchführung, Jahresabschluss und GoBD-konformer Aufwandsentschädigung.
+
+- **Beschreibung**: Das Treasury-Modul bietet eine vollständige Kassenverwaltung für Feuerwehrvereine nach deutschen Buchhaltungsstandards. Doppelte Buchführung, Jahresabschluss, Kassenprüfung und Mitgliedsbeitragsverwaltung sind in einer Lösung integriert. Aufwandsentschädigungen werden revisionssicher dokumentiert und Jahresbescheinigungen auf Knopfdruck erstellt.
+- **Funktionen**: Doppelte Buchführung | Jahresabschluss und Kassenprüfung | Mitgliedsbeitragsverwaltung | SEPA-Lastschrift | Spendenquittungen | Export für Steuerberater
+- **URL**: https://resqio.de/modul/treasury-kassier
+
+### 19. Digitaler Dienstausweis
+Digitaler Feuerwehr-Dienstausweis auf dem Smartphone – immer dabei, immer aktuell.
+
+- **Beschreibung**: Der digitale Dienstausweis ersetzt den physischen Ausweis auf dem Smartphone. Mit NFC und QR-Code kann er für schnelle Anmeldung am Kiosk, zur Identifikation bei Einsätzen oder als offizieller Nachweis der Feuerwehrzugehörigkeit genutzt werden.
+- **Funktionen**: Digitaler Ausweis auf dem Smartphone | NFC und QR-Code für schnelle Nutzung | Aktuelle Qualifikationen und Funktionen | Kiosk-Login per Dienstausweis | Offizielle Identifikation bei Einsätzen
+- **URL**: https://resqio.de/modul/digitaler-dienstausweis
+
+### 20. Schnittstellen & Integrationen
+Offene API und Schnittstellen zu Leitstellen, Alarmsystemen und anderen Softwarelösungen.
+
+- **Beschreibung**: RESQIO integriert sich nahtlos in die bestehende IT-Infrastruktur der Feuerwehr. Über offene APIs und standardisierte Schnittstellen können Leitstellen, Alarmsysteme, Gemeindesoftware und andere Lösungen angebunden werden. MQTT-Broker und Webhook-Unterstützung ermöglichen flexible Anbindung.
+- **Funktionen**: REST API für alle Datenzugriffe | MQTT-Broker für Echtzeit-Kommunikation | Webhook-Unterstützung für Events | Leitstellen-Integration | FMS-Status-Integration | DATEV und Buchhaltungsexport
+- **URL**: https://resqio.de/modul/schnittstellen
+
+### 21. E-Mail & Kommunikation
+Professionelle E-Mail-Templates und automatische Benachrichtigungen für alle Feuerwehr-Kommunikation.
+
+- **Beschreibung**: Das Kommunikationsmodul automatisiert die gesamte E-Mail-Kommunikation der Feuerwehr. Von Termineinladungen über Wartungserinnerungen bis zu offiziellen Benachrichtigungen – alle E-Mails werden professionell und einheitlich versendet. Anpassbare Templates ermöglichen individuelles Corporate Design.
+- **Funktionen**: Anpassbare E-Mail-Templates | Automatische Benachrichtigungen für alle Ereignisse | Massen-E-Mail für die Mannschaft | E-Mail-Protokoll und Zustellbestätigung | Integration mit allen Modulen
+- **URL**: https://resqio.de/modul/email-templates
+
+### 22. Reporting & Statistiken
+Umfassende Auswertungen und Berichte für Führung, Gemeinde und Behörden.
+
+- **Beschreibung**: Das Reporting-Modul liefert alle Auswertungen, die eine moderne Feuerwehr benötigt. Einsatzstatistiken, Personalauswertungen, Wartungsberichte und Finanzreports werden automatisch erstellt und können direkt für Gemeinde, Landkreis und Behörden exportiert werden.
+- **Funktionen**: Einsatzstatistiken und Jahresberichte | Personalauswertungen und Dienstzeiten | Wartungs- und Prüfberichte | Finanzreports | Exportformate für alle Behörden | Individuelle Auswertungen und Dashboards
+- **URL**: https://resqio.de/modul/reporting
+
+### 23. Brandschutz & Technische Anlagen
+Verwaltung von Brandmeldeanlagen, Löschanlagen und anderen technischen Brandschutzanlagen.
+
+- **Beschreibung**: Das Brandschutz-Modul verwaltet alle technischen Brandschutzanlagen – von der Brandmeldeanlage über Löschanlagen bis zu Rauchwarnmeldern. Prüffristen, Wartungshistorie und Alarmierungspläne werden zentral dokumentiert und überwacht.
+- **Funktionen**: Anlagenregister mit technischen Daten | Prüffristen-Tracking | Wartungshistorie und Dokumentation | Alarmierungspläne und Zuständigkeiten | Integration in Objektpläne
+- **URL**: https://resqio.de/modul/brandschutz
+
+### 24. Inventur & Bestandserfassung
+Digitale Inventur mit Barcode-Scan und automatischem Abgleich mit dem Geräteverzeichnis.
+
+- **Beschreibung**: Die digitale Inventur ermöglicht eine schnelle und fehlerfreie Bestandserfassung. Per Barcode- oder QR-Code-Scan werden alle Geräte erfasst und automatisch mit dem Geräteverzeichnis abgeglichen. Abweichungen werden sofort angezeigt und können direkt bearbeitet werden.
+- **Funktionen**: Barcode und QR-Code Scan | Automatischer Abgleich mit Geräteverzeichnis | Abweichungsanzeige und Sofortkorrektur | Inventur-Protokoll | Kiosk-Integration für Hallen-Inventur
+- **URL**: https://resqio.de/modul/inventur
+
+### 25. Formular-Center & Druckvorlagen
+Alle Formulare und Druckvorlagen der Feuerwehr digital – ausfüllen, drucken und archivieren.
+
+- **Beschreibung**: Das Formular-Center stellt alle benötigten Formulare und Druckvorlagen zentral bereit. Von FwDV-konformen Formularen über Anträge bis zu individuellen Vorlagen – alles digital ausfüllbar, druckbar und archivierbar. KI-Unterstützung beim Ausfüllen spart Zeit.
+- **Funktionen**: Bibliothek mit allen Standard-Formularen | Digitales Ausfüllen mit KI-Unterstützung | PDF-Export und Druckfunktion | Archivierung ausgefüllter Formulare | Individuelle Vorlagen erstellen
+- **URL**: https://resqio.de/modul/formular-center
+
+### 26. Mängelmanagement
+Digitale Mängelerfassung und -behebung – vom QR-Code-Scan bis zur Erledigung.
+
+- **Beschreibung**: Das Mängelmanagement digitalisiert die Erfassung und Behebung von Defekten und Mängeln. Per QR-Code-Scan am betroffenen Gerät kann jeder Kamerad einen Mangel melden – mit Foto, Beschreibung und Dringlichkeit. Zuständige werden automatisch benachrichtigt und der Bearbeitungsstatus ist für alle transparent.
+- **Funktionen**: QR-Code-Scan am Gerät für schnelle Mängelerfassung | Foto und Beschreibung | Dringlichkeitsstufen | Automatische Benachrichtigung | Status-Tracking bis zur Erledigung | Integration mit Wartungsmanagement
+- **URL**: https://resqio.de/modul/maengelmanagement
+
+### 27. KI-Integration & souveräne Assistenz
+Souveräne KI, die echte Arbeit abnimmt: Berichte schreiben, Belege per Foto verbuchen, Texte optimieren – Ihre Daten bleiben dabei geschützt in Deutschland.
+
+- **Beschreibung**: Der KI-Assistent von RESQIO ist in alle Module eingebettet und nimmt Ihnen konkrete Arbeit ab – vom Einsatzbericht über die Belegverbuchung bis zur Personalplanung. Dabei setzt RESQIO auf souveräne KI: Die Verarbeitung läuft über in Deutschland gehostete, DSGVO-konforme Dienste, und Sie behalten immer die Kontrolle. Jede KI-Ausgabe ist klar als KI-generiert gekennzeichnet, und die endgültige Entscheidung trifft immer ein Mensch – nie die Maschine.
+- **Funktionen**: Beleg-OCR: Rechnung oder Kassenbon einfach abfotografieren – die KI liest Betrag, Datum und Lieferant automatisch aus und schlägt die Verbuchung vor | KI-Berichtsassistent: Aus Einsatzdaten und Stichpunkten entsteht ein vollständiger, druckreifer Einsatzbericht | Diktieren statt tippen: Berichte und Notizen einfach einsprechen – die KI transkribiert und strukturiert automatisch | Text-Assistent: Formulierungen verbessern, Rechtschreibung korrigieren, Texte professionell aufbereiten – überall in RESQIO | Rechnungs- & Abrechnungshilfe: Kostenbescheide und Abrechnungstexte werden auf Basis der Einsatzdaten vorformuliert | Wissensassistent: Fragen in natürlicher Sprache stellen und sofort Antworten aus dem internen Wiki und der Hilfe erhalten
+- **URL**: https://resqio.de/modul/ki-integration
+
+### 28. Planspiel & Ausbildungssimulation
+Interaktive Planspielsimulation für taktische Ausbildung und Einsatztraining.
+
+- **Beschreibung**: Das Planspiel-Modul ermöglicht realitätsnahe taktische Ausbildungsszenarien ohne echten Einsatz. Führungskräfte trainieren Entscheidungsprozesse, Ressourcenplanung und Kommunikation in simulierten Einsatzlagen. Verschiedene Schwierigkeitsstufen und vordefinierte Szenarien machen das Training abwechslungsreich.
+- **Funktionen**: Vordefinierte Einsatzszenarien | Taktische Karte mit simulierten Ressourcen | Führungskräfte-Training | Auswertung und Feedback | Eigene Szenarien erstellen
+- **URL**: https://resqio.de/modul/planspiel
+
+### 29. Wirt-Modul & Veranstaltungsmanagement
+Digitale Verwaltung von Feuerwehrfesten, Veranstaltungen und Getränkeverkauf.
+
+- **Beschreibung**: Das Wirt-Modul unterstützt bei der Organisation und Durchführung von Feuerwehrfesten und Vereinsveranstaltungen. Von der Planung über den Getränkeverkauf bis zur Abrechnung – alles digital und übersichtlich.
+- **Funktionen**: Veranstaltungsplanung und -verwaltung | Getränkekarte und Kassensystem | Tagesabrechnung | Einnahmen-Tracking | Personalplanung für Veranstaltungen
+- **URL**: https://resqio.de/modul/wirt-modul
+
+### 30. Kreisplattform & Verbandsintegration
+Übergreifende Plattform für Feuerwehrverbände und Landkreise – alle Einheiten vernetzt.
+
+- **Beschreibung**: Die Kreisplattform vernetzt alle Feuerwehren eines Landkreises oder Verbands in einer gemeinsamen Plattform. Gegenseitige Alarmierung, Ressourcenabfragen und übergreifende Statistiken ermöglichen eine effiziente Zusammenarbeit bei Großeinsätzen und in der täglichen Verwaltung.
+- **Funktionen**: Kreis-Dashboard mit allen Einheiten | Gegenseitige Alarmierung und Unterstützungsanfragen | Kreisweite Ressourcenübersicht | Übergreifende Statistiken und Berichte | Gemeinsame Dokumentenbibliothek
 - **URL**: https://resqio.de/kreis
 
-### 29. Arbeitsstunden & Zeiterfassung
-Systematische Erfassung ehrenamtlicher Arbeit.
-- **Beschreibung**: Erfassung von Arbeitsstunden mit Geräte-Zuordnung und Kiosk-Integration.
-- **Funktionen**: Equipment-Referenz, Bulk-Erfassung, Kiosk-Wizard, Statistik-Export.
-- **Modul-URL**: https://resqio.de/modul/arbeitsstunden
+### 31. Arbeitsstunden & Tätigkeitsnachweise
+Digitale Erfassung von Arbeitsstunden und Tätigkeitsnachweisen für alle Feuerwehrmitglieder.
 
-### 30. BSW & Veranstaltungen
-Verwaltung von Brandsicherheitswachen.
-- **Beschreibung**: Planung und Abrechnung von BSW und kommunalen Veranstaltungen.
-- **Funktionen**: Klientenverwaltung, Smart Invoicing, BSW-Kalender, Abrechnungsmanagement.
-- **Modul-URL**: https://resqio.de/modul/bsw-events
+- **Beschreibung**: Das Arbeitsstunden-Modul erfasst alle geleisteten Stunden der Feuerwehrmitglieder – ob Übungen, Einsätze, Wartungsarbeiten oder Verwaltungsaufgaben. Tätigkeitsnachweise werden automatisch erstellt und können für Gemeinde, Arbeitgeber oder Steuerberater exportiert werden.
+- **Funktionen**: Manuelle und automatische Stundenerfassung | Kategorisierung nach Tätigkeitsart | Tätigkeitsnachweise als PDF | Jahresauswertung pro Mitglied | Export für Gemeinde und Arbeitgeber
+- **URL**: https://resqio.de/modul/arbeitsstunden
 
-### 31. Einsatzleiterwiki
-Offline-Wissensmanagement.
-- **Beschreibung**: Integration des Einsatzleiterwiki direkt in die Lagekarte.
-- **Funktionen**: Offline-Verfügbarkeit, taktische Checklisten, schneller Zugriff im Einsatz.
-- **Modul-URL**: https://resqio.de/modul/wiki-integration
+### 32. BSW-Events & Veranstaltungskalender
+Übergreifender Veranstaltungskalender für Bezirk, Kreis und Verband.
 
-### 32. Wasserversorgungskarte
-Hydrantenplan und Wasserentnahme.
-- **Beschreibung**: Map-basiertes Management von Wasserentnahmestellen und Hydranten.
-- **Funktionen**: OpenFireMap-Integration, Offline-Caching, Filterung nach Kapazität und Typ.
-- **Modul-URL**: https://resqio.de/modul/wasserversorgung
+- **Beschreibung**: Der BSW-Event-Kalender aggregiert alle relevanten Veranstaltungen aus dem Feuerwehrverband, Bezirk und Kreis in einer übersichtlichen Ansicht. Mitglieder behalten den Überblick über Wettkämpfe, Lehrgänge und Veranstaltungen auf übergeordneter Ebene.
+- **Funktionen**: Aggregierter Veranstaltungskalender | Filterfunktion nach Ebene und Kategorie | Anmeldung und Teilnahmeverwaltung | Integration in lokalen Kalender | Push-Benachrichtigungen
+- **URL**: https://resqio.de/modul/bsw-events
 
 ### 33. Stab & Führungsunterstützung
-Digitale Stabsarbeit für Großschadenlagen.
-- **Beschreibung**: Vollständige digitale Unterstützung für Führungsstäbe bei Großschadenlagen, komplexen Einsätzen und Übungen. Unterstützt alle Stabsfunktionen (S1–S6), strukturierte Lageführung und Nachbereitung mit Lessons Learned.
-- **Funktionen**: Einsatztagebuch, Kanban-Aufgabenboard, Besprechungsprotokoll, MANV-Patientenliste, interaktive 3D-Lagekarte, taktische Zeichen (DIN 14034-3), Funk-Protokoll, Gebietsanalyse, Einsatzabschnitte, Lessons Learned, KI-Besprechungszusammenfassung.
-- **Modul-URL**: https://resqio.de/modul/stab-modul
+Digitale Stabsarbeit für Großschadenlagen: Personalmeldestelle, GPS-Tracking, MANV-Sichtungsliste, Funk-Protokoll, Einsatztagebuch und Hochwasser-Lageentwicklung.
+
+- **Beschreibung**: Das Stab-Modul unterstützt Führungskräfte bei anspruchsvollen Einsätzen und Großschadenslagen. Strukturierte Werkzeuge für alle Sachgebiete des Stabes (S1–S6), ein vollständiges digitales Einsatztagebuch mit Zeitstempeln, eine interaktive Lagekarte mit GPS-Echtzeit-Tracking sowie eine vollständige Einsatzdokumentation sorgen dafür, dass Entscheidungen nachvollziehbar bleiben. Die integrierte Personalmeldestelle erfasst alle eingesetzten Kräfte – auch externe Organisationen – mit Stärkemeldungen und Schichtwechsel-Protokoll. Bei Hochwasserlagen und Katastrophenschutzeinsätzen stehen Pegelstände und Lageentwicklung direkt im Stab zur Verfügung.
+- **Funktionen**: Personalmeldestelle: An- und Abmeldung aller Kräfte per RFID, PIN, QR-Code oder Liste – auch externe Organisationen | Stärkemeldung und Schichtwechsel-Protokoll auf Knopfdruck drucken | GPS-Echtzeit-Tracking: Fahrzeuge und Einsatzkräfte live auf der Lagekarte verfolgen | Hochwasser & Lageentwicklung: Pegelstände live eingebunden, Einsatzentwicklung für Katastrophenschutz verfolgen | MANV-Sichtungsliste mit Triage T1–T4 – Patientenverwaltung und Transportübersicht | Funkprotokoll mit Kanal-Management – strukturierte Kommunikationsdokumentation
+- **URL**: https://resqio.de/modul/stab-modul
 
 ### 34. Fahrzeugverwaltung & Flotte
-Zentrale Fahrzeug- und Anhängerverwaltung.
-- **Beschreibung**: Strukturierte Verwaltung aller Fahrzeuge und Anhänger mit Stammdaten und Flottenstatus.
-- **Funktionen**: Fahrzeugstammdaten, Flottenstatus, Einsatzbereitschaft, Zuordnung von Ausrüstung und Personal.
-- **Modul-URL**: https://resqio.de/modul/fahrzeugverwaltung
+Zentrale Verwaltung aller Fahrzeuge mit Stammdaten, Status und Einsatzhistorie.
+
+- **Beschreibung**: Behalten Sie Ihre gesamte Fahrzeugflotte im Griff – von der Stammdatenpflege bis zur Statusübersicht. Das Modul ergänzt das Fahrtenbuch um eine umfassende Flottenverwaltung mit Fahrzeugprofilen, Ausstattungsmerkmalen und einer klaren Übersicht über Einsatzbereitschaft und Verfügbarkeit jedes Fahrzeugs.
+- **Funktionen**: Fahrzeugsprofile mit Stammdaten (Kennzeichen, Typ, Ausstattung) | Statusverfolgung und Einsatzbereitschaft | Verknüpfung mit Einsätzen und Fahrtenbucheinträgen | Fahrzeugbezogene Wartungsintervalle und -dokumentation | Übersicht über Fahrzeugzuordnungen im Einsatz
+- **URL**: https://resqio.de/modul/fahrzeugverwaltung
 
 ### 35. Lehrgänge & Qualifikationsmanagement
-Planung und Verwaltung von Lehrgängen.
-- **Beschreibung**: Umfassendes Management von Lehrgängen und Qualifikationen für alle Mitglieder.
-- **Funktionen**: Lehrgangsplanung, Qualifikationsverfolgung, Ablauffristen, Anmeldeprozesse, Exportberichte.
-- **Modul-URL**: https://resqio.de/modul/lehrgaenge
+Verwaltung von Lehrgängen, Qualifikationen und Beförderungsvoraussetzungen für alle Mitglieder.
+
+- **Beschreibung**: Behalten Sie den Überblick über absolvierte und geplante Lehrgänge Ihrer gesamten Mannschaft. Das Modul unterstützt bei der Planung von Fortbildungen, verfolgt den Qualifikationsstand jedes Mitglieds und liefert die Datengrundlage für Beförderungsentscheidungen – alles zentral und auf dem aktuellen Stand.
+- **Funktionen**: Lehrgangserfassung mit Datum, Abschluss und Ablaufdatum | Qualifikationsübersicht pro Mitglied | Aggregierte Auswertung des Aus- und Fortbildungsstands | Verknüpfung mit Beförderungsvoraussetzungen | Export und Nachweisführung
+- **URL**: https://resqio.de/modul/lehrgaenge
 
 ### 36. Kalender & Terminverwaltung
-Zentraler Kalender für die Feuerwehr.
-- **Beschreibung**: Übersichtliche Terminverwaltung für Übungen, Veranstaltungen und Diensttermine.
-- **Funktionen**: Monats- und Wochenansicht, Terminbenachrichtigungen, Kalenderexport, Terminkoordination.
-- **Modul-URL**: https://resqio.de/modul/kalender
+Zentraler Kalender für Dienste, Übungen, Veranstaltungen und Termine Ihrer Feuerwehr.
+
+- **Beschreibung**: Der integrierte Kalender bündelt alle relevanten Termine Ihrer Organisation an einem Ort. Ob Übungen, Veranstaltungen oder Sonderdienste – alle Beteiligten haben stets den gleichen Informationsstand. Externe Kalenderquellen lassen sich einbinden, sodass ein vollständiges Bild aller Aktivitäten entsteht.
+- **Funktionen**: Zentraler Terminkalender für die gesamte Organisation | Verschiedene Terminarten (Übung, Veranstaltung, Dienst, Wartung) | Teilnehmerverwaltung und Rückmeldung | Einbindung externer Kalenderquellen | Verknüpfung mit Einsätzen und Mannschaftsverwaltung
+- **URL**: https://resqio.de/modul/kalender
 
 ### 37. Beförderungssystem
-Strukturierte Beförderungsverwaltung.
-- **Beschreibung**: Verwaltung von Beförderungsvorschlägen und Dienstgradentwicklung nach Landesvorgaben.
-- **Funktionen**: Beförderungsvorschläge, Fristen-Tracking, Dienstgradhistorie, Export für Landesstellen.
-- **Modul-URL**: https://resqio.de/modul/befoerderungssystem
+Automatische Ermittlung von Beförderungsvorschlägen auf Basis hinterlegter Richtlinien.
+
+- **Beschreibung**: Das Beförderungsmodul unterstützt Führungskräfte dabei, Beförderungsentscheidungen transparent und regelkonform zu treffen. Auf Basis der hinterlegten Qualifikationen und Dienstzeiten werden Beförderungsvorschläge automatisch ermittelt – nachvollziehbar und ohne aufwändige Einzelprüfungen.
+- **Funktionen**: Automatische Prüfung von Beförderungsvoraussetzungen | Übersicht beförderungsfähiger Mitglieder | Berücksichtigung von Qualifikationen und Dienstzeiten | Dokumentation von Beförderungshistorie | Flexible Konfiguration der Beförderungsregeln
+- **URL**: https://resqio.de/modul/befoerderungssystem
+
+### 38. Alarmmonitor
+Live-Alarmdarstellung im Gerätehaus – Einsatzdaten bei Alarmierung sofort sichtbar
+
+- **Beschreibung**: Der RESQIO Alarmmonitor verwandelt jeden Bildschirm im Gerätehaus in ein professionelles Einsatz-Display. Bei Alarmierung werden alle relevanten Einsatzdaten sofort angezeigt: Einsatzort, Stichwort, alarmierte Fahrzeuge und Personalstatus. Im Ruhemodus zeigt der Monitor nützliche Informationen wie Hydrantenkarte, Wetterradar, Fahrzeugstatus und aktuelle Diensteinteilung – damit das Gerätehaus immer informiert ist.
+- **Funktionen**: Live-Alarmdarstellung mit Einsatzort, Stichwort und Einsatzkräften bei Alarmierung | Fahrzeugstatus-Übersicht – welche Fahrzeuge sind verfügbar, im Einsatz oder in Wartung | Personalstatus auf einem Blick – wer ist verfügbar, wer ist alarmiert | Hydrantenkarte im Ruhemodus – immer die nächste Wasserversorgung im Blick | Wetterradar-Integration für aktuelle Wetterlage | FMS-Integration für Echtzeit-Fahrzeugstatus via Funk
+- **URL**: https://resqio.de/modul/alarmmonitor
+
+### 39. Kommunikationscenter
+Die richtigen Informationen zur richtigen Zeit – automatische Benachrichtigungen per E-Mail, WhatsApp oder Telegram.
+
+- **Beschreibung**: Das Kommunikationscenter sorgt dafür, dass keine wichtige Information untergeht. Ob fällige Wartung, ablaufende Qualifikation, neuer Mangel oder eingereichter Beleg – alle Beteiligten werden automatisch über den Kanal benachrichtigt, den sie bevorzugen. E-Mail, WhatsApp und Telegram lassen sich unabhängig voneinander aktivieren. Kein manuelles Nachfassen mehr, kein übersehener Hinweis.
+- **Funktionen**: Automatische Benachrichtigungen bei fälligen Wartungen und Prüffristen | Hinweise bei ablaufenden Qualifikationen und Untersuchungsfristen | Meldungen bei neuen Mängeln und Eskalationen | Bestätigungen bei eingereichten und genehmigten Belegen | Hinweise bei Hersteller-Rückrufen betroffener Geräte | Erinnerungen bei überfälligen Wäscheaufträgen
+- **URL**: https://resqio.de/modul/kommunikationscenter
+
+### 40. Personalmeldestelle
+Wer ist da, wer ist im Einsatz, wer braucht Ablösung? Die digitale Anwesenheits- und Schichtverwaltung für Großschadenslagen.
+
+- **Beschreibung**: Bei Hochwasser, MANV oder langen Einsätzen zählt jede Person. Die Personalmeldestelle erfasst An- und Abwesenheit von eigenen Kräften und externen Helfern in Echtzeit – ob per Dienstausweis, PIN, QR-Code oder von Hand. Die Einsatzleitung sieht jederzeit die aktuelle Stärke, weiß, wer schon zu lange im Dienst ist, und kann Schichten geordnet wechseln. Alles rechtssicher dokumentiert und DSGVO-konform.
+- **Funktionen**: Check-In/Check-Out per Dienstausweis, PIN, QR-Code oder von Hand | Erfassung externer Organisationen und Helfer | Live-Stärkemeldung für die Einsatzleitung | Warnung bei überlangen Schichten | Selbst-Anmeldung über QR-Code ohne Login | Verschiedene Druckvarianten: Stärkemeldung, Lageprotokoll, Meldekarten und Schichtwechsel
+- **URL**: https://resqio.de/modul/personalmeldestelle
+
+### 41. Gefahrstoff & Ausbreitungsprognose
+Gefahrstofflagen besser einschätzen: Ausbreitung visualisieren, Absperrbereiche berechnen und Schutzempfehlungen erhalten.
+
+- **Beschreibung**: Bei Gefahrstoffeinsätzen unterstützt RESQIO die Einsatzleitung mit einer anschaulichen Ausbreitungsprognose. Auf Basis von Stoffdaten, Wetter und Windrichtung wird die mögliche Ausbreitung als Gefahrenzone direkt auf der Lagekarte dargestellt – inklusive vorgeschlagenem Absperr- und Evakuierungsbereich. Eine umfangreiche Stoffdatenbank und Schutzempfehlungen helfen bei der ersten Einschätzung. Als Entscheidungshilfe gedacht – der Fachberater bleibt unverzichtbar.
+- **Funktionen**: Ausbreitungsprognose als Gefahrenzone auf der Lagekarte | Automatische Berücksichtigung von Windrichtung und Wetterlage | Vorschlag für Absperr- und Evakuierungsbereiche | Stoffdatenbank mit toxikologischen Kennzahlen und Grenzwerten | Schutzempfehlungen und Kontakte zu Fachberatern (z. B. TUIS, Giftnotruf) | Nachschlagewerk für Isolierungs- und Sicherheitsabstände
+- **URL**: https://resqio.de/modul/gefahrstoff-ausbreitung
+
+### 42. Veranstaltungen & Arbeitsdienste
+Arbeitsdienste, Übungen und Termine organisieren – mit Selbst-Anmeldung der Mitglieder und klarer Einteilung.
+
+- **Beschreibung**: Ob Arbeitsdienst, Ausbildung oder Vereinsveranstaltung: Mit dem Veranstaltungsmodul planen Sie Termine zentral und lassen sich Mitglieder eigenständig anmelden. Arbeitsbereiche und Zeitfenster werden übersichtlich eingeteilt, Zu- und Absagen laufen automatisch zusammen. Optional mit Genehmigung, Zielgruppen-Filter und Terminabfrage im Doodle-Stil.
+- **Funktionen**: Zentrale Terminplanung für Arbeitsdienste, Übungen und Veranstaltungen | Selbst-Anmeldung der Mitglieder – auch am Kiosk-Tablet | Einteilung nach Arbeitsbereichen und Zeitfenstern | Optionaler Genehmigungsworkflow und Zielgruppen-Filter | Terminabfrage im Doodle-Stil zur Terminfindung | Wiederverwendbare Vorlagen für regelmäßige Termine
+- **URL**: https://resqio.de/modul/veranstaltungen
+
+### 43. Verbandbuch & Vorfälle
+Verbandbuch nach DGUV rechtssicher digital führen – Verletzungen und Vorfälle mit Unterschrift dokumentieren.
+
+- **Beschreibung**: Jede Verletzung im Dienst muss dokumentiert werden. Das digitale Verbandbuch erfüllt die Anforderungen der DGUV (204-021) und hält Erste-Hilfe-Leistungen, Unfälle und Vorfälle revisionssicher fest – inklusive digitaler Unterschrift. So sind alle Nachweise vollständig, sicher aufbewahrt und im Ernstfall sofort auffindbar.
+- **Funktionen**: Digitales Verbandbuch nach DGUV 204-021 | Erfassung von Verletzungen, Unfällen und Vorfällen | Digitale Unterschrift direkt am Eintrag | Unfallbeschreibung und Zeugenangaben | Sichere, revisionssichere Aufbewahrung | Schneller Zugriff im Bedarfsfall
+- **URL**: https://resqio.de/modul/verbandbuch
+
+### 44. Offline-Modus & Ausfallsicherheit
+Funktioniert auch ohne Internet: Kiosk und wichtige Daten bleiben im Gerätehaus jederzeit einsatzbereit.
+
+- **Beschreibung**: Gerade im Einsatz oder in Gerätehäusern mit schwachem Empfang darf die Software nicht stehenbleiben. RESQIO hält die wichtigsten Daten – Objektpläne, Kontakte, Geräte, Hydranten, Fahrzeuge und Qualifikationen – lokal bereit. Erfassungen wie Check-Ins oder Verbrauch werden auch offline gespeichert und automatisch nachgetragen, sobald wieder eine Verbindung besteht. Zuverlässig, ohne doppelte Einträge.
+- **Funktionen**: Lokale Bereithaltung von Objektplänen, Kontakten, Geräten und Hydranten | Offline-Erfassung von Check-Ins und Verbrauch mit späterem Abgleich | Konfigurierbar, welche Daten offline verfügbar sind | Automatische Synchronisation bei wiederhergestellter Verbindung | Schutz vor doppelten Buchungen | Überwachung des Sync-Status je Gerät
+- **URL**: https://resqio.de/modul/offline-modus
+
+## Wissen & Ratgeber
+
+Fachartikel zu Vorschriften und Praxis — Übersicht unter https://resqio.de/wissen
+
+- **[DGUV-Prüffristen bei der Feuerwehr: Der Überblick für Gerätewarte](https://resqio.de/wissen/dguv-pruefristen-feuerwehr)**: Welche Prüffristen gelten für Leitern, Schläuche, Atemschutz und elektrische Geräte der Feuerwehr? Überblick über DGUV-Vorgaben, Dokumentationspflichten und wie Gerätewarte Fristen sicher im Griff behalten.
+- **[Atemschutz-Dokumentation nach FwDV 7: Diese Pflichten gelten](https://resqio.de/wissen/atemschutz-dokumentation-fwdv7)**: FwDV 7 kompakt: jährliche Unterweisung, Belastungsübung, arbeitsmedizinische Vorsorge und Einsatznachweise für Atemschutzgeräteträger. Was dokumentiert werden muss und wie die digitale Atemschutzüberwachung hilft.
+- **[Feuerwehrsoftware einführen: Der Leitfaden für Kommandanten und Gemeinden](https://resqio.de/wissen/feuerwehrsoftware-einfuehren-leitfaden)**: Von Excel und Papier zur digitalen Wache: Anforderungen definieren, DSGVO klären, Mannschaft mitnehmen. Schritt-für-Schritt-Leitfaden zur Einführung einer Feuerwehr-Verwaltungssoftware – mit Checkliste.
 
 ## Technische Details
 
 - **Hosting**: Deutschland (hochsichere Cloud-Umgebung, DSGVO-konform)
-- **Frontend**: Progressiv Web App (PWA), installierbar auf Desktop und Mobile
+- **Frontend**: Progressive Web App (PWA), installierbar auf Desktop und Mobile
 - **Offline-Fähigkeit**: Kritische Module (Einsatzbericht, Wiki, Lagekarte) cachen Daten lokal
 - **Echtzeit**: WebSocket-Verbindungen für Live-Updates (Lagekarte, Stab, ASÜ)
 - **API**: RESTful API + MQTT für IoT-Integrationen
 - **Standards**: DGUV, FwDV, DIN 14095, DIN 14034-3, §2b UStG
+
+## Rechtliches
+
+- **Impressum**: https://resqio.de/impressum
+- **Datenschutzerklärung**: https://resqio.de/datenschutz
 
 ## Kontakt & Demo
 
