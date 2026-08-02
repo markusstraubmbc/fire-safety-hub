@@ -23,6 +23,9 @@ npm run build:dev
 # Manually regenerate public/sitemap.xml from module-data.ts
 npm run generate-sitemap
 
+# Manually regenerate public/llms.txt from module-data.ts + wissen-data.ts
+npm run generate-llms
+
 # Lint code
 npm run lint
 
@@ -166,6 +169,18 @@ All user-facing content is in German (Deutsch). Maintain German language for:
 - **Excluded slugs**: `kreis-platform` (has a dedicated `/kreis` page, handled by a Vercel 301 redirect)
 - **lastmod**: always set to today's date at generation time, so Google sees fresh dates after every build
 - **NEVER edit `public/sitemap.xml` manually** — changes will be overwritten on the next build
+
+### llms.txt Auto-Generation (AI-Sitemap)
+
+`public/llms.txt` is the file ChatGPT, Claude, Perplexity & Co. read to understand what RESQIO is. It used to be hand-written and drifted badly from reality — 8 modules missing, a `/modul/wasserversorgung` URL for a page that never existed (the slug is `wasserkarte`), and no mention of `/wissen` at all. It is now generated.
+
+- **Script**: `scripts/generate-llms.cjs`, wired into `prebuild` next to the sitemap generator
+- **Source of truth**: `src/data/module-data.ts` (title, shortDesc, longDesc, first 6 `features`) and `src/data/wissen-data.ts`
+- **Output**: `public/llms.txt` — all module pages + `/kreis` + `/wissen` articles + `/impressum` + `/datenschutz`
+- **`kreis-platform`** is mapped to `/kreis` (same special case as the sitemap), so no dead URL is emitted
+- **Editorial prose** (Über RESQIO, Preismodelle, Kernfunktionen, Technische Details, Kontakt) lives in the script — edit it there, not in the output
+- **Pricing stays "auf Anfrage"** — `PricingSection.tsx` sets `price: ""`, so the site shows no figures. `llms.txt` must not reveal more than the website does; do not copy the numbers from the pricing table further down this file into it.
+- **NEVER edit `public/llms.txt` manually** — changes will be overwritten on the next build
 
 ### Wissen / Ratgeber Section (SEO content)
 - **Data source**: `src/data/wissen-data.ts` (articles as `Record<slug, WissenArticle>`)
