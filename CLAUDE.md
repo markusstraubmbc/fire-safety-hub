@@ -218,9 +218,18 @@ The API path `/api/` is blocked in `public/robots.txt` (`Disallow: /api/`) to pr
 
 - **sitemap.xml is auto-generated** — never edit it manually (see "Sitemap Auto-Generation" above)
 - **robots.txt** (`public/robots.txt`) — `/api/` is disallowed for all bots; all public pages are allowed
-- **Canonical URLs** — set dynamically in `ModulDetail.tsx` for each module page; set statically in `index.html` for the homepage
+- **Canonical URLs** — set dynamically in `ModulDetail.tsx` for each module page; set statically in `index.html` for the homepage. `createPage()` in `scripts/prerender.mjs` **removes** the static canonical from the template before inserting the page-specific one — every prerendered page must end up with exactly **one** `<link rel="canonical">`. Two conflicting canonicals make Google discard both.
 - **`kreis-platform` slug** exists in `module-data.ts` but is excluded from the sitemap. Vercel serves a 301 redirect `/modul/kreis-platform` → `/kreis`. Do not add it to the sitemap.
 - **After any content change to a page**, run `npm run generate-sitemap` and commit the updated `public/sitemap.xml` so Google sees a fresh `lastmod` date and re-crawls the affected page.
+- **Every route MUST be prerendered.** `public/.htaccess` has no blanket SPA fallback any more — unknown URLs return a real `404` via `ErrorDocument 404 /404.html` instead of `200 /index.html` (soft 404). A new `<Route>` in `src/App.tsx` that is not also emitted by `scripts/prerender.mjs` will therefore return **404 in production**, even though it works in `npm run dev`. After adding a route, verify: `npm run build && ls dist/<route>/index.html`.
+- **URL form is "no trailing slash"** — `.htaccess` sets `DirectorySlash Off` so `/kreis` serves the prerendered file directly with 200 (no 301 hop to `/kreis/`), and `/kreis/` 301-redirects to `/kreis`. Sitemap, canonicals and internal links must all use the slash-less form.
+
+### Hosting reality (resqio.de)
+
+The live site does **not** run on Vercel. It is a Plesk server (nginx → Apache, `X-Powered-By: PleskLin`), so `vercel.json` is currently inert and `public/.htaccess` is the file that actually governs routing. Two consequences:
+
+- Phusion Passenger must stay disabled (`PassengerEnabled off` at the top of `.htaccess`) — otherwise it intercepts every non-file request and answers `500 Web application could not be started`.
+- nginx serves static files directly and bypasses Apache, so the `mod_headers`/`mod_expires` blocks in `.htaccess` do **not** apply to them. Cache-Control and the security headers for static assets have to be configured server-side in Plesk.
 
 ## About RESQIO Platform
 

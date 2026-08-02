@@ -167,6 +167,16 @@ function createPage({ title, description, keywords, canonicalUrl, bodyContent, n
     `<meta property="twitter:url" content="${escAttr(canonicalUrl)}" />`
   );
 
+  // Statischen Canonical aus dem Template entfernen, BEVOR der seiteneigene
+  // gesetzt wird. index.html enthaelt fest verdrahtet
+  //   <link rel="canonical" href="https://resqio.de/" />
+  // fuer die Startseite. Da createPage() bisher nur zusaetzlich eingefuegt hat,
+  // trug jede prerenderte Seite ZWEI canonical-Tags: den richtigen und einen,
+  // der auf die Startseite zeigte. Google wertet widersprechende Canonicals
+  // als ungueltig und waehlt selbst – im schlechtesten Fall die Startseite,
+  // wodurch die Unterseiten aus dem Index fallen.
+  html = html.replace(/[ \t]*<link[^>]+rel="canonical"[^>]*>\s*\n?/i, "");
+
   // Build head insert block
   let headInsert = `  <link rel="canonical" href="${escAttr(canonicalUrl)}" />\n`;
 

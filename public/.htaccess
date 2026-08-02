@@ -25,8 +25,21 @@
 
 DirectoryIndex index.html
 
+# Kein 301 von /kreis auf /kreis/
+#
+# Standardmaessig schickt mod_dir (DirectorySlash) fuer jedes Verzeichnis ohne
+# Trailing Slash einen 301 auf die Variante mit Slash. Genau die URLs ohne
+# Slash stehen aber in sitemap.xml und in allen Canonicals – Google bekam also
+# fuer jede Seite erst einen Redirect und landete dann auf einer URL, die per
+# Canonical wieder zurueckzeigt. Mit "DirectorySlash Off" liefert die
+# Rewrite-Regel weiter unten die prerenderte index.html direkt mit 200 aus.
+# Ungefaehrlich, weil Options -Indexes gesetzt ist und die Seite ausschliesslich
+# absolute Asset-Pfade (/assets/...) verwendet.
+DirectorySlash Off
+
 # Custom error pages
-ErrorDocument 404 /index.html
+# 404.html wird von scripts/prerender.mjs erzeugt und traegt noindex.
+ErrorDocument 404 /404.html
 ErrorDocument 500 /index.html
 
 <IfModule mod_rewrite.c>
@@ -37,8 +50,21 @@ ErrorDocument 500 /index.html
   RewriteCond %{HTTPS} off
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-  # Remove trailing slash (except for root)
-  RewriteCond %{REQUEST_FILENAME} !-d
+  # www -> non-www
+  # www.resqio.de lieferte bisher 200 mit identischem Inhalt. Der Canonical
+  # zeigte zwar korrekt auf die Variante ohne www, ein 301 ist aber das
+  # eindeutigere Signal und buendelt Linkjuice auf eine Hostvariante.
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+  # /modul und /modul/ sind keine echten Seiten (nur Client-Redirects in
+  # App.tsx) und werden nicht prerendert -> serverseitig auf die Startseite.
+  RewriteRule ^modul/?$ / [R=301,L]
+
+  # Remove trailing slash
+  # Bewusst OHNE "!-d": prerenderte Seiten sind Verzeichnisse, und genau fuer
+  # die brauchen wir den Redirect, damit /kreis/ und /kreis nicht beide mit 200
+  # antworten (Duplicate Content). Kein Loop, weil DirectorySlash off ist.
   RewriteCond %{REQUEST_URI} (.+)/$
   RewriteRule ^ %1 [R=301,L]
 
@@ -57,10 +83,21 @@ ErrorDocument 500 /index.html
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
 
-  # SPA fallback: everything else goes to index.html
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ /index.html [L]
+  # KEIN pauschaler SPA-Fallback mehr.
+  #
+  # Vorher ging jede unbekannte URL per Rewrite auf /index.html – und zwar mit
+  # Status 200. Damit meldete der Server jeden Tippfehler und jeden toten
+  # Altlink als gueltige Seite (Soft 404), was Google in der Search Console
+  # als "Soft 404" anmeckert und Crawl-Budget verbrennt.
+  #
+  # Da scripts/prerender.mjs inzwischen JEDE Route als eigenes Verzeichnis mit
+  # index.html ausgibt (Startseite, /kreis, alle /modul/*, /wissen + Artikel,
+  # /impressum, /datenschutz), greift fuer echte Seiten die Verzeichnisregel
+  # weiter oben. Alles andere faellt korrekt auf ErrorDocument 404 -> /404.html
+  # mit echtem 404-Status, und React rendert dort die NotFound-Seite.
+  #
+  # WICHTIG: Neue Routen in src/App.tsx muessen in scripts/prerender.mjs
+  # ergaenzt werden – sonst liefern sie 404 statt der Seite.
 </IfModule>
 
 # Prevent directory listings
