@@ -1,3 +1,28 @@
+# Phusion Passenger deaktivieren (Plesk-Hosting)
+#
+# resqio.de laeuft auf einem Plesk-Server (nginx -> Apache) mit aktiviertem
+# Phusion Passenger. Passenger faengt dort JEDEN Request ab, der nicht direkt
+# auf eine existierende Datei zeigt, und versucht eine Node-/Ruby-Anwendung zu
+# starten. Da diese Seite ein rein statischer Vite-Build ist, gibt es keine
+# solche Anwendung -> Passenger antwortet mit
+# "500 Web application could not be started".
+#
+# Folge: /, /index.html und alle Assets lieferten 200, aber saemtliche Routen
+# ohne Dateiendung (/kreis, /modul/*, /wissen/*) lieferten 500 – also 48 von 49
+# Seiten aus der sitemap.xml. Die mod_rewrite-Regeln weiter unten kamen gar
+# nicht erst zum Zug, weil Passenger vorher greift.
+#
+# Mit "PassengerEnabled off" uebernimmt wieder mod_rewrite: Verzeichnisse mit
+# prerenderter index.html werden direkt ausgeliefert, alles andere faellt auf
+# den SPA-Fallback zurueck.
+#
+# Der <IfModule>-Guard ist wichtig: Auf Servern ohne Passenger (z. B. Vercel
+# oder lokales Apache) waere die Direktive sonst unbekannt und wuerde ihrerseits
+# einen 500er ausloesen.
+<IfModule mod_passenger.c>
+  PassengerEnabled off
+</IfModule>
+
 DirectoryIndex index.html
 
 # Custom error pages
