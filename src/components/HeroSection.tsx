@@ -78,6 +78,15 @@ const HeroSection = () => {
           >
             Einsatzbereit. Geprüft.{" "}
             <span className="text-gradient-fire">Professionell.</span>
+            {/*
+              Der Zusatz steht bewusst IM h1: vorher lautete das gerenderte h1 nur
+              "Einsatzbereit. Geprüft. Professionell." – ohne einen einzigen Suchbegriff.
+              Das prerenderte h1 trug den Begriff zwar, wurde aber bei der Hydration
+              ersetzt. Der Text muss identisch zu scripts/prerender.mjs bleiben.
+            */}
+            <span className="mt-4 block text-xl font-semibold leading-snug text-primary-foreground/85 md:text-2xl">
+              Die Feuerwehr-Verwaltungssoftware für Einsatz, Technik und Mannschaft
+            </span>
           </h1>
 
           <p

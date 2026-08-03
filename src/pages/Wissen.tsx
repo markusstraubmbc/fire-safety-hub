@@ -46,6 +46,10 @@ const Wissen = () => {
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-foreground">
               Wissen für die <span className="text-primary italic">moderne Wehr</span>
+              {/* Muss identisch zu scripts/prerender.mjs bleiben – siehe HeroSection. */}
+              <span className="mt-3 block text-lg font-semibold text-muted-foreground md:text-xl">
+                Ratgeber und Fachbeiträge rund um Feuerwehr-Software
+              </span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Praxisnahe Leitfäden zu Prüffristen, Atemschutz-Dokumentation und Digitalisierung –
