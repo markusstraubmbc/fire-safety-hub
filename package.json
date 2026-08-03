@@ -15,7 +15,8 @@
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",
     "prepare": "husky",
-    "generate-llms": "node scripts/generate-llms.cjs"
+    "generate-llms": "node scripts/generate-llms.cjs",
+    "indexnow": "node scripts/indexnow-submit.cjs"
   },
   "dependencies": {
     "@fontsource/poppins": "^5.2.7",
