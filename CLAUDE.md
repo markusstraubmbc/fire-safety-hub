@@ -26,6 +26,9 @@ npm run generate-sitemap
 # Manually regenerate public/llms.txt from module-data.ts + wissen-data.ts
 npm run generate-llms
 
+# Submit all sitemap URLs to IndexNow (Bing, Yandex, Seznam, Naver — not Google)
+npm run indexnow
+
 # Lint code
 npm run lint
 
@@ -181,6 +184,14 @@ All user-facing content is in German (Deutsch). Maintain German language for:
 - **Editorial prose** (Über RESQIO, Preismodelle, Kernfunktionen, Technische Details, Kontakt) lives in the script — edit it there, not in the output
 - **Pricing stays "auf Anfrage"** — `PricingSection.tsx` sets `price: ""`, so the site shows no figures. `llms.txt` must not reveal more than the website does; do not copy the numbers from the pricing table further down this file into it.
 - **NEVER edit `public/llms.txt` manually** — changes will be overwritten on the next build
+
+### IndexNow (Crawl-Anstoß für Bing & Co.)
+
+- **Script**: `scripts/indexnow-submit.cjs`, manuell via `npm run indexnow` (bewusst NICHT im Build — jeder Build würde sonst alle URLs erneut melden)
+- **Key-Datei**: `public/65d138ee65b0381ab594674033754b82.txt` — muss unter `https://resqio.de/<KEY>.txt` erreichbar sein und exakt den Key enthalten. Der Key ist kein Geheimnis, er belegt nur Schreibzugriff auf die Domain. Datei niemals umbenennen oder löschen, sonst schlägt jeder Submit mit 403 fehl.
+- **Teilnehmer**: Bing (und damit Copilot), Yandex, Seznam, Naver. **Google nimmt an IndexNow nicht teil.**
+- **Für Google** gibt es keinen programmatischen Weg mehr: `google.com/ping?sitemap=` antwortet 404, `bing.com/ping` antwortet 410 Gone — beide Endpunkte sind abgeschaltet. Die Indexing API ist auf `JobPosting` und `BroadcastEvent` beschränkt. Bleibt nur die Search Console: Sitemap neu einreichen und einzelne URLs über die URL-Prüfung.
+- Das Script prüft vor dem Submit, ob die Key-Datei live ist und den richtigen Inhalt hat — schlägt sonst mit klarer Meldung fehl statt in einem 403 der API zu enden.
 
 ### Wissen / Ratgeber Section (SEO content)
 - **Data source**: `src/data/wissen-data.ts` (articles as `Record<slug, WissenArticle>`)
