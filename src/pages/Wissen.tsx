@@ -8,7 +8,7 @@ import { wissenArtikel } from "@/data/wissen-data";
 const Wissen = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Wissen für Feuerwehren: DGUV, FwDV 7 & Digitalisierung | RESQIO";
+    document.title = "Feuerwehr-Wissen: DGUV, FwDV 7 & Digitalisierung | RESQIO";
 
     const setMeta = (name: string, content: string) => {
       let tag = document.querySelector(`meta[name="${name}"]`);

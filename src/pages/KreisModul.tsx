@@ -41,8 +41,8 @@ const KreisModul = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    const pageTitle = "RESQIO Kreismodul | Kreisfeuerwehrverband Software — Alle Wehren vernetzt";
-    const pageDescription = "RESQIO Kreismodul: Die DSGVO-konforme Plattform für Kreisbrandmeister und Landratsämter. Alle Feuerwehren Ihres Landkreises vernetzt — Schulungen koordinieren, Werkstätten buchen, Ressourcen kreisweit verwalten. Ende-zu-Ende verschlüsselt, volle Datensouveränität.";
+    const pageTitle = "RESQIO Kreismodul – Software für Kreisfeuerwehrverbände";
+    const pageDescription = "DSGVO-konforme Plattform für Kreisbrandmeister und Landratsämter: alle Wehren des Landkreises vernetzt, Schulungen und Werkstätten kreisweit koordiniert.";
     const pageUrl = "https://resqio.de/kreis";
 
     document.title = pageTitle;
