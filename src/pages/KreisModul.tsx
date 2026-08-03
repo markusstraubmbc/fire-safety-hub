@@ -109,6 +109,8 @@ const KreisModul = () => {
     productScript.textContent = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
+      // Muss identisch zu scripts/prerender.mjs bleiben.
+      "@id": "https://resqio.de/kreis#software",
       name: "RESQIO Kreismodul",
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
@@ -318,6 +320,10 @@ const KreisModul = () => {
                     Ihr Landkreis.<br />
                     Alle Wehren.<br />
                     <span className="text-primary dark:text-primary">Eine Plattform.</span>
+                    {/* Muss identisch zu scripts/prerender.mjs bleiben – siehe HeroSection. */}
+                    <span className="mt-4 block text-xl font-semibold leading-snug text-muted-foreground md:text-2xl">
+                      Feuerwehr-Software für Kreisfeuerwehrverbände und Landratsämter
+                    </span>
                   </h1>
                   <p className="text-xl md:text-2xl text-muted-foreground font-medium max-w-2xl leading-relaxed">
                     Reduzieren Sie Verwaltungsaufwand, zentralisieren Sie Prozesse und behalten Sie den Überblick — ohne die Datenhoheit der einzelnen Wehren einzuschränken.

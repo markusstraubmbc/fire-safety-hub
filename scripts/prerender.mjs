@@ -246,7 +246,7 @@ function createPage({ title, description, keywords, canonicalUrl, bodyContent, n
 {
   const homeBody = `<main>
 <header><nav aria-label="Hauptnavigation"><a href="/">RESQIO</a></nav></header>
-<section><h1>RESQIO – Die intelligente Feuerwehr-Verwaltungssoftware</h1>
+<section><h1>Einsatzbereit. Geprüft. Professionell.<span>Die Feuerwehr-Verwaltungssoftware für Einsatz, Technik und Mannschaft</span></h1>
 <p>Von der rechtssicheren Ausrüstungsprüfung bis zur KI-optimierten Einsatznachbereitung – RESQIO vereint alle Prozesse Ihrer Feuerwehr in einer modernen Plattform. 57+ Module, GPS-Lagekarte, automatische Benachrichtigungen per WhatsApp/Telegram/E-Mail, Offline-Kiosk und Digitaler Dienstausweis.</p>
 <p><a href="mailto:support@resqio.de">Jetzt Demo anfordern</a></p></section>
 <section><h2>Unsere Module</h2><ul>
@@ -279,18 +279,6 @@ ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> –
     keywords: "Feuerwehrsoftware, Verwaltungssoftware Feuerwehr, Geräteverwaltung, Wartungsplaner, DGUV Prüfung, Atemschutzüberwachung, Einsatzerfassung, Objektpläne DIN 14095",
     canonicalUrl: `${BASE_URL}/`,
     bodyContent: homeBody,
-    jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: "RESQIO",
-      url: BASE_URL,
-      description: "Professionelle Feuerwehr-Verwaltungssoftware Made in Germany",
-      potentialAction: {
-        "@type": "SearchAction",
-        target: `${BASE_URL}/modul/{search_term_string}`,
-        "query-input": "required name=search_term_string",
-      },
-    },
   });
 
   // FAQPage schema (same id as the client-side script in Index.tsx, which
@@ -417,6 +405,11 @@ for (const mod of modules) {
   const productLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    // Eigene @id: index.html liefert site-weit bereits eine SoftwareApplication
+    // fuer RESQIO selbst. Ohne unterscheidbare @id stehen auf /kreis zwei
+    // gleichartige Blocks und Google muss raten, welcher gemeint ist.
+    // Muss identisch zu src/pages/KreisModul.tsx bleiben.
+    "@id": `${BASE_URL}/kreis#software`,
     name: "RESQIO Kreismodul",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
@@ -439,7 +432,7 @@ for (const mod of modules) {
   };
 
   const bodyContent = `<main>
-<h1>RESQIO Kreismodul — Alle Wehren Ihres Landkreises vernetzt</h1>
+<h1>Ihr Landkreis. Alle Wehren. Eine Plattform.<span>Feuerwehr-Software für Kreisfeuerwehrverbände und Landratsämter</span></h1>
 <p>Das RESQIO Kreismodul ist die DSGVO-konforme Plattform für Kreisfeuerwehrverbände und Landratsämter. Koordinieren Sie Schulungen, buchen Sie Werkstatt-Termine und verwalten Sie Ressourcen kreisweit — bei voller Datensouveränität jeder einzelnen Wehr.</p>
 <h2>Zentrale Steuerung für Ihren Landkreis</h2>
 <p>Ein Dashboard für den gesamten Landkreis: Personalstärken, Qualifikationen, Fahrzeuge und Verfügbarkeiten aller Feuerwehren auf einen Blick.</p>
@@ -487,7 +480,7 @@ for (const mod of modules) {
 {
   const wissenUrl = `${BASE_URL}/wissen`;
   const bodyContent = `<main>
-<h1>Wissen für die moderne Feuerwehr – Ratgeber & Fachbeiträge</h1>
+<h1>Wissen für die moderne Wehr<span>Ratgeber und Fachbeiträge rund um Feuerwehr-Software</span></h1>
 <p>Praxisnahe Leitfäden zu Prüffristen, Atemschutz-Dokumentation und Digitalisierung – geschrieben für Gerätewarte, Kommandanten und Gemeinden.</p>
 <ul>
 ${wissen.map((a) => `<li><a href="/wissen/${a.slug}">${escAttr(a.title)}</a> – ${escAttr(a.description)}</li>`).join("\n")}

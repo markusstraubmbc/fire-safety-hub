@@ -57,6 +57,14 @@ Change all listed files together, always with the same value:
 | `/kreis` title **and** description | `scripts/prerender.mjs` (`kreisTitle`/`kreisDesc`) + `src/pages/KreisModul.tsx` (`pageTitle`/`pageDescription`) |
 | Homepage title/description | `scripts/prerender.mjs` + `index.html` (template, used by dev server) |
 | JSON-LD element IDs | `scripts/prerender.mjs` + the corresponding page component |
+| **H1 text** | `scripts/prerender.mjs` + `src/components/HeroSection.tsx` (`/`), `src/pages/KreisModul.tsx` (`/kreis`), `src/pages/Wissen.tsx` (`/wissen`) |
+| JSON-LD `@id` for `/kreis` SoftwareApplication | `scripts/prerender.mjs` + `src/pages/KreisModul.tsx` (must differ from the site-wide one in `index.html`) |
+
+The H1 is the trap that is easiest to miss: it is not a meta tag, so it does
+not look like SEO surface, but the prerendered and the hydrated H1 were three
+different texts on `/`, `/kreis` and `/wissen` — Google saw a keyword-bearing
+H1 in the raw HTML and a keyword-free slogan after rendering. When you change
+the visible headline, change the prerendered one in the same pass.
 
 Why it matters: the prerendered HTML is what Googlebot reads first, the client
 component overwrites it after hydration. If they differ, Google sees two
