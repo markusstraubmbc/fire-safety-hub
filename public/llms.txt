@@ -251,14 +251,14 @@ Digitale Erfassung von Arbeitsstunden und Tätigkeitsnachweisen für alle Feuerw
 - **URL**: https://resqio.de/modul/arbeitsstunden
 
 ### 32. BSW-Events & Veranstaltungskalender
-Übergreifender Veranstaltungskalender für Bezirk, Kreis und Verband.
+Übergreifender Veranstaltungskalender für Bezirk, Kreis und Verband – Brandsicherheitswachen planen, koordinieren und abrechnen.
 
 - **Beschreibung**: Der BSW-Event-Kalender aggregiert alle relevanten Veranstaltungen aus dem Feuerwehrverband, Bezirk und Kreis in einer übersichtlichen Ansicht. Mitglieder behalten den Überblick über Wettkämpfe, Lehrgänge und Veranstaltungen auf übergeordneter Ebene.
 - **Funktionen**: Aggregierter Veranstaltungskalender | Filterfunktion nach Ebene und Kategorie | Anmeldung und Teilnahmeverwaltung | Integration in lokalen Kalender | Push-Benachrichtigungen
 - **URL**: https://resqio.de/modul/bsw-events
 
 ### 33. Stab & Führungsunterstützung
-Digitale Stabsarbeit für Großschadenlagen: Personalmeldestelle, GPS-Tracking, MANV-Sichtungsliste, Funk-Protokoll, Einsatztagebuch und Hochwasser-Lageentwicklung.
+Digitale Stabsarbeit für Großschadenlagen: Personalmeldestelle, GPS-Tracking, MANV-Sichtungsliste, Funk-Protokoll, Einsatztagebuch und Lageentwicklung.
 
 - **Beschreibung**: Das Stab-Modul unterstützt Führungskräfte bei anspruchsvollen Einsätzen und Großschadenslagen. Strukturierte Werkzeuge für alle Sachgebiete des Stabes (S1–S6), ein vollständiges digitales Einsatztagebuch mit Zeitstempeln, eine interaktive Lagekarte mit GPS-Echtzeit-Tracking sowie eine vollständige Einsatzdokumentation sorgen dafür, dass Entscheidungen nachvollziehbar bleiben. Die integrierte Personalmeldestelle erfasst alle eingesetzten Kräfte – auch externe Organisationen – mit Stärkemeldungen und Schichtwechsel-Protokoll. Bei Hochwasserlagen und Katastrophenschutzeinsätzen stehen Pegelstände und Lageentwicklung direkt im Stab zur Verfügung.
 - **Funktionen**: Personalmeldestelle: An- und Abmeldung aller Kräfte per RFID, PIN, QR-Code oder Liste – auch externe Organisationen | Stärkemeldung und Schichtwechsel-Protokoll auf Knopfdruck drucken | GPS-Echtzeit-Tracking: Fahrzeuge und Einsatzkräfte live auf der Lagekarte verfolgen | Hochwasser & Lageentwicklung: Pegelstände live eingebunden, Einsatzentwicklung für Katastrophenschutz verfolgen | MANV-Sichtungsliste mit Triage T1–T4 – Patientenverwaltung und Transportübersicht | Funkprotokoll mit Kanal-Management – strukturierte Kommunikationsdokumentation
@@ -345,9 +345,9 @@ Funktioniert auch ohne Internet: Kiosk und wichtige Daten bleiben im Gerätehaus
 
 Fachartikel zu Vorschriften und Praxis — Übersicht unter https://resqio.de/wissen
 
-- **[DGUV-Prüffristen bei der Feuerwehr: Der Überblick für Gerätewarte](https://resqio.de/wissen/dguv-pruefristen-feuerwehr)**: Welche Prüffristen gelten für Leitern, Schläuche, Atemschutz und elektrische Geräte der Feuerwehr? Überblick über DGUV-Vorgaben, Dokumentationspflichten und wie Gerätewarte Fristen sicher im Griff behalten.
-- **[Atemschutz-Dokumentation nach FwDV 7: Diese Pflichten gelten](https://resqio.de/wissen/atemschutz-dokumentation-fwdv7)**: FwDV 7 kompakt: jährliche Unterweisung, Belastungsübung, arbeitsmedizinische Vorsorge und Einsatznachweise für Atemschutzgeräteträger. Was dokumentiert werden muss und wie die digitale Atemschutzüberwachung hilft.
-- **[Feuerwehrsoftware einführen: Der Leitfaden für Kommandanten und Gemeinden](https://resqio.de/wissen/feuerwehrsoftware-einfuehren-leitfaden)**: Von Excel und Papier zur digitalen Wache: Anforderungen definieren, DSGVO klären, Mannschaft mitnehmen. Schritt-für-Schritt-Leitfaden zur Einführung einer Feuerwehr-Verwaltungssoftware – mit Checkliste.
+- **[DGUV-Prüffristen bei der Feuerwehr: Der Überblick für Gerätewarte](https://resqio.de/wissen/dguv-pruefristen-feuerwehr)**: Welche Prüffristen gelten für Leitern, Schläuche, Atemschutz und elektrische Geräte? DGUV-Vorgaben und Dokumentationspflichten für Gerätewarte.
+- **[Atemschutz-Dokumentation nach FwDV 7: Diese Pflichten gelten](https://resqio.de/wissen/atemschutz-dokumentation-fwdv7)**: FwDV 7 kompakt: Unterweisung, Belastungsübung, G26.3 und Einsatznachweise für Atemschutzgeräteträger – was dokumentiert werden muss.
+- **[Feuerwehrsoftware einführen: Der Leitfaden für Kommandanten und Gemeinden](https://resqio.de/wissen/feuerwehrsoftware-einfuehren-leitfaden)**: Von Excel und Papier zur digitalen Wache: Anforderungen definieren, DSGVO klären, Mannschaft mitnehmen – Schritt für Schritt mit Checkliste.
 
 ## Technische Details
 

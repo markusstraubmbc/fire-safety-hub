@@ -18,6 +18,13 @@ export interface WissenSection {
 
 export interface WissenArticle {
   title: string;
+  /**
+   * Optionaler, kuerzerer Titel fuer <title> und og:title. Die redaktionellen
+   * title-Werte sind bewusst ausfuehrlich (sie sind zugleich die H1), liegen
+   * damit aber bei 60-73 Zeichen und werden in den SERPs abgeschnitten.
+   * Faellt auf title zurueck, wenn nicht gesetzt.
+   */
+  seoTitle?: string;
   description: string;
   keywords: string[];
   datePublished: string;
@@ -31,8 +38,9 @@ export interface WissenArticle {
 export const wissenArtikel: Record<string, WissenArticle> = {
   "dguv-pruefristen-feuerwehr": {
     title: "DGUV-Prüffristen bei der Feuerwehr: Der Überblick für Gerätewarte",
+    seoTitle: "DGUV-Prüffristen bei der Feuerwehr im Überblick",
     description:
-      "Welche Prüffristen gelten für Leitern, Schläuche, Atemschutz und elektrische Geräte der Feuerwehr? Überblick über DGUV-Vorgaben, Dokumentationspflichten und wie Gerätewarte Fristen sicher im Griff behalten.",
+      "Welche Prüffristen gelten für Leitern, Schläuche, Atemschutz und elektrische Geräte? DGUV-Vorgaben und Dokumentationspflichten für Gerätewarte.",
     keywords: [
       "DGUV Prüffristen Feuerwehr",
       "Prüffristen Feuerwehrgeräte",
@@ -92,8 +100,9 @@ export const wissenArtikel: Record<string, WissenArticle> = {
 
   "atemschutz-dokumentation-fwdv7": {
     title: "Atemschutz-Dokumentation nach FwDV 7: Diese Pflichten gelten",
+    seoTitle: "Atemschutz-Dokumentation nach FwDV 7",
     description:
-      "FwDV 7 kompakt: jährliche Unterweisung, Belastungsübung, arbeitsmedizinische Vorsorge und Einsatznachweise für Atemschutzgeräteträger. Was dokumentiert werden muss und wie die digitale Atemschutzüberwachung hilft.",
+      "FwDV 7 kompakt: Unterweisung, Belastungsübung, G26.3 und Einsatznachweise für Atemschutzgeräteträger – was dokumentiert werden muss.",
     keywords: [
       "FwDV 7 Dokumentation",
       "Atemschutz Nachweis Feuerwehr",
@@ -152,8 +161,9 @@ export const wissenArtikel: Record<string, WissenArticle> = {
 
   "feuerwehrsoftware-einfuehren-leitfaden": {
     title: "Feuerwehrsoftware einführen: Der Leitfaden für Kommandanten und Gemeinden",
+    seoTitle: "Feuerwehrsoftware einführen: Leitfaden",
     description:
-      "Von Excel und Papier zur digitalen Wache: Anforderungen definieren, DSGVO klären, Mannschaft mitnehmen. Schritt-für-Schritt-Leitfaden zur Einführung einer Feuerwehr-Verwaltungssoftware – mit Checkliste.",
+      "Von Excel und Papier zur digitalen Wache: Anforderungen definieren, DSGVO klären, Mannschaft mitnehmen – Schritt für Schritt mit Checkliste.",
     keywords: [
       "Feuerwehrsoftware einführen",
       "Feuerwehr Verwaltungssoftware Auswahl",

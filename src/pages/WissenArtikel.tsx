@@ -20,7 +20,8 @@ const WissenArtikel = () => {
     if (!artikel) return;
     window.scrollTo(0, 0);
 
-    const pageTitle = `${artikel.title} | RESQIO Wissen`;
+    // Muss identisch zu scripts/prerender.mjs bleiben.
+    const pageTitle = `${artikel.seoTitle || artikel.title} | RESQIO`;
     const pageUrl = `https://resqio.de/wissen/${slug}`;
     document.title = pageTitle;
 

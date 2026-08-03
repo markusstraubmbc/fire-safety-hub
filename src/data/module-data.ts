@@ -810,7 +810,7 @@ export const modules: Record<string, ModuleData> = {
     },
     "bsw-events": {
         title: "BSW-Events & Veranstaltungskalender",
-        shortDesc: "Übergreifender Veranstaltungskalender für Bezirk, Kreis und Verband.",
+        shortDesc: "Übergreifender Veranstaltungskalender für Bezirk, Kreis und Verband – Brandsicherheitswachen planen, koordinieren und abrechnen.",
         longDesc: "Der BSW-Event-Kalender aggregiert alle relevanten Veranstaltungen aus dem Feuerwehrverband, Bezirk und Kreis in einer übersichtlichen Ansicht. Mitglieder behalten den Überblick über Wettkämpfe, Lehrgänge und Veranstaltungen auf übergeordneter Ebene.",
         benefits: [
             "Überblick: Alle relevanten Veranstaltungen auf einen Blick",
@@ -831,7 +831,7 @@ export const modules: Record<string, ModuleData> = {
     },
     "stab-modul": {
         title: "Stab & Führungsunterstützung",
-        shortDesc: "Digitale Stabsarbeit für Großschadenlagen: Personalmeldestelle, GPS-Tracking, MANV-Sichtungsliste, Funk-Protokoll, Einsatztagebuch und Hochwasser-Lageentwicklung.",
+        shortDesc: "Digitale Stabsarbeit für Großschadenlagen: Personalmeldestelle, GPS-Tracking, MANV-Sichtungsliste, Funk-Protokoll, Einsatztagebuch und Lageentwicklung.",
         longDesc: "Das Stab-Modul unterstützt Führungskräfte bei anspruchsvollen Einsätzen und Großschadenslagen. Strukturierte Werkzeuge für alle Sachgebiete des Stabes (S1–S6), ein vollständiges digitales Einsatztagebuch mit Zeitstempeln, eine interaktive Lagekarte mit GPS-Echtzeit-Tracking sowie eine vollständige Einsatzdokumentation sorgen dafür, dass Entscheidungen nachvollziehbar bleiben. Die integrierte Personalmeldestelle erfasst alle eingesetzten Kräfte – auch externe Organisationen – mit Stärkemeldungen und Schichtwechsel-Protokoll. Bei Hochwasserlagen und Katastrophenschutzeinsätzen stehen Pegelstände und Lageentwicklung direkt im Stab zur Verfügung.",
         benefits: [
             "Überblick: Alle einsatzrelevanten Informationen zentral und in Echtzeit",

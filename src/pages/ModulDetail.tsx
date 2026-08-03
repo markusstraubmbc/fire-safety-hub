@@ -33,7 +33,9 @@ const ModulDetail = () => {
     window.scrollTo(0, 0);
 
     if (module) {
-      const pageTitle = `${module.title} | RESQIO Feuerwehr-Software`;
+      // Muss identisch zu scripts/prerender.mjs bleiben – sonst weicht der
+      // Titel im gerenderten DOM vom ausgelieferten HTML ab.
+      const pageTitle = `${module.title} | RESQIO`;
       const pageUrl = `https://resqio.de/modul/${slug}`;
 
       document.title = pageTitle;

@@ -44,6 +44,15 @@ const moduleDataSrc = readFileSync(
   "utf-8"
 );
 
+/** Holt alle "..." Strings aus einem Array-Literal `key: [ ... ]`. */
+function parseStringArray(block, key) {
+  const match = block.match(new RegExp(`${key}:\\s*\\[([\\s\\S]*?)\\n\\s*\\]`));
+  if (!match) return [];
+  return [...match[1].matchAll(/"((?:[^"\\]|\\.)*)"/g)].map((m) =>
+    m[1].replace(/\\"/g, '"').replace(/\\\\/g, "\\")
+  );
+}
+
 function parseModules(src) {
   const modules = [];
   // Split by module key pattern: "slug": {
@@ -55,10 +64,12 @@ function parseModules(src) {
 
     const titleMatch = block.match(/title:\s*"([^"]+)"/);
     const shortDescMatch = block.match(/shortDesc:\s*"([^"]+)"/);
+    const longDescMatch = block.match(/longDesc:\s*"((?:[^"\\]|\\.)*)"/);
     const keywordsMatch = block.match(/keywords:\s*\[([\s\S]*?)\]/);
 
     const title = titleMatch ? titleMatch[1] : slug;
     const shortDesc = shortDescMatch ? shortDescMatch[1] : "";
+    const longDesc = longDescMatch ? longDescMatch[1].replace(/\\"/g, '"') : "";
     let keywords = "";
     if (keywordsMatch) {
       keywords = keywordsMatch[1]
@@ -67,7 +78,15 @@ function parseModules(src) {
         .join(", ") || "";
     }
 
-    modules.push({ slug, title, shortDesc, keywords });
+    modules.push({
+      slug,
+      title,
+      shortDesc,
+      longDesc,
+      keywords,
+      benefits: parseStringArray(block, "benefits"),
+      features: parseStringArray(block, "features"),
+    });
   }
   return modules;
 }
@@ -87,18 +106,39 @@ function parseWissen(src) {
   for (let i = 1; i < parts.length; i += 2) {
     const slug = parts[i];
     const block = parts[i + 1] || "";
-    const titleMatch = block.match(/title:\s*\n?\s*"([^"]+)"/);
+    const titleMatch = block.match(/\btitle:\s*\n?\s*"([^"]+)"/);
+    const seoTitleMatch = block.match(/seoTitle:\s*\n?\s*"([^"]+)"/);
     const descMatch = block.match(/description:\s*\n?\s*"([^"]+)"/);
     const introMatch = block.match(/intro:\s*\n?\s*"([^"]+)"/);
     const keywordsMatch = block.match(/keywords:\s*\[([\s\S]*?)\]/);
     const keywords = keywordsMatch
       ? (keywordsMatch[1].match(/"([^"]+)"/g) || []).map((k) => k.replace(/"/g, "")).join(", ")
       : "";
+    // sections liegen als verschachteltes Array vor. Ohne sie bestand eine
+    // prerenderte Artikelseite aus H1 plus Intro, also rund 60 Woertern –
+    // der eigentliche Fachtext, wegen dem der Artikel ueberhaupt existiert,
+    // stand nur im JavaScript-Bundle.
+    const sectionsBlock = block.match(/sections:\s*\[([\s\S]*?)\n\s{4}\],/);
+    const sections = sectionsBlock
+      ? sectionsBlock[1]
+          .split(/\n\s{6}\{/)
+          .slice(1)
+          .map((chunk) => ({
+            heading: (chunk.match(/heading:\s*\n?\s*"((?:[^"\\]|\\.)*)"/) || [])[1] || "",
+            paragraphs: parseStringArray(chunk, "paragraphs"),
+            list: parseStringArray(chunk, "list"),
+          }))
+          .filter((s) => s.heading)
+      : [];
+
     articles.push({
       slug,
       title: titleMatch ? titleMatch[1] : slug,
+      seoTitle: seoTitleMatch ? seoTitleMatch[1] : "",
       description: descMatch ? descMatch[1] : "",
       intro: introMatch ? introMatch[1] : "",
+      hinweis: (block.match(/hinweis:\s*\n?\s*"((?:[^"\\]|\\.)*)"/) || [])[1] || "",
+      sections,
       keywords,
     });
   }
@@ -234,8 +274,8 @@ ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> –
 </main>`;
 
   let html = createPage({
-    title: "RESQIO - Intelligent. Vernetzt. Vielfältig. | Feuerwehr-Verwaltungssoftware",
-    description: "RESQIO - Professionelle Feuerwehr-Verwaltungssoftware. Rechtssicheres Wartungsmanagement nach DGUV, KI-gestützte Einsatzauswertung, Wasserförderungs-Planung & digitaler Dienstausweis. Made in Germany.",
+    title: "RESQIO – Feuerwehr-Software mit KI | Wartung & Einsatz",
+    description: "Feuerwehr-Verwaltungssoftware aus Deutschland: Wartung nach DGUV, KI-gestützte Einsatzauswertung, Lagekarte und digitaler Dienstausweis.",
     keywords: "Feuerwehrsoftware, Verwaltungssoftware Feuerwehr, Geräteverwaltung, Wartungsplaner, DGUV Prüfung, Atemschutzüberwachung, Einsatzerfassung, Objektpläne DIN 14095",
     canonicalUrl: `${BASE_URL}/`,
     bodyContent: homeBody,
@@ -293,7 +333,13 @@ ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> –
 // --- 2. Generate MODULE pages ---
 const linkableSlugs = modules.map((m) => m.slug).filter((s) => s !== "kreis-platform");
 for (const mod of modules) {
-  const pageTitle = `${mod.title} | RESQIO Feuerwehr-Software`;
+  // Suffix bewusst kurz: "| RESQIO Feuerwehr-Software" waren 28 Zeichen und
+  // hat 21 von 50 Titeln ueber die 60-Zeichen-Grenze gedrueckt, ab der Google
+  // in den SERPs abschneidet. Mit "| RESQIO" bleibt auch der laengste
+  // Modultitel (51 Zeichen) bei genau 60.
+  // Muss identisch zu src/pages/ModulDetail.tsx bleiben, sonst sieht Google
+  // im gerenderten DOM einen anderen Titel als im ausgelieferten HTML.
+  const pageTitle = `${mod.title} | RESQIO`;
   const pageUrl = `${BASE_URL}/modul/${mod.slug}`;
 
   const breadcrumbLd = {
@@ -317,7 +363,25 @@ for (const mod of modules) {
     })
     .join("");
 
-  const bodyContent = `<main><h1>${escAttr(mod.title)} | RESQIO Feuerwehr-Software</h1><p>${escAttr(mod.shortDesc)}</p><h2>Weitere Module</h2><ul>${relatedLinks}</ul><p>RESQIO – Die intelligente Feuerwehr-Verwaltungssoftware. <a href="/">Zur Startseite</a> | <a href="/wissen">Wissen & Ratgeber</a> | <a href="mailto:support@resqio.de">Demo anfordern</a></p></main>`;
+  // Der prerenderte Inhalt speist sich vollstaendig aus module-data.ts.
+  // Vorher standen hier nur H1 + shortDesc + Linkliste, also rund 35 Woerter –
+  // fuer eine Seite, deren erklaerter Zweck ist, Googlebot ohne
+  // JavaScript-Ausfuehrung lesbaren Inhalt zu liefern, war das zu duenn.
+  // longDesc, benefits und features lagen die ganze Zeit ungenutzt daneben.
+  const benefitItems = mod.benefits
+    .map((b) => `<li>${escAttr(b)}</li>`)
+    .join("");
+  const featureItems = mod.features
+    .map((f) => `<li>${escAttr(f)}</li>`)
+    .join("");
+
+  const bodyContent = `<main><h1>${escAttr(mod.title)}</h1><p>${escAttr(mod.shortDesc)}</p>${
+    mod.longDesc ? `<p>${escAttr(mod.longDesc)}</p>` : ""
+  }${
+    benefitItems ? `<h2>Ihr Mehrwert</h2><ul>${benefitItems}</ul>` : ""
+  }${
+    featureItems ? `<h2>Funktionen im Überblick</h2><ul>${featureItems}</ul>` : ""
+  }<h2>Weitere Module</h2><ul>${relatedLinks}</ul><p>RESQIO – Die intelligente Feuerwehr-Verwaltungssoftware. <a href="/">Zur Startseite</a> | <a href="/wissen">Wissen & Ratgeber</a> | <a href="mailto:support@resqio.de">Demo anfordern</a></p></main>`;
 
   const html = createPage({
     title: pageTitle,
@@ -335,8 +399,8 @@ for (const mod of modules) {
 
 // --- 3. Generate Kreismodul dedicated page ---
 {
-  const kreisTitle = "RESQIO Kreismodul | Kreisfeuerwehrverband Software — Alle Wehren vernetzt";
-  const kreisDesc = "RESQIO Kreismodul: Die DSGVO-konforme Plattform für Kreisbrandmeister und Landratsämter. Alle Feuerwehren Ihres Landkreises vernetzt — Schulungen koordinieren, Werkstätten buchen, Ressourcen kreisweit verwalten. Ende-zu-Ende verschlüsselt, volle Datensouveränität.";
+  const kreisTitle = "RESQIO Kreismodul – Software für Kreisfeuerwehrverbände";
+  const kreisDesc = "DSGVO-konforme Plattform für Kreisbrandmeister und Landratsämter: alle Wehren des Landkreises vernetzt, Schulungen und Werkstätten kreisweit koordiniert.";
   const kreisUrl = `${BASE_URL}/kreis`;
   const kreisKeywords = "Kreisfeuerwehrverband Software, Kreismodul, Kreisbrandmeister Software, Landratsamt Feuerwehr, Kreisverwaltung Feuerwehr, Feuerwehr Kreisebene, DSGVO Feuerwehr, Datensouveränität, Schulungsverwaltung Feuerwehr, Atemschutzwerkstatt Software, Schlauchwerkstatt, Ressourcen-Register, Personalverwaltung Feuerwehr, Kreisfeuerwehr Management, Feuerwehr Vernetzung, Sonderausrüstung Feuerwehr, FwDV Auswertung, Qualifikationsverwaltung, Feuerwehr Landkreis, Werkstatt-Buchung Feuerwehr";
 
@@ -432,7 +496,7 @@ ${wissen.map((a) => `<li><a href="/wissen/${a.slug}">${escAttr(a.title)}</a> –
 </main>`;
 
   const html = createPage({
-    title: "Wissen für Feuerwehren: DGUV, FwDV 7 & Digitalisierung | RESQIO",
+    title: "Feuerwehr-Wissen: DGUV, FwDV 7 & Digitalisierung | RESQIO",
     description:
       "Fachwissen für Gerätewarte und Kommandanten: DGUV-Prüffristen, Atemschutz-Dokumentation nach FwDV 7 und Leitfäden zur Digitalisierung der Feuerwehr.",
     keywords: "Feuerwehr Wissen, DGUV Prüffristen, FwDV 7, Feuerwehr Digitalisierung, Gerätewart Ratgeber",
@@ -447,7 +511,10 @@ ${wissen.map((a) => `<li><a href="/wissen/${a.slug}">${escAttr(a.title)}</a> –
 // --- 3c. Generate Wissen article pages ---
 for (const artikel of wissen) {
   const pageUrl = `${BASE_URL}/wissen/${artikel.slug}`;
-  const pageTitle = `${artikel.title} | RESQIO Wissen`;
+  // seoTitle bevorzugen: die redaktionellen Titel sind zugleich die H1 und
+  // mit 60-73 Zeichen zu lang fuer die SERPs. Muss identisch zu
+  // src/pages/WissenArtikel.tsx bleiben.
+  const pageTitle = `${artikel.seoTitle || artikel.title} | RESQIO`;
 
   const articleLd = {
     "@context": "https://schema.org",
@@ -466,7 +533,19 @@ for (const artikel of wissen) {
     },
   };
 
-  const bodyContent = `<main><article><h1>${escAttr(artikel.title)}</h1><p>${escAttr(artikel.intro || artikel.description)}</p><p><a href="/wissen">Alle Artikel</a> | <a href="/">Zur Startseite</a> | <a href="mailto:support@resqio.de">Demo anfordern</a></p></article></main>`;
+  const sectionHtml = artikel.sections
+    .map((s) => {
+      const paras = s.paragraphs.map((p) => `<p>${escAttr(p)}</p>`).join("");
+      const items = s.list.length
+        ? `<ul>${s.list.map((l) => `<li>${escAttr(l)}</li>`).join("")}</ul>`
+        : "";
+      return `<h2>${escAttr(s.heading)}</h2>${paras}${items}`;
+    })
+    .join("");
+
+  const bodyContent = `<main><article><h1>${escAttr(artikel.title)}</h1><p>${escAttr(artikel.intro || artikel.description)}</p>${sectionHtml}${
+    artikel.hinweis ? `<p>${escAttr(artikel.hinweis)}</p>` : ""
+  }<p><a href="/wissen">Alle Artikel</a> | <a href="/">Zur Startseite</a> | <a href="mailto:support@resqio.de">Demo anfordern</a></p></article></main>`;
 
   let html = createPage({
     title: pageTitle,
