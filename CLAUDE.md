@@ -36,6 +36,55 @@ npm run lint
 npm run preview
 ```
 
+## Make Changes Completely — Read This Before Editing
+
+Several values in this repo live in **more than one file on purpose** (prerender
+script + client component + HTML template), and several files are **generated**
+from data sources. A change that touches only one of them looks correct locally
+and breaks in production. Change every place in the same pass, and commit the
+regenerated artifacts **in the same commit** as their source — never as a
+follow-up.
+
+### Values that exist in several places
+
+Change all listed files together, always with the same value:
+
+| What | Files |
+|---|---|
+| Module page `<title>` | `scripts/prerender.mjs` (`pageTitle`) + `src/pages/ModulDetail.tsx` |
+| Wissen article `<title>` | `scripts/prerender.mjs` + `src/pages/WissenArtikel.tsx` |
+| Wissen index `<title>` | `scripts/prerender.mjs` + `src/pages/Wissen.tsx` |
+| `/kreis` title **and** description | `scripts/prerender.mjs` (`kreisTitle`/`kreisDesc`) + `src/pages/KreisModul.tsx` (`pageTitle`/`pageDescription`) |
+| Homepage title/description | `scripts/prerender.mjs` + `index.html` (template, used by dev server) |
+| JSON-LD element IDs | `scripts/prerender.mjs` + the corresponding page component |
+
+Why it matters: the prerendered HTML is what Googlebot reads first, the client
+component overwrites it after hydration. If they differ, Google sees two
+different titles for the same URL.
+
+### Generated files — regenerate and commit alongside the source
+
+| Edited source | Run | Commit together with it |
+|---|---|---|
+| `src/data/module-data.ts` | `npm run generate-sitemap && npm run generate-llms` | `public/sitemap.xml`, `public/llms.txt` |
+| `src/data/wissen-data.ts` | `npm run generate-sitemap && npm run generate-llms` | `public/sitemap.xml`, `public/llms.txt` |
+
+`npm run build` runs both generators via `prebuild`, so a build also refreshes
+them — check `git status` afterwards and include what changed. Never hand-edit
+`public/sitemap.xml` or `public/llms.txt`.
+
+### Before calling a change done
+
+```bash
+npm run build     # must prerender 49 pages without error
+npm run lint      # 0 errors (8 pre-existing warnings in src/components/ui/* are fine)
+git status        # generated files staged together with their source?
+```
+
+For a new route also verify it exists: `ls dist/<route>/index.html`. There is no
+SPA fallback any more — an unlisted route returns 404 in production while
+working fine in `npm run dev`.
+
 ## Architecture Overview
 
 ### Tech Stack
