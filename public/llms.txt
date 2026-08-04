@@ -26,7 +26,7 @@ Die Preise richten sich nach der Größe und den Anforderungen der Feuerwehr. In
 
 - **Ganzheitlicher Ansatz**: Von Personalverwaltung über Gerätewartung bis zur Einsatzdokumentation — alles in einem System
 - **Kiosk-Modus**: Touch-optimierte Oberfläche für die Mannschaft (z.B. Fahrtenbuch, Status, Mängelmelder, Wäsche)
-- **KI-Integration**: Intelligente Assistenzsysteme für Berichte, Personalanalyse, Adresskorrekturen und Chatbots
+- **KI-Integration**: Intelligente Assistenzsysteme für Berichte, Belegerfassung, Adresskorrekturen und Chatbots
 - **Sicherheit & Datenschutz**: Hosting in Deutschland, DSGVO-konform, granulares rollenbasiertes Zugriffssystem
 - **Modularität**: Feuerwehren können spezifische Module je nach Bedarf aktivieren
 

@@ -45,11 +45,11 @@ const aiFeatures = [
   },
   {
     icon: Users,
-    title: "Personalplanung, die mitdenkt",
-    subtitle: "KI-Personalanalyse",
+    title: "Qualifikationen immer im Blick",
+    subtitle: "Beförderungs-Check",
     description:
-      "RESQIO erkennt, wer für Beförderungen bereit ist und welche Qualifikationen fehlen – automatisch aus Ihren vorhandenen Daten.",
-    highlight: "Strategische Empfehlungen ohne Aufwand",
+      "RESQIO gleicht den Qualifikationsstand Ihrer Mannschaft automatisch gegen die hinterlegten Beförderungsvoraussetzungen ab und zeigt, was noch fehlt.",
+    highlight: "Nachvollziehbarer Regelabgleich, keine Blackbox",
   },
   {
     icon: Zap,
