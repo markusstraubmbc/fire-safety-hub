@@ -29,6 +29,8 @@ Die Preise richten sich nach der Größe und den Anforderungen der Feuerwehr. In
 - **KI-Integration**: Intelligente Assistenzsysteme für Berichte, Personalanalyse, Adresskorrekturen und Chatbots
 - **Sicherheit & Datenschutz**: Hosting in Deutschland, DSGVO-konform, granulares rollenbasiertes Zugriffssystem
 - **Modularität**: Feuerwehren können spezifische Module je nach Bedarf aktivieren
+- **Externe Kräfte und Technik**: Drohneneinheit (Flugbuch, Fernpiloten-Nachweise, Luftbilder am Einsatz) und Landwirtschaftsmodul (Wasserfässer, Zugmaschinen und Radlader aus dem Ort) binden Ressourcen ein, die nicht im Gerätehaus stehen
+- **Länderunterstützung**: RESQIO ist auf deutsche Vorschriften ausgelegt (DGUV, FwDV, DIN). Ein Ländermodul Österreich (Dienstgrade, ÖNORM-Fahrzeugtypen, Landesvorgaben) ist in Entwicklung und noch nicht verfügbar
 
 ## Module im Detail
 
@@ -340,6 +342,30 @@ Funktioniert auch ohne Internet: Kiosk und wichtige Daten bleiben im Gerätehaus
 - **Funktionen**: Lokale Bereithaltung von Objektplänen, Kontakten, Geräten und Hydranten | Offline-Erfassung von Check-Ins und Verbrauch mit späterem Abgleich | Konfigurierbar, welche Daten offline verfügbar sind | Automatische Synchronisation bei wiederhergestellter Verbindung | Schutz vor doppelten Buchungen | Überwachung des Sync-Status je Gerät
 - **URL**: https://resqio.de/modul/offline-modus
 
+### 45. Drohneneinheit & Luftaufklärung
+Drohnen, Fernpiloten und Flüge verwalten: Flugbuch, Nachweise und Akkus im Griff – Luftbilder direkt in der Lage.
+
+- **Beschreibung**: Wer eine Drohne betreibt, betreibt ein Luftfahrzeug – mit allem, was dazugehört: Betreiberregistrierung, Kompetenznachweise der Fernpiloten, ein nachvollziehbares Flugbuch und Akkus, die nicht ewig halten. Die Drohneneinheit in RESQIO führt diese Nachweise dort, wo auch der Rest der Ausrüstung liegt: Jedes Fluggerät bekommt seine Geräteakte mit Nutzlast und Zubehör, jeder Flug wird mit Zweck, Dauer und Fernpilot dokumentiert, und ablaufende Nachweise melden sich von selbst. Im Einsatz zählt dann, was die Drohne tatsächlich liefert: Übersicht über eine Lage, die vom Boden aus niemand vollständig sieht – Luft- und Wärmebilder werden am Einsatz abgelegt und stehen in der Nachbereitung im Bericht.
+- **Status**: Neu
+- **Funktionen**: Geräteakte je Drohne mit Seriennummer, Nutzlast (Kamera, Wärmebild) und Zubehör | Flugbuch mit Datum, Flugzeit, Zweck (Einsatz, Übung, Schulung) und verantwortlichem Fernpiloten | Fernpiloten-Verwaltung mit EU-Kompetenznachweis (A1/A3, A2) und Ablaufwarnung | Betreiberregistrierung, e-ID und Betriebskategorie je Fluggerät hinterlegen | Akku-Management mit Ladezyklen, Alter und Aussonderungsgrenze | Prüf- und Wartungstermine laufen über das gewohnte Wartungsmanagement
+- **URL**: https://resqio.de/modul/drohneneinheit
+
+### 46. Landwirtschaftsmodul & Ortsressourcen
+Landwirte und ihre Technik im Ausrückebereich erfassen: Wasserfässer, Zugmaschinen und Radlader in Minuten anfordern.
+
+- **Beschreibung**: Bei Vegetationsbränden, Hochwasser und Sturmlagen entscheidet oft Technik, die nicht im Gerätehaus steht: das Güllefass des Landwirts als Wassertransport abseits der Hydranten, der Radlader für die Zufahrt, der Frontlader zum Räumen. Das Landwirtschaftsmodul macht aus dieser informellen Nachbarschaftshilfe eine belastbare Ressource: Betriebe, Ansprechpartner und Maschinen sind mit Fassungsvermögen, Kupplungen und Erreichbarkeit hinterlegt, Zusagen und Vereinbarungen sind dokumentiert, und die Anforderung läuft im Einsatz über die gewohnten Benachrichtigungswege. Nach dem Einsatz stehen Stunden und Maschinen für die Aufwandserstattung bereit – statt aus dem Gedächtnis rekonstruiert zu werden.
+- **Status**: Neu
+- **Funktionen**: Register der Landwirte, Lohnunternehmer und Betriebe im Ausrückebereich | Technik-Katalog mit Wasser-/Güllefass (Fassungsvermögen, Kupplung), Zugmaschine, Frontlader, Radlader, Kipper | Kontaktketten mit Erreichbarkeiten, Vertretung und bevorzugtem Meldeweg | Verfügbarkeit und Bereitschaft je Betrieb hinterlegen – etwa eingeschränkt zur Erntezeit | Anforderung per E-Mail, WhatsApp oder Telegram über das Kommunikationscenter | Hofstellen und Entnahmestellen auf der Lagekarte, gemeinsam mit den Hydranten
+- **URL**: https://resqio.de/modul/landwirte-modul
+
+### 47. Ländermodul Österreich
+RESQIO für österreichische Wehren: Dienstgrade, Begriffe und Landesvorgaben statt deutscher Standardwerte – in Entwicklung.
+
+- **Beschreibung**: RESQIO ist entlang deutscher Vorschriften gewachsen: DGUV, FwDV, DIN-Fahrzeugtypen. Für österreichische Feuerwehren passt davon vieles inhaltlich, aber nicht in der Benennung – und bei Fristen, Dienstgraden und Auswertungen entscheidet ohnehin das jeweilige Bundesland. Das Ländermodul kapselt genau diese landesspezifischen Inhalte, sodass die Wehr mit ihren eigenen Begriffen arbeitet: Rüsthaus statt Gerätehaus, Zeugwart statt Gerätewart, Dienstgrade und Funktionen nach österreichischem Schema, Fahrzeugtypen nach ÖNORM. Das Ländermodul Österreich befindet sich derzeit in Entwicklung und ist noch nicht buchbar – Wehren, die es als Pilotwehr mitgestalten wollen, sind willkommen: Der Umsetzungsstand und ein möglicher Termin sind auf Anfrage erhältlich.
+- **Status**: In Entwicklung — noch nicht verfügbar, Termin auf Anfrage
+- **Funktionen**: Dienstgrade, Chargen und Funktionen nach österreichischem Schema (geplant) | Landesspezifische Bezeichnungen in der gesamten Oberfläche, z. B. Rüsthaus und Zeugwart (geplant) | Fahrzeug- und Gerätetypen nach ÖNORM-Systematik, etwa KLF, TLF-A und RLF-A (geplant) | Prüf-, Ausbildungs- und Nachweisfristen nach den Vorgaben des jeweiligen Bundeslandes (geplant) | Auswertungen im Format der Landesverbände – in Abstimmung mit den Pilotwehren | Alle übrigen Module bleiben unverändert nutzbar, das Ländermodul ergänzt nur die landesspezifischen Inhalte
+- **URL**: https://resqio.de/modul/laendermodul-oesterreich
+
 ## Wissen & Ratgeber
 
 Fachartikel zu Vorschriften und Praxis — Übersicht unter https://resqio.de/wissen
@@ -347,6 +373,7 @@ Fachartikel zu Vorschriften und Praxis — Übersicht unter https://resqio.de/wi
 - **[DGUV-Prüffristen bei der Feuerwehr: Der Überblick für Gerätewarte](https://resqio.de/wissen/dguv-pruefristen-feuerwehr)**: Welche Prüffristen gelten für Leitern, Schläuche, Atemschutz und elektrische Geräte? DGUV-Vorgaben und Dokumentationspflichten für Gerätewarte.
 - **[Atemschutz-Dokumentation nach FwDV 7: Diese Pflichten gelten](https://resqio.de/wissen/atemschutz-dokumentation-fwdv7)**: FwDV 7 kompakt: Unterweisung, Belastungsübung, G26.3 und Einsatznachweise für Atemschutzgeräteträger – was dokumentiert werden muss.
 - **[Feuerwehrsoftware einführen: Der Leitfaden für Kommandanten und Gemeinden](https://resqio.de/wissen/feuerwehrsoftware-einfuehren-leitfaden)**: Von Excel und Papier zur digitalen Wache: Anforderungen definieren, DSGVO klären, Mannschaft mitnehmen – Schritt für Schritt mit Checkliste.
+- **[Vegetationsbrand: Wasser vom Landwirt, Lagebild aus der Luft](https://resqio.de/wissen/vegetationsbrand-landwirte-drohne)**: Wasserfässer der Landwirte und Drohnen zur Luftaufklärung: Wie Feuerwehren diese Ressourcen vorbereiten, im Einsatz anfordern und sauber dokumentieren.
 
 ## Technische Details
 

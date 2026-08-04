@@ -1,4 +1,5 @@
-import { MapPin, Heart, ShieldCheck, Radio } from "lucide-react";
+import { MapPin, Heart, ShieldCheck, Radio, Flag } from "lucide-react";
+import { Link } from "react-router-dom";
 import regionalVisualWebp from "@/assets/regional-visual.webp";
 
 const RegionalSection = () => {
@@ -91,6 +92,26 @@ const RegionalSection = () => {
                             <p className="text-sm text-muted-foreground font-medium">
                                 RESQIO ist mehr als nur Software. Es ist unser Beitrag zur Sicherheit der Gemeinschaft.
                             </p>
+
+                            {/* Verfügbarkeit über Deutschland hinaus: gehört hierher, wo
+                                Standort und Serverstandort ohnehin Thema sind. Status
+                                bewusst als "in Entwicklung" ausgewiesen. */}
+                            <div className="rounded-2xl border border-border bg-muted/30 p-5 space-y-2">
+                                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 text-[10px] font-bold uppercase tracking-widest">
+                                    <Flag className="w-3 h-3" />
+                                    In Entwicklung
+                                </div>
+                                <h3 className="font-bold text-foreground">Bald auch für Österreich</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
+                                    Am{" "}
+                                    <Link to="/modul/laendermodul-oesterreich" className="font-semibold text-primary hover:underline">
+                                        Ländermodul Österreich
+                                    </Link>{" "}
+                                    wird gerade gearbeitet: Dienstgrade und Chargen nach österreichischem Schema,
+                                    Rüsthaus statt Gerätehaus, Fahrzeugtypen nach ÖNORM und Fristen nach Bundesland.
+                                    Buchbar ist es noch nicht – Pilotwehren, die mitgestalten wollen, sind willkommen.
+                                </p>
+                            </div>
                         </div>
                     </div>
 
