@@ -105,7 +105,7 @@ const WissenArtikel = () => {
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
 
-      <main className="flex-grow pt-28 pb-20">
+      <main id="hauptinhalt" className="flex-grow pt-28 pb-20">
         <article className="container mx-auto px-4 max-w-3xl">
           <Link
             to="/wissen"

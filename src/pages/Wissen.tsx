@@ -37,7 +37,7 @@ const Wissen = () => {
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
 
-      <main className="flex-grow pt-28 pb-20">
+      <main id="hauptinhalt" className="flex-grow pt-28 pb-20">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="text-center mb-16 space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider">

@@ -57,7 +57,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main>
+      <main id="hauptinhalt">
         <HeroSection />
         {/* minHeight grob an der tatsächlichen Sectionhöhe orientiert, damit
             beim Nachladen möglichst wenig Layout-Sprung entsteht. */}

@@ -1,8 +1,17 @@
-import { useState, useEffect, useRef, memo } from "react";
+import { useState, useEffect, useRef, memo, type MouseEvent } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { scrollToSection } from "@/lib/utils";
+
+const NAV_SECTIONS = [
+  { id: "home", label: "Home" },
+  { id: "funktionen", label: "Funktionen" },
+  { id: "software-showcase", label: "Software Einblicke", nowrap: true },
+  { id: "ki-features", label: "KI" },
+  { id: "pricing", label: "Modelle" },
+  { id: "faq", label: "FAQ" },
+];
 
 const Header = memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -66,6 +75,19 @@ const Header = memo(() => {
     scrollToSection(id);
   };
 
+  /**
+   * Die Navigation besteht aus echten <a href="/#id">, nicht mehr aus <button>.
+   * Als Buttons waren die Ziele für Crawler unsichtbar und ließen sich weder
+   * per Mittelklick noch per Rechtsklick in einem neuen Tab öffnen. Der
+   * Click-Handler übernimmt weiterhin das weiche Scrollen; Klicks mit
+   * Modifier-Taste bleiben dem Browser überlassen.
+   */
+  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, id: string) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    e.preventDefault();
+    goToSection(id);
+  };
+
   // Determine if header should be solid (not transparent)
   const shouldBeSolid = !isHomePage || isScrolled || mobileMenuOpen;
 
@@ -74,6 +96,14 @@ const Header = memo(() => {
       ? "bg-background/95 backdrop-blur-lg border-b border-border py-2 shadow-lg shadow-black/5"
       : "bg-transparent py-4"
       }`}>
+      {/* Skip-Link: bei 45 Modulkarten pro Seite muss man den Navigationsblock
+          per Tastatur überspringen können. Nur bei Fokus sichtbar. */}
+      <a
+        href="#hauptinhalt"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[70] focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:font-semibold focus:text-foreground focus:shadow-lg focus:ring-2 focus:ring-primary"
+      >
+        Zum Hauptinhalt springen
+      </a>
       {/* Scroll Progress Bar - updated via ref to avoid re-renders */}
       <div
         ref={progressRef}
@@ -93,54 +123,36 @@ const Header = memo(() => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => goToSection("home")}
-              className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
-                }`}
-            >
-              Home
-            </button>
-            <button
-              onClick={() => goToSection("funktionen")}
-              className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
-                }`}
-            >
-              Funktionen
-            </button>
-            <button
-              onClick={() => goToSection("software-showcase")}
-              className={`nav-underline transition-colors font-medium text-nowrap ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
-                }`}
-            >
-              Software Einblicke
-            </button>
-            <button
-              onClick={() => goToSection("future")}
-              className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
-                }`}
-            >
-              Zukunft
-            </button>
-            <button
-              onClick={() => goToSection("pricing")}
-              className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
-                }`}
-            >
-              Modelle
-            </button>
+          <nav className="hidden md:flex items-center gap-8" aria-label="Hauptnavigation">
+            {NAV_SECTIONS.map((item) => (
+              <a
+                key={item.id}
+                href={`/#${item.id}`}
+                onClick={(e) => handleNavClick(e, item.id)}
+                className={`nav-underline transition-colors font-medium ${item.nowrap ? "text-nowrap" : ""} ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white hover:text-primary-foreground"
+                  }`}
+              >
+                {item.label}
+              </a>
+            ))}
             <Link
               to="/kreis"
-              className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+              className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white hover:text-primary-foreground"
                 }`}
             >
               Kreis
             </Link>
-            <Button
-              onClick={() => goToSection("kontakt")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
+            <Link
+              to="/wissen"
+              className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white hover:text-primary-foreground"
+                }`}
             >
-              Angebot anfragen
+              Wissen
+            </Link>
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
+              <a href="/#kontakt" onClick={(e) => handleNavClick(e, "kontakt")}>
+                Angebot anfragen
+              </a>
             </Button>
           </nav>
 
@@ -161,37 +173,20 @@ const Header = memo(() => {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-border flex flex-col gap-2 max-h-[calc(100vh-80px)] overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-300">
-            <button
-              onClick={() => goToSection("home")}
-              className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
-            >
-              Home
-            </button>
-            <button
-              onClick={() => goToSection("funktionen")}
-              className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
-            >
-              Funktionen
-            </button>
-            <button
-              onClick={() => goToSection("software-showcase")}
-              className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
-            >
-              Software Einblicke
-            </button>
-            <button
-              onClick={() => goToSection("future")}
-              className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
-            >
-              Zukunft
-            </button>
-            <button
-              onClick={() => goToSection("pricing")}
-              className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
-            >
-              Modelle
-            </button>
+          <nav
+            className="md:hidden py-4 border-t border-border flex flex-col gap-2 max-h-[calc(100vh-80px)] overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-300"
+            aria-label="Hauptnavigation mobil"
+          >
+            {NAV_SECTIONS.map((item) => (
+              <a
+                key={item.id}
+                href={`/#${item.id}`}
+                onClick={(e) => handleNavClick(e, item.id)}
+                className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
+              >
+                {item.label}
+              </a>
+            ))}
             <Link
               to="/kreis"
               onClick={() => setMobileMenuOpen(false)}
@@ -199,11 +194,17 @@ const Header = memo(() => {
             >
               Kreis
             </Link>
-            <Button
-              onClick={() => goToSection("kontakt")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 w-full font-semibold mt-2 h-12 touch-manipulation"
+            <Link
+              to="/wissen"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
             >
-              Angebot anfragen
+              Wissen
+            </Link>
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 w-full font-semibold mt-2 h-12 touch-manipulation">
+              <a href="/#kontakt" onClick={(e) => handleNavClick(e, "kontakt")}>
+                Angebot anfragen
+              </a>
             </Button>
           </nav>
         )}

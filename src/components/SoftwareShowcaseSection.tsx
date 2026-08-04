@@ -10,7 +10,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { Zap, Layers, BarChart3, LayoutDashboard, Monitor, Activity, Touchpad, Expand } from "lucide-react";
+import { Zap, Layers, BarChart3, LayoutDashboard, Monitor, Activity, Touchpad, Expand, Pause, Play } from "lucide-react";
 // WebP imports
 import lagemonitorWebp from "@/assets/showcase-lagemonitor.webp";
 import kioskHomeWebp from "@/assets/showcase-kiosk-home.webp";
@@ -72,19 +72,27 @@ const screenshots = [
 const SoftwareShowcaseSection = () => {
     const [api, setApi] = useState<CarouselApi>();
     const [current, setCurrent] = useState(0);
-    const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
+    const [enlargedImage, setEnlargedImage] = useState<{ src: string; title: string } | null>(null);
     const [isPaused, setIsPaused] = useState(false);
+    // Vom Nutzer angehaltenes Auto-Play (WCAG 2.2.2: bewegte Inhalte müssen
+    // sich stoppen lassen). Getrennt von isPaused, damit Hover oder ein
+    // Tab-Wechsel die bewusste Entscheidung nicht wieder überschreiben.
+    const [autoPlayStopped, setAutoPlayStopped] = useState(false);
 
     // Auto-play functionality with pause support
     useEffect(() => {
-        if (!api || isPaused) return;
+        if (!api || isPaused || autoPlayStopped) return;
+
+        // Wer reduzierte Bewegung eingestellt hat, bekommt kein Auto-Play. Die
+        // CSS-Regel dafür greift nur bei Animationen, nicht bei diesem Timer.
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
         const interval = setInterval(() => {
             api.scrollNext();
         }, 5000); // Auto-advance every 5 seconds
 
         return () => clearInterval(interval);
-    }, [api, isPaused]);
+    }, [api, isPaused, autoPlayStopped]);
 
     // Pause auto-play when tab is not visible
     useEffect(() => {
@@ -157,7 +165,6 @@ const SoftwareShowcaseSection = () => {
                         opts={{ align: "start", loop: true }}
                         setApi={setApi}
                         aria-label="Software Screenshots Galerie"
-                        aria-live="polite"
                     >
                         <CarouselContent>
                             {screenshots.map((item, index) => (
@@ -178,9 +185,11 @@ const SoftwareShowcaseSection = () => {
                                             </div>
 
                                             {/* Image with Click-to-Enlarge */}
-                                            <div
-                                                className="relative aspect-[4/3] md:aspect-[16/10] overflow-hidden bg-muted cursor-pointer group active:scale-[0.99] transition-transform"
-                                                onClick={() => setEnlargedImage(item.imageWebp)}
+                                            <button
+                                                type="button"
+                                                className="relative block w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden bg-muted cursor-pointer group active:scale-[0.99] transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                                                onClick={() => setEnlargedImage({ src: item.imageWebp, title: item.title })}
+                                                aria-label={`${item.title} vergrößert ansehen`}
                                             >
                                                 <img
                                                         src={item.imageWebp}
@@ -197,7 +206,7 @@ const SoftwareShowcaseSection = () => {
                                                         <span className="text-sm font-medium">Vergrößern</span>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </button>
 
                                             {/* Description Footer */}
                                             <div className="p-6 md:p-8 bg-card border-t border-border">
@@ -245,6 +254,28 @@ const SoftwareShowcaseSection = () => {
                         </div>
                     </Carousel>
 
+                    {/* Auto-Play anhalten: bewegte Inhalte müssen sich stoppen lassen (WCAG 2.2.2) */}
+                    <div className="flex justify-center mt-6">
+                        <button
+                            type="button"
+                            onClick={() => setAutoPlayStopped((stopped) => !stopped)}
+                            aria-pressed={autoPlayStopped}
+                            className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                        >
+                            {autoPlayStopped ? (
+                                <>
+                                    <Play className="h-3.5 w-3.5" />
+                                    Automatischen Bildwechsel starten
+                                </>
+                            ) : (
+                                <>
+                                    <Pause className="h-3.5 w-3.5" />
+                                    Automatischen Bildwechsel anhalten
+                                </>
+                            )}
+                        </button>
+                    </div>
+
                     {/* Thumbnail Navigation */}
                     <div className="flex justify-center gap-3 mt-8 flex-wrap" role="tablist" aria-label="Screenshot Navigation">
                         {screenshots.map((item, index) => (
@@ -282,10 +313,12 @@ const SoftwareShowcaseSection = () => {
                 {/* Enlarged Image Dialog */}
                 <Dialog open={!!enlargedImage} onOpenChange={() => setEnlargedImage(null)}>
                     <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 overflow-hidden">
-                        <DialogTitle className="sr-only">Screenshot vergrößert</DialogTitle>
+                        <DialogTitle className="sr-only">
+                            {enlargedImage ? `${enlargedImage.title} – vergrößerte Ansicht` : "Screenshot vergrößert"}
+                        </DialogTitle>
                         <img
-                            src={enlargedImage || ""}
-                            alt="Vergrößerte Ansicht"
+                            src={enlargedImage?.src || ""}
+                            alt={enlargedImage ? `RESQIO ${enlargedImage.title} – vergrößerter Screenshot` : ""}
                             className="w-full h-full object-contain"
                         />
                     </DialogContent>

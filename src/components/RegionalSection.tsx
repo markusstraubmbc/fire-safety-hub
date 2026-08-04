@@ -3,7 +3,7 @@ import regionalVisualWebp from "@/assets/regional-visual.webp";
 
 const RegionalSection = () => {
     return (
-        <section className="py-24 bg-background overflow-hidden">
+        <section id="ueber-uns" className="py-24 bg-background overflow-hidden">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 

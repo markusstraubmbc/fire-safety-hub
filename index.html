@@ -84,7 +84,15 @@
   <meta property="twitter:image" content="https://resqio.de/og-image.png" />
   <meta property="twitter:image:alt" content="RESQIO – Feuerwehr-Verwaltungssoftware mit KI" />
 
-  <!-- Structured Data / JSON-LD -->
+  <!-- Structured Data / JSON-LD
+
+       Bewusst KEIN "offers"-Block in der SoftwareApplication: Google verlangt
+       dafür price und priceCurrency. Da die Website keine Preise nennt, bliebe
+       nur, einen Betrag zu erfinden oder "price: 0" zu behaupten – beides wäre
+       falsch. Der frühere Block ohne price wurde von Google ohnehin verworfen,
+       er war also wirkungslos. Sobald Preise öffentlich sind, gehört hier ein
+       vollständiger Offer hin (zusammen mit PricingSection.tsx ändern).
+  -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -99,12 +107,7 @@
       "applicationSubCategory": "Emergency Management Software",
       "inLanguage": "de",
       "availableOnDevice": "Desktop, Tablet, Mobile",
-      "dateModified": "2026-06-04",
-      "offers": {
-        "@type": "Offer",
-        "description": "Individuelle Preise auf Anfrage – kontaktieren Sie uns unter support@resqio.de",
-        "url": "https://resqio.de/#kontakt"
-      },
+      "dateModified": "2026-08-04",
       "description": "Professionelle Feuerwehr-Verwaltungssoftware mit 57+ Modulen und integrierter KI. KI-Diktiermodul, KI-Berichtsassistent, GPS-Echtzeit-Lagekarte, Kommunikationscenter (E-Mail/WhatsApp/Telegram), Offline-Kiosk mit Gerätewart-Vollausbau, Personalmeldestelle für Großlagen, Beladeplan & Verlastung, Hersteller-Rückruf-Tracking, DGUV-Lebensdauer, GoBD-Aufwandsentschädigung. Made in Germany – DSGVO-konform.",
       "featureList": [
         "KI-Diktiermodul für Spracheingabe von Einsatzberichten und Protokollen",
@@ -183,10 +186,12 @@
         },
         "description": "Deutschland, Österreich, Schweiz"
       },
+      "telephone": "+49-160-96256376",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer support",
         "email": "support@resqio.de",
+        "telephone": "+49-160-96256376",
         "availableLanguage": "German"
       }
     }

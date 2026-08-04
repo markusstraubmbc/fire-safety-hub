@@ -25,7 +25,7 @@ const HeroStat = ({ end, suffix, unit, label, sparkles }: (typeof stats)[number]
         {unit}
         {sparkles && <Sparkles className="w-5 h-5 text-accent" />}
       </p>
-      <p className="text-sm text-primary-foreground/60">{label}</p>
+      <p className="text-sm text-primary-foreground/80">{label}</p>
     </div>
   );
 };
@@ -137,7 +137,7 @@ const HeroSection = () => {
       <button
         onClick={() => scrollToSection("funktionen")}
         aria-label="Zu den Funktionen scrollen"
-        className="animate-fade-in absolute bottom-5 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center text-primary-foreground/50 hover:text-primary-foreground transition-colors"
+        className="animate-fade-in absolute bottom-5 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center text-primary-foreground/80 hover:text-primary-foreground transition-colors"
         style={{ animationDelay: "1200ms" }}
       >
         <ChevronDown className="w-6 h-6 animate-float" />

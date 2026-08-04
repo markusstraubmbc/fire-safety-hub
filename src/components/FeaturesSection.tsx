@@ -144,6 +144,13 @@ export const features: Feature[] = [
   },
   {
     icon: Droplets,
+    title: "Wasserkarte & Hydranten",
+    description:
+      "Digitale Hydrantenkarte mit Live-Status, Durchflussmengen und automatischer Einbindung in den Einsatz.",
+    slug: "wasserkarte",
+  },
+  {
+    icon: Droplets,
     title: "Wasserförderung Profi",
     description:
       "Multi-Plan Visualisierung komplexer Förderstrecken mit Isochronen-Analyse.",
@@ -290,7 +297,6 @@ export const features: Feature[] = [
     description:
       "Alle Wehren im Landkreis. Ein System. Volle Datensouveränität.",
     href: "/kreis",
-    slug: "kreis-platform",
   },
   {
     icon: Clock,

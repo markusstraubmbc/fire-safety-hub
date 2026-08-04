@@ -28,7 +28,7 @@ const ProcessSection = () => {
     ];
 
     return (
-        <section className="py-24 bg-muted/30 border-y border-border/40 relative overflow-hidden">
+        <section id="ablauf" className="py-24 bg-muted/30 border-y border-border/40 relative overflow-hidden">
             <div className="container mx-auto px-4">
                 <Reveal className="text-center max-w-3xl mx-auto mb-20 space-y-4">
                     <h2 className="text-3xl md:text-5xl font-bold text-foreground">

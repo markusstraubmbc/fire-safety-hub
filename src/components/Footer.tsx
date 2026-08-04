@@ -112,7 +112,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-white/5 text-center">
-          <p className="text-sm text-slate-500 font-medium italic">
+          <p className="text-sm text-slate-400 font-medium italic">
             © {currentYear} RESQIO. Einsatzbereit. Geprüft. Professionell.
           </p>
         </div>

@@ -47,7 +47,7 @@ const PersonaSection = () => {
     ] as const;
 
     return (
-        <section className="py-24 bg-background overflow-hidden">
+        <section id="rollen" className="py-24 bg-background overflow-hidden">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
 
