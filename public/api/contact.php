@@ -53,20 +53,12 @@ $resendPayload = json_encode([
     'html' => $htmlContent,
 ]);
 
-// Resend-API-Key: stand vorher im Klartext in dieser Datei und ist damit ueber
-// die Git-Historie abrufbar. Der alte Key ist als kompromittiert zu behandeln
-// und muss in Resend zurueckgezogen und neu ausgestellt werden.
-// Erforderliche Umgebungsvariable: RESEND_API_KEY
-$resendApiKey = getenv('RESEND_API_KEY');
-if (!$resendApiKey) {
-    error_log('RESEND_API_KEY ist nicht gesetzt - Kontaktformular kann nichts versenden.');
-    http_response_code(500);
-    echo json_encode([
-        'error'  => 'E-Mail konnte nicht gesendet werden.',
-        'detail' => 'Serverkonfiguration unvollstaendig.',
-    ]);
-    exit;
-}
+// Resend-API-Key: steht auf ausdruecklichen Wunsch wieder direkt im Quelltext,
+// damit das Formular ohne gesetzte Umgebungsvariable funktioniert. Er ist ueber
+// die Git-Historie abrufbar und damit nicht geheim. Ist RESEND_API_KEY gesetzt,
+// hat die Variable Vorrang - so laesst sich ein neuer Key nachziehen, ohne ihn
+// hier einzutragen.
+$resendApiKey = getenv('RESEND_API_KEY') ?: 're_bCqQgZJy_GAZv4Ti5xtpEEUsvxXwvU2kV';
 
 $ch = curl_init('https://api.resend.com/emails');
 curl_setopt_array($ch, [

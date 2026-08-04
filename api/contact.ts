@@ -3,16 +3,18 @@ export const config = {
 };
 
 /**
- * Resend-API-Key. Stand vorher im Klartext hier im Quelltext und ist damit über
- * die Git-Historie eines öffentlichen Repositories abrufbar – GitHubs
- * Secret Scanning blockiert Pushes mit diesem Key inzwischen.
- * Der alte Key ist als kompromittiert zu behandeln und muss in Resend
- * zurückgezogen und neu ausgestellt werden.
+ * Resend-API-Key.
  *
- * Erforderliche Umgebungsvariable: RESEND_API_KEY
+ * Der Key steht auf ausdrücklichen Wunsch wieder direkt im Quelltext, damit das
+ * Kontaktformular ohne gesetzte Umgebungsvariable funktioniert. Er ist über die
+ * Git-Historie abrufbar und daher nicht geheim – wer das Repository lesen kann,
+ * kann über dieses Konto Mails verschicken. Ist RESEND_API_KEY gesetzt, hat die
+ * Variable Vorrang; damit lässt sich ein neu ausgestellter Key nachziehen, ohne
+ * ihn hier einzutragen.
  */
 const RESEND_API_KEY =
-  typeof process !== "undefined" ? process.env?.RESEND_API_KEY : undefined;
+  (typeof process !== "undefined" && process.env?.RESEND_API_KEY) ||
+  "re_bCqQgZJy_GAZv4Ti5xtpEEUsvxXwvU2kV";
 const RESEND_URL = "https://api.resend.com/emails";
 
 /**
@@ -65,17 +67,6 @@ export default async function handler(request: Request) {
     return Response.json(
       { error: "Name, E-Mail und Nachricht sind Pflichtfelder." },
       { status: 400 }
-    );
-  }
-
-  if (!RESEND_API_KEY) {
-    console.error("RESEND_API_KEY ist nicht gesetzt – Kontaktformular kann nichts versenden.");
-    return Response.json(
-      {
-        error: "E-Mail konnte nicht gesendet werden.",
-        detail: "Serverkonfiguration unvollständig.",
-      },
-      { status: 500 }
     );
   }
 
