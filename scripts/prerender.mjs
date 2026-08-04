@@ -247,7 +247,7 @@ function createPage({ title, description, keywords, canonicalUrl, bodyContent, n
   const homeBody = `<main>
 <header><nav aria-label="Hauptnavigation"><a href="/">RESQIO</a></nav></header>
 <section><h1>Einsatzbereit. Geprüft. Professionell.<span>Die Feuerwehr-Verwaltungssoftware für Einsatz, Technik und Mannschaft</span></h1>
-<p>Von der rechtssicheren Ausrüstungsprüfung bis zur KI-optimierten Einsatznachbereitung – RESQIO vereint alle Prozesse Ihrer Feuerwehr in einer modernen Plattform. 57+ Module, GPS-Lagekarte, automatische Benachrichtigungen per WhatsApp/Telegram/E-Mail, Offline-Kiosk und Digitaler Dienstausweis.</p>
+<p>RESQIO ist mehr als nur Verwaltungssoftware – wir sind die intelligente Kommandozentrale für die moderne Feuerwehr. Diktieren Sie Einsatzberichte per Sprache, lassen Sie die Lage automatisch auf der Karte erscheinen und profitieren Sie von KI-gestützter Personal- und Einsatzplanung.</p>
 <p><a href="mailto:support@resqio.de">Jetzt Demo anfordern</a></p></section>
 <section><h2>Unsere Module</h2><ul>
 ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> – ${escAttr(m.shortDesc)}</li>`).join("\n")}
@@ -265,10 +265,10 @@ ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> –
 <li>GoBD-konforme Aufwandsentschädigung mit Jahresbescheinigungen</li>
 <li>Made in Germany – DSGVO-konform, Serverstandort Deutschland</li>
 </ul></section>
-<section><h2>Preise</h2>
-<p>All in One (bis 5.000 Einwohner): 399 € / Jahr</p>
-<p>Professional (bis 10.000 Einwohner): 599 € / Jahr</p>
-<p>Enterprise (Städte & Kreise): Auf Anfrage</p>
+<section><h2>Individuell & Bedarfsgerecht</h2>
+<p>Unsere Lösungen passen sich Ihrer Feuerwehr an. Kontaktieren Sie uns für ein maßgeschneidertes Angebot inklusive Updates, Support und Hosting.</p>
+<p>Standard – Komplettlösung für Ihre Wehr: Preis auf Anfrage</p>
+<p>Individuell – Städte, Kreise & Verbände: Preis auf Anfrage</p>
 </section>
 <footer><p>© RESQIO – Markus Straub | <a href="/wissen">Wissen & Ratgeber</a> | <a href="/impressum">Impressum</a> | <a href="/datenschutz">Datenschutz</a> | <a href="mailto:support@resqio.de">Kontakt</a></p></footer>
 </main>`;

@@ -87,8 +87,8 @@ const Footer = () => {
             <p className="text-sm font-bold text-white uppercase tracking-wider">Kontakt & Rechtliches</p>
             <ul className="space-y-2">
               <li>
-                <a href="mailto:support@resqio.io" className="text-sm text-slate-400 hover:text-primary transition-colors">
-                  support@resqio.io
+                <a href="mailto:support@resqio.de" className="text-sm text-slate-400 hover:text-primary transition-colors">
+                  support@resqio.de
                 </a>
               </li>
               <li>

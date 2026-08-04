@@ -34,7 +34,7 @@ const RegionalSection = () => {
                                             <MapPin className="w-5 h-5 text-red-500" />
                                         </div>
                                         <div>
-                                            <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Headquarters</p>
+                                            <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Standort</p>
                                             <p className="text-sm font-bold text-foreground">Walddorfhäslach, DE</p>
                                         </div>
                                     </div>

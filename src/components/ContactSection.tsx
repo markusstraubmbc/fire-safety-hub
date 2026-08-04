@@ -42,7 +42,7 @@ const ContactSection = () => {
     if (timeSinceLast < COOLDOWN_MS) {
       const remainingSec = Math.ceil((COOLDOWN_MS - timeSinceLast) / 1000);
       toast.error(
-        `Bitte warten Sie noch ${remainingSec} Sekunde${remainingSec > 1 ? "n" : ""}, bevor Sie erneut senden. Sie können uns auch direkt per E-Mail erreichen: support@resqio.io`
+        `Bitte warten Sie noch ${remainingSec} Sekunde${remainingSec > 1 ? "n" : ""}, bevor Sie erneut senden. Sie können uns auch direkt per E-Mail erreichen: support@resqio.de`
       );
       return;
     }
@@ -70,7 +70,7 @@ const ContactSection = () => {
     } catch (err) {
       const msg = err instanceof Error ? err.message : "";
       console.error("Contact form error:", msg);
-      toast.error(`Nachricht konnte nicht gesendet werden${msg ? `: ${msg}` : ""}. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an support@resqio.io`);
+      toast.error(`Nachricht konnte nicht gesendet werden${msg ? `: ${msg}` : ""}. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an support@resqio.de`);
     } finally {
       setIsSubmitting(false);
     }
@@ -103,9 +103,9 @@ const ContactSection = () => {
                 <div>
                   <p className="font-bold text-foreground">Markus Straub</p>
                   <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wider font-bold">Direkter Kontakt – Support & Entwicklung</p>
-                  <a href="mailto:support@resqio.io" className="text-primary hover:underline text-sm font-bold flex items-center gap-1">
+                  <a href="mailto:support@resqio.de" className="text-primary hover:underline text-sm font-bold flex items-center gap-1">
                     <Mail className="w-3.5 h-3.5" />
-                    support@resqio.io
+                    support@resqio.de
                   </a>
                   <a href="tel:+4916096256376" className="text-primary hover:underline text-sm font-bold flex items-center gap-1 mt-2">
                     <Phone className="w-3.5 h-3.5" />
@@ -253,7 +253,7 @@ const ContactSection = () => {
                   ) : isCooldown ? (
                     <>
                       <Mail className="w-4 h-4 mr-2" />
-                      Nachricht gesendet – oder direkt an support@resqio.io
+                      Nachricht gesendet – oder direkt an support@resqio.de
                     </>
                   ) : (
                     <>

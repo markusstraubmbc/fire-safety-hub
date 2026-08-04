@@ -130,7 +130,7 @@ export const features: Feature[] = [
     icon: Sparkles,
     title: "KI-Berichtsassistent",
     description:
-      "Professionelle Berichte ohne Schreibaufwand: Aus Ihren Einsatzdaten erstellt die KI vollständige, rechtssichere Dokumentationen – in Minuten statt Stunden.",
+      "Professionelle Berichte ohne Schreibaufwand: Aus Ihren Einsatzdaten erstellt die KI vollständige, lückenlose Dokumentationen – in Minuten statt Stunden.",
     slug: "ki-integration",
   },
 
@@ -366,7 +366,7 @@ export const features: Feature[] = [
     icon: HeartPulse,
     title: "Verbandbuch & Vorfälle",
     description:
-      "Verbandbuch nach DGUV 204-021 rechtssicher digital führen: Verletzungen, Unfälle und Vorfälle mit digitaler Unterschrift dokumentieren und revisionssicher aufbewahren.",
+      "Verbandbuch nach DGUV 204-021 nachvollziehbar digital führen: Verletzungen, Unfälle und Vorfälle mit digitaler Unterschrift dokumentieren und revisionssicher aufbewahren.",
     slug: "verbandbuch",
   },
   {

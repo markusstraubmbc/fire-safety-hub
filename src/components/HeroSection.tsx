@@ -11,7 +11,7 @@ const STAT_COUNT_DELAY = 600;
 
 const stats = [
   { end: 365, suffix: "", unit: " Tage", label: "Einsatzbereit im Jahr" },
-  { end: 55, suffix: "+", unit: "", label: "Einsatzmodule verfügbar" },
+  { end: 57, suffix: "+", unit: "", label: "Einsatzmodule verfügbar" },
   { end: 57, suffix: "", unit: "", label: "Kiosk-Module touchscreen-optimiert" },
   { end: 6, suffix: "+", unit: "", label: "KI-Assistenten integriert", sparkles: true },
 ];
@@ -121,17 +121,9 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          <p
-            className="animate-fade-in-up text-lg text-primary-foreground/90 mb-8 max-w-xl"
-            style={{ animationDelay: "400ms" }}
-          >
-            Sprechen Sie mit uns für eine unverbindliche Live-Demo und machen wir gemeinsam
-            Ihre Wehr fit für die digitale Zukunft.
-          </p>
-
           <div
             className="animate-fade-in-up grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8"
-            style={{ animationDelay: "500ms" }}
+            style={{ animationDelay: "400ms" }}
           >
             {stats.map((stat) => (
               <HeroStat key={stat.label} {...stat} />

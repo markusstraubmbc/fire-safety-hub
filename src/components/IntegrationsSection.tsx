@@ -1,4 +1,5 @@
 import { ArrowRight, Cpu, Network, Radio } from "lucide-react";
+import { scrollToSection } from "@/lib/utils";
 import fireTechVisual from "@/assets/fire-middleware-visual.png";
 import fireTechVisualWebp from "@/assets/fire-middleware-visual.webp";
 
@@ -119,7 +120,10 @@ const IntegrationsSection = () => {
                                         <span className="text-[10px] text-muted-foreground uppercase tracking-tight">{item.description}</span>
                                     </div>
                                 ))}
-                                <button className="px-5 py-3 bg-primary/10 rounded-2xl border border-primary/20 flex items-center gap-2 group/btn hover:bg-primary/20 transition-all">
+                                <button
+                                    onClick={() => scrollToSection("kontakt")}
+                                    className="px-5 py-3 bg-primary/10 rounded-2xl border border-primary/20 flex items-center gap-2 group/btn hover:bg-primary/20 transition-all"
+                                >
                                     <span className="text-sm font-bold text-primary">Ihre Systeme anbinden</span>
                                     <ArrowRight className="w-4 h-4 text-primary group-hover/btn:translate-x-1 transition-transform" />
                                 </button>

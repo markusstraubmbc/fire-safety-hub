@@ -60,7 +60,7 @@ const screenshots = [
     },
     {
         title: "Mobile Erfassung im Kiosk",
-        description: "Einfache Erfassung von Tätigkeiten, Personal und Material direkt vor Ort im Gerätehaus. Wizard-geführue Workflows für Wartung, Fahrtenbuch und Meldungen. Schnell, einfach und zuverlässig.",
+        description: "Einfache Erfassung von Tätigkeiten, Personal und Material direkt vor Ort im Gerätehaus. Wizard-geführte Workflows für Wartung, Fahrtenbuch und Meldungen. Schnell, einfach und zuverlässig.",
         image: kioskMobileImg,
         imageWebp: kioskMobileWebp,
         icon: Touchpad,

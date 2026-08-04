@@ -5,42 +5,22 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import { HelpCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+import FAQ_JSON_LD from "@/data/faq-jsonld.json";
+
+/**
+ * Sichtbare Fragen und FAQPage-Schema stammen aus derselben Datei.
+ * Vorher wurden beide getrennt gepflegt und liefen auseinander: das Schema
+ * enthielt eine Frage, die auf der Seite gar nicht stand, und bei drei weiteren
+ * wich der Antworttext ab – ein Verstoß gegen Googles FAQ-Richtlinie, nach der
+ * die ausgezeichnete Antwort auf der Seite sichtbar sein muss.
+ */
+const faqs = FAQ_JSON_LD.mainEntity.map((entry) => ({
+    question: entry.name,
+    answer: entry.acceptedAnswer.text,
+}));
 
 const FaqSection = () => {
-    const faqs = [
-        {
-            question: "Was kostet RESQIO?",
-            answer: "Die Preise richten sich nach der Größe und den Anforderungen Ihrer Feuerwehr. Kontaktieren Sie uns für ein individuelles Angebot unter support@resqio.de oder über das Kontaktformular. Wir finden gemeinsam das passende Modell – von der kleinen Ortswehr bis zum Kreisfeuerwehrverband."
-        },
-        {
-            question: "Gibt es ein Kreismodul für Kreisfeuerwehrverbände?",
-            answer: "Ja! Das RESQIO Kreismodul ist speziell für Kreisbrandmeister und Kreisfeuerwehrverbände entwickelt. Es ermöglicht die zentrale Verwaltung aller angeschlossenen Wehren mit voller Datensouveränität je Feuerwehr, gemeinsamen Ressourcen-Übersichten, Einladungssystem für neue Wehren und kreisweiten Auswertungen – alles in einem System."
-        },
-        {
-            question: "Gibt es eine mobile App und einen Kiosk-Modus?",
-            answer: "RESQIO ist vollständig mobil-optimiert und läuft im Browser auf jedem Smartphone und Tablet. Zusätzlich gibt es den speziellen Kiosk-Modus mit 57 touchscreen-optimierten Modulen für Tablets im Gerätehaus – mit RFID-Login, PIN und QR-Code. So können Kameraden Wartungen, Fahrtenbuch, Belegeinreichung und mehr selbstständig erledigen."
-        },
-        {
-            question: "Ist die Software rechtssicher?",
-            answer: "RESQIO ist so konzipiert, dass es alle relevanten Dokumentationspflichten (z.B. nach DGUV oder FwDV) unterstützt. Da wir jedoch nicht förmlich zertifiziert sind, nutzen wir Begriffe wie 'Nachvollziehbar' oder 'Lückenlos', um ehrlich und transparent zu bleiben. Die Erfahrung zeigt: Im Ernstfall zählt die Qualität Ihrer Daten."
-        },
-        {
-            question: "Wo werden meine Daten gespeichert?",
-            answer: "Alle Daten werden ausschließlich auf hochsicheren Servern in Deutschland gehostet. Wir legen größten Wert auf Datenschutz und Privatsphäre, ganz ohne US-Cloud-Umwege."
-        },
-        {
-            question: "Können wir unsere bestehende Hardware anbinden?",
-            answer: "Ja! RESQIO ist über seine MQTT-Schnittstellen und REST-APIs extrem offen. Wir bauen auf Anfrage auch individuelle Middleware, um z.B. Ihre Fahrzeug-Telemetrie oder IoT-Geräte im Gerätehaus direkt zu vernetzen."
-        },
-        {
-            question: "Wie kompliziert ist die Einrichtung?",
-            answer: "Gar nicht. Wir begleiten Sie beim Onboarding und helfen bei der Datenübernahme. Da die Software für Kameraden entwickelt wurde, ist die Bedienung intuitiv und erfordert kaum Schulungsaufwand."
-        },
-        {
-            question: "Gibt es eine Mindestvertragslaufzeit?",
-            answer: "Wir setzen auf Partnerschaft auf Augenhöhe. Kontaktieren Sie uns für Details zu unseren flexiblen Modellen, die auf die Bedürfnisse von Feuerwehren zugeschnitten sind."
-        }
-    ];
 
     return (
         <section id="faq" className="py-24 bg-muted/30 border-t border-border/40">
@@ -74,6 +54,31 @@ const FaqSection = () => {
                         </AccordionItem>
                     ))}
                 </Accordion>
+
+                {/* Einstieg in die Ratgeber-Artikel: bisher waren sie ausschließlich
+                    über den Footer erreichbar, obwohl die FAQ thematisch direkt
+                    auf sie einzahlt. */}
+                <div className="mt-12 rounded-2xl border border-border bg-background p-6 text-center">
+                    <p className="text-base text-muted-foreground">
+                        Tiefer einsteigen? Unsere Fachbeiträge zu{" "}
+                        <Link to="/wissen/dguv-pruefristen-feuerwehr" className="font-semibold text-primary hover:underline">
+                            DGUV-Prüffristen
+                        </Link>
+                        ,{" "}
+                        <Link to="/wissen/atemschutz-dokumentation-fwdv7" className="font-semibold text-primary hover:underline">
+                            Atemschutz-Dokumentation nach FwDV 7
+                        </Link>{" "}
+                        und der{" "}
+                        <Link to="/wissen/feuerwehrsoftware-einfuehren-leitfaden" className="font-semibold text-primary hover:underline">
+                            Einführung von Feuerwehrsoftware
+                        </Link>{" "}
+                        gehen ins Detail – oder Sie stöbern im gesamten{" "}
+                        <Link to="/wissen" className="font-semibold text-primary hover:underline">
+                            Wissensbereich
+                        </Link>
+                        .
+                    </p>
+                </div>
             </div>
         </section>
     );

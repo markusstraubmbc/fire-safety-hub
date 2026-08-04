@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, memo } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { scrollToSection } from "@/lib/utils";
 
 const Header = memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,15 +51,11 @@ const Header = memo(() => {
     };
   }, []);
 
-  const scrollToSection = (id: string) => {
+  // Scroll-Logik liegt in lib/utils – vorher existierte hier eine zweite,
+  // abweichende Kopie ohne Header-Offset, sodass Ziel-Überschriften je nach
+  // angeklicktem CTA unter dem fixierten Header verschwanden.
+  const goToSection = (id: string) => {
     setMobileMenuOpen(false);
-
-    const doScroll = (el: HTMLElement) => {
-      const headerOffset = 80;
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-    };
 
     // If not on homepage, navigate there first with the section hash
     if (!isHomePage) {
@@ -66,27 +63,7 @@ const Header = memo(() => {
       return;
     }
 
-    const element = document.getElementById(id);
-    if (element) {
-      doScroll(element);
-      return;
-    }
-
-    // Element not in DOM yet (lazy-loaded) – scroll down to trigger loading
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-    let attempts = 0;
-    const tryScroll = () => {
-      const target = document.getElementById(id);
-      if (target) {
-        doScroll(target);
-        return;
-      }
-      if (attempts < 10) {
-        attempts++;
-        setTimeout(tryScroll, 300);
-      }
-    };
-    setTimeout(tryScroll, 300);
+    scrollToSection(id);
   };
 
   // Determine if header should be solid (not transparent)
@@ -121,35 +98,35 @@ const Header = memo(() => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             <button
-              onClick={() => scrollToSection("home")}
+              onClick={() => goToSection("home")}
               className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
               Home
             </button>
             <button
-              onClick={() => scrollToSection("funktionen")}
+              onClick={() => goToSection("funktionen")}
               className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
               Funktionen
             </button>
             <button
-              onClick={() => scrollToSection("software-showcase")}
+              onClick={() => goToSection("software-showcase")}
               className={`nav-underline transition-colors font-medium text-nowrap ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
               Software Einblicke
             </button>
             <button
-              onClick={() => scrollToSection("future")}
+              onClick={() => goToSection("future")}
               className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
               Zukunft
             </button>
             <button
-              onClick={() => scrollToSection("pricing")}
+              onClick={() => goToSection("pricing")}
               className={`nav-underline transition-colors font-medium ${shouldBeSolid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
                 }`}
             >
@@ -163,7 +140,7 @@ const Header = memo(() => {
               Kreis
             </Link>
             <Button
-              onClick={() => scrollToSection("kontakt")}
+              onClick={() => goToSection("kontakt")}
               className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
             >
               Angebot anfragen
@@ -189,31 +166,31 @@ const Header = memo(() => {
         {mobileMenuOpen && (
           <nav className="md:hidden py-4 border-t border-border flex flex-col gap-2 max-h-[calc(100vh-80px)] overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-300">
             <button
-              onClick={() => scrollToSection("home")}
+              onClick={() => goToSection("home")}
               className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
             >
               Home
             </button>
             <button
-              onClick={() => scrollToSection("funktionen")}
+              onClick={() => goToSection("funktionen")}
               className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
             >
               Funktionen
             </button>
             <button
-              onClick={() => scrollToSection("software-showcase")}
+              onClick={() => goToSection("software-showcase")}
               className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
             >
               Software Einblicke
             </button>
             <button
-              onClick={() => scrollToSection("future")}
+              onClick={() => goToSection("future")}
               className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
             >
               Zukunft
             </button>
             <button
-              onClick={() => scrollToSection("pricing")}
+              onClick={() => goToSection("pricing")}
               className="text-foreground hover:text-primary transition-colors text-left font-medium py-3 px-2 active:scale-98 touch-manipulation"
             >
               Modelle
@@ -226,7 +203,7 @@ const Header = memo(() => {
               Kreis
             </Link>
             <Button
-              onClick={() => scrollToSection("kontakt")}
+              onClick={() => goToSection("kontakt")}
               className="bg-primary text-primary-foreground hover:bg-primary/90 w-full font-semibold mt-2 h-12 touch-manipulation"
             >
               Angebot anfragen
