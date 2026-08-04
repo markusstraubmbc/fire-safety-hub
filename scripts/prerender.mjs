@@ -279,7 +279,7 @@ function createPage({
 <main>
 <section><h1>Einsatzbereit. Geprüft. Professionell.<span>Die Feuerwehr-Verwaltungssoftware für Einsatz, Technik und Mannschaft</span></h1>
 <p>RESQIO ist mehr als nur Verwaltungssoftware – wir sind die intelligente Kommandozentrale für die moderne Feuerwehr. Diktieren Sie Einsatzberichte per Sprache, lassen Sie die Lage automatisch auf der Karte erscheinen und profitieren Sie von KI-gestützter Personal- und Einsatzplanung.</p>
-<p><a href="mailto:support@resqio.de">Jetzt Demo anfordern</a></p></section>
+<p><a href="mailto:kontakt@resqio.de">Jetzt Demo anfordern</a></p></section>
 <section><h2>Unsere Module</h2><ul>
 ${modules
   // kreis-platform 301-redirected auf /kreis – ein interner Link auf einen
@@ -311,7 +311,7 @@ ${modules
 ${wissen.map((a) => `<li><a href="/wissen/${a.slug}">${escAttr(a.title)}</a></li>`).join("\n")}
 </ul></section>
 </main>
-<footer><p>© RESQIO – Markus Straub | <a href="/wissen">Wissen & Ratgeber</a> | <a href="/impressum">Impressum</a> | <a href="/datenschutz">Datenschutz</a> | <a href="mailto:support@resqio.de">Kontakt</a></p></footer>`;
+<footer><p>© RESQIO – Markus Straub | <a href="/wissen">Wissen & Ratgeber</a> | <a href="/impressum">Impressum</a> | <a href="/datenschutz">Datenschutz</a> | <a href="mailto:kontakt@resqio.de">Kontakt</a></p></footer>`;
 
   let html = createPage({
     title: "RESQIO – Feuerwehr-Software mit KI | Wartung & Einsatz",
@@ -410,7 +410,7 @@ for (const mod of modules) {
     benefitItems ? `<h2>Ihr Mehrwert</h2><ul>${benefitItems}</ul>` : ""
   }${
     featureItems ? `<h2>Funktionen im Überblick</h2><ul>${featureItems}</ul>` : ""
-  }<h2>Weitere Module</h2><ul>${relatedLinks}</ul><p>RESQIO – Die intelligente Feuerwehr-Verwaltungssoftware. <a href="/">Zur Startseite</a> | <a href="/wissen">Wissen & Ratgeber</a> | <a href="mailto:support@resqio.de">Demo anfordern</a></p></main>`;
+  }<h2>Weitere Module</h2><ul>${relatedLinks}</ul><p>RESQIO – Die intelligente Feuerwehr-Verwaltungssoftware. <a href="/">Zur Startseite</a> | <a href="/wissen">Wissen & Ratgeber</a> | <a href="mailto:kontakt@resqio.de">Demo anfordern</a></p></main>`;
 
   const html = createPage({
     title: pageTitle,
@@ -492,7 +492,7 @@ for (const mod of modules) {
 <li>Dokumenten-Portal und Schwarzes Brett</li>
 <li>Übungskoordination mit Konflikt-Warnung</li>
 </ul>
-<p><a href="mailto:support@resqio.de?subject=Demo Anfrage RESQIO Kreismodul">Jetzt Demo anfordern</a> | <a href="/">Zur Startseite</a></p>
+<p><a href="mailto:kontakt@resqio.de?subject=Demo Anfrage RESQIO Kreismodul">Jetzt Demo anfordern</a> | <a href="/">Zur Startseite</a></p>
 </main>`;
 
   let kreisHtml = createPage({
@@ -579,7 +579,7 @@ for (const artikel of wissen) {
 
   const bodyContent = `<main><article><h1>${escAttr(artikel.title)}</h1><p>${escAttr(artikel.intro || artikel.description)}</p>${sectionHtml}${
     artikel.hinweis ? `<p>${escAttr(artikel.hinweis)}</p>` : ""
-  }<p><a href="/wissen">Alle Artikel</a> | <a href="/">Zur Startseite</a> | <a href="mailto:support@resqio.de">Demo anfordern</a></p></article></main>`;
+  }<p><a href="/wissen">Alle Artikel</a> | <a href="/">Zur Startseite</a> | <a href="mailto:kontakt@resqio.de">Demo anfordern</a></p></article></main>`;
 
   let html = createPage({
     title: pageTitle,
@@ -610,7 +610,7 @@ console.log(`Prerendered ${wissen.length} Wissen articles.`);
     keywords: "Impressum, RESQIO, Markus Straub, Kontakt",
     canonicalUrl: `${BASE_URL}/impressum`,
     noindex: true,
-    bodyContent: `<main><h1>Impressum</h1><p>Angaben gemäß § 5 TMG: Markus Straub, Eschenstraße 37, 72141 Walddorfhäslach. E-Mail: support@resqio.de</p></main>`,
+    bodyContent: `<main><h1>Impressum</h1><p>Angaben gemäß § 5 TMG: Markus Straub, Eschenstraße 37, 72141 Walddorfhäslach. E-Mail: kontakt@resqio.de</p></main>`,
   });
   mkdirSync(join(distDir, "impressum"), { recursive: true });
   writeFileSync(join(distDir, "impressum", "index.html"), html, "utf-8");

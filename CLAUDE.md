@@ -353,11 +353,16 @@ German-speaking fire departments (Freiwillige Feuerwehr) with focus on:
 
 ### Pricing Tiers
 
+**Prices are never published.** Every figure on every surface — the visible
+page, the prerendered HTML, `llms.txt`, JSON-LD — reads "auf Anfrage". Do not
+put a number on any of them, and do not copy one in from an older document:
+the archived `WEBSITE_CONTENT_OPTIMIZED-*.md` files still contain historical
+figures, and they are not a source to restore from.
+
 | Package | Target | Annual Price |
 |---------|--------|-------------|
-| All in One | < 5,000 inhabitants | 399 € |
-| Professional | < 10,000 inhabitants | 599 € |
-| Enterprise | Cities/Districts | On request |
+| Standard | Single fire department | On request |
+| Individuell | Cities, districts, associations | On request |
 
 ## Content Strategy & Documentation Sources
 
@@ -420,7 +425,7 @@ Primary CTAs throughout the site:
 - "Angebot anfragen" (Request quote)
 - "Kontakt aufnehmen" (Get in touch)
 
-Contact: support@resqio.de
+Contact: kontakt@resqio.de
 
 ### SEO Keywords
 

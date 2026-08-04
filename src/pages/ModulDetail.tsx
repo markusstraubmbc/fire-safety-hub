@@ -145,7 +145,7 @@ const ModulDetail = () => {
           "@type": "Organization",
           "name": "Markus Straub",
           "url": "https://resqio.de",
-          "email": "support@resqio.de"
+          "email": "kontakt@resqio.de"
         }
       });
       document.getElementById("module-jsonld")?.remove();

@@ -64,10 +64,10 @@ const Datenschutz = () => {
                     72141 Walddorfhäslach<br />
                     E-Mail:{" "}
                     <a
-                      href="mailto:support@resqio.de"
+                      href="mailto:kontakt@resqio.de"
                       className="text-primary hover:underline"
                     >
-                      support@resqio.de
+                      kontakt@resqio.de
                     </a>
                   </p>
                 </section>
@@ -245,10 +245,10 @@ const Datenschutz = () => {
                     Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten
                     können Sie sich jederzeit an uns wenden:{" "}
                     <a
-                      href="mailto:support@resqio.de"
+                      href="mailto:kontakt@resqio.de"
                       className="text-primary hover:underline"
                     >
-                      support@resqio.de
+                      kontakt@resqio.de
                     </a>
                   </p>
                   <p className="text-muted-foreground text-sm mt-2">

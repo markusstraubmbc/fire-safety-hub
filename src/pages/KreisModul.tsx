@@ -331,7 +331,7 @@ const KreisModul = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <a href="mailto:support@resqio.de?subject=Demo Anfrage RESQIO Kreismodul">
+                  <a href="mailto:kontakt@resqio.de?subject=Demo Anfrage RESQIO Kreismodul">
                     <Button size="lg" className="w-full sm:w-auto h-12 sm:h-14 px-6 sm:px-8 bg-primary hover:bg-primary/90 text-white rounded-2xl shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
                       Jetzt Demo anfordern
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -627,20 +627,20 @@ const KreisModul = () => {
                   Vereinbaren Sie eine unverbindliche Demo und erfahren Sie, wie das RESQIO Kreismodul Ihre Verwaltung vereinfacht.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                  <a href="mailto:support@resqio.de?subject=Demo Anfrage RESQIO Kreismodul">
+                  <a href="mailto:kontakt@resqio.de?subject=Demo Anfrage RESQIO Kreismodul">
                     <Button size="lg" className="w-full sm:w-auto h-14 px-8 bg-white text-primary hover:bg-white/90 rounded-2xl shadow-xl font-bold transition-all hover:scale-105 active:scale-95">
                       Demo anfordern
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </a>
-                  <a href="mailto:support@resqio.de">
+                  <a href="mailto:kontakt@resqio.de">
                     <Button size="lg" className="w-full sm:w-auto h-14 px-8 rounded-2xl border-2 border-white/60 bg-transparent text-white hover:bg-white/20 font-bold transition-all">
                       Kontakt aufnehmen
                     </Button>
                   </a>
                 </div>
                 <p className="text-sm text-white/60 pt-2">
-                  Oder schreiben Sie uns direkt: support@resqio.de
+                  Oder schreiben Sie uns direkt: kontakt@resqio.de
                 </p>
               </div>
             </div>
