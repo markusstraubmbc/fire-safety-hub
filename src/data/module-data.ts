@@ -714,7 +714,7 @@ export const modules: Record<string, ModuleData> = {
             "Text-Assistent: Formulierungen verbessern, Rechtschreibung korrigieren, Texte professionell aufbereiten – überall in RESQIO",
             "Rechnungs- & Abrechnungshilfe: Kostenbescheide und Abrechnungstexte werden auf Basis der Einsatzdaten vorformuliert",
             "Wissensassistent: Fragen in natürlicher Sprache stellen und sofort Antworten aus dem internen Wiki und der Hilfe erhalten",
-            "KI-Personalanalyse: Erkennt, wer für Beförderungen bereit ist und welche Qualifikationen fehlen",
+            "Beförderungs-Check: Gleicht den Qualifikationsstand automatisch gegen die hinterlegten Beförderungsvoraussetzungen ab und zeigt, was noch fehlt",
             "Gefahrstoff-Assistenz: Unterstützung bei der Einschätzung von Gefahrstofflagen und Schutzempfehlungen (immer mit Fachberater-Vorbehalt)",
             "Pumpen- & Adressoptimierung: Optimale Wasserförderung berechnen, Adressen automatisch normalisieren",
             "Anbieter-Wahl: Die genutzte KI lässt sich zwischen mehreren Anbietern umschalten – volle Flexibilität für Ihre Datenschutz-Anforderungen",
