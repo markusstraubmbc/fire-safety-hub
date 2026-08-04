@@ -43,7 +43,7 @@ const RegionalSection = () => {
                         <div className="space-y-4">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-xs font-bold uppercase tracking-wider">
                                 <Radio className="w-3.5 h-3.5" />
-                                Smart Firefighting Hub
+                                Aus Baden-Württemberg
                             </div>
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                                 Nahbar. Zuverlässig. <br />
@@ -71,7 +71,23 @@ const RegionalSection = () => {
                             </div>
                         </div>
 
-                        <div className="pt-4">
+                        {/* Konkrete, belegbare Angaben statt allgemeiner Beteuerungen –
+                            die Seite hat keinerlei Referenzen oder Kundenstimmen, also
+                            zählen die nachprüfbaren Fakten umso mehr. */}
+                        <div className="pt-4 space-y-4">
+                            <dl className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4">
+                                {[
+                                    { value: "Walddorfhäslach", label: "Entwicklung & Support" },
+                                    { value: "Deutschland", label: "Serverstandort" },
+                                    { value: "24 Stunden", label: "Antwort auf Anfragen" },
+                                    { value: "Direkt", label: "Ansprechpartner, keine Hotline" },
+                                ].map((fact) => (
+                                    <div key={fact.label}>
+                                        <dt className="text-base font-bold text-foreground">{fact.value}</dt>
+                                        <dd className="text-xs text-muted-foreground leading-snug">{fact.label}</dd>
+                                    </div>
+                                ))}
+                            </dl>
                             <p className="text-sm text-muted-foreground font-medium">
                                 RESQIO ist mehr als nur Software. Es ist unser Beitrag zur Sicherheit der Gemeinschaft.
                             </p>
