@@ -705,7 +705,7 @@ export const modules: Record<string, ModuleData> = {
             "Zeitersparnis: Berichte, Belege und Texte in Sekunden statt Stunden",
             "Sicherheit: Jede KI-Ausgabe ist als KI-generiert gekennzeichnet – die letzte Entscheidung trifft immer der Mensch",
             "Rundum-Unterstützung: Ein Assistent für Einsatz, Verwaltung, Kasse und Ausbildung",
-            "Transparenz: Nachvollziehbar, wo KI eingesetzt wird – im Sinne des EU AI Act"
+            "Transparenz: Nachvollziehbar, wo und in welchem Umfang KI eingesetzt wird"
         ],
         features: [
             "Beleg-OCR: Rechnung oder Kassenbon einfach abfotografieren – die KI liest Betrag, Datum und Lieferant automatisch aus und schlägt die Verbuchung vor",
