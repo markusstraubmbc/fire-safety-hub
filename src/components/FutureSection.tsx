@@ -5,11 +5,11 @@ import { scrollToSection } from "@/lib/utils";
 const FutureSection = () => {
 
     const benefits = [
-        "KI-Berichte: Sprechen Sie – RESQIO schreibt für Sie",
-        "Lage-Mapping: Einsatzinfos automatisch auf der Karte",
-        "Digitaler Dienstausweis im Apple & Google Wallet",
-        "Papierlose Verwaltung, mobil und immer aktuell",
-        "Intelligente Personalentwicklung durch KI-Analyse",
+        "Digitaler Dienstausweis im Apple & Google Wallet, dazu NFC",
+        "Kiosk-Tablet im Gerätehaus: Login per RFID, PIN oder QR-Code",
+        "Offline nutzbar – auch wenn das Netz im Gerätehaus streikt",
+        "Jede Meldung dort erfasst, wo sie entsteht: keine Zettel, keine Nacherfassung",
+        "Ein Datenstand für Wache, Einsatzstelle und Verwaltung",
     ];
 
     return (
@@ -17,15 +17,18 @@ const FutureSection = () => {
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
                     <div className="flex-1 text-left order-1 md:order-1">
+                        {/* Diese Section erzählte bis hierher zum dritten Mal dieselbe
+                            KI-Geschichte wie Hero und AIFeaturesSection – teils wörtlich.
+                            Sie trägt jetzt ihr eigenes Thema: was die Kameraden konkret
+                            in der Hand haben. */}
                         <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
-                            Bereit für die <span className="text-primary italic">Zukunft?</span>
+                            Die Wache <span className="text-primary italic">in der Hosentasche</span>
                         </h2>
                         <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                            Die Digitalisierung der Feuerwehr geht weiter – mit integrierter KI, die Ihnen
-                            echte Arbeit abnimmt. Diktieren Sie Einsatzberichte, lassen Sie die Lage automatisch
-                            auf der Karte erscheinen und planen Sie Ihre Mannschaft mit intelligenter
-                            Unterstützung. Modern, intuitiv und immer griffbereit – von Kameraden für
-                            Kameraden entwickelt.
+                            Der Dienstausweis liegt im Apple oder Google Wallet, der Alarm kommt aufs
+                            Handy, die Prüfung wird am Tablet im Gerätehaus abgezeichnet. Was früher
+                            an Ordner und Schreibtisch gebunden war, ist heute überall dort, wo die
+                            Arbeit tatsächlich passiert – ohne Papier, ohne doppelte Erfassung.
                         </p>
 
                         <ul className="space-y-4 mb-10">
@@ -52,19 +55,15 @@ const FutureSection = () => {
                         <div className="absolute -inset-4 bg-primary/5 rounded-[3rem] blur-3xl" />
                         <div className="relative group">
                             <div className="absolute -inset-1 bg-gradient-to-tr from-primary/20 to-transparent rounded-[2.5rem] blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
-                            <picture>
-                                <source srcSet="/images/digital-id.webp" type="image/webp" sizes="(min-width: 768px) 400px, 100vw" />
-                                <img
-                                    src="/images/digital-id.png"
-                                    alt="Digitaler Dienstausweis auf dem Smartphone"
-                                    className="relative rounded-[2.5rem] shadow-2xl w-full max-w-[400px] mx-auto transform hover:rotate-2 transition-transform duration-500 ease-out"
-                                    width={400}
-                                    height={600}
-                                    loading="lazy"
-                                    decoding="async"
-                                    sizes="(min-width: 768px) 400px, 100vw"
-                                />
-                            </picture>
+                            <img
+                                src="/images/digital-id.webp"
+                                alt="Digitaler Dienstausweis einer Feuerwehr auf dem Smartphone – Apple Wallet, Google Wallet und NFC"
+                                className="relative rounded-[2.5rem] shadow-2xl w-full max-w-[400px] mx-auto transform hover:rotate-2 transition-transform duration-500 ease-out"
+                                width={400}
+                                height={600}
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </div>
                     </div>
                 </div>

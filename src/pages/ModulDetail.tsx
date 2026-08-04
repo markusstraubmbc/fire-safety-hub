@@ -145,7 +145,7 @@ const ModulDetail = () => {
           "@type": "Organization",
           "name": "Markus Straub",
           "url": "https://resqio.de",
-          "email": "support@resqio.de"
+          "email": "kontakt@resqio.de"
         }
       });
       document.getElementById("module-jsonld")?.remove();
@@ -194,7 +194,7 @@ const ModulDetail = () => {
 
       <Header />
 
-      <main className="flex-grow pt-28 pb-20">
+      <main id="hauptinhalt" className="flex-grow pt-28 pb-20">
         <div className="container mx-auto px-4">
           {/* Breadcrumb / Back Button */}
           <Link

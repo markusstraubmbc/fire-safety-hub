@@ -147,7 +147,7 @@ const AIFeaturesSection = () => {
                     <feature.icon className="w-4 h-4 text-primary" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[10px] font-bold text-primary/60 uppercase tracking-wider mb-0.5">
+                    <p className="text-[10px] font-bold text-primary uppercase tracking-wider mb-0.5">
                       {feature.subtitle}
                     </p>
                     <h3 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors leading-snug">

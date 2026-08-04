@@ -1,10 +1,9 @@
 import { MapPin, Heart, ShieldCheck, Radio } from "lucide-react";
-import regionalVisual from "@/assets/regional-visual.png";
 import regionalVisualWebp from "@/assets/regional-visual.webp";
 
 const RegionalSection = () => {
     return (
-        <section className="py-24 bg-background overflow-hidden">
+        <section id="ueber-uns" className="py-24 bg-background overflow-hidden">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
@@ -14,19 +13,15 @@ const RegionalSection = () => {
                         <div className="relative group">
                             <div className="absolute -inset-1 bg-gradient-to-tr from-primary/20 to-red-500/10 rounded-[3rem] blur-xl opacity-50 group-hover:opacity-100 transition duration-1000" />
                             <div className="relative bg-card rounded-[3rem] border border-border p-2 overflow-hidden shadow-2xl">
-                                <picture>
-                                    <source srcSet={regionalVisualWebp} type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
                                     <img
-                                        src={regionalVisual}
+                                        src={regionalVisualWebp}
                                         alt="Modernes Feuerwehrgerätehaus"
                                         className="rounded-[2.5rem] w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
                                         width={1024}
                                         height={1024}
                                         loading="lazy"
                                         decoding="async"
-                                        sizes="(min-width: 1024px) 50vw, 100vw"
                                     />
-                                </picture>
                                 {/* Location Badge */}
                                 <div className="absolute top-8 left-8 p-4 bg-background/80 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl">
                                     <div className="flex items-center gap-3">
@@ -34,7 +29,7 @@ const RegionalSection = () => {
                                             <MapPin className="w-5 h-5 text-red-500" />
                                         </div>
                                         <div>
-                                            <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Headquarters</p>
+                                            <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Standort</p>
                                             <p className="text-sm font-bold text-foreground">Walddorfhäslach, DE</p>
                                         </div>
                                     </div>
@@ -48,7 +43,7 @@ const RegionalSection = () => {
                         <div className="space-y-4">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-xs font-bold uppercase tracking-wider">
                                 <Radio className="w-3.5 h-3.5" />
-                                Smart Firefighting Hub
+                                Aus Baden-Württemberg
                             </div>
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                                 Nahbar. Zuverlässig. <br />
@@ -76,7 +71,23 @@ const RegionalSection = () => {
                             </div>
                         </div>
 
-                        <div className="pt-4">
+                        {/* Konkrete, belegbare Angaben statt allgemeiner Beteuerungen –
+                            die Seite hat keinerlei Referenzen oder Kundenstimmen, also
+                            zählen die nachprüfbaren Fakten umso mehr. */}
+                        <div className="pt-4 space-y-4">
+                            <dl className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4">
+                                {[
+                                    { value: "Walddorfhäslach", label: "Entwicklung & Support" },
+                                    { value: "Deutschland", label: "Serverstandort" },
+                                    { value: "24 Stunden", label: "Antwort auf Anfragen" },
+                                    { value: "Direkt", label: "Ansprechpartner, keine Hotline" },
+                                ].map((fact) => (
+                                    <div key={fact.label}>
+                                        <dt className="text-base font-bold text-foreground">{fact.value}</dt>
+                                        <dd className="text-xs text-muted-foreground leading-snug">{fact.label}</dd>
+                                    </div>
+                                ))}
+                            </dl>
                             <p className="text-sm text-muted-foreground font-medium">
                                 RESQIO ist mehr als nur Software. Es ist unser Beitrag zur Sicherheit der Gemeinschaft.
                             </p>

@@ -39,13 +39,34 @@ $htmlContent = '
   . '<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Nachricht</td><td style="padding:8px;border-bottom:1px solid #eee;">' . $message . '</td></tr>
 </table>';
 
+// Absender: Resend verschickt nur von dort verifizierten Domains, deshalb
+// bleibt die alte .io-Adresse der Default – sie funktioniert. Sobald resqio.de
+// in Resend verifiziert ist, reicht die Umgebungsvariable CONTACT_FROM.
+// Die auf der Website beworbene Adresse ist davon unabhaengig kontakt@resqio.de.
+$contactFrom = getenv('CONTACT_FROM') ?: 'RESQIO Kontaktformular <kontakt@resqio.io>';
+
 $resendPayload = json_encode([
-    'from' => 'RESQIO Kontaktformular <kontakt@resqio.io>',
+    'from' => $contactFrom,
     'to'   => ['markus@straub-it.de'],
     'subject' => 'Neue Kontaktanfrage von ' . $input['name'],
     'reply_to' => $input['email'],
     'html' => $htmlContent,
 ]);
+
+// Resend-API-Key: stand vorher im Klartext in dieser Datei und ist damit ueber
+// die Git-Historie abrufbar. Der alte Key ist als kompromittiert zu behandeln
+// und muss in Resend zurueckgezogen und neu ausgestellt werden.
+// Erforderliche Umgebungsvariable: RESEND_API_KEY
+$resendApiKey = getenv('RESEND_API_KEY');
+if (!$resendApiKey) {
+    error_log('RESEND_API_KEY ist nicht gesetzt - Kontaktformular kann nichts versenden.');
+    http_response_code(500);
+    echo json_encode([
+        'error'  => 'E-Mail konnte nicht gesendet werden.',
+        'detail' => 'Serverkonfiguration unvollstaendig.',
+    ]);
+    exit;
+}
 
 $ch = curl_init('https://api.resend.com/emails');
 curl_setopt_array($ch, [
@@ -53,7 +74,7 @@ curl_setopt_array($ch, [
     CURLOPT_POST           => true,
     CURLOPT_POSTFIELDS     => $resendPayload,
     CURLOPT_HTTPHEADER     => [
-        'Authorization: Bearer re_bCqQgZJy_GAZv4Ti5xtpEEUsvxXwvU2kV',
+        'Authorization: Bearer ' . $resendApiKey,
         'Content-Type: application/json',
     ],
     CURLOPT_TIMEOUT        => 10,

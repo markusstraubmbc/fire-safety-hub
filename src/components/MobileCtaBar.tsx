@@ -38,11 +38,19 @@ const MobileCtaBar = () => {
   return (
     <div
       aria-hidden={!visible}
+      /* Der Button blieb im ausgeblendeten Zustand per Tab erreichbar –
+         fokussierbarer Inhalt in einem aria-hidden-Container. `invisible`
+         nimmt ihn zusätzlich aus der Tab-Reihenfolge. */
       className={`md:hidden fixed bottom-0 inset-x-0 z-40 p-3 bg-background/80 backdrop-blur-lg border-t border-border transition-transform duration-300 ${
-        visible ? "translate-y-0" : "translate-y-full"
+        visible ? "translate-y-0" : "translate-y-full invisible"
       }`}
     >
-      <Button onClick={handleClick} size="lg" className="w-full h-12 text-base font-bold">
+      <Button
+        onClick={handleClick}
+        size="lg"
+        tabIndex={visible ? 0 : -1}
+        className="w-full h-12 text-base font-bold"
+      >
         Kostenlose Demo anfragen
         <ArrowRight className="w-5 h-5 ml-2" />
       </Button>

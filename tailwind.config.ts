@@ -167,7 +167,6 @@ export default {
   				'sans-serif'
   			],
   			serif: [
-  				'Merriweather',
   				'ui-serif',
   				'Georgia',
   				'Cambria',
@@ -176,7 +175,6 @@ export default {
   				'serif'
   			],
   			mono: [
-  				'JetBrains Mono',
   				'ui-monospace',
   				'SFMono-Regular',
   				'Menlo',

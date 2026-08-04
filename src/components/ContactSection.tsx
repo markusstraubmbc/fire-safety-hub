@@ -1,4 +1,5 @@
 import { Mail, MapPin, Radio, BellRing, ShieldCheck, Phone, Send, Loader2 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -42,7 +43,7 @@ const ContactSection = () => {
     if (timeSinceLast < COOLDOWN_MS) {
       const remainingSec = Math.ceil((COOLDOWN_MS - timeSinceLast) / 1000);
       toast.error(
-        `Bitte warten Sie noch ${remainingSec} Sekunde${remainingSec > 1 ? "n" : ""}, bevor Sie erneut senden. Sie können uns auch direkt per E-Mail erreichen: support@resqio.io`
+        `Bitte warten Sie noch ${remainingSec} Sekunde${remainingSec > 1 ? "n" : ""}, bevor Sie erneut senden. Sie können uns auch direkt per E-Mail erreichen: kontakt@resqio.de`
       );
       return;
     }
@@ -70,7 +71,7 @@ const ContactSection = () => {
     } catch (err) {
       const msg = err instanceof Error ? err.message : "";
       console.error("Contact form error:", msg);
-      toast.error(`Nachricht konnte nicht gesendet werden${msg ? `: ${msg}` : ""}. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an support@resqio.io`);
+      toast.error(`Nachricht konnte nicht gesendet werden${msg ? `: ${msg}` : ""}. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an kontakt@resqio.de`);
     } finally {
       setIsSubmitting(false);
     }
@@ -103,9 +104,9 @@ const ContactSection = () => {
                 <div>
                   <p className="font-bold text-foreground">Markus Straub</p>
                   <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wider font-bold">Direkter Kontakt – Support & Entwicklung</p>
-                  <a href="mailto:support@resqio.io" className="text-primary hover:underline text-sm font-bold flex items-center gap-1">
+                  <a href="mailto:kontakt@resqio.de" className="text-primary hover:underline text-sm font-bold flex items-center gap-1">
                     <Mail className="w-3.5 h-3.5" />
-                    support@resqio.io
+                    kontakt@resqio.de
                   </a>
                   <a href="tel:+4916096256376" className="text-primary hover:underline text-sm font-bold flex items-center gap-1 mt-2">
                     <Phone className="w-3.5 h-3.5" />
@@ -132,10 +133,10 @@ const ContactSection = () => {
                 <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
                   <Radio className="w-24 h-24 text-primary" />
                 </div>
-                <h4 className="font-bold text-foreground mb-6 flex items-center gap-2 text-xl">
+                <h3 className="font-bold text-foreground mb-6 flex items-center gap-2 text-xl">
                   <ShieldCheck className="w-6 h-6 text-primary" />
                   Der Weg zur digitalen Wache:
-                </h4>
+                </h3>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {[
                     "Persönliche Live-Demo",
@@ -159,7 +160,7 @@ const ContactSection = () => {
                   { icon: "🛡️", text: "Datenschutz-fokussiert" },
                 ].map((badge, i) => (
                   <div key={i} className="flex items-center gap-2 px-4 py-2 bg-background rounded-full border border-border text-xs font-medium text-muted-foreground">
-                    <span>{badge.icon}</span>
+                    <span aria-hidden="true">{badge.icon}</span>
                     <span>{badge.text}</span>
                   </div>
                 ))}
@@ -178,29 +179,43 @@ const ContactSection = () => {
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Name *</Label>
+                  <Label htmlFor="name">
+                    Name <span aria-hidden="true">*</span>
+                    <span className="sr-only">(Pflichtfeld)</span>
+                  </Label>
                   <Input
                     id="name"
                     placeholder="Max Mustermann"
+                    required
+                    aria-required="true"
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? "name-error" : undefined}
                     {...register("name")}
                     className={errors.name ? "border-destructive" : ""}
                   />
                   {errors.name && (
-                    <p className="text-xs text-destructive">{errors.name.message}</p>
+                    <p id="name-error" role="alert" className="text-xs text-destructive">{errors.name.message}</p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email">E-Mail *</Label>
+                  <Label htmlFor="email">
+                    E-Mail <span aria-hidden="true">*</span>
+                    <span className="sr-only">(Pflichtfeld)</span>
+                  </Label>
                   <Input
                     id="email"
                     type="email"
                     placeholder="max@feuerwehr-musterstadt.de"
+                    required
+                    aria-required="true"
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? "email-error" : undefined}
                     {...register("email")}
                     className={errors.email ? "border-destructive" : ""}
                   />
                   {errors.email && (
-                    <p className="text-xs text-destructive">{errors.email.message}</p>
+                    <p id="email-error" role="alert" className="text-xs text-destructive">{errors.email.message}</p>
                   )}
                 </div>
 
@@ -226,16 +241,23 @@ const ContactSection = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Nachricht *</Label>
+                  <Label htmlFor="message">
+                    Nachricht <span aria-hidden="true">*</span>
+                    <span className="sr-only">(Pflichtfeld)</span>
+                  </Label>
                   <Textarea
                     id="message"
                     placeholder="Wie können wir Ihnen helfen? Erzählen Sie uns von Ihrer Feuerwehr..."
                     rows={4}
+                    required
+                    aria-required="true"
+                    aria-invalid={!!errors.message}
+                    aria-describedby={errors.message ? "message-error" : undefined}
                     {...register("message")}
                     className={errors.message ? "border-destructive" : ""}
                   />
                   {errors.message && (
-                    <p className="text-xs text-destructive">{errors.message.message}</p>
+                    <p id="message-error" role="alert" className="text-xs text-destructive">{errors.message.message}</p>
                   )}
                 </div>
 
@@ -253,7 +275,7 @@ const ContactSection = () => {
                   ) : isCooldown ? (
                     <>
                       <Mail className="w-4 h-4 mr-2" />
-                      Nachricht gesendet – oder direkt an support@resqio.io
+                      Nachricht gesendet – oder direkt an kontakt@resqio.de
                     </>
                   ) : (
                     <>
@@ -265,6 +287,11 @@ const ContactSection = () => {
 
                 <p className="text-[11px] text-muted-foreground text-center">
                   Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.
+                  Details in unserer{" "}
+                  <Link to="/datenschutz" className="underline hover:text-primary">
+                    Datenschutzerklärung
+                  </Link>
+                  .
                 </p>
               </form>
             </div>

@@ -2,8 +2,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown, Shield, Sparkles } from "lucide-react";
 import { scrollToSection } from "@/lib/utils";
 import { useCountUp } from "@/hooks/use-count-up";
-import heroImage from "@/assets/german_firefighters_fixed_bg.png";
-import heroImageWebp from "@/assets/german_firefighters_fixed_bg.webp";
 import hero640 from "@/assets/hero-640w.webp";
 import hero1024 from "@/assets/hero-1024w.webp";
 
@@ -11,7 +9,7 @@ const STAT_COUNT_DELAY = 600;
 
 const stats = [
   { end: 365, suffix: "", unit: " Tage", label: "Einsatzbereit im Jahr" },
-  { end: 55, suffix: "+", unit: "", label: "Einsatzmodule verfügbar" },
+  { end: 57, suffix: "+", unit: "", label: "Einsatzmodule verfügbar" },
   { end: 57, suffix: "", unit: "", label: "Kiosk-Module touchscreen-optimiert" },
   { end: 6, suffix: "+", unit: "", label: "KI-Assistenten integriert", sparkles: true },
 ];
@@ -27,7 +25,7 @@ const HeroStat = ({ end, suffix, unit, label, sparkles }: (typeof stats)[number]
         {unit}
         {sparkles && <Sparkles className="w-5 h-5 text-accent" />}
       </p>
-      <p className="text-sm text-primary-foreground/60">{label}</p>
+      <p className="text-sm text-primary-foreground/80">{label}</p>
     </div>
   );
 };
@@ -38,22 +36,24 @@ const HeroSection = () => {
     <section id="home" className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <picture>
-          <source
-            type="image/webp"
-            srcSet={`${hero640} 640w, ${hero1024} 1024w, ${heroImageWebp} 1920w`}
-            sizes="100vw"
-          />
-          <img
-            src={heroImage}
-            alt="Feuerwehr Team bei der Arbeit"
-            className="w-full h-full object-cover animate-hero-zoom will-change-transform"
-            width={1024}
-            height={1024}
-            fetchPriority="high"
-            decoding="async"
-          />
-        </picture>
+        {/*
+          Nur 640w und 1024w: die frühere "1920w"-Variante war byte-identisch mit
+          der 1024er und maß tatsächlich 1024x1024. Der Deskriptor hat Browsern
+          eine Auflösung versprochen, die es nie gab.
+          Der PNG-Fallback entfällt – WebP wird von allen aktuellen Browsern
+          unterstützt, das 665-KB-PNG wurde nie geladen, aber immer mitdeployt.
+        */}
+        <img
+          src={hero1024}
+          srcSet={`${hero640} 640w, ${hero1024} 1024w`}
+          sizes="100vw"
+          alt="Einsatzkräfte einer Freiwilligen Feuerwehr im Einsatz – RESQIO Feuerwehr-Verwaltungssoftware"
+          className="w-full h-full object-cover animate-hero-zoom will-change-transform"
+          width={1024}
+          height={1024}
+          fetchPriority="high"
+          decoding="async"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/60" />
         {/* Warmer Glut-Akzent unten links für mehr Tiefe */}
         <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-primary/25 blur-[120px] pointer-events-none" />
@@ -121,17 +121,9 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          <p
-            className="animate-fade-in-up text-lg text-primary-foreground/90 mb-8 max-w-xl"
-            style={{ animationDelay: "400ms" }}
-          >
-            Sprechen Sie mit uns für eine unverbindliche Live-Demo und machen wir gemeinsam
-            Ihre Wehr fit für die digitale Zukunft.
-          </p>
-
           <div
             className="animate-fade-in-up grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8"
-            style={{ animationDelay: "500ms" }}
+            style={{ animationDelay: "400ms" }}
           >
             {stats.map((stat) => (
               <HeroStat key={stat.label} {...stat} />
@@ -145,7 +137,7 @@ const HeroSection = () => {
       <button
         onClick={() => scrollToSection("funktionen")}
         aria-label="Zu den Funktionen scrollen"
-        className="animate-fade-in absolute bottom-5 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center text-primary-foreground/50 hover:text-primary-foreground transition-colors"
+        className="animate-fade-in absolute bottom-5 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center text-primary-foreground/80 hover:text-primary-foreground transition-colors"
         style={{ animationDelay: "1200ms" }}
       >
         <ChevronDown className="w-6 h-6 animate-float" />

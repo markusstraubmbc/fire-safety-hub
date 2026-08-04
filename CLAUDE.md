@@ -59,12 +59,27 @@ Change all listed files together, always with the same value:
 | JSON-LD element IDs | `scripts/prerender.mjs` + the corresponding page component |
 | **H1 text** | `scripts/prerender.mjs` + `src/components/HeroSection.tsx` (`/`), `src/pages/KreisModul.tsx` (`/kreis`), `src/pages/Wissen.tsx` (`/wissen`) |
 | JSON-LD `@id` for `/kreis` SoftwareApplication | `scripts/prerender.mjs` + `src/pages/KreisModul.tsx` (must differ from the site-wide one in `index.html`) |
+| **Homepage hero paragraph** | `scripts/prerender.mjs` (`homeBody`) + `src/components/HeroSection.tsx` |
+| **Pricing block** (plan names, and whether any figures appear at all) | `scripts/prerender.mjs` (`homeBody`) + `src/components/PricingSection.tsx` + `scripts/generate-llms.cjs` |
 
 The H1 is the trap that is easiest to miss: it is not a meta tag, so it does
 not look like SEO surface, but the prerendered and the hydrated H1 were three
 different texts on `/`, `/kreis` and `/wissen` — Google saw a keyword-bearing
 H1 in the raw HTML and a keyword-free slogan after rendering. When you change
 the visible headline, change the prerendered one in the same pass.
+
+The pricing block was the same trap in a costlier form: the prerendered HTML
+advertised "All in One 399 € / Jahr" and "Professional 599 € / Jahr" to Googlebot
+while `PricingSection.tsx` shipped `price: ""` and showed visitors no figures at
+all, under two entirely different plan names. Prices are "auf Anfrage" — if that
+ever changes, it changes in all three places at once.
+
+**The FAQ is no longer duplicated.** `src/components/FaqSection.tsx` renders from
+`src/data/faq-jsonld.json`, the same file the prerenderer injects as FAQPage
+schema. Edit the questions and answers there and both stay in sync by
+construction. Never reintroduce a second hand-maintained list — the previous one
+drifted to nine schema entries against eight visible ones, which violates
+Google's FAQ policy that every marked-up answer be visible on the page.
 
 Why it matters: the prerendered HTML is what Googlebot reads first, the client
 component overwrites it after hydration. If they differ, Google sees two
@@ -338,11 +353,16 @@ German-speaking fire departments (Freiwillige Feuerwehr) with focus on:
 
 ### Pricing Tiers
 
+**Prices are never published.** Every figure on every surface — the visible
+page, the prerendered HTML, `llms.txt`, JSON-LD — reads "auf Anfrage". Do not
+put a number on any of them, and do not copy one in from an older document:
+the archived `WEBSITE_CONTENT_OPTIMIZED-*.md` files still contain historical
+figures, and they are not a source to restore from.
+
 | Package | Target | Annual Price |
 |---------|--------|-------------|
-| All in One | < 5,000 inhabitants | 399 € |
-| Professional | < 10,000 inhabitants | 599 € |
-| Enterprise | Cities/Districts | On request |
+| Standard | Single fire department | On request |
+| Individuell | Cities, districts, associations | On request |
 
 ## Content Strategy & Documentation Sources
 
@@ -405,7 +425,7 @@ Primary CTAs throughout the site:
 - "Angebot anfragen" (Request quote)
 - "Kontakt aufnehmen" (Get in touch)
 
-Contact: support@resqio.de
+Contact: kontakt@resqio.de
 
 ### SEO Keywords
 

@@ -130,7 +130,7 @@ export const features: Feature[] = [
     icon: Sparkles,
     title: "KI-Berichtsassistent",
     description:
-      "Professionelle Berichte ohne Schreibaufwand: Aus Ihren Einsatzdaten erstellt die KI vollständige, rechtssichere Dokumentationen – in Minuten statt Stunden.",
+      "Professionelle Berichte ohne Schreibaufwand: Aus Ihren Einsatzdaten erstellt die KI vollständige, lückenlose Dokumentationen – in Minuten statt Stunden.",
     slug: "ki-integration",
   },
 
@@ -141,6 +141,13 @@ export const features: Feature[] = [
     description:
       "Digitale Bereitstellung und Prüfung von Feuerwehrplänen mit Standort-Unterstützung.",
     slug: "objektplaene",
+  },
+  {
+    icon: Droplets,
+    title: "Wasserkarte & Hydranten",
+    description:
+      "Digitale Hydrantenkarte mit Live-Status, Durchflussmengen und automatischer Einbindung in den Einsatz.",
+    slug: "wasserkarte",
   },
   {
     icon: Droplets,
@@ -290,7 +297,6 @@ export const features: Feature[] = [
     description:
       "Alle Wehren im Landkreis. Ein System. Volle Datensouveränität.",
     href: "/kreis",
-    slug: "kreis-platform",
   },
   {
     icon: Clock,
@@ -366,7 +372,7 @@ export const features: Feature[] = [
     icon: HeartPulse,
     title: "Verbandbuch & Vorfälle",
     description:
-      "Verbandbuch nach DGUV 204-021 rechtssicher digital führen: Verletzungen, Unfälle und Vorfälle mit digitaler Unterschrift dokumentieren und revisionssicher aufbewahren.",
+      "Verbandbuch nach DGUV 204-021 nachvollziehbar digital führen: Verletzungen, Unfälle und Vorfälle mit digitaler Unterschrift dokumentieren und revisionssicher aufbewahren.",
     slug: "verbandbuch",
   },
   {

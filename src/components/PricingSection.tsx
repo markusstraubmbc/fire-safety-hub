@@ -34,7 +34,7 @@ const PricingSection = () => {
         "KI-Features & Prognosen",
         "Multi-Standort-Verwaltung",
         "Eigene Schnittstellen & Sonderwünsche",
-        "Persönlicher Support für Webgerätehersteller",
+        "Persönlicher Ansprechpartner für Ihren Verband",
       ],
       popular: false,
     },

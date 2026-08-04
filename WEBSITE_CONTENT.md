@@ -147,11 +147,14 @@ resqio ist für den professionellen Einsatz konzipiert und bietet Administratore
 
 | Paket | Zielgruppe | Preis (Jährlich) |
 |-------|------------|------------------|
-| **All in One** | < 5.000 Einwohner | **399 €** |
-| **Professional** | < 10.000 Einwohner | **599 €** |
-| **Enterprise** | Großstädte / Kreise | **Auf Anfrage** |
+| **Standard** | Komplettlösung für die einzelne Wehr | **Auf Anfrage** |
+| **Individuell** | Städte, Kreise & Verbände | **Auf Anfrage** |
 
-*Alle Preise inkl. Updates, Hosting (optional) und Support.*
+*Alle Pakete inkl. Updates, Hosting (optional) und Support.*
+
+> Preise werden grundsätzlich nicht veröffentlicht — weder auf der Seite noch
+> im prerenderten HTML, in `llms.txt` oder in strukturierten Daten. Hier stehen
+> bewusst keine Beträge.
 
 ---
 
@@ -160,7 +163,7 @@ resqio ist für den professionellen Einsatz konzipiert und bietet Administratore
 
 - [30 Tage kostenlos testen](https://resqio.de/test)
 - [Demo-Termin vereinbaren](https://resqio.de/demo)
-- [Personalisiertes Angebot anfordern](mailto:support@resqio.de)
+- [Personalisiertes Angebot anfordern](mailto:kontakt@resqio.de)
 
 ---
 

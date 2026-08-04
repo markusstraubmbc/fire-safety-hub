@@ -26,11 +26,8 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-1 space-y-4">
             <Link to="/" className="flex items-center gap-2 group w-fit">
               <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center border border-white/10 group-hover:border-primary/50 transition-colors">
-                <picture>
-                  <source srcSet="/logo-80.webp" type="image/webp" />
-                  <img src="/logo-80.png" alt="RESQIO Logo" className="w-full h-full object-cover" width={40} height={40} />
-                </picture>
-              </div>
+                <img src="/logo-80.webp" alt="RESQIO Logo" className="w-full h-full object-cover" width={40} height={40} />
+                              </div>
               <span className="text-xl font-extrabold text-white tracking-tight">
                 RESQ<span className="text-primary font-black">IO</span>
               </span>
@@ -87,8 +84,8 @@ const Footer = () => {
             <p className="text-sm font-bold text-white uppercase tracking-wider">Kontakt & Rechtliches</p>
             <ul className="space-y-2">
               <li>
-                <a href="mailto:support@resqio.io" className="text-sm text-slate-400 hover:text-primary transition-colors">
-                  support@resqio.io
+                <a href="mailto:kontakt@resqio.de" className="text-sm text-slate-400 hover:text-primary transition-colors">
+                  kontakt@resqio.de
                 </a>
               </li>
               <li>
@@ -115,7 +112,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-white/5 text-center">
-          <p className="text-sm text-slate-500 font-medium italic">
+          <p className="text-sm text-slate-400 font-medium italic">
             © {currentYear} RESQIO. Einsatzbereit. Geprüft. Professionell.
           </p>
         </div>

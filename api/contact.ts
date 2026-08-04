@@ -2,8 +2,30 @@ export const config = {
   runtime: "edge",
 };
 
-const RESEND_API_KEY = "re_bCqQgZJy_GAZv4Ti5xtpEEUsvxXwvU2kV";
+/**
+ * Resend-API-Key. Stand vorher im Klartext hier im Quelltext und ist damit über
+ * die Git-Historie eines öffentlichen Repositories abrufbar – GitHubs
+ * Secret Scanning blockiert Pushes mit diesem Key inzwischen.
+ * Der alte Key ist als kompromittiert zu behandeln und muss in Resend
+ * zurückgezogen und neu ausgestellt werden.
+ *
+ * Erforderliche Umgebungsvariable: RESEND_API_KEY
+ */
+const RESEND_API_KEY =
+  typeof process !== "undefined" ? process.env?.RESEND_API_KEY : undefined;
 const RESEND_URL = "https://api.resend.com/emails";
+
+/**
+ * Absenderadresse des Kontaktformulars. Resend verschickt nur von Domains, die
+ * dort verifiziert sind – deshalb steht hier bewusst noch die alte .io-Adresse
+ * als Default: sie funktioniert heute. Sobald resqio.de in Resend als
+ * Sending Domain verifiziert ist, genügt die Umgebungsvariable
+ * CONTACT_FROM="RESQIO Kontaktformular <kontakt@resqio.de>" – kein Code-Deploy.
+ * Die auf der Website beworbene Adresse ist davon unabhängig kontakt@resqio.de.
+ */
+const CONTACT_FROM =
+  (typeof process !== "undefined" && process.env?.CONTACT_FROM) ||
+  "RESQIO Kontaktformular <kontakt@resqio.io>";
 
 function escapeHtml(str: string): string {
   return str
@@ -46,6 +68,17 @@ export default async function handler(request: Request) {
     );
   }
 
+  if (!RESEND_API_KEY) {
+    console.error("RESEND_API_KEY ist nicht gesetzt – Kontaktformular kann nichts versenden.");
+    return Response.json(
+      {
+        error: "E-Mail konnte nicht gesendet werden.",
+        detail: "Serverkonfiguration unvollständig.",
+      },
+      { status: 500 }
+    );
+  }
+
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
   const safePhone = phone ? escapeHtml(phone) : "";
@@ -71,7 +104,7 @@ export default async function handler(request: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "RESQIO Kontaktformular <kontakt@resqio.io>",
+        from: CONTACT_FROM,
         to: ["markus@straub-it.de"],
         subject: `Neue Kontaktanfrage von ${safeName}`,
         reply_to: email,

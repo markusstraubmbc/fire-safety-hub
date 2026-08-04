@@ -12,8 +12,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#cc1a1a" />
 
-  <!-- Critical CSS: Above-the-fold rendering -->
-  <link rel="stylesheet" href="/critical.css" />
+  <!-- Critical CSS: inline, damit es keinen eigenen Round-Trip kostet.
+       Als externes Stylesheet war es selbst render-blocking und hat damit genau
+       die Zeit gekostet, die Critical CSS einsparen soll. Zusätzlich war die
+       Datei nicht gehasht, wurde von .htaccess aber ein Jahr lang gecached –
+       Änderungen hätten Bestandsbesucher nie erreicht. -->
+  <style>
+    :root {
+      --background: 210 20% 98%;
+      --foreground: 220 30% 15%;
+      --primary: 0 85% 50%;
+      --primary-foreground: 0 0% 100%;
+      --secondary: 220 50% 20%;
+      --secondary-foreground: 0 0% 100%;
+      --muted-foreground: 220 20% 30%;
+      --accent: 30 100% 55%;
+      --border: 210 20% 85%;
+    }
+    *, *::before, *::after { box-sizing: border-box; border-width: 0; border-style: solid; }
+    html { line-height: 1.5; -webkit-text-size-adjust: 100%; font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif; }
+    body { margin: 0; background-color: hsl(210 20% 98%); color: hsl(220 30% 15%); }
+    #root { min-height: 100vh; }
+    .min-h-screen { min-height: 100vh; }
+    .bg-background { background-color: hsl(var(--background)); }
+  </style>
 
   <!-- Preload critical assets (Header-Logo; Hero-Preload wird vom Prerender-Skript pro Seite injiziert) -->
   <link rel="preload" href="/logo-80.webp" as="image" type="image/webp" />
@@ -45,7 +67,7 @@
   <meta property="og:url" content="https://resqio.de/" />
   <meta property="og:title" content="RESQIO – Die intelligente Feuerwehr-Software mit KI" />
   <meta property="og:description"
-    content="Von der rechtssicheren Ausrüstungsprüfung bis zum KI-Diktiermodul – RESQIO vereint alle Prozesse Ihrer Feuerwehr in einer Plattform. Mit GPS-Lagekarte, Kommunikationscenter (E-Mail/WhatsApp/Telegram), Offline-Kiosk, Personalmeldestelle & Digitalem Dienstausweis." />
+    content="Von der lückenlos dokumentierten Ausrüstungsprüfung bis zum KI-Diktiermodul – RESQIO vereint alle Prozesse Ihrer Feuerwehr in einer Plattform. Mit GPS-Lagekarte, Kommunikationscenter (E-Mail/WhatsApp/Telegram), Offline-Kiosk, Personalmeldestelle & Digitalem Dienstausweis." />
   <meta property="og:image" content="https://resqio.de/og-image.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
@@ -62,7 +84,15 @@
   <meta property="twitter:image" content="https://resqio.de/og-image.png" />
   <meta property="twitter:image:alt" content="RESQIO – Feuerwehr-Verwaltungssoftware mit KI" />
 
-  <!-- Structured Data / JSON-LD -->
+  <!-- Structured Data / JSON-LD
+
+       Bewusst KEIN "offers"-Block in der SoftwareApplication: Google verlangt
+       dafür price und priceCurrency. Da die Website keine Preise nennt, bliebe
+       nur, einen Betrag zu erfinden oder "price: 0" zu behaupten – beides wäre
+       falsch. Der frühere Block ohne price wurde von Google ohnehin verworfen,
+       er war also wirkungslos. Sobald Preise öffentlich sind, gehört hier ein
+       vollständiger Offer hin (zusammen mit PricingSection.tsx ändern).
+  -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -77,12 +107,7 @@
       "applicationSubCategory": "Emergency Management Software",
       "inLanguage": "de",
       "availableOnDevice": "Desktop, Tablet, Mobile",
-      "dateModified": "2026-06-04",
-      "offers": {
-        "@type": "Offer",
-        "description": "Individuelle Preise auf Anfrage – kontaktieren Sie uns unter support@resqio.de",
-        "url": "https://resqio.de/#kontakt"
-      },
+      "dateModified": "2026-08-04",
       "description": "Professionelle Feuerwehr-Verwaltungssoftware mit 57+ Modulen und integrierter KI. KI-Diktiermodul, KI-Berichtsassistent, GPS-Echtzeit-Lagekarte, Kommunikationscenter (E-Mail/WhatsApp/Telegram), Offline-Kiosk mit Gerätewart-Vollausbau, Personalmeldestelle für Großlagen, Beladeplan & Verlastung, Hersteller-Rückruf-Tracking, DGUV-Lebensdauer, GoBD-Aufwandsentschädigung. Made in Germany – DSGVO-konform.",
       "featureList": [
         "KI-Diktiermodul für Spracheingabe von Einsatzberichten und Protokollen",
@@ -121,7 +146,7 @@
         "@type": "Organization",
         "name": "Markus Straub",
         "url": "https://resqio.de",
-        "email": "support@resqio.de",
+        "email": "kontakt@resqio.de",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Eschenstraße 37",
@@ -143,7 +168,7 @@
       "logo": "https://resqio.de/logo.png",
       "image": "https://resqio.de/logo-200.png",
       "description": "Anbieter moderner Feuerwehr-Verwaltungssoftware mit integrierter KI für den deutschsprachigen Raum. 57+ Module: KI-Diktiermodul, GPS-Lagekarte, Kommunikationscenter (E-Mail/WhatsApp/Telegram), Offline-Kiosk, Personalmeldestelle, Beladeplan, Kreismodul und Digitaler Dienstausweis.",
-      "email": "support@resqio.de",
+      "email": "kontakt@resqio.de",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Eschenstraße 37",
@@ -161,10 +186,12 @@
         },
         "description": "Deutschland, Österreich, Schweiz"
       },
+      "telephone": "+49-160-96256376",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer support",
-        "email": "support@resqio.de",
+        "email": "kontakt@resqio.de",
+        "telephone": "+49-160-96256376",
         "availableLanguage": "German"
       }
     }
@@ -200,11 +227,11 @@
       ad_personalization: 'denied',
       analytics_storage: 'denied'
     });
-    gtag('js', new Date());
-    gtag('config', 'G-1JZGKRM9GC', {
-      anonymize_ip: true,
-      cookie_flags: 'SameSite=None;Secure'
-    });
+    /* gtag('js')/gtag('config') liefen früher hier und kosteten Parse-Zeit im
+       kritischen Pfad, obwohl gtag.js erst nach der Einwilligung geladen wird.
+       Sie stehen jetzt in src/lib/consent.ts und laufen dort zusammen mit dem
+       Script. Nur der Consent-Default muss inline bleiben – er muss gesetzt
+       sein, bevor irgendein Google-Code läuft (DSGVO). */
   </script>
 </head>
 

@@ -20,11 +20,21 @@ const TODAY = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
 // --- Read the built index.html as base template ---
 let template = readFileSync(join(distDir, "index.html"), "utf-8");
 
+// dateModified im JSON-LD auf den Build-Tag setzen. Der Wert stand vorher
+// hartkodiert in index.html und war entsprechend schnell veraltet.
+template = template.replace(/"dateModified":\s*"\d{4}-\d{2}-\d{2}"/g, `"dateModified": "${TODAY}"`);
+
 // Selbst gehostete Poppins-Webfonts auf allen Seiten preloaden (kritisch für FCP/LCP):
 // 400 (Fließtext) und 700 (Headlines) – weitere Gewichte laden regulär über das CSS.
 {
   const distAssets = readdirSync(join(distDir, "assets"));
-  const fontPreloads = ["poppins-latin-400-normal", "poppins-latin-700-normal"]
+  // 600 gehört dazu: Headlines und Buttons nutzen es above the fold, ohne
+  // Preload entstand dafür eine zweite Font-Welle nach dem CSS-Parse.
+  const fontPreloads = [
+    "poppins-latin-400-normal",
+    "poppins-latin-600-normal",
+    "poppins-latin-700-normal",
+  ]
     .map((prefix) => distAssets.find((f) => f.startsWith(prefix) && f.endsWith(".woff2")))
     .filter(Boolean)
     .map(
@@ -159,8 +169,25 @@ function escXml(str) {
 }
 
 // --- Generate a prerendered page ---
-function createPage({ title, description, keywords, canonicalUrl, bodyContent, noindex = false, jsonLd }) {
+function createPage({
+  title,
+  description,
+  keywords,
+  canonicalUrl,
+  bodyContent,
+  noindex = false,
+  jsonLd,
+  // Social-Texte optional getrennt vom Meta-Title steuerbar. Ohne diese Option
+  // hat der Prerender die handgepflegten og:/twitter:-Texte aus index.html
+  // stumpf mit dem generischen Meta-Title überschrieben – für Unterseiten
+  // richtig, für die Homepage ein Rückschritt.
+  socialTitle,
+  socialDescription,
+  keepSocialTags = false,
+}) {
   let html = template;
+  const ogTitle = socialTitle || title;
+  const ogDescription = socialDescription || description;
 
   // Replace <title>
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${escAttr(title)}</title>`);
@@ -179,28 +206,30 @@ function createPage({ title, description, keywords, canonicalUrl, bodyContent, n
     );
   }
 
-  // Replace OG tags
-  html = html.replace(
-    /<meta property="og:title" content="[^"]*"\s*\/?>/,
-    `<meta property="og:title" content="${escAttr(title)}" />`
-  );
-  html = html.replace(
-    /<meta property="og:description"[\s\S]*?\/>/,
-    `<meta property="og:description" content="${escAttr(description)}" />`
-  );
+  // Replace OG tags (Titel/Description nur, wenn die Seite keine eigenen behält)
+  if (!keepSocialTags) {
+    html = html.replace(
+      /<meta property="og:title" content="[^"]*"\s*\/?>/,
+      `<meta property="og:title" content="${escAttr(ogTitle)}" />`
+    );
+    html = html.replace(
+      /<meta property="og:description"[\s\S]*?\/>/,
+      `<meta property="og:description" content="${escAttr(ogDescription)}" />`
+    );
+    html = html.replace(
+      /<meta property="twitter:title" content="[^"]*"\s*\/?>/,
+      `<meta property="twitter:title" content="${escAttr(ogTitle)}" />`
+    );
+    html = html.replace(
+      /<meta property="twitter:description"[\s\S]*?\/>/,
+      `<meta property="twitter:description" content="${escAttr(ogDescription)}" />`
+    );
+  }
+
+  // Die URLs müssen immer stimmen, unabhängig von den Texten
   html = html.replace(
     /<meta property="og:url" content="[^"]*"\s*\/?>/,
     `<meta property="og:url" content="${escAttr(canonicalUrl)}" />`
-  );
-
-  // Replace Twitter tags
-  html = html.replace(
-    /<meta property="twitter:title" content="[^"]*"\s*\/?>/,
-    `<meta property="twitter:title" content="${escAttr(title)}" />`
-  );
-  html = html.replace(
-    /<meta property="twitter:description"[\s\S]*?\/>/,
-    `<meta property="twitter:description" content="${escAttr(description)}" />`
   );
   html = html.replace(
     /<meta property="twitter:url" content="[^"]*"\s*\/?>/,
@@ -244,13 +273,21 @@ function createPage({ title, description, keywords, canonicalUrl, bodyContent, n
 
 // --- 1. Generate HOMEPAGE with prerendered content ---
 {
-  const homeBody = `<main>
-<header><nav aria-label="Hauptnavigation"><a href="/">RESQIO</a></nav></header>
+  // header und footer stehen bewusst AUSSERHALB von <main> – vorher lagen beide
+  // darin, was der HTML-Landmark-Semantik widerspricht.
+  const homeBody = `<header><nav aria-label="Hauptnavigation"><a href="/">RESQIO</a> <a href="/kreis">Kreisplattform</a> <a href="/wissen">Wissen &amp; Ratgeber</a></nav></header>
+<main>
 <section><h1>Einsatzbereit. Geprüft. Professionell.<span>Die Feuerwehr-Verwaltungssoftware für Einsatz, Technik und Mannschaft</span></h1>
-<p>Von der rechtssicheren Ausrüstungsprüfung bis zur KI-optimierten Einsatznachbereitung – RESQIO vereint alle Prozesse Ihrer Feuerwehr in einer modernen Plattform. 57+ Module, GPS-Lagekarte, automatische Benachrichtigungen per WhatsApp/Telegram/E-Mail, Offline-Kiosk und Digitaler Dienstausweis.</p>
-<p><a href="mailto:support@resqio.de">Jetzt Demo anfordern</a></p></section>
+<p>RESQIO ist mehr als nur Verwaltungssoftware – wir sind die intelligente Kommandozentrale für die moderne Feuerwehr. Diktieren Sie Einsatzberichte per Sprache, lassen Sie die Lage automatisch auf der Karte erscheinen und profitieren Sie von KI-gestützter Personal- und Einsatzplanung.</p>
+<p><a href="mailto:kontakt@resqio.de">Jetzt Demo anfordern</a></p></section>
 <section><h2>Unsere Module</h2><ul>
-${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> – ${escAttr(m.shortDesc)}</li>`).join("\n")}
+${modules
+  // kreis-platform 301-redirected auf /kreis – ein interner Link auf einen
+  // Redirect verschenkt Crawl-Budget, also gleich auf das Ziel verlinken.
+  .filter((m) => m.slug !== "kreis-platform")
+  .map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> – ${escAttr(m.shortDesc)}</li>`)
+  .join("\n")}
+<li><a href="/kreis">Kreisplattform für Kreisfeuerwehrverbände</a> – Zentrale Verwaltung aller angeschlossenen Wehren mit voller Datensouveränität je Feuerwehr.</li>
 </ul></section>
 <section><h2>Warum RESQIO?</h2>
 <ul>
@@ -265,13 +302,16 @@ ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> –
 <li>GoBD-konforme Aufwandsentschädigung mit Jahresbescheinigungen</li>
 <li>Made in Germany – DSGVO-konform, Serverstandort Deutschland</li>
 </ul></section>
-<section><h2>Preise</h2>
-<p>All in One (bis 5.000 Einwohner): 399 € / Jahr</p>
-<p>Professional (bis 10.000 Einwohner): 599 € / Jahr</p>
-<p>Enterprise (Städte & Kreise): Auf Anfrage</p>
+<section><h2>Individuell & Bedarfsgerecht</h2>
+<p>Unsere Lösungen passen sich Ihrer Feuerwehr an. Kontaktieren Sie uns für ein maßgeschneidertes Angebot inklusive Updates, Support und Hosting.</p>
+<p>Standard – Komplettlösung für Ihre Wehr: Preis auf Anfrage</p>
+<p>Individuell – Städte, Kreise & Verbände: Preis auf Anfrage</p>
 </section>
-<footer><p>© RESQIO – Markus Straub | <a href="/wissen">Wissen & Ratgeber</a> | <a href="/impressum">Impressum</a> | <a href="/datenschutz">Datenschutz</a> | <a href="mailto:support@resqio.de">Kontakt</a></p></footer>
-</main>`;
+<section><h2>Wissen &amp; Ratgeber</h2><ul>
+${wissen.map((a) => `<li><a href="/wissen/${a.slug}">${escAttr(a.title)}</a></li>`).join("\n")}
+</ul></section>
+</main>
+<footer><p>© RESQIO – Markus Straub | <a href="/wissen">Wissen & Ratgeber</a> | <a href="/impressum">Impressum</a> | <a href="/datenschutz">Datenschutz</a> | <a href="mailto:kontakt@resqio.de">Kontakt</a></p></footer>`;
 
   let html = createPage({
     title: "RESQIO – Feuerwehr-Software mit KI | Wartung & Einsatz",
@@ -279,6 +319,9 @@ ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> –
     keywords: "Feuerwehrsoftware, Verwaltungssoftware Feuerwehr, Geräteverwaltung, Wartungsplaner, DGUV Prüfung, Atemschutzüberwachung, Einsatzerfassung, Objektpläne DIN 14095",
     canonicalUrl: `${BASE_URL}/`,
     bodyContent: homeBody,
+    // Die Homepage hat eigene, handgeschriebene Social-Texte in index.html –
+    // die sind besser als der auf Suchergebnisse optimierte Meta-Title.
+    keepSocialTags: true,
   });
 
   // FAQPage schema (same id as the client-side script in Index.tsx, which
@@ -302,12 +345,10 @@ ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> –
   };
   const hero640 = heroAsset("hero-640w");
   const hero1024 = heroAsset("hero-1024w");
-  // Vite dedupliziert byte-identische Assets: die 1920w-Variante kann auf
-  // dieselbe Datei wie hero-1024w zeigen, wenn sie identisch ist.
-  const hero1920 =
-    heroAsset("german_firefighters_fixed_bg") || heroAsset("hero-1920w") || hero1024;
-  if (hero640 && hero1024 && hero1920) {
-    const preload = `  <link rel="preload" as="image" type="image/webp" href="${hero1024}" imagesrcset="${hero640} 640w, ${hero1024} 1024w, ${hero1920} 1920w" imagesizes="100vw" fetchpriority="high" />\n`;
+  // Nur zwei Breiten: die frühere 1920w-Variante war byte-identisch mit der
+  // 1024er und tatsächlich 1024x1024 groß. Muss zu HeroSection.tsx passen.
+  if (hero640 && hero1024) {
+    const preload = `  <link rel="preload" as="image" type="image/webp" href="${hero1024}" imagesrcset="${hero640} 640w, ${hero1024} 1024w" imagesizes="100vw" fetchpriority="high" />\n`;
     html = html.replace("</head>", preload + "</head>");
     console.log("Injected hero image preload into homepage.");
   } else {
@@ -369,7 +410,7 @@ for (const mod of modules) {
     benefitItems ? `<h2>Ihr Mehrwert</h2><ul>${benefitItems}</ul>` : ""
   }${
     featureItems ? `<h2>Funktionen im Überblick</h2><ul>${featureItems}</ul>` : ""
-  }<h2>Weitere Module</h2><ul>${relatedLinks}</ul><p>RESQIO – Die intelligente Feuerwehr-Verwaltungssoftware. <a href="/">Zur Startseite</a> | <a href="/wissen">Wissen & Ratgeber</a> | <a href="mailto:support@resqio.de">Demo anfordern</a></p></main>`;
+  }<h2>Weitere Module</h2><ul>${relatedLinks}</ul><p>RESQIO – Die intelligente Feuerwehr-Verwaltungssoftware. <a href="/">Zur Startseite</a> | <a href="/wissen">Wissen & Ratgeber</a> | <a href="mailto:kontakt@resqio.de">Demo anfordern</a></p></main>`;
 
   const html = createPage({
     title: pageTitle,
@@ -451,7 +492,7 @@ for (const mod of modules) {
 <li>Dokumenten-Portal und Schwarzes Brett</li>
 <li>Übungskoordination mit Konflikt-Warnung</li>
 </ul>
-<p><a href="mailto:support@resqio.de?subject=Demo Anfrage RESQIO Kreismodul">Jetzt Demo anfordern</a> | <a href="/">Zur Startseite</a></p>
+<p><a href="mailto:kontakt@resqio.de?subject=Demo Anfrage RESQIO Kreismodul">Jetzt Demo anfordern</a> | <a href="/">Zur Startseite</a></p>
 </main>`;
 
   let kreisHtml = createPage({
@@ -538,7 +579,7 @@ for (const artikel of wissen) {
 
   const bodyContent = `<main><article><h1>${escAttr(artikel.title)}</h1><p>${escAttr(artikel.intro || artikel.description)}</p>${sectionHtml}${
     artikel.hinweis ? `<p>${escAttr(artikel.hinweis)}</p>` : ""
-  }<p><a href="/wissen">Alle Artikel</a> | <a href="/">Zur Startseite</a> | <a href="mailto:support@resqio.de">Demo anfordern</a></p></article></main>`;
+  }<p><a href="/wissen">Alle Artikel</a> | <a href="/">Zur Startseite</a> | <a href="mailto:kontakt@resqio.de">Demo anfordern</a></p></article></main>`;
 
   let html = createPage({
     title: pageTitle,
@@ -569,7 +610,7 @@ console.log(`Prerendered ${wissen.length} Wissen articles.`);
     keywords: "Impressum, RESQIO, Markus Straub, Kontakt",
     canonicalUrl: `${BASE_URL}/impressum`,
     noindex: true,
-    bodyContent: `<main><h1>Impressum</h1><p>Angaben gemäß § 5 TMG: Markus Straub, Eschenstraße 37, 72141 Walddorfhäslach. E-Mail: support@resqio.de</p></main>`,
+    bodyContent: `<main><h1>Impressum</h1><p>Angaben gemäß § 5 TMG: Markus Straub, Eschenstraße 37, 72141 Walddorfhäslach. E-Mail: kontakt@resqio.de</p></main>`,
   });
   mkdirSync(join(distDir, "impressum"), { recursive: true });
   writeFileSync(join(distDir, "impressum", "index.html"), html, "utf-8");

@@ -127,20 +127,19 @@ Diese Datei wird aus den Projektdaten generiert (scripts/generate-llms.cjs) und 
 
 - **Hersteller**: Markus Straub, Walddorfhäslach, Baden-Württemberg, Deutschland
 - **Website**: ${BASE_URL}
-- **Kontakt**: support@resqio.de
+- **Kontakt**: kontakt@resqio.de
 - **Hosting**: Ausschließlich Deutschland, DSGVO-konform
 - **Zielgruppe**: Freiwillige Feuerwehren, Berufsfeuerwehren, Kreisfeuerwehrverbände (DACH)
 - **Sprache**: Deutsch
 
 ## Preismodelle
 
-Die Preise richten sich nach der Größe und den Anforderungen der Feuerwehr. Individuelle Angebote auf Anfrage unter support@resqio.de.
+Die Preise richten sich nach der Größe und den Anforderungen der Feuerwehr. Individuelle Angebote auf Anfrage unter kontakt@resqio.de.
 
 | Paket | Zielgruppe |
 |---|---|
-| All in One | Gemeinden < 5.000 Einwohner |
-| Professional | Gemeinden < 10.000 Einwohner |
-| Enterprise | Städte & Kreise |
+| Standard | Komplettlösung für die einzelne Wehr |
+| Individuell | Städte, Kreise & Verbände |
 
 ## Kernfunktionen & Mehrwert
 
@@ -177,7 +176,7 @@ ${wissenSections}
 ## Kontakt & Demo
 
 - **Website**: ${BASE_URL}
-- **Email**: support@resqio.de
+- **Email**: kontakt@resqio.de
 - **Demo**: Auf Anfrage verfügbar — kontaktieren Sie uns über ${BASE_URL}/#kontakt
 `;
 

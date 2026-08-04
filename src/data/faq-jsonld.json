@@ -7,7 +7,7 @@
       "name": "Was kostet RESQIO?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Die Preise richten sich nach der Größe und den Anforderungen Ihrer Feuerwehr. Kontaktieren Sie uns für ein individuelles Angebot unter support@resqio.de oder über das Kontaktformular auf resqio.de."
+        "text": "Die Preise richten sich nach der Größe und den Anforderungen Ihrer Feuerwehr. Kontaktieren Sie uns für ein individuelles Angebot unter kontakt@resqio.de oder über das Kontaktformular. Wir finden gemeinsam das passende Modell – von der kleinen Ortswehr bis zum Kreisfeuerwehrverband."
       }
     },
     {
@@ -15,7 +15,7 @@
       "name": "Gibt es ein Kreismodul für Kreisfeuerwehrverbände?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja! Das RESQIO Kreismodul ist speziell für Kreisbrandmeister und Kreisfeuerwehrverbände entwickelt. Es ermöglicht die zentrale Verwaltung aller angeschlossenen Wehren mit voller Datensouveränität, gemeinsamen Ressourcen-Übersichten und kreisweiten Auswertungen."
+        "text": "Ja! Das RESQIO Kreismodul ist speziell für Kreisbrandmeister und Kreisfeuerwehrverbände entwickelt. Es ermöglicht die zentrale Verwaltung aller angeschlossenen Wehren mit voller Datensouveränität je Feuerwehr, gemeinsamen Ressourcen-Übersichten, Einladungssystem für neue Wehren und kreisweiten Auswertungen – alles in einem System."
       }
     },
     {
@@ -31,7 +31,7 @@
       "name": "Gibt es eine mobile App und einen Kiosk-Modus?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "RESQIO ist vollständig mobil-optimiert und läuft im Browser auf jedem Smartphone und Tablet. Der Kiosk-Modus mit 57 touchscreen-optimierten Modulen für Tablets im Gerätehaus unterstützt RFID-Login, PIN und QR-Code."
+        "text": "RESQIO ist vollständig mobil-optimiert und läuft im Browser auf jedem Smartphone und Tablet. Zusätzlich gibt es den speziellen Kiosk-Modus mit 57 touchscreen-optimierten Modulen für Tablets im Gerätehaus – mit RFID-Login, PIN und QR-Code. So können Kameraden Wartungen, Fahrtenbuch, Belegeinreichung und mehr selbstständig erledigen."
       }
     },
     {
@@ -39,7 +39,7 @@
       "name": "Ist die Software rechtssicher?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "RESQIO ist so konzipiert, dass es alle relevanten Dokumentationspflichten (z.B. nach DGUV oder FwDV) unterstützt. Da wir jedoch nicht förmlich zertifiziert sind, nutzen wir Begriffe wie 'Nachvollziehbar' oder 'Lückenlos', um ehrlich und transparent zu bleiben. Die Erfahrung zeigt: Im Ernstfall zählt die Qualität Ihrer Daten."
+        "text": "RESQIO unterstützt Sie bei allen relevanten Dokumentationspflichten nach DGUV und FwDV: Prüfungen, Fristen und Nachweise werden lückenlos und nachvollziehbar festgehalten, inklusive Foto und digitaler Unterschrift. Eine förmliche Zertifizierung der Software selbst gibt es nicht – im Ernstfall zählt die Vollständigkeit Ihrer Dokumentation, und genau dafür ist RESQIO gebaut."
       }
     },
     {
