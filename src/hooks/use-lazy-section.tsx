@@ -1,19 +1,21 @@
 import { useRef, useState, useEffect, lazy, Suspense, ComponentType } from "react";
 
-const SectionPlaceholder = () => (
-  <div className="min-h-[50vh]" />
-);
-
 interface LazySectionProps {
   factory: () => Promise<{ default: ComponentType }>;
   rootMargin?: string;
+  /**
+   * Geschätzte Höhe der Section in Pixeln. Vorher reservierte jeder Platzhalter
+   * pauschal 50vh – da die echten Sections deutlich höher sind, sprang das
+   * Layout beim Nachladen jedes Mal.
+   */
+  minHeight?: number;
 }
 
 /**
  * Renders a lazy-loaded section only when it enters the viewport.
  * Combines IntersectionObserver with React.lazy for optimal loading.
  */
-export function LazySection({ factory, rootMargin = "200px" }: LazySectionProps) {
+export function LazySection({ factory, rootMargin = "200px", minHeight = 600 }: LazySectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [Component, setComponent] = useState<ComponentType | null>(null);
@@ -43,14 +45,16 @@ export function LazySection({ factory, rootMargin = "200px" }: LazySectionProps)
     }
   }, [isVisible, Component, factory]);
 
+  const placeholder = <div style={{ minHeight }} />;
+
   return (
     <div ref={ref} className={Component ? "animate-fade-in" : undefined}>
       {Component ? (
-        <Suspense fallback={<SectionPlaceholder />}>
+        <Suspense fallback={placeholder}>
           <Component />
         </Suspense>
       ) : (
-        <SectionPlaceholder />
+        placeholder
       )}
     </div>
   );

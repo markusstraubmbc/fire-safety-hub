@@ -59,17 +59,19 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <LazySection factory={featuresFactory} rootMargin="50px" />
-        <LazySection factory={personaFactory} rootMargin="50px" />
-        <LazySection factory={aiFeaturesFactory} rootMargin="50px" />
-        <LazySection factory={showcaseFactory} rootMargin="50px" />
-        <LazySection factory={integrationsFactory} rootMargin="50px" />
-        <LazySection factory={processFactory} rootMargin="50px" />
-        <LazySection factory={futureFactory} rootMargin="50px" />
-        <LazySection factory={pricingFactory} rootMargin="50px" />
-        <LazySection factory={regionalFactory} rootMargin="50px" />
-        <LazySection factory={faqFactory} rootMargin="50px" />
-        <LazySection factory={contactFactory} rootMargin="50px" />
+        {/* minHeight grob an der tatsächlichen Sectionhöhe orientiert, damit
+            beim Nachladen möglichst wenig Layout-Sprung entsteht. */}
+        <LazySection factory={featuresFactory} rootMargin="50px" minHeight={2400} />
+        <LazySection factory={personaFactory} rootMargin="50px" minHeight={900} />
+        <LazySection factory={aiFeaturesFactory} rootMargin="50px" minHeight={1100} />
+        <LazySection factory={showcaseFactory} rootMargin="50px" minHeight={1200} />
+        <LazySection factory={integrationsFactory} rootMargin="50px" minHeight={900} />
+        <LazySection factory={processFactory} rootMargin="50px" minHeight={900} />
+        <LazySection factory={futureFactory} rootMargin="50px" minHeight={700} />
+        <LazySection factory={pricingFactory} rootMargin="50px" minHeight={800} />
+        <LazySection factory={regionalFactory} rootMargin="50px" minHeight={800} />
+        <LazySection factory={faqFactory} rootMargin="50px" minHeight={900} />
+        <LazySection factory={contactFactory} rootMargin="50px" minHeight={1000} />
       </main>
       <Footer />
       <MobileCtaBar />

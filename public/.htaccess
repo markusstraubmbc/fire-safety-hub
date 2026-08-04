@@ -132,6 +132,10 @@ ErrorDocument 500 /index.html
   ExpiresByType image/png "access plus 1 month"
   ExpiresByType image/x-icon "access plus 1 month"
   ExpiresByType application/xml "access plus 1 hour"
+  # Die selbst gehosteten Poppins-Dateien hatten bisher gar keinen Cache-Header.
+  # Sie tragen einen Inhalts-Hash im Namen, sind also unbegrenzt cachebar.
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
 </IfModule>
 
 # Gzip compression

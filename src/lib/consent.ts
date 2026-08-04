@@ -38,6 +38,15 @@ function loadGtagScript() {
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
   document.head.appendChild(script);
+
+  // Vorher standen diese beiden Aufrufe inline in index.html und wurden bei
+  // jedem Seitenaufruf geparst – auch bei abgelehnter Einwilligung, wo sie
+  // folgenlos im dataLayer landeten. Sie gehören dorthin, wo GA tatsächlich lädt.
+  gtag("js", new Date());
+  gtag("config", GA_ID, {
+    anonymize_ip: true,
+    cookie_flags: "SameSite=None;Secure",
+  });
 }
 
 export function grantConsent() {

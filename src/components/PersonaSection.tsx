@@ -1,5 +1,4 @@
 import { UserCheck, Shield, Hammer, Users } from "lucide-react";
-import rolesVisual from "@/assets/roles-visual.png";
 import rolesVisualWebp from "@/assets/roles-visual.webp";
 import rolesVisual620 from "@/assets/roles-visual-620.webp";
 
@@ -57,19 +56,17 @@ const PersonaSection = () => {
                         <div className="absolute -inset-10 bg-primary/20 rounded-full blur-[120px] opacity-20 animate-pulse" />
                         <div className="relative rounded-[3rem] border border-border p-3 bg-card shadow-2xl shadow-primary/10 overflow-hidden group">
                             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-red-500/10 opacity-40 group-hover:opacity-60 transition-opacity" />
-                            <picture>
-                                <source srcSet={`${rolesVisual620} 620w, ${rolesVisualWebp} 800w`} type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
-                                <img
-                                    src={rolesVisual}
-                                    alt="Übersicht der Feuerwehr-Rollen und Verantwortlichkeiten"
-                                    className="rounded-[2.5rem] w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
-                                    width={800}
-                                    height={800}
-                                    loading="lazy"
-                                    decoding="async"
-                                    sizes="(min-width: 1024px) 50vw, 100vw"
-                                />
-                            </picture>
+                            <img
+                                src={rolesVisualWebp}
+                                srcSet={`${rolesVisual620} 620w, ${rolesVisualWebp} 800w`}
+                                sizes="(min-width: 1024px) 50vw, 100vw"
+                                alt="Übersicht der Feuerwehr-Rollen und Verantwortlichkeiten"
+                                className="rounded-[2.5rem] w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
+                                width={800}
+                                height={800}
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </div>
                     </div>
 

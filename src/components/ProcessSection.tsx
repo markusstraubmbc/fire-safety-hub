@@ -1,6 +1,5 @@
 import { PlayCircle, UploadCloud, Rocket } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import processVisual from "@/assets/process-visual.png";
 import processVisualWebp from "@/assets/process-visual.webp";
 
 const ProcessSection = () => {
@@ -47,19 +46,15 @@ const ProcessSection = () => {
                     <Reveal className="relative order-2 lg:order-1">
                         <div className="absolute -inset-10 bg-primary/10 rounded-full blur-[100px] opacity-20" />
                         <div className="relative rounded-[2.5rem] border border-border p-2 bg-background shadow-xl overflow-hidden transition-transform duration-500 hover:scale-[1.02]">
-                            <picture>
-                                <source srcSet={processVisualWebp} type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
-                                <img
-                                    src={processVisual}
-                                    alt="Digitaler Transformationsprozess für Feuerwehren"
-                                    className="rounded-[2rem] w-full h-auto object-cover"
-                                    width={1024}
-                                    height={1024}
-                                    loading="lazy"
-                                    decoding="async"
-                                    sizes="(min-width: 1024px) 50vw, 100vw"
-                                />
-                            </picture>
+                            <img
+                                src={processVisualWebp}
+                                alt="Digitaler Transformationsprozess für Feuerwehren"
+                                className="rounded-[2rem] w-full h-auto object-cover"
+                                width={1024}
+                                height={1024}
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </div>
                     </Reveal>
 

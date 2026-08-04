@@ -24,7 +24,13 @@ let template = readFileSync(join(distDir, "index.html"), "utf-8");
 // 400 (Fließtext) und 700 (Headlines) – weitere Gewichte laden regulär über das CSS.
 {
   const distAssets = readdirSync(join(distDir, "assets"));
-  const fontPreloads = ["poppins-latin-400-normal", "poppins-latin-700-normal"]
+  // 600 gehört dazu: Headlines und Buttons nutzen es above the fold, ohne
+  // Preload entstand dafür eine zweite Font-Welle nach dem CSS-Parse.
+  const fontPreloads = [
+    "poppins-latin-400-normal",
+    "poppins-latin-600-normal",
+    "poppins-latin-700-normal",
+  ]
     .map((prefix) => distAssets.find((f) => f.startsWith(prefix) && f.endsWith(".woff2")))
     .filter(Boolean)
     .map(
@@ -302,12 +308,10 @@ ${modules.map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> –
   };
   const hero640 = heroAsset("hero-640w");
   const hero1024 = heroAsset("hero-1024w");
-  // Vite dedupliziert byte-identische Assets: die 1920w-Variante kann auf
-  // dieselbe Datei wie hero-1024w zeigen, wenn sie identisch ist.
-  const hero1920 =
-    heroAsset("german_firefighters_fixed_bg") || heroAsset("hero-1920w") || hero1024;
-  if (hero640 && hero1024 && hero1920) {
-    const preload = `  <link rel="preload" as="image" type="image/webp" href="${hero1024}" imagesrcset="${hero640} 640w, ${hero1024} 1024w, ${hero1920} 1920w" imagesizes="100vw" fetchpriority="high" />\n`;
+  // Nur zwei Breiten: die frühere 1920w-Variante war byte-identisch mit der
+  // 1024er und tatsächlich 1024x1024 groß. Muss zu HeroSection.tsx passen.
+  if (hero640 && hero1024) {
+    const preload = `  <link rel="preload" as="image" type="image/webp" href="${hero1024}" imagesrcset="${hero640} 640w, ${hero1024} 1024w" imagesizes="100vw" fetchpriority="high" />\n`;
     html = html.replace("</head>", preload + "</head>");
     console.log("Injected hero image preload into homepage.");
   } else {

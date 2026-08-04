@@ -1,5 +1,4 @@
 import { MapPin, Heart, ShieldCheck, Radio } from "lucide-react";
-import regionalVisual from "@/assets/regional-visual.png";
 import regionalVisualWebp from "@/assets/regional-visual.webp";
 
 const RegionalSection = () => {
@@ -14,19 +13,15 @@ const RegionalSection = () => {
                         <div className="relative group">
                             <div className="absolute -inset-1 bg-gradient-to-tr from-primary/20 to-red-500/10 rounded-[3rem] blur-xl opacity-50 group-hover:opacity-100 transition duration-1000" />
                             <div className="relative bg-card rounded-[3rem] border border-border p-2 overflow-hidden shadow-2xl">
-                                <picture>
-                                    <source srcSet={regionalVisualWebp} type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
                                     <img
-                                        src={regionalVisual}
+                                        src={regionalVisualWebp}
                                         alt="Modernes Feuerwehrgerätehaus"
                                         className="rounded-[2.5rem] w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
                                         width={1024}
                                         height={1024}
                                         loading="lazy"
                                         decoding="async"
-                                        sizes="(min-width: 1024px) 50vw, 100vw"
                                     />
-                                </picture>
                                 {/* Location Badge */}
                                 <div className="absolute top-8 left-8 p-4 bg-background/80 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl">
                                     <div className="flex items-center gap-3">

@@ -1,6 +1,5 @@
 import { ArrowRight, Cpu, Network, Radio } from "lucide-react";
 import { scrollToSection } from "@/lib/utils";
-import fireTechVisual from "@/assets/fire-middleware-visual.png";
 import fireTechVisualWebp from "@/assets/fire-middleware-visual.webp";
 
 const IntegrationsSection = () => {
@@ -24,19 +23,15 @@ const IntegrationsSection = () => {
                         <div className="relative group">
                             <div className="absolute -inset-0.5 bg-gradient-to-tr from-primary/30 to-red-500/20 rounded-[2.5rem] blur opacity-40 group-hover:opacity-100 transition duration-1000" />
                             <div className="relative bg-card rounded-[2.5rem] border border-border p-2 overflow-hidden shadow-2xl">
-                                <picture>
-                                    <source srcSet={fireTechVisualWebp} type="image/webp" sizes="(min-width: 1024px) 50vw, 100vw" />
                                     <img
-                                        src={fireTechVisual}
+                                        src={fireTechVisualWebp}
                                         alt="Digitale Schnittstellen und Integrationen für Feuerwehren"
                                         className="rounded-[2rem] w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
                                         width={1024}
                                         height={1024}
                                         loading="lazy"
                                         decoding="async"
-                                        sizes="(min-width: 1024px) 50vw, 100vw"
                                     />
-                                </picture>
 
                                 {/* Flow Animation Overlay */}
                                 <div className="absolute inset-0 pointer-events-none overflow-hidden">

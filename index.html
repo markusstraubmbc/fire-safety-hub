@@ -12,8 +12,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#cc1a1a" />
 
-  <!-- Critical CSS: Above-the-fold rendering -->
-  <link rel="stylesheet" href="/critical.css" />
+  <!-- Critical CSS: inline, damit es keinen eigenen Round-Trip kostet.
+       Als externes Stylesheet war es selbst render-blocking und hat damit genau
+       die Zeit gekostet, die Critical CSS einsparen soll. Zusätzlich war die
+       Datei nicht gehasht, wurde von .htaccess aber ein Jahr lang gecached –
+       Änderungen hätten Bestandsbesucher nie erreicht. -->
+  <style>
+    :root {
+      --background: 210 20% 98%;
+      --foreground: 220 30% 15%;
+      --primary: 0 85% 50%;
+      --primary-foreground: 0 0% 100%;
+      --secondary: 220 50% 20%;
+      --secondary-foreground: 0 0% 100%;
+      --muted-foreground: 220 20% 30%;
+      --accent: 30 100% 55%;
+      --border: 210 20% 85%;
+    }
+    *, *::before, *::after { box-sizing: border-box; border-width: 0; border-style: solid; }
+    html { line-height: 1.5; -webkit-text-size-adjust: 100%; font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif; }
+    body { margin: 0; background-color: hsl(210 20% 98%); color: hsl(220 30% 15%); }
+    #root { min-height: 100vh; }
+    .min-h-screen { min-height: 100vh; }
+    .bg-background { background-color: hsl(var(--background)); }
+  </style>
 
   <!-- Preload critical assets (Header-Logo; Hero-Preload wird vom Prerender-Skript pro Seite injiziert) -->
   <link rel="preload" href="/logo-80.webp" as="image" type="image/webp" />
@@ -200,11 +222,11 @@
       ad_personalization: 'denied',
       analytics_storage: 'denied'
     });
-    gtag('js', new Date());
-    gtag('config', 'G-1JZGKRM9GC', {
-      anonymize_ip: true,
-      cookie_flags: 'SameSite=None;Secure'
-    });
+    /* gtag('js')/gtag('config') liefen früher hier und kosteten Parse-Zeit im
+       kritischen Pfad, obwohl gtag.js erst nach der Einwilligung geladen wird.
+       Sie stehen jetzt in src/lib/consent.ts und laufen dort zusammen mit dem
+       Script. Nur der Consent-Default muss inline bleiben – er muss gesetzt
+       sein, bevor irgendein Google-Code läuft (DSGVO). */
   </script>
 </head>
 
