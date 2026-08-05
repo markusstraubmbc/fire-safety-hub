@@ -210,13 +210,7 @@ const ModulDetail = () => {
             <div className="lg:col-span-7 space-y-8">
               {/* Muss zum Label im prerenderten HTML passen (scripts/prerender.mjs) */}
               {module.badge && (
-                <span
-                  className={`inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border ${
-                    module.badge === "neu"
-                      ? "bg-primary/10 text-primary border-primary/20"
-                      : "bg-amber-500/10 text-amber-600 border-amber-500/20"
-                  }`}
-                >
+                <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border bg-primary/10 text-primary border-primary/20">
                   {moduleBadgeLabels[module.badge]}
                 </span>
               )}

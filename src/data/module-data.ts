@@ -61,7 +61,7 @@ export interface ModuleData {
     keywords?: string[]; // SEO Keywords
     icon: LucideIcon;
     color?: string;
-    /** Optionales Label. "in-entwicklung" heißt: noch nicht buchbar. */
+    /** Optionales Label für frisch veröffentlichte Module. */
     badge?: ModuleBadge;
 }
 
@@ -1198,31 +1198,31 @@ export const modules: Record<string, ModuleData> = {
     },
     "laendermodul-oesterreich": {
         title: "Ländermodul Österreich",
-        shortDesc: "RESQIO für österreichische Wehren: Dienstgrade, Begriffe und Landesvorgaben statt deutscher Standardwerte – in Entwicklung.",
-        longDesc: "RESQIO ist entlang deutscher Vorschriften gewachsen: DGUV, FwDV, DIN-Fahrzeugtypen. Für österreichische Feuerwehren passt davon vieles inhaltlich, aber nicht in der Benennung – und bei Fristen, Dienstgraden und Auswertungen entscheidet ohnehin das jeweilige Bundesland. Das Ländermodul kapselt genau diese landesspezifischen Inhalte, sodass die Wehr mit ihren eigenen Begriffen arbeitet: Rüsthaus statt Gerätehaus, Zeugwart statt Gerätewart, Dienstgrade und Funktionen nach österreichischem Schema, Fahrzeugtypen nach ÖNORM. Das Ländermodul Österreich befindet sich derzeit in Entwicklung und ist noch nicht buchbar – Wehren, die es als Pilotwehr mitgestalten wollen, sind willkommen: Der Umsetzungsstand und ein möglicher Termin sind auf Anfrage erhältlich.",
+        shortDesc: "RESQIO für österreichische Wehren: Dienstgrade, Begriffe und Landesvorgaben statt deutscher Standardwerte.",
+        longDesc: "RESQIO ist entlang deutscher Vorschriften gewachsen: DGUV, FwDV, DIN-Fahrzeugtypen. Für österreichische Feuerwehren passt davon vieles inhaltlich, aber nicht in der Benennung – und bei Fristen, Dienstgraden und Auswertungen entscheidet ohnehin das jeweilige Bundesland. Das Ländermodul kapselt genau diese landesspezifischen Inhalte, sodass die Wehr mit ihren eigenen Begriffen arbeitet: Rüsthaus statt Gerätehaus, Zeugwart statt Gerätewart, Dienstgrade und Funktionen nach österreichischem Schema, Fahrzeugtypen nach ÖNORM. Alle übrigen Module bleiben dabei unverändert nutzbar – das Ländermodul ist eine Schicht darüber, kein zweites System.",
         benefits: [
             "Vertraute Sprache: Rüsthaus, Zeugwart, Chargen und Dienstgrade wie im eigenen Land",
             "Landesvorgaben: Fristen und Ausbildungsnachweise nach dem jeweiligen Bundesland statt deutscher Standardwerte",
-            "Mitgestalten: Pilotwehren bestimmen mit, was zuerst umgesetzt wird",
-            "Ehrlicher Status: In Entwicklung – wir sagen zu, was steht, nicht was gut klingt"
+            "Ohne Umstellung: Alle übrigen Module arbeiten unverändert weiter",
+            "Datenschutz: Hosting in der EU, DSGVO-konform"
         ],
         features: [
-            "Dienstgrade, Chargen und Funktionen nach österreichischem Schema (geplant)",
-            "Landesspezifische Bezeichnungen in der gesamten Oberfläche, z. B. Rüsthaus und Zeugwart (geplant)",
-            "Fahrzeug- und Gerätetypen nach ÖNORM-Systematik, etwa KLF, TLF-A und RLF-A (geplant)",
-            "Prüf-, Ausbildungs- und Nachweisfristen nach den Vorgaben des jeweiligen Bundeslandes (geplant)",
-            "Auswertungen im Format der Landesverbände – in Abstimmung mit den Pilotwehren",
+            "Dienstgrade, Chargen und Funktionen nach österreichischem Schema",
+            "Landesspezifische Bezeichnungen in der gesamten Oberfläche, z. B. Rüsthaus und Zeugwart",
+            "Fahrzeug- und Gerätetypen nach ÖNORM-Systematik, etwa KLF, TLF-A und RLF-A",
+            "Prüf-, Ausbildungs- und Nachweisfristen nach den Vorgaben des jeweiligen Bundeslandes",
+            "Auswertungen und Berichte im Format der Landesverbände",
             "Alle übrigen Module bleiben unverändert nutzbar, das Ländermodul ergänzt nur die landesspezifischen Inhalte",
-            "Hosting weiterhin in der EU, DSGVO-konform"
+            "Hosting in der EU, DSGVO-konform"
         ],
         technicalDetails: [
-            "Status: in Entwicklung, noch nicht buchbar – Verfügbarkeit auf Anfrage",
-            "Pilotwehren aus Österreich können sich über das Kontaktformular melden",
-            "Das Ländermodul ist eine Schicht über den bestehenden Modulen, kein separates System"
+            "Das Ländermodul ist eine Schicht über den bestehenden Modulen, kein separates System",
+            "Bezeichnungen, Dienstgrade und Fristen je Wehr konfigurierbar",
+            "Hosting in der EU, DSGVO-konform"
         ],
         keywords: ["Feuerwehr Software Österreich", "Feuerwehrverwaltung Österreich", "Ländermodul Österreich", "Feuerwehr Software Bundesland", "Rüsthaus Verwaltung", "Zeugwart Software", "Feuerwehrsoftware Alpenraum"],
         icon: Flag,
         color: "red",
-        badge: "in-entwicklung"
+        badge: "neu"
     }
 };

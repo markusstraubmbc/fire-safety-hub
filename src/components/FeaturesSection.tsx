@@ -66,7 +66,6 @@ export interface Feature {
 
 const badgeStyles: Record<ModuleBadge, string> = {
   neu: "bg-primary/10 text-primary border-primary/20",
-  "in-entwicklung": "bg-amber-500/10 text-amber-600 border-amber-500/20",
 };
 
 export const features: Feature[] = [
@@ -417,9 +416,9 @@ export const features: Feature[] = [
     icon: Flag,
     title: "Ländermodul Österreich",
     description:
-      "RESQIO für österreichische Wehren: Dienstgrade und Chargen, Rüsthaus statt Gerätehaus, Fahrzeugtypen nach ÖNORM und Fristen nach Bundesland. Derzeit in Entwicklung – Pilotwehren willkommen.",
+      "RESQIO für österreichische Wehren: Dienstgrade und Chargen, Rüsthaus statt Gerätehaus, Fahrzeugtypen nach ÖNORM und Fristen nach Bundesland – alle übrigen Module bleiben unverändert nutzbar.",
     slug: "laendermodul-oesterreich",
-    badge: "in-entwicklung",
+    badge: "neu",
   },
 ];
 

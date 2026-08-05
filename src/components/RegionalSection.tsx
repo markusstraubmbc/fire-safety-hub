@@ -94,22 +94,21 @@ const RegionalSection = () => {
                             </p>
 
                             {/* Verfügbarkeit über Deutschland hinaus: gehört hierher, wo
-                                Standort und Serverstandort ohnehin Thema sind. Status
-                                bewusst als "in Entwicklung" ausgewiesen. */}
+                                Standort und Serverstandort ohnehin Thema sind. */}
                             <div className="rounded-2xl border border-border bg-muted/30 p-5 space-y-2">
-                                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 text-[10px] font-bold uppercase tracking-widest">
+                                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest">
                                     <Flag className="w-3 h-3" />
-                                    In Entwicklung
+                                    Neu
                                 </div>
-                                <h3 className="font-bold text-foreground">Bald auch für Österreich</h3>
+                                <h3 className="font-bold text-foreground">Auch für Österreich</h3>
                                 <p className="text-sm text-muted-foreground leading-relaxed">
-                                    Am{" "}
+                                    Das{" "}
                                     <Link to="/modul/laendermodul-oesterreich" className="font-semibold text-primary hover:underline">
                                         Ländermodul Österreich
                                     </Link>{" "}
-                                    wird gerade gearbeitet: Dienstgrade und Chargen nach österreichischem Schema,
-                                    Rüsthaus statt Gerätehaus, Fahrzeugtypen nach ÖNORM und Fristen nach Bundesland.
-                                    Buchbar ist es noch nicht – Pilotwehren, die mitgestalten wollen, sind willkommen.
+                                    bringt die eigenen Begriffe mit: Dienstgrade und Chargen nach österreichischem
+                                    Schema, Rüsthaus statt Gerätehaus, Fahrzeugtypen nach ÖNORM und Fristen nach
+                                    Bundesland. Alle übrigen Module bleiben unverändert nutzbar.
                                 </p>
                             </div>
                         </div>

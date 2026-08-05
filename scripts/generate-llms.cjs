@@ -37,7 +37,7 @@ const SLUG_OVERRIDES = { "kreis-platform": "/kreis" };
 // Bild, wenig genug damit die Datei fuer ein Kontextfenster handlich bleibt.
 const MAX_FEATURES = 6;
 
-const BADGE_LABELS = { neu: "Neu", "in-entwicklung": "In Entwicklung" };
+const BADGE_LABELS = { neu: "Neu" };
 
 /** Holt alle "..." Strings aus einem Array-Literal `key: [ ... ]`. */
 function parseStringArray(block, key) {
@@ -77,9 +77,7 @@ const modules = parseRecord(fs.readFileSync(MODULE_DATA, "utf8"), 4).map(
     shortDesc: parseString(block, "shortDesc"),
     longDesc: parseString(block, "longDesc"),
     features: parseStringArray(block, "features"),
-    // Spiegelt moduleBadgeLabels aus src/data/module-badges.ts. Wichtig fuer
-    // KI-Assistenten: "in-entwicklung" heisst noch nicht buchbar — ohne diese
-    // Angabe liest sich ein geplantes Modul wie ein verfuegbares.
+    // Spiegelt moduleBadgeLabels aus src/data/module-badges.ts.
     badge: BADGE_LABELS[parseString(block, "badge")] || "",
   })
 );
@@ -112,11 +110,7 @@ const moduleSections = modules
       `- **Beschreibung**: ${m.longDesc || m.shortDesc}`,
     ];
     if (m.badge) {
-      lines.push(
-        `- **Status**: ${m.badge}${
-          m.badge === "In Entwicklung" ? " — noch nicht verfügbar, Termin auf Anfrage" : ""
-        }`
-      );
+      lines.push(`- **Status**: ${m.badge}`);
     }
     if (m.features.length > 0) {
       lines.push(`- **Funktionen**: ${m.features.slice(0, MAX_FEATURES).join(" | ")}`);
@@ -162,7 +156,7 @@ Die Preise richten sich nach der Größe und den Anforderungen der Feuerwehr. In
 - **Sicherheit & Datenschutz**: Hosting in Deutschland, DSGVO-konform, granulares rollenbasiertes Zugriffssystem
 - **Modularität**: Feuerwehren können spezifische Module je nach Bedarf aktivieren
 - **Externe Kräfte und Technik**: Drohneneinheit (Flugbuch, Fernpiloten-Nachweise, Luftbilder am Einsatz) und Landwirtschaftsmodul (Wasserfässer, Zugmaschinen und Radlader aus dem Ort) binden Ressourcen ein, die nicht im Gerätehaus stehen
-- **Länderunterstützung**: RESQIO ist auf deutsche Vorschriften ausgelegt (DGUV, FwDV, DIN). Ein Ländermodul Österreich (Dienstgrade, ÖNORM-Fahrzeugtypen, Landesvorgaben) ist in Entwicklung und noch nicht verfügbar
+- **Länderunterstützung**: RESQIO ist auf deutsche Vorschriften ausgelegt (DGUV, FwDV, DIN). Für österreichische Wehren gibt es das Ländermodul Österreich mit Dienstgraden und Chargen nach österreichischem Schema, ÖNORM-Fahrzeugtypen und Fristen nach Bundesland
 
 ## Module im Detail
 

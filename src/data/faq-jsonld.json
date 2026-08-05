@@ -47,7 +47,7 @@
       "name": "Gibt es RESQIO auch für Feuerwehren in Österreich?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ein Ländermodul Österreich ist derzeit in Entwicklung und noch nicht buchbar. Es bringt Dienstgrade und Chargen nach österreichischem Schema, die gewohnten Bezeichnungen wie Rüsthaus und Zeugwart, Fahrzeugtypen nach ÖNORM sowie Fristen nach den Vorgaben des jeweiligen Bundeslandes. Alle übrigen Module bleiben unverändert nutzbar. Wehren, die das Ländermodul als Pilotwehr mitgestalten möchten, melden sich gerne unter kontakt@resqio.de – den Umsetzungsstand und einen möglichen Termin nennen wir auf Anfrage."
+        "text": "Ja. Das Ländermodul Österreich bringt Dienstgrade und Chargen nach österreichischem Schema, die gewohnten Bezeichnungen wie Rüsthaus und Zeugwart, Fahrzeugtypen nach ÖNORM sowie Prüf- und Ausbildungsfristen nach den Vorgaben des jeweiligen Bundeslandes. Alle übrigen Module bleiben unverändert nutzbar – das Ländermodul ist eine Schicht darüber, kein zweites System. Gehostet wird weiterhin in der EU, DSGVO-konform. Für Details und eine Demo genügt eine Nachricht an kontakt@resqio.de."
       }
     },
     {

@@ -64,7 +64,7 @@ function parseStringArray(block, key) {
 }
 
 // Spiegelt moduleBadgeLabels aus src/data/module-badges.ts.
-const BADGE_LABELS = { neu: "Neu", "in-entwicklung": "In Entwicklung" };
+const BADGE_LABELS = { neu: "Neu" };
 
 function parseModules(src) {
   const modules = [];
@@ -315,7 +315,7 @@ ${modules
 <li>GoBD-konforme Aufwandsentschädigung mit Jahresbescheinigungen</li>
 <li>Neu: Drohneneinheit mit Flugbuch, Fernpiloten-Nachweisen und Luftbildern am Einsatz</li>
 <li>Neu: Landwirtschaftsmodul – Wasserfässer und Technik aus dem Ort in Minuten anfordern</li>
-<li>In Entwicklung: Ländermodul Österreich mit Dienstgraden, ÖNORM-Fahrzeugtypen und Landesvorgaben</li>
+<li>Neu: Ländermodul Österreich mit Dienstgraden, ÖNORM-Fahrzeugtypen und Landesvorgaben</li>
 <li>Made in Germany – DSGVO-konform, Serverstandort Deutschland</li>
 </ul></section>
 <section><h2>Individuell & Bedarfsgerecht</h2>

@@ -164,21 +164,18 @@ Bei Vegetationsbrand, Hochwasser und Sturm entscheidet oft Technik, die nicht im
 
 ---
 
-## 13. Ländermodul Österreich *(in Entwicklung)*
+## 13. Ländermodul Österreich
 **Landesspezifische Inhalte als eigene Schicht über den bestehenden Modulen.**
 
-RESQIO ist entlang deutscher Vorschriften gewachsen (DGUV, FwDV, DIN). Das Ländermodul kapselt, was in Österreich anders heißt und anders geregelt ist. **Status: in Entwicklung, noch nicht buchbar – Termin auf Anfrage.**
+RESQIO ist entlang deutscher Vorschriften gewachsen (DGUV, FwDV, DIN). Das Ländermodul kapselt, was in Österreich anders heißt und anders geregelt ist – alle übrigen Module bleiben unverändert nutzbar.
 
-**Geplante Inhalte:**
+**Highlights:**
 - **Dienstgrade und Chargen** nach österreichischem Schema.
 - **Bezeichnungen:** Rüsthaus statt Gerätehaus, Zeugwart statt Gerätewart.
 - **Fahrzeugtypen** nach ÖNORM-Systematik (KLF, TLF-A, RLF-A).
 - **Fristen und Nachweise** nach den Vorgaben des jeweiligen Bundeslandes.
-- **Auswertungen** im Format der Landesverbände – in Abstimmung mit Pilotwehren.
-
-> Auf der Website konsequent als "in Entwicklung" ausgewiesen (Badge, FAQ,
-> `llms.txt`-Status). Nicht zu einem verfügbaren Modul umformulieren, solange
-> es keines ist.
+- **Auswertungen und Berichte** im Format der Landesverbände.
+- **Hosting** in der EU, DSGVO-konform.
 
 ---
 
