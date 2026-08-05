@@ -1141,7 +1141,7 @@ export const modules: Record<string, ModuleData> = {
         shortDesc: "Drohnen, Fernpiloten und Flüge verwalten: Flugbuch, Nachweise und Akkus im Griff – Luftbilder direkt in der Lage.",
         longDesc: "Wer eine Drohne betreibt, betreibt ein Luftfahrzeug – mit allem, was dazugehört: Betreiberregistrierung, Kompetenznachweise der Fernpiloten, ein nachvollziehbares Flugbuch und Akkus, die nicht ewig halten. Die Drohneneinheit in RESQIO führt diese Nachweise dort, wo auch der Rest der Ausrüstung liegt: Jedes Fluggerät bekommt seine Geräteakte mit Nutzlast und Zubehör, jeder Flug wird mit Zweck, Dauer und Fernpilot dokumentiert, und ablaufende Nachweise melden sich von selbst. Im Einsatz zählt dann, was die Drohne tatsächlich liefert: Übersicht über eine Lage, die vom Boden aus niemand vollständig sieht – Luft- und Wärmebilder werden am Einsatz abgelegt und stehen in der Nachbereitung im Bericht.",
         benefits: [
-            "Rechtssicherheit: Betreiberregistrierung, Betriebskategorie und Fernpiloten-Nachweise an einer Stelle",
+            "Nachweisführung: Betreiberregistrierung, Betriebskategorie und Fernpiloten-Nachweise an einer Stelle",
             "Nachweis: Lückenloses Flugbuch je Fluggerät und je Fernpilot statt Notizen im Handy",
             "Einsatzwert: Luft- und Wärmebilder werden am Einsatz dokumentiert und landen im Bericht",
             "Verfügbarkeit: Akkuzyklen, Prüf- und Wartungstermine im Blick, bevor der Alarm kommt"
