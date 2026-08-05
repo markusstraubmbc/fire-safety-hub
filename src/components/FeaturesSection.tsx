@@ -39,12 +39,16 @@ import {
   HeartPulse,
   CloudOff,
   PartyPopper,
+  PlaneTakeoff,
+  Tractor,
+  Flag,
   LucideIcon,
   ArrowRight,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Reveal } from "@/components/Reveal";
+import { moduleBadgeLabels, type ModuleBadge } from "@/data/module-badges";
 
 export interface Feature {
   icon: LucideIcon;
@@ -52,7 +56,17 @@ export interface Feature {
   description: string;
   slug?: string;
   href?: string;
+  /**
+   * Muss zum badge-Feld desselben Moduls in src/data/module-data.ts passen.
+   * Bewusst dupliziert statt module-data.ts zu importieren: die Datei ist
+   * ~80 KB und läge sonst im Homepage-Chunk, obwohl hier drei Labels reichen.
+   */
+  badge?: ModuleBadge;
 }
+
+const badgeStyles: Record<ModuleBadge, string> = {
+  neu: "bg-primary/10 text-primary border-primary/20",
+};
 
 export const features: Feature[] = [
   // Highlights / Core
@@ -355,6 +369,22 @@ export const features: Feature[] = [
     slug: "personalmeldestelle",
   },
   {
+    icon: PlaneTakeoff,
+    title: "Drohneneinheit & Luftaufklärung",
+    description:
+      "Fluggeräte, Fernpiloten und Flüge an einer Stelle: Flugbuch, EU-Kompetenznachweise mit Ablaufwarnung, Akkuzyklen und Wartung. Luft- und Wärmebilder werden am Einsatz dokumentiert.",
+    slug: "drohneneinheit",
+    badge: "neu",
+  },
+  {
+    icon: Tractor,
+    title: "Landwirtschaftsmodul & Ortsressourcen",
+    description:
+      "Die Technik aus dem Ort als planbare Ressource: Wasserfässer mit Fassungsvermögen und Kupplung, Zugmaschinen und Radlader samt Erreichbarkeit – im Einsatz in Minuten angefordert.",
+    slug: "landwirte-modul",
+    badge: "neu",
+  },
+  {
     icon: Wind,
     title: "Gefahrstoff & Ausbreitung",
     description:
@@ -381,6 +411,14 @@ export const features: Feature[] = [
     description:
       "Funktioniert auch ohne Internet: Objektpläne, Kontakte, Geräte und Hydranten bleiben lokal verfügbar, Eingaben werden automatisch nachgetragen, sobald wieder Verbindung besteht.",
     slug: "offline-modus",
+  },
+  {
+    icon: Flag,
+    title: "Ländermodul Österreich",
+    description:
+      "RESQIO für österreichische Wehren: Dienstgrade und Chargen, Rüsthaus statt Gerätehaus, Fahrzeugtypen nach ÖNORM und Fristen nach Bundesland – alle übrigen Module bleiben unverändert nutzbar.",
+    slug: "laendermodul-oesterreich",
+    badge: "neu",
   },
 ];
 
@@ -412,6 +450,13 @@ const FeaturesSection = () => {
                       <feature.icon className="w-6 h-6 text-primary" />
                     </div>
                     <div className="min-w-0 pt-1">
+                      {feature.badge && (
+                        <span
+                          className={`inline-block mb-2 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full border ${badgeStyles[feature.badge]}`}
+                        >
+                          {moduleBadgeLabels[feature.badge]}
+                        </span>
+                      )}
                       <h3 className="text-base font-bold text-foreground mb-2 leading-tight group-hover:text-primary transition-colors">
                         {feature.title}
                       </h3>

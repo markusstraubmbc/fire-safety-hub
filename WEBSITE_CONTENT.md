@@ -136,6 +136,49 @@ resqio ist für den professionellen Einsatz konzipiert und bietet Administratore
 
 ---
 
+## 11. Drohneneinheit & Luftaufklärung
+**Ein Luftfahrzeug bringt Nachweispflichten mit – und ein Lagebild, das vom Boden aus fehlt.**
+
+Fluggeräte, Fernpiloten und Flüge liegen dort, wo auch der Rest der Ausrüstung liegt. Im Einsatz zählt, was die Drohne liefert: Übersicht, Wärmebild, Dokumentation.
+
+**Highlights:**
+- **Flugbuch:** Datum, Flugzeit, Zweck (Einsatz, Übung, Schulung) und verantwortlicher Fernpilot.
+- **Nachweise:** EU-Kompetenznachweise (A1/A3, A2), Betreiberregistrierung und e-ID mit Ablaufwarnung.
+- **Akku-Management:** Ladezyklen, Alter und Aussonderungsgrenze je Akku.
+- **Einsatzintegration:** Luft- und Wärmebilder werden am Einsatz abgelegt und in der Nachbereitung verwendet.
+- **Kreisebene:** Anforderung der Drohneneinheit durch Nachbarwehren über die Kreisplattform.
+
+---
+
+## 12. Landwirtschaftsmodul & Ortsressourcen
+**Die Technik aus dem Ort als planbare Ressource statt als Zufallsfund.**
+
+Bei Vegetationsbrand, Hochwasser und Sturm entscheidet oft Technik, die nicht im Gerätehaus steht. Das Modul macht aus informeller Nachbarschaftshilfe eine belastbare Ressource.
+
+**Highlights:**
+- **Betriebsregister:** Landwirte, Lohnunternehmer und Betriebe im Ausrückebereich mit Ansprechpartnern.
+- **Technik-Katalog:** Wasser-/Güllefass mit Fassungsvermögen und Kupplung, Zugmaschine, Frontlader, Radlader, Kipper.
+- **Anforderung:** E-Mail, WhatsApp oder Telegram über das Kommunikationscenter.
+- **Karte:** Hofstellen und Entnahmestellen gemeinsam mit den Hydranten.
+- **Abrechnung:** Einsatzstunden je Betrieb und Maschine für die Aufwandserstattung.
+
+---
+
+## 13. Ländermodul Österreich
+**Landesspezifische Inhalte als eigene Schicht über den bestehenden Modulen.**
+
+RESQIO ist entlang deutscher Vorschriften gewachsen (DGUV, FwDV, DIN). Das Ländermodul kapselt, was in Österreich anders heißt und anders geregelt ist – alle übrigen Module bleiben unverändert nutzbar.
+
+**Highlights:**
+- **Dienstgrade und Chargen** nach österreichischem Schema.
+- **Bezeichnungen:** Rüsthaus statt Gerätehaus, Zeugwart statt Gerätewart.
+- **Fahrzeugtypen** nach ÖNORM-Systematik (KLF, TLF-A, RLF-A).
+- **Fristen und Nachweise** nach den Vorgaben des jeweiligen Bundeslandes.
+- **Auswertungen und Berichte** im Format der Landesverbände.
+- **Hosting** in der EU, DSGVO-konform.
+
+---
+
 ## Technische Eckdaten
 - **Technologie:** React 19, Node.js, MariaDB (Cloud-ready & Docker-basiert).
 - **Sicherheit:** Ende-zu-Ende Verschlüsselung, JWT-Sitzungsverwaltung, DSGVO-konform (Serverstandort Deutschland).

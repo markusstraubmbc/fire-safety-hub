@@ -63,6 +63,9 @@ function parseStringArray(block, key) {
   );
 }
 
+// Spiegelt moduleBadgeLabels aus src/data/module-badges.ts.
+const BADGE_LABELS = { neu: "Neu" };
+
 function parseModules(src) {
   const modules = [];
   // Split by module key pattern: "slug": {
@@ -73,6 +76,7 @@ function parseModules(src) {
     const block = parts[i + 1] || "";
 
     const titleMatch = block.match(/title:\s*"([^"]+)"/);
+    const badgeMatch = block.match(/badge:\s*"([^"]+)"/);
     const shortDescMatch = block.match(/shortDesc:\s*"([^"]+)"/);
     const longDescMatch = block.match(/longDesc:\s*"((?:[^"\\]|\\.)*)"/);
     const keywordsMatch = block.match(/keywords:\s*\[([\s\S]*?)\]/);
@@ -91,6 +95,10 @@ function parseModules(src) {
     modules.push({
       slug,
       title,
+      // Muss zu moduleBadgeLabels in src/data/module-badges.ts passen – das
+      // Label steht sowohl im ausgelieferten HTML als auch nach der Hydration
+      // auf der Modulseite.
+      badge: badgeMatch ? BADGE_LABELS[badgeMatch[1]] || "" : "",
       shortDesc,
       longDesc,
       keywords,
@@ -285,7 +293,12 @@ ${modules
   // kreis-platform 301-redirected auf /kreis – ein interner Link auf einen
   // Redirect verschenkt Crawl-Budget, also gleich auf das Ziel verlinken.
   .filter((m) => m.slug !== "kreis-platform")
-  .map((m) => `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a> – ${escAttr(m.shortDesc)}</li>`)
+  .map(
+    (m) =>
+      `<li><a href="/modul/${m.slug}">${escAttr(m.title)}</a>${
+        m.badge ? ` (${escAttr(m.badge)})` : ""
+      } – ${escAttr(m.shortDesc)}</li>`
+  )
   .join("\n")}
 <li><a href="/kreis">Kreisplattform für Kreisfeuerwehrverbände</a> – Zentrale Verwaltung aller angeschlossenen Wehren mit voller Datensouveränität je Feuerwehr.</li>
 </ul></section>
@@ -300,6 +313,9 @@ ${modules
 <li>Beladeplan & Verlastung: Soll-/Ist-Vergleich für Fahrzeugbeladung</li>
 <li>Offline-Kiosk: Gerätewart-Vollausbau auch ohne Internet</li>
 <li>GoBD-konforme Aufwandsentschädigung mit Jahresbescheinigungen</li>
+<li>Neu: Drohneneinheit mit Flugbuch, Fernpiloten-Nachweisen und Luftbildern am Einsatz</li>
+<li>Neu: Landwirtschaftsmodul – Wasserfässer und Technik aus dem Ort in Minuten anfordern</li>
+<li>Neu: Ländermodul Österreich mit Dienstgraden, ÖNORM-Fahrzeugtypen und Landesvorgaben</li>
 <li>Made in Germany – DSGVO-konform, Serverstandort Deutschland</li>
 </ul></section>
 <section><h2>Individuell & Bedarfsgerecht</h2>
@@ -404,7 +420,9 @@ for (const mod of modules) {
     .map((f) => `<li>${escAttr(f)}</li>`)
     .join("");
 
-  const bodyContent = `<main><h1>${escAttr(mod.title)}</h1><p>${escAttr(mod.shortDesc)}</p>${
+  const bodyContent = `<main><h1>${escAttr(mod.title)}</h1>${
+    mod.badge ? `<p>${escAttr(mod.badge)}</p>` : ""
+  }<p>${escAttr(mod.shortDesc)}</p>${
     mod.longDesc ? `<p>${escAttr(mod.longDesc)}</p>` : ""
   }${
     benefitItems ? `<h2>Ihr Mehrwert</h2><ul>${benefitItems}</ul>` : ""

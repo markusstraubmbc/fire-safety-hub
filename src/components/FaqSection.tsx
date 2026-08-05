@@ -68,9 +68,13 @@ const FaqSection = () => {
                         <Link to="/wissen/atemschutz-dokumentation-fwdv7" className="font-semibold text-primary hover:underline">
                             Atemschutz-Dokumentation nach FwDV 7
                         </Link>{" "}
-                        und der{" "}
+                        , der{" "}
                         <Link to="/wissen/feuerwehrsoftware-einfuehren-leitfaden" className="font-semibold text-primary hover:underline">
                             Einführung von Feuerwehrsoftware
+                        </Link>{" "}
+                        und zum{" "}
+                        <Link to="/wissen/vegetationsbrand-landwirte-drohne" className="font-semibold text-primary hover:underline">
+                            Vegetationsbrand mit Landwirten und Drohne
                         </Link>{" "}
                         gehen ins Detail – oder Sie stöbern im gesamten{" "}
                         <Link to="/wissen" className="font-semibold text-primary hover:underline">

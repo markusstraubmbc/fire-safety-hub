@@ -37,8 +37,19 @@ import {
     HeartPulse,
     CloudOff,
     PartyPopper,
+    PlaneTakeoff,
+    Tractor,
+    Flag,
     LucideIcon
 } from "lucide-react";
+
+// Kennzeichnung neuer bzw. noch nicht verfügbarer Module. Typ und Labels
+// liegen in einer eigenen Mini-Datei, damit die Funktionsübersicht sie nutzen
+// kann, ohne diese komplette Datei in den Homepage-Chunk zu ziehen.
+import type { ModuleBadge } from "./module-badges";
+
+export type { ModuleBadge };
+export { moduleBadgeLabels } from "./module-badges";
 
 export interface ModuleData {
     title: string;
@@ -50,6 +61,8 @@ export interface ModuleData {
     keywords?: string[]; // SEO Keywords
     icon: LucideIcon;
     color?: string;
+    /** Optionales Label für frisch veröffentlichte Module. */
+    badge?: ModuleBadge;
 }
 
 export const modules: Record<string, ModuleData> = {
@@ -1122,5 +1135,94 @@ export const modules: Record<string, ModuleData> = {
         keywords: ["Feuerwehr Software offline", "Offline Modus Kiosk", "Ausfallsicherheit Feuerwehr", "Gerätehaus ohne Internet", "Offline-fähige Software Feuerwehr"],
         icon: CloudOff,
         color: "slate"
+    },
+    "drohneneinheit": {
+        title: "Drohneneinheit & Luftaufklärung",
+        shortDesc: "Drohnen, Fernpiloten und Flüge verwalten: Flugbuch, Nachweise und Akkus im Griff – Luftbilder direkt in der Lage.",
+        longDesc: "Wer eine Drohne betreibt, betreibt ein Luftfahrzeug – mit allem, was dazugehört: Betreiberregistrierung, Kompetenznachweise der Fernpiloten, ein nachvollziehbares Flugbuch und Akkus, die nicht ewig halten. Die Drohneneinheit in RESQIO führt diese Nachweise dort, wo auch der Rest der Ausrüstung liegt: Jedes Fluggerät bekommt seine Geräteakte mit Nutzlast und Zubehör, jeder Flug wird mit Zweck, Dauer und Fernpilot dokumentiert, und ablaufende Nachweise melden sich von selbst. Im Einsatz zählt dann, was die Drohne tatsächlich liefert: Übersicht über eine Lage, die vom Boden aus niemand vollständig sieht – Luft- und Wärmebilder werden am Einsatz abgelegt und stehen in der Nachbereitung im Bericht.",
+        benefits: [
+            "Nachweisführung: Betreiberregistrierung, Betriebskategorie und Fernpiloten-Nachweise an einer Stelle",
+            "Nachweis: Lückenloses Flugbuch je Fluggerät und je Fernpilot statt Notizen im Handy",
+            "Einsatzwert: Luft- und Wärmebilder werden am Einsatz dokumentiert und landen im Bericht",
+            "Verfügbarkeit: Akkuzyklen, Prüf- und Wartungstermine im Blick, bevor der Alarm kommt"
+        ],
+        features: [
+            "Geräteakte je Drohne mit Seriennummer, Nutzlast (Kamera, Wärmebild) und Zubehör",
+            "Flugbuch mit Datum, Flugzeit, Zweck (Einsatz, Übung, Schulung) und verantwortlichem Fernpiloten",
+            "Fernpiloten-Verwaltung mit EU-Kompetenznachweis (A1/A3, A2) und Ablaufwarnung",
+            "Betreiberregistrierung, e-ID und Betriebskategorie je Fluggerät hinterlegen",
+            "Akku-Management mit Ladezyklen, Alter und Aussonderungsgrenze",
+            "Prüf- und Wartungstermine laufen über das gewohnte Wartungsmanagement",
+            "Luft- und Wärmebilder am Einsatz ablegen und in der Nachbereitung verwenden",
+            "Anforderung der Drohneneinheit durch Nachbarwehren über die Kreisplattform"
+        ],
+        technicalDetails: [
+            "Fristenwarnungen für Nachweise und Wartungen über das Kommunikationscenter",
+            "Flugbuch als CSV- und PDF-Export für Betreiber- und Verbandsnachweise",
+            "Bilder werden mit Zeitstempel und Einsatzbezug gespeichert"
+        ],
+        keywords: ["Drohne Feuerwehr", "Drohneneinheit Software", "Flugbuch Drohne", "Fernpilot Nachweis", "EU-Drohnenverordnung Feuerwehr", "Luftaufklärung Einsatz", "Wärmebilddrohne Feuerwehr"],
+        icon: PlaneTakeoff,
+        color: "sky",
+        badge: "neu"
+    },
+    "landwirte-modul": {
+        title: "Landwirtschaftsmodul & Ortsressourcen",
+        shortDesc: "Landwirte und ihre Technik im Ausrückebereich erfassen: Wasserfässer, Zugmaschinen und Radlader in Minuten anfordern.",
+        longDesc: "Bei Vegetationsbränden, Hochwasser und Sturmlagen entscheidet oft Technik, die nicht im Gerätehaus steht: das Güllefass des Landwirts als Wassertransport abseits der Hydranten, der Radlader für die Zufahrt, der Frontlader zum Räumen. Das Landwirtschaftsmodul macht aus dieser informellen Nachbarschaftshilfe eine belastbare Ressource: Betriebe, Ansprechpartner und Maschinen sind mit Fassungsvermögen, Kupplungen und Erreichbarkeit hinterlegt, Zusagen und Vereinbarungen sind dokumentiert, und die Anforderung läuft im Einsatz über die gewohnten Benachrichtigungswege. Nach dem Einsatz stehen Stunden und Maschinen für die Aufwandserstattung bereit – statt aus dem Gedächtnis rekonstruiert zu werden.",
+        benefits: [
+            "Schlagkraft: Wasserfässer und Zugmaschinen aus dem Ort sind in Minuten angefordert",
+            "Übersicht: Wer hat welche Technik, wer ist erreichbar, wer ist gerade verfügbar",
+            "Vorbereitung: Absprachen, Einweisungen und Zusagen stehen fest, bevor der Alarm kommt",
+            "Abrechnung: Eingesetzte Maschinen und Stunden sauber erfasst für die Entschädigung"
+        ],
+        features: [
+            "Register der Landwirte, Lohnunternehmer und Betriebe im Ausrückebereich",
+            "Technik-Katalog mit Wasser-/Güllefass (Fassungsvermögen, Kupplung), Zugmaschine, Frontlader, Radlader, Kipper",
+            "Kontaktketten mit Erreichbarkeiten, Vertretung und bevorzugtem Meldeweg",
+            "Verfügbarkeit und Bereitschaft je Betrieb hinterlegen – etwa eingeschränkt zur Erntezeit",
+            "Anforderung per E-Mail, WhatsApp oder Telegram über das Kommunikationscenter",
+            "Hofstellen und Entnahmestellen auf der Lagekarte, gemeinsam mit den Hydranten",
+            "Vereinbarungen, Versicherungsangaben und Einweisungsnachweise dokumentieren",
+            "Einsatzstunden je Betrieb und Maschine für die Aufwandserstattung erfassen"
+        ],
+        technicalDetails: [
+            "Nutzt dieselbe Karte wie Wasserkarte und Lagemonitor – keine zweite Kartenpflege",
+            "Anforderungen und Rückmeldungen werden am Einsatz protokolliert",
+            "Auswertung der geleisteten Stunden je Betrieb für Gemeinde und Kassier"
+        ],
+        keywords: ["Landwirte Feuerwehr", "Landwirtschaftsmodul Feuerwehr", "Güllefass Löschwasser", "Vegetationsbrand Wasserversorgung", "Ortsressourcen Feuerwehr", "Hochwasser Landwirte", "Feuerwehr Landwirt Zusammenarbeit"],
+        icon: Tractor,
+        color: "green",
+        badge: "neu"
+    },
+    "laendermodul-oesterreich": {
+        title: "Ländermodul Österreich",
+        shortDesc: "RESQIO für österreichische Wehren: Dienstgrade, Begriffe und Landesvorgaben statt deutscher Standardwerte.",
+        longDesc: "RESQIO ist entlang deutscher Vorschriften gewachsen: DGUV, FwDV, DIN-Fahrzeugtypen. Für österreichische Feuerwehren passt davon vieles inhaltlich, aber nicht in der Benennung – und bei Fristen, Dienstgraden und Auswertungen entscheidet ohnehin das jeweilige Bundesland. Das Ländermodul kapselt genau diese landesspezifischen Inhalte, sodass die Wehr mit ihren eigenen Begriffen arbeitet: Rüsthaus statt Gerätehaus, Zeugwart statt Gerätewart, Dienstgrade und Funktionen nach österreichischem Schema, Fahrzeugtypen nach ÖNORM. Alle übrigen Module bleiben dabei unverändert nutzbar – das Ländermodul ist eine Schicht darüber, kein zweites System.",
+        benefits: [
+            "Vertraute Sprache: Rüsthaus, Zeugwart, Chargen und Dienstgrade wie im eigenen Land",
+            "Landesvorgaben: Fristen und Ausbildungsnachweise nach dem jeweiligen Bundesland statt deutscher Standardwerte",
+            "Ohne Umstellung: Alle übrigen Module arbeiten unverändert weiter",
+            "Datenschutz: Hosting in der EU, DSGVO-konform"
+        ],
+        features: [
+            "Dienstgrade, Chargen und Funktionen nach österreichischem Schema",
+            "Landesspezifische Bezeichnungen in der gesamten Oberfläche, z. B. Rüsthaus und Zeugwart",
+            "Fahrzeug- und Gerätetypen nach ÖNORM-Systematik, etwa KLF, TLF-A und RLF-A",
+            "Prüf-, Ausbildungs- und Nachweisfristen nach den Vorgaben des jeweiligen Bundeslandes",
+            "Auswertungen und Berichte im Format der Landesverbände",
+            "Alle übrigen Module bleiben unverändert nutzbar, das Ländermodul ergänzt nur die landesspezifischen Inhalte",
+            "Hosting in der EU, DSGVO-konform"
+        ],
+        technicalDetails: [
+            "Das Ländermodul ist eine Schicht über den bestehenden Modulen, kein separates System",
+            "Bezeichnungen, Dienstgrade und Fristen je Wehr konfigurierbar",
+            "Hosting in der EU, DSGVO-konform"
+        ],
+        keywords: ["Feuerwehr Software Österreich", "Feuerwehrverwaltung Österreich", "Ländermodul Österreich", "Feuerwehr Software Bundesland", "Rüsthaus Verwaltung", "Zeugwart Software", "Feuerwehrsoftware Alpenraum"],
+        icon: Flag,
+        color: "red",
+        badge: "neu"
     }
 };

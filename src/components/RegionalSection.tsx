@@ -1,4 +1,5 @@
-import { MapPin, Heart, ShieldCheck, Radio } from "lucide-react";
+import { MapPin, Heart, ShieldCheck, Radio, Flag } from "lucide-react";
+import { Link } from "react-router-dom";
 import regionalVisualWebp from "@/assets/regional-visual.webp";
 
 const RegionalSection = () => {
@@ -91,6 +92,25 @@ const RegionalSection = () => {
                             <p className="text-sm text-muted-foreground font-medium">
                                 RESQIO ist mehr als nur Software. Es ist unser Beitrag zur Sicherheit der Gemeinschaft.
                             </p>
+
+                            {/* Verfügbarkeit über Deutschland hinaus: gehört hierher, wo
+                                Standort und Serverstandort ohnehin Thema sind. */}
+                            <div className="rounded-2xl border border-border bg-muted/30 p-5 space-y-2">
+                                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest">
+                                    <Flag className="w-3 h-3" />
+                                    Neu
+                                </div>
+                                <h3 className="font-bold text-foreground">Auch für Österreich</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
+                                    Das{" "}
+                                    <Link to="/modul/laendermodul-oesterreich" className="font-semibold text-primary hover:underline">
+                                        Ländermodul Österreich
+                                    </Link>{" "}
+                                    bringt die eigenen Begriffe mit: Dienstgrade und Chargen nach österreichischem
+                                    Schema, Rüsthaus statt Gerätehaus, Fahrzeugtypen nach ÖNORM und Fristen nach
+                                    Bundesland. Alle übrigen Module bleiben unverändert nutzbar.
+                                </p>
+                            </div>
                         </div>
                     </div>
 

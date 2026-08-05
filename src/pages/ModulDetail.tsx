@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { modules } from "@/data/module-data";
+import { modules, moduleBadgeLabels } from "@/data/module-data";
 import { Button } from "@/components/ui/button";
 import {
   ArrowLeft,
@@ -208,7 +208,12 @@ const ModulDetail = () => {
           {/* Hero Section */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12 items-center mb-16 md:mb-24">
             <div className="lg:col-span-7 space-y-8">
-              {/* Badge Removed */}
+              {/* Muss zum Label im prerenderten HTML passen (scripts/prerender.mjs) */}
+              {module.badge && (
+                <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border bg-primary/10 text-primary border-primary/20">
+                  {moduleBadgeLabels[module.badge]}
+                </span>
+              )}
 
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">

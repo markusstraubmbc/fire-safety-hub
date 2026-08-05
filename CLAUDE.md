@@ -61,6 +61,7 @@ Change all listed files together, always with the same value:
 | JSON-LD `@id` for `/kreis` SoftwareApplication | `scripts/prerender.mjs` + `src/pages/KreisModul.tsx` (must differ from the site-wide one in `index.html`) |
 | **Homepage hero paragraph** | `scripts/prerender.mjs` (`homeBody`) + `src/components/HeroSection.tsx` |
 | **Pricing block** (plan names, and whether any figures appear at all) | `scripts/prerender.mjs` (`homeBody`) + `src/components/PricingSection.tsx` + `scripts/generate-llms.cjs` |
+| **Modul-Badge** (`neu`) | `src/data/module-data.ts` (Feld `badge`) + `src/components/FeaturesSection.tsx` (Kartenliste) — die Labels selbst stehen einmalig in `src/data/module-badges.ts`, die Skripte (`prerender.mjs`, `generate-llms.cjs`) spiegeln sie in ihren `BADGE_LABELS`-Konstanten |
 
 The H1 is the trap that is easiest to miss: it is not a meta tag, so it does
 not look like SEO surface, but the prerendered and the hydrated H1 were three
@@ -85,6 +86,13 @@ Why it matters: the prerendered HTML is what Googlebot reads first, the client
 component overwrites it after hydration. If they differ, Google sees two
 different titles for the same URL.
 
+**Das `badge`-Feld zeigt nur an, was tatsächlich verfügbar ist.** Es gibt
+ausschließlich `neu`; einen Status für unfertige Module gibt es bewusst nicht.
+Ein Modul steht erst dann in `module-data.ts`, wenn es live ist — sonst steht
+auf der Seite ein Angebot, das es nicht gibt. Kommt später doch ein zweiter
+Status dazu, gehört er in `src/data/module-badges.ts` **und** in die
+`BADGE_LABELS` von `prerender.mjs` und `generate-llms.cjs`.
+
 ### Generated files — regenerate and commit alongside the source
 
 | Edited source | Run | Commit together with it |
@@ -99,7 +107,7 @@ them — check `git status` afterwards and include what changed. Never hand-edit
 ### Before calling a change done
 
 ```bash
-npm run build     # must prerender 49 pages without error
+npm run build     # must prerender 52 pages without error (47 Module + 5)
 npm run lint      # 0 errors (8 pre-existing warnings in src/components/ui/* are fine)
 git status        # generated files staged together with their source?
 ```

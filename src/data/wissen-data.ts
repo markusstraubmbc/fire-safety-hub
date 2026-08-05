@@ -234,4 +234,97 @@ export const wissenArtikel: Record<string, WissenArticle> = {
       { slug: "einsatzerfassung", label: "Einsätze & Übungen" },
     ],
   },
+
+  "vegetationsbrand-landwirte-drohne": {
+    title: "Vegetationsbrand: Wasser vom Landwirt, Lagebild aus der Luft",
+    seoTitle: "Vegetationsbrand: Landwirte und Drohnen einbinden",
+    description:
+      "Wasserfässer der Landwirte und Drohnen zur Luftaufklärung: Wie Feuerwehren diese Ressourcen vorbereiten, im Einsatz anfordern und sauber dokumentieren.",
+    keywords: [
+      "Vegetationsbrand Feuerwehr",
+      "Güllefass Löschwasser",
+      "Landwirte Feuerwehr Zusammenarbeit",
+      "Drohne Feuerwehr Einsatz",
+      "Wärmebild Glutnest",
+      "Wasserversorgung abseits Hydranten",
+    ],
+    datePublished: "2026-08-04",
+    readingMinutes: 7,
+    intro:
+      "Vegetationsbrände treffen Feuerwehren dort, wo ihre gewohnte Infrastruktur endet: kein Hydrant in der Nähe, unübersichtliche Flächen, ein Feuersaum, den vom Boden aus niemand vollständig einsehen kann. Zwei Ressourcen schließen diese Lücke – die Technik der Landwirte im Ort und die Drohne für das Lagebild von oben. Beide funktionieren im Einsatz nur so gut, wie sie vorher vorbereitet wurden.",
+    sections: [
+      {
+        heading: "Warum die eigene Ausrückeordnung hier an Grenzen stößt",
+        paragraphs: [
+          "Ein Flächenbrand bindet vor allem zwei Dinge: Wasser und Übersicht. Der Tankinhalt der ersten Fahrzeuge ist in wenigen Minuten abgearbeitet, die nächste Entnahmestelle liegt oft kilometerweit entfernt, und der Pendelverkehr wird zum eigentlichen Engpass. Gleichzeitig ist die Ausdehnung vom Boden aus schwer zu beurteilen – gerade bei Wind, hoher Vegetation und mehreren Abschnitten.",
+          "Beides lässt sich mit Mitteln lösen, die im Ort meist längst vorhanden sind: Wasserfässer und Zugmaschinen der Landwirte für den Transport, eine Drohne für das Lagebild. Der Unterschied zwischen einer improvisierten und einer geplanten Lösung liegt nicht in der Technik, sondern in der Vorbereitung.",
+        ],
+      },
+      {
+        heading: "Wasser aus dem Ort: Landwirte als geplante Ressource",
+        paragraphs: [
+          "Ein Wasser- oder Güllefass fasst je nach Betrieb rund 8 bis 20 Kubikmeter – ein Vielfaches eines TLF. Damit dieses Potenzial im Einsatz abrufbar ist, braucht es vorher Klarheit über einige Punkte:",
+        ],
+        list: [
+          "Welche Betriebe im Ausrückebereich haben welche Technik: Fassungsvermögen, Zugmaschine, Frontlader, Radlader, Kipper",
+          "Passen die Kupplungen? Adapter auf Storz gehören besprochen und bevorratet, nicht am Einsatztag gesucht",
+          "Eignung und Reinigung der Fässer für Löschwasser – und wer das im Zweifel beurteilt",
+          "Erreichbarkeit und Vertretung je Betrieb, inklusive bevorzugtem Meldeweg (Anruf, WhatsApp, Telegram)",
+          "Zeiten eingeschränkter Verfügbarkeit, etwa während der Ernte",
+          "Einweisung der Fahrer in Anfahrt, Abstellorte und Kommunikation an der Einsatzstelle",
+          "Klärung von Entschädigung und Versicherungsfragen mit der Gemeinde – vor dem ersten Einsatz",
+        ],
+        // Konkrete Regelungen zur Heranziehung und Entschädigung Dritter stehen
+        // in den Feuerwehrgesetzen der Länder und weichen voneinander ab.
+      },
+      {
+        heading: "Was die Drohne im Vegetationsbrand tatsächlich leistet",
+        paragraphs: [
+          "Der größte Nutzen liegt selten im spektakulären Bild, sondern in nüchternen Antworten auf Führungsfragen: Wo verläuft der Feuersaum wirklich? Ist der Abschnitt im Rücken der Einheiten sauber? Wo sitzen nach dem Ablöschen noch Glutnester, die ohne Wärmebild niemand findet? Dazu kommt die Dokumentation: Aufnahmen mit Zeitstempel belegen später Ausdehnung und Verlauf besser als jede nachträgliche Beschreibung.",
+          "Rechtlich ist der Drohnenbetrieb kein Zubehör, sondern Luftfahrt. Grundlage im EU-Raum ist die Durchführungsverordnung (EU) 2019/947: Der Betreiber ist registriert und führt seine e-ID am Fluggerät, die Fernpiloten weisen ihre Kompetenz nach (A1/A3 bzw. A2), und der Betrieb bewegt sich in einer definierten Kategorie. Für Einsätze von Behörden und Organisationen mit Sicherheitsaufgaben gelten Erleichterungen – welche davon für die eigene Wehr greifen und welche Genehmigungen nötig sind, klärt man mit der zuständigen Behörde, nicht im Einsatz.",
+        ],
+        list: [
+          "Lagebild und Ausdehnung des Feuersaums für die Einsatzleitung",
+          "Wärmebild zum Auffinden von Glutnestern in der Nachkontrolle",
+          "Kontrolle abgelegener Abschnitte und schwer zugänglicher Bereiche",
+          "Unterstützung bei der Suche nach vermissten Personen",
+          "Dokumentation von Verlauf und Ausdehnung für die Nachbereitung",
+          "Absolute Priorität für bemannte Luftfahrzeuge: Kommt ein Hubschrauber, landet die Drohne – abgestimmt und ohne Diskussion",
+        ],
+      },
+      {
+        heading: "Nachweise, die im Hintergrund mitlaufen müssen",
+        paragraphs: [
+          "Beide Ressourcen erzeugen Dokumentationspflichten, die schnell unter den Tisch fallen. Auf der Drohnenseite sind das ein nachvollziehbares Flugbuch je Fluggerät und Fernpilot, die Ablauffristen der Kompetenznachweise, die Betreiberregistrierung sowie Akku- und Wartungszyklen – Akkus altern unabhängig davon, ob geflogen wird.",
+          "Auf der landwirtschaftlichen Seite geht es um die eingesetzten Maschinen, die geleisteten Stunden und die Ansprechpartner. Wer das erst Wochen später aus dem Gedächtnis rekonstruiert, produziert entweder Streit um die Entschädigung oder verzichtet stillschweigend darauf – beides beschädigt eine Zusammenarbeit, die im nächsten Sommer wieder gebraucht wird.",
+        ],
+      },
+      {
+        heading: "Checkliste für die Vorbereitung",
+        list: [
+          "Register der Betriebe mit Technik, Fassungsvermögen, Kupplungen und Erreichbarkeit anlegen",
+          "Adapter und Übergangsstücke beschaffen und auf dem Fahrzeug verlasten",
+          "Alarmierungs- und Anforderungsweg festlegen und einmal im Jahr üben",
+          "Entschädigung, Versicherung und Zuständigkeiten mit der Gemeinde schriftlich klären",
+          "Drohnenbetrieb aufsetzen: Betreiberregistrierung, Fernpiloten-Nachweise, Flugbuch, Akkuverwaltung",
+          "Abstimmung mit Leitstelle und Luftrettung: Wer meldet den Drohnenbetrieb wem?",
+          "Gemeinsame Übung mit Landwirten und Drohnenteam – einmal im Trockenen ist mehr wert als jede Absichtserklärung",
+          "Entnahmestellen, Hofstellen und Zufahrten in der digitalen Karte pflegen",
+        ],
+      },
+      {
+        heading: "Wie RESQIO das abbildet",
+        paragraphs: [
+          "Das Landwirtschaftsmodul führt Betriebe, Maschinen, Erreichbarkeiten und Vereinbarungen an einer Stelle und schickt die Anforderung im Einsatz über die gewohnten Benachrichtigungswege; die geleisteten Stunden je Betrieb stehen anschließend für die Aufwandserstattung bereit. Die Drohneneinheit führt Geräteakte, Flugbuch, Fernpiloten-Nachweise mit Ablaufwarnung und Akkuzyklen – und legt Luft- und Wärmebilder direkt am Einsatz ab, sodass sie in der Nachbereitung im Bericht auftauchen statt auf einer SD-Karte zu bleiben.",
+        ],
+      },
+    ],
+    hinweis:
+      "Dieser Beitrag gibt einen redaktionellen Überblick und ersetzt keine Rechtsberatung. Maßgeblich sind die Durchführungsverordnung (EU) 2019/947 in der jeweils gültigen Fassung, das Luftrecht, die Feuerwehrgesetze der Länder sowie die Festlegungen Ihrer Aufsichtsbehörde und Ihres Trägers.",
+    relatedModules: [
+      { slug: "landwirte-modul", label: "Landwirtschaftsmodul" },
+      { slug: "drohneneinheit", label: "Drohneneinheit" },
+      { slug: "wasserfoerderung", label: "Wasserförderung Profi" },
+    ],
+  },
 };

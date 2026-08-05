@@ -36,6 +36,22 @@
     },
     {
       "@type": "Question",
+      "name": "Können wir Drohnen und die Technik der Landwirte im Ort mitverwalten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, dafür gibt es zwei neue Module. Die Drohneneinheit führt Flugbuch, Fernpiloten-Nachweise (A1/A3, A2), Betreiberregistrierung, Akkuzyklen und Wartungstermine – Luft- und Wärmebilder werden am Einsatz dokumentiert. Das Landwirtschaftsmodul erfasst Landwirte und Lohnunternehmer im Ausrückebereich mit ihrer Technik: Wasserfässer mit Fassungsvermögen und Kupplung, Zugmaschinen, Frontlader und Radlader, samt Erreichbarkeit und Verfügbarkeit. Im Einsatz läuft die Anforderung über das Kommunikationscenter, nach dem Einsatz stehen die Stunden für die Aufwandserstattung bereit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gibt es RESQIO auch für Feuerwehren in Österreich?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Das Ländermodul Österreich bringt Dienstgrade und Chargen nach österreichischem Schema, die gewohnten Bezeichnungen wie Rüsthaus und Zeugwart, Fahrzeugtypen nach ÖNORM sowie Prüf- und Ausbildungsfristen nach den Vorgaben des jeweiligen Bundeslandes. Alle übrigen Module bleiben unverändert nutzbar – das Ländermodul ist eine Schicht darüber, kein zweites System. Gehostet wird weiterhin in der EU, DSGVO-konform. Für Details und eine Demo genügt eine Nachricht an kontakt@resqio.de."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Ist die Software rechtssicher?",
       "acceptedAnswer": {
         "@type": "Answer",
