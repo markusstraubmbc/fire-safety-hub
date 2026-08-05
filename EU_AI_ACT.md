@@ -30,55 +30,71 @@ substanziell nachtrainiert wird.
 
 ---
 
-## 2. Der kritische Befund: zwei mögliche Hochrisiko-Kategorien
+## 2. Der kritische Befund
 
-### 2.1 Anhang III Nr. 4 – Beschäftigung (hohe Wahrscheinlichkeit)
+Zwei Anhang-III-Kategorien standen zur Prüfung. Nach Klärung durch den
+Hersteller (4. August 2026) ist das Ergebnis:
 
-Auf der Website wird beworben:
-
-> „**KI-Personalanalyse: Erkennt, wer für Beförderungen bereit ist** und welche
-> Qualifikationen fehlen"
-> — `src/data/module-data.ts`, Modul `ki-integration`
-
-Anhang III Nr. 4 Buchst. b erfasst KI-Systeme, die dazu bestimmt sind,
-Entscheidungen über **Beförderungen** zu treffen oder zu beeinflussen, Aufgaben
-anhand persönlicher Merkmale zuzuweisen oder **Leistung und Verhalten von
-Personen zu bewerten**. Die beworbene Funktion trifft die Formulierung sehr
-direkt.
-
-Zwei Gegenargumente, die geprüft werden müssen:
-
-- **Art. 6 Abs. 3 – Ausnahme.** Wenn das System nur eine eng umgrenzte
-  Verfahrensaufgabe erfüllt oder ein Ergebnis menschlicher Arbeit lediglich
-  verbessert, ohne die menschliche Bewertung zu ersetzen, entfällt die
-  Einstufung. **Aber:** Sobald ein *Profiling natürlicher Personen* stattfindet,
-  greift die Ausnahme nie (Art. 6 Abs. 3 letzter Unterabsatz). „Erkennt, wer für
-  Beförderungen bereit ist" klingt nach genau diesem Profiling. Wer sich auf die
-  Ausnahme beruft, muss die Bewertung **dokumentieren** (Art. 6 Abs. 4) und sich
-  trotzdem in der EU-Datenbank registrieren.
-- **Sind ehrenamtliche Feuerwehrleute „Beschäftigte"?** Bei Berufsfeuerwehren
-  eindeutig ja. Bei Freiwilligen Feuerwehren ist es diskutabel — der AI Act
-  spricht von „arbeitsbezogenen Vertragsverhältnissen", was weit ausgelegt
-  wird. Für ein Produkt, das beide bedient, ist das kein tragfähiger
-  Ausschlussgrund.
-
-### 2.2 Anhang III Nr. 5 Buchst. d – Notfalldienste (klärungsbedürftig)
+### 2.1 Anhang III Nr. 5 Buchst. d – Notfalldienste → **greift voraussichtlich**
 
 Diese Kategorie erfasst KI-Systeme zur Bewertung und Klassifizierung von
 Notrufen, zur **Entsendung oder Priorisierung der Entsendung von Einsatzkräften
 — ausdrücklich einschließlich der Feuerwehr** — sowie **Systeme zur Triage von
 Patienten in der Notfallversorgung**.
 
-Berührungspunkte im Produkt:
+**Herstellerangabe: Die KI macht Vorschläge zur Sichtung bzw. Priorisierung.**
+Damit ist der Tatbestand voraussichtlich erfüllt. Betroffen:
 
-| Modul | Funktion | Frage |
-|---|---|---|
-| `stab-modul` | „MANV-Sichtungsliste mit Triage T1–T4" | Schlägt die KI eine Sichtungskategorie vor, oder erfasst das System nur, was ein Mensch entschieden hat? |
-| `lagemonitor` / `alarmmonitor` | „Intelligentes Lage-Mapping mit automatischer Objektdaten-Zuordnung" | Beeinflusst das die Alarmierung/Priorisierung, oder blendet es nur Daten ein? |
-| `ki-integration` | „Gefahrstoff-Assistenz: Schutzempfehlungen" | Empfehlung an die Einsatzleitung — mit Fachberater-Vorbehalt dokumentiert |
+| Modul | Funktion |
+|---|---|
+| `stab-modul` | MANV-Sichtungsliste mit Triage T1–T4 |
+| `lagemonitor` / `alarmmonitor` | Lage-Mapping, Priorisierung |
 
-**Das ist die entscheidende Frage des ganzen Dokuments.** Reine Erfassung und
-Darstellung ist keine KI-gestützte Triage. Ein Vorschlag der Maschine ist es.
+Dass ein Mensch den Vorschlag bestätigt, ändert die Einstufung **nicht**. Die
+menschliche Aufsicht ist eine *Pflicht* für Hochrisiko-Systeme (Art. 14), kein
+Grund, die Einstufung zu vermeiden.
+
+Auch die Ausnahme nach **Art. 6 Abs. 3** trägt hier voraussichtlich nicht:
+
+- Ein Sichtungsvorschlag ist keine „eng umgrenzte Verfahrensaufgabe" und
+  verbessert nicht bloß ein bereits vorliegendes Ergebnis menschlicher Arbeit —
+  er nimmt die Bewertung vorweg.
+- Die Sichtung von Patienten dürfte als **Profiling natürlicher Personen**
+  einzuordnen sein. Dann ist die Ausnahme nach Art. 6 Abs. 3 letzter
+  Unterabsatz **von vornherein ausgeschlossen**.
+
+→ **Konsequenz: RESQIO ist voraussichtlich Anbieter eines
+Hochrisiko-KI-Systems.** Die Artefakte aus Abschnitt 5 werden fällig. Das ist
+die anwaltlich vorrangig zu prüfende Frage.
+
+Nicht betroffen, aber im Blick behalten: `ki-integration` –
+„Gefahrstoff-Assistenz: Schutzempfehlungen (immer mit Fachberater-Vorbehalt)".
+Das ist keine Triage und keine Entsendung, liegt aber thematisch nah.
+
+### 2.2 Anhang III Nr. 4 – Beschäftigung → **greift voraussichtlich nicht**
+
+**Herstellerangabe: Die „KI-Personalanalyse" ist ein deterministischer
+Regelabgleich** — hinterlegte Beförderungsvoraussetzungen (Lehrgang X,
+Dienstjahre Y) werden gegen den Qualifikationsstand geprüft.
+
+Ein regelbasierter Soll-Ist-Abgleich ohne Ableitungsfähigkeit erfüllt
+voraussichtlich schon die **Definition eines KI-Systems nach Art. 3 Nr. 1
+nicht**. Erwägungsgrund 12 grenzt ausdrücklich gegen Systeme ab, die
+„ausschließlich auf von natürlichen Personen definierten Regeln beruhen". Wenn
+das zutrifft, stellt sich die Frage nach Anhang III Nr. 4 gar nicht erst.
+
+**Handlungsbedarf trotzdem — bei der Vermarktung.** Die Funktion wird als
+„**KI**-Personalanalyse: Erkennt, wer für Beförderungen bereit ist" beworben.
+Das erzeugt zwei Probleme:
+
+1. Es behauptet eine KI-Eigenschaft, die technisch nicht vorliegt — irreführend
+   im Sinne des UWG.
+2. Es zieht das Produkt **freiwillig** in die Nähe von Anhang III Nr. 4. Eine
+   Aufsichtsbehörde liest zuerst die Produktbeschreibung, nicht den Quelltext.
+   Die Beweislast, dass es doch kein KI-System ist, läge dann beim Hersteller.
+
+→ Empfehlung: umbenennen in das, was es tut. Damit entfällt die Exposition in
+einer Hochrisiko-Kategorie, die ohnehin nicht einschlägig ist.
 
 ---
 
@@ -124,10 +140,10 @@ Zusage auf einer öffentlichen Verkaufsseite.
 
 ---
 
-## 5. Wenn Hochrisiko: was dann fällig wird
+## 5. Hochrisiko: was fällig wird
 
-Falls eine der beiden Kategorien aus Abschnitt 2 greift, sind das die
-Artefakte, die vorliegen müssen — der Umfang ist erheblich:
+Nach dem Befund aus Abschnitt 2.1 ist damit zu rechnen. Der Umfang ist
+erheblich — das ist kein Dokumentationsprojekt von zwei Wochen:
 
 | Artikel | Artefakt |
 |---|---|
@@ -190,18 +206,29 @@ Zuständige Marktüberwachungsbehörde in Deutschland: Bundesnetzagentur.
 
 ## 8. Nächste Schritte
 
-**Sofort, ohne weitere Klärung:**
+**Priorität 1 – anwaltlich klären, alles Weitere hängt daran:**
 
-1. Art. 4 KI-Kompetenz: Schulung aufsetzen und dokumentieren.
-2. Prüfen, dass nirgends Emotionserkennung stattfindet (Art. 5).
-3. Die AI-Act-Werbeaussage entschärfen (Abschnitt 6).
-4. Prüfen, ob die zugesagte KI-Kennzeichnung **maschinenlesbar** ist (Art. 50 Abs. 2).
+1. Einstufung der Sichtungs- und Priorisierungsvorschläge nach Anhang III
+   Nr. 5 Buchst. d bestätigen lassen (Abschnitt 2.1). Falls bestätigt: das
+   Programm aus Abschnitt 5 aufsetzen und terminieren.
+2. Aktuellen Stand des „Digital Omnibus" prüfen (Abschnitt 7) — er entscheidet
+   über die Fristen.
 
-**Nach Klärung der zwei Fragen aus Abschnitt 2:**
+**Priorität 2 – unabhängig von der Einstufung, sofort machbar:**
 
-5. Einordnung anwaltlich bestätigen lassen — insbesondere Anhang III Nr. 4.
-6. Falls Hochrisiko: Artefakte aus Abschnitt 5 aufbauen.
-7. Falls Art. 6 Abs. 3 greifen soll: Bewertung dokumentieren, EU-Datenbank-
-   Registrierung trotzdem einplanen.
-8. Betriebsanleitung und Zuarbeit für die Grundrechte-Folgenabschätzung der
-   Kommunen (Art. 27) vorbereiten — das wird zum Vertriebsargument.
+3. Art. 4 KI-Kompetenz: Schulung aufsetzen und dokumentieren. Gilt seit
+   Februar 2025, ist die am einfachsten prüfbare Pflicht überhaupt.
+4. Prüfen, dass nirgends Emotionserkennung stattfindet (Art. 5) — höchster
+   Bußgeldrahmen der Verordnung.
+5. Prüfen, ob die zugesagte KI-Kennzeichnung **maschinenlesbar** ist
+   (Art. 50 Abs. 2). Sichtbar allein genügt nicht.
+6. „KI-Personalanalyse" umbenennen (Abschnitt 2.2) — nimmt unnötige
+   Exposition heraus. *Erledigt: Bezeichnung angepasst.*
+7. AI-Act-Werbeaussage entschärfen (Abschnitt 6). *Erledigt.*
+
+**Priorität 3 – vertriebsseitig, sobald die Einstufung steht:**
+
+8. Betriebsanleitung nach Art. 13 für die Feuerwehren.
+9. Zuarbeit für die Grundrechte-Folgenabschätzung nach Art. 27, die jede
+   kommunale Betreiberin eines Hochrisiko-Systems durchführen muss. Wer das
+   Material fertig mitliefert, hat im Vergabeverfahren einen Vorteil.
