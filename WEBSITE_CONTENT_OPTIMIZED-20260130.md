@@ -212,9 +212,8 @@ Zentrale Steuerung aller ausgehenden Benachrichtigungen. resqio sorgt dafür, da
 
 | Paket | Fokus | Investition (jährlich) |
 |-------|-------|------------------|
-| **Community** | < 10.000 Einwohner | **399 €** |
-| **Professional** | < 25.000 Einwohner | **599 €** |
-| **Enterprise** | Städte & Kreise | **Auf Anfrage** |
+| **Standard** | Komplettlösung für Ihre Wehr | **Auf Anfrage** |
+| **Individuell** | Städte, Kreise & Verbände | **Auf Anfrage** |
 
 *Alle Preise verstehen sich inklusive Updates, technischem Support und optionalem Hosting.*
 
