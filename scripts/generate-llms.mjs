@@ -2,7 +2,7 @@
 /**
  * Generates public/llms.txt from src/data/module-data.ts and src/data/wissen-data.ts.
  * Run automatically as a prebuild step (npm run build / npm run build:dev).
- * Run manually: node scripts/generate-llms.cjs
+ * Run manually: node scripts/generate-llms.mjs
  *
  * Warum generiert und nicht handgepflegt:
  * llms.txt war handgeschrieben und driftete zwangslaeufig von den echten Daten
@@ -13,91 +13,48 @@
  *
  * Der redaktionelle Teil (Ueber RESQIO, Preise, Technik, Kontakt) steht als
  * Prosa unten in diesem Script. Die Modulliste und der Wissensbereich kommen
- * aus den Datenquellen und koennen damit nicht mehr veralten.
+ * ueber scripts/load-data.mjs aus den echten Daten und koennen damit weder
+ * veralten noch an einer Umformatierung des Quelltextes zerbrechen.
  *
  * Preise: Die Website weist bewusst keine Preise aus (PricingSection.tsx setzt
  * price: ""). Deshalb steht hier ebenfalls nur "auf Anfrage" – llms.txt darf
  * nicht mehr verraten als die Seite selbst.
  */
 
-const fs = require("fs");
-const path = require("path");
+import { writeFileSync } from "fs";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
+import { loadModules, loadWissen } from "./load-data.mjs";
 
-const ROOT = path.join(__dirname, "..");
-const MODULE_DATA = path.join(ROOT, "src/data/module-data.ts");
-const WISSEN_DATA = path.join(ROOT, "src/data/wissen-data.ts");
-const OUT = path.join(ROOT, "public/llms.txt");
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, "..");
+const OUT = join(ROOT, "public/llms.txt");
 
 const BASE_URL = "https://resqio.de";
 
-// kreis-platform hat eine eigene Seite unter /kreis (siehe generate-sitemap.cjs)
+// kreis-platform hat eine eigene Seite unter /kreis (siehe generate-sitemap.mjs)
 const SLUG_OVERRIDES = { "kreis-platform": "/kreis" };
 
 // Wie viele Features pro Modul uebernommen werden. Genug fuer ein belastbares
 // Bild, wenig genug damit die Datei fuer ein Kontextfenster handlich bleibt.
 const MAX_FEATURES = 6;
 
-const BADGE_LABELS = { neu: "Neu" };
+const modules = (await loadModules()).map((m) => ({
+  ...m,
+  url: `${BASE_URL}${SLUG_OVERRIDES[m.slug] || `/modul/${m.slug}`}`,
+}));
 
-/** Holt alle "..." Strings aus einem Array-Literal `key: [ ... ]`. */
-function parseStringArray(block, key) {
-  const match = block.match(new RegExp(`${key}:\\s*\\[([\\s\\S]*?)\\n\\s*\\]`));
-  if (!match) return [];
-  return [...match[1].matchAll(/"((?:[^"\\]|\\.)*)"/g)].map((m) =>
-    m[1].replace(/\\"/g, '"').replace(/\\\\/g, "\\")
-  );
-}
-
-function parseString(block, key) {
-  const match = block.match(new RegExp(`${key}:\\s*"((?:[^"\\\\]|\\\\.)*)"`));
-  return match ? match[1].replace(/\\"/g, '"') : "";
-}
-
-/**
- * Zerlegt eine Record<slug, {...}>-Quelle in [slug, block]-Paare.
- * indent = Einrueckung der Slug-Keys (module-data: 4, wissen-data: 2).
- */
-function parseRecord(source, indent) {
-  const parts = source.split(
-    new RegExp(`\\n\\s{${indent}}"([a-z][a-z0-9-]*)":\\s*\\{`)
-  );
-  const entries = [];
-  for (let i = 1; i < parts.length; i += 2) {
-    entries.push({ slug: parts[i], block: parts[i + 1] || "" });
-  }
-  return entries;
-}
-
-// --- Module ---
-const modules = parseRecord(fs.readFileSync(MODULE_DATA, "utf8"), 4).map(
-  ({ slug, block }) => ({
-    slug,
-    url: `${BASE_URL}${SLUG_OVERRIDES[slug] || `/modul/${slug}`}`,
-    title: parseString(block, "title") || slug,
-    shortDesc: parseString(block, "shortDesc"),
-    longDesc: parseString(block, "longDesc"),
-    features: parseStringArray(block, "features"),
-    // Spiegelt moduleBadgeLabels aus src/data/module-badges.ts.
-    badge: BADGE_LABELS[parseString(block, "badge")] || "",
-  })
-);
-
-// --- Wissen-Artikel ---
-const wissen = parseRecord(fs.readFileSync(WISSEN_DATA, "utf8"), 2).map(
-  ({ slug, block }) => ({
-    slug,
-    url: `${BASE_URL}/wissen/${slug}`,
-    title: parseString(block, "title") || slug,
-    description: parseString(block, "description"),
-  })
-);
+const wissen = (await loadWissen()).map((a) => ({
+  ...a,
+  url: `${BASE_URL}/wissen/${a.slug}`,
+}));
 
 if (modules.length === 0) {
-  console.error("generate-llms: keine Module gefunden — Regex gegen module-data.ts pruefen");
+  console.error("generate-llms: keine Module gefunden — src/data/module-data.ts pruefen");
   process.exit(1);
 }
 if (wissen.length === 0) {
-  console.error("generate-llms: keine Artikel gefunden — Regex gegen wissen-data.ts pruefen");
+  console.error("generate-llms: keine Artikel gefunden — src/data/wissen-data.ts pruefen");
   process.exit(1);
 }
 
@@ -109,10 +66,10 @@ const moduleSections = modules
       "",
       `- **Beschreibung**: ${m.longDesc || m.shortDesc}`,
     ];
-    if (m.badge) {
-      lines.push(`- **Status**: ${m.badge}`);
+    if (m.badgeLabel) {
+      lines.push(`- **Status**: ${m.badgeLabel}`);
     }
-    if (m.features.length > 0) {
+    if (m.features?.length > 0) {
       lines.push(`- **Funktionen**: ${m.features.slice(0, MAX_FEATURES).join(" | ")}`);
     }
     lines.push(`- **URL**: ${m.url}`);
@@ -128,7 +85,7 @@ const content = `# RESQIO – Moderne Feuerwehr-Verwaltungssoftware
 
 > RESQIO ist eine umfassende, webbasierte Softwarelösung für Feuerwehren und Hilfsorganisationen im deutschsprachigen Raum. Sie digitalisiert und optimiert Verwaltungs-, Einsatz- und Übungsprozesse. Die Plattform zeichnet sich durch eine moderne Benutzeroberfläche, Modularität und KI-Integration aus.
 
-Diese Datei wird aus den Projektdaten generiert (scripts/generate-llms.cjs) und nicht von Hand gepflegt.
+Diese Datei wird aus den Projektdaten generiert (scripts/generate-llms.mjs) und nicht von Hand gepflegt.
 
 ## Über RESQIO
 
@@ -189,7 +146,7 @@ ${wissenSections}
 - **Demo**: Auf Anfrage verfügbar — kontaktieren Sie uns über ${BASE_URL}/#kontakt
 `;
 
-fs.writeFileSync(OUT, content);
+writeFileSync(OUT, content);
 console.log(
   `generate-llms: wrote public/llms.txt (${modules.length} Module, ${wissen.length} Wissen-Artikel)`
 );

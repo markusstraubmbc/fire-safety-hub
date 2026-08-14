@@ -60,8 +60,8 @@ Change all listed files together, always with the same value:
 | **H1 text** | `scripts/prerender.mjs` + `src/components/HeroSection.tsx` (`/`), `src/pages/KreisModul.tsx` (`/kreis`), `src/pages/Wissen.tsx` (`/wissen`) |
 | JSON-LD `@id` for `/kreis` SoftwareApplication | `scripts/prerender.mjs` + `src/pages/KreisModul.tsx` (must differ from the site-wide one in `index.html`) |
 | **Homepage hero paragraph** | `scripts/prerender.mjs` (`homeBody`) + `src/components/HeroSection.tsx` |
-| **Pricing block** (plan names, and whether any figures appear at all) | `scripts/prerender.mjs` (`homeBody`) + `src/components/PricingSection.tsx` + `scripts/generate-llms.cjs` |
-| **Modul-Badge** (`neu`) | `src/data/module-data.ts` (Feld `badge`) + `src/components/FeaturesSection.tsx` (Kartenliste) — die Labels selbst stehen einmalig in `src/data/module-badges.ts`, die Skripte (`prerender.mjs`, `generate-llms.cjs`) spiegeln sie in ihren `BADGE_LABELS`-Konstanten |
+| **Pricing block** (plan names, and whether any figures appear at all) | `scripts/prerender.mjs` (`homeBody`) + `src/components/PricingSection.tsx` + `scripts/generate-llms.mjs` |
+| **Modul-Badge** (`neu`) | `src/data/module-data.ts` (Feld `badge`) + `src/components/FeaturesSection.tsx` (Kartenliste). Die Labels stehen einmalig in `src/data/module-badges.ts` — die Build-Skripte lesen sie von dort, es gibt nichts mehr zu spiegeln |
 
 The H1 is the trap that is easiest to miss: it is not a meta tag, so it does
 not look like SEO surface, but the prerendered and the hydrated H1 were three
@@ -90,8 +90,23 @@ different titles for the same URL.
 ausschließlich `neu`; einen Status für unfertige Module gibt es bewusst nicht.
 Ein Modul steht erst dann in `module-data.ts`, wenn es live ist — sonst steht
 auf der Seite ein Angebot, das es nicht gibt. Kommt später doch ein zweiter
-Status dazu, gehört er in `src/data/module-badges.ts` **und** in die
-`BADGE_LABELS` von `prerender.mjs` und `generate-llms.cjs`.
+Status dazu, genügt ein Eintrag in `src/data/module-badges.ts`; die
+Build-Skripte lesen die Labels von dort.
+
+### Die Build-Skripte lesen echte Daten, kein Textmuster
+
+`scripts/load-data.mjs` übersetzt `src/data/*.ts` mit esbuild und importiert das
+Ergebnis. Sitemap-, llms.txt- und Prerender-Skript arbeiten damit auf denselben
+Objekten wie die Website.
+
+Vorher parsten alle drei den TypeScript-Quelltext mit eigenen regulären
+Ausdrücken, gebunden an die Einrückung (`\n\s{4}"slug": {`). Ein Prettier-Lauf
+über `module-data.ts` hätte den Build **still** gebrochen: kein Fehler, nur
+plötzlich null Module in Sitemap, llms.txt und allen prerenderten Seiten. Diese
+Kopplung gibt es nicht mehr — Einrückung und Formatierung sind jetzt egal.
+
+Neue Felder in `module-data.ts` oder `wissen-data.ts` stehen den Skripten
+automatisch zur Verfügung; sie müssen dort nicht mehr nachgezogen werden.
 
 ### Generated files — regenerate and commit alongside the source
 
@@ -246,7 +261,7 @@ All user-facing content is in German (Deutsch). Maintain German language for:
 > Note: `npm run build` and `npm run build:dev` automatically call the sitemap generator via the `prebuild` hook, so CI/CD deployments always produce a fresh sitemap. Manual dev work requires running `npm run generate-sitemap` explicitly.
 
 ### Sitemap Auto-Generation
-- **Script**: `scripts/generate-sitemap.cjs` (and `scripts/prerender.mjs` regenerates `dist/sitemap.xml` at build time)
+- **Script**: `scripts/generate-sitemap.mjs` (and `scripts/prerender.mjs` regenerates `dist/sitemap.xml` at build time)
 - **Source of truth**: slug keys in the `modules` object in `src/data/module-data.ts` AND article keys in `src/data/wissen-data.ts`
 - **Output**: `public/sitemap.xml` (homepage + /kreis + module pages + /wissen + article pages)
 - **Excluded slugs**: `kreis-platform` (has a dedicated `/kreis` page, handled by a Vercel 301 redirect)
@@ -257,7 +272,7 @@ All user-facing content is in German (Deutsch). Maintain German language for:
 
 `public/llms.txt` is the file ChatGPT, Claude, Perplexity & Co. read to understand what RESQIO is. It used to be hand-written and drifted badly from reality — 8 modules missing, a `/modul/wasserversorgung` URL for a page that never existed (the slug is `wasserkarte`), and no mention of `/wissen` at all. It is now generated.
 
-- **Script**: `scripts/generate-llms.cjs`, wired into `prebuild` next to the sitemap generator
+- **Script**: `scripts/generate-llms.mjs`, wired into `prebuild` next to the sitemap generator
 - **Source of truth**: `src/data/module-data.ts` (title, shortDesc, longDesc, first 6 `features`) and `src/data/wissen-data.ts`
 - **Output**: `public/llms.txt` — all module pages + `/kreis` + `/wissen` articles + `/impressum` + `/datenschutz`
 - **`kreis-platform`** is mapped to `/kreis` (same special case as the sitemap), so no dead URL is emitted

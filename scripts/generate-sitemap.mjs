@@ -2,38 +2,42 @@
 /**
  * Generates public/sitemap.xml from the module slugs in src/data/module-data.ts.
  * Run automatically as a prebuild step (npm run build / npm run build:dev).
- * Run manually: node scripts/generate-sitemap.js
+ * Run manually: node scripts/generate-sitemap.mjs
  *
  * Rules:
  *  - "kreis-platform" slug is excluded (dedicated /kreis page handles it)
  *  - All other slugs become /modul/<slug> entries
  *  - lastmod is set to today's date (YYYY-MM-DD)
+ *
+ * Die Slugs kommen über scripts/load-data.mjs aus den echten Daten. Vorher lief
+ * hier ein unverankerter regulärer Ausdruck über den TypeScript-Quelltext, der
+ * jedes `"foo": {` traf — auch verschachtelte Objekte, die gar keine Module
+ * sind. Siehe Kommentar in load-data.mjs.
  */
 
-const fs = require("fs");
-const path = require("path");
+import { writeFileSync } from "fs";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
+import { loadModules, loadWissen } from "./load-data.mjs";
 
-const ROOT = path.join(__dirname, "..");
-const MODULE_DATA = path.join(ROOT, "src/data/module-data.ts");
-const WISSEN_DATA = path.join(ROOT, "src/data/wissen-data.ts");
-const SITEMAP_OUT = path.join(ROOT, "public/sitemap.xml");
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, "..");
+const SITEMAP_OUT = join(ROOT, "public/sitemap.xml");
 
 const EXCLUDED_SLUGS = new Set(["kreis-platform"]);
 
-// Parse slug keys from module-data.ts via regex (avoids needing a TS compiler)
-const source = fs.readFileSync(MODULE_DATA, "utf8");
-const slugMatches = [...source.matchAll(/"([a-z][a-z0-9-]*)"\s*:\s*\{/g)];
-const allSlugs = slugMatches.map((m) => m[1]);
-const moduleSlugs = allSlugs.filter((s) => !EXCLUDED_SLUGS.has(s));
+const modules = await loadModules();
+const wissen = await loadWissen();
 
-// Parse article slugs from wissen-data.ts the same way
-const wissenSource = fs.readFileSync(WISSEN_DATA, "utf8");
-const wissenSlugs = [...wissenSource.matchAll(/^\s{2}"([a-z][a-z0-9-]*)"\s*:\s*\{/gm)].map(
-  (m) => m[1]
-);
+const moduleSlugs = modules.map((m) => m.slug).filter((s) => !EXCLUDED_SLUGS.has(s));
+const wissenSlugs = wissen.map((a) => a.slug);
 
 if (moduleSlugs.length === 0) {
-  console.error("generate-sitemap: no slugs found — check module-data.ts regex");
+  console.error("generate-sitemap: keine Module gefunden — src/data/module-data.ts prüfen");
+  process.exit(1);
+}
+if (wissenSlugs.length === 0) {
+  console.error("generate-sitemap: keine Artikel gefunden — src/data/wissen-data.ts prüfen");
   process.exit(1);
 }
 
@@ -74,7 +78,7 @@ ${urlEntries}
 </urlset>
 `;
 
-fs.writeFileSync(SITEMAP_OUT, xml);
+writeFileSync(SITEMAP_OUT, xml);
 console.log(
   `generate-sitemap: wrote ${allPages.length} URLs to public/sitemap.xml (lastmod: ${today})`
 );

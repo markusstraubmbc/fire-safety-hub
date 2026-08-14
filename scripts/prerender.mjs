@@ -11,6 +11,7 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { loadModules, loadWissen } from "./load-data.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const distDir = join(__dirname, "..", "dist");
@@ -48,123 +49,33 @@ template = template.replace(/"dateModified":\s*"\d{4}-\d{2}-\d{2}"/g, `"dateModi
   }
 }
 
-// --- Parse module data from TypeScript source ---
-const moduleDataSrc = readFileSync(
-  join(__dirname, "..", "src", "data", "module-data.ts"),
-  "utf-8"
-);
-
-/** Holt alle "..." Strings aus einem Array-Literal `key: [ ... ]`. */
-function parseStringArray(block, key) {
-  const match = block.match(new RegExp(`${key}:\\s*\\[([\\s\\S]*?)\\n\\s*\\]`));
-  if (!match) return [];
-  return [...match[1].matchAll(/"((?:[^"\\]|\\.)*)"/g)].map((m) =>
-    m[1].replace(/\\"/g, '"').replace(/\\\\/g, "\\")
-  );
-}
-
-// Spiegelt moduleBadgeLabels aus src/data/module-badges.ts.
-const BADGE_LABELS = { neu: "Neu" };
-
-function parseModules(src) {
-  const modules = [];
-  // Split by module key pattern: "slug": {
-  const parts = src.split(/\n\s{4}"([a-z][a-z0-9-]*)":\s*\{/);
-  // parts[0] = preamble, then alternating [slug, content, slug, content, ...]
-  for (let i = 1; i < parts.length; i += 2) {
-    const slug = parts[i];
-    const block = parts[i + 1] || "";
-
-    const titleMatch = block.match(/title:\s*"([^"]+)"/);
-    const badgeMatch = block.match(/badge:\s*"([^"]+)"/);
-    const shortDescMatch = block.match(/shortDesc:\s*"([^"]+)"/);
-    const longDescMatch = block.match(/longDesc:\s*"((?:[^"\\]|\\.)*)"/);
-    const keywordsMatch = block.match(/keywords:\s*\[([\s\S]*?)\]/);
-
-    const title = titleMatch ? titleMatch[1] : slug;
-    const shortDesc = shortDescMatch ? shortDescMatch[1] : "";
-    const longDesc = longDescMatch ? longDescMatch[1].replace(/\\"/g, '"') : "";
-    let keywords = "";
-    if (keywordsMatch) {
-      keywords = keywordsMatch[1]
-        .match(/"([^"]+)"/g)
-        ?.map((k) => k.replace(/"/g, ""))
-        .join(", ") || "";
-    }
-
-    modules.push({
-      slug,
-      title,
-      // Muss zu moduleBadgeLabels in src/data/module-badges.ts passen – das
-      // Label steht sowohl im ausgelieferten HTML als auch nach der Hydration
-      // auf der Modulseite.
-      badge: badgeMatch ? BADGE_LABELS[badgeMatch[1]] || "" : "",
-      shortDesc,
-      longDesc,
-      keywords,
-      benefits: parseStringArray(block, "benefits"),
-      features: parseStringArray(block, "features"),
-    });
-  }
-  return modules;
-}
-
-const modules = parseModules(moduleDataSrc);
+// --- Moduldaten und Wissen-Artikel laden ---
+// Frueher wurden beide Dateien hier mit regulaeren Ausdruecken geparst, die an
+// die Einrueckung im Quelltext gebunden waren (`\n\s{4}"slug": {`). Eine
+// Umformatierung von module-data.ts haette den Build still gebrochen: kein
+// Fehler, nur ploetzlich null Module in Sitemap und prerenderten Seiten.
+// Ausserdem musste jedes neue Feld hier von Hand nachgezogen werden – zuletzt
+// die Badge-Tabelle, die dafuer aus module-badges.ts kopiert wurde.
+// Jetzt kommen es dieselben Daten, die auch die Website rendert.
+const modules = (await loadModules()).map((m) => ({
+  ...m,
+  // Der Prerender braucht die Keywords als Meta-Tag-String.
+  keywords: Array.isArray(m.keywords) ? m.keywords.join(", ") : m.keywords || "",
+  badge: m.badgeLabel,
+}));
 console.log(`Found ${modules.length} modules to prerender.`);
 
-// --- Parse Wissen articles from TypeScript source ---
-const wissenDataSrc = readFileSync(
-  join(__dirname, "..", "src", "data", "wissen-data.ts"),
-  "utf-8"
-);
-
-function parseWissen(src) {
-  const articles = [];
-  const parts = src.split(/\n\s{2}"([a-z][a-z0-9-]*)":\s*\{/);
-  for (let i = 1; i < parts.length; i += 2) {
-    const slug = parts[i];
-    const block = parts[i + 1] || "";
-    const titleMatch = block.match(/\btitle:\s*\n?\s*"([^"]+)"/);
-    const seoTitleMatch = block.match(/seoTitle:\s*\n?\s*"([^"]+)"/);
-    const descMatch = block.match(/description:\s*\n?\s*"([^"]+)"/);
-    const introMatch = block.match(/intro:\s*\n?\s*"([^"]+)"/);
-    const keywordsMatch = block.match(/keywords:\s*\[([\s\S]*?)\]/);
-    const keywords = keywordsMatch
-      ? (keywordsMatch[1].match(/"([^"]+)"/g) || []).map((k) => k.replace(/"/g, "")).join(", ")
-      : "";
-    // sections liegen als verschachteltes Array vor. Ohne sie bestand eine
-    // prerenderte Artikelseite aus H1 plus Intro, also rund 60 Woertern –
-    // der eigentliche Fachtext, wegen dem der Artikel ueberhaupt existiert,
-    // stand nur im JavaScript-Bundle.
-    const sectionsBlock = block.match(/sections:\s*\[([\s\S]*?)\n\s{4}\],/);
-    const sections = sectionsBlock
-      ? sectionsBlock[1]
-          .split(/\n\s{6}\{/)
-          .slice(1)
-          .map((chunk) => ({
-            heading: (chunk.match(/heading:\s*\n?\s*"((?:[^"\\]|\\.)*)"/) || [])[1] || "",
-            paragraphs: parseStringArray(chunk, "paragraphs"),
-            list: parseStringArray(chunk, "list"),
-          }))
-          .filter((s) => s.heading)
-      : [];
-
-    articles.push({
-      slug,
-      title: titleMatch ? titleMatch[1] : slug,
-      seoTitle: seoTitleMatch ? seoTitleMatch[1] : "",
-      description: descMatch ? descMatch[1] : "",
-      intro: introMatch ? introMatch[1] : "",
-      hinweis: (block.match(/hinweis:\s*\n?\s*"((?:[^"\\]|\\.)*)"/) || [])[1] || "",
-      sections,
-      keywords,
-    });
-  }
-  return articles;
-}
-
-const wissen = parseWissen(wissenDataSrc);
+const wissen = (await loadWissen()).map((a) => ({
+  ...a,
+  keywords: Array.isArray(a.keywords) ? a.keywords.join(", ") : a.keywords || "",
+  sections: a.sections || [],
+}));
 console.log(`Found ${wissen.length} Wissen articles to prerender.`);
+
+if (modules.length === 0 || wissen.length === 0) {
+  console.error("prerender: keine Daten geladen — src/data/*.ts pruefen");
+  process.exit(1);
+}
 
 // --- HTML escaping for attribute values ---
 function escAttr(str) {
@@ -585,10 +496,13 @@ for (const artikel of wissen) {
     },
   };
 
+  // paragraphs und list sind in wissen-data.ts optional. Der frühere
+  // Regex-Parser hat daraus immer ein leeres Array gemacht und die Lücke damit
+  // verdeckt – bei echten Daten muss sie hier abgefangen werden.
   const sectionHtml = artikel.sections
     .map((s) => {
-      const paras = s.paragraphs.map((p) => `<p>${escAttr(p)}</p>`).join("");
-      const items = s.list.length
+      const paras = (s.paragraphs || []).map((p) => `<p>${escAttr(p)}</p>`).join("");
+      const items = s.list?.length
         ? `<ul>${s.list.map((l) => `<li>${escAttr(l)}</li>`).join("")}</ul>`
         : "";
       return `<h2>${escAttr(s.heading)}</h2>${paras}${items}`;
