@@ -100,6 +100,11 @@ test.describe('Homepage', () => {
   test('accessibility: skip link is the first tab stop', async ({ page }) => {
     await page.goto('/');
 
+    // Erst nach der Hydration warten: bis dahin steht im DOM das prerenderte
+    // HTML, dessen erster Link der Logo-Link ist. Der Skip-Link existiert nur
+    // in der React-Ausgabe, sein Auftauchen ist also das Hydrations-Signal.
+    await page.locator('a[href="#hauptinhalt"]').waitFor({ state: 'attached' });
+
     // Der Skip-Link wird erst bei Tastaturfokus sichtbar und muss der erste
     // Tabstopp sein – sonst führt der Weg zum Inhalt durch die ganze Navigation.
     await page.keyboard.press('Tab');

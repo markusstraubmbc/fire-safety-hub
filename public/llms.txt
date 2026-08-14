@@ -2,7 +2,7 @@
 
 > RESQIO ist eine umfassende, webbasierte Softwarelösung für Feuerwehren und Hilfsorganisationen im deutschsprachigen Raum. Sie digitalisiert und optimiert Verwaltungs-, Einsatz- und Übungsprozesse. Die Plattform zeichnet sich durch eine moderne Benutzeroberfläche, Modularität und KI-Integration aus.
 
-Diese Datei wird aus den Projektdaten generiert (scripts/generate-llms.cjs) und nicht von Hand gepflegt.
+Diese Datei wird aus den Projektdaten generiert (scripts/generate-llms.mjs) und nicht von Hand gepflegt.
 
 ## Über RESQIO
 

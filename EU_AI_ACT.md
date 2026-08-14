@@ -1,6 +1,6 @@
 # EU AI Act – Einordnung für RESQIO
 
-**Stand: 4. August 2026** · Verordnung (EU) 2024/1689
+**Stand: 14. August 2026** · Verordnung (EU) 2024/1689
 
 > Dieses Dokument ist eine technische Bestandsaufnahme, **keine Rechtsberatung**.
 > Die Einstufung als Hochrisiko-KI hat erhebliche Folgen (Konformitäts­bewertung,
@@ -33,7 +33,7 @@ substanziell nachtrainiert wird.
 ## 2. Der kritische Befund
 
 Zwei Anhang-III-Kategorien standen zur Prüfung. Nach Klärung durch den
-Hersteller (4. August 2026) ist das Ergebnis:
+Hersteller (14. August 2026) ist das Ergebnis:
 
 ### 2.1 Anhang III Nr. 5 Buchst. d – Notfalldienste → **greift voraussichtlich**
 
@@ -112,6 +112,28 @@ einer Hochrisiko-Kategorie, die ohnehin nicht einschlägig ist.
 Verstöße hier sind mit bis zu **35 Mio. € oder 7 % des Jahresumsatzes** bewehrt —
 der höchste Bußgeldrahmen der Verordnung.
 
+**Prüfung am 14. August 2026:** Eine Durchsicht von `module-data.ts`,
+`wissen-data.ts` und allen Website-Komponenten nach Emotion, Stimmung, Stress,
+Sentiment, Verhaltensanalyse, Gesichtserkennung, Biometrie und Social Scoring
+ergab **keinen Treffer**. Die Anmeldung am Kiosk läuft über RFID, PIN und
+QR-Code — das ist Besitz und Wissen, keine Biometrie. Nach heutigem Stand ist
+Art. 5 unproblematisch. Bei jeder neuen KI-Funktion erneut prüfen.
+
+### Neue Module (Stand August 2026)
+
+`drohneneinheit` und `landwirte-modul` bringen **keine neue AI-Act-Exposition**:
+Die Drohneneinheit verwaltet Nachweise, Flugbuch und Akkus und legt Bilder ab —
+keine KI-gestützte Bildauswertung. Sollte später eine automatische
+Personen- oder Glutnesterkennung auf Wärmebildern dazukommen, ist die Einordnung
+neu zu prüfen. Für den Drohnenbetrieb selbst gilt ohnehin die
+EU-Drohnenverordnung (EU) 2019/947, nicht der AI Act.
+
+Ein Hinweis außerhalb des AI Act: Das Landwirtschaftsmodul speichert
+personenbezogene Daten **privater Dritter**, die keine Feuerwehrangehörigen sind
+(Betriebe, Ansprechpartner, Erreichbarkeit, Verfügbarkeit). Dafür braucht es
+eine eigene Rechtsgrundlage nach DSGVO und einen Löschprozess — das ist eine
+Datenschutz-, keine AI-Act-Frage, gehört aber auf dieselbe To-do-Liste.
+
 ---
 
 ## 4. Pflichten, die unabhängig von der Risikoklasse gelten
@@ -124,7 +146,7 @@ nachweisbare Schulung für alle, die an den KI-Funktionen arbeiten oder Kunden
 dazu beraten. Kein Formalismus — das ist die am einfachsten prüfbare Pflicht
 überhaupt und kostet wenig.
 
-### Art. 50 – Transparenz (gilt seit 2. August 2026, seit zwei Tagen)
+### Art. 50 – Transparenz (gilt seit 2. August 2026)
 
 | Absatz | Betrifft | Was RESQIO tun muss |
 |---|---|---|
@@ -188,47 +210,77 @@ Das ist die belegbare Tatsache ohne die Rechtsbehauptung.
 
 ---
 
-## 7. Wichtiger Vorbehalt zum Zeitplan
+## 7. Fristen – Stand nach dem Digital Omnibus
 
-Die reguläre Anwendbarkeit der Hochrisiko-Vorschriften aus Anhang III ist der
-**2. August 2026**. Es gab jedoch einen Vorschlag der Kommission („Digital
-Omnibus", November 2025), Teile davon zu verschieben und an die Verfügbarkeit
-harmonisierter Normen zu koppeln.
+Der „Digital Omnibus on AI" ist verabschiedet: **Verordnung (EU) 2026/1744**,
+veröffentlicht am 24. Juli 2026, in Kraft seit 27. Juli 2026. Er verschiebt die
+Hochrisiko-Fristen deutlich — die Transparenzpflichten aber **nicht**.
 
-**Ob und wie dieser Vorschlag verabschiedet wurde, kann ich nicht verlässlich
-sagen** — mein Wissensstand endet im Mai 2026. Der aktuelle Stand muss vor
-jeder Planung geprüft werden; er entscheidet über die Fristen, nicht über die
-Pflichten selbst.
+| Pflicht | Gilt ab | Für RESQIO |
+|---|---|---|
+| Art. 5 Verbote | 2. Februar 2025 | **gilt** |
+| Art. 4 KI-Kompetenz | 2. Februar 2025 | **gilt** |
+| **Art. 50 Transparenz** | **2. August 2026** | **gilt seit dem 2. August 2026 – unverändert vom Omnibus** |
+| Anhang III Hochrisiko | **2. Dezember 2027** (vorher 2. August 2026) | 16 Monate mehr Zeit |
+| Anhang I (Produktsicherheit) | 2. August 2028 | nicht einschlägig |
+
+**Was das praktisch heißt:** Der Aufbau des Hochrisiko-Programms aus
+Abschnitt 5 ist nicht überfällig, sondern hat bis Dezember 2027 Zeit. Das ist
+für ein Programm dieser Größe knapp, aber machbar. Die Transparenzpflichten
+nach Art. 50 dagegen gelten bereits — dort besteht sofortiger Handlungsbedarf,
+nicht in 16 Monaten.
+
+Für die Kennzeichnung KI-generierter Inhalte nach Art. 50 Abs. 2 kursiert
+zusätzlich eine Frist zum 2. Dezember 2026 im Zusammenhang mit dem
+Verhaltenskodex der Kommission zur Transparenz KI-generierter Inhalte. Bitte
+gegenprüfen, bevor darauf geplant wird.
 
 Zuständige Marktüberwachungsbehörde in Deutschland: Bundesnetzagentur.
+
+*Quellen: [Gibson Dunn](https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/),
+[Freshfields](https://www.freshfields.com/en/our-thinking/blogs/technology-quotient/eu-ai-act-unpacked-34-the-final-digital-omnibus-on-ai-key-amendments-to-the-a-102nber),
+[Usercentrics](https://usercentrics.com/knowledge-hub/eu-ai-act-high-risk-delay-article-50-transparency-consent/),
+[EU-Kommission zu Art. 50](https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act) –
+abgerufen am 14. August 2026.*
 
 ---
 
 ## 8. Nächste Schritte
 
-**Priorität 1 – anwaltlich klären, alles Weitere hängt daran:**
+**Priorität 1 – gilt bereits, sofortiger Handlungsbedarf:**
 
-1. Einstufung der Sichtungs- und Priorisierungsvorschläge nach Anhang III
-   Nr. 5 Buchst. d bestätigen lassen (Abschnitt 2.1). Falls bestätigt: das
-   Programm aus Abschnitt 5 aufsetzen und terminieren.
-2. Aktuellen Stand des „Digital Omnibus" prüfen (Abschnitt 7) — er entscheidet
-   über die Fristen.
+1. **Art. 50 Abs. 2 – maschinenlesbare Kennzeichnung.** Die Produktseite sagt
+   zu: „Jede KI-Ausgabe ist klar als KI-generiert gekennzeichnet." Art. 50
+   Abs. 2 verlangt eine **maschinenlesbare** Markierung (Metadaten,
+   Wasserzeichen), nicht nur eine sichtbare. Gilt seit dem 2. August 2026 und
+   wurde vom Omnibus ausdrücklich **nicht** verschoben. Im Produkt prüfen.
+2. **Art. 50 Abs. 1 – Wissensassistent.** Muss beim Chat erkennbar als KI
+   ausgewiesen sein.
+3. **Art. 4 – KI-Kompetenz.** Gilt seit Februar 2025. Schulung aufsetzen und
+   dokumentieren; die am einfachsten prüfbare Pflicht der Verordnung.
 
-**Priorität 2 – unabhängig von der Einstufung, sofort machbar:**
+**Priorität 2 – Frist 2. Dezember 2027, Vorlauf jetzt schaffen:**
 
-3. Art. 4 KI-Kompetenz: Schulung aufsetzen und dokumentieren. Gilt seit
-   Februar 2025, ist die am einfachsten prüfbare Pflicht überhaupt.
-4. Prüfen, dass nirgends Emotionserkennung stattfindet (Art. 5) — höchster
-   Bußgeldrahmen der Verordnung.
-5. Prüfen, ob die zugesagte KI-Kennzeichnung **maschinenlesbar** ist
-   (Art. 50 Abs. 2). Sichtbar allein genügt nicht.
-6. „KI-Personalanalyse" umbenennen (Abschnitt 2.2) — nimmt unnötige
-   Exposition heraus. *Erledigt: Bezeichnung angepasst.*
-7. AI-Act-Werbeaussage entschärfen (Abschnitt 6). *Erledigt.*
-
-**Priorität 3 – vertriebsseitig, sobald die Einstufung steht:**
-
-8. Betriebsanleitung nach Art. 13 für die Feuerwehren.
-9. Zuarbeit für die Grundrechte-Folgenabschätzung nach Art. 27, die jede
+4. Einstufung der Sichtungs- und Priorisierungsvorschläge nach Anhang III
+   Nr. 5 Buchst. d anwaltlich bestätigen lassen (Abschnitt 2.1). Falls
+   bestätigt: Programm aus Abschnitt 5 aufsetzen und rückwärts von Dezember
+   2027 terminieren. Für Risikomanagement, technische Dokumentation und
+   Konformitätsbewertung sind 16 Monate knapp, nicht üppig.
+5. Betriebsanleitung nach Art. 13 für die Feuerwehren.
+6. Zuarbeit für die Grundrechte-Folgenabschätzung nach Art. 27, die jede
    kommunale Betreiberin eines Hochrisiko-Systems durchführen muss. Wer das
    Material fertig mitliefert, hat im Vergabeverfahren einen Vorteil.
+
+**Erledigt:**
+
+- ~~Art. 5 auf Emotionserkennung prüfen~~ — durchgeführt am 14. August 2026,
+  kein Treffer (Abschnitt 3).
+- ~~„KI-Personalanalyse" umbenennen~~ — heißt jetzt „Beförderungs-Check"
+  (Abschnitt 2.2).
+- ~~AI-Act-Werbeaussage entschärfen~~ (Abschnitt 6).
+- ~~Stand des Digital Omnibus klären~~ — verabschiedet, Fristen in Abschnitt 7.
+
+**Außerhalb des AI Act, gehört aber auf dieselbe Liste:**
+
+- Rechtsgrundlage und Löschkonzept für die personenbezogenen Daten privater
+  Dritter im Landwirtschaftsmodul (Abschnitt 3).
