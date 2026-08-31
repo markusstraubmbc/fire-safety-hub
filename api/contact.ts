@@ -14,7 +14,7 @@ export const config = {
  */
 const RESEND_API_KEY =
   (typeof process !== "undefined" && process.env?.RESEND_API_KEY) ||
-  "re_bCqQgZJy_GAZv4Ti5xtpEEUsvxXwvU2kV";
+  "re_ddWd1x8w_G5nyxe78Y5b6xgZoFSohPoZp";
 const RESEND_URL = "https://api.resend.com/emails";
 
 /**
