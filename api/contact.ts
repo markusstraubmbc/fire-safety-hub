@@ -29,6 +29,28 @@ const CONTACT_FROM =
   (typeof process !== "undefined" && process.env?.CONTACT_FROM) ||
   "RESQIO Kontaktformular <kontakt@resqio.io>";
 
+/** Interner Empfaenger der Anfragen. */
+const CONTACT_TO =
+  (typeof process !== "undefined" && process.env?.CONTACT_TO) ||
+  "markus@straub-it.de";
+
+/**
+ * Antwortadresse der Eingangsbestaetigung an den Absender. Bewusst die auf der
+ * Website beworbene Adresse und nicht die Resend-Absenderdomain.
+ */
+const CONTACT_REPLY_TO =
+  (typeof process !== "undefined" && process.env?.CONTACT_REPLY_TO) ||
+  "kontakt@resqio.de";
+
+/**
+ * Grobe Plausibilitaetspruefung der Absenderadresse. Sie entscheidet nur
+ * darueber, ob die Bestaetigungskopie ueberhaupt verschickt wird - die
+ * eigentliche Anfrage an CONTACT_TO geht in jedem Fall raus.
+ */
+function isPlausibleEmail(value: string): boolean {
+  return /^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]+$/.test(value.trim());
+}
+
 function escapeHtml(str: string): string {
   return str
     .replace(/&/g, "&amp;")
@@ -87,20 +109,44 @@ export default async function handler(request: Request) {
     </table>
   `;
 
-  try {
-    const resendResponse = await fetch(RESEND_URL, {
+  const confirmationHtml = `
+    <h2>Ihre Anfrage bei RESQIO</h2>
+    <p>Hallo ${safeName},</p>
+    <p>
+      vielen Dank für Ihre Anfrage über resqio.de. Wir haben sie erhalten und
+      melden uns innerhalb von 24 Stunden bei Ihnen. Unten finden Sie eine Kopie
+      Ihrer Nachricht.
+    </p>
+    <table style="border-collapse:collapse;width:100%;max-width:600px;">
+      <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Name</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeName}</td></tr>
+      <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">E-Mail</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeEmail}</td></tr>
+      ${safePhone ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Telefon</td><td style="padding:8px;border-bottom:1px solid #eee;">${safePhone}</td></tr>` : ""}
+      ${safeFeuerwehr ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Feuerwehr</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeFeuerwehr}</td></tr>` : ""}
+      <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Nachricht</td><td style="padding:8px;border-bottom:1px solid #eee;">${safeMessage}</td></tr>
+    </table>
+    <p style="color:#666;font-size:12px;">
+      Diese E-Mail wurde automatisch erzeugt. Antworten Sie einfach darauf, wenn
+      Sie etwas ergänzen möchten – sie erreicht uns unter ${CONTACT_REPLY_TO}.
+    </p>
+  `;
+
+  const sendMail = (payload: Record<string, unknown>) =>
+    fetch(RESEND_URL, {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${RESEND_API_KEY}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        from: CONTACT_FROM,
-        to: ["markus@straub-it.de"],
-        subject: `Neue Kontaktanfrage von ${safeName}`,
-        reply_to: email,
-        html: htmlContent,
-      }),
+      body: JSON.stringify(payload),
+    });
+
+  try {
+    const resendResponse = await sendMail({
+      from: CONTACT_FROM,
+      to: [CONTACT_TO],
+      subject: `Neue Kontaktanfrage von ${safeName}`,
+      reply_to: email,
+      html: htmlContent,
     });
 
     const resendData = await resendResponse.json();
@@ -117,7 +163,41 @@ export default async function handler(request: Request) {
     }
 
     console.log("Resend success:", JSON.stringify(resendData));
-    return Response.json({ success: true, emailId: resendData?.id });
+
+    // Eingangsbestätigung an den Absender. Sie ist bewusst nachrangig: schlägt
+    // sie fehl, bleibt die Anfrage trotzdem erfolgreich, denn die eigentliche
+    // Benachrichtigung liegt dann schon im Postfach.
+    let confirmationSent = false;
+    if (isPlausibleEmail(email)) {
+      try {
+        const confirmationResponse = await sendMail({
+          from: CONTACT_FROM,
+          to: [email.trim()],
+          subject: "Ihre Anfrage bei RESQIO",
+          reply_to: CONTACT_REPLY_TO,
+          html: confirmationHtml,
+        });
+
+        const confirmationData = await confirmationResponse.json();
+        confirmationSent = confirmationResponse.ok;
+
+        if (!confirmationResponse.ok) {
+          console.error("Resend confirmation error:", JSON.stringify(confirmationData));
+        } else {
+          console.log("Resend confirmation success:", JSON.stringify(confirmationData));
+        }
+      } catch (confirmationErr) {
+        console.error("Resend confirmation fetch error:", confirmationErr);
+      }
+    } else {
+      console.warn("Keine Bestätigung verschickt: unplausible Absenderadresse.");
+    }
+
+    return Response.json({
+      success: true,
+      emailId: resendData?.id,
+      confirmationSent,
+    });
   } catch (err) {
     console.error("Resend fetch error:", err);
     return Response.json(
