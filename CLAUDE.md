@@ -333,6 +333,19 @@ The contact form uses different handlers depending on deployment target:
 
 **Always call `/api/contact`** from the frontend. The `.htaccess` rewrite maps this to `.php` on Apache, and Vercel routes it to the Edge Function automatically.
 
+Jede Anfrage löst **zwei** Mails aus: die Benachrichtigung an `CONTACT_TO`
+(Default `markus@straub-it.de`, `reply_to` = Absenderadresse) und eine
+Eingangsbestätigung mit derselben Anfrage an die im Formular angegebene Adresse
+(`reply_to` = `CONTACT_REPLY_TO`, Default `kontakt@resqio.de`). Die Bestätigung
+ist bewusst nachrangig: schlägt sie fehl oder ist die Adresse unplausibel, bleibt
+die Antwort `success: true` — die Anfrage liegt dann schon im Postfach. Das Feld
+`confirmationSent` in der JSON-Antwort sagt, ob die Kopie rausging.
+
+**Beide Handler ändern sich gemeinsam** — `api/contact.ts` (Vercel) und
+`public/api/contact.php` (Plesk/Apache) müssen denselben Versandweg abbilden,
+sonst bekommt der Absender je nach Hosting eine Bestätigung oder eben nicht.
+Live läuft heute der PHP-Pfad (siehe „Hosting reality").
+
 The API path `/api/` is blocked in `public/robots.txt` (`Disallow: /api/`) to prevent search engine crawlers from hitting the contact endpoint and generating 5xx errors in Google Search Console.
 
 ## SEO / Indexing Rules
