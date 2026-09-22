@@ -229,7 +229,59 @@ const Datenschutz = () => {
 
                 <section>
                   <h2 className="text-xl font-semibold text-foreground mb-3">
-                    5. Ihre Rechte
+                    5. Newsletter (Brevo)
+                  </h2>
+
+                  <h3 className="text-lg font-medium text-foreground mb-2">
+                    Art und Umfang der Verarbeitung
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    Für die Newsletter-Anmeldung binden wir ein Formular des Anbieters
+                    Brevo SAS, 8 rue de Londres, 75009 Paris, Frankreich („Brevo") ein.
+                    Das Formular wird technisch von den Servern von Brevo
+                    (sibforms.com, assets.brevo.com) nachgeladen; dabei wird Ihre
+                    IP-Adresse an Brevo übermittelt. Erst mit dem Absenden des
+                    Formulars übertragen wir die von Ihnen eingegebene E-Mail-Adresse
+                    an Brevo, um den Newsletter zu versenden.
+                  </p>
+
+                  <h3 className="text-lg font-medium text-foreground mb-2 mt-4">
+                    Rechtsgrundlage und Zweck
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    Die Einbindung des Formulars erfolgt ausschließlich auf Grundlage
+                    Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO, die Sie über
+                    unseren Cookie-Banner erteilen können. Ohne Ihre Einwilligung wird
+                    das Formular nicht nachgeladen. Der eigentliche Versand des
+                    Newsletters nach einer Anmeldung erfolgt im Double-Opt-in-Verfahren
+                    auf Grundlage Ihrer gesondert erteilten Einwilligung
+                    (Art. 6 Abs. 1 lit. a DSGVO); Sie können sich jederzeit über den
+                    Abmeldelink in jeder Newsletter-E-Mail wieder austragen. Sie können
+                    Ihre Einwilligung zum Nachladen des Formulars jederzeit mit Wirkung
+                    für die Zukunft widerrufen, indem Sie die Cookie-Einstellungen über
+                    den Link im Seitenfuß erneut öffnen.
+                  </p>
+
+                  <h3 className="text-lg font-medium text-foreground mb-2 mt-4">
+                    Datenübermittlung in Drittländer
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    Brevo verarbeitet die Daten in der Europäischen Union. Weitere
+                    Informationen finden Sie in der Datenschutzerklärung von Brevo:{" "}
+                    <a
+                      href="https://www.brevo.com/de/legal/privacypolicy/"
+                      className="text-primary hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      https://www.brevo.com/de/legal/privacypolicy/
+                    </a>
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold text-foreground mb-3">
+                    6. Ihre Rechte
                   </h2>
                   <p className="text-muted-foreground text-sm">
                     Sie haben jederzeit das Recht auf unentgeltliche Auskunft über
@@ -262,7 +314,7 @@ const Datenschutz = () => {
 
                 <section>
                   <h2 className="text-xl font-semibold text-foreground mb-3">
-                    6. Datensicherheit und Verschlüsselung
+                    7. Datensicherheit und Verschlüsselung
                   </h2>
                   <p className="text-muted-foreground text-sm">
                     Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der
@@ -275,7 +327,7 @@ const Datenschutz = () => {
 
                 <section>
                   <h2 className="text-xl font-semibold text-foreground mb-3">
-                    7. Hosting
+                    8. Hosting
                   </h2>
                   <p className="text-muted-foreground text-sm">
                     Die RESQIO Website wird auf sicheren Servern in Deutschland gehostet.
@@ -287,7 +339,7 @@ const Datenschutz = () => {
 
                 <section>
                   <h2 className="text-xl font-semibold text-foreground mb-3">
-                    8. Inhalte und Haftungsausschluss
+                    9. Inhalte und Haftungsausschluss
                   </h2>
                   <p className="text-muted-foreground text-sm">
                     Die auf dieser Website bereitgestellten Inhalte, einschließlich

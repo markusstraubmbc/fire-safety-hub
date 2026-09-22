@@ -1,4 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CONSENT_CHANGE_EVENT, grantConsent, hasConsent } from "@/lib/consent";
 
 const BREVO_STYLESHEET_ID = "brevo-newsletter-stylesheet";
 const BREVO_SCRIPT_ID = "brevo-newsletter-script";
@@ -24,7 +27,19 @@ declare global {
 }
 
 const NewsletterSection = () => {
+  const [consented, setConsented] = useState(hasConsent());
+
   useEffect(() => {
+    const onChange = () => setConsented(hasConsent());
+    window.addEventListener(CONSENT_CHANGE_EVENT, onChange);
+    return () => window.removeEventListener(CONSENT_CHANGE_EVENT, onChange);
+  }, []);
+
+  // Wie bei Google Analytics: die externen Brevo-Ressourcen (Font, CSS, JS)
+  // werden erst nach Einwilligung nachgeladen, nicht schon beim Mounten.
+  useEffect(() => {
+    if (!consented) return;
+
     if (!document.getElementById(BREVO_STYLESHEET_ID)) {
       const link = document.createElement("link");
       link.id = BREVO_STYLESHEET_ID;
@@ -61,7 +76,25 @@ const NewsletterSection = () => {
       script.defer = true;
       document.body.appendChild(script);
     }
-  }, []);
+  }, [consented]);
+
+  if (!consented) {
+    return (
+      <div id="newsletter" className="p-8 sm:p-10 text-center bg-card">
+        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+          <Mail className="w-6 h-6 text-primary" />
+        </div>
+        <h3 className="text-xl font-bold text-foreground mb-2">Newsletter</h3>
+        <p className="text-sm text-muted-foreground mb-6 max-w-sm mx-auto">
+          Für die Anmeldung laden wir das Formular unseres Anbieters Brevo nach – genau
+          wie bei Google Analytics erst, wenn Sie zugestimmt haben. Ein Klick gilt für
+          beides gemeinsam; widerrufbar jederzeit über die Cookie-Einstellungen im
+          Seitenfuß.
+        </p>
+        <Button onClick={grantConsent}>Zustimmen &amp; Formular laden</Button>
+      </div>
+    );
+  }
 
   return (
     <div id="newsletter">

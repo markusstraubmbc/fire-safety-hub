@@ -32,6 +32,11 @@ export function getStoredConsent(): ConsentChoice | null {
   }
 }
 
+/** Kurzform für Komponenten, die nur wissen müssen, ob sie laden dürfen. */
+export function hasConsent(): boolean {
+  return getStoredConsent() === "granted";
+}
+
 function loadGtagScript() {
   if (document.querySelector('script[src*="googletagmanager.com/gtag"]')) return;
   const script = document.createElement("script");
@@ -62,6 +67,7 @@ export function grantConsent() {
     analytics_storage: "granted",
   });
   loadGtagScript();
+  window.dispatchEvent(new Event(CONSENT_CHANGE_EVENT));
 }
 
 export function denyConsent() {
@@ -77,6 +83,7 @@ export function denyConsent() {
     ad_personalization: "denied",
     analytics_storage: "denied",
   });
+  window.dispatchEvent(new Event(CONSENT_CHANGE_EVENT));
 }
 
 /** Event, mit dem der ConsentBanner erneut geöffnet wird (Widerruf, Footer-Link). */
@@ -85,6 +92,14 @@ export const CONSENT_OPEN_EVENT = "resqio:open-consent";
 export function openConsentBanner() {
   window.dispatchEvent(new Event(CONSENT_OPEN_EVENT));
 }
+
+/**
+ * Event, das bei jeder Consent-Entscheidung feuert (Annahme wie Widerruf).
+ * Komponenten, die selbst erst nach Einwilligung externe Inhalte laden
+ * (z. B. das Brevo-Newsletter-Formular), hören darauf, um live zu reagieren,
+ * statt einen Reload zu verlangen.
+ */
+export const CONSENT_CHANGE_EVENT = "resqio:consent-changed";
 
 /** Beim App-Start aufrufen: lädt GA nur, wenn früher bereits eingewilligt wurde. */
 export function initConsent() {
