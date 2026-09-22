@@ -64,7 +64,7 @@ const NewsletterSection = () => {
   }, []);
 
   return (
-    <section id="newsletter" className="py-16 md:py-24">
+    <div id="newsletter">
       <style>{`
         @font-face {
           font-display: block;
@@ -306,7 +306,7 @@ const NewsletterSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

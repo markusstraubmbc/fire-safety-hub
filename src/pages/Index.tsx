@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import { LazySection } from "@/hooks/use-lazy-section";
 import MobileCtaBar from "@/components/MobileCtaBar";
+import NewsletterPopup from "@/components/NewsletterPopup";
 import FAQ_JSON_LD from "@/data/faq-jsonld.json";
 
 const Index = () => {
@@ -53,7 +54,6 @@ const Index = () => {
   const regionalFactory = useCallback(() => import("@/components/RegionalSection"), []);
   const faqFactory = useCallback(() => import("@/components/FaqSection"), []);
   const contactFactory = useCallback(() => import("@/components/ContactSection"), []);
-  const newsletterFactory = useCallback(() => import("@/components/NewsletterSection"), []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -73,10 +73,10 @@ const Index = () => {
         <LazySection factory={regionalFactory} rootMargin="50px" minHeight={800} />
         <LazySection factory={faqFactory} rootMargin="50px" minHeight={900} />
         <LazySection factory={contactFactory} rootMargin="50px" minHeight={1000} />
-        <LazySection factory={newsletterFactory} rootMargin="50px" minHeight={500} />
       </main>
       <Footer />
       <MobileCtaBar />
+      <NewsletterPopup />
     </div>
   );
 };
