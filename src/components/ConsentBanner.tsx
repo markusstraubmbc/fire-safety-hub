@@ -2,7 +2,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Cookie } from "lucide-react";
-import { CONSENT_OPEN_EVENT, denyConsent, getStoredConsent, grantConsent, initConsent } from "@/lib/consent";
+import {
+  CONSENT_CHANGE_EVENT,
+  CONSENT_OPEN_EVENT,
+  denyConsent,
+  getStoredConsent,
+  grantConsent,
+  initConsent,
+} from "@/lib/consent";
 
 const ConsentBanner = () => {
   const [visible, setVisible] = useState(false);
@@ -13,7 +20,16 @@ const ConsentBanner = () => {
 
     const reopen = () => setVisible(true);
     window.addEventListener(CONSENT_OPEN_EVENT, reopen);
-    return () => window.removeEventListener(CONSENT_OPEN_EVENT, reopen);
+
+    // Falls die Entscheidung woanders getroffen wird (z.B. im Newsletter-Popup),
+    // schließt sich ein zufällig noch offener Banner mit.
+    const onChange = () => setVisible(getStoredConsent() === null);
+    window.addEventListener(CONSENT_CHANGE_EVENT, onChange);
+
+    return () => {
+      window.removeEventListener(CONSENT_OPEN_EVENT, reopen);
+      window.removeEventListener(CONSENT_CHANGE_EVENT, onChange);
+    };
   }, []);
 
   if (!visible) return null;
@@ -40,11 +56,12 @@ const ConsentBanner = () => {
             <Cookie className="w-5 h-5 text-primary" />
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">
-            <p className="font-bold text-foreground mb-1">Cookies & Statistik</p>
+            <p className="font-bold text-foreground mb-1">Cookies & externe Inhalte</p>
             <p>
-              Wir nutzen Google Analytics, um zu verstehen, wie unsere Website genutzt wird –
-              aber nur mit Ihrer Einwilligung. Ohne Zustimmung werden keine Analyse-Cookies
-              gesetzt. Details finden Sie in unserer{" "}
+              Wir nutzen Google Analytics, um zu verstehen, wie unsere Website genutzt wird,
+              und binden unser Newsletter-Formular über den externen Anbieter Brevo ein –
+              beides nur mit Ihrer Einwilligung. Ohne Zustimmung werden weder Analyse-Cookies
+              gesetzt noch Inhalte von Brevo geladen. Details finden Sie in unserer{" "}
               <Link to="/datenschutz" className="text-primary underline hover:no-underline">
                 Datenschutzerklärung
               </Link>

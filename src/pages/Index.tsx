@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import { LazySection } from "@/hooks/use-lazy-section";
 import MobileCtaBar from "@/components/MobileCtaBar";
+import NewsletterPopup from "@/components/NewsletterPopup";
 import FAQ_JSON_LD from "@/data/faq-jsonld.json";
 
 const Index = () => {
@@ -75,6 +76,7 @@ const Index = () => {
       </main>
       <Footer />
       <MobileCtaBar />
+      <NewsletterPopup />
     </div>
   );
 };
