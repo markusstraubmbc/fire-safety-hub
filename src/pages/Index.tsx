@@ -53,6 +53,7 @@ const Index = () => {
   const regionalFactory = useCallback(() => import("@/components/RegionalSection"), []);
   const faqFactory = useCallback(() => import("@/components/FaqSection"), []);
   const contactFactory = useCallback(() => import("@/components/ContactSection"), []);
+  const newsletterFactory = useCallback(() => import("@/components/NewsletterSection"), []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -72,6 +73,7 @@ const Index = () => {
         <LazySection factory={regionalFactory} rootMargin="50px" minHeight={800} />
         <LazySection factory={faqFactory} rootMargin="50px" minHeight={900} />
         <LazySection factory={contactFactory} rootMargin="50px" minHeight={1000} />
+        <LazySection factory={newsletterFactory} rootMargin="50px" minHeight={500} />
       </main>
       <Footer />
       <MobileCtaBar />
