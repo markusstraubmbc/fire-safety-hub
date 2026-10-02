@@ -11,7 +11,7 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { loadModules, loadWissen } from "./load-data.mjs";
+import { loadModules, loadWissen, loadDataModule } from "./load-data.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const distDir = join(__dirname, "..", "dist");
@@ -550,13 +550,29 @@ console.log(`Prerendered ${wissen.length} Wissen articles.`);
 
 // --- 5. Generate Datenschutz page ---
 {
+  // Alarm-App- und Löschungs-Abschnitte (Google Play verlangt sie direkt auf dieser Seite,
+  // auch für Crawler ohne JavaScript) — dieselbe Datenquelle wie Datenschutz.tsx.
+  const { datenschutzAppSections } = await loadDataModule("datenschutz-app.ts");
+  const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const renderDsBlock = (b) => {
+    if (b.type === "h3") return `<h3>${esc(b.text)}</h3>`;
+    if (b.type === "list") return `<ul>${b.items.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
+    if (b.type === "table")
+      return `<table><thead><tr>${b.head.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${b.rows
+        .map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`)
+        .join("")}</tbody></table>`;
+    return `<p>${b.type === "note" ? "<strong>" : ""}${esc(b.text)}${b.type === "note" ? "</strong>" : ""}</p>`;
+  };
+  const appSectionsHtml = datenschutzAppSections
+    .map((s) => `<section id="${s.id}"><h2>${esc(s.title)}</h2>${s.blocks.map(renderDsBlock).join("")}</section>`)
+    .join("");
   const html = createPage({
     title: "Datenschutzerklärung | RESQIO",
     description: "Datenschutzerklärung für RESQIO – Informationen zum Umgang mit personenbezogenen Daten.",
     keywords: "Datenschutz, DSGVO, RESQIO, Datenschutzerklärung",
     canonicalUrl: `${BASE_URL}/datenschutz`,
     noindex: true,
-    bodyContent: `<main><h1>Datenschutzerklärung</h1><p>Informationen zum Datenschutz bei RESQIO gemäß DSGVO. Verantwortlich: Markus Straub, Eschenstraße 37, 72141 Walddorfhäslach.</p></main>`,
+    bodyContent: `<main><h1>Datenschutzerklärung</h1><p>Informationen zum Datenschutz bei RESQIO gemäß DSGVO. Verantwortlich: Markus Straub, Eschenstraße 37, 72141 Walddorfhäslach.</p>${appSectionsHtml}</main>`,
   });
   mkdirSync(join(distDir, "datenschutz"), { recursive: true });
   writeFileSync(join(distDir, "datenschutz", "index.html"), html, "utf-8");
