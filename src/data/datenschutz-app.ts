@@ -22,6 +22,19 @@ export interface DsSection {
   blocks: DsBlock[];
 }
 
+/** Eigene, in sich vollständige Seite /datenschutz-app — das ist die URL für die Play Console
+ *  (Datenschutzerklärung und Datenlöschung) und für App Store Connect. Google verlangt einen
+ *  Link, der DIREKT auf den Text der App-Erklärung führt. */
+export const DATENSCHUTZ_APP_PATH = "/datenschutz-app";
+export const datenschutzAppPage = {
+  title: "Datenschutzerklärung der App „RESQIO Alarm“",
+  stand: "Stand: 3. Oktober 2026",
+  intro:
+    "Diese Datenschutzerklärung gilt für die mobile App „RESQIO Alarm“ für Android und iOS (Paketname io.resqio.alarm). " +
+    "Anbieter der App: Markus Straub, Straub Green IT, Eschenstraße 37, 72141 Walddorfhäslach, E-Mail: kontakt@resqio.de. " +
+    "Die App erhebt Standortdaten – auch im Hintergrund, wenn die App geschlossen ist oder nicht benutzt wird –, sofern Sie dem in der App angezeigten Hinweis zugestimmt haben (Einzelheiten in Abschnitt 10.1).",
+};
+
 export const datenschutzAppSections: DsSection[] = [
   {
     id: "alarm-app",
@@ -33,7 +46,7 @@ export const datenschutzAppSections: DsSection[] = [
           "Dieser Abschnitt gilt für die mobile App „RESQIO Alarm“ (Paketname io.resqio.alarm). " +
           "Jede Feuerwehr betreibt ihre eigene RESQIO-Installation. Verantwortlich für die Daten der gekoppelten " +
           "Mitglieder ist die jeweilige Feuerwehr bzw. ihre Gemeinde (Angaben in der App unter „Einstellungen → Kontakt & Rechtliches“). " +
-          "Markus Straub (Straub Green IT, Anschrift siehe Abschnitt 2) ist als Anbieter der Software Auftragsverarbeiter. " +
+          "Markus Straub (Straub Green IT, Eschenstraße 37, 72141 Walddorfhäslach, kontakt@resqio.de) ist als Anbieter der Software Auftragsverarbeiter. " +
           "Die App wird nur nach Kopplung durch die Organisation (QR-Code oder Kurzcode) genutzt; es gibt kein frei registrierbares Nutzerkonto.",
       },
       { type: "h3", text: "10.1 Standortdaten – auch im Hintergrund" },
@@ -48,10 +61,10 @@ export const datenschutzAppSections: DsSection[] = [
         head: ["Funktion", "Wann aktiv?", "Welche Daten?", "Wohin?"],
         rows: [
           [
-            "Live-Standort im Einsatz (Hauptfunktion). Der Zugriff im Hintergrund ist nötig, damit die Position bei gesperrtem Bildschirm oder wechselnder App weiter an die Einsatzleitung geht.",
-            "Nur nach Ihrer Einsatz-Zusage (zeitlich begrenzt, Standard höchstens 2 Stunden), bei einem als Fahrzeug gekoppelten Gerät mit offenem Einsatz bis zum Einsatzende oder wenn Sie das Tracking selbst starten. Jederzeit beendbar unter „Einstellungen → GPS-Tracking“. Während der Erfassung zeigt das Gerät eine dauerhafte Benachrichtigung bzw. Statusanzeige.",
+            "Live-Standort im Einsatz (Hauptfunktion). Der Zugriff im Hintergrund ist nötig, damit die Position bei gesperrtem Bildschirm oder wechselnder App weiter an die Lagekarte Ihrer Feuerwehr geht.",
+            "Nur nach Ihrer Einsatz-Zusage (zeitlich begrenzt, Standard höchstens 2 Stunden), bei einem als Fahrzeug gekoppelten Gerät mit offenem Einsatz bis zum Einsatzende oder wenn Sie das Tracking selbst starten. Jederzeit beendbar unter „Einstellungen → Standort & GPS“. Während der Erfassung zeigt das Gerät eine dauerhafte Benachrichtigung bzw. Statusanzeige.",
             "Position (Breite/Länge), Zeitpunkt, Genauigkeit, ggf. Geschwindigkeit und Richtung",
-            "Ausschließlich an den Server Ihrer Feuerwehr; sichtbar für berechtigte Personen der Einsatzleitung auf der Lagekarte",
+            "Ausschließlich an den Server Ihrer Feuerwehr; sichtbar auf der Lagekarte für die Einsatzleitung und für Mitglieder Ihrer Feuerwehr, denen die Feuerwehr die Kartenansicht freigegeben hat (z. B. Tab „Karte“ der App; Standard: alle Mitglieder der eigenen Feuerwehr). Auf der Übersichtskarte erscheinen nur Positionen, die höchstens 30 Minuten alt sind.",
           ],
           [
             "Gerätehaus-Automatik (optional, standardmäßig aus)",
@@ -138,8 +151,8 @@ export const datenschutzAppSections: DsSection[] = [
       {
         type: "p",
         text:
-          "Es gelten die Rechte aus Abschnitt 6 (Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch, Widerruf einer Einwilligung, " +
-          "Beschwerde bei der Aufsichtsbehörde). Wenden Sie sich dafür an Ihre Feuerwehr (Kontakt in der App) oder an kontakt@resqio.de.",
+          "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit, Widerspruch und Widerruf einer Einwilligung sowie auf " +
+          "Beschwerde bei einer Datenschutz-Aufsichtsbehörde (in Baden-Württemberg: Landesbeauftragter für den Datenschutz und die Informationsfreiheit). Wenden Sie sich dafür an Ihre Feuerwehr (Kontakt in der App) oder an kontakt@resqio.de.",
       },
     ],
   },
@@ -155,7 +168,7 @@ export const datenschutzAppSections: DsSection[] = [
       {
         type: "list",
         items: [
-          "Selbst in der App: „Einstellungen → Geräte“ → Kopplung trennen. Push-Token, Kopplungsdaten und die Geräteeinträge werden damit gelöscht. Tracking beenden Sie unter „Einstellungen → GPS-Tracking“. Danach können Sie die App deinstallieren.",
+          "Selbst in der App: „Einstellungen → Dieses Gerät → Trennen“ (bzw. „Einstellungen → Meine Feuerwehren“). Push-Token, Kopplungsdaten und die Geräteeinträge werden damit gelöscht. Tracking beenden Sie unter „Einstellungen → Standort & GPS“. Danach können Sie die App deinstallieren.",
           "Über Ihre Feuerwehr: Die Feuerwehr (Verantwortliche) kann Ihre Kopplung und Ihre Mitgliedsdaten löschen.",
           "Per E-Mail an kontakt@resqio.de mit dem Betreff „Löschung RESQIO Alarm“. Bitte nennen Sie Ihre Feuerwehr und Ihren Namen, damit wir die Anfrage der richtigen Installation zuordnen und an die verantwortliche Feuerwehr weiterleiten können. Wir bearbeiten die Anfrage ohne unangemessene Verzögerung, spätestens innerhalb eines Monats (Art. 12 Abs. 3 DSGVO).",
         ],

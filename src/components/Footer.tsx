@@ -99,6 +99,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/datenschutz-app" className="text-sm text-slate-400 hover:text-primary transition-colors">
+                  Datenschutz App
+                </Link>
+              </li>
+              <li>
                 <button
                   type="button"
                   onClick={openConsentBanner}

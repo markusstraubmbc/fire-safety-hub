@@ -122,7 +122,7 @@ them — check `git status` afterwards and include what changed. Never hand-edit
 ### Before calling a change done
 
 ```bash
-npm run build     # must prerender 52 pages without error (47 Module + 5)
+npm run build     # must prerender 53 pages without error (47 Module + 6)
 npm run lint      # 0 errors (8 pre-existing warnings in src/components/ui/* are fine)
 git status        # generated files staged together with their source?
 ```
@@ -179,6 +179,7 @@ src/
    - `/modul/:slug` - Dynamic module detail pages using module-data.ts keys
    - `/impressum` - Legal imprint
    - `/datenschutz` - Privacy policy
+   - `/datenschutz-app` - Datenschutzerklärung NUR der App „RESQIO Alarm“ (eigene, vorgerenderte Seite; Datenschutz-URL in Play Console/App Store, Quelle `src/data/datenschutz-app.ts`). URL nicht ändern — sie steht in der App, im Store und in fastlane.
    - `*` - Catch-all 404 route
 
 3. **Component Composition**: The Index page is composed of discrete section components (HeroSection, FeaturesSection, etc.) arranged sequentially. Each section is self-contained with its own styling and data.

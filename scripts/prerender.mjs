@@ -578,6 +578,36 @@ console.log(`Prerendered ${wissen.length} Wissen articles.`);
   writeFileSync(join(distDir, "datenschutz", "index.html"), html, "utf-8");
 }
 
+// --- 5b. Generate Datenschutz page for the app "RESQIO Alarm" ---
+{
+  // Eigene, in sich vollständige Seite — URL für Play Console (Datenschutz + Datenlöschung) und
+  // App Store Connect. Muss ohne JavaScript den kompletten Text liefern.
+  const { datenschutzAppSections, datenschutzAppPage } = await loadDataModule("datenschutz-app.ts");
+  const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const renderDsBlock = (b) => {
+    if (b.type === "h3") return `<h3>${esc(b.text)}</h3>`;
+    if (b.type === "list") return `<ul>${b.items.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
+    if (b.type === "table")
+      return `<table><thead><tr>${b.head.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${b.rows
+        .map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`)
+        .join("")}</tbody></table>`;
+    return `<p>${b.type === "note" ? "<strong>" : ""}${esc(b.text)}${b.type === "note" ? "</strong>" : ""}</p>`;
+  };
+  const sectionsHtml = datenschutzAppSections
+    .map((s) => `<section id="${s.id}"><h2>${esc(s.title)}</h2>${s.blocks.map(renderDsBlock).join("")}</section>`)
+    .join("");
+  const html = createPage({
+    title: "Datenschutzerklärung App RESQIO Alarm | RESQIO",
+    description: "Datenschutzerklärung der App „RESQIO Alarm“ (Android/iOS): Standortdaten auch im Hintergrund, Push, Rückmeldungen, Datenlöschung.",
+    keywords: "Datenschutz, RESQIO Alarm, App, Standort, DSGVO, Datenlöschung",
+    canonicalUrl: `${BASE_URL}/datenschutz-app`,
+    noindex: true,
+    bodyContent: `<main><h1>${esc(datenschutzAppPage.title)}</h1><p>${esc(datenschutzAppPage.stand)}</p><p>${esc(datenschutzAppPage.intro)}</p>${sectionsHtml}</main>`,
+  });
+  mkdirSync(join(distDir, "datenschutz-app"), { recursive: true });
+  writeFileSync(join(distDir, "datenschutz-app", "index.html"), html, "utf-8");
+}
+
 // --- 6. Generate 404 page ---
 {
   const html = createPage({
@@ -643,4 +673,4 @@ ${urls
   console.log(`Generated sitemap.xml with ${urls.length} URLs.`);
 }
 
-console.log(`Prerendered ${modules.length + 5} pages successfully (homepage + kreismodul + ${modules.length} modules + impressum + datenschutz + 404).`);
+console.log(`Prerendered ${modules.length + 6} pages successfully (homepage + kreismodul + ${modules.length} modules + impressum + datenschutz + datenschutz-app + 404).`);
