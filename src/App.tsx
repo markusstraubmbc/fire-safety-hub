@@ -19,7 +19,6 @@ const Wissen = lazy(() => import("./pages/Wissen"));
 const WissenArtikel = lazy(() => import("./pages/WissenArtikel"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const Datenschutz = lazy(() => import("./pages/Datenschutz"));
-const DatenschutzApp = lazy(() => import("./pages/DatenschutzApp"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => (
@@ -37,7 +36,6 @@ const App = () => (
           <Route path="/wissen/:slug" element={<WissenArtikel />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
-          <Route path="/datenschutz-app" element={<DatenschutzApp />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

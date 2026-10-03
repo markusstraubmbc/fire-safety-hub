@@ -1,6 +1,6 @@
 import type { DsBlock } from "@/data/datenschutz-app";
 
-/** Gemeinsamer Renderer für die Datenschutz-Blöcke (/datenschutz und /datenschutz-app). */
+/** Gemeinsamer Renderer für die Datenschutz-Blöcke (/datenschutz, auch die App-Sektion). */
 export const renderDsBlock = (b: DsBlock, i: number) => {
   switch (b.type) {
     case "h3":

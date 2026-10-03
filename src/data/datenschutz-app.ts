@@ -22,18 +22,12 @@ export interface DsSection {
   blocks: DsBlock[];
 }
 
-/** Eigene, in sich vollständige Seite /datenschutz-app — das ist die URL für die Play Console
- *  (Datenschutzerklärung und Datenlöschung) und für App Store Connect. Google verlangt einen
- *  Link, der DIREKT auf den Text der App-Erklärung führt. */
-export const DATENSCHUTZ_APP_PATH = "/datenschutz-app";
-export const datenschutzAppPage = {
-  title: "Datenschutzerklärung der App „RESQIO Alarm“",
-  stand: "Stand: 3. Oktober 2026",
-  intro:
-    "Diese Datenschutzerklärung gilt für die mobile App „RESQIO Alarm“ für Android und iOS (Paketname io.resqio.alarm). " +
-    "Anbieter der App: Markus Straub, Straub Green IT, Eschenstraße 37, 72141 Walddorfhäslach, E-Mail: kontakt@resqio.de. " +
-    "Die App erhebt Standortdaten – auch im Hintergrund, wenn die App geschlossen ist oder nicht benutzt wird –, sofern Sie dem in der App angezeigten Hinweis zugestimmt haben (Einzelheiten in Abschnitt 10.1).",
-};
+/** Anker der App-Sektion auf /datenschutz — Datenschutz-URL für Play Console und App Store
+ *  (https://resqio.de/datenschutz#alarm-app) bzw. Datenlöschungs-URL (#datenloeschung).
+ *  Google verlangt einen Link, der DIREKT auf den App-Text führt. Ids NICHT ändern — sie
+ *  stehen in der App, in fastlane und in der Play Console. */
+export const DATENSCHUTZ_APP_ANCHOR = "alarm-app";
+export const DATENSCHUTZ_DELETION_ANCHOR = "datenloeschung";
 
 export const datenschutzAppSections: DsSection[] = [
   {

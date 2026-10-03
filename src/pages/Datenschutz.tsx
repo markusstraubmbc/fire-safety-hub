@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
-import { datenschutzAppSections } from "@/data/datenschutz-app";
+import { datenschutzAppSections, DATENSCHUTZ_APP_ANCHOR } from "@/data/datenschutz-app";
 import { renderDsBlock as renderBlock } from "@/components/DatenschutzBlocks";
 
 const Datenschutz = () => {
@@ -21,6 +21,15 @@ const Datenschutz = () => {
     };
   }, []);
 
+  // Direktlinks aus Play Console/App (#alarm-app, #datenloeschung): createRoot ersetzt das
+  // vorgerenderte HTML, der Browser-Sprung zum Anker geht dabei verloren — hier nachholen.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (!id) return;
+    const t = window.setTimeout(() => document.getElementById(id)?.scrollIntoView(), 50);
+    return () => window.clearTimeout(t);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -28,9 +37,17 @@ const Datenschutz = () => {
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Datenschutzerklärung
             </h1>
+            <p className="text-sm text-muted-foreground mb-8">
+              Sie nutzen die App „RESQIO Alarm“? Ihre Datenschutzhinweise (inkl. Standortdaten im
+              Hintergrund und Datenlöschung) stehen in der eigenen Sektion{" "}
+              <a href={`#${DATENSCHUTZ_APP_ANCHOR}`} className="text-primary underline">
+                „App RESQIO Alarm“
+              </a>
+              .
+            </p>
 
             <Card className="mb-8">
               <CardContent className="p-6 md:p-8 space-y-6">
@@ -358,13 +375,21 @@ const Datenschutz = () => {
                   </p>
                 </section>
 
+              </CardContent>
+            </Card>
+
+            {/* Eigene Sektion für die App — Ziel der Datenschutz-URL in Play Console/App Store. */}
+            <Card className="mb-8 border-primary/40 scroll-mt-24" id={DATENSCHUTZ_APP_ANCHOR}>
+              <CardContent className="p-6 md:p-8 space-y-6">
+                <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Datenschutzhinweise der App „RESQIO Alarm“ (Android und iOS)
+                </p>
                 {datenschutzAppSections.map((s) => (
-                  <section key={s.id} id={s.id}>
+                  <section key={s.id} id={s.id === DATENSCHUTZ_APP_ANCHOR ? undefined : s.id} className="scroll-mt-24">
                     <h2 className="text-xl font-semibold text-foreground mb-3">{s.title}</h2>
                     {s.blocks.map(renderBlock)}
                   </section>
                 ))}
-
               </CardContent>
             </Card>
           </div>
