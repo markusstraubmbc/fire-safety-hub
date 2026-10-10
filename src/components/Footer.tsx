@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { openConsentBanner } from "@/lib/consent";
+import AppStoreButtons from "@/components/AppStoreButtons";
 
 const moduleLinks = [
   { slug: "wartungsmanagement", label: "Wartungsmanagement" },
@@ -36,6 +37,10 @@ const Footer = () => {
               Die intelligente Feuerwehr-Verwaltungssoftware mit KI. Made in Germany,
               DSGVO-konform, Serverstandort Deutschland.
             </p>
+            <div className="space-y-2 pt-2">
+              <p className="text-xs font-bold text-white uppercase tracking-wider">Alarm-App</p>
+              <AppStoreButtons tone="light" />
+            </div>
           </div>
 
           <nav aria-label="Beliebte Module" className="space-y-3">
@@ -60,6 +65,11 @@ const Footer = () => {
               <li>
                 <Link to="/kreis" className="text-sm text-slate-400 hover:text-primary transition-colors">
                   Kreismodul für Verbände
+                </Link>
+              </li>
+              <li>
+                <Link to="/modul/alarm-app" className="text-sm text-slate-400 hover:text-primary transition-colors">
+                  RESQIO Alarm-App
                 </Link>
               </li>
               <li>

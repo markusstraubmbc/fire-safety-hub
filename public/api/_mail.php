@@ -19,6 +19,7 @@
 
 const MAIL_CONFIG_TEMPLATE = [
     'provider' => '',          // resend | brevo | smtp   (leer = resend)
+    'fallback_provider' => '', // optional: springt ein, wenn 'provider' fehlschlaegt
     'from' => '',              // z. B. "RESQIO Kontaktformular <kontakt@resqio.de>"
     'to' => '',                // interner Empfaenger der Anfragen
     'reply_to' => '',          // Antwortadresse der Eingangsbestaetigung
@@ -106,6 +107,7 @@ function mail_split_address(string $addr): array {
  * $msg: from, to, reply_to, subject, html (alles Strings).
  * $resendFallbackKey: Resend-Key, der gilt, wenn weder Umgebungsvariable noch
  * mail-config.json einen liefern (steht in contact.php, nicht hier).
+ * Schlaegt 'provider' fehl und ist 'fallback_provider' gesetzt, wird der Fallback versucht.
  * Rueckgabe: [bool $ok, string $detail, ?string $id]
  */
 function mail_send(array $msg, string $resendFallbackKey = ''): array {
@@ -115,16 +117,30 @@ function mail_send(array $msg, string $resendFallbackKey = ''): array {
     $msg = array_map('mail_clean_header', array_diff_key($msg, ['html' => 1]));
     $msg['html'] = $html;
 
-    switch ($provider) {
-        case 'smtp':
-            return mail_via_smtp($msg, $cfg['smtp']);
-        case 'brevo':
-            return mail_via_brevo($msg, (string) mail_setting('BREVO_API_KEY', $cfg['brevo']['api_key']));
-        case 'resend':
-            return mail_via_resend($msg, (string) mail_setting('RESEND_API_KEY', $cfg['resend']['api_key'], $resendFallbackKey));
-        default:
-            return [false, "Unbekannter Mail-Provider: $provider", null];
+    $fallback = strtolower((string) mail_setting('MAIL_FALLBACK_PROVIDER', $cfg['fallback_provider']));
+    $chain = array_values(array_unique(array_filter([$provider, $fallback])));
+
+    $result = [false, 'Kein Mail-Provider konfiguriert', null];
+    foreach ($chain as $i => $name) {
+        switch ($name) {
+            case 'smtp':
+                $result = mail_via_smtp($msg, $cfg['smtp']);
+                break;
+            case 'brevo':
+                $result = mail_via_brevo($msg, (string) mail_setting('BREVO_API_KEY', $cfg['brevo']['api_key']));
+                break;
+            case 'resend':
+                $result = mail_via_resend($msg, (string) mail_setting('RESEND_API_KEY', $cfg['resend']['api_key'], $resendFallbackKey));
+                break;
+            default:
+                $result = [false, "Unbekannter Mail-Provider: $name", null];
+        }
+        if ($result[0]) {
+            return $result;
+        }
+        error_log("mail_send: $name fehlgeschlagen" . ($i + 1 < count($chain) ? ', versuche Fallback' : '') . ': ' . $result[1]);
     }
+    return $result;
 }
 
 function mail_http_json(string $url, array $headers, array $payload): array {

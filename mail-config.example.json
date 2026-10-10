@@ -1,9 +1,10 @@
 {
   "provider": "smtp",
+  "fallback_provider": "resend",
   "from": "RESQIO Kontaktformular <kontakt@resqio.de>",
   "to": "markus@straub-it.de",
   "reply_to": "kontakt@resqio.de",
-  "resend": { "api_key": "" },
+  "resend": { "api_key": "<Resend-API-Key>" },
   "brevo": { "api_key": "" },
   "smtp": {
     "host": "smtp-relay.brevo.com",

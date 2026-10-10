@@ -3,7 +3,7 @@
  * Erneuert sitemap.xml höchstens einmal in 24 Stunden – ausgelöst durch einen
  * echten Seitenbesuch (siehe src/lib/sitemap-refresh.ts).
  *
- * Quelle der URLs ist sitemap-urls.json, die scripts/prerender.mjs beim Build
+ * Quelle der URLs UND ihres echten Aenderungsdatums ist sitemap-urls.json, die scripts/prerender.mjs beim Build
  * neben diese Datei legt. PHP kann module-data.ts nicht lesen; die URL-Liste
  * kommt deshalb aus demselben Build wie die statische sitemap.xml.
  *
@@ -83,16 +83,16 @@ if (!is_array($urls) || count($urls) === 0) {
     done();
 }
 
-$today = gmdate('Y-m-d');
 $entries = [];
 foreach ($urls as $u) {
-    if (!isset($u['loc'], $u['changefreq'], $u['priority'])) {
+    if (!isset($u['loc'], $u['changefreq'], $u['priority'], $u['lastmod'])
+        || !preg_match('/^\d{4}-\d{2}-\d{2}$/', $u['lastmod'])) {
         flock($lock, LOCK_UN);
         done(); // kaputte Quelle: lieber die alte Sitemap behalten
     }
     $entries[] = "  <url>\n"
         . '    <loc>' . htmlspecialchars($u['loc'], ENT_XML1 | ENT_QUOTES, 'UTF-8') . "</loc>\n"
-        . "    <lastmod>{$today}</lastmod>\n"
+        . "    <lastmod>{$u['lastmod']}</lastmod>\n"
         . '    <changefreq>' . htmlspecialchars($u['changefreq'], ENT_XML1, 'UTF-8') . "</changefreq>\n"
         . '    <priority>' . htmlspecialchars($u['priority'], ENT_XML1, 'UTF-8') . "</priority>\n"
         . '  </url>';

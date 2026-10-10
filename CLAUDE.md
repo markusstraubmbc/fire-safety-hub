@@ -122,7 +122,7 @@ them — check `git status` afterwards and include what changed. Never hand-edit
 ### Before calling a change done
 
 ```bash
-npm run build     # must prerender 52 pages without error (47 Module + 5)
+npm run build     # must prerender 53 pages without error (48 Module + 5)
 npm run lint      # 0 errors (8 pre-existing warnings in src/components/ui/* are fine)
 git status        # generated files staged together with their source?
 ```
@@ -265,7 +265,7 @@ All user-facing content is in German (Deutsch). Maintain German language for:
 - **Source of truth**: slug keys in the `modules` object in `src/data/module-data.ts` AND article keys in `src/data/wissen-data.ts`
 - **Output**: `public/sitemap.xml` (homepage + /kreis + module pages + /wissen + article pages)
 - **Excluded slugs**: `kreis-platform` (has a dedicated `/kreis` page, handled by a Vercel 301 redirect)
-- **lastmod**: always set to today's date at generation time, so Google sees fresh dates after every build
+- **lastmod**: Datum der letzten ECHTEN Inhaltsänderung je Seite (Inhalts-Hash in `src/data/sitemap-lastmod.json`, Logik in `scripts/sitemap-pages.mjs`, gemeinsam für Generator und Prerender). Das Manifest zusammen mit dem geänderten Quelltext committen. Nie wieder „heute" für alle Seiten — Google ignoriert sonst lastmod
 - **NEVER edit `public/sitemap.xml` manually** — changes will be overwritten on the next build
 
 ### llms.txt Auto-Generation (AI-Sitemap)
@@ -357,7 +357,7 @@ bleibt also bestehen — und nginx liefert statische Dateien im Web-Root direkt 
 Rangfolge je Wert: Umgebungsvariable > `mail-config.json` > Standard. Vorlage:
 `mail-config.example.json`. Nie echte Zugangsdaten ins Repo.
 
-- `"provider"`: `resend` (Default) | `brevo` (HTTP-API, `brevo.api_key`) | `smtp`
+- `"provider"`: `resend` (Default) | `brevo` (HTTP-API, `brevo.api_key`) | `smtp`. Alle Zugänge stehen nebeneinander in der Datei; `"fallback_provider"` (optional) springt ein, wenn der erste Weg fehlschlägt
 - Brevo per SMTP: Host `smtp-relay.brevo.com`, Port 587, `"encryption": "tls"`, Login + SMTP-Key
 - Der Resend-Fallback-Key im Quelltext von `contact.php` gilt nur, wenn Env und JSON keinen liefern
 - `api/contact.ts` (Vercel) kennt die JSON-Konfiguration nicht — live läuft der PHP-Pfad
@@ -368,7 +368,7 @@ Rangfolge je Wert: Umgebungsvariable > `mail-config.json` > Standard. Vorlage:
 `src/lib/sitemap-refresh.ts` (in `main.tsx`) erst nach echter Nutzer-Interaktion; Bots werden
 clientseitig (`navigator.webdriver`, UA) und serverseitig (nur POST, `Sec-Fetch-Site:
 same-origin`, UA-Filter) ausgeschlossen. URL-Liste: `dist/api/sitemap-urls.json`, vom
-Prerender geschrieben. **Achtung:** wie der Generator setzt es `lastmod` auf heute.
+Prerender geschrieben. `lastmod` kommt aus dieser Liste (echtes Änderungsdatum).
 
 The API path `/api/` is blocked in `public/robots.txt` (`Disallow: /api/`) to prevent search engine crawlers from hitting the contact endpoint and generating 5xx errors in Google Search Console.
 
