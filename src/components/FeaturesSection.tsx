@@ -40,6 +40,7 @@ import {
   CloudOff,
   Smartphone,
   KanbanSquare,
+  Receipt,
   PartyPopper,
   PlaneTakeoff,
   Tractor,
@@ -400,6 +401,14 @@ export const features: Feature[] = [
     description:
       "Anschaffungen, Bauvorhaben und Vereinsprojekte auf dem Kanban-Board planen – mit Checklisten, Anhängen, Zugriff nach Rolle und Aufgaben vor und nach dem Einsatz.",
     slug: "projektmanagement",
+    badge: "neu",
+  },
+  {
+    icon: Receipt,
+    title: "Eventkasse für Feuerwehrfeste",
+    description:
+      "Kassieren an der Theke: Scheine per Tipp, Rückgeld gestückelt, Bon in Bonbreite, Kasse als Kopie fürs nächste Fest und saubere Buchung ins Kassenbuch mit Steuer und Pfand.",
+    slug: "eventkasse",
     badge: "neu",
   },
   {
