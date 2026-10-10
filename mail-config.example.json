@@ -1,0 +1,15 @@
+{
+  "provider": "smtp",
+  "from": "RESQIO Kontaktformular <kontakt@resqio.de>",
+  "to": "markus@straub-it.de",
+  "reply_to": "kontakt@resqio.de",
+  "resend": { "api_key": "" },
+  "brevo": { "api_key": "" },
+  "smtp": {
+    "host": "smtp-relay.brevo.com",
+    "port": 587,
+    "encryption": "tls",
+    "username": "<Brevo-SMTP-Login>",
+    "password": "<Brevo-SMTP-Key>"
+  }
+}

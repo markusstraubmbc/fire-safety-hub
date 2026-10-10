@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/_mail.php';
+
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
@@ -58,72 +60,33 @@ einfach darauf, wenn Sie etwas ergänzen möchten.</p>';
 // bleibt die alte .io-Adresse der Default – sie funktioniert. Sobald resqio.de
 // in Resend verifiziert ist, reicht die Umgebungsvariable CONTACT_FROM.
 // Die auf der Website beworbene Adresse ist davon unabhaengig kontakt@resqio.de.
-$contactFrom = getenv('CONTACT_FROM') ?: 'RESQIO Kontaktformular <kontakt@resqio.io>';
+$contactFrom = mail_setting('CONTACT_FROM', mail_config()['from'], 'RESQIO Kontaktformular <kontakt@resqio.io>');
 
 // Interner Empfaenger der Anfragen.
-$contactTo = getenv('CONTACT_TO') ?: 'markus@straub-it.de';
+$contactTo = mail_setting('CONTACT_TO', mail_config()['to'], 'markus@straub-it.de');
 
 // Antwortadresse der Eingangsbestaetigung: die auf der Website beworbene
 // Adresse, nicht die Resend-Absenderdomain.
-$contactReplyTo = getenv('CONTACT_REPLY_TO') ?: 'kontakt@resqio.de';
+$contactReplyTo = mail_setting('CONTACT_REPLY_TO', mail_config()['reply_to'], 'kontakt@resqio.de');
 
-$resendPayload = json_encode([
+// Fallback-Key fuer Resend: steht auf ausdruecklichen Wunsch im Quelltext, damit
+// das Formular ohne Konfiguration funktioniert. Er ist ueber die Git-Historie
+// abrufbar. Vorrang haben RESEND_API_KEY und mail-config.json (resend.api_key).
+$resendApiKey = getenv('RESEND_API_KEY') ?: 're_bCqQgZJy_GAZv4Ti5xtpEEUsvxXwvU2kV';
+
+[$sent, $sendDetail, $sendId] = mail_send([
     'from' => $contactFrom,
-    'to'   => [$contactTo],
+    'to' => $contactTo,
     'subject' => 'Neue Kontaktanfrage von ' . $input['name'],
     'reply_to' => $input['email'],
     'html' => $htmlContent,
-]);
+], $resendApiKey);
 
-// Resend-API-Key: steht auf ausdruecklichen Wunsch wieder direkt im Quelltext,
-// damit das Formular ohne gesetzte Umgebungsvariable funktioniert. Er ist ueber
-// die Git-Historie abrufbar und damit nicht geheim. Ist RESEND_API_KEY gesetzt,
-// hat die Variable Vorrang - so laesst sich ein neuer Key nachziehen, ohne ihn
-// hier einzutragen.
-$resendApiKey = getenv('RESEND_API_KEY') ?: 're_bCqQgZJy_GAZv4Ti5xtpEEUsvxXwvU2kV';
-
-/**
- * Verschickt eine Mail ueber Resend und liefert [$response, $httpCode, $curlError].
- */
-function resendSend(string $payload, string $apiKey): array {
-    $ch = curl_init('https://api.resend.com/emails');
-    curl_setopt_array($ch, [
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_POST           => true,
-        CURLOPT_POSTFIELDS     => $payload,
-        CURLOPT_HTTPHEADER     => [
-            'Authorization: Bearer ' . $apiKey,
-            'Content-Type: application/json',
-        ],
-        CURLOPT_TIMEOUT        => 10,
-    ]);
-
-    $response = curl_exec($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $curlError = curl_error($ch);
-    curl_close($ch);
-
-    return [$response, $httpCode, $curlError];
-}
-
-list($response, $httpCode, $curlError) = resendSend($resendPayload, $resendApiKey);
-
-if ($curlError) {
+if (!$sent) {
     http_response_code(500);
     echo json_encode([
         'error' => 'E-Mail konnte nicht gesendet werden.',
-        'detail' => 'cURL error: ' . $curlError,
-    ]);
-    exit;
-}
-
-$resendData = json_decode($response, true);
-
-if ($httpCode >= 400) {
-    http_response_code(422);
-    echo json_encode([
-        'error' => 'E-Mail konnte nicht gesendet werden.',
-        'detail' => $resendData['message'] ?? "HTTP $httpCode",
+        'detail' => $sendDetail,
     ]);
     exit;
 }
@@ -134,21 +97,18 @@ if ($httpCode >= 400) {
 $confirmationSent = false;
 
 if (filter_var($input['email'], FILTER_VALIDATE_EMAIL)) {
-    $confirmationPayload = json_encode([
+    [$confirmationOk, $confirmationDetail] = mail_send([
         'from' => $contactFrom,
-        'to'   => [$input['email']],
+        'to' => $input['email'],
         'subject' => 'Ihre Anfrage bei RESQIO',
         'reply_to' => $contactReplyTo,
         'html' => $confirmationHtml,
-    ]);
+    ], $resendApiKey);
 
-    list($confirmationResponse, $confirmationCode, $confirmationError) =
-        resendSend($confirmationPayload, $resendApiKey);
-
-    if ($confirmationError || $confirmationCode >= 400) {
-        error_log('Resend confirmation failed: ' . ($confirmationError ?: $confirmationResponse));
-    } else {
+    if ($confirmationOk) {
         $confirmationSent = true;
+    } else {
+        error_log('Mail-Bestaetigung fehlgeschlagen: ' . $confirmationDetail);
     }
 } else {
     error_log('Keine Bestaetigung verschickt: unplausible Absenderadresse.');
@@ -156,6 +116,6 @@ if (filter_var($input['email'], FILTER_VALIDATE_EMAIL)) {
 
 echo json_encode([
     'success' => true,
-    'emailId' => $resendData['id'] ?? null,
+    'emailId' => $sendId,
     'confirmationSent' => $confirmationSent,
 ]);

@@ -346,6 +346,30 @@ die Antwort `success: true` — die Anfrage liegt dann schon im Postfach. Das Fe
 sonst bekommt der Absender je nach Hosting eine Bestätigung oder eben nicht.
 Live läuft heute der PHP-Pfad (siehe „Hosting reality").
 
+### Mail-Versand: Provider per `mail-config.json` (Resend, Brevo, SMTP)
+
+`public/api/contact.php` verschickt über `public/api/_mail.php`. Provider und Zugangsdaten
+stehen in **`mail-config.json` außerhalb des Web-Roots** (`<Domain-Ordner>/resqio-config/`,
+oder `$RESQIO_CONFIG_DIR`). Grund: ein Redeploy/Build überschreibt nur `httpdocs`, die Datei
+bleibt also bestehen — und nginx liefert statische Dateien im Web-Root direkt aus, an
+`.htaccess` vorbei, ein Key dort wäre abrufbar. Fehlt die Datei, legt PHP sie **leer** an
+(Rechte 0600); leere Werte fallen auf Umgebungsvariable bzw. Standard zurück.
+Rangfolge je Wert: Umgebungsvariable > `mail-config.json` > Standard. Vorlage:
+`mail-config.example.json`. Nie echte Zugangsdaten ins Repo.
+
+- `"provider"`: `resend` (Default) | `brevo` (HTTP-API, `brevo.api_key`) | `smtp`
+- Brevo per SMTP: Host `smtp-relay.brevo.com`, Port 587, `"encryption": "tls"`, Login + SMTP-Key
+- Der Resend-Fallback-Key im Quelltext von `contact.php` gilt nur, wenn Env und JSON keinen liefern
+- `api/contact.ts` (Vercel) kennt die JSON-Konfiguration nicht — live läuft der PHP-Pfad
+
+### Sitemap-Auffrischung durch Besucher
+
+`public/api/sitemap-refresh.php` erneuert `sitemap.xml` höchstens alle 24 h. Ausgelöst von
+`src/lib/sitemap-refresh.ts` (in `main.tsx`) erst nach echter Nutzer-Interaktion; Bots werden
+clientseitig (`navigator.webdriver`, UA) und serverseitig (nur POST, `Sec-Fetch-Site:
+same-origin`, UA-Filter) ausgeschlossen. URL-Liste: `dist/api/sitemap-urls.json`, vom
+Prerender geschrieben. **Achtung:** wie der Generator setzt es `lastmod` auf heute.
+
 The API path `/api/` is blocked in `public/robots.txt` (`Disallow: /api/`) to prevent search engine crawlers from hitting the contact endpoint and generating 5xx errors in Google Search Console.
 
 ## SEO / Indexing Rules

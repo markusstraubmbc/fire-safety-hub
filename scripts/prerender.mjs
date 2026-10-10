@@ -641,6 +641,14 @@ ${urls
 `;
 
   writeFileSync(join(distDir, "sitemap.xml"), sitemap, "utf-8");
+
+  // URL-Liste für public/api/sitemap-refresh.php (PHP kann module-data.ts nicht lesen).
+  mkdirSync(join(distDir, "api"), { recursive: true });
+  writeFileSync(
+    join(distDir, "api", "sitemap-urls.json"),
+    JSON.stringify(urls.map(({ loc, changefreq, priority }) => ({ loc, changefreq, priority }))),
+    "utf-8"
+  );
   console.log(`Generated sitemap.xml with ${urls.length} URLs.`);
 }
 
