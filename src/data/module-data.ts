@@ -599,7 +599,7 @@ export const modules: Record<string, ModuleData> = {
             "Kiosk-Login per Dienstausweis",
             "Offizielle Identifikation bei Einsätzen",
             "Mitgliedsfoto auf dem Ausweis in Apple Wallet",
-            "Der Ausweis wird auf dem eigenen Server erstellt – Mitgliederdaten gehen nicht an einen externen Anbieter"
+            "Der Apple-Wallet-Ausweis wird auf dem eigenen Server erstellt – ohne Übertragung von Mitgliederdaten an einen Pass-Dienstleister"
         ],
         keywords: ["Digitaler Dienstausweis Feuerwehr", "Feuerwehrausweis App", "NFC Feuerwehr", "QR Code Ausweis"],
         icon: CreditCard,
@@ -834,7 +834,7 @@ export const modules: Record<string, ModuleData> = {
             "Personalplanung für Veranstaltungen",
             "Artikel einer oder mehreren Kassen zuordnen – z. B. Bier nur im Festzelt; Artikel ohne Zuordnung gelten in allen Kassen",
             "Im Kiosk eine Runde für mehrere Personen buchen – jede Person mit eigenem Warenkorb und Zusammenfassung vor dem Buchen",
-            "Beleg per E-Mail an die belasteten Personen mit ihren Posten und dem eigenen Kontostand"
+            "Beleg per E-Mail nach jeder Buchung – an die buchende Person samt eigenem Kontostand und an jede Person, für die mitbestellt wurde"
         ],
         keywords: ["Feuerwehrfest", "Veranstaltungsmanagement", "Kassensystem Verein", "Getränkeverkauf", "Vereinsfest"],
         icon: Beer,
@@ -857,7 +857,7 @@ export const modules: Record<string, ModuleData> = {
             "Übergreifende Statistiken und Berichte",
             "Gemeinsame Dokumentenbibliothek",
             "Förderanträge (z. B. ZFeu) kreisweit prüfen, priorisieren und bis zur Auszahlung begleiten",
-            "Optionale dritte Ebene: Kennzahlen mehrerer Kreise lassen sich zu einer Landessicht aggregieren",
+            "Landesweite Sicherheits-Rückrufe erreichen die Wehren über den Kreis – geprüft wird vor Ort, gemeldet wird nur die Trefferzahl",
             "Landesweite Sicherheits-Rückrufe erreichen die Wehr automatisch über den Kreis – geprüft wird vor Ort, zurück geht nur die Anzahl betroffener Geräte"
         ],
         keywords: ["Kreisfeuerwehr Software", "Verband Feuerwehr", "Landkreis Feuerwehr", "übergreifende Plattform", "Gegenseitige Alarmierung"],
@@ -880,7 +880,7 @@ export const modules: Record<string, ModuleData> = {
             "Tätigkeitsnachweise als PDF",
             "Jahresauswertung pro Mitglied",
             "Export für Gemeinde und Arbeitgeber",
-            "Arbeitsstunden als Zeitraum erfassen – bei mehreren Tagen bucht RESQIO automatisch je Tag einen eigenen Eintrag"
+            "Arbeitsstunden im Kiosk als Zeitraum erfassen – bei mehreren Tagen bucht RESQIO automatisch je Tag einen eigenen Eintrag"
         ],
         keywords: ["Arbeitsstunden Feuerwehr", "Tätigkeitsnachweis", "Stundendokumentation", "Ehrenamtsnachweis"],
         icon: Clock,
@@ -938,7 +938,7 @@ export const modules: Record<string, ModuleData> = {
             "Nachrichten mit Quittierung: Wichtige Mitteilungen gelten erst als gelesen, wenn sie bestätigt wurden – mit Echtzeit-Lesebestätigung und Prioritätsstufen",
             "Waldbrand-Ausbreitung: Brandfläche auf der Lagekarte einzeichnen, mit Flächenberechnung und windgetriebener Prognose für 30, 60 oder 120 Minuten",
             "Führungs- und Verwaltungsstab arbeiten zusammen, mit Schichtübergabe, gemeinsamem Zeitstrahl und Ressourcen-Übergabe",
-            "Amtliche Maßnahmenliste des Innenministeriums für kleinere Gemeinden als fertiges Szenario: 54 Maßnahmen landen mit einem Klick als Aufgaben im Stabsboard"
+            "Verwaltungsstab: Amtliche Maßnahmenliste des Innenministeriums für kleinere Gemeinden als fertiges Szenario – alle 54 Maßnahmen landen mit einem Klick als Aufgaben im Stabsboard"
         ],
         keywords: ["Stabsarbeit", "Führungsunterstützung", "Einsatztagebuch", "Einsatzleitung", "Führungsstab", "MANV", "Großschadenslage", "Taktische Zeichen", "Lagekarte", "Stab Feuerwehr", "Führungsorganisation", "MANV Software Feuerwehr", "digitales Einsatztagebuch Feuerwehr", "Stabsarbeit Software Feuerwehr", "Führungsunterstützung Feuerwehr digital", "Großschadenslage Software"],
         icon: Shield,
@@ -1005,7 +1005,7 @@ export const modules: Record<string, ModuleData> = {
             "Einbindung externer Kalenderquellen",
             "Verknüpfung mit Einsätzen und Mannschaftsverwaltung",
             "Eigene Kalender mit eigener Farbe, z. B. für Jugendfeuerwehr oder Maschinisten – sichtbar nur für die zugeordneten Gruppen, Wehren oder Personen",
-            "Rückmeldung „Komme“, „Vorbehalt“ oder „Komme nicht“ im Web, am Kiosk und in der Alarm-App – auch ohne Netz",
+            "Rückmeldung „Komme“, „Vorbehalt“ oder „Komme nicht“ zu Terminen eigener Kalender – im Web, am Kiosk und in der Alarm-App, dort auch ohne Netz",
             "Wiederkehrende Termine, Absage statt Löschen",
             "Persönlicher CalDAV-Zugang für Handy und Computer, jederzeit widerrufbar",
             "Kalender in der Alarm-App abonnieren – als Sammel-Abo oder einzeln je Sorte; Einsätze bleiben bewusst außen vor"
@@ -1323,7 +1323,7 @@ export const modules: Record<string, ModuleData> = {
         features: [
             "Kanban-Board mit Karten, Checklisten und Anhängen",
             "Zugriff auf Rollen oder einzelne Personen beschränkbar",
-            "Interessierte können den Zugriff ohne Anmeldung per E-Mail beantragen",
+            "Wer keinen Zugriff auf ein Projekt hat, beantragt ihn per Klick – die Verantwortlichen genehmigen per E-Mail-Link, ohne sich anzumelden",
             "Automatisches Eingangs-Board je Fachgebiet für dessen Mitglieder",
             "Reiter „Vorbereitung & Nacharbeit“ an Einsatz und Übung mit dem zugehörigen Projekt-Board",
             "Gesammelte Änderungsmails an Projektbeteiligte"
@@ -1336,15 +1336,15 @@ export const modules: Record<string, ModuleData> = {
     "alarm-app": {
         title: "RESQIO Alarm-App für Android & iOS",
         shortDesc: "Einsatzalarm im Vollbild aufs Handy – mit Zu- und Absage, Übungs- und Terminkalender. Für Android und iOS.",
-        longDesc: "Die RESQIO Alarm-App bringt den Einsatzalarm dorthin, wo die Einsatzkräfte sind: aufs Smartphone. Bei einer Alarmierung erscheint der Einsatz im Vollbild – auch bei gesperrtem Gerät. Mit einem Fingertipp melden sich Kameradinnen und Kameraden mit „Komme“, „Vorbehalt“ oder „Komme nicht“ zurück, die Einsatzleitung sieht die Rückmeldungen live. Dazu kommen der Übungs- und Terminkalender mit Rückmeldung, auch ohne Netz, sowie die Navigation zur Einsatzstelle. Die App wird mit der RESQIO-Instanz der eigenen Feuerwehr gekoppelt; die Daten bleiben bei Ihrer Wehr.",
+        longDesc: "Die RESQIO Alarm-App bringt den Einsatzalarm dorthin, wo die Einsatzkräfte sind: aufs Smartphone. Bei einer Alarmierung erscheint der Einsatz im Vollbild (Android, auch bei gesperrtem Gerät); auf dem iPhone kommt der Alarm als zeitkritische Benachrichtigung, die den Fokus-Modus durchbricht. Mit einem Fingertipp melden sich Kameradinnen und Kameraden mit „Komme“, „Vorbehalt“ oder „Komme nicht“ zurück, die Einsatzleitung sieht die Rückmeldungen live. Dazu kommen der Übungs- und Terminkalender mit Rückmeldung, auch ohne Netz, sowie die Navigation zur Einsatzstelle. Die App wird mit der RESQIO-Instanz der eigenen Feuerwehr gekoppelt.",
         benefits: [
-            "Erreichbarkeit: Vollbild-Alarm auch bei gesperrtem Gerät",
+            "Erreichbarkeit: Auf Android Vollbild-Alarm auch bei gesperrtem Gerät, auf dem iPhone als zeitkritischer Hinweis, der den Fokus-Modus durchbricht",
             "Überblick: Die Einsatzleitung sieht Zusagen, Vorbehalte und Absagen live",
             "Alltagstauglich: Übungen und Termine mit Rückmeldung – auch ohne Netz, die Antwort wird nachgereicht",
-            "Datenschutz: Kopplung mit der eigenen RESQIO-Instanz Ihrer Feuerwehr, Hosting in Deutschland"
+            "Datenschutz: Kopplung mit der eigenen RESQIO-Instanz Ihrer Feuerwehr, ohne eigenes Konto"
         ],
         features: [
-            "Einsatzalarm im Vollbild mit Alarmton, Rückmeldung per Fingertipp und Ankunftszeit aus dem GPS-Standort",
+            "Einsatzalarm im Vollbild mit Alarmton und Rückmeldung per Fingertipp (Android direkt, iPhone nach Antippen der Benachrichtigung), Ankunftszeit aus dem GPS-Standort",
             "Kopplung per QR-Code im Kiosk oder per Kurzcode – ohne eigenes Konto",
             "Übungs- und Terminkalender mit Rückmeldung, Offline-Warteschlange und persönlichem Kalender-Abo",
             "Navigation zur Einsatzstelle mit Auswahl von Google Maps oder Apple Maps",
@@ -1357,13 +1357,13 @@ export const modules: Record<string, ModuleData> = {
             "Die Rückmeldung „Komme“ geht auch ohne Netz nicht verloren – sie wird auf dem Gerät gespeichert und gesendet, sobald wieder Verbindung besteht",
             "Alarmmodus im Alarme-Tab: Alarmton, lautlos oder stumm für einen wählbaren Zeitraum – ein Testalarm kommt immer durch",
             "iPhone: Einsatzalarme sind als zeitkritisch eingestuft und durchbrechen den Fokus-Modus „Nicht stören“",
-            "Statusbereich zeigt, ob ein Einsatzalarm die Handys der Mannschaft erreichen kann, und nennt die Ursache, falls etwas blockiert",
+            "In RESQIO (Kommunikationscenter und AAO) zeigt ein Status-Kasten, ob ein Einsatzalarm die Handys der Mannschaft erreichen kann, und nennt die Ursache, falls etwas blockiert",
             "Verfügbarkeitsstatus automatisch setzen – die Auswertung läuft nur auf dem Gerät, übertragen wird nur der Status, nie der Standort",
             "Kalender abonnieren als Sammel-Abo oder einzeln je Sorte, inklusive Übungen"
         ],
         technicalDetails: [
             "Native Android- und iOS-App (Paket io.resqio.alarm), Push über Firebase Cloud Messaging",
-            "Zustellung wird vom Server geprüft; fehlende Freigaben am Gerät lassen sich nur auf dem Handy selbst beheben",
+            "Der Server prüft, ob etwas den Alarmweg blockiert; ob der Alarm tatsächlich auf dem Handy erscheint, hängt von den Freigaben am Gerät ab, die sich nur dort beheben lassen",
             "Kopplungen sind pro Gerät widerruflich, Lösch- und Datenschutzhinweise unter /datenschutz#alarm-app"
         ],
         keywords: ["Feuerwehr Alarm App", "Alarmierung Smartphone Feuerwehr", "Pager App Feuerwehr", "Einsatzalarm Handy", "Feuerwehr App Android iOS", "Alarm Zusage Absage App", "RESQIO Alarm"],

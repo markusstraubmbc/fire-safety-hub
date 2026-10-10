@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import KREIS_FAQ_JSON_LD from "@/data/kreis-faq-jsonld.json";
 import {
   Globe,
   Shield,
@@ -132,7 +134,7 @@ const KreisModul = () => {
         availability: "https://schema.org/InStock",
         url: pageUrl,
       },
-      featureList: "Kreisweites Dashboard, Schulungsmanagement, Atemschutzwerkstatt-Buchung, Schlauchwerkstatt, Sonderausrüstungs-Register, Personalstatistiken, Fahrzeug-Dashboard, Wasserversorgungskarte, Förderanträge (ZFeu), KI-Assistent, Übungskoordination, Dokumenten-Portal, Schwarzes Brett, Aggregation zur Landessicht",
+      featureList: "Kreisweites Dashboard, Schulungsmanagement, Atemschutzwerkstatt-Buchung, Schlauchwerkstatt, Sonderausrüstungs-Register, Personalstatistiken, Fahrzeug-Dashboard, Wasserversorgungskarte, Förderanträge (ZFeu), KI-Assistent, Übungskoordination, Dokumenten-Portal, Schwarzes Brett",
     });
     document.getElementById("product-jsonld")?.remove();
     document.head.appendChild(productScript);
@@ -152,7 +154,7 @@ const KreisModul = () => {
   ];
 
   const solutions = [
-    { icon: BarChart3, text: "Alle Daten automatisch aggregiert und anonymisiert — in Echtzeit verfügbar" },
+    { icon: BarChart3, text: "Freigegebene Daten automatisch zusammengeführt — Statistiken aggregiert, in Echtzeit verfügbar" },
     { icon: Users, text: "Qualifikationslücken und Beschaffungsbedarfe sofort erkennen" },
     { icon: Calendar, text: "Online-Anmeldung zu Schulungen mit automatischer Platzvergabe und Wartelisten" },
     { icon: Wrench, text: "Digitale Werkstatt-Buchung mit Kalender, Kapazitätsanzeige und automatischer Rückmeldung" },
@@ -195,8 +197,8 @@ const KreisModul = () => {
   const privacyPrinciples = [
     {
       icon: Users,
-      title: "Keine personenbezogenen Daten auf Kreisebene",
-      description: "Der Kreis sieht ausschließlich anonymisierte und aggregierte Statistiken. Personaldaten verbleiben bei der jeweiligen Wehr.",
+      title: "Die Wehr bestimmt, was freigegeben wird",
+      description: "Personaldaten verlassen die Wehr nur, wenn sie ausdrücklich freigegeben sind — wahlweise als reine Kennzahlen oder als Stammdaten für die Kreisverwaltung. Die Statistiken des Kreises sind aggregiert.",
     },
     {
       icon: Lock,
@@ -282,10 +284,10 @@ const KreisModul = () => {
       features: [
         { icon: Coins, title: "Förderprogramm-Katalog", desc: "Der Kreis pflegt die Programme (z. B. ZFeu) – die Wehren wählen beim Antrag aus der aktuellen, synchronisierten Liste" },
         { icon: FileText, title: "Anträge digital einreichen", desc: "Wehren stellen Anträge mit Unterlagen online; bei Festbetrags-Positionen wie Fahrzeugklassen rechnet das System den Betrag selbst" },
-        { icon: ClipboardList, title: "Prüfung & Priorisierung", desc: "Haushaltsjahr (Jahresscheibe), Rangplatz, Stellungnahme und Warteliste je Antrag – als Grundlage für die Meldung ans Regierungspräsidium" },
+        { icon: ClipboardList, title: "Prüfung & Priorisierung", desc: "Haushaltsjahr (Jahresscheibe), Rangplatz, Stellungnahme und Warteliste je Antrag – als Grundlage für die Meldung an die Bewilligungsbehörde (in Baden-Württemberg: Regierungspräsidium)" },
         { icon: CheckCircle2, title: "Bewilligung bis Auszahlung", desc: "Status von Entwurf bis Abgeschlossen, Mittelabruf und Verwendungsnachweis in einem durchgehenden Vorgang" },
         { icon: Brain, title: "KI-Vorschlag zur Begründung", desc: "Textvorschlag für die Antragsbegründung – wird gekennzeichnet und erst nach aktiver Prüfung übernommen" },
-        { icon: BarChart3, title: "Überblick & Export", desc: "Alle Anträge des Kreises mit Status und Beträgen auf einen Blick, Export für Verwaltung und Nachweise" },
+        { icon: BarChart3, title: "Überblick & Export", desc: "Alle eigenen Anträge mit Status und Beträgen auf einen Blick, Export als Excel oder PDF" },
       ],
     },
     {
@@ -517,12 +519,12 @@ const KreisModul = () => {
             </div>
 
             <Tabs defaultValue="ueberblick" className="w-full">
-              <TabsList className="w-full flex flex-wrap h-auto gap-2 bg-muted/50 p-2 rounded-xl mb-8">
+              <TabsList className="w-full grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-7 h-auto gap-2 bg-muted/50 p-2 rounded-xl mb-8">
                 {featureTabs.map((tab) => (
                   <TabsTrigger
                     key={tab.id}
                     value={tab.id}
-                    className="flex-1 min-w-[140px] text-xs sm:text-sm font-semibold data-[state=active]:bg-primary data-[state=active]:text-white rounded-lg py-2.5"
+                    className="text-xs sm:text-sm font-semibold data-[state=active]:bg-primary data-[state=active]:text-white rounded-lg py-2.5"
                   >
                     {tab.label}
                   </TabsTrigger>
@@ -638,19 +640,19 @@ const KreisModul = () => {
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-4">
                 <Landmark className="w-4 h-4 text-primary" />
-                <span className="text-sm font-semibold text-primary">Dritte Ebene: RESQIO Land</span>
+                <span className="text-sm font-semibold text-primary">Dritte Ebene: RESQIO Land — in Vorbereitung</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Vom Kreis zur Landessicht
+                Ausblick: vom Kreis zur Landessicht
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Die Landeslösung bündelt die Kennzahlen mehrerer Kreismodule zu einem landesweiten Lagebild – für Landesfeuerwehrverband, Regierungspräsidien und Landesfeuerwehrschule.
+                Die Landeslösung soll die Kennzahlen mehrerer Kreismodule zu einem landesweiten Lagebild bündeln – für Landesfeuerwehrverband, Regierungspräsidien und Landesfeuerwehrschule.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-10 items-stretch">
               {[
-                { icon: Users, step: "Wehr", text: "Erfasst und behält ihre Daten – und entscheidet, was sie dem Kreis freigibt." },
+                { icon: Users, step: "Wehr", text: "Erfasst ihre Daten und entscheidet, was sie dem Kreis freigibt." },
                 { icon: Globe, step: "Kreis", text: "Aggregiert die Wehren des Landkreises und entscheidet je Kategorie, ob Kennzahlen nach oben weitergegeben werden." },
                 { icon: Landmark, step: "Land", text: "Fasst die Kennzahlen aller angebundenen Kreise zu einer landesweiten Sicht zusammen." },
               ].map((level, idx) => (
@@ -662,6 +664,7 @@ const KreisModul = () => {
                     <h3 className="text-lg font-bold text-foreground">{idx + 1}. {level.step}</h3>
                   </div>
                   <p className="text-muted-foreground text-sm leading-relaxed">{level.text}</p>
+                  {idx < 2 && <ArrowRight className="md:hidden mx-auto rotate-90 w-5 h-5 text-primary" aria-hidden="true" />}
                   {idx < 2 && <ArrowRight className="hidden md:block absolute -right-5 top-1/2 -translate-y-1/2 w-6 h-6 text-primary z-10" aria-hidden="true" />}
                 </div>
               ))}
@@ -669,10 +672,10 @@ const KreisModul = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
               {[
-                { icon: Layers, title: "Nur Kennzahlen, keine Personendaten", desc: "Das Land erhält ausschließlich Aggregate wie Kopfzahlen, Quoten und Verteilungen – nie Namen, Kontaktdaten oder Personen-IDs." },
+                { icon: Layers, title: "Nur Kennzahlen – keine Namen, Kontaktdaten oder Personen-IDs", desc: "Das Land soll ausschließlich Aggregate wie Kopfzahlen, Quoten und Verteilungen erhalten." },
                 { icon: Shield, title: "Der Kreis behält die Hoheit", desc: "Ob eine Datenkategorie überhaupt nach oben fließt, entscheidet der Kreis. Eine Wehr verbindet sich nie direkt mit dem Land – der Weg führt immer über ihren Kreis." },
-                { icon: Bell, title: "Rückrufe von oben nach unten", desc: "Eine landesweite Sicherheits- oder Rückrufmeldung läuft Land → Kreis → Wehr. Jede Wehr prüft lokal gegen ihre Geräte und meldet nur eine Trefferzahl zurück – keine Seriennummer verlässt die Wehr." },
-                { icon: BarChart3, title: "Landesweite Auswertung", desc: "Personalstärken, FwDV-Kennzahlen und Tagesalarmsicherheit über alle Kreise hinweg vergleichbar – statt Excel-Meldungen von jedem Landratsamt." },
+                { icon: Bell, title: "Rückrufe von oben nach unten", desc: "Landesweite Sicherheits- und Rückrufmeldungen erreichen die Wehr über den Kreis. Jede Wehr prüft lokal gegen ihre Geräte und meldet nur eine Trefferzahl zurück – keine Seriennummer verlässt die Wehr." },
+                { icon: BarChart3, title: "Landesweite Auswertung (im Aufbau)", desc: "Kennzahlen aus den Kreisen werden zu einer vergleichbaren Landessicht zusammengeführt – statt Excel-Meldungen von jedem Landratsamt." },
               ].map((item) => (
                 <div key={item.title} className="p-5 md:p-6 bg-card/40 backdrop-blur-sm rounded-2xl border border-border hover:border-primary/30 transition-all">
                   <div className="flex items-start gap-4">
@@ -687,6 +690,21 @@ const KreisModul = () => {
                 </div>
               ))}
             </div>
+          </section>
+
+          {/* ============================================ */}
+          {/* E3) FAQ – gleiche Daten wie das FAQPage-Schema (prerender.mjs) */}
+          {/* ============================================ */}
+          <section id="faq" className="mb-20 md:mb-28 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">Häufige Fragen zum Kreismodul</h2>
+            <Accordion type="single" collapsible className="w-full">
+              {KREIS_FAQ_JSON_LD.mainEntity.map((entry, idx) => (
+                <AccordionItem key={idx} value={`faq-${idx}`}>
+                  <AccordionTrigger className="text-left font-semibold">{entry.name}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed">{entry.acceptedAnswer.text}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </section>
 
           {/* ============================================ */}

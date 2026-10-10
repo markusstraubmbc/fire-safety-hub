@@ -115,7 +115,7 @@ Die Preise richten sich nach der Größe und den Anforderungen der Feuerwehr. In
 - **Modularität**: Feuerwehren können spezifische Module je nach Bedarf aktivieren
 - **Externe Kräfte und Technik**: Drohneneinheit (Flugbuch, Fernpiloten-Nachweise, Luftbilder am Einsatz) und Landwirtschaftsmodul (Wasserfässer, Zugmaschinen und Radlader aus dem Ort) binden Ressourcen ein, die nicht im Gerätehaus stehen
 - **Alarm-App**: Die RESQIO Alarm-App bringt den Einsatzalarm im Vollbild aufs Smartphone, mit Zu- und Absage sowie Termin-Rückmeldung. Google Play: ${ALARM_APP.googlePlayUrl}${ALARM_APP.appStoreUrl ? `, Apple App Store: ${ALARM_APP.appStoreUrl}` : ""}
-- **Kreis, Förderung und Land**: Das Kreismodul vernetzt alle Wehren eines Landkreises und verwaltet Förderanträge (z. B. ZFeu) von der Einreichung bis zum Verwendungsnachweis. Als dritte Ebene aggregiert RESQIO Land die Kennzahlen mehrerer Kreise zu einer Landessicht — ausschließlich Kennzahlen, keine Personendaten, und der Kreis entscheidet je Kategorie, was weitergegeben wird
+- **Kreis, Förderung und Land**: Das Kreismodul vernetzt alle Wehren eines Landkreises und verwaltet Förderanträge (z. B. ZFeu) von der Einreichung bis zum Verwendungsnachweis. Eine Landeslösung (RESQIO Land) ist in Vorbereitung: Sie soll die Kennzahlen mehrerer Kreise zu einer Landessicht bündeln — ausschließlich Kennzahlen, keine Namen oder Kontaktdaten, und der Kreis entscheidet je Kategorie, was weitergegeben wird
 - **Länderunterstützung**: RESQIO ist auf deutsche Vorschriften ausgelegt (DGUV, FwDV, DIN). Für österreichische Wehren gibt es das Ländermodul Österreich mit Dienstgraden und Chargen nach österreichischem Schema, ÖNORM-Fahrzeugtypen und Fristen nach Bundesland
 
 ## Module im Detail

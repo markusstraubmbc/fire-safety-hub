@@ -31,7 +31,6 @@ const AppStoreButtons = ({ className, tone = "dark" }: AppStoreButtonsProps) => 
           href={href as string}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`${ALARM_APP.name}-App im ${label} öffnen`}
           className={cn(
             "inline-flex items-center gap-3 rounded-xl border px-4 py-2.5 transition-colors touch-manipulation",
             toneClasses
@@ -41,6 +40,7 @@ const AppStoreButtons = ({ className, tone = "dark" }: AppStoreButtonsProps) => 
           <span className="flex flex-col text-left leading-tight">
             <span className="text-[10px] uppercase tracking-wider opacity-80">{prefix}</span>
             <span className="text-base font-semibold">{label}</span>
+            <span className="sr-only"> – RESQIO Alarm-App (öffnet in neuem Tab)</span>
           </span>
         </a>
       ))}
