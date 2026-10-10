@@ -35,6 +35,10 @@ import {
   ClipboardList,
   Sparkles,
   Building2,
+  Landmark,
+  Coins,
+  Layers,
+  Bell,
 } from "lucide-react";
 
 const KreisModul = () => {
@@ -128,7 +132,7 @@ const KreisModul = () => {
         availability: "https://schema.org/InStock",
         url: pageUrl,
       },
-      featureList: "Kreisweites Dashboard, Schulungsmanagement, Atemschutzwerkstatt-Buchung, Schlauchwerkstatt, Sonderausrüstungs-Register, Personalstatistiken, Fahrzeug-Dashboard, Wasserversorgungskarte, KI-Assistent, Übungskoordination, Dokumenten-Portal, Schwarzes Brett",
+      featureList: "Kreisweites Dashboard, Schulungsmanagement, Atemschutzwerkstatt-Buchung, Schlauchwerkstatt, Sonderausrüstungs-Register, Personalstatistiken, Fahrzeug-Dashboard, Wasserversorgungskarte, Förderanträge (ZFeu), KI-Assistent, Übungskoordination, Dokumenten-Portal, Schwarzes Brett, Aggregation zur Landessicht",
     });
     document.getElementById("product-jsonld")?.remove();
     document.head.appendChild(productScript);
@@ -144,6 +148,7 @@ const KreisModul = () => {
     { icon: Eye, text: "Kein Überblick über Qualifikationsstände, Personalstärken und Ausrüstungsengpässe" },
     { icon: Clock, text: "Schulungsplätze per Telefon und Papier koordinieren — fehleranfällig und zeitintensiv" },
     { icon: Wrench, text: "Werkstatt-Termine unübersichtlich und ohne zentrale Kapazitätsplanung" },
+    { icon: Coins, text: "Förderanträge als Papier- und Mailverkehr, ohne Überblick über Stand und Rangfolge" },
   ];
 
   const solutions = [
@@ -151,6 +156,7 @@ const KreisModul = () => {
     { icon: Users, text: "Qualifikationslücken und Beschaffungsbedarfe sofort erkennen" },
     { icon: Calendar, text: "Online-Anmeldung zu Schulungen mit automatischer Platzvergabe und Wartelisten" },
     { icon: Wrench, text: "Digitale Werkstatt-Buchung mit Kalender, Kapazitätsanzeige und automatischer Rückmeldung" },
+    { icon: Coins, text: "Förderanträge digital eingereicht, priorisiert und bis zur Auszahlung nachverfolgt" },
   ];
 
   const benefits = [
@@ -268,6 +274,18 @@ const KreisModul = () => {
         { icon: ClipboardList, title: "Umfragen & Feedback", desc: "Anonyme Umfragen an alle oder ausgewählte Wehren mit Ergebnisauswertung" },
         { icon: Calendar, title: "Veranstaltungen", desc: "Kreisweite Veranstaltungsplanung mit Rückmelde-System und Teilnahme-Tracking" },
         { icon: Award, title: "Ehrungen & Auszeichnungen", desc: "Automatisierte Ehrungsurkunden-Generierung mit konfigurierbaren Vorlagen und Massenerfassung" },
+      ],
+    },
+    {
+      id: "foerderung",
+      label: "Förderung",
+      features: [
+        { icon: Coins, title: "Förderprogramm-Katalog", desc: "Der Kreis pflegt die Programme (z. B. ZFeu) – die Wehren wählen beim Antrag aus der aktuellen, synchronisierten Liste" },
+        { icon: FileText, title: "Anträge digital einreichen", desc: "Wehren stellen Anträge mit Unterlagen online; bei Festbetrags-Positionen wie Fahrzeugklassen rechnet das System den Betrag selbst" },
+        { icon: ClipboardList, title: "Prüfung & Priorisierung", desc: "Haushaltsjahr (Jahresscheibe), Rangplatz, Stellungnahme und Warteliste je Antrag – als Grundlage für die Meldung ans Regierungspräsidium" },
+        { icon: CheckCircle2, title: "Bewilligung bis Auszahlung", desc: "Status von Entwurf bis Abgeschlossen, Mittelabruf und Verwendungsnachweis in einem durchgehenden Vorgang" },
+        { icon: Brain, title: "KI-Vorschlag zur Begründung", desc: "Textvorschlag für die Antragsbegründung – wird gekennzeichnet und erst nach aktiver Prüfung übernommen" },
+        { icon: BarChart3, title: "Überblick & Export", desc: "Alle Anträge des Kreises mit Status und Beträgen auf einen Blick, Export für Verwaltung und Nachweise" },
       ],
     },
     {
@@ -610,6 +628,64 @@ const KreisModul = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </section>
+
+          {/* ============================================ */}
+          {/* E2) LANDESEBENE – Aggregation der Kreise */}
+          {/* ============================================ */}
+          <section id="land" className="mb-20 md:mb-28">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-4">
+                <Landmark className="w-4 h-4 text-primary" />
+                <span className="text-sm font-semibold text-primary">Dritte Ebene: RESQIO Land</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Vom Kreis zur Landessicht
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Die Landeslösung bündelt die Kennzahlen mehrerer Kreismodule zu einem landesweiten Lagebild – für Landesfeuerwehrverband, Regierungspräsidien und Landesfeuerwehrschule.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-10 items-stretch">
+              {[
+                { icon: Users, step: "Wehr", text: "Erfasst und behält ihre Daten – und entscheidet, was sie dem Kreis freigibt." },
+                { icon: Globe, step: "Kreis", text: "Aggregiert die Wehren des Landkreises und entscheidet je Kategorie, ob Kennzahlen nach oben weitergegeben werden." },
+                { icon: Landmark, step: "Land", text: "Fasst die Kennzahlen aller angebundenen Kreise zu einer landesweiten Sicht zusammen." },
+              ].map((level, idx) => (
+                <div key={level.step} className="relative p-6 bg-card/60 backdrop-blur-sm rounded-2xl border border-border space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                      <level.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground">{idx + 1}. {level.step}</h3>
+                  </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{level.text}</p>
+                  {idx < 2 && <ArrowRight className="hidden md:block absolute -right-5 top-1/2 -translate-y-1/2 w-6 h-6 text-primary z-10" aria-hidden="true" />}
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+              {[
+                { icon: Layers, title: "Nur Kennzahlen, keine Personendaten", desc: "Das Land erhält ausschließlich Aggregate wie Kopfzahlen, Quoten und Verteilungen – nie Namen, Kontaktdaten oder Personen-IDs." },
+                { icon: Shield, title: "Der Kreis behält die Hoheit", desc: "Ob eine Datenkategorie überhaupt nach oben fließt, entscheidet der Kreis. Eine Wehr verbindet sich nie direkt mit dem Land – der Weg führt immer über ihren Kreis." },
+                { icon: Bell, title: "Rückrufe von oben nach unten", desc: "Eine landesweite Sicherheits- oder Rückrufmeldung läuft Land → Kreis → Wehr. Jede Wehr prüft lokal gegen ihre Geräte und meldet nur eine Trefferzahl zurück – keine Seriennummer verlässt die Wehr." },
+                { icon: BarChart3, title: "Landesweite Auswertung", desc: "Personalstärken, FwDV-Kennzahlen und Tagesalarmsicherheit über alle Kreise hinweg vergleichbar – statt Excel-Meldungen von jedem Landratsamt." },
+              ].map((item) => (
+                <div key={item.title} className="p-5 md:p-6 bg-card/40 backdrop-blur-sm rounded-2xl border border-border hover:border-primary/30 transition-all">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div className="space-y-1.5">
+                      <h4 className="font-bold text-foreground text-sm">{item.title}</h4>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </section>
 

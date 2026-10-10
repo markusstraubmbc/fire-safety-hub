@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { modules, moduleBadgeLabels } from "@/data/module-data";
 import { Button } from "@/components/ui/button";
+import AppStoreButtons from "@/components/AppStoreButtons";
 import {
   ArrowLeft,
   CheckCircle2,
@@ -227,6 +228,8 @@ const ModulDetail = () => {
               <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
                 {module.longDesc}
               </p>
+
+              {slug === "alarm-app" && <AppStoreButtons className="pt-2" />}
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Link to="/#kontakt" className="w-full sm:w-auto">

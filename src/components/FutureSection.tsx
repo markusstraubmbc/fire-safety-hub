@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { scrollToSection } from "@/lib/utils";
+import AppStoreButtons from "@/components/AppStoreButtons";
 
 const FutureSection = () => {
 
     const benefits = [
+        "RESQIO Alarm-App: Vollbild-Alarm, Zu- und Absage und Termine auf dem Handy",
         "Digitaler Dienstausweis im Apple & Google Wallet, dazu NFC",
         "Kiosk-Tablet im Gerätehaus: Login per RFID, PIN oder QR-Code",
         "Offline nutzbar – auch wenn das Netz im Gerätehaus streikt",
@@ -41,6 +43,13 @@ const FutureSection = () => {
                                 </li>
                             ))}
                         </ul>
+
+                        <div id="alarm-app" className="mb-10 scroll-mt-28 space-y-3">
+                            <p className="text-sm font-semibold text-foreground">
+                                RESQIO Alarm-App für Android und iOS
+                            </p>
+                            <AppStoreButtons />
+                        </div>
 
                         <Button
                             onClick={() => scrollToSection("kontakt")}

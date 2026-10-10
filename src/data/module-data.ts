@@ -40,6 +40,7 @@ import {
     PlaneTakeoff,
     Tractor,
     Flag,
+    Smartphone,
     LucideIcon
 } from "lucide-react";
 
@@ -134,7 +135,9 @@ export const modules: Record<string, ModuleData> = {
             "Digitale Unterschrift des Prüfers direkt auf dem Wartungsprotokoll – rechtssicher und revisionsfest",
             "Prüfprotokolle als PDF mit eingebetteter Signatur – ideal für DGUV-Nachweise und Versicherungen",
             "Qualifikationsnachweis: Wer hat wann mit welcher Prüfer-ID geprüft?",
-            "DGUV-Lebensdauer-Kategorien: Maximale Nutzungsdauer direkt am Gerät hinterlegen – für Atemschutzgeräte, Helme, Seile, Schutzkleidung und mehr"
+            "DGUV-Lebensdauer-Kategorien: Maximale Nutzungsdauer direkt am Gerät hinterlegen – für Atemschutzgeräte, Helme, Seile, Schutzkleidung und mehr",
+            "Bis zu 10 Fotos je Prüfung am Kiosk – einzeln entfernbar, auch bei der Massenwartung, in Details und PDF-Nachweisen enthalten",
+            "Prüfschritte in Wartungsvorlagen per Drag-and-Drop sortieren – Live-Vorschau der gedruckten Checkliste"
         ],
         keywords: ["Gerätewart Software", "Gerätewart App", "Feuerwehr Gerätewart", "Wartungsplaner Feuerwehr", "Prüffristen Software", "DGUV Prüfung", "Prüfbuch digital", "UVV Prüfung Feuerwehr", "Gerätebuch digital", "Checklisten Wartung", "Instandhaltung Feuerwehr", "Wartungsprotokoll Unterschrift digital", "digitale Unterschrift Gerätewart Feuerwehr", "Prüfprotokoll Feuerwehr Unterschrift", "DGUV Prüfnachweis digital"],
         icon: Wrench,
@@ -257,7 +260,8 @@ export const modules: Record<string, ModuleData> = {
             "Automatische Berechnung von Rückweg und Warnschwellen",
             "Integration in Einsatzbericht & PDF-Protokoll",
             "Fristenmanagement & Belastungsübungs-Tracking",
-            "Dashboard-Widget für Atemschutz-Pool-Status"
+            "Dashboard-Widget für Atemschutz-Pool-Status",
+            "Atemschutzpass automatisch: Beim Start eines Trupps entsteht für jede Person der Eintrag, beim Beenden wird die Gesamtdauer – auch über Pause und Fortsetzen – fertiggeschrieben (Einsatz, Kiosk, Tablet-Monitor, externes Portal)"
         ],
         keywords: ["digitale Atemschutzüberwachung", "Atemschutzüberwachung digital", "ASÜ Software", "AGT Verwaltung", "Atemschutz Feuerwehr Software", "G26.3", "Truppüberwachung", "Einsatzsicherheit", "Belastungsübung", "FwDV 7", "Atemschutzgeräteträger"],
         icon: AlertTriangle,
@@ -289,7 +293,10 @@ export const modules: Record<string, ModuleData> = {
             "KI-Berichtsassistent: Professionelle Einsatzberichte in Sekunden generiert",
             "Eintreffzeit-Analyse: Visualisierung und Vergleich von Reaktionszeiten",
             "Fahrzeug- und Personalzuordnung mit Stärkeerfassung",
-            "Integration mit Leitstellen-Daten und FMS-Status"
+            "Integration mit Leitstellen-Daten und FMS-Status",
+            "Übungsdienst: Übungsarten als Pflicht- oder Sonderdienst – Sonderdienste zählen in die Gesamtstatistik, nicht in Soll und Pflichtquote",
+            "Übungsthema und Zuordnung zu Mannschaftsgruppen, auch in Listen, Einsatzbericht, Excel-Export und Beteiligungsstatistik",
+            "Zeiten für alle Teilnehmer in einem Schritt setzen, wenn die Übungszeit nachträglich korrigiert wird"
         ],
         keywords: ["Einsatzdokumentation Feuerwehr", "Einsatzbericht digital", "Feuerwehr Einsatzmanagement", "Alarmierung Software", "Einsatzprotokoll", "Quiz Feuerwehr Training", "Verbrauchsmaterial Tracking"],
         icon: ClipboardList,
@@ -376,7 +383,8 @@ export const modules: Record<string, ModuleData> = {
             "Erfassung von Pumpenstandorten und Schlauchstrecken",
             "Berechnung von Fördermengen und Druckverlusten",
             "Dokumentation und Berichterstellung",
-            "Szenarien-Bibliothek für Ausbildung"
+            "Szenarien-Bibliothek für Ausbildung",
+            "Förderlinie nach Druckzustand eingefärbt (grün/gelb/rot), kritische Abschnitte hervorgehoben, Pumpenübersicht ein-/ausblendbar"
         ],
         keywords: ["Wasserförderung Feuerwehr", "Löschwasserversorgung", "Schlauchleitung", "Pendelverkehr", "Wasserversorgung Großbrand"],
         icon: Droplets,
@@ -507,7 +515,8 @@ export const modules: Record<string, ModuleData> = {
             "Genehmigungsworkflow für Ausgaben",
             "Jahresabschluss-Unterstützung",
             "Kostenstellenmanagement",
-            "Export für Steuerberater und Behörden"
+            "Export für Steuerberater und Behörden",
+            "Belegzusammenfassung zur Budgetauslastung: freigegebene, ausstehende und abgelehnte Belege, ungeplante Ausgaben, größte Lieferanten und Hinweise auf unvollständige Belege"
         ],
         keywords: ["Finanzverwaltung Feuerwehr", "Budget Feuerwehr", "Kassenbuch digital", "Ausgabenverwaltung", "Genehmigungsworkflow"],
         icon: BarChart3,
@@ -773,7 +782,8 @@ export const modules: Record<string, ModuleData> = {
             "Getränkekarte und Kassensystem",
             "Tagesabrechnung",
             "Einnahmen-Tracking",
-            "Personalplanung für Veranstaltungen"
+            "Personalplanung für Veranstaltungen",
+            "Artikel einer oder mehreren Kassen zuordnen – z. B. Bier nur im Festzelt; Artikel ohne Zuordnung gelten in allen Kassen"
         ],
         keywords: ["Feuerwehrfest", "Veranstaltungsmanagement", "Kassensystem Verein", "Getränkeverkauf", "Vereinsfest"],
         icon: Beer,
@@ -794,7 +804,9 @@ export const modules: Record<string, ModuleData> = {
             "Gegenseitige Alarmierung und Unterstützungsanfragen",
             "Kreisweite Ressourcenübersicht",
             "Übergreifende Statistiken und Berichte",
-            "Gemeinsame Dokumentenbibliothek"
+            "Gemeinsame Dokumentenbibliothek",
+            "Förderanträge (z. B. ZFeu) kreisweit prüfen, priorisieren und bis zur Auszahlung begleiten",
+            "Optionale dritte Ebene: Kennzahlen mehrerer Kreise lassen sich zu einer Landessicht aggregieren"
         ],
         keywords: ["Kreisfeuerwehr Software", "Verband Feuerwehr", "Landkreis Feuerwehr", "übergreifende Plattform", "Gegenseitige Alarmierung"],
         icon: Globe,
@@ -932,7 +944,11 @@ export const modules: Record<string, ModuleData> = {
             "Verschiedene Terminarten (Übung, Veranstaltung, Dienst, Wartung)",
             "Teilnehmerverwaltung und Rückmeldung",
             "Einbindung externer Kalenderquellen",
-            "Verknüpfung mit Einsätzen und Mannschaftsverwaltung"
+            "Verknüpfung mit Einsätzen und Mannschaftsverwaltung",
+            "Eigene Kalender mit eigener Farbe, z. B. für Jugendfeuerwehr oder Maschinisten – sichtbar nur für die zugeordneten Gruppen, Wehren oder Personen",
+            "Rückmeldung „Komme“, „Vorbehalt“ oder „Komme nicht“ im Web, am Kiosk und in der Alarm-App – auch ohne Netz",
+            "Wiederkehrende Termine, Absage statt Löschen",
+            "Persönlicher CalDAV-Zugang für Handy und Computer, jederzeit widerrufbar"
         ],
         keywords: ["Kalender", "Terminverwaltung", "Übungsplanung", "Dienstplanung", "Feuerwehr Kalender", "Veranstaltungsplanung"],
         icon: CalendarDays,
@@ -1222,6 +1238,37 @@ export const modules: Record<string, ModuleData> = {
         ],
         keywords: ["Feuerwehr Software Österreich", "Feuerwehrverwaltung Österreich", "Ländermodul Österreich", "Feuerwehr Software Bundesland", "Rüsthaus Verwaltung", "Zeugwart Software", "Feuerwehrsoftware Alpenraum"],
         icon: Flag,
+        color: "red",
+        badge: "neu"
+    },
+    "alarm-app": {
+        title: "RESQIO Alarm-App für Android & iOS",
+        shortDesc: "Einsatzalarm im Vollbild aufs Handy – mit Zu- und Absage, Übungs- und Terminkalender. Für Android und iOS.",
+        longDesc: "Die RESQIO Alarm-App bringt den Einsatzalarm dorthin, wo die Einsatzkräfte sind: aufs Smartphone. Bei einer Alarmierung erscheint der Einsatz im Vollbild – auch bei gesperrtem Gerät. Mit einem Fingertipp melden sich Kameradinnen und Kameraden mit „Komme“, „Vorbehalt“ oder „Komme nicht“ zurück, die Einsatzleitung sieht die Rückmeldungen live. Dazu kommen der Übungs- und Terminkalender mit Rückmeldung, auch ohne Netz, sowie die Navigation zur Einsatzstelle. Die App wird mit der RESQIO-Instanz der eigenen Feuerwehr gekoppelt; die Daten bleiben bei Ihrer Wehr.",
+        benefits: [
+            "Erreichbarkeit: Vollbild-Alarm auch bei gesperrtem Gerät",
+            "Überblick: Die Einsatzleitung sieht Zusagen, Vorbehalte und Absagen live",
+            "Alltagstauglich: Übungen und Termine mit Rückmeldung – auch ohne Netz, die Antwort wird nachgereicht",
+            "Datenschutz: Kopplung mit der eigenen RESQIO-Instanz Ihrer Feuerwehr, Hosting in Deutschland"
+        ],
+        features: [
+            "Einsatzalarm im Vollbild mit Alarmton, Rückmeldung per Fingertipp und Ankunftszeit aus dem GPS-Standort",
+            "Kopplung per QR-Code im Kiosk oder per Kurzcode – ohne eigenes Konto",
+            "Übungs- und Terminkalender mit Rückmeldung, Offline-Warteschlange und persönlichem Kalender-Abo",
+            "Navigation zur Einsatzstelle mit Auswahl von Google Maps oder Apple Maps",
+            "Biometrische App-Sperre (Fingerabdruck, Face ID) – der Alarm selbst bleibt sofort sichtbar",
+            "Fahrzeug-Modus mit eigener, reduzierter Oberfläche: Alarm, Navigation und FMS-Status",
+            "Einrichtungs-Assistent für Berechtigungen und Alarmton, mit Status-Hinweis bei fehlenden Freigaben",
+            "Digitaler Dienstausweis für Apple Wallet und Google Wallet",
+            "Standortfreigabe für Ankunftszeit und Lagekarte – Details in der Datenschutzerklärung"
+        ],
+        technicalDetails: [
+            "Native Android- und iOS-App (Paket io.resqio.alarm), Push über Firebase Cloud Messaging",
+            "Zustellung wird vom Server geprüft; fehlende Freigaben am Gerät lassen sich nur auf dem Handy selbst beheben",
+            "Kopplungen sind pro Gerät widerruflich, Lösch- und Datenschutzhinweise unter /datenschutz#alarm-app"
+        ],
+        keywords: ["Feuerwehr Alarm App", "Alarmierung Smartphone Feuerwehr", "Pager App Feuerwehr", "Einsatzalarm Handy", "Feuerwehr App Android iOS", "Alarm Zusage Absage App", "RESQIO Alarm"],
+        icon: Smartphone,
         color: "red",
         badge: "neu"
     }

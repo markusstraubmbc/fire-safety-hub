@@ -24,13 +24,14 @@
 import { writeFileSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
-import { loadModules, loadWissen } from "./load-data.mjs";
+import { loadModules, loadWissen, loadDataModule } from "./load-data.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const OUT = join(ROOT, "public/llms.txt");
 
 const BASE_URL = "https://resqio.de";
+const { ALARM_APP } = await loadDataModule("app-links.ts");
 
 // kreis-platform hat eine eigene Seite unter /kreis (siehe generate-sitemap.mjs)
 const SLUG_OVERRIDES = { "kreis-platform": "/kreis" };
@@ -113,6 +114,8 @@ Die Preise richten sich nach der Größe und den Anforderungen der Feuerwehr. In
 - **Sicherheit & Datenschutz**: Hosting in Deutschland, DSGVO-konform, granulares rollenbasiertes Zugriffssystem
 - **Modularität**: Feuerwehren können spezifische Module je nach Bedarf aktivieren
 - **Externe Kräfte und Technik**: Drohneneinheit (Flugbuch, Fernpiloten-Nachweise, Luftbilder am Einsatz) und Landwirtschaftsmodul (Wasserfässer, Zugmaschinen und Radlader aus dem Ort) binden Ressourcen ein, die nicht im Gerätehaus stehen
+- **Alarm-App**: Die RESQIO Alarm-App bringt den Einsatzalarm im Vollbild aufs Smartphone, mit Zu- und Absage sowie Termin-Rückmeldung. Google Play: ${ALARM_APP.googlePlayUrl}${ALARM_APP.appStoreUrl ? `, Apple App Store: ${ALARM_APP.appStoreUrl}` : ""}
+- **Kreis, Förderung und Land**: Das Kreismodul vernetzt alle Wehren eines Landkreises und verwaltet Förderanträge (z. B. ZFeu) von der Einreichung bis zum Verwendungsnachweis. Als dritte Ebene aggregiert RESQIO Land die Kennzahlen mehrerer Kreise zu einer Landessicht — ausschließlich Kennzahlen, keine Personendaten, und der Kreis entscheidet je Kategorie, was weitergegeben wird
 - **Länderunterstützung**: RESQIO ist auf deutsche Vorschriften ausgelegt (DGUV, FwDV, DIN). Für österreichische Wehren gibt es das Ländermodul Österreich mit Dienstgraden und Chargen nach österreichischem Schema, ÖNORM-Fahrzeugtypen und Fristen nach Bundesland
 
 ## Module im Detail
