@@ -265,7 +265,7 @@ All user-facing content is in German (Deutsch). Maintain German language for:
 - **Source of truth**: slug keys in the `modules` object in `src/data/module-data.ts` AND article keys in `src/data/wissen-data.ts`
 - **Output**: `public/sitemap.xml` (homepage + /kreis + module pages + /wissen + article pages)
 - **Excluded slugs**: `kreis-platform` (has a dedicated `/kreis` page, handled by a Vercel 301 redirect)
-- **lastmod**: always set to today's date at generation time, so Google sees fresh dates after every build
+- **lastmod**: Datum der letzten ECHTEN Inhaltsänderung je Seite (Inhalts-Hash in `src/data/sitemap-lastmod.json`, Logik in `scripts/sitemap-pages.mjs`, gemeinsam für Generator und Prerender). Das Manifest zusammen mit dem geänderten Quelltext committen. Nie wieder „heute" für alle Seiten — Google ignoriert sonst lastmod
 - **NEVER edit `public/sitemap.xml` manually** — changes will be overwritten on the next build
 
 ### llms.txt Auto-Generation (AI-Sitemap)
@@ -345,6 +345,30 @@ die Antwort `success: true` — die Anfrage liegt dann schon im Postfach. Das Fe
 `public/api/contact.php` (Plesk/Apache) müssen denselben Versandweg abbilden,
 sonst bekommt der Absender je nach Hosting eine Bestätigung oder eben nicht.
 Live läuft heute der PHP-Pfad (siehe „Hosting reality").
+
+### Mail-Versand: Provider per `mail-config.json` (Resend, Brevo, SMTP)
+
+`public/api/contact.php` verschickt über `public/api/_mail.php`. Provider und Zugangsdaten
+stehen in **`mail-config.json` außerhalb des Web-Roots** (`<Domain-Ordner>/resqio-config/`,
+oder `$RESQIO_CONFIG_DIR`). Grund: ein Redeploy/Build überschreibt nur `httpdocs`, die Datei
+bleibt also bestehen — und nginx liefert statische Dateien im Web-Root direkt aus, an
+`.htaccess` vorbei, ein Key dort wäre abrufbar. Fehlt die Datei, legt PHP sie **leer** an
+(Rechte 0600); leere Werte fallen auf Umgebungsvariable bzw. Standard zurück.
+Rangfolge je Wert: Umgebungsvariable > `mail-config.json` > Standard. Vorlage:
+`mail-config.example.json`. Nie echte Zugangsdaten ins Repo.
+
+- `"provider"`: `resend` (Default) | `brevo` (HTTP-API, `brevo.api_key`) | `smtp`. Alle Zugänge stehen nebeneinander in der Datei; `"fallback_provider"` (optional) springt ein, wenn der erste Weg fehlschlägt
+- Brevo per SMTP: Host `smtp-relay.brevo.com`, Port 587, `"encryption": "tls"`, Login + SMTP-Key
+- Der Resend-Fallback-Key im Quelltext von `contact.php` gilt nur, wenn Env und JSON keinen liefern
+- `api/contact.ts` (Vercel) kennt die JSON-Konfiguration nicht — live läuft der PHP-Pfad
+
+### Sitemap-Auffrischung durch Besucher
+
+`public/api/sitemap-refresh.php` erneuert `sitemap.xml` höchstens alle 24 h. Ausgelöst von
+`src/lib/sitemap-refresh.ts` (in `main.tsx`) erst nach echter Nutzer-Interaktion; Bots werden
+clientseitig (`navigator.webdriver`, UA) und serverseitig (nur POST, `Sec-Fetch-Site:
+same-origin`, UA-Filter) ausgeschlossen. URL-Liste: `dist/api/sitemap-urls.json`, vom
+Prerender geschrieben. `lastmod` kommt aus dieser Liste (echtes Änderungsdatum).
 
 The API path `/api/` is blocked in `public/robots.txt` (`Disallow: /api/`) to prevent search engine crawlers from hitting the contact endpoint and generating 5xx errors in Google Search Console.
 

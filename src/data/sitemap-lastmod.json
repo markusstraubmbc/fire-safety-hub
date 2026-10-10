@@ -1,0 +1,222 @@
+{
+  "/": {
+    "hash": "a3059a5a76df6d13",
+    "lastmod": "2026-09-22"
+  },
+  "/kreis": {
+    "hash": "e56f53c72eb5c5d1",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/kommandozentrale": {
+    "hash": "b8edffdffb6c00e3",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/ausruestungsverwaltung": {
+    "hash": "98101fd51fd0b3bd",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/wartungsmanagement": {
+    "hash": "bd24baa38856f43f",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/kiosk-modus": {
+    "hash": "92702f42b04be824",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/lagemonitor": {
+    "hash": "9821be5b709a441c",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/atemschutzueberwachung": {
+    "hash": "c42b6939e885fa77",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/einsatzerfassung": {
+    "hash": "ac16f9975a254146",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/mannschaftsverwaltung": {
+    "hash": "214ca423d5b3ea44",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/objektplaene": {
+    "hash": "933dd707c8a0c88e",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/wasserkarte": {
+    "hash": "0f593eda71840a2a",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/wasserfoerderung": {
+    "hash": "afbe94eba1fa1491",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/wiki-integration": {
+    "hash": "989978edcf7e5dac",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/warenbewegung": {
+    "hash": "ddc7695371641108",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/fahrtenbuch": {
+    "hash": "d36975130b0cd896",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/waescheverwaltung": {
+    "hash": "8b1b3d23a1834fbf",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/mannschafts-self-service": {
+    "hash": "334ceba73660ba7c",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/budget-finanzen": {
+    "hash": "ef87ac8502471bfb",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/treasury-kassier": {
+    "hash": "5cfb590375deecae",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/digitaler-dienstausweis": {
+    "hash": "f94080996493c983",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/schnittstellen": {
+    "hash": "33ecd15923fbaef4",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/email-templates": {
+    "hash": "198749147061a215",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/reporting": {
+    "hash": "570c9fc58551f5e4",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/brandschutz": {
+    "hash": "fd379e340f2f20a3",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/inventur": {
+    "hash": "7657f887564e9e3e",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/formular-center": {
+    "hash": "02aaeea31666fbee",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/maengelmanagement": {
+    "hash": "4017bee27f90551e",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/ki-integration": {
+    "hash": "2b3b3bc30de2d337",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/planspiel": {
+    "hash": "865b7cb1b16ad61d",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/wirt-modul": {
+    "hash": "4419161e58f701d2",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/arbeitsstunden": {
+    "hash": "9a3bc1da856d9158",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/bsw-events": {
+    "hash": "0238f04f3b975fc6",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/stab-modul": {
+    "hash": "b807b265506dc04f",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/fahrzeugverwaltung": {
+    "hash": "7c3a254aec24ba04",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/lehrgaenge": {
+    "hash": "8cf3ce9bbea2bf2b",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/kalender": {
+    "hash": "340388438fc52d58",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/befoerderungssystem": {
+    "hash": "b5b1104d063f9f2c",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/alarmmonitor": {
+    "hash": "9c91fd755c7be50a",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/kommunikationscenter": {
+    "hash": "698b12e9a70b5068",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/personalmeldestelle": {
+    "hash": "f03c9b45cd78f3aa",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/gefahrstoff-ausbreitung": {
+    "hash": "253edfde6718889b",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/veranstaltungen": {
+    "hash": "3f5f10f552e71834",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/verbandbuch": {
+    "hash": "238a286245cdec6f",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/offline-modus": {
+    "hash": "54f8669daf5fb7aa",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/drohneneinheit": {
+    "hash": "902a9994ebdf204f",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/landwirte-modul": {
+    "hash": "e3c4fab79ad65cfc",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/laendermodul-oesterreich": {
+    "hash": "fd9510eb751b5d48",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/projektmanagement": {
+    "hash": "78c221ad63caab17",
+    "lastmod": "2026-08-05"
+  },
+  "/modul/alarm-app": {
+    "hash": "e6f2116d0110c4e3",
+    "lastmod": "2026-08-05"
+  },
+  "/wissen": {
+    "hash": "7fb290db1a95b7b6",
+    "lastmod": "2026-08-05"
+  },
+  "/wissen/dguv-pruefristen-feuerwehr": {
+    "hash": "c8c249c906d93405",
+    "lastmod": "2026-08-05"
+  },
+  "/wissen/atemschutz-dokumentation-fwdv7": {
+    "hash": "0fb77b79d13612e8",
+    "lastmod": "2026-08-05"
+  },
+  "/wissen/feuerwehrsoftware-einfuehren-leitfaden": {
+    "hash": "8fc4e2991c5f8c7b",
+    "lastmod": "2026-08-05"
+  },
+  "/wissen/vegetationsbrand-landwirte-drohne": {
+    "hash": "9baee6d536404431",
+    "lastmod": "2026-08-05"
+  }
+}

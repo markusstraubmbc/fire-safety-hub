@@ -12,20 +12,23 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { loadModules, loadWissen, loadDataModule } from "./load-data.mjs";
+import { getSitemapPages } from "./sitemap-pages.mjs";
 
 const { ALARM_APP } = await loadDataModule("app-links.ts");
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const distDir = join(__dirname, "..", "dist");
 const BASE_URL = "https://resqio.de";
-const TODAY = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
+// Echte Änderungsdaten je Seite (siehe scripts/sitemap-pages.mjs) – nicht der Build-Tag.
+const sitemapPages = await getSitemapPages();
+const HOME_LASTMOD = sitemapPages.find((p) => p.loc === `${BASE_URL}/`).lastmod;
 
 // --- Read the built index.html as base template ---
 let template = readFileSync(join(distDir, "index.html"), "utf-8");
 
 // dateModified im JSON-LD auf den Build-Tag setzen. Der Wert stand vorher
 // hartkodiert in index.html und war entsprechend schnell veraltet.
-template = template.replace(/"dateModified":\s*"\d{4}-\d{2}-\d{2}"/g, `"dateModified": "${TODAY}"`);
+template = template.replace(/"dateModified":\s*"\d{4}-\d{2}-\d{2}"/g, `"dateModified": "${HOME_LASTMOD}"`);
 
 // Selbst gehostete Poppins-Webfonts auf allen Seiten preloaden (kritisch für FCP/LCP):
 // 400 (Fließtext) und 700 (Headlines) – weitere Gewichte laden regulär über das CSS.
@@ -604,35 +607,8 @@ console.log(`Prerendered ${wissen.length} Wissen articles.`);
 
 // --- 7. Auto-generate sitemap.xml ---
 {
-  const urls = [];
-
-  // Homepage (highest priority)
-  urls.push({ loc: `${BASE_URL}/`, priority: "1.0", changefreq: "weekly" });
-
-  // Kreismodul dedicated page
-  urls.push({ loc: `${BASE_URL}/kreis`, priority: "0.9", changefreq: "weekly" });
-
-  // Module pages (kreis-platform ausgenommen: 301-Redirect auf /kreis)
-  for (const mod of modules) {
-    if (mod.slug === "kreis-platform") continue;
-    urls.push({
-      loc: `${BASE_URL}/modul/${mod.slug}`,
-      priority: "0.8",
-      changefreq: "monthly",
-    });
-  }
-
-  // Wissen index + articles
-  urls.push({ loc: `${BASE_URL}/wissen`, priority: "0.8", changefreq: "weekly" });
-  for (const artikel of wissen) {
-    urls.push({
-      loc: `${BASE_URL}/wissen/${artikel.slug}`,
-      priority: "0.7",
-      changefreq: "monthly",
-    });
-  }
-
-  // Note: Impressum and Datenschutz are excluded because they have noindex
+  // Impressum und Datenschutz fehlen bewusst (noindex).
+  const urls = sitemapPages;
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -640,7 +616,7 @@ ${urls
   .map(
     (u) => `  <url>
     <loc>${escXml(u.loc)}</loc>
-    <lastmod>${TODAY}</lastmod>
+    <lastmod>${u.lastmod}</lastmod>
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
   </url>`
@@ -651,6 +627,14 @@ ${urls
 
   writeFileSync(join(distDir, "sitemap.xml"), sitemap, "utf-8");
   console.log(`Generated sitemap.xml with ${urls.length} URLs.`);
+
+  // URL-Liste samt echtem lastmod für public/api/sitemap-refresh.php
+  mkdirSync(join(distDir, "api"), { recursive: true });
+  writeFileSync(
+    join(distDir, "api", "sitemap-urls.json"),
+    JSON.stringify(urls.map(({ loc, changefreq, priority, lastmod }) => ({ loc, changefreq, priority, lastmod }))),
+    "utf-8"
+  );
 }
 
 console.log(`Prerendered ${modules.length + 5} pages successfully (homepage + kreismodul + ${modules.length} modules + impressum + datenschutz + 404).`);
