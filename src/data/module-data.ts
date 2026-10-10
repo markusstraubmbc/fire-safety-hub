@@ -41,6 +41,7 @@ import {
     Tractor,
     Flag,
     Smartphone,
+    KanbanSquare,
     LucideIcon
 } from "lucide-react";
 
@@ -109,7 +110,10 @@ export const modules: Record<string, ModuleData> = {
             "Hersteller-Rückrufe: Betroffene Geräte werden automatisch erkannt und bis zur Klärung gekennzeichnet",
             "Interne Ausleihe & Reservierung: Wer hat welches Gerät – mit Fälligkeitsdatum und Erinnerung",
             "Beladeplan & Verlastung: Geräteräume definieren, Soll-Beladung festlegen, Abweichungen sofort erkennen",
-            "DGUV-konforme Lebensdauer-Kategorien: Maximale Nutzungsdauer für Helme, Atemschutzgeräte, Seile und mehr automatisch hinterlegt"
+            "DGUV-konforme Lebensdauer-Kategorien: Maximale Nutzungsdauer für Helme, Atemschutzgeräte, Seile und mehr automatisch hinterlegt",
+            "Einkleiden mit eigenen Ausstattungspunkten wie Jackett, Mütze oder Hemd – anlegen, zuweisen, bestellen; Teile ohne Barcode gezielt suchen",
+            "Angebundene Rauchmelder werden als Ausrüstung automatisch aktuell gehalten; Auslösungen landen in der Gerätehistorie",
+            "Geräte-Bezeichnungen über Nummernkreise fortlaufend vergeben, z. B. „Schlauch C-014“"
         ],
         keywords: ["Ausrüstungsverwaltung", "Geräteverwaltung Feuerwehr", "Inventar Feuerwehr", "Prüffristen", "QR Code Feuerwehr", "Beladeplan Feuerwehr", "Hersteller Rückruf Feuerwehr", "DGUV Lebensdauer Ausrüstung"],
         icon: Package,
@@ -137,7 +141,8 @@ export const modules: Record<string, ModuleData> = {
             "Qualifikationsnachweis: Wer hat wann mit welcher Prüfer-ID geprüft?",
             "DGUV-Lebensdauer-Kategorien: Maximale Nutzungsdauer direkt am Gerät hinterlegen – für Atemschutzgeräte, Helme, Seile, Schutzkleidung und mehr",
             "Bis zu 10 Fotos je Prüfung am Kiosk – einzeln entfernbar, auch bei der Massenwartung, in Details und PDF-Nachweisen enthalten",
-            "Prüfschritte in Wartungsvorlagen per Drag-and-Drop sortieren – Live-Vorschau der gedruckten Checkliste"
+            "Prüfschritte in Wartungsvorlagen per Drag-and-Drop sortieren – Live-Vorschau der gedruckten Checkliste",
+            "Wartung im Kiosk direkt aus der Geräte-Ansicht starten – beim Abschluss Ergebnis wählen (bestanden, mit Mängeln, nicht bestanden) und das Gerät direkt aussondern oder als nicht einsatzfähig markieren"
         ],
         keywords: ["Gerätewart Software", "Gerätewart App", "Feuerwehr Gerätewart", "Wartungsplaner Feuerwehr", "Prüffristen Software", "DGUV Prüfung", "Prüfbuch digital", "UVV Prüfung Feuerwehr", "Gerätebuch digital", "Checklisten Wartung", "Instandhaltung Feuerwehr", "Wartungsprotokoll Unterschrift digital", "digitale Unterschrift Gerätewart Feuerwehr", "Prüfprotokoll Feuerwehr Unterschrift", "DGUV Prüfnachweis digital"],
         icon: Wrench,
@@ -192,7 +197,11 @@ export const modules: Record<string, ModuleData> = {
             "Technische Anlagen: Sofortige Einsatzübersicht über BMA, Löschanlagen, RWA und Schließanlagen am Stellplatz-Tablet",
             "Wäsche-Delegation: Wäscheanfragen für andere Kameraden stellen – ideal für Gerätewarte und Führungskräfte",
             "Gerätewart-Vollausbau: Von der Inspektion über Dokumente und Rückrufe bis zur Aussonderung – der komplette Gerätewart-Workflow direkt am Kiosk",
-            "Offline-Sync: Änderungen werden lokal gespeichert und automatisch übertragen sobald die Verbindung wiederhergestellt ist"
+            "Offline-Sync: Änderungen werden lokal gespeichert und automatisch übertragen sobald die Verbindung wiederhergestellt ist",
+            "RFID-Karte meldet auf Wunsch mit einer festgelegten, eingeschränkten Rolle an – praktisch für Tablets, an denen viele Hände arbeiten",
+            "Bildschirmschoner mit Diashow aus bis zu 10 eigenen Bildern und Uhr – ein Tipp auf die Uhr öffnet die Anmeldung",
+            "Nach der automatischen Abmeldung wahlweise Menü, Bildschirmschoner oder Alarmmonitor anzeigen",
+            "Mindestlänge der Kiosk-PIN einstellbar (4 bis 10 Zeichen)"
         ],
         technicalDetails: [
             "Touch-optimiert für Bildschirme ab 10 Zoll bis 55 Zoll Hallen-Displays",
@@ -296,7 +305,13 @@ export const modules: Record<string, ModuleData> = {
             "Integration mit Leitstellen-Daten und FMS-Status",
             "Übungsdienst: Übungsarten als Pflicht- oder Sonderdienst – Sonderdienste zählen in die Gesamtstatistik, nicht in Soll und Pflichtquote",
             "Übungsthema und Zuordnung zu Mannschaftsgruppen, auch in Listen, Einsatzbericht, Excel-Export und Beteiligungsstatistik",
-            "Zeiten für alle Teilnehmer in einem Schritt setzen, wenn die Übungszeit nachträglich korrigiert wird"
+            "Zeiten für alle Teilnehmer in einem Schritt setzen, wenn die Übungszeit nachträglich korrigiert wird",
+            "Einsatz-Dokumente per KI importieren: Foto oder PDF hochladen, RESQIO übernimmt Einsatzdaten, Lagemeldungen und Statuszeiten zur Kontrolle vor dem Speichern",
+            "GPS-Tracking auch ohne Einsatz – als eigene Kachel in der Alarm-App und am Kiosk, mit einstellbarer Dauer",
+            "Je Einsatz- und Übungsart festlegen, welche Funktionen (z. B. Angriffstrupp, Übungsleiter) bei der Personenerfassung zur Auswahl stehen",
+            "Personenerfassung im Kiosk auch per Kürzel statt RFID-Scan, sofern freigegeben",
+            "Reiter „Vorbereitung & Nacharbeit“ mit dem zugehörigen Projekt-Board",
+            "QR-Code für den externen Portal-Zugang lässt sich beim Druck des Kurzberichts automatisch aktivieren"
         ],
         keywords: ["Einsatzdokumentation Feuerwehr", "Einsatzbericht digital", "Feuerwehr Einsatzmanagement", "Alarmierung Software", "Einsatzprotokoll", "Quiz Feuerwehr Training", "Verbrauchsmaterial Tracking"],
         icon: ClipboardList,
@@ -318,7 +333,12 @@ export const modules: Record<string, ModuleData> = {
             "Verfügbarkeitskalender und Schichtplanung",
             "Tageskalender mit aktueller Einsatzstärke",
             "Selbstständige Datenpflege durch Mitglieder",
-            "Export für Behörden und Meldewesen"
+            "Export für Behörden und Meldewesen",
+            "Seite „Verfügbarkeit“: Wer ist einsatzbereit, und sind Mindeststärke und Pflicht-Funktionen erreicht?",
+            "Doppelt angelegte Mitglieder zu einem Datensatz zusammenführen – mit Vorschau, was übernommen wird",
+            "Willkommens-E-Mail für neue Mitglieder, auf Wunsch mit Kiosk-PIN und Links zur Alarm-App; der Versand ist immer eine bewusste Entscheidung",
+            "Notfallkontakte als Erziehungsberechtigte kennzeichnen – bei Minderjährigen gehen E-Mails an das Mitglied automatisch in Kopie",
+            "Wöchentliche Erinnerung je Übungsart, sobald jemand unter sein Jahres-Soll fällt"
         ],
         keywords: ["Mannschaftsverwaltung Feuerwehr", "Personalverwaltung Feuerwehr", "Mitgliederverwaltung", "Qualifikationen Feuerwehr", "Dienstzeiten", "Verfügbarkeit"],
         icon: Users,
@@ -340,7 +360,8 @@ export const modules: Record<string, ModuleData> = {
             "Versionierung und Aktualisierungshistorie",
             "Integration in Lagemonitor und Kiosk",
             "Offline-Verfügbarkeit für Einsatz ohne Internet",
-            "Kategorisierung nach Objekttyp und Gefährdungsklasse"
+            "Kategorisierung nach Objekttyp und Gefährdungsklasse",
+            "Objekt-Dossier hochladen (bis zu 6 Dateien, auch gescannt): Die KI erkennt Stammdaten, Ansprechpartner, Gefahrstoffe und Pläne und stellt alles zur Prüfung vor"
         ],
         keywords: ["Objektpläne digital", "Feuerwehrpläne Software", "Brandschutzunterlagen", "Feuerwehreinsatzplan", "digitale Pläne Feuerwehr"],
         icon: FolderSearch,
@@ -362,7 +383,10 @@ export const modules: Record<string, ModuleData> = {
             "Durchfluss- und Leistungsdaten pro Hydrant",
             "Prüffristen und Wartungshistorie",
             "Integration in Lagemonitor und Kiosk",
-            "Offline-Karten für Einsatz ohne Internet"
+            "Offline-Karten für Einsatz ohne Internet",
+            "Entnahmestellen so vollständig pflegen wie in einer Hydrantenkartei: Foto, Zusatzfelder je Objekttyp, Wassermenge, Prüfdatum mit Fälligkeit",
+            "Import aus PDF, Excel, CSV und GeoJSON – vorab zeigt RESQIO, was neu, aktualisiert oder doppelt wäre",
+            "Einheitliche Kartensymbole, auf Wunsch im Feuerwehr-Stil mit dem H des Hydrantenschilds"
         ],
         keywords: ["Hydrantenkarte digital", "Wasserkarte Feuerwehr", "Hydranten Software", "Löschwasser", "Hydrantenplan"],
         icon: Droplets,
@@ -384,7 +408,8 @@ export const modules: Record<string, ModuleData> = {
             "Berechnung von Fördermengen und Druckverlusten",
             "Dokumentation und Berichterstellung",
             "Szenarien-Bibliothek für Ausbildung",
-            "Förderlinie nach Druckzustand eingefärbt (grün/gelb/rot), kritische Abschnitte hervorgehoben, Pumpenübersicht ein-/ausblendbar"
+            "Förderlinie nach Druckzustand eingefärbt (grün/gelb/rot), kritische Abschnitte hervorgehoben, Pumpenübersicht ein-/ausblendbar",
+            "Löschwasser-Bilanz berücksichtigt den Vorrat übernommener Quellen und warnt, wenn eine Quelle vor Ablauf einer halben Stunde leerzulaufen droht"
         ],
         keywords: ["Wasserförderung Feuerwehr", "Löschwasserversorgung", "Schlauchleitung", "Pendelverkehr", "Wasserversorgung Großbrand"],
         icon: Droplets,
@@ -450,7 +475,8 @@ export const modules: Record<string, ModuleData> = {
             "Kraftstoffverbrauch-Tracking",
             "Einsatz-Verknüpfung für korrekte Dokumentation",
             "Export für Steuer und Versicherung",
-            "Fahrten-Statistik und Auswertungen"
+            "Fahrten-Statistik und Auswertungen",
+            "Fahrten im Kiosk über Mitternacht und mehrere Tage erfassen – das Fahrtende erscheint in Liste, Ausdruck und Excel-Export"
         ],
         keywords: ["Fahrtenbuch Feuerwehr", "digitales Fahrtenbuch", "Fahrtennachweis", "Kilometerstand", "Kraftstoff Feuerwehr"],
         icon: Car,
@@ -472,7 +498,10 @@ export const modules: Record<string, ModuleData> = {
             "Persönliche Zuordnung von Schutzkleidung",
             "Wäsche-Delegation für Kameraden durch Vorgesetzte",
             "Erinnerungen bei langer Bearbeitungsdauer",
-            "Statistik und Auswertungen"
+            "Statistik und Auswertungen",
+            "Einkleiden und Entkleiden in einem Ablauf: Teile je Person erfassen, mit einer Unterschrift speichern, Protokoll-PDF drucken",
+            "Neue Schutzkleidung als Serie anlegen, z. B. 20 Stiefel einer Lieferung, mit Größenabfrage und Barcode-Scan",
+            "Lagerbestand-Tab nach Typ und Größe mit offenen, vergebenen und insgesamt vorhandenen Stücken"
         ],
         keywords: ["Wäscheverwaltung Feuerwehr", "Schutzkleidung", "PSA Verwaltung", "Einsatzkleidung", "Reinigung Feuerwehr"],
         icon: Shirt,
@@ -493,7 +522,8 @@ export const modules: Record<string, ModuleData> = {
             "Qualifikationen und Zertifikate selbst hochladen",
             "Verfügbarkeitsplanung und Kalender",
             "Persönliche Benachrichtigungseinstellungen",
-            "Einsatzhistorie und eigene Statistiken"
+            "Einsatzhistorie und eigene Statistiken",
+            "Verfügbarkeit je Wochentag im Überprüfungsportal angeben, wenn die Wochentags-Übersicht aktiviert ist"
         ],
         keywords: ["Self-Service Feuerwehr", "Mitglieder Portal", "Eigenständige Datenpflege", "Kamerad Portal"],
         icon: UserCheck,
@@ -516,7 +546,9 @@ export const modules: Record<string, ModuleData> = {
             "Jahresabschluss-Unterstützung",
             "Kostenstellenmanagement",
             "Export für Steuerberater und Behörden",
-            "Belegzusammenfassung zur Budgetauslastung: freigegebene, ausstehende und abgelehnte Belege, ungeplante Ausgaben, größte Lieferanten und Hinweise auf unvollständige Belege"
+            "Belegzusammenfassung zur Budgetauslastung: freigegebene, ausstehende und abgelehnte Belege, ungeplante Ausgaben, größte Lieferanten und Hinweise auf unvollständige Belege",
+            "Einsatzabrechnungen nach der Freigabe an die Gemeinde übergeben – wer informiert wird, legt das Kommunikationscenter fest",
+            "Einsatz-Kachel in der Abrechnung mit allen Details wie Zeiten, Beteiligten, Verursachern und Berichten"
         ],
         keywords: ["Finanzverwaltung Feuerwehr", "Budget Feuerwehr", "Kassenbuch digital", "Ausgabenverwaltung", "Genehmigungsworkflow"],
         icon: BarChart3,
@@ -541,7 +573,10 @@ export const modules: Record<string, ModuleData> = {
             "Spendenquittungen",
             "Export für Steuerberater",
             "Aufwandsentschädigungen: GoBD-konforme Dokumentation mit revisionssicherer Protokollierung",
-            "Jahresbescheinigungen für Mitglieder auf Knopfdruck erstellen"
+            "Jahresbescheinigungen für Mitglieder auf Knopfdruck erstellen",
+            "Eventkasse mit Kassenbon in 80 oder 58 mm samt Zahlart und Rückgeld, auf Wunsch direkt nach dem Buchen gedruckt",
+            "Eventkasse als Kopie fürs nächste Fest anlegen – mit Artikelkatalog und Einstellungen, Buchungen bleiben beim alten Fest",
+            "Beim Bezahlen Scheine per Tipp zählen, Rückgeld gestückelt anzeigen"
         ],
         keywords: ["Kassenverwaltung Feuerwehr", "Vereinskasse", "Buchführung Feuerwehr", "Jahresabschluss", "SEPA", "Mitgliedsbeitrag", "Aufwandsentschädigung Feuerwehr", "GoBD Feuerwehr"],
         icon: CreditCard,
@@ -562,7 +597,9 @@ export const modules: Record<string, ModuleData> = {
             "NFC und QR-Code für schnelle Nutzung",
             "Aktuelle Qualifikationen und Funktionen",
             "Kiosk-Login per Dienstausweis",
-            "Offizielle Identifikation bei Einsätzen"
+            "Offizielle Identifikation bei Einsätzen",
+            "Mitgliedsfoto auf dem Ausweis in Apple Wallet",
+            "Der Ausweis wird auf dem eigenen Server erstellt – Mitgliederdaten gehen nicht an einen externen Anbieter"
         ],
         keywords: ["Digitaler Dienstausweis Feuerwehr", "Feuerwehrausweis App", "NFC Feuerwehr", "QR Code Ausweis"],
         icon: CreditCard,
@@ -584,7 +621,10 @@ export const modules: Record<string, ModuleData> = {
             "Webhook-Unterstützung für Events",
             "Leitstellen-Integration",
             "FMS-Status-Integration",
-            "DATEV und Buchhaltungsexport"
+            "DATEV und Buchhaltungsexport",
+            "Einsatzlage als Kartenebene an das Lagezentrum des Landkreises übergeben (z. B. disy Cadenza) – über einen offenen Standard auch mit QGIS oder ArcGIS nutzbar",
+            "Freigaben je Datensatz, befristbare und sperrbare Zugänge, jeder Abruf wird protokolliert – personenbezogene Daten sind nicht voreingestellt",
+            "Öffentliche API mit Webhooks: Externe Systeme werden bei neuen, geänderten oder abgeschlossenen Einsätzen benachrichtigt; Fahrzeugstatus der Leitstelle übernehmbar"
         ],
         keywords: ["API Feuerwehr Software", "Schnittstellen", "Leitstellen Integration", "MQTT", "FMS", "Webhook"],
         icon: Link2,
@@ -627,7 +667,10 @@ export const modules: Record<string, ModuleData> = {
             "Wartungs- und Prüfberichte",
             "Finanzreports",
             "Exportformate für alle Behörden",
-            "Individuelle Auswertungen und Dashboards"
+            "Individuelle Auswertungen und Dashboards",
+            "Feuerwehr-Bedarfsplan als Word-Datei mit Tabellen, Diagrammen, Karten, Deckblatt und Unterschriftenseite",
+            "Mehrere Feuerwehren zu einem gemeinsamen Bedarfsplan zusammenfassen – Mitglieder mit zwei Zuordnungen werden nur einmal gezählt",
+            "FwDV-Jahresstatistik zusätzlich nach Mannschaftsgruppe filtern – PDF, Excel und Druckansicht übernehmen den Filter"
         ],
         keywords: ["Reporting Feuerwehr", "Jahresbericht", "Statistiken", "Auswertungen", "Einsatzstatistik"],
         icon: BarChart3,
@@ -648,7 +691,10 @@ export const modules: Record<string, ModuleData> = {
             "Prüffristen-Tracking",
             "Wartungshistorie und Dokumentation",
             "Alarmierungspläne und Zuständigkeiten",
-            "Integration in Objektpläne"
+            "Integration in Objektpläne",
+            "Brandschau-Nachschauen mit der ursprünglichen Begehung verknüpfen – eine abgeschlossene Nachschau verschiebt den nächsten regulären Termin nicht",
+            "Begehungen mit digitaler Unterschrift abschließen und als Protokoll exportieren; Checkliste um rund 20 Prüfpunkte erweitert",
+            "Teilnehmer je Begehung erfassen, intern wie extern (Eigentümer, Bauamt), mit einklappbarer Historie je Objekt"
         ],
         keywords: ["Brandmeldeanlage", "Löschanlage", "technischer Brandschutz", "BMA Verwaltung", "Prüfung Brandschutzanlage"],
         icon: ShieldCheck,
@@ -712,7 +758,8 @@ export const modules: Record<string, ModuleData> = {
             "Dringlichkeitsstufen",
             "Automatische Benachrichtigung",
             "Status-Tracking bis zur Erledigung",
-            "Integration mit Wartungsmanagement"
+            "Integration mit Wartungsmanagement",
+            "Mängel im Kiosk einsprechen – RESQIO schlägt das passende Gerät vor und fragt nach, wenn die Zuordnung nicht eindeutig ist"
         ],
         keywords: ["Mängelmanagement Feuerwehr", "Defektmeldung", "Schadensmeldung", "QR Code Mangel"],
         icon: AlertTriangle,
@@ -740,7 +787,8 @@ export const modules: Record<string, ModuleData> = {
             "Gefahrstoff-Assistenz: Unterstützung bei der Einschätzung von Gefahrstofflagen und Schutzempfehlungen (immer mit Fachberater-Vorbehalt)",
             "Pumpen- & Adressoptimierung: Optimale Wasserförderung berechnen, Adressen automatisch normalisieren",
             "Anbieter-Wahl: Die genutzte KI lässt sich zwischen mehreren Anbietern umschalten – volle Flexibilität für Ihre Datenschutz-Anforderungen",
-            "Kostentransparenz: Übersicht, wo und in welchem Umfang KI genutzt wird"
+            "Kostentransparenz: Übersicht, wo und in welchem Umfang KI genutzt wird",
+            "Alle KI-Funktionen laufen ausschließlich über Mistral AI mit Rechenzentren in der EU – bei Störungen wird nie still auf einen anderen Anbieter ausgewichen"
         ],
         keywords: ["KI Feuerwehr", "souveräne KI", "KI Datenschutz Deutschland", "Künstliche Intelligenz Feuerwehr", "KI Assistent", "Beleg OCR Feuerwehr", "DSGVO KI", "EU AI Act", "digitale Transformation Feuerwehr"],
         icon: Brain,
@@ -761,7 +809,8 @@ export const modules: Record<string, ModuleData> = {
             "Taktische Karte mit simulierten Ressourcen",
             "Führungskräfte-Training",
             "Auswertung und Feedback",
-            "Eigene Szenarien erstellen"
+            "Eigene Szenarien erstellen",
+            "Über 750 neue Trainingscodes, u. a. zu Hochwasser, Photovoltaik, Batteriespeichern, Lithium-Ionen-Bränden und Höhenrettung"
         ],
         keywords: ["Planspiel Feuerwehr", "Taktikausbildung", "Simulation Feuerwehr", "Führungstraining", "Ausbildung digital"],
         icon: Gamepad2,
@@ -783,7 +832,9 @@ export const modules: Record<string, ModuleData> = {
             "Tagesabrechnung",
             "Einnahmen-Tracking",
             "Personalplanung für Veranstaltungen",
-            "Artikel einer oder mehreren Kassen zuordnen – z. B. Bier nur im Festzelt; Artikel ohne Zuordnung gelten in allen Kassen"
+            "Artikel einer oder mehreren Kassen zuordnen – z. B. Bier nur im Festzelt; Artikel ohne Zuordnung gelten in allen Kassen",
+            "Im Kiosk eine Runde für mehrere Personen buchen – jede Person mit eigenem Warenkorb und Zusammenfassung vor dem Buchen",
+            "Beleg per E-Mail an die belasteten Personen mit ihren Posten und dem eigenen Kontostand"
         ],
         keywords: ["Feuerwehrfest", "Veranstaltungsmanagement", "Kassensystem Verein", "Getränkeverkauf", "Vereinsfest"],
         icon: Beer,
@@ -806,7 +857,8 @@ export const modules: Record<string, ModuleData> = {
             "Übergreifende Statistiken und Berichte",
             "Gemeinsame Dokumentenbibliothek",
             "Förderanträge (z. B. ZFeu) kreisweit prüfen, priorisieren und bis zur Auszahlung begleiten",
-            "Optionale dritte Ebene: Kennzahlen mehrerer Kreise lassen sich zu einer Landessicht aggregieren"
+            "Optionale dritte Ebene: Kennzahlen mehrerer Kreise lassen sich zu einer Landessicht aggregieren",
+            "Landesweite Sicherheits-Rückrufe erreichen die Wehr automatisch über den Kreis – geprüft wird vor Ort, zurück geht nur die Anzahl betroffener Geräte"
         ],
         keywords: ["Kreisfeuerwehr Software", "Verband Feuerwehr", "Landkreis Feuerwehr", "übergreifende Plattform", "Gegenseitige Alarmierung"],
         icon: Globe,
@@ -827,7 +879,8 @@ export const modules: Record<string, ModuleData> = {
             "Kategorisierung nach Tätigkeitsart",
             "Tätigkeitsnachweise als PDF",
             "Jahresauswertung pro Mitglied",
-            "Export für Gemeinde und Arbeitgeber"
+            "Export für Gemeinde und Arbeitgeber",
+            "Arbeitsstunden als Zeitraum erfassen – bei mehreren Tagen bucht RESQIO automatisch je Tag einen eigenen Eintrag"
         ],
         keywords: ["Arbeitsstunden Feuerwehr", "Tätigkeitsnachweis", "Stundendokumentation", "Ehrenamtsnachweis"],
         icon: Clock,
@@ -881,7 +934,11 @@ export const modules: Record<string, ModuleData> = {
             "Lessons-Learned-System – strukturierte Einsatznachbereitung für kontinuierliche Verbesserung",
             "Gebietsanalyse und geografische Lagedarstellung für den Stab",
             "Vollständiges digitales Einsatztagebuch mit Zeitstempeln",
-            "Alle Stabsfunktionen S1–S6 digital unterstützt"
+            "Alle Stabsfunktionen S1–S6 digital unterstützt",
+            "Nachrichten mit Quittierung: Wichtige Mitteilungen gelten erst als gelesen, wenn sie bestätigt wurden – mit Echtzeit-Lesebestätigung und Prioritätsstufen",
+            "Waldbrand-Ausbreitung: Brandfläche auf der Lagekarte einzeichnen, mit Flächenberechnung und windgetriebener Prognose für 30, 60 oder 120 Minuten",
+            "Führungs- und Verwaltungsstab arbeiten zusammen, mit Schichtübergabe, gemeinsamem Zeitstrahl und Ressourcen-Übergabe",
+            "Amtliche Maßnahmenliste des Innenministeriums für kleinere Gemeinden als fertiges Szenario: 54 Maßnahmen landen mit einem Klick als Aufgaben im Stabsboard"
         ],
         keywords: ["Stabsarbeit", "Führungsunterstützung", "Einsatztagebuch", "Einsatzleitung", "Führungsstab", "MANV", "Großschadenslage", "Taktische Zeichen", "Lagekarte", "Stab Feuerwehr", "Führungsorganisation", "MANV Software Feuerwehr", "digitales Einsatztagebuch Feuerwehr", "Stabsarbeit Software Feuerwehr", "Führungsunterstützung Feuerwehr digital", "Großschadenslage Software"],
         icon: Shield,
@@ -902,7 +959,8 @@ export const modules: Record<string, ModuleData> = {
             "Statusverfolgung und Einsatzbereitschaft",
             "Verknüpfung mit Einsätzen und Fahrtenbucheinträgen",
             "Fahrzeugbezogene Wartungsintervalle und -dokumentation",
-            "Übersicht über Fahrzeugzuordnungen im Einsatz"
+            "Übersicht über Fahrzeugzuordnungen im Einsatz",
+            "Anfrageart Dienstreise für Fahrzeug- und Raumreservierungen mit Grund, Ort, Kosten und Belegen – wird immer von Hand genehmigt"
         ],
         keywords: ["Fahrzeugverwaltung", "Fuhrpark", "Flottenmanagement", "Feuerwehrfahrzeuge", "KFZ Verwaltung", "Fahrzeugstatus", "Einsatzfahrzeuge"],
         icon: Truck,
@@ -923,7 +981,8 @@ export const modules: Record<string, ModuleData> = {
             "Qualifikationsübersicht pro Mitglied",
             "Aggregierte Auswertung des Aus- und Fortbildungsstands",
             "Verknüpfung mit Beförderungsvoraussetzungen",
-            "Export und Nachweisführung"
+            "Export und Nachweisführung",
+            "Lehrgänge mit Zeitraum (Von/Bis) erfassen – wie auf der Urkunde, auch in Mitgliederakte und Verifikationsportal"
         ],
         keywords: ["Lehrgänge", "Qualifikationsmanagement", "Fortbildung", "Ausbildung Feuerwehr", "Beförderungsvoraussetzungen", "Truppführer", "Lehrgangsnachweis"],
         icon: GraduationCap,
@@ -948,7 +1007,8 @@ export const modules: Record<string, ModuleData> = {
             "Eigene Kalender mit eigener Farbe, z. B. für Jugendfeuerwehr oder Maschinisten – sichtbar nur für die zugeordneten Gruppen, Wehren oder Personen",
             "Rückmeldung „Komme“, „Vorbehalt“ oder „Komme nicht“ im Web, am Kiosk und in der Alarm-App – auch ohne Netz",
             "Wiederkehrende Termine, Absage statt Löschen",
-            "Persönlicher CalDAV-Zugang für Handy und Computer, jederzeit widerrufbar"
+            "Persönlicher CalDAV-Zugang für Handy und Computer, jederzeit widerrufbar",
+            "Kalender in der Alarm-App abonnieren – als Sammel-Abo oder einzeln je Sorte; Einsätze bleiben bewusst außen vor"
         ],
         keywords: ["Kalender", "Terminverwaltung", "Übungsplanung", "Dienstplanung", "Feuerwehr Kalender", "Veranstaltungsplanung"],
         icon: CalendarDays,
@@ -969,7 +1029,9 @@ export const modules: Record<string, ModuleData> = {
             "Übersicht beförderungsfähiger Mitglieder",
             "Berücksichtigung von Qualifikationen und Dienstzeiten",
             "Dokumentation von Beförderungshistorie",
-            "Flexible Konfiguration der Beförderungsregeln"
+            "Flexible Konfiguration der Beförderungsregeln",
+            "Einheitlicher Stichtag (z. B. Hauptversammlung) für Beförderungen und Ehrungen in Dashboard, Statistik, Ausdrucken und Excel",
+            "Beförderungsvorschläge prüfen alle zulässigen Wege; nicht prüfbare Voraussetzungen werden als „Prüfung nötig“ markiert"
         ],
         keywords: ["Beförderungssystem", "Beförderung Feuerwehr", "Dienstgrade", "Qualifikationen", "Dienstzeit", "Beförderungsvoraussetzungen"],
         icon: TrendingUp,
@@ -996,6 +1058,8 @@ export const modules: Record<string, ModuleData> = {
             "Automatischer Ruhemodus nach Einsatzende mit konfigurierbaren Inhalten",
             "Touchscreen-optimiert und für alle Bildschirmgrößen geeignet",
             "Vollständig offline-fähig für zuverlässige Darstellung auch ohne Internet",
+            "Alarmmonitor läuft direkt im Kiosk und bleibt nach der Abmeldung aktiv – Zugang am Gerät einrichten, zentral widerrufbar",
+            "Bei mehreren Standorten am Monitor den Standort wählen – die Auswahl wird am Gerät gemerkt"
         ],
         keywords: [
             "Alarmmonitor Feuerwehr",
@@ -1031,7 +1095,8 @@ export const modules: Record<string, ModuleData> = {
             "Erinnerungen bei überfälligen Wäscheaufträgen",
             "Empfänger-Gruppen und Verteiler frei konfigurierbar",
             "Individuelle Kanalwahl pro Person und Benachrichtigungsbereich",
-            "Unterdrückung bei ungültigen Kontaktdaten – ohne stille Fehler"
+            "Unterdrückung bei ungültigen Kontaktdaten – ohne stille Fehler",
+            "Meldung, wenn die Einsatzbereitschaft unter das hinterlegte Soll sinkt – nur bei einer echten Veränderung der Lage"
         ],
         keywords: ["Benachrichtigungen Feuerwehr", "WhatsApp Feuerwehr Software", "Telegram Feuerwehr", "automatische Meldungen Feuerwehr", "Kommunikation Feuerwehr Software"],
         icon: MessageSquare,
@@ -1102,7 +1167,10 @@ export const modules: Record<string, ModuleData> = {
             "Optionaler Genehmigungsworkflow und Zielgruppen-Filter",
             "Terminabfrage im Doodle-Stil zur Terminfindung",
             "Wiederverwendbare Vorlagen für regelmäßige Termine",
-            "Automatische Erinnerungen und Teilnehmerlisten"
+            "Automatische Erinnerungen und Teilnehmerlisten",
+            "Mitbringlisten für Veranstaltungen: Ist ein Posten voll, werden keine weiteren Zusagen mehr angenommen",
+            "Eingeteilte Helfer erhalten vor ihrer Schicht automatisch eine E-Mail mit Stand, Uhrzeit und Ort",
+            "Vorlagen für Fasching/Zunftball, Sommerfest und Arbeitsdienst mit Einlass, Bar, Küche sowie Auf- und Abbau"
         ],
         keywords: ["Arbeitsdienst Feuerwehr", "Veranstaltungen Feuerwehr", "Dienstplan Feuerwehr", "Anmeldung Feuerwehr", "Terminplanung Feuerwehr"],
         icon: PartyPopper,
@@ -1146,7 +1214,8 @@ export const modules: Record<string, ModuleData> = {
             "Konfigurierbar, welche Daten offline verfügbar sind",
             "Automatische Synchronisation bei wiederhergestellter Verbindung",
             "Schutz vor doppelten Buchungen",
-            "Überwachung des Sync-Status je Gerät"
+            "Überwachung des Sync-Status je Gerät",
+            "Stabsarbeit im ELW auch ohne Netz: Tagebuch, Board und Lagemeldungen offline lesen, Tagebucheinträge offline schreiben und später automatisch synchronisieren"
         ],
         keywords: ["Feuerwehr Software offline", "Offline Modus Kiosk", "Ausfallsicherheit Feuerwehr", "Gerätehaus ohne Internet", "Offline-fähige Software Feuerwehr"],
         icon: CloudOff,
@@ -1241,6 +1310,29 @@ export const modules: Record<string, ModuleData> = {
         color: "red",
         badge: "neu"
     },
+    "projektmanagement": {
+        title: "Projektmanagement & Vorhaben",
+        shortDesc: "Anschaffungen, Bauvorhaben und Vereinsprojekte auf dem Kanban-Board planen – mit Checklisten, Anhängen und Zugriff nach Rolle.",
+        longDesc: "Nicht jede Aufgabe hängt an einem Einsatz: Die neue Fahrzeugbeschaffung, der Umbau im Gerätehaus oder das Vereinsjubiläum brauchen Planung über Monate. Das Projektmanagement bildet solche Vorhaben als Kanban-Board ab – mit Karten, Checklisten und Anhängen. Der Zugriff lässt sich auf Rollen oder einzelne Personen beschränken, jedes Fachgebiet bekommt automatisch ein Eingangs-Board, und zu Einsatz und Übung gibt es den Reiter „Vorbereitung & Nacharbeit“.",
+        benefits: [
+            "Überblick: Alle Vorhaben der Wehr an einem Ort statt in Mails und Notizzetteln",
+            "Zuständigkeit: Zugriff nach Rolle oder Person, Fachgebiete mit eigenem Eingangs-Board",
+            "Verknüpfung: Aufgaben vor und nach einem Einsatz oder einer Übung direkt am Einsatz",
+            "Ruhe im Postfach: Änderungen an Karten gesammelt per E-Mail, Kleinigkeiten ohne Benachrichtigung speichern"
+        ],
+        features: [
+            "Kanban-Board mit Karten, Checklisten und Anhängen",
+            "Zugriff auf Rollen oder einzelne Personen beschränkbar",
+            "Interessierte können den Zugriff ohne Anmeldung per E-Mail beantragen",
+            "Automatisches Eingangs-Board je Fachgebiet für dessen Mitglieder",
+            "Reiter „Vorbereitung & Nacharbeit“ an Einsatz und Übung mit dem zugehörigen Projekt-Board",
+            "Gesammelte Änderungsmails an Projektbeteiligte"
+        ],
+        keywords: ["Projektmanagement Feuerwehr", "Kanban Feuerwehr", "Vorhaben Verein planen", "Beschaffung Feuerwehr planen", "Bauvorhaben Gerätehaus"],
+        icon: KanbanSquare,
+        color: "blue",
+        badge: "neu"
+    },
     "alarm-app": {
         title: "RESQIO Alarm-App für Android & iOS",
         shortDesc: "Einsatzalarm im Vollbild aufs Handy – mit Zu- und Absage, Übungs- und Terminkalender. Für Android und iOS.",
@@ -1260,7 +1352,14 @@ export const modules: Record<string, ModuleData> = {
             "Fahrzeug-Modus mit eigener, reduzierter Oberfläche: Alarm, Navigation und FMS-Status",
             "Einrichtungs-Assistent für Berechtigungen und Alarmton, mit Status-Hinweis bei fehlenden Freigaben",
             "Digitaler Dienstausweis für Apple Wallet und Google Wallet",
-            "Standortfreigabe für Ankunftszeit und Lagekarte – Details in der Datenschutzerklärung"
+            "Standortfreigabe für Ankunftszeit und Lagekarte – Details in der Datenschutzerklärung",
+            "Mehrere Feuerwehren in einer App: Einsätze, Übungen, Karte und Ausweise aller gekoppelten Wehren gemeinsam oder einzeln",
+            "Die Rückmeldung „Komme“ geht auch ohne Netz nicht verloren – sie wird auf dem Gerät gespeichert und gesendet, sobald wieder Verbindung besteht",
+            "Alarmmodus im Alarme-Tab: Alarmton, lautlos oder stumm für einen wählbaren Zeitraum – ein Testalarm kommt immer durch",
+            "iPhone: Einsatzalarme sind als zeitkritisch eingestuft und durchbrechen den Fokus-Modus „Nicht stören“",
+            "Statusbereich zeigt, ob ein Einsatzalarm die Handys der Mannschaft erreichen kann, und nennt die Ursache, falls etwas blockiert",
+            "Verfügbarkeitsstatus automatisch setzen – die Auswertung läuft nur auf dem Gerät, übertragen wird nur der Status, nie der Standort",
+            "Kalender abonnieren als Sammel-Abo oder einzeln je Sorte, inklusive Übungen"
         ],
         technicalDetails: [
             "Native Android- und iOS-App (Paket io.resqio.alarm), Push über Firebase Cloud Messaging",
