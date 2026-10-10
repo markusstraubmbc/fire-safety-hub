@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CONSENT_CHANGE_EVENT, grantConsent, hasConsent } from "@/lib/consent";
+import { CONSENT_CHANGE_EVENT, grantBrevoConsent, hasBrevoConsent } from "@/lib/consent";
 
 const BREVO_STYLESHEET_ID = "brevo-newsletter-stylesheet";
 const BREVO_SCRIPT_ID = "brevo-newsletter-script";
@@ -27,10 +27,10 @@ declare global {
 }
 
 const NewsletterSection = () => {
-  const [consented, setConsented] = useState(hasConsent());
+  const [consented, setConsented] = useState(hasBrevoConsent());
 
   useEffect(() => {
-    const onChange = () => setConsented(hasConsent());
+    const onChange = () => setConsented(hasBrevoConsent());
     window.addEventListener(CONSENT_CHANGE_EVENT, onChange);
     return () => window.removeEventListener(CONSENT_CHANGE_EVENT, onChange);
   }, []);
@@ -48,17 +48,17 @@ const NewsletterSection = () => {
       document.head.appendChild(link);
     }
 
-    window.REQUIRED_CODE_ERROR_MESSAGE = "Wähle bitte einen Ländervorwahl aus.";
+    window.REQUIRED_CODE_ERROR_MESSAGE = "Wählen Sie bitte eine Ländervorwahl aus.";
     window.LOCALE = "de";
     window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE =
-      "Die eingegebenen Informationen sind nicht gültig. Bitte überprüfe das Feldformat und versuche es erneut.";
+      "Die eingegebenen Informationen sind nicht gültig. Bitte überprüfen Sie das Feldformat und versuchen Sie es erneut.";
     window.REQUIRED_ERROR_MESSAGE = "Dieses Feld darf nicht leer sein. ";
     window.GENERIC_INVALID_MESSAGE =
-      "Die eingegebenen Informationen sind nicht gültig. Bitte überprüfe das Feldformat und versuche es erneut.";
+      "Die eingegebenen Informationen sind nicht gültig. Bitte überprüfen Sie das Feldformat und versuchen Sie es erneut.";
     window.INVALID_NUMBER =
-      "Die eingegebenen Informationen sind nicht gültig. Bitte überprüfe das Feldformat und versuche es erneut.";
-    window.INVALID_DATE = "Bitte gib ein gültiges Datum ein";
-    window.REQUIRED_MULTISELECT_MESSAGE = "Wähle bitte mindestens eine Option aus";
+      "Die eingegebenen Informationen sind nicht gültig. Bitte überprüfen Sie das Feldformat und versuchen Sie es erneut.";
+    window.INVALID_DATE = "Bitte geben Sie ein gültiges Datum ein";
+    window.REQUIRED_MULTISELECT_MESSAGE = "Wählen Sie bitte mindestens eine Option aus";
     window.translation = {
       common: {
         selectedList: "{quantity} Liste ausgewählt",
@@ -86,12 +86,13 @@ const NewsletterSection = () => {
         </div>
         <h3 className="text-xl font-bold text-foreground mb-2">Newsletter</h3>
         <p className="text-sm text-muted-foreground mb-6 max-w-sm mx-auto">
-          Für die Anmeldung laden wir das Formular unseres Anbieters Brevo nach – genau
-          wie bei Google Analytics erst, wenn Sie zugestimmt haben. Ein Klick gilt für
-          beides gemeinsam; widerrufbar jederzeit über die Cookie-Einstellungen im
-          Seitenfuß.
+          Für die Anmeldung laden wir das Formular unseres Anbieters Brevo nach – erst,
+          wenn Sie zugestimmt haben. Dabei wird Ihre IP-Adresse an Brevo übermittelt.
+          Die Zustimmung gilt nur für das Formular, nicht für Statistik; widerrufbar
+          jederzeit über die Cookie-Einstellungen im Seitenfuß. Details in der{" "}
+          <a href="/datenschutz" className="underline">Datenschutzerklärung</a>.
         </p>
-        <Button onClick={grantConsent}>Zustimmen &amp; Formular laden</Button>
+        <Button onClick={grantBrevoConsent}>Zustimmen &amp; Formular laden</Button>
       </div>
     );
   }
@@ -244,7 +245,7 @@ const NewsletterSection = () => {
                   }}
                 >
                   <div className="sib-text-form-block">
-                    <p>Melde dich zu unserem Newsletter an, um auf dem Laufenden zu bleiben.</p>
+                    <p>Melden Sie sich zu unserem Newsletter an: Neuigkeiten zu RESQIO-Modulen und Updates per E-Mail. Abmeldung jederzeit über den Link in jeder Mail. Mit der Anmeldung willigen Sie darin ein; Details in der <a href="/datenschutz" style={{ textDecoration: "underline" }}>Datenschutzerklärung</a>.</p>
                   </div>
                 </div>
               </div>
@@ -264,15 +265,15 @@ const NewsletterSection = () => {
                         htmlFor="EMAIL"
                         data-required="*"
                       >
-                        Gib deine E-Mail-Adresse ein, um dich anzumelden
+                        Geben Sie Ihre E-Mail-Adresse ein, um sich anzumelden
                       </label>
                       <div className="entry__field">
                         <input
                           className="input"
-                          type="text"
+                          type="email"
                           id="EMAIL"
                           name="EMAIL"
-                          autoComplete="off"
+                          autoComplete="email"
                           defaultValue=""
                           placeholder="EMAIL"
                           data-required="true"
@@ -301,7 +302,7 @@ const NewsletterSection = () => {
                         color: "#8390A4",
                       }}
                     >
-                      Gib bitte deine E-Mail-Adresse für die Anmeldung an, z. B. abc@xyz.com.
+                      Geben Sie bitte Ihre E-Mail-Adresse für die Anmeldung an, z. B. abc@xyz.com.
                     </label>
                   </div>
                 </div>
@@ -333,7 +334,7 @@ const NewsletterSection = () => {
                   </button>
                 </div>
               </div>
-              <input type="text" name="email_address_check" defaultValue="" className="input--hidden" />
+              <input type="text" name="email_address_check" defaultValue="" className="input--hidden" aria-hidden="true" tabIndex={-1} autoComplete="off" />
               <input type="hidden" name="locale" value="de" />
             </form>
           </div>

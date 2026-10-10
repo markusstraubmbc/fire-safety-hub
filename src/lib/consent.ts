@@ -8,6 +8,9 @@
 
 const GA_ID = "G-1JZGKRM9GC";
 const STORAGE_KEY = "resqio-consent";
+// Eigene Einwilligung für das Brevo-Newsletter-Formular – bewusst getrennt von
+// Google Analytics, damit wer nur den Newsletter will, nicht der Analyse zustimmen muss.
+const BREVO_STORAGE_KEY = "resqio-consent-brevo";
 
 export type ConsentChoice = "granted" | "denied";
 
@@ -61,18 +64,39 @@ export function grantConsent() {
     /* Storage nicht verfügbar – Consent gilt nur für diese Sitzung */
   }
   gtag("consent", "update", {
-    ad_storage: "granted",
-    ad_user_data: "granted",
-    ad_personalization: "granted",
+    // Werbe-Signale bleiben aus: die Seite nutzt GA nur für Statistik.
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
     analytics_storage: "granted",
   });
   loadGtagScript();
   window.dispatchEvent(new Event(CONSENT_CHANGE_EVENT));
 }
 
+/** Einwilligung zum Nachladen des Brevo-Formulars (unabhängig von Analytics). */
+export function hasBrevoConsent(): boolean {
+  try {
+    return localStorage.getItem(BREVO_STORAGE_KEY) === "granted";
+  } catch {
+    return false;
+  }
+}
+
+export function grantBrevoConsent() {
+  try {
+    localStorage.setItem(BREVO_STORAGE_KEY, "granted");
+  } catch {
+    /* Storage nicht verfügbar – Einwilligung gilt nur für diese Sitzung */
+  }
+  window.dispatchEvent(new Event(CONSENT_CHANGE_EVENT));
+}
+
 export function denyConsent() {
   try {
     localStorage.setItem(STORAGE_KEY, "denied");
+    // Der Widerruf über die Cookie-Einstellungen gilt auch für das Newsletter-Formular.
+    localStorage.removeItem(BREVO_STORAGE_KEY);
   } catch {
     /* Storage nicht verfügbar */
   }

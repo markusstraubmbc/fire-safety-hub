@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from "react";
+import { CONSENT_CHANGE_EVENT, getStoredConsent } from "@/lib/consent";
 import {
   Dialog,
   DialogContent,
@@ -27,8 +28,19 @@ const NewsletterPopup = () => {
     }
     if (Date.now() < dismissedUntil) return;
 
-    const timer = setTimeout(() => setOpen(true), POPUP_DELAY_MS);
-    return () => clearTimeout(timer);
+    // Nicht über dem noch offenen Cookie-Banner öffnen: erst starten, wenn eine
+    // Cookie-Entscheidung vorliegt.
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const arm = () => {
+      if (timer || getStoredConsent() === null) return;
+      timer = setTimeout(() => setOpen(true), POPUP_DELAY_MS);
+    };
+    arm();
+    window.addEventListener(CONSENT_CHANGE_EVENT, arm);
+    return () => {
+      window.removeEventListener(CONSENT_CHANGE_EVENT, arm);
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   const handleOpenChange = (next: boolean) => {

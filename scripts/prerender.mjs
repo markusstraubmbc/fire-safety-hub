@@ -101,6 +101,7 @@ function createPage({
   bodyContent,
   noindex = false,
   jsonLd,
+  jsonLdId,
   // Social-Texte optional getrennt vom Meta-Title steuerbar. Ohne diese Option
   // hat der Prerender die handgepflegten og:/twitter:-Texte aus index.html
   // stumpf mit dem generischen Meta-Title überschrieben – für Unterseiten
@@ -180,7 +181,7 @@ function createPage({
 
   // Add JSON-LD if provided
   if (jsonLd) {
-    headInsert += `  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>\n`;
+    headInsert += `  <script type="application/ld+json"${jsonLdId ? ` id="${jsonLdId}"` : ""}>${JSON.stringify(jsonLd)}</script>\n`;
   }
 
   html = html.replace("</head>", headInsert + "</head>");
@@ -216,7 +217,7 @@ ${modules
       } – ${escAttr(m.shortDesc)}</li>`
   )
   .join("\n")}
-<li><a href="/kreis">Kreisplattform für Kreisfeuerwehrverbände</a> – Zentrale Verwaltung aller angeschlossenen Wehren mit voller Datensouveränität je Feuerwehr, Förderanträgen und optionaler Aggregation zur Landessicht.</li>
+<li><a href="/kreis">Kreisplattform für Kreisfeuerwehrverbände</a> – Zentrale Verwaltung aller angeschlossenen Wehren mit voller Datensouveränität je Feuerwehr und Förderanträgen.</li>
 </ul></section>
 <section><h2>Warum RESQIO?</h2>
 <ul>
@@ -345,6 +346,10 @@ for (const mod of modules) {
     benefitItems ? `<h2>Ihr Mehrwert</h2><ul>${benefitItems}</ul>` : ""
   }${
     featureItems ? `<h2>Funktionen im Überblick</h2><ul>${featureItems}</ul>` : ""
+  }${
+    mod.slug === "alarm-app"
+      ? `<p><a href="${ALARM_APP.googlePlayUrl}">RESQIO Alarm bei Google Play</a>${ALARM_APP.appStoreUrl ? ` | <a href="${ALARM_APP.appStoreUrl}">RESQIO Alarm im App Store</a>` : ""}</p>`
+      : ""
   }<h2>Weitere Module</h2><ul>${relatedLinks}</ul><p>RESQIO – Die intelligente Feuerwehr-Verwaltungssoftware. <a href="/">Zur Startseite</a> | <a href="/wissen">Wissen & Ratgeber</a> | <a href="mailto:kontakt@resqio.de">Demo anfordern</a></p></main>`;
 
   const html = createPage({
@@ -389,24 +394,18 @@ for (const mod of modules) {
     name: "RESQIO Kreismodul",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
-    description: "Föderale Plattform für Kreisfeuerwehrverbände. Vernetzt alle Feuerwehren eines Landkreises bei voller Datensouveränität.",
+    description: "Föderale Plattform für Kreisfeuerwehrverbände. Vernetzt alle Feuerwehren eines Landkreises bei voller Datensouveränität — DSGVO-konform, Ende-zu-Ende verschlüsselt.",
     image: `${BASE_URL}/logo-200.png`,
     url: kreisUrl,
     publisher: { "@type": "Organization", name: "RESQIO", url: BASE_URL },
-    featureList: "Kreisweites Dashboard, Schulungsmanagement, Atemschutzwerkstatt-Buchung, Schlauchwerkstatt, Sonderausrüstungs-Register, Personalstatistiken, Fahrzeug-Dashboard, Wasserversorgungskarte, KI-Assistent, Übungskoordination, Dokumenten-Portal, Schwarzes Brett",
+    offers: { "@type": "Offer", priceCurrency: "EUR", availability: "https://schema.org/InStock", url: kreisUrl },
+    featureList: "Kreisweites Dashboard, Schulungsmanagement, Atemschutzwerkstatt-Buchung, Schlauchwerkstatt, Sonderausrüstungs-Register, Personalstatistiken, Fahrzeug-Dashboard, Wasserversorgungskarte, Förderanträge (ZFeu), KI-Assistent, Übungskoordination, Dokumenten-Portal, Schwarzes Brett",
   };
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      { "@type": "Question", name: "Was ist das RESQIO Kreismodul?", acceptedAnswer: { "@type": "Answer", text: "Das RESQIO Kreismodul ist eine eigenständige Plattform für Kreisfeuerwehrverbände und Landratsämter. Es vernetzt alle Feuerwehren eines Landkreises und bietet zentrale Verwaltung von Schulungen, Werkstätten, Ressourcen und Personalstatistiken — bei voller Datensouveränität der einzelnen Wehren." } },
-      { "@type": "Question", name: "Ist das Kreismodul DSGVO-konform?", acceptedAnswer: { "@type": "Answer", text: "Ja, das Kreismodul arbeitet nach dem Prinzip Privacy by Design. Personenbezogene Daten verbleiben bei den einzelnen Feuerwehren. Auf Kreisebene werden ausschließlich anonymisierte und aggregierte Statistiken angezeigt. Alle Datenübertragungen sind Ende-zu-Ende verschlüsselt." } },
-      { "@type": "Question", name: "Wie werden die Feuerwehren angebunden?", acceptedAnswer: { "@type": "Answer", text: "Feuerwehren verbinden sich per Einladungslink oder QR-Code mit dem Kreismodul. Der gesamte Pairing-Prozess dauert weniger als 2 Minuten. Jede Wehr entscheidet selbst, welche Daten sie freigibt." } },
-      { "@type": "Question", name: "Welche Funktionen bietet das Kreismodul?", acceptedAnswer: { "@type": "Answer", text: "Das Kreismodul umfasst u.a. ein kreisweites Dashboard, Schulungsmanagement mit Online-Anmeldung, Atemschutz- und Schlauchwerkstatt-Buchung, ein Sonderausrüstungs-Register, Personalstatistiken, Fahrzeug-Dashboard, Wasserversorgungskarte, Dokumenten-Portal, Schwarzes Brett, KI-Assistent, Übungskoordination und die Förderverwaltung für Anträge wie ZFeu." } },
-      { "@type": "Question", name: "Gibt es eine Lösung für die Landesebene?", acceptedAnswer: { "@type": "Answer", text: "Ja, als dritte Ebene aggregiert RESQIO Land die Kennzahlen mehrerer Kreismodule zu einer landesweiten Sicht. Das Land erhält nur Kennzahlen, keine Personendaten, und der Kreis entscheidet je Kategorie, was weitergegeben wird." } },
-    ],
-  };
+  // Gleiche Datei wie die sichtbare FAQ in src/pages/KreisModul.tsx.
+  const faqLd = JSON.parse(
+    readFileSync(join(__dirname, "..", "src", "data", "kreis-faq-jsonld.json"), "utf-8")
+  );
 
   const bodyContent = `<main>
 <h1>Ihr Landkreis. Alle Wehren. Eine Plattform.<span>Feuerwehr-Software für Kreisfeuerwehrverbände und Landratsämter</span></h1>
@@ -414,7 +413,7 @@ for (const mod of modules) {
 <h2>Zentrale Steuerung für Ihren Landkreis</h2>
 <p>Ein Dashboard für den gesamten Landkreis: Personalstärken, Qualifikationen, Fahrzeuge und Verfügbarkeiten aller Feuerwehren auf einen Blick.</p>
 <h2>Datenschutz und Verschlüsselung</h2>
-<p>Keine personenbezogenen Daten auf Kreisebene. Durchgehende Ende-zu-Ende-Verschlüsselung. Hosting in Deutschland. DSGVO-konform nach Privacy by Design.</p>
+<p>Jede Wehr entscheidet, welche Daten sie dem Kreis freigibt; Statistiken des Kreises sind aggregiert. Durchgehende Ende-zu-Ende-Verschlüsselung. Hosting in Deutschland. DSGVO-konform nach Privacy by Design.</p>
 <h2>Kernfunktionen</h2>
 <ul>
 <li>Kreisweites Dashboard mit interaktiver Kreiskarte</li>
@@ -430,9 +429,9 @@ for (const mod of modules) {
 <li>Förderanträge (z. B. ZFeu) digital einreichen, priorisieren und bis zur Auszahlung nachverfolgen</li>
 </ul>
 <h2>Förderung</h2>
-<p>Der Kreis pflegt den Katalog der Förderprogramme, die Wehren reichen Anträge digital ein. Je Antrag setzt der Kreis Haushaltsjahr, Rangplatz und Stellungnahme als Grundlage für die Meldung ans Regierungspräsidium. Bewilligung, Mittelabruf und Verwendungsnachweis laufen in einem durchgehenden Vorgang.</p>
-<h2>Dritte Ebene: RESQIO Land</h2>
-<p>Die Landeslösung aggregiert die Kennzahlen mehrerer Kreismodule zu einer landesweiten Sicht für Landesfeuerwehrverband, Regierungspräsidien und Landesfeuerwehrschule. Das Land erhält ausschließlich Kennzahlen, keine Personendaten; der Kreis entscheidet je Kategorie, was weitergegeben wird, und eine Wehr verbindet sich nie direkt mit dem Land. Rückrufmeldungen laufen Land → Kreis → Wehr, jede Wehr prüft lokal und meldet nur eine Trefferzahl zurück.</p>
+<p>Der Kreis pflegt den Katalog der Förderprogramme, die Wehren reichen Anträge digital ein. Je Antrag setzt der Kreis Haushaltsjahr, Rangplatz und Stellungnahme als Grundlage für die Meldung an die Bewilligungsbehörde (in Baden-Württemberg: Regierungspräsidium). Bewilligung, Mittelabruf und Verwendungsnachweis laufen in einem durchgehenden Vorgang.</p>
+<h2>Ausblick: RESQIO Land (in Vorbereitung)</h2>
+<p>Die Landeslösung soll die Kennzahlen mehrerer Kreismodule zu einer landesweiten Sicht für Landesfeuerwehrverband, Regierungspräsidien und Landesfeuerwehrschule bündeln. Das Land erhält ausschließlich Kennzahlen, keine Namen oder Kontaktdaten; der Kreis entscheidet je Kategorie, was weitergegeben wird, und eine Wehr verbindet sich nie direkt mit dem Land. Landesweite Rückrufmeldungen erreichen die Wehr über den Kreis; jede Wehr prüft lokal und meldet nur eine Trefferzahl zurück.</p>
 <p><a href="mailto:kontakt@resqio.de?subject=Demo Anfrage RESQIO Kreismodul">Jetzt Demo anfordern</a> | <a href="/">Zur Startseite</a></p>
 </main>`;
 
@@ -443,12 +442,13 @@ for (const mod of modules) {
     canonicalUrl: kreisUrl,
     bodyContent,
     jsonLd: breadcrumbLd,
+    jsonLdId: "breadcrumb-jsonld",
   });
 
   // Add additional JSON-LD schemas
   kreisHtml = kreisHtml.replace("</head>",
-    `  <script type="application/ld+json">${JSON.stringify(productLd)}</script>\n` +
-    `  <script type="application/ld+json">${JSON.stringify(faqLd)}</script>\n` +
+    `  <script type="application/ld+json" id="product-jsonld">${JSON.stringify(productLd)}</script>\n` +
+    `  <script type="application/ld+json" id="kreis-faq-jsonld">${JSON.stringify(faqLd)}</script>\n` +
     `  <meta property="og:locale" content="de_DE" />\n` +
     `</head>`
   );

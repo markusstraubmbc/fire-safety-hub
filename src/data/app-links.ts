@@ -3,7 +3,7 @@
  *
  * `appStoreUrl` darf `null` sein, solange die App im Apple App Store nicht live ist:
  * die Komponente blendet den Button dann aus, statt auf einen toten Link zu zeigen.
- * Sobald die Store-URL (https://apps.apple.com/de/app/…/idXXXXXXXXX) vorliegt,
+ * Sobald die Store-URL (https://apps.apple.com/<land>/app/resqio-alarm/id6808550999) vorliegt,
  * genügt es, sie hier einzutragen – Startseite, Footer, Modulseite, Prerender und
  * llms.txt ziehen nach.
  */

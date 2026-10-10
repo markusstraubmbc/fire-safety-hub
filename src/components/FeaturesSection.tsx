@@ -38,6 +38,8 @@ import {
   Wind,
   HeartPulse,
   CloudOff,
+  Smartphone,
+  KanbanSquare,
   PartyPopper,
   PlaneTakeoff,
   Tractor,
@@ -382,6 +384,22 @@ export const features: Feature[] = [
     description:
       "Die Technik aus dem Ort als planbare Ressource: Wasserfässer mit Fassungsvermögen und Kupplung, Zugmaschinen und Radlader samt Erreichbarkeit – im Einsatz in Minuten angefordert.",
     slug: "landwirte-modul",
+    badge: "neu",
+  },
+  {
+    icon: Smartphone,
+    title: "RESQIO Alarm-App",
+    description:
+      "Einsatzalarm aufs Smartphone: Rückmeldung mit einem Fingertipp, Übungs- und Terminkalender, Navigation zur Einsatzstelle. Für Android und iOS.",
+    slug: "alarm-app",
+    badge: "neu",
+  },
+  {
+    icon: KanbanSquare,
+    title: "Projektmanagement & Vorhaben",
+    description:
+      "Anschaffungen, Bauvorhaben und Vereinsprojekte auf dem Kanban-Board planen – mit Checklisten, Anhängen, Zugriff nach Rolle und Aufgaben vor und nach dem Einsatz.",
+    slug: "projektmanagement",
     badge: "neu",
   },
   {

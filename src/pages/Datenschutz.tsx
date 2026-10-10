@@ -269,8 +269,9 @@ const Datenschutz = () => {
                   </h3>
                   <p className="text-muted-foreground text-sm">
                     Die Einbindung des Formulars erfolgt ausschließlich auf Grundlage
-                    Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO, die Sie über
-                    unseren Cookie-Banner erteilen können. Ohne Ihre Einwilligung wird
+                    Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO, die Sie
+                    gesondert und unabhängig von der Statistik-Einwilligung über die
+                    Schaltfläche im Newsletter-Fenster erteilen können. Ohne Ihre Einwilligung wird
                     das Formular nicht nachgeladen. Der eigentliche Versand des
                     Newsletters nach einer Anmeldung erfolgt im Double-Opt-in-Verfahren
                     auf Grundlage Ihrer gesondert erteilten Einwilligung
@@ -278,7 +279,7 @@ const Datenschutz = () => {
                     Abmeldelink in jeder Newsletter-E-Mail wieder austragen. Sie können
                     Ihre Einwilligung zum Nachladen des Formulars jederzeit mit Wirkung
                     für die Zukunft widerrufen, indem Sie die Cookie-Einstellungen über
-                    den Link im Seitenfuß erneut öffnen.
+                    den Link im Seitenfuß erneut öffnen und ablehnen.
                   </p>
 
                   <h3 className="text-lg font-medium text-foreground mb-2 mt-4">
