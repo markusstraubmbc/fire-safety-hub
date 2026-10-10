@@ -376,7 +376,15 @@ Anschaffungen, Bauvorhaben und Vereinsprojekte auf dem Kanban-Board planen – m
 - **Funktionen**: Kanban-Board mit Karten, Checklisten und Anhängen | Zugriff auf Rollen oder einzelne Personen beschränkbar | Wer keinen Zugriff auf ein Projekt hat, beantragt ihn per Klick – die Verantwortlichen genehmigen per E-Mail-Link, ohne sich anzumelden | Automatisches Eingangs-Board je Fachgebiet für dessen Mitglieder | Reiter „Vorbereitung & Nacharbeit“ an Einsatz und Übung mit dem zugehörigen Projekt-Board | Gesammelte Änderungsmails an Projektbeteiligte
 - **URL**: https://resqio.de/modul/projektmanagement
 
-### 49. RESQIO Alarm-App für Android & iOS
+### 49. Eventkasse für Feuerwehrfeste
+Kasse für Fest und Theke: schnell kassieren, Rückgeld gestückelt anzeigen, Bon drucken und alles sauber ins Kassenbuch buchen.
+
+- **Beschreibung**: Am Getränkestand zählt jede Sekunde. Die Eventkasse läuft im Kiosk und nimmt den Verkauf so ernst wie das Kassenbuch danach: Scheine werden angetippt statt getippt, das Rückgeld erscheint als Stückelung, der Bon kommt in Bonbreite aus dem Drucker. Artikelkatalog, Preisebenen und Theken bleiben von Fest zu Fest erhalten – eine komplette Kasse lässt sich als Kopie fürs nächste Fest anlegen. Umsatzsteuer, Pfand und die Zuordnung zum Kassenbuch sind einstellbar; ob die Einstellungen für Ihre Wehr steuerlich passen, klärt Ihr Steuerberater.
+- **Status**: Neu
+- **Funktionen**: Bezahlen im Kiosk: Tasten „Passend“, Scheine und Münzen addieren sich, Taste C setzt zurück; angebotene Scheine passen sich dem Rechnungsbetrag an | Rückgeld gestückelt, z. B. „1× 10 € · 1× 2 € · 1× 1 € · 1× 50 ct“ – bei zu wenig gegebenem Geld steht der Fehlbetrag da | Zahlarten Bar, Karte, Wertmarke und Helferverzehr; Preisebenen wie „Helfer“ mit artikelgenauen Sonderpreisen, Rabattcodes und mehrere Theken | Kassenbon in Bonbreite (80 oder 58 mm) mit Aussteller, Belegnummer, Positionen, Zahlart, Rückgeld und Abholnummer; Stornos deutlich gekennzeichnet; Druck auf Wunsch automatisch direkt nach dem Buchen | Steuermodus wählbar: Kleinunternehmer (§ 19 UStG, keine Umsatzsteuer auf dem Bon) oder regelbesteuert mit Ausweis je Steuersatz in Bon, Abrechnung und Kassenbericht | Artikel mit Steuersatz; Hinweis auf Artikel und Umsätze ohne Steuersatz
+- **URL**: https://resqio.de/modul/eventkasse
+
+### 50. RESQIO Alarm-App für Android & iOS
 Einsatzalarm im Vollbild aufs Handy – mit Zu- und Absage, Übungs- und Terminkalender. Für Android und iOS.
 
 - **Beschreibung**: Die RESQIO Alarm-App bringt den Einsatzalarm dorthin, wo die Einsatzkräfte sind: aufs Smartphone. Bei einer Alarmierung erscheint der Einsatz im Vollbild (Android, auch bei gesperrtem Gerät); auf dem iPhone kommt der Alarm als zeitkritische Benachrichtigung, die den Fokus-Modus durchbricht. Mit einem Fingertipp melden sich Kameradinnen und Kameraden mit „Komme“, „Vorbehalt“ oder „Komme nicht“ zurück, die Einsatzleitung sieht die Rückmeldungen live. Dazu kommen der Übungs- und Terminkalender mit Rückmeldung, auch ohne Netz, sowie die Navigation zur Einsatzstelle. Die App wird mit der RESQIO-Instanz der eigenen Feuerwehr gekoppelt.

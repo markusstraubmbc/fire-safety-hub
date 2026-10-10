@@ -1,11 +1,11 @@
 {
   "/": {
-    "hash": "a3059a5a76df6d13",
-    "lastmod": "2026-09-22"
+    "hash": "2de93311db3673f4",
+    "lastmod": "2026-10-10"
   },
   "/kreis": {
-    "hash": "e56f53c72eb5c5d1",
-    "lastmod": "2026-08-05"
+    "hash": "82b319694d6a093d",
+    "lastmod": "2026-10-10"
   },
   "/modul/kommandozentrale": {
     "hash": "b8edffdffb6c00e3",
@@ -80,8 +80,8 @@
     "lastmod": "2026-08-05"
   },
   "/modul/digitaler-dienstausweis": {
-    "hash": "f94080996493c983",
-    "lastmod": "2026-08-05"
+    "hash": "70a8a066c4fbb369",
+    "lastmod": "2026-10-10"
   },
   "/modul/schnittstellen": {
     "hash": "33ecd15923fbaef4",
@@ -120,20 +120,20 @@
     "lastmod": "2026-08-05"
   },
   "/modul/wirt-modul": {
-    "hash": "4419161e58f701d2",
-    "lastmod": "2026-08-05"
+    "hash": "a1c5029b938c2a57",
+    "lastmod": "2026-10-10"
   },
   "/modul/arbeitsstunden": {
-    "hash": "9a3bc1da856d9158",
-    "lastmod": "2026-08-05"
+    "hash": "7fca0bd358f207cc",
+    "lastmod": "2026-10-10"
   },
   "/modul/bsw-events": {
     "hash": "0238f04f3b975fc6",
     "lastmod": "2026-08-05"
   },
   "/modul/stab-modul": {
-    "hash": "b807b265506dc04f",
-    "lastmod": "2026-08-05"
+    "hash": "b71058bbfe7724ed",
+    "lastmod": "2026-10-10"
   },
   "/modul/fahrzeugverwaltung": {
     "hash": "7c3a254aec24ba04",
@@ -144,8 +144,8 @@
     "lastmod": "2026-08-05"
   },
   "/modul/kalender": {
-    "hash": "340388438fc52d58",
-    "lastmod": "2026-08-05"
+    "hash": "ae499ea46c6c05ce",
+    "lastmod": "2026-10-10"
   },
   "/modul/befoerderungssystem": {
     "hash": "b5b1104d063f9f2c",
@@ -192,12 +192,16 @@
     "lastmod": "2026-08-05"
   },
   "/modul/projektmanagement": {
-    "hash": "78c221ad63caab17",
-    "lastmod": "2026-08-05"
+    "hash": "46c489eda9a21b38",
+    "lastmod": "2026-10-10"
+  },
+  "/modul/eventkasse": {
+    "hash": "44f4d0cd40ade79c",
+    "lastmod": "2026-10-10"
   },
   "/modul/alarm-app": {
-    "hash": "e6f2116d0110c4e3",
-    "lastmod": "2026-08-05"
+    "hash": "45b4b2223cf1fb1e",
+    "lastmod": "2026-10-10"
   },
   "/wissen": {
     "hash": "7fb290db1a95b7b6",

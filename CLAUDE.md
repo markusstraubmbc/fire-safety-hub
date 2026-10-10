@@ -122,7 +122,7 @@ them — check `git status` afterwards and include what changed. Never hand-edit
 ### Before calling a change done
 
 ```bash
-npm run build     # must prerender 53 pages without error (48 Module + 5)
+npm run build     # must prerender 55 pages without error (50 Module + 5)
 npm run lint      # 0 errors (8 pre-existing warnings in src/components/ui/* are fine)
 git status        # generated files staged together with their source?
 ```

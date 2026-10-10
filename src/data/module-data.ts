@@ -42,6 +42,7 @@ import {
     Flag,
     Smartphone,
     KanbanSquare,
+    Receipt,
     LucideIcon
 } from "lucide-react";
 
@@ -1331,6 +1332,38 @@ export const modules: Record<string, ModuleData> = {
         keywords: ["Projektmanagement Feuerwehr", "Kanban Feuerwehr", "Vorhaben Verein planen", "Beschaffung Feuerwehr planen", "Bauvorhaben Gerätehaus"],
         icon: KanbanSquare,
         color: "blue",
+        badge: "neu"
+    },
+    "eventkasse": {
+        title: "Eventkasse für Feuerwehrfeste",
+        shortDesc: "Kasse für Fest und Theke: schnell kassieren, Rückgeld gestückelt anzeigen, Bon drucken und alles sauber ins Kassenbuch buchen.",
+        longDesc: "Am Getränkestand zählt jede Sekunde. Die Eventkasse läuft im Kiosk und nimmt den Verkauf so ernst wie das Kassenbuch danach: Scheine werden angetippt statt getippt, das Rückgeld erscheint als Stückelung, der Bon kommt in Bonbreite aus dem Drucker. Artikelkatalog, Preisebenen und Theken bleiben von Fest zu Fest erhalten – eine komplette Kasse lässt sich als Kopie fürs nächste Fest anlegen. Umsatzsteuer, Pfand und die Zuordnung zum Kassenbuch sind einstellbar; ob die Einstellungen für Ihre Wehr steuerlich passen, klärt Ihr Steuerberater.",
+        benefits: [
+            "Tempo an der Theke: Scheine per Tipp zählen, Rückgeld sofort gestückelt sehen",
+            "Wiederverwendbar: Kasse, Artikelkatalog und Preisebenen fürs nächste Fest kopieren",
+            "Sauber gebucht: Umsatzsteuer je Steuersatz, Pfand getrennt, Umsätze intern oder extern (§ 2b) zuordenbar",
+            "Belege ohne Stolperfallen: Bon in 80 oder 58 mm, Kleinunternehmer-Hinweis nach § 19 UStG statt ausgewiesener Steuer"
+        ],
+        features: [
+            "Bezahlen im Kiosk: Tasten „Passend“, Scheine und Münzen addieren sich, Taste C setzt zurück; angebotene Scheine passen sich dem Rechnungsbetrag an",
+            "Rückgeld gestückelt, z. B. „1× 10 € · 1× 2 € · 1× 1 € · 1× 50 ct“ – bei zu wenig gegebenem Geld steht der Fehlbetrag da",
+            "Zahlarten Bar, Karte, Wertmarke und Helferverzehr; Preisebenen wie „Helfer“ mit artikelgenauen Sonderpreisen, Rabattcodes und mehrere Theken",
+            "Kassenbon in Bonbreite (80 oder 58 mm) mit Aussteller, Belegnummer, Positionen, Zahlart, Rückgeld und Abholnummer; Stornos deutlich gekennzeichnet; Druck auf Wunsch automatisch direkt nach dem Buchen",
+            "Steuermodus wählbar: Kleinunternehmer (§ 19 UStG, keine Umsatzsteuer auf dem Bon) oder regelbesteuert mit Ausweis je Steuersatz in Bon, Abrechnung und Kassenbericht",
+            "Artikel mit Steuersatz; Hinweis auf Artikel und Umsätze ohne Steuersatz",
+            "Kasse kopieren: „Sommerfest 2027 wie Sommerfest 2026“ mit Einstellungen, Artikelkatalog, Preisebenen und auf Wunsch Theken und Rabattcodes – Buchungen und Abschlüsse bleiben beim alten Fest",
+            "Artikel per Excel exportieren und importieren: Die Datei wird vor dem Übernehmen geprüft; bei einem Fehler wird nichts übernommen und jede beanstandete Zeile benannt",
+            "Kassenbuch: Buchung nach Steuersatz aufgeteilt, Pfand getrennt von den Erlösen, Umsätze wahlweise intern oder extern (steuerpflichtig § 2b)",
+            "Verkauf und Kassenverwaltung als Kiosk-Kacheln; ausblendbar oder in den Einstellungen unter „Features“ abschaltbar, wenn die Eventkasse nicht genutzt wird"
+        ],
+        technicalDetails: [
+            "Verkauf wird immer zuerst gebucht – ein ungedruckter Beleg steht in der Liste „Nicht gedruckt“ und lässt sich nachholen",
+            "Der Steuersatz wird beim Verkauf auf der Belegposition festgeschrieben; spätere Änderungen am Artikel wirken nicht auf gebuchte Belege zurück",
+            "Anbindung an Budget-Veranstaltung und Kameradschaftskasse über das Kassenwesen"
+        ],
+        keywords: ["Eventkasse Feuerwehr", "Festkasse Feuerwehrfest", "Kassensystem Verein", "Kassenbon Verein", "Getränkeverkauf Feuerwehrfest", "Kleinunternehmer Kasse Verein", "Vereinsfest Kasse"],
+        icon: Receipt,
+        color: "green",
         badge: "neu"
     },
     "alarm-app": {
