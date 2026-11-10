@@ -50,11 +50,25 @@ const ContactSection = () => {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      const post = (url: string) =>
+        fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+      const isJson = (r: Response) =>
+        (r.headers.get("content-type") || "").includes("application/json");
+
+      // Primär /api/contact (Vercel bzw. .htaccess-Rewrite). Liefert der Server
+      // dort HTML statt JSON (Rewrite greift nicht, Fehlerseite), geht es direkt
+      // an den PHP-Handler, der auf Apache/Plesk immer erreichbar ist.
+      let response = await post("/api/contact");
+      if (!isJson(response)) {
+        response = await post("/api/contact.php");
+      }
+      if (!isJson(response)) {
+        throw new Error("Der Server hat nicht korrekt geantwortet");
+      }
 
       const result = await response.json();
       if (!response.ok) {
