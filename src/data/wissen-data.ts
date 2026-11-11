@@ -6,8 +6,7 @@
  *
  * WICHTIG: Wie bei module-data.ts gilt — nach Änderungen
  * `npm run generate-sitemap` ausführen und public/sitemap.xml mit committen.
- * Die Slug-Keys werden von scripts/generate-sitemap.cjs und
- * scripts/prerender.mjs per Regex geparst (Format: "slug": { ... title: "..." ... description: "..." ).
+ * Die Daten werden über scripts/load-data.mjs geladen (kein Regex-Parsing mehr).
  */
 
 export interface WissenSection {
@@ -133,7 +132,7 @@ export const wissenArtikel: Record<string, WissenArticle> = {
         heading: "Der Atemschutznachweis: Pro Kamerad, lückenlos, aktuell",
         paragraphs: [
           "Für jeden Geräteträger ist ein persönlicher Nachweis zu führen, aus dem Einsätze, Übungen, Unterweisungen und die Tauglichkeit hervorgehen. Läuft eine der Voraussetzungen ab, erlischt die Einsatzberechtigung – und genau das muss der Einheitsführer vor dem Einsatz wissen, nicht erst danach.",
-          "In vielen Wehren wird dieser Nachweis noch auf Karteikarten oder in Tabellen geführt. Das Risiko: abgelaufene Fristen fallen erst bei der Jahresüberprüfung auf. Eine digitale Lösung zeigt den Tauglichkeitsstatus jedes Kameraden tagesaktuell an und warnt rechtzeitig vor ablaufenden Fristen.",
+          "In vielen Wehren wird dieser Nachweis noch auf Karteikarten oder in Tabellen geführt. Das Risiko: abgelaufene Fristen fallen erst bei der Jahresüberprüfung auf. Eine digitale Lösung zeigt den Tauglichkeitsstatus jedes Kameraden tagesaktuell an und warnt rechtzeitig vor ablaufenden Fristen. Praktisch ist, wenn die Belastungsübung direkt im Atemschutzpass gekennzeichnet wird und die Einsatzberechtigung sich daraus automatisch aktualisiert.",
         ],
       },
       {
@@ -199,7 +198,7 @@ export const wissenArtikel: Record<string, WissenArticle> = {
       {
         heading: "Schritt 3: Budget und Beschaffung über die Gemeinde",
         paragraphs: [
-          "Feuerwehrsoftware wird üblicherweise aus dem Gemeindehaushalt finanziert. Jahrespreise im niedrigen drei- bis mittleren vierstelligen Bereich (je nach Gemeindegröße) sind im Vergleich zu den Kosten eines einzigen verlorenen Haftungsfalls oder einer fehlgeschlagenen Beschaffung gut argumentierbar. Hilfreich für den Gemeinderat: eine kurze Gegenüberstellung der heutigen Aufwände (Verwaltungsstunden, Papier, Insellösungen) und der erwarteten Entlastung.",
+          "Feuerwehrsoftware wird üblicherweise aus dem Gemeindehaushalt finanziert. Die Kosten richten sich nach Größe und Funktionsumfang; seriöse Anbieter erstellen ein individuelles Angebot. Hilfreich für den Gemeinderat: eine kurze Gegenüberstellung der heutigen Aufwände (Verwaltungsstunden, Papier, Insellösungen) und der erwarteten Entlastung.",
         ],
       },
       {
@@ -225,6 +224,7 @@ export const wissenArtikel: Record<string, WissenArticle> = {
           "Gibt es Erinnerungen für Prüffristen und ablaufende Qualifikationen?",
           "Transparente Jahrespreise passend zur Gemeindegröße?",
           "Persönlicher Support statt anonymer Ticketsysteme?",
+          "Gibt es nachvollziehbare Löschnachweise (Löschprotokoll, Löschbescheinigung) und einen geregelten Ausstieg mit Datenexport?",
         ],
       },
     ],

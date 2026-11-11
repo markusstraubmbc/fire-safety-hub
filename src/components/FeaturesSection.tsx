@@ -1,5 +1,7 @@
 import {
+  ClipboardCheck,
   ClipboardList,
+  LifeBuoy,
   Wrench,
   FileText,
   Car,
@@ -77,7 +79,7 @@ export const features: Feature[] = [
     icon: LayoutDashboard,
     title: "Dashboard & Übersicht",
     description:
-      "Zentrale Übersicht über alle wichtigen Kennzahlen, Statusmeldungen und anstehende Aufgaben.",
+      "Zentrale Übersicht über alle wichtigen Kennzahlen, Statusmeldungen und anstehende Aufgaben. Widgets lassen sich frei anordnen und ausblenden.",
     slug: "kommandozentrale",
   },
   {
@@ -351,10 +353,18 @@ export const features: Feature[] = [
     slug: "lehrgaenge",
   },
   {
+    icon: ClipboardCheck,
+    title: "Ausbildungsplanung (Beta)",
+    description:
+      "Beta: Ausbildungseinheiten aufs Übungsjahr verteilen – Stationsbetrieb mit Gruppen, Ausbildungskatalog, Nachholliste und „Meine Ausbildung“ für jedes Mitglied.",
+    slug: "ausbildungsplanung",
+    badge: "neu",
+  },
+  {
     icon: CalendarDays,
     title: "Kalender & Terminverwaltung",
     description:
-      "Zentraler Kalender für Übungen, Termine und Veranstaltungen mit Übersicht und Benachrichtigungen.",
+      "Zentraler Kalender für Übungen, Termine und Veranstaltungen – mit druckbarem Dienstkalender und Abo für Handy und Google Kalender.",
     slug: "kalender",
   },
   {
@@ -377,6 +387,14 @@ export const features: Feature[] = [
     description:
       "Fluggeräte, Fernpiloten und Flüge an einer Stelle: Flugbuch, EU-Kompetenznachweise mit Ablaufwarnung, Akkuzyklen und Wartung. Luft- und Wärmebilder werden am Einsatz dokumentiert.",
     slug: "drohneneinheit",
+    badge: "neu",
+  },
+  {
+    icon: LifeBuoy,
+    title: "Tauchen & Höhenrettung",
+    description:
+      "Optionale Fachmodule: Tauchüberwachung am Tablet, Tauch- und Höhenrettungs-Pass mit Gegenzeichnung, Gebrauchsnachweis für Seile und Gurte, Fristen im Blick.",
+    slug: "tauchen-hoehenrettung",
     badge: "neu",
   },
   {
@@ -405,7 +423,7 @@ export const features: Feature[] = [
   },
   {
     icon: Receipt,
-    title: "Eventkasse für Feuerwehrfeste",
+    title: "Eventkasse für Feuerwehrfeste (Beta)",
     description:
       "Kassieren an der Theke: Scheine per Tipp, Rückgeld gestückelt, Bon in Bonbreite, Kasse als Kopie fürs nächste Fest und saubere Buchung ins Kassenbuch mit Steuer und Pfand.",
     slug: "eventkasse",

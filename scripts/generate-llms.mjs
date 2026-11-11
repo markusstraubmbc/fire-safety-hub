@@ -111,12 +111,17 @@ Die Preise richten sich nach der Größe und den Anforderungen der Feuerwehr. In
 - **Ganzheitlicher Ansatz**: Von Personalverwaltung über Gerätewartung bis zur Einsatzdokumentation — alles in einem System
 - **Kiosk-Modus**: Touch-optimierte Oberfläche für die Mannschaft (z.B. Fahrtenbuch, Status, Mängelmelder, Wäsche)
 - **KI-Integration**: Intelligente Assistenzsysteme für Berichte, Belegerfassung, Adresskorrekturen und Chatbots
-- **Sicherheit & Datenschutz**: Hosting in Deutschland, DSGVO-konform, granulares rollenbasiertes Zugriffssystem
+- **Sicherheit & Datenschutz**: Hosting in Deutschland, DSGVO-konform, granulares rollenbasiertes Zugriffssystem, Löschprotokoll mit Löschbescheinigung, Audit-Protokoll je Feuerwehr, Vertraulichkeitsmodus für Einsätze, Screenshot-Sperre in der Alarm-App
 - **Modularität**: Feuerwehren können spezifische Module je nach Bedarf aktivieren
 - **Externe Kräfte und Technik**: Drohneneinheit (Flugbuch, Fernpiloten-Nachweise, Luftbilder am Einsatz) und Landwirtschaftsmodul (Wasserfässer, Zugmaschinen und Radlader aus dem Ort) binden Ressourcen ein, die nicht im Gerätehaus stehen
 - **Alarm-App**: Die RESQIO Alarm-App bringt den Einsatzalarm im Vollbild aufs Smartphone, mit Zu- und Absage sowie Termin-Rückmeldung. Google Play: ${ALARM_APP.googlePlayUrl}${ALARM_APP.appStoreUrl ? `, Apple App Store: ${ALARM_APP.appStoreUrl}` : ""}
 - **Kreis, Förderung und Land**: Das Kreismodul vernetzt alle Wehren eines Landkreises und verwaltet Förderanträge (z. B. ZFeu) von der Einreichung bis zum Verwendungsnachweis. Eine Landeslösung (RESQIO Land) ist in Vorbereitung: Sie soll die Kennzahlen mehrerer Kreise zu einer Landessicht bündeln — ausschließlich Kennzahlen, keine Namen oder Kontaktdaten, und der Kreis entscheidet je Kategorie, was weitergegeben wird
 - **Länderunterstützung**: RESQIO ist auf deutsche Vorschriften ausgelegt (DGUV, FwDV, DIN). Für österreichische Wehren gibt es das Ländermodul Österreich mit Dienstgraden und Chargen nach österreichischem Schema, ÖNORM-Fahrzeugtypen und Fristen nach Bundesland
+- **Ausbildungsplanung (Beta)**: Ausbildungseinheiten auf die Übungstermine des Jahres verteilen – Stationsbetrieb mit Gruppen, Nachholliste und „Meine Ausbildung“; verfügbar, sobald für die Installation freigeschaltet
+- **Tauchen & Höhenrettung**: Optionale Fachmodule mit Tauchüberwachung, Tauch- und Höhenrettungs-Pass sowie Gebrauchsnachweisen für Seile, Gurte und Karabiner
+- **Mehrere Feuerwehren**: Rolle Gesamtkommandant mit dem Recht „Alle Feuerwehren“ für die gemeindeweite Verwaltung
+- **Schnittstellen**: Leitstellenanbindung secur.CIS, REST-API und MQTT; Home Assistant und E-Paper-Displays (E-Link) als Beta
+- **Barrierefreiheit**: Bedienung per Tastatur, „Zum Inhalt springen“ und beschriftete Schaltflächen für Bildschirmleser
 
 ## Module im Detail
 
