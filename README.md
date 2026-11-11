@@ -7,6 +7,19 @@ HTML-Datei mit vollem Inhalt, Meta-Tags und JSON-LD ausgeliefert. Das ist keine
 Optimierung nebenbei, sondern die Grundlage der Indexierung — und es stellt ein
 paar Bedingungen an Server und Workflow, die weiter unten stehen.
 
+## Inhaltsverzeichnis
+
+- [Tech Stack](#tech-stack)
+- [Entwicklung](#entwicklung)
+- [Build-Pipeline](#build-pipeline)
+- [Generierte Dateien — niemals von Hand bearbeiten](#generierte-dateien-niemals-von-hand-bearbeiten)
+- [Hosting: Plesk, nicht Vercel](#hosting-plesk-nicht-vercel)
+- [Routing-Regeln](#routing-regeln)
+- [SEO-Invarianten](#seo-invarianten)
+- [Indexierung anstoßen](#indexierung-anstoßen)
+- [Deployment](#deployment)
+- [Modul- und Seitenindex](#modul--und-seitenindex)
+
 ## Tech Stack
 
 - Vite 5 + React 18 + TypeScript
@@ -151,6 +164,97 @@ programmatischen Weg mehr: `google.com/ping?sitemap=` antwortet 404,
 
 Bis zur tatsächlichen Neuindexierung vergehen erfahrungsgemäß ein bis drei
 Wochen.
+
+## Modul- und Seitenindex
+
+Stand: RESQIO 8.2 (11.11.2026). Quelle der Wahrheit ist `src/data/module-data.ts` bzw. `src/data/wissen-data.ts`; diese Tabellen sind eine Momentaufnahme und bei Änderungen von Hand nachzuziehen (Zahlen stammen aus `npm run build`).
+
+### Seiten
+
+| Route | Inhalt |
+|---|---|
+| `/` | Startseite |
+| `/kreis` | Kreismodul |
+| `/wissen` | Ratgeber-Übersicht |
+| `/impressum`, `/datenschutz` | Rechtliches (Datenschutz inkl. Alarm-App-Abschnitt) |
+
+### Module (52)
+
+Route: `/modul/<Slug>`. „neu“ = Badge auf der Karte; „Beta“ steht im Titel.
+
+| Nr. | Slug | Titel | Badge |
+|---:|---|---|---|
+| 1 | `kommandozentrale` | Kommandozentrale |  |
+| 2 | `ausruestungsverwaltung` | Ausrüstungsverwaltung |  |
+| 3 | `wartungsmanagement` | Wartungsmanagement |  |
+| 4 | `kiosk-modus` | Kiosk-Modus - Die zentrale Mannschaftsoberfläche |  |
+| 5 | `lagemonitor` | Lagemonitor & Führung |  |
+| 6 | `atemschutzueberwachung` | Digitale Atemschutzüberwachung |  |
+| 7 | `einsatzerfassung` | Einsätze & Übungen - Vollspektrum Einsatzmanagement |  |
+| 8 | `mannschaftsverwaltung` | Mannschaftsverwaltung |  |
+| 9 | `objektplaene` | Objektpläne & Brandschutzunterlagen |  |
+| 10 | `wasserkarte` | Wasserkarte & Hydranten |  |
+| 11 | `wasserfoerderung` | Wasserförderung & Löschwasserversorgung |  |
+| 12 | `wiki-integration` | Wiki & Wissensmanagement |  |
+| 13 | `warenbewegung` | Warenbewegung & Verbrauchsmaterial |  |
+| 14 | `fahrtenbuch` | Digitales Fahrtenbuch |  |
+| 15 | `waescheverwaltung` | Wäscheverwaltung & Schutzkleidung |  |
+| 16 | `mannschafts-self-service` | Mannschafts-Self-Service |  |
+| 17 | `budget-finanzen` | Budget & Finanzverwaltung |  |
+| 18 | `treasury-kassier` | Treasury & Kassiermodul |  |
+| 19 | `digitaler-dienstausweis` | Digitaler Dienstausweis |  |
+| 20 | `schnittstellen` | Schnittstellen & Integrationen |  |
+| 21 | `email-templates` | E-Mail & Kommunikation |  |
+| 22 | `reporting` | Reporting & Statistiken |  |
+| 23 | `brandschutz` | Brandschutz & Technische Anlagen |  |
+| 24 | `inventur` | Inventur & Bestandserfassung |  |
+| 25 | `formular-center` | Formular-Center & Druckvorlagen |  |
+| 26 | `maengelmanagement` | Mängelmanagement |  |
+| 27 | `ki-integration` | KI-Integration & souveräne Assistenz |  |
+| 28 | `planspiel` | Planspiel & Ausbildungssimulation |  |
+| 29 | `wirt-modul` | Wirt-Modul & Veranstaltungsmanagement |  |
+| 30 | `kreis-platform` | Kreisplattform & Verbandsintegration |  |
+| 31 | `arbeitsstunden` | Arbeitsstunden & Tätigkeitsnachweise |  |
+| 32 | `bsw-events` | BSW-Events & Veranstaltungskalender |  |
+| 33 | `stab-modul` | Stab & Führungsunterstützung |  |
+| 34 | `fahrzeugverwaltung` | Fahrzeugverwaltung & Flotte |  |
+| 35 | `lehrgaenge` | Lehrgänge & Qualifikationsmanagement |  |
+| 36 | `ausbildungsplanung` | Ausbildungsplanung & Übungspläne (Beta) | Neu |
+| 37 | `kalender` | Kalender & Terminverwaltung |  |
+| 38 | `befoerderungssystem` | Beförderungssystem |  |
+| 39 | `alarmmonitor` | Alarmmonitor |  |
+| 40 | `kommunikationscenter` | Kommunikationscenter |  |
+| 41 | `personalmeldestelle` | Personalmeldestelle |  |
+| 42 | `gefahrstoff-ausbreitung` | Gefahrstoff & Ausbreitungsprognose |  |
+| 43 | `veranstaltungen` | Veranstaltungen & Arbeitsdienste |  |
+| 44 | `verbandbuch` | Verbandbuch & Vorfälle |  |
+| 45 | `offline-modus` | Offline-Modus & Ausfallsicherheit |  |
+| 46 | `drohneneinheit` | Drohneneinheit & Luftaufklärung | Neu |
+| 47 | `tauchen-hoehenrettung` | Tauchen & Höhenrettung | Neu |
+| 48 | `landwirte-modul` | Landwirtschaftsmodul & Ortsressourcen | Neu |
+| 49 | `laendermodul-oesterreich` | Ländermodul Österreich | Neu |
+| 50 | `projektmanagement` | Projektmanagement & Vorhaben | Neu |
+| 51 | `eventkasse` | Eventkasse für Feuerwehrfeste (Beta) | Neu |
+| 52 | `alarm-app` | RESQIO Alarm-App für Android & iOS | Neu |
+
+### Wissen-Artikel (4)
+
+Route: `/wissen/<Slug>`
+
+| Slug | Titel |
+|---|---|
+| `0` | DGUV-Prüffristen bei der Feuerwehr: Der Überblick für Gerätewarte |
+| `1` | Atemschutz-Dokumentation nach FwDV 7: Diese Pflichten gelten |
+| `2` | Feuerwehrsoftware einführen: Der Leitfaden für Kommandanten und Gemeinden |
+| `3` | Vegetationsbrand: Wasser vom Landwirt, Lagebild aus der Luft |
+
+### Beta-Funktionen (nur mit Beta-Kennzeichnung bewerben)
+
+Eventkasse, Ausbildungsplanung, Home Assistant, E-Link, Senden von Meldungen an den Kreis. Quelle in der App: `backend/src/constants/betaFeatures.json`.
+
+### Änderungsstand 11.11.2026 (PR #59)
+
+Neu: Module Ausbildungsplanung (Beta) und Tauchen & Höhenrettung; Ergänzungen in rund 25 Modulen; Integrationen (secur.CIS, E-Link, Home Assistant als Beta); FAQ, Wissen-Artikel und llms.txt aktualisiert; Eventkasse als Beta gekennzeichnet; Preisangabe aus einem Wissen-Artikel entfernt.
 
 ## Deployment
 
