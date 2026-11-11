@@ -8,6 +8,8 @@ const IntegrationsSection = () => {
         { name: "Sybos", description: "Verwaltung & Einsatz" },
         { name: "Einsatzleiterwiki", description: "Wissen & Taktik" },
         { name: "Home Assistant", description: "Gerätehaus-Automation (Beta)" },
+        { name: "secur.CIS", description: "Leitstellenanbindung" },
+        { name: "E-Link", description: "E-Paper-Displays (Beta)" },
     ];
 
     return (
@@ -107,9 +109,9 @@ const IntegrationsSection = () => {
                                 Standard-Schnittstellen reichen oft nicht aus. Deshalb entwickeln wir spezialisierte
                                 <span className="text-foreground font-semibold"> Middleware-Lösungen auf Maß</span>.
                                 Wir verbinden RESQIO direkt mit Ihren bestehenden Datenbanken und IoT-Geräten im Gerätehaus.
-                                Über die <span className="text-foreground font-semibold">Home-Assistant-Anbindung</span> löst ein Alarm im Gerätehaus
+                                Über die <span className="text-foreground font-semibold">Home-Assistant-Anbindung (Beta)</span> löst ein Alarm im Gerätehaus
                                 Automationen aus: Fahrzeugtore öffnen je Fahrzeug, das Licht geht über die KNX-Anbindung an, eine Ansage nennt das Stichwort.
-                                Je Feuerwehr getrennt, mit frei wählbaren Daten.
+                                Je Feuerwehr getrennt; sensible Angaben wie Einsatzort oder Alarmtext gehen erst nach ausdrücklicher Freigabe hinaus.
                             </p>
 
                             <div className="flex flex-wrap gap-4">

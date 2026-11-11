@@ -39,7 +39,7 @@ const features = [
 const screenshots = [
     {
         title: "Operatives Lagezentrum",
-        description: "Behalten Sie den Puls Ihrer Wehr in Echtzeit im Blick. Das Dashboard mit Lagemonitor liefert sekundengenaue Einblicke in die Einsatzbereitschaft, Personalverfügbarkeit und taktische Lage mit interaktiver Kartendarstellung.",
+        description: "Behalten Sie den Puls Ihrer Wehr in Echtzeit im Blick. Das Dashboard mit Lagemonitor liefert sekundengenaue Einblicke in die Einsatzbereitschaft, Personalverfügbarkeit und taktische Lage mit interaktiver Kartendarstellung. Widgets lassen sich frei anordnen und ausblenden.",
         imageWebp: lagemonitorWebp,
         icon: LayoutDashboard,
     },
@@ -63,7 +63,7 @@ const screenshots = [
     },
     {
         title: "Umfangreiche Statistiken",
-        description: "Visualisierte Auswertungen zu Einsätzen, Personal, Übungen und Budget. Management-Summary für fundierte Entscheidungen auf Basis realer Daten mit Export-Funktionen.",
+        description: "Visualisierte Auswertungen zu Einsätzen, Personal, Übungen und Budget. Management-Summary für fundierte Entscheidungen auf Basis realer Daten mit Export-Funktionen. Alle Auswertungen lassen sich nach Feuerwehr und Mannschaftsgruppe filtern.",
         imageWebp: statisticsWebp,
         icon: BarChart3,
     },

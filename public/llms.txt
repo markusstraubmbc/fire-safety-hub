@@ -27,12 +27,17 @@ Die Preise richten sich nach der Größe und den Anforderungen der Feuerwehr. In
 - **Ganzheitlicher Ansatz**: Von Personalverwaltung über Gerätewartung bis zur Einsatzdokumentation — alles in einem System
 - **Kiosk-Modus**: Touch-optimierte Oberfläche für die Mannschaft (z.B. Fahrtenbuch, Status, Mängelmelder, Wäsche)
 - **KI-Integration**: Intelligente Assistenzsysteme für Berichte, Belegerfassung, Adresskorrekturen und Chatbots
-- **Sicherheit & Datenschutz**: Hosting in Deutschland, DSGVO-konform, granulares rollenbasiertes Zugriffssystem
+- **Sicherheit & Datenschutz**: Hosting in Deutschland, DSGVO-konform, granulares rollenbasiertes Zugriffssystem, Löschprotokoll mit Löschbescheinigung, Audit-Protokoll je Feuerwehr, Vertraulichkeitsmodus für Einsätze, Screenshot-Sperre in der Alarm-App
 - **Modularität**: Feuerwehren können spezifische Module je nach Bedarf aktivieren
 - **Externe Kräfte und Technik**: Drohneneinheit (Flugbuch, Fernpiloten-Nachweise, Luftbilder am Einsatz) und Landwirtschaftsmodul (Wasserfässer, Zugmaschinen und Radlader aus dem Ort) binden Ressourcen ein, die nicht im Gerätehaus stehen
 - **Alarm-App**: Die RESQIO Alarm-App bringt den Einsatzalarm im Vollbild aufs Smartphone, mit Zu- und Absage sowie Termin-Rückmeldung. Google Play: https://play.google.com/store/apps/details?id=io.resqio.alarm, Apple App Store: https://apps.apple.com/ch/app/resqio-alarm/id6808550999
 - **Kreis, Förderung und Land**: Das Kreismodul vernetzt alle Wehren eines Landkreises und verwaltet Förderanträge (z. B. ZFeu) von der Einreichung bis zum Verwendungsnachweis. Eine Landeslösung (RESQIO Land) ist in Vorbereitung: Sie soll die Kennzahlen mehrerer Kreise zu einer Landessicht bündeln — ausschließlich Kennzahlen, keine Namen oder Kontaktdaten, und der Kreis entscheidet je Kategorie, was weitergegeben wird
 - **Länderunterstützung**: RESQIO ist auf deutsche Vorschriften ausgelegt (DGUV, FwDV, DIN). Für österreichische Wehren gibt es das Ländermodul Österreich mit Dienstgraden und Chargen nach österreichischem Schema, ÖNORM-Fahrzeugtypen und Fristen nach Bundesland
+- **Ausbildungsplanung (Beta)**: Ausbildungseinheiten auf die Übungstermine des Jahres verteilen – Stationsbetrieb mit Gruppen, Nachholliste und „Meine Ausbildung“; verfügbar, sobald für die Installation freigeschaltet
+- **Tauchen & Höhenrettung**: Optionale Fachmodule mit Tauchüberwachung, Tauch- und Höhenrettungs-Pass sowie Gebrauchsnachweisen für Seile, Gurte und Karabiner
+- **Mehrere Feuerwehren**: Rolle Gesamtkommandant mit dem Recht „Alle Feuerwehren“ für die gemeindeweite Verwaltung
+- **Schnittstellen**: Leitstellenanbindung secur.CIS, REST-API und MQTT; Home Assistant und E-Paper-Displays (E-Link) als Beta
+- **Barrierefreiheit**: Bedienung per Tastatur, „Zum Inhalt springen“ und beschriftete Schaltflächen für Bildschirmleser
 
 ## Module im Detail
 
@@ -40,7 +45,7 @@ Die Preise richten sich nach der Größe und den Anforderungen der Feuerwehr. In
 Die intelligente Zentrale für Führungskräfte – Echtzeit-Überblick über alle Einheiten, Ressourcen und Einsätze.
 
 - **Beschreibung**: Die Kommandozentrale ist das Herzstück von RESQIO. Sie bündelt alle einsatzrelevanten Informationen in einer übersichtlichen Oberfläche und ermöglicht Führungskräften, jederzeit den vollen Überblick zu behalten. Von der Alarmierung bis zur Nachbereitung – alles an einem Ort.
-- **Funktionen**: Live-Dashboard mit Einsatz- und Ressourcenstatus | Schnellzugriff auf alle Module und häufige Aktionen | Personalisierbare Widgets und Ansichten | Integrierte Benachrichtigungen und Alarme | Rollenbasierter Zugriff für verschiedene Führungsebenen
+- **Funktionen**: Live-Dashboard mit Einsatz- und Ressourcenstatus | Schnellzugriff auf alle Module und häufige Aktionen | Personalisierbare Widgets und Ansichten | Integrierte Benachrichtigungen und Alarme | Rollenbasierter Zugriff für verschiedene Führungsebenen | Dashboard anpassen: Widgets verschieben, ein- und ausblenden – leere Widgets verschwinden von selbst
 - **URL**: https://resqio.de/modul/kommandozentrale
 
 ### 2. Ausrüstungsverwaltung
@@ -152,7 +157,7 @@ Eigenständige Datenpflege für alle Kameraden – Qualifikationen, Kontaktdaten
 Transparente Finanzverwaltung für Feuerwehren – Budget, Ausgaben und Genehmigungen digital verwaltet.
 
 - **Beschreibung**: Die digitale Finanzverwaltung bringt Transparenz in alle Geldflüsse der Feuerwehr. Budgets werden geplant, Ausgaben erfasst und Genehmigungen digital verwaltet. Der Kassier hat jederzeit den vollen Überblick, und die gesamte Mannschaft kann den Budgetstatus transparent einsehen.
-- **Funktionen**: Budgetplanung und -überwachung | Digitale Belegeinreichung mit KI-Kategorisierung | Genehmigungsworkflow für Ausgaben | Jahresabschluss-Unterstützung | Kostenstellenmanagement | Export für Steuerberater und Behörden
+- **Funktionen**: Budgetplanung und -überwachung | Digitale Belegeinreichung mit KI-Kategorisierung | Genehmigungsworkflow für Ausgaben | Jahresabschluss-Unterstützung | Kostenstelle je Budget-Bereich mit Nummer und Bezeichnung, in der Planung filterbar | Export für Steuerberater und Behörden
 - **URL**: https://resqio.de/modul/budget-finanzen
 
 ### 18. Treasury & Kassiermodul
@@ -201,7 +206,7 @@ Verwaltung von Brandmeldeanlagen, Löschanlagen und anderen technischen Brandsch
 Digitale Inventur mit Barcode-Scan und automatischem Abgleich mit dem Geräteverzeichnis.
 
 - **Beschreibung**: Die digitale Inventur ermöglicht eine schnelle und fehlerfreie Bestandserfassung. Per Barcode- oder QR-Code-Scan werden alle Geräte erfasst und automatisch mit dem Geräteverzeichnis abgeglichen. Abweichungen werden sofort angezeigt und können direkt bearbeitet werden.
-- **Funktionen**: Barcode und QR-Code Scan | Automatischer Abgleich mit Geräteverzeichnis | Abweichungsanzeige und Sofortkorrektur | Inventur-Protokoll | Kiosk-Integration für Hallen-Inventur
+- **Funktionen**: Barcode und QR-Code Scan | Automatischer Abgleich mit Geräteverzeichnis | Abweichungsanzeige und Sofortkorrektur | Inventur-Protokoll | Kiosk-Integration für Hallen-Inventur | Nicht gefundene Geräte werden nach der Inventur aufgelistet und lassen sich mit einem Klick als verloren aussondern
 - **URL**: https://resqio.de/modul/inventur
 
 ### 25. Formular-Center & Druckvorlagen
@@ -281,70 +286,78 @@ Verwaltung von Lehrgängen, Qualifikationen und Beförderungsvoraussetzungen fü
 - **Funktionen**: Lehrgangserfassung mit Datum, Abschluss und Ablaufdatum | Qualifikationsübersicht pro Mitglied | Aggregierte Auswertung des Aus- und Fortbildungsstands | Verknüpfung mit Beförderungsvoraussetzungen | Export und Nachweisführung | Lehrgänge mit Zeitraum (Von/Bis) erfassen – wie auf der Urkunde, auch in Mitgliederakte und Verifikationsportal
 - **URL**: https://resqio.de/modul/lehrgaenge
 
-### 36. Kalender & Terminverwaltung
+### 36. Ausbildungsplanung & Übungspläne (Beta)
+Beta: Ausbildungseinheiten aufs Übungsjahr verteilen – Stationsbetrieb mit Gruppen, Nachholliste und „Meine Ausbildung“ für jedes Mitglied.
+
+- **Beschreibung**: Die Ausbildungsplanung ist eine Beta-Funktion: Sie wird noch erprobt und steht zur Verfügung, sobald sie für Ihre Installation freigeschaltet ist. Sie legen Ausbildungseinheiten einmal an – oder übernehmen sie aus einem Katalog mit rund 60 Vorschlägen –, stellen daraus Ausbildungspläne mit Pflicht- und Zusatzeinheiten zusammen und teilen die Mannschaft in Gruppen oder Züge ein. RESQIO verteilt die Einheiten mit Vorschau auf die Übungstermine des Jahres, als Stationsbetrieb oder als Termine je Zug. Am Übungsabend steht die eigene Station schon fest; danach zeigt die Auswertung, wer welche Einheit besucht, nachgeholt oder versäumt hat.
+- **Status**: Neu
+- **Funktionen**: Ausbildungskatalog mit rund 60 Vorschlägen inkl. Lernzielen, Dauer und Material – übernehmen mit einem Klick | Fertige Pakete wie „Jahresausbildung Mannschaft“ oder „Atemschutz-Jahresprogramm“ in einem Schritt laden | Jahresplaner: Einheiten per Drag and Drop den Übungsterminen zuweisen, auch ohne Maus und am Handy | Plan-Prüfung meldet doppelte Einheiten, fehlende Pflichteinheiten und Termine auf Feiertagen | Station am Übungsabend: Anmeldung per Kiosk, Chip oder PIN – die eigene Station steht schon fest | Auswertung je Ausbildungsplan: besucht, nachgeholt, versäumt oder offen – mit Nachholliste
+- **URL**: https://resqio.de/modul/ausbildungsplanung
+
+### 37. Kalender & Terminverwaltung
 Zentraler Kalender für Dienste, Übungen, Veranstaltungen und Termine Ihrer Feuerwehr.
 
 - **Beschreibung**: Der integrierte Kalender bündelt alle relevanten Termine Ihrer Organisation an einem Ort. Ob Übungen, Veranstaltungen oder Sonderdienste – alle Beteiligten haben stets den gleichen Informationsstand. Externe Kalenderquellen lassen sich einbinden, sodass ein vollständiges Bild aller Aktivitäten entsteht.
 - **Funktionen**: Zentraler Terminkalender für die gesamte Organisation | Verschiedene Terminarten (Übung, Veranstaltung, Dienst, Wartung) | Teilnehmerverwaltung und Rückmeldung | Einbindung externer Kalenderquellen | Verknüpfung mit Einsätzen und Mannschaftsverwaltung | Eigene Kalender mit eigener Farbe, z. B. für Jugendfeuerwehr oder Maschinisten – sichtbar nur für die zugeordneten Gruppen, Wehren oder Personen
 - **URL**: https://resqio.de/modul/kalender
 
-### 37. Beförderungssystem
+### 38. Beförderungssystem
 Automatische Ermittlung von Beförderungsvorschlägen auf Basis hinterlegter Richtlinien.
 
 - **Beschreibung**: Das Beförderungsmodul unterstützt Führungskräfte dabei, Beförderungsentscheidungen transparent und regelkonform zu treffen. Auf Basis der hinterlegten Qualifikationen und Dienstzeiten werden Beförderungsvorschläge automatisch ermittelt – nachvollziehbar und ohne aufwändige Einzelprüfungen.
 - **Funktionen**: Automatische Prüfung von Beförderungsvoraussetzungen | Übersicht beförderungsfähiger Mitglieder | Berücksichtigung von Qualifikationen und Dienstzeiten | Dokumentation von Beförderungshistorie | Flexible Konfiguration der Beförderungsregeln | Einheitlicher Stichtag (z. B. Hauptversammlung) für Beförderungen und Ehrungen in Dashboard, Statistik, Ausdrucken und Excel
 - **URL**: https://resqio.de/modul/befoerderungssystem
 
-### 38. Alarmmonitor
+### 39. Alarmmonitor
 Live-Alarmdarstellung im Gerätehaus – Einsatzdaten bei Alarmierung sofort sichtbar
 
 - **Beschreibung**: Der RESQIO Alarmmonitor verwandelt jeden Bildschirm im Gerätehaus in ein professionelles Einsatz-Display. Bei Alarmierung werden alle relevanten Einsatzdaten sofort angezeigt: Einsatzort, Stichwort, alarmierte Fahrzeuge und Personalstatus. Im Ruhemodus zeigt der Monitor nützliche Informationen wie Hydrantenkarte, Wetterradar, Fahrzeugstatus und aktuelle Diensteinteilung – damit das Gerätehaus immer informiert ist.
 - **Funktionen**: Live-Alarmdarstellung mit Einsatzort, Stichwort und Einsatzkräften bei Alarmierung | Fahrzeugstatus-Übersicht – welche Fahrzeuge sind verfügbar, im Einsatz oder in Wartung | Personalstatus auf einem Blick – wer ist verfügbar, wer ist alarmiert | Hydrantenkarte im Ruhemodus – immer die nächste Wasserversorgung im Blick | Wetterradar-Integration für aktuelle Wetterlage | FMS-Integration für Echtzeit-Fahrzeugstatus via Funk
 - **URL**: https://resqio.de/modul/alarmmonitor
 
-### 39. Kommunikationscenter
+### 40. Kommunikationscenter
 Die richtigen Informationen zur richtigen Zeit – automatische Benachrichtigungen per E-Mail, WhatsApp oder Telegram.
 
 - **Beschreibung**: Das Kommunikationscenter sorgt dafür, dass keine wichtige Information untergeht. Ob fällige Wartung, ablaufende Qualifikation, neuer Mangel oder eingereichter Beleg – alle Beteiligten werden automatisch über den Kanal benachrichtigt, den sie bevorzugen. E-Mail, WhatsApp und Telegram lassen sich unabhängig voneinander aktivieren. Kein manuelles Nachfassen mehr, kein übersehener Hinweis.
 - **Funktionen**: Automatische Benachrichtigungen bei fälligen Wartungen und Prüffristen | Hinweise bei ablaufenden Qualifikationen und Untersuchungsfristen | Meldungen bei neuen Mängeln und Eskalationen | Bestätigungen bei eingereichten und genehmigten Belegen | Hinweise bei Hersteller-Rückrufen betroffener Geräte | Erinnerungen bei überfälligen Wäscheaufträgen
 - **URL**: https://resqio.de/modul/kommunikationscenter
 
-### 40. Personalmeldestelle
+### 41. Personalmeldestelle
 Wer ist da, wer ist im Einsatz, wer braucht Ablösung? Die digitale Anwesenheits- und Schichtverwaltung für Großschadenslagen.
 
 - **Beschreibung**: Bei Hochwasser, MANV oder langen Einsätzen zählt jede Person. Die Personalmeldestelle erfasst An- und Abwesenheit von eigenen Kräften und externen Helfern in Echtzeit – ob per Dienstausweis, PIN, QR-Code oder von Hand. Die Einsatzleitung sieht jederzeit die aktuelle Stärke, weiß, wer schon zu lange im Dienst ist, und kann Schichten geordnet wechseln. Alles rechtssicher dokumentiert und DSGVO-konform.
 - **Funktionen**: Check-In/Check-Out per Dienstausweis, PIN, QR-Code oder von Hand | Erfassung externer Organisationen und Helfer | Live-Stärkemeldung für die Einsatzleitung | Warnung bei überlangen Schichten | Selbst-Anmeldung über QR-Code ohne Login | Verschiedene Druckvarianten: Stärkemeldung, Lageprotokoll, Meldekarten und Schichtwechsel
 - **URL**: https://resqio.de/modul/personalmeldestelle
 
-### 41. Gefahrstoff & Ausbreitungsprognose
+### 42. Gefahrstoff & Ausbreitungsprognose
 Gefahrstofflagen besser einschätzen: Ausbreitung visualisieren, Absperrbereiche berechnen und Schutzempfehlungen erhalten.
 
 - **Beschreibung**: Bei Gefahrstoffeinsätzen unterstützt RESQIO die Einsatzleitung mit einer anschaulichen Ausbreitungsprognose. Auf Basis von Stoffdaten, Wetter und Windrichtung wird die mögliche Ausbreitung als Gefahrenzone direkt auf der Lagekarte dargestellt – inklusive vorgeschlagenem Absperr- und Evakuierungsbereich. Eine umfangreiche Stoffdatenbank und Schutzempfehlungen helfen bei der ersten Einschätzung. Als Entscheidungshilfe gedacht – der Fachberater bleibt unverzichtbar.
 - **Funktionen**: Ausbreitungsprognose als Gefahrenzone auf der Lagekarte | Automatische Berücksichtigung von Windrichtung und Wetterlage | Vorschlag für Absperr- und Evakuierungsbereiche | Stoffdatenbank mit toxikologischen Kennzahlen und Grenzwerten | Schutzempfehlungen und Kontakte zu Fachberatern (z. B. TUIS, Giftnotruf) | Nachschlagewerk für Isolierungs- und Sicherheitsabstände
 - **URL**: https://resqio.de/modul/gefahrstoff-ausbreitung
 
-### 42. Veranstaltungen & Arbeitsdienste
+### 43. Veranstaltungen & Arbeitsdienste
 Arbeitsdienste, Übungen und Termine organisieren – mit Selbst-Anmeldung der Mitglieder und klarer Einteilung.
 
 - **Beschreibung**: Ob Arbeitsdienst, Ausbildung oder Vereinsveranstaltung: Mit dem Veranstaltungsmodul planen Sie Termine zentral und lassen sich Mitglieder eigenständig anmelden. Arbeitsbereiche und Zeitfenster werden übersichtlich eingeteilt, Zu- und Absagen laufen automatisch zusammen. Optional mit Genehmigung, Zielgruppen-Filter und Terminabfrage im Doodle-Stil.
 - **Funktionen**: Zentrale Terminplanung für Arbeitsdienste, Übungen und Veranstaltungen | Selbst-Anmeldung der Mitglieder – auch am Kiosk-Tablet | Einteilung nach Arbeitsbereichen und Zeitfenstern | Optionaler Genehmigungsworkflow und Zielgruppen-Filter | Terminabfrage im Doodle-Stil zur Terminfindung | Wiederverwendbare Vorlagen für regelmäßige Termine
 - **URL**: https://resqio.de/modul/veranstaltungen
 
-### 43. Verbandbuch & Vorfälle
+### 44. Verbandbuch & Vorfälle
 Verbandbuch nach DGUV rechtssicher digital führen – Verletzungen und Vorfälle mit Unterschrift dokumentieren.
 
 - **Beschreibung**: Jede Verletzung im Dienst muss dokumentiert werden. Das digitale Verbandbuch erfüllt die Anforderungen der DGUV (204-021) und hält Erste-Hilfe-Leistungen, Unfälle und Vorfälle revisionssicher fest – inklusive digitaler Unterschrift. So sind alle Nachweise vollständig, sicher aufbewahrt und im Ernstfall sofort auffindbar.
 - **Funktionen**: Digitales Verbandbuch nach DGUV 204-021 | Erfassung von Verletzungen, Unfällen und Vorfällen | Digitale Unterschrift direkt am Eintrag | Unfallbeschreibung und Zeugenangaben | Sichere, revisionssichere Aufbewahrung | Schneller Zugriff im Bedarfsfall
 - **URL**: https://resqio.de/modul/verbandbuch
 
-### 44. Offline-Modus & Ausfallsicherheit
+### 45. Offline-Modus & Ausfallsicherheit
 Funktioniert auch ohne Internet: Kiosk und wichtige Daten bleiben im Gerätehaus jederzeit einsatzbereit.
 
 - **Beschreibung**: Gerade im Einsatz oder in Gerätehäusern mit schwachem Empfang darf die Software nicht stehenbleiben. RESQIO hält die wichtigsten Daten – Objektpläne, Kontakte, Geräte, Hydranten, Fahrzeuge und Qualifikationen – lokal bereit. Erfassungen wie Check-Ins oder Verbrauch werden auch offline gespeichert und automatisch nachgetragen, sobald wieder eine Verbindung besteht. Zuverlässig, ohne doppelte Einträge.
 - **Funktionen**: Lokale Bereithaltung von Objektplänen, Kontakten, Geräten und Hydranten | Offline-Erfassung von Check-Ins und Verbrauch mit späterem Abgleich | Konfigurierbar, welche Daten offline verfügbar sind | Automatische Synchronisation bei wiederhergestellter Verbindung | Schutz vor doppelten Buchungen | Überwachung des Sync-Status je Gerät
 - **URL**: https://resqio.de/modul/offline-modus
 
-### 45. Drohneneinheit & Luftaufklärung
+### 46. Drohneneinheit & Luftaufklärung
 Drohnen, Fernpiloten und Flüge verwalten: Flugbuch, Nachweise und Akkus im Griff – Luftbilder direkt in der Lage.
 
 - **Beschreibung**: Wer eine Drohne betreibt, betreibt ein Luftfahrzeug – mit allem, was dazugehört: Betreiberregistrierung, Kompetenznachweise der Fernpiloten, ein nachvollziehbares Flugbuch und Akkus, die nicht ewig halten. Die Drohneneinheit in RESQIO führt diese Nachweise dort, wo auch der Rest der Ausrüstung liegt: Jedes Fluggerät bekommt seine Geräteakte mit Nutzlast und Zubehör, jeder Flug wird mit Zweck, Dauer und Fernpilot dokumentiert, und ablaufende Nachweise melden sich von selbst. Im Einsatz zählt dann, was die Drohne tatsächlich liefert: Übersicht über eine Lage, die vom Boden aus niemand vollständig sieht – Luft- und Wärmebilder werden am Einsatz abgelegt und stehen in der Nachbereitung im Bericht.
@@ -352,7 +365,15 @@ Drohnen, Fernpiloten und Flüge verwalten: Flugbuch, Nachweise und Akkus im Grif
 - **Funktionen**: Geräteakte je Drohne mit Seriennummer, Nutzlast (Kamera, Wärmebild) und Zubehör | Flugbuch mit Datum, Flugzeit, Zweck (Einsatz, Übung, Schulung) und verantwortlichem Fernpiloten | Fernpiloten-Verwaltung mit EU-Kompetenznachweis (A1/A3, A2) und Ablaufwarnung | Betreiberregistrierung, e-ID und Betriebskategorie je Fluggerät hinterlegen | Akku-Management mit Ladezyklen, Alter und Aussonderungsgrenze | Prüf- und Wartungstermine laufen über das gewohnte Wartungsmanagement
 - **URL**: https://resqio.de/modul/drohneneinheit
 
-### 46. Landwirtschaftsmodul & Ortsressourcen
+### 47. Tauchen & Höhenrettung
+Optionale Fachmodule für Tauch- und Höhenrettungsgruppen: Tauchüberwachung am Tablet, Tauch- und Höhenrettungs-Pass, Gebrauchsnachweise und Fristen.
+
+- **Beschreibung**: Tauchgruppen und Höhenretter haben eigene Nachweispflichten und eigene Ausrüstung. RESQIO führt beides dort, wo auch der Rest der Wehr liegt: Tauchgänge werden am Tablet überwacht und im Tauchpass dokumentiert, Höhenretter führen einen eigenen Pass mit gegengezeichneten Nachweisen, und Seile, Gurte und Karabiner bekommen einen Gebrauchsnachweis. Beide Module sind optional und werden in den Einstellungen eingeschaltet. RESQIO gibt Hinweise und dokumentiert – die Entscheidung trifft immer die verantwortliche Person, und eine Dekompression berechnet RESQIO nicht.
+- **Status**: Neu
+- **Funktionen**: Tauchüberwachung am Tablet mit Übersicht der Restzeiten, Ton- und Sprachwarnungen; Mayday wird immer angesagt | Tauchpass mit Import aus UDDF- oder CSV-Dateien; importierte Tauchgänge zählen erst nach Gegenzeichnung | Höhenrettungs-Pass mit Nachweisen für Einsätze, Übungen und Fortbildungen, Gegenzeichnung und Excel-Export | Gebrauchsnachweis an Seilen, Gurten und Karabinern (Einsätze, Übungen, Stürze, Chemikalien-Kontakt) | Höhenrettungs-Objekte mit Anschlagpunkten und Rettungsplan, als Marker auf der Lagekarte | Gewässer mit Einstiegsstellen und Rettungsplan; Suchsektor auf der Lagekarte einzeichnen
+- **URL**: https://resqio.de/modul/tauchen-hoehenrettung
+
+### 48. Landwirtschaftsmodul & Ortsressourcen
 Landwirte und ihre Technik im Ausrückebereich erfassen: Wasserfässer, Zugmaschinen und Radlader in Minuten anfordern.
 
 - **Beschreibung**: Bei Vegetationsbränden, Hochwasser und Sturmlagen entscheidet oft Technik, die nicht im Gerätehaus steht: das Güllefass des Landwirts als Wassertransport abseits der Hydranten, der Radlader für die Zufahrt, der Frontlader zum Räumen. Das Landwirtschaftsmodul macht aus dieser informellen Nachbarschaftshilfe eine belastbare Ressource: Betriebe, Ansprechpartner und Maschinen sind mit Fassungsvermögen, Kupplungen und Erreichbarkeit hinterlegt, Zusagen und Vereinbarungen sind dokumentiert, und die Anforderung läuft im Einsatz über die gewohnten Benachrichtigungswege. Nach dem Einsatz stehen Stunden und Maschinen für die Aufwandserstattung bereit – statt aus dem Gedächtnis rekonstruiert zu werden.
@@ -360,7 +381,7 @@ Landwirte und ihre Technik im Ausrückebereich erfassen: Wasserfässer, Zugmasch
 - **Funktionen**: Register der Landwirte, Lohnunternehmer und Betriebe im Ausrückebereich | Technik-Katalog mit Wasser-/Güllefass (Fassungsvermögen, Kupplung), Zugmaschine, Frontlader, Radlader, Kipper | Kontaktketten mit Erreichbarkeiten, Vertretung und bevorzugtem Meldeweg | Verfügbarkeit und Bereitschaft je Betrieb hinterlegen – etwa eingeschränkt zur Erntezeit | Anforderung per E-Mail, WhatsApp oder Telegram über das Kommunikationscenter | Hofstellen und Entnahmestellen auf der Lagekarte, gemeinsam mit den Hydranten
 - **URL**: https://resqio.de/modul/landwirte-modul
 
-### 47. Ländermodul Österreich
+### 49. Ländermodul Österreich
 RESQIO für österreichische Wehren: Dienstgrade, Begriffe und Landesvorgaben statt deutscher Standardwerte.
 
 - **Beschreibung**: RESQIO ist entlang deutscher Vorschriften gewachsen: DGUV, FwDV, DIN-Fahrzeugtypen. Für österreichische Feuerwehren passt davon vieles inhaltlich, aber nicht in der Benennung – und bei Fristen, Dienstgraden und Auswertungen entscheidet ohnehin das jeweilige Bundesland. Das Ländermodul kapselt genau diese landesspezifischen Inhalte, sodass die Wehr mit ihren eigenen Begriffen arbeitet: Rüsthaus statt Gerätehaus, Zeugwart statt Gerätewart, Dienstgrade und Funktionen nach österreichischem Schema, Fahrzeugtypen nach ÖNORM. Alle übrigen Module bleiben dabei unverändert nutzbar – das Ländermodul ist eine Schicht darüber, kein zweites System.
@@ -368,7 +389,7 @@ RESQIO für österreichische Wehren: Dienstgrade, Begriffe und Landesvorgaben st
 - **Funktionen**: Dienstgrade, Chargen und Funktionen nach österreichischem Schema | Landesspezifische Bezeichnungen in der gesamten Oberfläche, z. B. Rüsthaus und Zeugwart | Fahrzeug- und Gerätetypen nach ÖNORM-Systematik, etwa KLF, TLF-A und RLF-A | Prüf-, Ausbildungs- und Nachweisfristen nach den Vorgaben des jeweiligen Bundeslandes | Auswertungen und Berichte im Format der Landesverbände | Alle übrigen Module bleiben unverändert nutzbar, das Ländermodul ergänzt nur die landesspezifischen Inhalte
 - **URL**: https://resqio.de/modul/laendermodul-oesterreich
 
-### 48. Projektmanagement & Vorhaben
+### 50. Projektmanagement & Vorhaben
 Anschaffungen, Bauvorhaben und Vereinsprojekte auf dem Kanban-Board planen – mit Checklisten, Anhängen und Zugriff nach Rolle.
 
 - **Beschreibung**: Nicht jede Aufgabe hängt an einem Einsatz: Die neue Fahrzeugbeschaffung, der Umbau im Gerätehaus oder das Vereinsjubiläum brauchen Planung über Monate. Das Projektmanagement bildet solche Vorhaben als Kanban-Board ab – mit Karten, Checklisten und Anhängen. Der Zugriff lässt sich auf Rollen oder einzelne Personen beschränken, jedes Fachgebiet bekommt automatisch ein Eingangs-Board, und zu Einsatz und Übung gibt es den Reiter „Vorbereitung & Nacharbeit“.
@@ -376,15 +397,15 @@ Anschaffungen, Bauvorhaben und Vereinsprojekte auf dem Kanban-Board planen – m
 - **Funktionen**: Kanban-Board mit Karten, Checklisten und Anhängen | Zugriff auf Rollen oder einzelne Personen beschränkbar | Wer keinen Zugriff auf ein Projekt hat, beantragt ihn per Klick – die Verantwortlichen genehmigen per E-Mail-Link, ohne sich anzumelden | Automatisches Eingangs-Board je Fachgebiet für dessen Mitglieder | Reiter „Vorbereitung & Nacharbeit“ an Einsatz und Übung mit dem zugehörigen Projekt-Board | Gesammelte Änderungsmails an Projektbeteiligte
 - **URL**: https://resqio.de/modul/projektmanagement
 
-### 49. Eventkasse für Feuerwehrfeste
-Kasse für Fest und Theke: schnell kassieren, Rückgeld gestückelt anzeigen, Bon drucken und alles sauber ins Kassenbuch buchen.
+### 51. Eventkasse für Feuerwehrfeste (Beta)
+Beta: Kasse für Fest und Theke: schnell kassieren, Rückgeld gestückelt anzeigen, Bon drucken und alles sauber ins Kassenbuch buchen.
 
-- **Beschreibung**: Am Getränkestand zählt jede Sekunde. Die Eventkasse läuft im Kiosk und nimmt den Verkauf so ernst wie das Kassenbuch danach: Scheine werden angetippt statt getippt, das Rückgeld erscheint als Stückelung, der Bon kommt in Bonbreite aus dem Drucker. Artikelkatalog, Preisebenen und Theken bleiben von Fest zu Fest erhalten – eine komplette Kasse lässt sich als Kopie fürs nächste Fest anlegen. Umsatzsteuer, Pfand und die Zuordnung zum Kassenbuch sind einstellbar; ob die Einstellungen für Ihre Wehr steuerlich passen, klärt Ihr Steuerberater.
+- **Beschreibung**: Die Eventkasse ist eine Beta-Funktion und steht zur Verfügung, sobald sie für Ihre Installation freigeschaltet ist. Am Getränkestand zählt jede Sekunde. Die Eventkasse läuft im Kiosk und nimmt den Verkauf so ernst wie das Kassenbuch danach: Scheine werden angetippt statt getippt, das Rückgeld erscheint als Stückelung, der Bon kommt in Bonbreite aus dem Drucker. Artikelkatalog, Preisebenen und Theken bleiben von Fest zu Fest erhalten – eine komplette Kasse lässt sich als Kopie fürs nächste Fest anlegen. Umsatzsteuer, Pfand und die Zuordnung zum Kassenbuch sind einstellbar; ob die Einstellungen für Ihre Wehr steuerlich passen, klärt Ihr Steuerberater.
 - **Status**: Neu
 - **Funktionen**: Bezahlen im Kiosk: Tasten „Passend“, Scheine und Münzen addieren sich, Taste C setzt zurück; angebotene Scheine passen sich dem Rechnungsbetrag an | Rückgeld gestückelt, z. B. „1× 10 € · 1× 2 € · 1× 1 € · 1× 50 ct“ – bei zu wenig gegebenem Geld steht der Fehlbetrag da | Zahlarten Bar, Karte, Wertmarke und Helferverzehr; Preisebenen wie „Helfer“ mit artikelgenauen Sonderpreisen, Rabattcodes und mehrere Theken | Kassenbon in Bonbreite (80 oder 58 mm) mit Aussteller, Belegnummer, Positionen, Zahlart, Rückgeld und Abholnummer; Stornos deutlich gekennzeichnet; Druck auf Wunsch automatisch direkt nach dem Buchen | Steuermodus wählbar: Kleinunternehmer (§ 19 UStG, keine Umsatzsteuer auf dem Bon) oder regelbesteuert mit Ausweis je Steuersatz in Bon, Abrechnung und Kassenbericht | Artikel mit Steuersatz; Hinweis auf Artikel und Umsätze ohne Steuersatz
 - **URL**: https://resqio.de/modul/eventkasse
 
-### 50. RESQIO Alarm-App für Android & iOS
+### 52. RESQIO Alarm-App für Android & iOS
 Einsatzalarm im Vollbild aufs Handy – mit Zu- und Absage, Übungs- und Terminkalender. Für Android und iOS.
 
 - **Beschreibung**: Die RESQIO Alarm-App bringt den Einsatzalarm dorthin, wo die Einsatzkräfte sind: aufs Smartphone. Bei einer Alarmierung erscheint der Einsatz im Vollbild (Android, auch bei gesperrtem Gerät); auf dem iPhone kommt der Alarm als zeitkritische Benachrichtigung, die den Fokus-Modus durchbricht. Mit einem Fingertipp melden sich Kameradinnen und Kameraden mit „Komme“, „Vorbehalt“ oder „Komme nicht“ zurück, die Einsatzleitung sieht die Rückmeldungen live. Dazu kommen der Übungs- und Terminkalender mit Rückmeldung, auch ohne Netz, sowie die Navigation zur Einsatzstelle. Die App wird mit der RESQIO-Instanz der eigenen Feuerwehr gekoppelt.

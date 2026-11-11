@@ -31,7 +31,7 @@
       "name": "Gibt es eine mobile App und einen Kiosk-Modus?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "RESQIO ist vollständig mobil-optimiert und läuft im Browser auf jedem Smartphone und Tablet. Zusätzlich gibt es den speziellen Kiosk-Modus mit 57 touchscreen-optimierten Modulen für Tablets im Gerätehaus – mit RFID-Login, PIN und QR-Code. So können Kameraden Wartungen, Fahrtenbuch, Belegeinreichung und mehr selbstständig erledigen."
+        "text": "RESQIO ist vollständig mobil-optimiert und läuft im Browser auf jedem Smartphone und Tablet. Für den Einsatzalarm gibt es die RESQIO Alarm-App für Android und iOS mit Vollbild-Alarm, Rückmeldung per Fingertipp und Screenshot-Sperre. Zusätzlich gibt es den speziellen Kiosk-Modus mit 57 touchscreen-optimierten Modulen für Tablets im Gerätehaus – mit RFID-Login, PIN und QR-Code. So können Kameraden Wartungen, Fahrtenbuch, Belegeinreichung und mehr selbstständig erledigen."
       }
     },
     {
@@ -63,7 +63,7 @@
       "name": "Wo werden meine Daten gespeichert?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Alle Daten werden ausschließlich auf hochsicheren Servern in Deutschland gehostet. Wir legen größten Wert auf Datenschutz und Privatsphäre, ganz ohne US-Cloud-Umwege."
+        "text": "Alle Daten werden ausschließlich auf hochsicheren Servern in Deutschland gehostet. Wir legen größten Wert auf Datenschutz und Privatsphäre, ganz ohne US-Cloud-Umwege. Für Nachweise gegenüber Gemeinde und Datenschutzbeauftragten gibt es ein Löschprotokoll mit PDF-Löschbescheinigung je Person, ein Audit-Protokoll je Feuerwehr und einen optionalen Vertraulichkeitsmodus für Einsätze."
       }
     },
     {
@@ -88,6 +88,22 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Wir setzen auf Partnerschaft auf Augenhöhe. Kontaktieren Sie uns für Details zu unseren flexiblen Modellen, die auf die Bedürfnisse von Feuerwehren zugeschnitten sind."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Unterstützt RESQIO die Ausbildungsplanung für Übungsabende?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, als Beta-Funktion: Die Ausbildungsplanung verteilt Ausbildungseinheiten auf die Übungstermine des Jahres – als Stationsbetrieb mit Gruppen oder als Termine je Zug. Dazu gehören ein Katalog mit rund 60 Vorschlägen, eine Nachholliste und „Meine Ausbildung“ für jedes Mitglied. Die Funktion wird noch erprobt und steht zur Verfügung, sobald sie für Ihre Installation freigeschaltet ist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Können mehrere Feuerwehren einer Gemeinde RESQIO gemeinsam nutzen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Mehrere Feuerwehren arbeiten in einer gemeinsamen Installation. Mit der Rolle Gesamtkommandant und dem Recht „Alle Feuerwehren“ bearbeiten Sie Mannschaft, Fahrzeuge, Einsätze, Ausrüstung und Kassen über alle Wehren hinweg; Auswahlen und Statistiken starten bei der eigenen Wehr und lassen sich auf alle Feuerwehren umschalten."
       }
     }
   ]
