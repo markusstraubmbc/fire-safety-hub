@@ -1,0 +1,43 @@
+{
+  "lagemonitor.png": {
+    "breite": 1297,
+    "hoehe": 617,
+    "markierungen": {
+      "status": {
+        "x": 400,
+        "y": 27,
+        "b": 195,
+        "h": 150
+      },
+      "karte": {
+        "x": 997,
+        "y": 27,
+        "b": 296,
+        "h": 588
+      }
+    }
+  },
+  "kiosk.png": {
+    "breite": 1280,
+    "hoehe": 702,
+    "markierungen": {
+      "maengelmelder": {
+        "x": 32,
+        "y": 306,
+        "b": 295,
+        "h": 120
+      },
+      "fahrtenbuch": {
+        "x": 646,
+        "y": 306,
+        "b": 295,
+        "h": 120
+      }
+    }
+  },
+  "statistik.png": {
+    "breite": 856,
+    "hoehe": 586,
+    "markierungen": {}
+  }
+}

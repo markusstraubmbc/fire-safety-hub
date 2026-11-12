@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Erklärvideo (video/): Renderergebnisse, Screenshot-Originale und Tondateien bleiben lokal
+video/out
+video/shots-src
+video/audio/*
+!video/audio/manifest.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

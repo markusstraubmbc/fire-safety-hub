@@ -1,0 +1,3929 @@
+{
+  "stimmen": {
+    "brian": {
+      "clips": {
+        "s1a": {
+          "datei": "audio/brian/s1a.wav",
+          "art": "satz",
+          "text": "Ihre Zeit im Ehrenamt ist knapp.",
+          "sekunden": 1.515,
+          "silbenProSek": 5.94,
+          "lufs": -22.01,
+          "quelle": "ganz.nA.k1.t2",
+          "woerter": [
+            {
+              "wort": "Ihre",
+              "start": 0,
+              "ende": 0.2
+            },
+            {
+              "wort": "Zeit",
+              "start": 0.2,
+              "ende": 0.44
+            },
+            {
+              "wort": "im",
+              "start": 0.44,
+              "ende": 0.62
+            },
+            {
+              "wort": "Ehrenamt",
+              "start": 0.62,
+              "ende": 1.06
+            },
+            {
+              "wort": "ist",
+              "start": 1.06,
+              "ende": 1.22
+            },
+            {
+              "wort": "knapp",
+              "start": 1.22,
+              "ende": 1.515
+            }
+          ],
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s1b": {
+          "datei": "audio/brian/s1b.wav",
+          "art": "satz",
+          "text": "Zu viel davon steckt in Zetteln und Ordnern.",
+          "sekunden": 2.39,
+          "silbenProSek": 4.6,
+          "lufs": -22.01,
+          "quelle": "ganz.nA.k1.t2",
+          "woerter": [
+            {
+              "wort": "Zu",
+              "start": 0.095,
+              "ende": 0.235
+            },
+            {
+              "wort": "viel",
+              "start": 0.235,
+              "ende": 0.495
+            },
+            {
+              "wort": "davon",
+              "start": 0.495,
+              "ende": 0.855
+            },
+            {
+              "wort": "steckt",
+              "start": 0.855,
+              "ende": 1.155
+            },
+            {
+              "wort": "in",
+              "start": 1.155,
+              "ende": 1.355
+            },
+            {
+              "wort": "Zetteln",
+              "start": 1.355,
+              "ende": 1.675
+            },
+            {
+              "wort": "und",
+              "start": 1.675,
+              "ende": 1.875
+            },
+            {
+              "wort": "Ordnern",
+              "start": 1.875,
+              "ende": 2.39
+            }
+          ],
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "szene.s1": {
+          "datei": "audio/brian/szene.s1.wav",
+          "art": "szene",
+          "text": "Ihre Zeit im Ehrenamt ist knapp. Zu viel davon steckt in Zetteln und Ordnern.",
+          "hash": "3888bfa06ebb8cf8",
+          "sekunden": 4.455,
+          "silbenProSek": 4.49,
+          "lufsVorher": -22.76,
+          "gainDb": 1.76,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518225-wXpTw6ybpEvK4oX6CkpF",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s2a.nA": {
+          "datei": "audio/brian/s2a.nA.wav",
+          "art": "satz",
+          "text": "Reskio bündelt Einsatz, Technik und Mannschaft in einem System.",
+          "sekunden": 3.68,
+          "silbenProSek": 4.35,
+          "lufs": -22.01,
+          "quelle": "ganz.nA.k1.t2",
+          "woerter": [
+            {
+              "wort": "Reskio",
+              "start": 0.085,
+              "ende": 0.545
+            },
+            {
+              "wort": "bündelt",
+              "start": 0.545,
+              "ende": 1.025
+            },
+            {
+              "wort": "Einsatz",
+              "start": 1.025,
+              "ende": 1.785
+            },
+            {
+              "wort": "Technik",
+              "start": 1.785,
+              "ende": 2.125
+            },
+            {
+              "wort": "und",
+              "start": 2.125,
+              "ende": 2.325
+            },
+            {
+              "wort": "Mannschaft",
+              "start": 2.325,
+              "ende": 2.725
+            },
+            {
+              "wort": "in",
+              "start": 2.725,
+              "ende": 2.925
+            },
+            {
+              "wort": "einem",
+              "start": 2.925,
+              "ende": 3.125
+            },
+            {
+              "wort": "System",
+              "start": 3.125,
+              "ende": 3.68
+            }
+          ],
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s2a.nB": {
+          "datei": "audio/brian/s2a.nB.wav",
+          "art": "satz",
+          "text": "Reskjo bündelt Einsatz, Technik und Mannschaft in einem System.",
+          "hash": "6d4117127373c505",
+          "sekunden": 3.717,
+          "silbenProSek": 4.3,
+          "lufsVorher": -23.3,
+          "gainDb": 2.3,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518226-56dlM1shVdjgHiOhXbFJ",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "szene.s2": {
+          "datei": "audio/brian/szene.s2.wav",
+          "art": "szene",
+          "text": "Reskio bündelt Einsatz, Technik und Mannschaft in einem System.",
+          "hash": "e1f2b35b75063b39",
+          "sekunden": 3.418,
+          "silbenProSek": 4.68,
+          "lufsVorher": -23.35,
+          "gainDb": 2.35,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518227-tcKfEmy0OEWrV1GwwGRm",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s3a": {
+          "datei": "audio/brian/s3a.wav",
+          "art": "satz",
+          "text": "Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu.",
+          "sekunden": 3.71,
+          "silbenProSek": 4.85,
+          "lufs": -22.01,
+          "quelle": "ganz.nA.k1.t2",
+          "woerter": [
+            {
+              "wort": "Die",
+              "start": 0.195,
+              "ende": 0.315
+            },
+            {
+              "wort": "Mannschaft",
+              "start": 0.315,
+              "ende": 0.695
+            },
+            {
+              "wort": "bekommt",
+              "start": 0.695,
+              "ende": 1.095
+            },
+            {
+              "wort": "den",
+              "start": 1.095,
+              "ende": 1.275
+            },
+            {
+              "wort": "Alarm",
+              "start": 1.275,
+              "ende": 1.595
+            },
+            {
+              "wort": "aufs",
+              "start": 1.595,
+              "ende": 1.835
+            },
+            {
+              "wort": "Handy",
+              "start": 1.835,
+              "ende": 2.055
+            },
+            {
+              "wort": "und",
+              "start": 2.055,
+              "ende": 2.555
+            },
+            {
+              "wort": "sagt",
+              "start": 2.555,
+              "ende": 2.775
+            },
+            {
+              "wort": "per",
+              "start": 2.775,
+              "ende": 2.935
+            },
+            {
+              "wort": "Fingertipp",
+              "start": 2.935,
+              "ende": 3.355
+            },
+            {
+              "wort": "zu",
+              "start": 3.355,
+              "ende": 3.71
+            }
+          ],
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s3b": {
+          "datei": "audio/brian/s3b.wav",
+          "art": "satz",
+          "text": "Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte.",
+          "sekunden": 3.79,
+          "silbenProSek": 4.49,
+          "lufs": -22.01,
+          "quelle": "ganz.nA.k1.t2",
+          "woerter": [
+            {
+              "wort": "Im",
+              "start": 0.055,
+              "ende": 0.175
+            },
+            {
+              "wort": "Einsatz",
+              "start": 0.175,
+              "ende": 0.755
+            },
+            {
+              "wort": "zeigt",
+              "start": 0.755,
+              "ende": 1.075
+            },
+            {
+              "wort": "der",
+              "start": 1.075,
+              "ende": 1.235
+            },
+            {
+              "wort": "Lagemonitor",
+              "start": 1.235,
+              "ende": 1.995
+            },
+            {
+              "wort": "Fahrzeugstatus",
+              "start": 1.995,
+              "ende": 3.175
+            },
+            {
+              "wort": "und",
+              "start": 3.175,
+              "ende": 3.335
+            },
+            {
+              "wort": "Karte",
+              "start": 3.335,
+              "ende": 3.79
+            }
+          ],
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "szene.s3": {
+          "datei": "audio/brian/szene.s3.wav",
+          "art": "szene",
+          "text": "Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu. Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte.",
+          "hash": "1e5fa3b6fc309e71",
+          "sekunden": 7.244,
+          "silbenProSek": 4.83,
+          "lufsVorher": -22.94,
+          "gainDb": 0.69,
+          "lufs": -22.25,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518229-xo6giuAZPKFsVdwtabFM",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s4a": {
+          "datei": "audio/brian/s4a.wav",
+          "art": "satz",
+          "text": "Den Einsatzbericht sprechen Sie ein.",
+          "sekunden": 1.76,
+          "silbenProSek": 5.11,
+          "lufs": -22.01,
+          "quelle": "ganz.nA.k1.t2",
+          "woerter": [
+            {
+              "wort": "Den",
+              "start": 0.035,
+              "ende": 0.175
+            },
+            {
+              "wort": "Einsatzbericht",
+              "start": 0.175,
+              "ende": 0.895
+            },
+            {
+              "wort": "sprechen",
+              "start": 0.895,
+              "ende": 1.295
+            },
+            {
+              "wort": "Sie",
+              "start": 1.295,
+              "ende": 1.415
+            },
+            {
+              "wort": "ein",
+              "start": 1.415,
+              "ende": 1.76
+            }
+          ],
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s4b.k1": {
+          "datei": "audio/brian/s4b.k1.wav",
+          "art": "satz",
+          "text": "Die KI schreibt den Entwurf, Sie prüfen und geben frei.",
+          "sekunden": 3.27,
+          "silbenProSek": 3.98,
+          "lufs": -22.01,
+          "quelle": "ganz.nA.k1.t2",
+          "woerter": [
+            {
+              "wort": "Die",
+              "start": 0.015,
+              "ende": 0.175
+            },
+            {
+              "wort": "KI",
+              "start": 0.175,
+              "ende": 0.395
+            },
+            {
+              "wort": "schreibt",
+              "start": 0.395,
+              "ende": 0.735
+            },
+            {
+              "wort": "den",
+              "start": 0.735,
+              "ende": 0.895
+            },
+            {
+              "wort": "Entwurf",
+              "start": 0.895,
+              "ende": 1.795
+            },
+            {
+              "wort": "Sie",
+              "start": 1.795,
+              "ende": 1.895
+            },
+            {
+              "wort": "prüfen",
+              "start": 1.895,
+              "ende": 2.335
+            },
+            {
+              "wort": "und",
+              "start": 2.335,
+              "ende": 2.595
+            },
+            {
+              "wort": "geben",
+              "start": 2.595,
+              "ende": 2.815
+            },
+            {
+              "wort": "frei",
+              "start": 2.815,
+              "ende": 3.27
+            }
+          ],
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s4b.k2": {
+          "datei": "audio/brian/s4b.k2.wav",
+          "art": "satz",
+          "text": "Die Ka-I schreibt den Entwurf, Sie prüfen und geben frei.",
+          "hash": "fe45328ce8052864",
+          "sekunden": 3.164,
+          "silbenProSek": 4.42,
+          "lufsVorher": -23.74,
+          "gainDb": 2.74,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518232-BDkXkodaK6cShcDFNYZK",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "szene.s4": {
+          "datei": "audio/brian/szene.s4.wav",
+          "art": "szene",
+          "text": "Den Einsatzbericht sprechen Sie ein. Die KI schreibt den Entwurf, Sie prüfen und geben frei.",
+          "hash": "82afa53260a52ebd",
+          "sekunden": 5.584,
+          "silbenProSek": 3.94,
+          "lufsVorher": -23.15,
+          "gainDb": 0.8,
+          "lufs": -22.35,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518233-7JTPySaZjkiB45bS37IK",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s5a": {
+          "datei": "audio/brian/s5a.wav",
+          "art": "satz",
+          "text": "Wer die Geräte prüft, wird an Fristen erinnert.",
+          "sekunden": 2.54,
+          "silbenProSek": 5.12,
+          "lufs": -22.01,
+          "quelle": "ganz.nA.k1.t2",
+          "woerter": [
+            {
+              "wort": "Wer",
+              "start": 0.045,
+              "ende": 0.105
+            },
+            {
+              "wort": "die",
+              "start": 0.105,
+              "ende": 0.245
+            },
+            {
+              "wort": "Geräte",
+              "start": 0.245,
+              "ende": 0.625
+            },
+            {
+              "wort": "prüft",
+              "start": 0.625,
+              "ende": 1.385
+            },
+            {
+              "wort": "wird",
+              "start": 1.385,
+              "ende": 1.505
+            },
+            {
+              "wort": "an",
+              "start": 1.505,
+              "ende": 1.665
+            },
+            {
+              "wort": "Fristen",
+              "start": 1.665,
+              "ende": 2.045
+            },
+            {
+              "wort": "erinnert",
+              "start": 2.045,
+              "ende": 2.54
+            }
+          ],
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s5b": {
+          "datei": "audio/brian/s5b.wav",
+          "art": "satz",
+          "text": "Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel.",
+          "sekunden": 3.35,
+          "silbenProSek": 5.37,
+          "lufs": -22.01,
+          "quelle": "ganz.nA.k1.t2",
+          "woerter": [
+            {
+              "wort": "Am",
+              "start": 0.055,
+              "ende": 0.155
+            },
+            {
+              "wort": "Tablet",
+              "start": 0.155,
+              "ende": 0.575
+            },
+            {
+              "wort": "im",
+              "start": 0.575,
+              "ende": 0.715
+            },
+            {
+              "wort": "Gerätehaus",
+              "start": 0.715,
+              "ende": 1.355
+            },
+            {
+              "wort": "erfasst",
+              "start": 1.355,
+              "ende": 1.755
+            },
+            {
+              "wort": "die",
+              "start": 1.755,
+              "ende": 1.915
+            },
+            {
+              "wort": "Mannschaft",
+              "start": 1.915,
+              "ende": 2.355
+            },
+            {
+              "wort": "Fahrten",
+              "start": 2.355,
+              "ende": 2.835
+            },
+            {
+              "wort": "und",
+              "start": 2.835,
+              "ende": 3.035
+            },
+            {
+              "wort": "Mängel",
+              "start": 3.035,
+              "ende": 3.35
+            }
+          ],
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "szene.s5": {
+          "datei": "audio/brian/szene.s5.wav",
+          "art": "szene",
+          "text": "Wer die Geräte prüft, wird an Fristen erinnert. Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel.",
+          "hash": "0b516891decfd326",
+          "sekunden": 6.139,
+          "silbenProSek": 5.05,
+          "lufsVorher": -23.47,
+          "gainDb": 0.47,
+          "lufs": -23,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518235-dXg5RLas5taBsm2R33Vi",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s6a": {
+          "datei": "audio/brian/s6a.wav",
+          "art": "satz",
+          "text": "Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick.",
+          "sekunden": 4.19,
+          "silbenProSek": 4.53,
+          "lufs": -22.01,
+          "quelle": "ganz.nA.k1.t2",
+          "woerter": [
+            {
+              "wort": "Wer",
+              "start": 0.045,
+              "ende": 0.145
+            },
+            {
+              "wort": "die",
+              "start": 0.145,
+              "ende": 0.345
+            },
+            {
+              "wort": "Wehr",
+              "start": 0.345,
+              "ende": 0.545
+            },
+            {
+              "wort": "führt",
+              "start": 0.545,
+              "ende": 1.165
+            },
+            {
+              "wort": "hat",
+              "start": 1.165,
+              "ende": 1.205
+            },
+            {
+              "wort": "Personal",
+              "start": 1.205,
+              "ende": 2.005
+            },
+            {
+              "wort": "Ausbildung",
+              "start": 2.005,
+              "ende": 2.405
+            },
+            {
+              "wort": "und",
+              "start": 2.405,
+              "ende": 2.885
+            },
+            {
+              "wort": "Einsatzbereitschaft",
+              "start": 2.885,
+              "ende": 3.765
+            },
+            {
+              "wort": "im",
+              "start": 3.765,
+              "ende": 3.965
+            },
+            {
+              "wort": "Blick",
+              "start": 3.965,
+              "ende": 4.19
+            }
+          ],
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s6b": {
+          "datei": "audio/brian/s6b.wav",
+          "art": "satz",
+          "text": "Auswertungen gibt es auch für die Gemeinde.",
+          "sekunden": 2.26,
+          "silbenProSek": 5.31,
+          "lufs": -22.01,
+          "quelle": "ganz.nA.k1.t2",
+          "woerter": [
+            {
+              "wort": "Auswertungen",
+              "start": 0.135,
+              "ende": 0.935
+            },
+            {
+              "wort": "gibt",
+              "start": 0.935,
+              "ende": 1.155
+            },
+            {
+              "wort": "es",
+              "start": 1.155,
+              "ende": 1.315
+            },
+            {
+              "wort": "auch",
+              "start": 1.315,
+              "ende": 1.455
+            },
+            {
+              "wort": "für",
+              "start": 1.455,
+              "ende": 1.595
+            },
+            {
+              "wort": "die",
+              "start": 1.595,
+              "ende": 1.715
+            },
+            {
+              "wort": "Gemeinde",
+              "start": 1.715,
+              "ende": 2.26
+            }
+          ],
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "szene.s6": {
+          "datei": "audio/brian/szene.s6.wav",
+          "art": "szene",
+          "text": "Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick. Auswertungen gibt es auch für die Gemeinde.",
+          "hash": "2c1d4760f41073e5",
+          "sekunden": 6.784,
+          "silbenProSek": 4.57,
+          "lufsVorher": -23.46,
+          "gainDb": 2.46,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518237-JlZRSPcCGUJ2Nm5syzAX",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s7a.nA": {
+          "datei": "audio/brian/s7a.nA.wav",
+          "art": "satz",
+          "text": "Reskio wird in Deutschland gehostet.",
+          "sekunden": 2.07,
+          "silbenProSek": 4.35,
+          "lufs": -22.01,
+          "quelle": "ganz.nA.k1.t2",
+          "woerter": [
+            {
+              "wort": "Reskio",
+              "start": 0.125,
+              "ende": 0.545
+            },
+            {
+              "wort": "wird",
+              "start": 0.545,
+              "ende": 0.905
+            },
+            {
+              "wort": "in",
+              "start": 0.905,
+              "ende": 1.025
+            },
+            {
+              "wort": "Deutschland",
+              "start": 1.025,
+              "ende": 1.445
+            },
+            {
+              "wort": "gehostet",
+              "start": 1.445,
+              "ende": 2.045
+            }
+          ],
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s7a.nB": {
+          "datei": "audio/brian/s7a.nB.wav",
+          "art": "satz",
+          "text": "Reskjo wird in Deutschland gehostet.",
+          "hash": "eccf1669f814e6ed",
+          "sekunden": 1.539,
+          "silbenProSek": 5.85,
+          "lufsVorher": -22.99,
+          "gainDb": 1.99,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518239-yuhDAyWiAiQyTocYkPun",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s7b": {
+          "datei": "audio/brian/s7b.wav",
+          "art": "satz",
+          "text": "Bei der Datenübernahme helfen wir.",
+          "sekunden": 2.14,
+          "silbenProSek": 5.14,
+          "lufs": -22.01,
+          "quelle": "ganz.nA.k1.t2",
+          "woerter": [
+            {
+              "wort": "Bei",
+              "start": 0.165,
+              "ende": 0.265
+            },
+            {
+              "wort": "der",
+              "start": 0.265,
+              "ende": 0.405
+            },
+            {
+              "wort": "Datenübernahme",
+              "start": 0.405,
+              "ende": 1.305
+            },
+            {
+              "wort": "helfen",
+              "start": 1.305,
+              "ende": 1.805
+            },
+            {
+              "wort": "wir",
+              "start": 1.805,
+              "ende": 2.14
+            }
+          ],
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "szene.s7": {
+          "datei": "audio/brian/szene.s7.wav",
+          "art": "szene",
+          "text": "Reskio wird in Deutschland gehostet. Bei der Datenübernahme helfen wir.",
+          "hash": "2698f8b90fe4f81b",
+          "sekunden": 3.833,
+          "silbenProSek": 5.22,
+          "lufsVorher": -24.08,
+          "gainDb": 3.08,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518240-b6vUHyQmEXwWaS8lI1hf",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s8a": {
+          "datei": "audio/brian/s8a.wav",
+          "art": "satz",
+          "text": "Fragen Sie eine kostenlose Demo an.",
+          "sekunden": 2.15,
+          "silbenProSek": 5.58,
+          "lufs": -22.01,
+          "quelle": "ganz.nA.k1.t2",
+          "woerter": [
+            {
+              "wort": "Fragen",
+              "start": 0.135,
+              "ende": 0.435
+            },
+            {
+              "wort": "Sie",
+              "start": 0.435,
+              "ende": 0.555
+            },
+            {
+              "wort": "eine",
+              "start": 0.555,
+              "ende": 0.755
+            },
+            {
+              "wort": "kostenlose",
+              "start": 0.755,
+              "ende": 1.475
+            },
+            {
+              "wort": "Demo",
+              "start": 1.475,
+              "ende": 1.795
+            },
+            {
+              "wort": "an",
+              "start": 1.795,
+              "ende": 2.15
+            }
+          ],
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s8a_url.nA": {
+          "datei": "audio/brian/s8a_url.nA.wav",
+          "art": "satz",
+          "text": "Fragen Sie die kostenlose Demo auf Reskio Punkt D E an.",
+          "hash": "225b4d99de049231",
+          "sekunden": 3.325,
+          "silbenProSek": 4.81,
+          "lufsVorher": -23.51,
+          "gainDb": 2.51,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518242-lgQo8tRItPExSDMxor15",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s8a_url.nB": {
+          "datei": "audio/brian/s8a_url.nB.wav",
+          "art": "satz",
+          "text": "Fragen Sie die kostenlose Demo auf Reskjo Punkt D E an.",
+          "hash": "4a61a697f689e581",
+          "sekunden": 2.978,
+          "silbenProSek": 5.37,
+          "lufsVorher": -23.18,
+          "gainDb": 2.18,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518242-suC1OQ3tM34IyihnpMQB",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s8b.nA": {
+          "datei": "audio/brian/s8b.nA.wav",
+          "art": "satz",
+          "text": "Reskio. Ehrenamt entlasten. Feuerwehr vier Punkt null.",
+          "sekunden": 3.654,
+          "silbenProSek": 3.56,
+          "lufs": -22.01,
+          "quelle": "ganz.nA.k1.t2",
+          "woerter": [
+            {
+              "wort": "Reskio",
+              "start": 0.115,
+              "ende": 0.995
+            },
+            {
+              "wort": "Ehrenamt",
+              "start": 0.995,
+              "ende": 1.435
+            },
+            {
+              "wort": "entlasten",
+              "start": 1.435,
+              "ende": 2.395
+            },
+            {
+              "wort": "Feuerwehr",
+              "start": 2.395,
+              "ende": 2.855
+            },
+            {
+              "wort": "4.0",
+              "start": 2.855,
+              "ende": 3.555
+            }
+          ],
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s8b.nB": {
+          "datei": "audio/brian/s8b.nB.wav",
+          "art": "satz",
+          "text": "Reskjo. Ehrenamt entlasten. Feuerwehr vier Punkt null.",
+          "hash": "cd4277b490554cc8",
+          "sekunden": 3.214,
+          "silbenProSek": 4.05,
+          "lufsVorher": -22.16,
+          "gainDb": 1.16,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518244-HWh453J1ziKzKQ0wG5BM",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "szene.s8": {
+          "datei": "audio/brian/szene.s8.wav",
+          "art": "szene",
+          "text": "Fragen Sie eine kostenlose Demo an. Reskio. Ehrenamt entlasten. Feuerwehr vier Punkt null.",
+          "hash": "ca73d99afdf175fa",
+          "sekunden": 5.588,
+          "silbenProSek": 4.47,
+          "lufsVorher": -23.15,
+          "gainDb": 2.15,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518245-HNW7NZp5RKPFsLAbXPCl",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        }
+      },
+      "durchgaenge": {
+        "ganz.nA.k1.t1": {
+          "datei": "audio/brian/ganz/ganz.nA.k1.t1.wav",
+          "hash": "0a8ec18cb1a8cf7d",
+          "sekunden": 50.863,
+          "lufsVorher": -23.45,
+          "gainDb": 2.36,
+          "lufs": -21.09,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518673-l9fOfzJXxsF3Q8052fxk",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian",
+          "gehoert": "Ihre Zeit im Ehrenamt ist knapp. Zu viel davon steckt in Zetteln und Ordnern. Reskio bündelt Einsatz, Technik und Mannschaft in einem System. Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu. Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte. Den Einsatzbericht sprechen sie ein. Die KI schreibt den Entwurf, sie prüfen und geben frei. Wer die Geräte prüft, wird an Fristen erinnert. Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel. Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick. Auswertung gibt es auch für die Gemeinde. Reskio wird in Deutschland gehostet. Bei der Datenübernahme helfen wir. Fragen Sie eine kostenlose Demo an. Reskio. Ehrenamt entlasten. Feuerwehr 4.0",
+          "gueltig": true,
+          "probleme": [],
+          "fehlend": [],
+          "sprachSek": 43.51322916666663,
+          "tempo": 4.596303327292709,
+          "schwankung": 0.17748078907644957
+        },
+        "ganz.nA.k1.t2": {
+          "datei": "audio/brian/ganz/ganz.nA.k1.t2.wav",
+          "hash": "926e082ce2bf73f5",
+          "sekunden": 48.479,
+          "lufsVorher": -23.54,
+          "gainDb": 1.53,
+          "lufs": -22.01,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518684-fogjrZvtJn1ac3UUOXhQ",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian",
+          "gehoert": "Ihre Zeit im Ehrenamt ist knapp. Zu viel davon steckt in Zetteln und Ordnern. Reskio bündelt Einsatz, Technik und Mannschaft in einem System. Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu. Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte. Den Einsatzbericht sprechen sie ein. Die KI schreibt den Entwurf, sie prüfen und geben frei. Wer die Geräte prüft, wird an Fristen erinnert. Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel. Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick. Auswertungen gibt es auch für die Gemeinde. Rescio wird in Deutschland gehostet. Bei der Datenübernahme helfen wir. Fragen Sie eine kostenlose Demo an. Rescio. Ehrenamt entlasten. Feuerwehr 4.0.",
+          "gueltig": true,
+          "probleme": [],
+          "fehlend": [],
+          "sprachSek": 42.468895833333306,
+          "tempo": 4.709328935343369,
+          "schwankung": 0.12739381801440908
+        },
+        "ganz.nA.k1.t3": {
+          "datei": "audio/brian/ganz/ganz.nA.k1.t3.wav",
+          "hash": "a1ad3c1d2ca1778c",
+          "sekunden": 48.467,
+          "lufsVorher": -23.85,
+          "gainDb": 0.25,
+          "lufs": -23.6,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518696-EWJgK0LnQQEB69FjckxL",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian",
+          "gehoert": "Ihre Zeit im Ehrenamt ist knapp. Zu viel davon steckt in Zetteln und Ordnern. RISCIO bündelt Einsatz, Technik und Mannschaft in einem System. Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu. Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte. Den Einsatzbericht sprechen sie ein. Die KI schreibt den Entwurf, sie prüfen und geben frei. Wer die Geräte prüft, wird an Fristen erinnert. Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Menge. Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick. Auswertungen gibt es auch für die Gemeinde. Reskio wird in Deutschland gehostet. Bei der Datenübernahme helfen wir. Fragen Sie eine kostenlose Demo an. Reskio. Ehrenamt entlasten. Feuerwehr 4.0.",
+          "gueltig": true,
+          "probleme": [],
+          "fehlend": [
+            "Mängel"
+          ],
+          "sprachSek": 41.80499999999997,
+          "tempo": 4.784116732448275,
+          "schwankung": 0.1601356638309642
+        }
+      },
+      "einzeln": {
+        "s1a": {
+          "datei": "audio/brian/einzeln/s1a.wav",
+          "art": "satz",
+          "text": "Ihre Zeit im Ehrenamt ist knapp.",
+          "hash": "aa2f91218c8469b7",
+          "sekunden": 1.678,
+          "silbenProSek": 5.36,
+          "lufsVorher": -22.59,
+          "gainDb": 1.59,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518224-1Gn4q8es3vsLYMhe9USz",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s1b": {
+          "datei": "audio/brian/einzeln/s1b.wav",
+          "art": "satz",
+          "text": "Zu viel davon steckt in Zetteln und Ordnern.",
+          "hash": "7c8a25d9b5dd26a9",
+          "sekunden": 2.213,
+          "silbenProSek": 4.97,
+          "lufsVorher": -23.16,
+          "gainDb": 2.16,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518224-o88t0mJf5tVMMqhXqatY",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s2a.nA": {
+          "datei": "audio/brian/einzeln/s2a.nA.wav",
+          "art": "satz",
+          "text": "Reskio bündelt Einsatz, Technik und Mannschaft in einem System.",
+          "hash": "e1f2b35b75063b39",
+          "sekunden": 3.258,
+          "silbenProSek": 4.91,
+          "lufsVorher": -22.74,
+          "gainDb": 1.74,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518226-6PyLoMSDe71hLkQ9Opfh",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s3a": {
+          "datei": "audio/brian/einzeln/s3a.wav",
+          "art": "satz",
+          "text": "Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu.",
+          "hash": "bdcbc4587fb9f7c3",
+          "sekunden": 3.581,
+          "silbenProSek": 5.03,
+          "lufsVorher": -23.26,
+          "gainDb": 2.26,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518228-mqlPVF7LySEmo5ZjWu7c",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s3b": {
+          "datei": "audio/brian/einzeln/s3b.wav",
+          "art": "satz",
+          "text": "Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte.",
+          "hash": "267c4facbc2a3621",
+          "sekunden": 3.381,
+          "silbenProSek": 5.03,
+          "lufsVorher": -23.43,
+          "gainDb": 2.43,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518229-75m4m3t8Bo4oV20vkCCg",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s4a": {
+          "datei": "audio/brian/einzeln/s4a.wav",
+          "art": "satz",
+          "text": "Den Einsatzbericht sprechen Sie ein.",
+          "hash": "3ca6f4a35eb91a79",
+          "sekunden": 1.774,
+          "silbenProSek": 5.07,
+          "lufsVorher": -23.3,
+          "gainDb": 0.67,
+          "lufs": -22.63,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518230-G1xAUvnmODurKXl0ntMT",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s4b.k1": {
+          "datei": "audio/brian/einzeln/s4b.k1.wav",
+          "art": "satz",
+          "text": "Die KI schreibt den Entwurf, Sie prüfen und geben frei.",
+          "hash": "60c7549bc459deb7",
+          "sekunden": 2.851,
+          "silbenProSek": 4.56,
+          "lufsVorher": -23.08,
+          "gainDb": 2.08,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518231-vokNLbPnyYEkJ0mhYdpr",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s5a": {
+          "datei": "audio/brian/einzeln/s5a.wav",
+          "art": "satz",
+          "text": "Wer die Geräte prüft, wird an Fristen erinnert.",
+          "hash": "98b3529a9d149ad8",
+          "sekunden": 2.381,
+          "silbenProSek": 5.46,
+          "lufsVorher": -23.25,
+          "gainDb": 2.25,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518233-zfhn0WDhM0FBjswgjd9B",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s5b": {
+          "datei": "audio/brian/einzeln/s5b.wav",
+          "art": "satz",
+          "text": "Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel.",
+          "hash": "8356e1d72d949c4d",
+          "sekunden": 3.201,
+          "silbenProSek": 5.62,
+          "lufsVorher": -22.89,
+          "gainDb": 1.89,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518234-weSyy1tPbih8hCm0OnYk",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s6a": {
+          "datei": "audio/brian/einzeln/s6a.wav",
+          "art": "satz",
+          "text": "Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick.",
+          "hash": "b1b94030651e2975",
+          "sekunden": 3.771,
+          "silbenProSek": 5.04,
+          "lufsVorher": -24.34,
+          "gainDb": 3.34,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518236-EYNyroGo4v4ZYpvdNQFX",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s6b": {
+          "datei": "audio/brian/einzeln/s6b.wav",
+          "art": "satz",
+          "text": "Auswertungen gibt es auch für die Gemeinde.",
+          "hash": "14cb4d1183d2427d",
+          "sekunden": 2.272,
+          "silbenProSek": 5.28,
+          "lufsVorher": -23.47,
+          "gainDb": 2.47,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518237-fe6QviauulePqHXocleV",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s7a.nA": {
+          "datei": "audio/brian/einzeln/s7a.nA.wav",
+          "art": "satz",
+          "text": "Reskio wird in Deutschland gehostet.",
+          "hash": "86c360b19330045e",
+          "sekunden": 1.848,
+          "silbenProSek": 4.87,
+          "lufsVorher": -23.46,
+          "gainDb": 2.46,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518238-DFRF75slNWkshoF6Thwj",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s7b": {
+          "datei": "audio/brian/einzeln/s7b.wav",
+          "art": "satz",
+          "text": "Bei der Datenübernahme helfen wir.",
+          "hash": "2a3424f6f457521f",
+          "sekunden": 1.832,
+          "silbenProSek": 6.01,
+          "lufsVorher": -23.21,
+          "gainDb": 1.72,
+          "lufs": -21.49,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518240-38QOkwPyRV9vODGJR3bI",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s8a": {
+          "datei": "audio/brian/einzeln/s8a.wav",
+          "art": "satz",
+          "text": "Fragen Sie eine kostenlose Demo an.",
+          "hash": "ebba56155c37c01d",
+          "sekunden": 1.643,
+          "silbenProSek": 7.3,
+          "lufsVorher": -23.89,
+          "gainDb": 2.89,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518241-SjjDeeIFE1TvfFOxJN92",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        },
+        "s8b.nA": {
+          "datei": "audio/brian/einzeln/s8b.nA.wav",
+          "art": "satz",
+          "text": "Reskio. Ehrenamt entlasten. Feuerwehr vier Punkt null.",
+          "hash": "c4ebea1fef509c5e",
+          "sekunden": 3.247,
+          "silbenProSek": 4,
+          "lufsVorher": -22.47,
+          "gainDb": 1.47,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/mpeg",
+          "generationId": "gen-tts-1794518243-KbDWkYbT4znRkXDPD8qb",
+          "modell": "elevenlabs/eleven-multilingual-v2",
+          "kennung": "brian"
+        }
+      },
+      "gewaehlt": {
+        "nA.k1": "ganz.nA.k1.t2"
+      }
+    },
+    "klaus": {
+      "clips": {
+        "s1a": {
+          "datei": "audio/klaus/s1a.wav",
+          "art": "satz",
+          "text": "Ihre Zeit im Ehrenamt ist knapp.",
+          "sekunden": 1.705,
+          "silbenProSek": 5.28,
+          "lufs": -21.93,
+          "quelle": "ganz.nA.k1.t3",
+          "woerter": [
+            {
+              "wort": "Ihre",
+              "start": 0,
+              "ende": 0.08
+            },
+            {
+              "wort": "Zeit",
+              "start": 0.08,
+              "ende": 0.38
+            },
+            {
+              "wort": "im",
+              "start": 0.38,
+              "ende": 0.68
+            },
+            {
+              "wort": "Ehrenamt",
+              "start": 0.68,
+              "ende": 1.16
+            },
+            {
+              "wort": "ist",
+              "start": 1.16,
+              "ende": 1.32
+            },
+            {
+              "wort": "knapp",
+              "start": 1.32,
+              "ende": 1.705
+            }
+          ],
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s1b": {
+          "datei": "audio/klaus/s1b.wav",
+          "art": "satz",
+          "text": "Zu viel davon steckt in Zetteln und Ordnern.",
+          "sekunden": 2.54,
+          "silbenProSek": 4.33,
+          "lufs": -21.93,
+          "quelle": "ganz.nA.k1.t3",
+          "woerter": [
+            {
+              "wort": "Zu",
+              "start": 0,
+              "ende": 0.075
+            },
+            {
+              "wort": "viel",
+              "start": 0.075,
+              "ende": 0.295
+            },
+            {
+              "wort": "davon",
+              "start": 0.295,
+              "ende": 0.595
+            },
+            {
+              "wort": "steckt",
+              "start": 0.595,
+              "ende": 1.035
+            },
+            {
+              "wort": "in",
+              "start": 1.035,
+              "ende": 1.135
+            },
+            {
+              "wort": "Zetteln",
+              "start": 1.135,
+              "ende": 1.655
+            },
+            {
+              "wort": "und",
+              "start": 1.655,
+              "ende": 1.875
+            },
+            {
+              "wort": "Ordnern",
+              "start": 1.875,
+              "ende": 2.395
+            }
+          ],
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "szene.s1": {
+          "datei": "audio/klaus/szene.s1.wav",
+          "art": "szene",
+          "text": "Ihre Zeit im Ehrenamt ist knapp. Zu viel davon steckt in Zetteln und Ordnern.",
+          "hash": "399b9c8c4358662b",
+          "sekunden": 6.032,
+          "silbenProSek": 3.32,
+          "lufsVorher": -21.51,
+          "gainDb": 0.51,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518227-OonwgmY1P8dmedmeEb9X",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s2a.nA": {
+          "datei": "audio/klaus/s2a.nA.wav",
+          "art": "satz",
+          "text": "Reskio bündelt Einsatz, Technik und Mannschaft in einem System.",
+          "sekunden": 3.75,
+          "silbenProSek": 4.27,
+          "lufs": -21.93,
+          "quelle": "ganz.nA.k1.t3",
+          "woerter": [
+            {
+              "wort": "Reskio",
+              "start": 0,
+              "ende": 0.545
+            },
+            {
+              "wort": "bündelt",
+              "start": 0.545,
+              "ende": 1.045
+            },
+            {
+              "wort": "Einsatz",
+              "start": 1.045,
+              "ende": 1.645
+            },
+            {
+              "wort": "Technik",
+              "start": 1.645,
+              "ende": 2.165
+            },
+            {
+              "wort": "und",
+              "start": 2.165,
+              "ende": 2.245
+            },
+            {
+              "wort": "Mannschaft",
+              "start": 2.245,
+              "ende": 2.685
+            },
+            {
+              "wort": "in",
+              "start": 2.685,
+              "ende": 2.925
+            },
+            {
+              "wort": "einem",
+              "start": 2.925,
+              "ende": 3.105
+            },
+            {
+              "wort": "System",
+              "start": 3.105,
+              "ende": 3.705
+            }
+          ],
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s2a.nB": {
+          "datei": "audio/klaus/s2a.nB.wav",
+          "art": "satz",
+          "text": "Reskjo bündelt Einsatz, Technik und Mannschaft in einem System.",
+          "hash": "8964c5dbf0712bfe",
+          "sekunden": 4.917,
+          "silbenProSek": 3.25,
+          "lufsVorher": -21.06,
+          "gainDb": 0.06,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518231-PYp0nQbQ2QSlFCQ5AhXk",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "szene.s2": {
+          "datei": "audio/klaus/szene.s2.wav",
+          "art": "szene",
+          "text": "Reskio bündelt Einsatz, Technik und Mannschaft in einem System.",
+          "hash": "ce51e1dda7c81a90",
+          "sekunden": 4.929,
+          "silbenProSek": 3.25,
+          "lufsVorher": -21.68,
+          "gainDb": 0.68,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518234-E8Ericl1h31c9XlLI8hJ",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s3a": {
+          "datei": "audio/klaus/s3a.wav",
+          "art": "satz",
+          "text": "Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu.",
+          "sekunden": 3.37,
+          "silbenProSek": 5.34,
+          "lufs": -21.93,
+          "quelle": "ganz.nA.k1.t3",
+          "woerter": [
+            {
+              "wort": "Die",
+              "start": 0,
+              "ende": 0.015
+            },
+            {
+              "wort": "Mannschaft",
+              "start": 0.015,
+              "ende": 0.415
+            },
+            {
+              "wort": "bekommt",
+              "start": 0.415,
+              "ende": 0.635
+            },
+            {
+              "wort": "den",
+              "start": 0.635,
+              "ende": 0.875
+            },
+            {
+              "wort": "Alarm",
+              "start": 0.875,
+              "ende": 1.315
+            },
+            {
+              "wort": "aufs",
+              "start": 1.315,
+              "ende": 1.575
+            },
+            {
+              "wort": "Handy",
+              "start": 1.575,
+              "ende": 1.775
+            },
+            {
+              "wort": "und",
+              "start": 1.775,
+              "ende": 2.055
+            },
+            {
+              "wort": "sagt",
+              "start": 2.055,
+              "ende": 2.255
+            },
+            {
+              "wort": "per",
+              "start": 2.255,
+              "ende": 2.415
+            },
+            {
+              "wort": "Fingertipp",
+              "start": 2.415,
+              "ende": 2.935
+            },
+            {
+              "wort": "zu",
+              "start": 2.935,
+              "ende": 3.335
+            }
+          ],
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s3b": {
+          "datei": "audio/klaus/s3b.wav",
+          "art": "satz",
+          "text": "Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte.",
+          "sekunden": 3.48,
+          "silbenProSek": 4.89,
+          "lufs": -21.93,
+          "quelle": "ganz.nA.k1.t3",
+          "woerter": [
+            {
+              "wort": "Im",
+              "start": 0,
+              "ende": 0.065
+            },
+            {
+              "wort": "Einsatz",
+              "start": 0.065,
+              "ende": 0.405
+            },
+            {
+              "wort": "zeigt",
+              "start": 0.405,
+              "ende": 0.725
+            },
+            {
+              "wort": "der",
+              "start": 0.725,
+              "ende": 0.925
+            },
+            {
+              "wort": "Lagemonitor",
+              "start": 0.925,
+              "ende": 1.565
+            },
+            {
+              "wort": "Fahrzeugstatus",
+              "start": 1.565,
+              "ende": 2.725
+            },
+            {
+              "wort": "und",
+              "start": 2.725,
+              "ende": 2.905
+            },
+            {
+              "wort": "Karte",
+              "start": 2.905,
+              "ende": 3.48
+            }
+          ],
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "szene.s3": {
+          "datei": "audio/klaus/szene.s3.wav",
+          "art": "szene",
+          "text": "Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu. Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte.",
+          "hash": "630be88eaa5f979d",
+          "sekunden": 8.146,
+          "silbenProSek": 4.3,
+          "lufsVorher": -20.49,
+          "gainDb": -0.51,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518239-CU6UnXCvDP9iR9pf6Z4x",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s4a": {
+          "datei": "audio/klaus/s4a.wav",
+          "art": "satz",
+          "text": "Den Einsatzbericht sprechen Sie ein.",
+          "sekunden": 1.65,
+          "silbenProSek": 5.45,
+          "lufs": -21.93,
+          "quelle": "ganz.nA.k1.t3",
+          "woerter": [
+            {
+              "wort": "Den",
+              "start": 0,
+              "ende": 0.035
+            },
+            {
+              "wort": "Einsatzbericht",
+              "start": 0.035,
+              "ende": 0.775
+            },
+            {
+              "wort": "sprechen",
+              "start": 0.775,
+              "ende": 0.995
+            },
+            {
+              "wort": "Sie",
+              "start": 0.995,
+              "ende": 1.255
+            },
+            {
+              "wort": "ein",
+              "start": 1.255,
+              "ende": 1.65
+            }
+          ],
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s4b.k1": {
+          "datei": "audio/klaus/s4b.k1.wav",
+          "art": "satz",
+          "text": "Die KI schreibt den Entwurf, Sie prüfen und geben frei.",
+          "sekunden": 3.33,
+          "silbenProSek": 3.9,
+          "lufs": -21.93,
+          "quelle": "ganz.nA.k1.t3",
+          "woerter": [
+            {
+              "wort": "Die",
+              "start": 0,
+              "ende": 0.035
+            },
+            {
+              "wort": "KI",
+              "start": 0.035,
+              "ende": 0.275
+            },
+            {
+              "wort": "schreibt",
+              "start": 0.275,
+              "ende": 0.695
+            },
+            {
+              "wort": "den",
+              "start": 0.695,
+              "ende": 0.815
+            },
+            {
+              "wort": "Entwurf",
+              "start": 0.815,
+              "ende": 1.375
+            },
+            {
+              "wort": "Sie",
+              "start": 1.375,
+              "ende": 1.595
+            },
+            {
+              "wort": "prüfen",
+              "start": 1.595,
+              "ende": 2.115
+            },
+            {
+              "wort": "und",
+              "start": 2.115,
+              "ende": 2.595
+            },
+            {
+              "wort": "geben",
+              "start": 2.595,
+              "ende": 2.815
+            },
+            {
+              "wort": "frei",
+              "start": 2.815,
+              "ende": 3.33
+            }
+          ],
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s4b.k2": {
+          "datei": "audio/klaus/s4b.k2.wav",
+          "art": "satz",
+          "text": "Die Ka-I schreibt den Entwurf, Sie prüfen und geben frei.",
+          "hash": "41796e0a11fadc77",
+          "sekunden": 3.97,
+          "silbenProSek": 3.53,
+          "lufsVorher": -22.82,
+          "gainDb": -0.5,
+          "lufs": -23.32,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518245-1SAGVDxqX0fpEhbeIDYk",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "szene.s4": {
+          "datei": "audio/klaus/szene.s4.wav",
+          "art": "szene",
+          "text": "Den Einsatzbericht sprechen Sie ein. Die KI schreibt den Entwurf, Sie prüfen und geben frei.",
+          "hash": "3723be8d08e6c2e3",
+          "sekunden": 6.66,
+          "silbenProSek": 3.3,
+          "lufsVorher": -23.51,
+          "gainDb": 2.51,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518246-sjjdIeun8H3SR51AoBvr",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s5a": {
+          "datei": "audio/klaus/s5a.wav",
+          "art": "satz",
+          "text": "Wer die Geräte prüft, wird an Fristen erinnert.",
+          "sekunden": 2.45,
+          "silbenProSek": 5.31,
+          "lufs": -21.93,
+          "quelle": "ganz.nA.k1.t3",
+          "woerter": [
+            {
+              "wort": "Wer",
+              "start": 0,
+              "ende": 0.035
+            },
+            {
+              "wort": "die",
+              "start": 0.035,
+              "ende": 0.155
+            },
+            {
+              "wort": "Geräte",
+              "start": 0.155,
+              "ende": 0.495
+            },
+            {
+              "wort": "prüft",
+              "start": 0.495,
+              "ende": 0.995
+            },
+            {
+              "wort": "wird",
+              "start": 0.995,
+              "ende": 1.295
+            },
+            {
+              "wort": "an",
+              "start": 1.295,
+              "ende": 1.435
+            },
+            {
+              "wort": "Fristen",
+              "start": 1.435,
+              "ende": 1.855
+            },
+            {
+              "wort": "erinnert",
+              "start": 1.855,
+              "ende": 2.45
+            }
+          ],
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s5b": {
+          "datei": "audio/klaus/s5b.wav",
+          "art": "satz",
+          "text": "Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel.",
+          "sekunden": 3.52,
+          "silbenProSek": 5.11,
+          "lufs": -21.93,
+          "quelle": "ganz.nA.k1.t3",
+          "woerter": [
+            {
+              "wort": "Am",
+              "start": 0,
+              "ende": 0.325
+            },
+            {
+              "wort": "Tablet",
+              "start": 0.325,
+              "ende": 0.745
+            },
+            {
+              "wort": "im",
+              "start": 0.745,
+              "ende": 0.865
+            },
+            {
+              "wort": "Gerätehaus",
+              "start": 0.865,
+              "ende": 1.405
+            },
+            {
+              "wort": "erfasst",
+              "start": 1.405,
+              "ende": 1.925
+            },
+            {
+              "wort": "die",
+              "start": 1.925,
+              "ende": 2.025
+            },
+            {
+              "wort": "Mannschaft",
+              "start": 2.025,
+              "ende": 2.465
+            },
+            {
+              "wort": "Fahrten",
+              "start": 2.465,
+              "ende": 2.905
+            },
+            {
+              "wort": "und",
+              "start": 2.905,
+              "ende": 3.085
+            },
+            {
+              "wort": "Mängel",
+              "start": 3.085,
+              "ende": 3.505
+            }
+          ],
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "szene.s5": {
+          "datei": "audio/klaus/szene.s5.wav",
+          "art": "szene",
+          "text": "Wer die Geräte prüft, wird an Fristen erinnert. Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel.",
+          "hash": "e35f340028202ed2",
+          "sekunden": 7.995,
+          "silbenProSek": 3.88,
+          "lufsVorher": -20.83,
+          "gainDb": -0.27,
+          "lufs": -21.1,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518252-fa6f2k7p9ORqO8jfJGLt",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s6a": {
+          "datei": "audio/klaus/s6a.wav",
+          "art": "satz",
+          "text": "Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick.",
+          "sekunden": 4.22,
+          "silbenProSek": 4.5,
+          "lufs": -21.93,
+          "quelle": "ganz.nA.k1.t3",
+          "woerter": [
+            {
+              "wort": "Wer",
+              "start": 0,
+              "ende": 0.045
+            },
+            {
+              "wort": "die",
+              "start": 0.045,
+              "ende": 0.165
+            },
+            {
+              "wort": "Wehr",
+              "start": 0.165,
+              "ende": 0.385
+            },
+            {
+              "wort": "führt",
+              "start": 0.385,
+              "ende": 0.745
+            },
+            {
+              "wort": "hat",
+              "start": 0.745,
+              "ende": 0.965
+            },
+            {
+              "wort": "Personal",
+              "start": 0.965,
+              "ende": 1.685
+            },
+            {
+              "wort": "Ausbildung",
+              "start": 1.685,
+              "ende": 2.385
+            },
+            {
+              "wort": "und",
+              "start": 2.385,
+              "ende": 2.725
+            },
+            {
+              "wort": "Einsatzbereitschaft",
+              "start": 2.725,
+              "ende": 3.745
+            },
+            {
+              "wort": "im",
+              "start": 3.745,
+              "ende": 3.885
+            },
+            {
+              "wort": "Blick",
+              "start": 3.885,
+              "ende": 4.22
+            }
+          ],
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s6b": {
+          "datei": "audio/klaus/s6b.wav",
+          "art": "satz",
+          "text": "Auswertungen gibt es auch für die Gemeinde.",
+          "sekunden": 2.5,
+          "silbenProSek": 4.8,
+          "lufs": -21.93,
+          "quelle": "ganz.nA.k1.t3",
+          "woerter": [
+            {
+              "wort": "Auswertungen",
+              "start": 0,
+              "ende": 0.575
+            },
+            {
+              "wort": "gibt",
+              "start": 0.575,
+              "ende": 0.975
+            },
+            {
+              "wort": "es",
+              "start": 0.975,
+              "ende": 1.155
+            },
+            {
+              "wort": "auch",
+              "start": 1.155,
+              "ende": 1.475
+            },
+            {
+              "wort": "für",
+              "start": 1.475,
+              "ende": 1.735
+            },
+            {
+              "wort": "die",
+              "start": 1.735,
+              "ende": 1.875
+            },
+            {
+              "wort": "Gemeinde",
+              "start": 1.875,
+              "ende": 2.5
+            }
+          ],
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "szene.s6": {
+          "datei": "audio/klaus/szene.s6.wav",
+          "art": "szene",
+          "text": "Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick. Auswertungen gibt es auch für die Gemeinde.",
+          "hash": "9a95694d14650d24",
+          "sekunden": 6.978,
+          "silbenProSek": 4.44,
+          "lufsVorher": -20.69,
+          "gainDb": -0.31,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518257-cyrwW7rSngGgqlWObsBD",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s7a.nA": {
+          "datei": "audio/klaus/s7a.nA.wav",
+          "art": "satz",
+          "text": "Reskio wird in Deutschland gehostet.",
+          "sekunden": 1.96,
+          "silbenProSek": 4.59,
+          "lufs": -21.93,
+          "quelle": "ganz.nA.k1.t3",
+          "woerter": [
+            {
+              "wort": "Reskio",
+              "start": 0,
+              "ende": 0.335
+            },
+            {
+              "wort": "wird",
+              "start": 0.335,
+              "ende": 0.675
+            },
+            {
+              "wort": "in",
+              "start": 0.675,
+              "ende": 0.855
+            },
+            {
+              "wort": "Deutschland",
+              "start": 0.855,
+              "ende": 1.175
+            },
+            {
+              "wort": "gehostet",
+              "start": 1.175,
+              "ende": 1.855
+            }
+          ],
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s7a.nB": {
+          "datei": "audio/klaus/s7a.nB.wav",
+          "art": "satz",
+          "text": "Reskjo wird in Deutschland gehostet.",
+          "hash": "83fa9ce8872713aa",
+          "sekunden": 1.988,
+          "silbenProSek": 4.53,
+          "lufsVorher": -18.77,
+          "gainDb": -2.23,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518260-ENIegCxSs7SZim9mYAFT",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s7b": {
+          "datei": "audio/klaus/s7b.wav",
+          "art": "satz",
+          "text": "Bei der Datenübernahme helfen wir.",
+          "sekunden": 1.84,
+          "silbenProSek": 5.98,
+          "lufs": -21.93,
+          "quelle": "ganz.nA.k1.t3",
+          "woerter": [
+            {
+              "wort": "Bei",
+              "start": 0,
+              "ende": 0.025
+            },
+            {
+              "wort": "der",
+              "start": 0.025,
+              "ende": 0.165
+            },
+            {
+              "wort": "Datenübernahme",
+              "start": 0.165,
+              "ende": 1.005
+            },
+            {
+              "wort": "helfen",
+              "start": 1.005,
+              "ende": 1.385
+            },
+            {
+              "wort": "wir",
+              "start": 1.385,
+              "ende": 1.84
+            }
+          ],
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "szene.s7": {
+          "datei": "audio/klaus/szene.s7.wav",
+          "art": "szene",
+          "text": "Reskio wird in Deutschland gehostet. Bei der Datenübernahme helfen wir.",
+          "hash": "5a6e43568f54b253",
+          "sekunden": 4.516,
+          "silbenProSek": 4.43,
+          "lufsVorher": -20.98,
+          "gainDb": -0.02,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518263-dlyjXSoSufXjr2fKGAtp",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s8a": {
+          "datei": "audio/klaus/s8a.wav",
+          "art": "satz",
+          "text": "Fragen Sie eine kostenlose Demo an.",
+          "sekunden": 2.22,
+          "silbenProSek": 5.41,
+          "lufs": -21.93,
+          "quelle": "ganz.nA.k1.t3",
+          "woerter": [
+            {
+              "wort": "Fragen",
+              "start": 0,
+              "ende": 0.255
+            },
+            {
+              "wort": "Sie",
+              "start": 0.255,
+              "ende": 0.475
+            },
+            {
+              "wort": "eine",
+              "start": 0.475,
+              "ende": 0.715
+            },
+            {
+              "wort": "kostenlose",
+              "start": 0.715,
+              "ende": 1.495
+            },
+            {
+              "wort": "Demo",
+              "start": 1.495,
+              "ende": 1.915
+            },
+            {
+              "wort": "an",
+              "start": 1.915,
+              "ende": 2.22
+            }
+          ],
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s8a_url.nA": {
+          "datei": "audio/klaus/s8a_url.nA.wav",
+          "art": "satz",
+          "text": "Fragen Sie die kostenlose Demo auf Reskio Punkt D E an.",
+          "hash": "06151ef57ad37d7a",
+          "sekunden": 4.511,
+          "silbenProSek": 3.55,
+          "lufsVorher": -21.17,
+          "gainDb": 0.17,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518267-yKU3bPl0IcBWPwgQjRXy",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s8a_url.nB": {
+          "datei": "audio/klaus/s8a_url.nB.wav",
+          "art": "satz",
+          "text": "Fragen Sie die kostenlose Demo auf Reskjo Punkt D E an.",
+          "hash": "1512c845c382b955",
+          "sekunden": 3.842,
+          "silbenProSek": 4.16,
+          "lufsVorher": -20.26,
+          "gainDb": -0.74,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518269-L7KNxcaUz032LMgnyZa6",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s8b.nA": {
+          "datei": "audio/klaus/s8b.nA.wav",
+          "art": "satz",
+          "text": "Reskio. Ehrenamt entlasten. Feuerwehr vier Punkt null.",
+          "sekunden": 4.63,
+          "silbenProSek": 2.81,
+          "lufs": -21.93,
+          "quelle": "ganz.nA.k1.t3",
+          "woerter": [
+            {
+              "wort": "Reskio",
+              "start": 0,
+              "ende": 0.315
+            },
+            {
+              "wort": "Ehrenamt",
+              "start": 0.825,
+              "ende": 1.305
+            },
+            {
+              "wort": "entlasten",
+              "start": 1.305,
+              "ende": 1.905
+            },
+            {
+              "wort": "Feuerwehr",
+              "start": 2.475,
+              "ende": 3.295
+            },
+            {
+              "wort": "4.0",
+              "start": 3.995,
+              "ende": 4.475
+            }
+          ],
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s8b.nB": {
+          "datei": "audio/klaus/s8b.nB.wav",
+          "art": "satz",
+          "text": "Reskjo. Ehrenamt entlasten. Feuerwehr vier Punkt null.",
+          "hash": "60a4fd8f04ae46d7",
+          "sekunden": 5.404,
+          "silbenProSek": 2.41,
+          "lufsVorher": -20.58,
+          "gainDb": -0.42,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518272-F40K3W3Ml8SR3DlcsX7n",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1",
+          "warnung": "Sprechtempo 2.4 Silben/s ist unplausibel. Stimmt die Abtastrate 24000 Hz?"
+        },
+        "szene.s8": {
+          "datei": "audio/klaus/szene.s8.wav",
+          "art": "szene",
+          "text": "Fragen Sie eine kostenlose Demo an. Reskio. Ehrenamt entlasten. Feuerwehr vier Punkt null.",
+          "hash": "5e50371a97e6179c",
+          "sekunden": 6.651,
+          "silbenProSek": 3.76,
+          "lufsVorher": -21.22,
+          "gainDb": 0.22,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518274-xZWp1OfwrW67W8gjATCm",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        }
+      },
+      "durchgaenge": {
+        "ganz.nA.k1.t1": {
+          "datei": "audio/klaus/ganz/ganz.nA.k1.t1.wav",
+          "hash": "5627cb92126b9872",
+          "sekunden": 51.76,
+          "lufsVorher": -20.46,
+          "gainDb": -0.54,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518673-gSRIeO7NHYrmmYSR7UkL",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1",
+          "gehoert": "Ihre Zeit im Ehrenamt ist knapp. Zu viel davon steckt in Zetteln und Ordnern. Reskio bündelt Einsatz, Technik und Mannschaft in einem System. Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu. Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte. Den Einsatzbericht sprechen Sie ein. Die KI schreibt den Entwurf, sie prüfen und geben frei. Wer die Geräte prüft, wird an Fristen erinnert. Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel. Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick. Auswertungen gibt es auch für die Gemeinde. Reskio wird in Deutschland gehostet. Bei der Datenübernahme helfen wir. Fragen Sie eine kostenlose Demo an. Rescue Ehrenamt entlasten Feuerwehr 4 Punkt",
+          "gueltig": true,
+          "probleme": [],
+          "fehlend": [],
+          "sprachSek": 44.524999999999984,
+          "tempo": 4.491858506457048,
+          "schwankung": 0.20127286358080898
+        },
+        "ganz.nA.k1.t2": {
+          "datei": "audio/klaus/ganz/ganz.nA.k1.t2.wav",
+          "hash": "2e64fdfb0757c79a",
+          "sekunden": 51.222,
+          "lufsVorher": -21.23,
+          "gainDb": -1.25,
+          "lufs": -22.48,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518698-qMlkoUtLzMNaoXj5XNfK",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1",
+          "gehoert": "Ihre Zeit im Ehrenamt ist knapp.  Zu viel davon steckt in Zetteln und Ordnern.  Reskio bündelt Einsatz, Technik und Mannschaft in einem System.  Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu.  Im Einsatz zeigt der Lagemonitor Fahrzeugstarkstatus und Karte.  Den Einsatzbericht sprechen Sie ein. Die KI schreibt den Entwurf, Sie prüfen und geben frei.  Wer die Geräte prüft, wird an Fristen erinnert.  Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel.  Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick.  Auswertungen gibt es auch für die Gemeinde.  Reskio wird in Deutschland gehostet.  Bei der Datenübernahme helfen wir. Fragen Sie eine kostenlose Demo an.  Rescue.  Ehrenamt entlasten.  Feuerwehr 4.0",
+          "gueltig": true,
+          "probleme": [],
+          "fehlend": [
+            "Fahrzeugstatus"
+          ],
+          "sprachSek": 43.9623333333333,
+          "tempo": 4.549349063971434,
+          "schwankung": 0.17835020037538346
+        },
+        "ganz.nA.k1.t3": {
+          "datei": "audio/klaus/ganz/ganz.nA.k1.t3.wav",
+          "hash": "e967bbf34d11dd13",
+          "sekunden": 50.426,
+          "lufsVorher": -20.87,
+          "gainDb": -1.06,
+          "lufs": -21.93,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518712-awR9iQ1Pu1HzksZBRyMF",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1",
+          "gehoert": "Ihre Zeit im Ehrenamt ist knapp.  Zu viel davon steckt in Zetteln und Ordnern.  Rescue bündelt Einsatz, Technik und Mannschaft in einem System.  Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu.  Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte.  Den Einsatzbericht sprechen Sie ein.  Die KI schreibt den Entwurf, Sie prüfen und geben frei.  Wer die Geräte prüft, wird an Fristen erinnert.  Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel.  Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick.  Auswertungen gibt es auch für die Gemeinde.  Reskio wird in Deutschland gehostet.  Bei der Datenübernahme helfen wir.  Fragen Sie eine kostenlose Demo an.  RESCUE  Ehrenamt entlasten.  Feuerwehr,  4.0",
+          "gueltig": true,
+          "probleme": [],
+          "fehlend": [],
+          "sprachSek": 43.16499999999997,
+          "tempo": 4.63338352832156,
+          "schwankung": 0.15667488740440183
+        }
+      },
+      "einzeln": {
+        "s1a": {
+          "datei": "audio/klaus/einzeln/s1a.wav",
+          "art": "satz",
+          "text": "Ihre Zeit im Ehrenamt ist knapp.",
+          "hash": "175ed461de382626",
+          "sekunden": 1.522,
+          "silbenProSek": 5.91,
+          "lufsVorher": -20.53,
+          "gainDb": -0.47,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518224-wdZPRtW0ehEivpkrRo78",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s1b": {
+          "datei": "audio/klaus/einzeln/s1b.wav",
+          "art": "satz",
+          "text": "Zu viel davon steckt in Zetteln und Ordnern.",
+          "hash": "9132d4bedf4cfa55",
+          "sekunden": 2.828,
+          "silbenProSek": 3.89,
+          "lufsVorher": -21.65,
+          "gainDb": 0.65,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518225-IR95L46vpm5q6dr0Ukmc",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s2a.nA": {
+          "datei": "audio/klaus/einzeln/s2a.nA.wav",
+          "art": "satz",
+          "text": "Reskio bündelt Einsatz, Technik und Mannschaft in einem System.",
+          "hash": "ce51e1dda7c81a90",
+          "sekunden": 4.291,
+          "silbenProSek": 3.73,
+          "lufsVorher": -20.53,
+          "gainDb": -0.47,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518229-dQHouMgwWS5yGnH3iLwx",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s3a": {
+          "datei": "audio/klaus/einzeln/s3a.wav",
+          "art": "satz",
+          "text": "Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu.",
+          "hash": "8aa77e135bdcf724",
+          "sekunden": 4.458,
+          "silbenProSek": 4.04,
+          "lufsVorher": -20.1,
+          "gainDb": -1.51,
+          "lufs": -21.61,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518236-3JMhh4NdlzjiTYWphwQT",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s3b": {
+          "datei": "audio/klaus/einzeln/s3b.wav",
+          "art": "satz",
+          "text": "Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte.",
+          "hash": "40f54df5fe755a55",
+          "sekunden": 3.459,
+          "silbenProSek": 4.91,
+          "lufsVorher": -20.89,
+          "gainDb": -0.11,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518238-o9azg3ggs30Ww9f9qQ2b",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s4a": {
+          "datei": "audio/klaus/einzeln/s4a.wav",
+          "art": "satz",
+          "text": "Den Einsatzbericht sprechen Sie ein.",
+          "hash": "7754b9a73c88bad1",
+          "sekunden": 2.22,
+          "silbenProSek": 4.05,
+          "lufsVorher": -21.1,
+          "gainDb": 0.1,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518241-GuGExtt50Ht91OwcmUWj",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s4b.k1": {
+          "datei": "audio/klaus/einzeln/s4b.k1.wav",
+          "art": "satz",
+          "text": "Die KI schreibt den Entwurf, Sie prüfen und geben frei.",
+          "hash": "053b84b55377f3ce",
+          "sekunden": 5.564,
+          "silbenProSek": 2.34,
+          "lufsVorher": -21.39,
+          "gainDb": 0.39,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518243-1gUBYluH5lbGjNrK2OCk",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1",
+          "warnung": "Sprechtempo 2.3 Silben/s ist unplausibel. Stimmt die Abtastrate 24000 Hz?"
+        },
+        "s5a": {
+          "datei": "audio/klaus/einzeln/s5a.wav",
+          "art": "satz",
+          "text": "Wer die Geräte prüft, wird an Fristen erinnert.",
+          "hash": "0194f4262214054b",
+          "sekunden": 2.96,
+          "silbenProSek": 4.39,
+          "lufsVorher": -21.25,
+          "gainDb": 0.25,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518248-tGmCVKvDXWkLAOiMOSyS",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s5b": {
+          "datei": "audio/klaus/einzeln/s5b.wav",
+          "art": "satz",
+          "text": "Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel.",
+          "hash": "e5600a9d66dbf6ba",
+          "sekunden": 3.761,
+          "silbenProSek": 4.79,
+          "lufsVorher": -20.36,
+          "gainDb": -0.64,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518250-DVTDUXaO7qDH6D2oI0AS",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s6a": {
+          "datei": "audio/klaus/einzeln/s6a.wav",
+          "art": "satz",
+          "text": "Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick.",
+          "hash": "1ca4b780e68514bf",
+          "sekunden": 4.825,
+          "silbenProSek": 3.94,
+          "lufsVorher": -21.29,
+          "gainDb": 0.29,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518253-IyqipQWU0skcrTYFSCvt",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s6b": {
+          "datei": "audio/klaus/einzeln/s6b.wav",
+          "art": "satz",
+          "text": "Auswertungen gibt es auch für die Gemeinde.",
+          "hash": "c6a0db8eec9f44fe",
+          "sekunden": 1.644,
+          "silbenProSek": 7.3,
+          "lufsVorher": -21.38,
+          "gainDb": 0.38,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518255-NdvRMxA36jHYTBYVk9dQ",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s7a.nA": {
+          "datei": "audio/klaus/einzeln/s7a.nA.wav",
+          "art": "satz",
+          "text": "Reskio wird in Deutschland gehostet.",
+          "hash": "0072a958f0e905f0",
+          "sekunden": 2.901,
+          "silbenProSek": 3.1,
+          "lufsVorher": -19.61,
+          "gainDb": -1.39,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518259-U3Z40jHzoFMl59YTgIEe",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s7b": {
+          "datei": "audio/klaus/einzeln/s7b.wav",
+          "art": "satz",
+          "text": "Bei der Datenübernahme helfen wir.",
+          "hash": "578aedac423ce501",
+          "sekunden": 1.575,
+          "silbenProSek": 6.98,
+          "lufsVorher": -20.61,
+          "gainDb": -0.39,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518262-3HYFaroPvUKlVPqKaqam",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1"
+        },
+        "s8a": {
+          "datei": "audio/klaus/einzeln/s8a.wav",
+          "art": "satz",
+          "text": "Fragen Sie eine kostenlose Demo an.",
+          "hash": "5d0f49d278261dda",
+          "sekunden": 1.463,
+          "silbenProSek": 8.2,
+          "lufsVorher": -21.51,
+          "gainDb": 0.51,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518265-QzeOIz1SzKJEpusTx7kY",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1",
+          "warnung": "Sprechtempo 8.2 Silben/s ist unplausibel. Stimmt die Abtastrate 24000 Hz?"
+        },
+        "s8b.nA": {
+          "datei": "audio/klaus/einzeln/s8b.nA.wav",
+          "art": "satz",
+          "text": "Reskio. Ehrenamt entlasten. Feuerwehr vier Punkt null.",
+          "hash": "0fb04048ed01879f",
+          "sekunden": 5.862,
+          "silbenProSek": 2.22,
+          "lufsVorher": -18.37,
+          "gainDb": -2.63,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518271-Kp70G7RjC9RxhBnvl8lL",
+          "modell": "microsoft/mai-voice-2.1",
+          "kennung": "de-DE-Klaus:MAI-Voice-2.1",
+          "warnung": "Sprechtempo 2.2 Silben/s ist unplausibel. Stimmt die Abtastrate 24000 Hz?"
+        }
+      },
+      "gewaehlt": {
+        "nA.k1": "ganz.nA.k1.t3"
+      }
+    },
+    "charon": {
+      "clips": {
+        "s1a": {
+          "datei": "audio/charon/s1a.wav",
+          "art": "satz",
+          "text": "Ihre Zeit im Ehrenamt ist knapp.",
+          "sekunden": 1.955,
+          "silbenProSek": 4.6,
+          "lufs": -21,
+          "quelle": "ganz.nA.k1.t1",
+          "woerter": [
+            {
+              "wort": "Ihre",
+              "start": 0.28,
+              "ende": 0.42
+            },
+            {
+              "wort": "Zeit",
+              "start": 0.54,
+              "ende": 0.701
+            },
+            {
+              "wort": "im",
+              "start": 0.821,
+              "ende": 0.881
+            },
+            {
+              "wort": "Ehrenamt",
+              "start": 1.001,
+              "ende": 1.441
+            },
+            {
+              "wort": "ist",
+              "start": 1.581,
+              "ende": 1.681
+            },
+            {
+              "wort": "knapp",
+              "start": 1.821,
+              "ende": 1.955
+            }
+          ],
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s1b": {
+          "datei": "audio/charon/s1b.wav",
+          "art": "satz",
+          "text": "Zu viel davon steckt in Zetteln und Ordnern.",
+          "sekunden": 2.25,
+          "silbenProSek": 4.89,
+          "lufs": -21,
+          "quelle": "ganz.nA.k1.t1",
+          "woerter": [
+            {
+              "wort": "Zu",
+              "start": 0.117,
+              "ende": 0.157
+            },
+            {
+              "wort": "viel",
+              "start": 0.257,
+              "ende": 0.357
+            },
+            {
+              "wort": "davon",
+              "start": 0.437,
+              "ende": 0.657
+            },
+            {
+              "wort": "steckt",
+              "start": 0.797,
+              "ende": 0.998
+            },
+            {
+              "wort": "in",
+              "start": 1.078,
+              "ende": 1.138
+            },
+            {
+              "wort": "Zetteln",
+              "start": 1.238,
+              "ende": 1.518
+            },
+            {
+              "wort": "und",
+              "start": 1.658,
+              "ende": 1.738
+            },
+            {
+              "wort": "Ordnern",
+              "start": 1.898,
+              "ende": 2.198
+            }
+          ],
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "szene.s1": {
+          "datei": "audio/charon/szene.s1.wav",
+          "art": "szene",
+          "text": "Ihre Zeit im Ehrenamt ist knapp. Zu viel davon steckt in Zetteln und Ordnern.",
+          "hash": "2b05ad45565cfc05",
+          "sekunden": 4.726,
+          "silbenProSek": 4.23,
+          "lufsVorher": -19.5,
+          "gainDb": -1.5,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518230-QQaKVy8HYR2IAWFxSVq6",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s2a.nA": {
+          "datei": "audio/charon/s2a.nA.wav",
+          "art": "satz",
+          "text": "Reskio bündelt Einsatz, Technik und Mannschaft in einem System.",
+          "sekunden": 4.03,
+          "silbenProSek": 3.97,
+          "lufs": -21,
+          "quelle": "ganz.nA.k1.t1",
+          "woerter": [
+            {
+              "wort": "Reskio",
+              "start": 0.419,
+              "ende": 0.759
+            },
+            {
+              "wort": "bündelt",
+              "start": 0.92,
+              "ende": 1.18
+            },
+            {
+              "wort": "Einsatz",
+              "start": 1.38,
+              "ende": 1.7
+            },
+            {
+              "wort": "Technik",
+              "start": 2.06,
+              "ende": 2.381
+            },
+            {
+              "wort": "und",
+              "start": 2.501,
+              "ende": 2.581
+            },
+            {
+              "wort": "Mannschaft",
+              "start": 2.721,
+              "ende": 3.081
+            },
+            {
+              "wort": "in",
+              "start": 3.201,
+              "ende": 3.241
+            },
+            {
+              "wort": "einem",
+              "start": 3.381,
+              "ende": 3.561
+            },
+            {
+              "wort": "System",
+              "start": 3.662,
+              "ende": 3.962
+            }
+          ],
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s2a.nB": {
+          "datei": "audio/charon/s2a.nB.wav",
+          "art": "satz",
+          "text": "Reskjo bündelt Einsatz, Technik und Mannschaft in einem System.",
+          "hash": "f209354692bb239f",
+          "sekunden": 4.31,
+          "silbenProSek": 3.71,
+          "lufsVorher": -17.92,
+          "gainDb": -3.08,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518236-tdaaHPhms88yVTAlsHkO",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "szene.s2": {
+          "datei": "audio/charon/szene.s2.wav",
+          "art": "szene",
+          "text": "Reskio bündelt Einsatz, Technik und Mannschaft in einem System.",
+          "hash": "b5eb89d3b95eef37",
+          "sekunden": 4.347,
+          "silbenProSek": 3.68,
+          "lufsVorher": -17.27,
+          "gainDb": -3.73,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518239-pnA9MAMZ4isprMEtitzP",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s3a": {
+          "datei": "audio/charon/s3a.wav",
+          "art": "satz",
+          "text": "Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu.",
+          "sekunden": 3.18,
+          "silbenProSek": 5.66,
+          "lufs": -21,
+          "quelle": "ganz.nA.k1.t1",
+          "woerter": [
+            {
+              "wort": "Die",
+              "start": 0.072,
+              "ende": 0.152
+            },
+            {
+              "wort": "Mannschaft",
+              "start": 0.192,
+              "ende": 0.513
+            },
+            {
+              "wort": "bekommt",
+              "start": 0.633,
+              "ende": 0.873
+            },
+            {
+              "wort": "den",
+              "start": 0.933,
+              "ende": 1.013
+            },
+            {
+              "wort": "Alarm",
+              "start": 1.073,
+              "ende": 1.273
+            },
+            {
+              "wort": "aufs",
+              "start": 1.373,
+              "ende": 1.593
+            },
+            {
+              "wort": "Handy",
+              "start": 1.593,
+              "ende": 1.794
+            },
+            {
+              "wort": "und",
+              "start": 1.934,
+              "ende": 2.014
+            },
+            {
+              "wort": "sagt",
+              "start": 2.114,
+              "ende": 2.234
+            },
+            {
+              "wort": "per",
+              "start": 2.334,
+              "ende": 2.434
+            },
+            {
+              "wort": "Fingertipp",
+              "start": 2.494,
+              "ende": 2.894
+            },
+            {
+              "wort": "zu",
+              "start": 3.014,
+              "ende": 3.075
+            }
+          ],
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s3b": {
+          "datei": "audio/charon/s3b.wav",
+          "art": "satz",
+          "text": "Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte.",
+          "sekunden": 3.33,
+          "silbenProSek": 5.11,
+          "lufs": -21,
+          "quelle": "ganz.nA.k1.t1",
+          "woerter": [
+            {
+              "wort": "Im",
+              "start": 0.075,
+              "ende": 0.135
+            },
+            {
+              "wort": "Einsatz",
+              "start": 0.255,
+              "ende": 0.515
+            },
+            {
+              "wort": "zeigt",
+              "start": 0.675,
+              "ende": 0.836
+            },
+            {
+              "wort": "der",
+              "start": 0.916,
+              "ende": 0.996
+            },
+            {
+              "wort": "Lagemonitor",
+              "start": 1.056,
+              "ende": 1.676
+            },
+            {
+              "wort": "Fahrzeugstatus",
+              "start": 1.876,
+              "ende": 2.637
+            },
+            {
+              "wort": "und",
+              "start": 2.817,
+              "ende": 2.897
+            },
+            {
+              "wort": "Karte",
+              "start": 3.017,
+              "ende": 3.237
+            }
+          ],
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "szene.s3": {
+          "datei": "audio/charon/szene.s3.wav",
+          "art": "szene",
+          "text": "Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu. Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte.",
+          "hash": "628183ea91bf76a4",
+          "sekunden": 8.76,
+          "silbenProSek": 4,
+          "lufsVorher": -20.02,
+          "gainDb": -0.98,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518248-va2I8pcYlENgzRRQFmOi",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s4a": {
+          "datei": "audio/charon/s4a.wav",
+          "art": "satz",
+          "text": "Den Einsatzbericht sprechen Sie ein.",
+          "sekunden": 1.74,
+          "silbenProSek": 5.17,
+          "lufs": -21,
+          "quelle": "ganz.nA.k1.t1",
+          "woerter": [
+            {
+              "wort": "Den",
+              "start": 0.098,
+              "ende": 0.218
+            },
+            {
+              "wort": "Einsatzbericht",
+              "start": 0.318,
+              "ende": 0.919
+            },
+            {
+              "wort": "sprechen",
+              "start": 1.079,
+              "ende": 1.339
+            },
+            {
+              "wort": "Sie",
+              "start": 1.419,
+              "ende": 1.499
+            },
+            {
+              "wort": "ein",
+              "start": 1.599,
+              "ende": 1.699
+            }
+          ],
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s4b.k1": {
+          "datei": "audio/charon/s4b.k1.wav",
+          "art": "satz",
+          "text": "Die KI schreibt den Entwurf, Sie prüfen und geben frei.",
+          "sekunden": 3.2,
+          "silbenProSek": 4.06,
+          "lufs": -21,
+          "quelle": "ganz.nA.k1.t1",
+          "woerter": [
+            {
+              "wort": "Die",
+              "start": 0.07,
+              "ende": 0.15
+            },
+            {
+              "wort": "KI",
+              "start": 0.21,
+              "ende": 0.39
+            },
+            {
+              "wort": "schreibt",
+              "start": 0.53,
+              "ende": 0.79
+            },
+            {
+              "wort": "den",
+              "start": 0.85,
+              "ende": 0.95
+            },
+            {
+              "wort": "Entwurf",
+              "start": 1.03,
+              "ende": 1.311
+            },
+            {
+              "wort": "Sie",
+              "start": 1.871,
+              "ende": 1.951
+            },
+            {
+              "wort": "prüfen",
+              "start": 2.051,
+              "ende": 2.331
+            },
+            {
+              "wort": "und",
+              "start": 2.571,
+              "ende": 2.652
+            },
+            {
+              "wort": "geben",
+              "start": 2.732,
+              "ende": 2.912
+            },
+            {
+              "wort": "frei",
+              "start": 3.032,
+              "ende": 3.152
+            }
+          ],
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s4b.k2": {
+          "datei": "audio/charon/s4b.k2.wav",
+          "art": "satz",
+          "text": "Die Ka-I schreibt den Entwurf, Sie prüfen und geben frei.",
+          "hash": "5add6712f512e75b",
+          "sekunden": 4.239,
+          "silbenProSek": 3.3,
+          "lufsVorher": -18.92,
+          "gainDb": -2.08,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518258-CBD2e5pKgJfgLP1wtOXb",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "szene.s4": {
+          "datei": "audio/charon/szene.s4.wav",
+          "art": "szene",
+          "text": "Den Einsatzbericht sprechen Sie ein. Die KI schreibt den Entwurf, Sie prüfen und geben frei.",
+          "hash": "c27e473a9d06e304",
+          "sekunden": 6.072,
+          "silbenProSek": 3.62,
+          "lufsVorher": -19.13,
+          "gainDb": -1.87,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518260-Hudo7ivEQVimalOq9QHn",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s5a": {
+          "datei": "audio/charon/s5a.wav",
+          "art": "satz",
+          "text": "Wer die Geräte prüft, wird an Fristen erinnert.",
+          "sekunden": 2.41,
+          "silbenProSek": 5.39,
+          "lufs": -21,
+          "quelle": "ganz.nA.k1.t1",
+          "woerter": [
+            {
+              "wort": "Wer",
+              "start": 0.113,
+              "ende": 0.193
+            },
+            {
+              "wort": "die",
+              "start": 0.293,
+              "ende": 0.373
+            },
+            {
+              "wort": "Geräte",
+              "start": 0.413,
+              "ende": 0.713
+            },
+            {
+              "wort": "prüft",
+              "start": 0.833,
+              "ende": 1.113
+            },
+            {
+              "wort": "wird",
+              "start": 1.334,
+              "ende": 1.454
+            },
+            {
+              "wort": "an",
+              "start": 1.534,
+              "ende": 1.614
+            },
+            {
+              "wort": "Fristen",
+              "start": 1.694,
+              "ende": 1.994
+            },
+            {
+              "wort": "erinnert",
+              "start": 2.074,
+              "ende": 2.394
+            }
+          ],
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s5b": {
+          "datei": "audio/charon/s5b.wav",
+          "art": "satz",
+          "text": "Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel.",
+          "sekunden": 3.13,
+          "silbenProSek": 5.75,
+          "lufs": -21,
+          "quelle": "ganz.nA.k1.t1",
+          "woerter": [
+            {
+              "wort": "Am",
+              "start": 0.085,
+              "ende": 0.145
+            },
+            {
+              "wort": "Tablet",
+              "start": 0.245,
+              "ende": 0.505
+            },
+            {
+              "wort": "im",
+              "start": 0.605,
+              "ende": 0.665
+            },
+            {
+              "wort": "Gerätehaus",
+              "start": 0.745,
+              "ende": 1.226
+            },
+            {
+              "wort": "erfasst",
+              "start": 1.366,
+              "ende": 1.586
+            },
+            {
+              "wort": "die",
+              "start": 1.666,
+              "ende": 1.746
+            },
+            {
+              "wort": "Mannschaft",
+              "start": 1.766,
+              "ende": 2.086
+            },
+            {
+              "wort": "Fahrten",
+              "start": 2.246,
+              "ende": 2.647
+            },
+            {
+              "wort": "und",
+              "start": 2.707,
+              "ende": 2.787
+            },
+            {
+              "wort": "Mängel",
+              "start": 2.907,
+              "ende": 3.087
+            }
+          ],
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "szene.s5": {
+          "datei": "audio/charon/szene.s5.wav",
+          "art": "szene",
+          "text": "Wer die Geräte prüft, wird an Fristen erinnert. Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel.",
+          "hash": "dec722803a3c0337",
+          "sekunden": 7.057,
+          "silbenProSek": 4.39,
+          "lufsVorher": -19.59,
+          "gainDb": -1.41,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518270-EeNWnQYXVsG0mIpRT4Z7",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s6a": {
+          "datei": "audio/charon/s6a.wav",
+          "art": "satz",
+          "text": "Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick.",
+          "sekunden": 4.17,
+          "silbenProSek": 4.56,
+          "lufs": -21,
+          "quelle": "ganz.nA.k1.t1",
+          "woerter": [
+            {
+              "wort": "Wer",
+              "start": 0.128,
+              "ende": 0.208
+            },
+            {
+              "wort": "die",
+              "start": 0.308,
+              "ende": 0.368
+            },
+            {
+              "wort": "Wehr",
+              "start": 0.468,
+              "ende": 0.568
+            },
+            {
+              "wort": "führt",
+              "start": 0.748,
+              "ende": 0.948
+            },
+            {
+              "wort": "hat",
+              "start": 1.349,
+              "ende": 1.429
+            },
+            {
+              "wort": "Personal",
+              "start": 1.569,
+              "ende": 1.969
+            },
+            {
+              "wort": "Ausbildung",
+              "start": 2.289,
+              "ende": 2.75
+            },
+            {
+              "wort": "und",
+              "start": 2.89,
+              "ende": 2.97
+            },
+            {
+              "wort": "Einsatzbereitschaft",
+              "start": 3.13,
+              "ende": 3.831
+            },
+            {
+              "wort": "im",
+              "start": 3.931,
+              "ende": 3.971
+            },
+            {
+              "wort": "Blick",
+              "start": 4.011,
+              "ende": 4.151
+            }
+          ],
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s6b": {
+          "datei": "audio/charon/s6b.wav",
+          "art": "satz",
+          "text": "Auswertungen gibt es auch für die Gemeinde.",
+          "sekunden": 1.84,
+          "silbenProSek": 6.52,
+          "lufs": -21,
+          "quelle": "ganz.nA.k1.t1",
+          "woerter": [
+            {
+              "wort": "Auswertungen",
+              "start": 0.111,
+              "ende": 0.612
+            },
+            {
+              "wort": "gibt",
+              "start": 0.752,
+              "ende": 0.852
+            },
+            {
+              "wort": "es",
+              "start": 0.912,
+              "ende": 0.972
+            },
+            {
+              "wort": "auch",
+              "start": 1.092,
+              "ende": 1.192
+            },
+            {
+              "wort": "für",
+              "start": 1.272,
+              "ende": 1.352
+            },
+            {
+              "wort": "die",
+              "start": 1.392,
+              "ende": 1.472
+            },
+            {
+              "wort": "Gemeinde",
+              "start": 1.492,
+              "ende": 1.793
+            }
+          ],
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "szene.s6": {
+          "datei": "audio/charon/szene.s6.wav",
+          "art": "szene",
+          "text": "Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick. Auswertungen gibt es auch für die Gemeinde.",
+          "hash": "642c7dab20ad4b5f",
+          "sekunden": 8.723,
+          "silbenProSek": 3.55,
+          "lufsVorher": -19.85,
+          "gainDb": -1.15,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518279-XY0qZNtygNu5hlr8Y3X1",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s7a.nA": {
+          "datei": "audio/charon/s7a.nA.wav",
+          "art": "satz",
+          "text": "Reskio wird in Deutschland gehostet.",
+          "sekunden": 1.87,
+          "silbenProSek": 4.81,
+          "lufs": -21,
+          "quelle": "ganz.nA.k1.t1",
+          "woerter": [
+            {
+              "wort": "Reskio",
+              "start": 0.153,
+              "ende": 0.474
+            },
+            {
+              "wort": "wird",
+              "start": 0.634,
+              "ende": 0.734
+            },
+            {
+              "wort": "in",
+              "start": 0.854,
+              "ende": 0.894
+            },
+            {
+              "wort": "Deutschland",
+              "start": 1.014,
+              "ende": 1.334
+            },
+            {
+              "wort": "gehostet",
+              "start": 1.454,
+              "ende": 1.835
+            }
+          ],
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s7a.nB": {
+          "datei": "audio/charon/s7a.nB.wav",
+          "art": "satz",
+          "text": "Reskjo wird in Deutschland gehostet.",
+          "hash": "790792dc6cd120e3",
+          "sekunden": 2.271,
+          "silbenProSek": 3.96,
+          "lufsVorher": -18.06,
+          "gainDb": -2.94,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518285-7J57dt0oL8d5QMDnVuV3",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s7b": {
+          "datei": "audio/charon/s7b.wav",
+          "art": "satz",
+          "text": "Bei der Datenübernahme helfen wir.",
+          "sekunden": 1.49,
+          "silbenProSek": 7.38,
+          "lufs": -21,
+          "quelle": "ganz.nA.k1.t1",
+          "woerter": [
+            {
+              "wort": "Bei",
+              "start": 0.065,
+              "ende": 0.125
+            },
+            {
+              "wort": "der",
+              "start": 0.185,
+              "ende": 0.265
+            },
+            {
+              "wort": "Datenübernahme",
+              "start": 0.325,
+              "ende": 0.966
+            },
+            {
+              "wort": "helfen",
+              "start": 1.086,
+              "ende": 1.306
+            },
+            {
+              "wort": "wir",
+              "start": 1.386,
+              "ende": 1.466
+            }
+          ],
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "szene.s7": {
+          "datei": "audio/charon/szene.s7.wav",
+          "art": "szene",
+          "text": "Reskio wird in Deutschland gehostet. Bei der Datenübernahme helfen wir.",
+          "hash": "72d126815a0375ae",
+          "sekunden": 4.261,
+          "silbenProSek": 4.69,
+          "lufsVorher": -19.27,
+          "gainDb": -1.73,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518291-5khpdP45Sp63uk1Qpyyz",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s8a": {
+          "datei": "audio/charon/s8a.wav",
+          "art": "satz",
+          "text": "Fragen Sie eine kostenlose Demo an.",
+          "sekunden": 1.73,
+          "silbenProSek": 6.94,
+          "lufs": -21,
+          "quelle": "ganz.nA.k1.t1",
+          "woerter": [
+            {
+              "wort": "Fragen",
+              "start": 0.107,
+              "ende": 0.307
+            },
+            {
+              "wort": "Sie",
+              "start": 0.387,
+              "ende": 0.447
+            },
+            {
+              "wort": "eine",
+              "start": 0.547,
+              "ende": 0.667
+            },
+            {
+              "wort": "kostenlose",
+              "start": 0.747,
+              "ende": 1.187
+            },
+            {
+              "wort": "Demo",
+              "start": 1.307,
+              "ende": 1.488
+            },
+            {
+              "wort": "an",
+              "start": 1.608,
+              "ende": 1.688
+            }
+          ],
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s8a_url.nA": {
+          "datei": "audio/charon/s8a_url.nA.wav",
+          "art": "satz",
+          "text": "Fragen Sie die kostenlose Demo auf Reskio Punkt D E an.",
+          "hash": "197b9de8d4aba132",
+          "sekunden": 3.797,
+          "silbenProSek": 4.21,
+          "lufsVorher": -17.68,
+          "gainDb": -3.32,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518296-ra6qo0nlb4LKFelPPiJY",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s8a_url.nB": {
+          "datei": "audio/charon/s8a_url.nB.wav",
+          "art": "satz",
+          "text": "Fragen Sie die kostenlose Demo auf Reskjo Punkt D E an.",
+          "hash": "87514b72fa521460",
+          "sekunden": 3.646,
+          "silbenProSek": 4.39,
+          "lufsVorher": -16.93,
+          "gainDb": -4.07,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518299-82O8WhRrH2J60qHOREaA",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s8b.nA": {
+          "datei": "audio/charon/s8b.nA.wav",
+          "art": "satz",
+          "text": "Reskio. Ehrenamt entlasten. Feuerwehr vier Punkt null.",
+          "sekunden": 4.07,
+          "silbenProSek": 3.19,
+          "lufs": -21,
+          "quelle": "ganz.nA.k1.t1",
+          "woerter": [
+            {
+              "wort": "Reskio",
+              "start": 0.148,
+              "ende": 0.389
+            },
+            {
+              "wort": "Ehrenamt",
+              "start": 1.129,
+              "ende": 1.569
+            },
+            {
+              "wort": "entlasten",
+              "start": 1.689,
+              "ende": 2.07
+            },
+            {
+              "wort": "Feuerwehr",
+              "start": 2.81,
+              "ende": 3.231
+            },
+            {
+              "wort": "4.0",
+              "start": 3.231,
+              "ende": 3.651
+            }
+          ],
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s8b.nB": {
+          "datei": "audio/charon/s8b.nB.wav",
+          "art": "satz",
+          "text": "Reskjo. Ehrenamt entlasten. Feuerwehr vier Punkt null.",
+          "hash": "957c08a405e620f9",
+          "sekunden": 4.596,
+          "silbenProSek": 2.83,
+          "lufsVorher": -19.33,
+          "gainDb": -1.67,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518305-xKq6pHpKjJyc39EtiuYs",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "szene.s8": {
+          "datei": "audio/charon/szene.s8.wav",
+          "art": "szene",
+          "text": "Fragen Sie eine kostenlose Demo an. Reskio. Ehrenamt entlasten. Feuerwehr vier Punkt null.",
+          "hash": "f23a722db4810a66",
+          "sekunden": 8.076,
+          "silbenProSek": 3.1,
+          "lufsVorher": -20.18,
+          "gainDb": -0.82,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518308-9ajetGOfe0zMHYBRenGc",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        }
+      },
+      "durchgaenge": {
+        "ganz.nA.k1.t1": {
+          "datei": "audio/charon/ganz/ganz.nA.k1.t1.wav",
+          "hash": "9a44a4c28f0d38e8",
+          "sekunden": 49.816,
+          "lufsVorher": -19.32,
+          "gainDb": -1.68,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518673-v1bX7ahvFR0cdDvDFQ6U",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon",
+          "gehoert": "Ihre Zeit im Ehrenamt ist knapp. Zu viel davon steckt in Zetteln und Ordnern. Reskio bündelt Einsatz, Technik und Mannschaft in einem System. Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu. Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte. Den Einsatzbericht sprechen Sie ein. Die KI schreibt den Entwurf, Sie prüfen und geben frei. Wer die Geräte prüft, wird an Fristen erinnert. Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel. Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick. Auswertungen gibt es auch für die Gemeinde. Reskio wird in Deutschland gehostet. Bei der Datenübernahme helfen wir. Fragen Sie eine kostenlose Demo an. Rescue. Ehrenamt entlasten. Feuerwehr 4.0.",
+          "gueltig": true,
+          "probleme": [],
+          "fehlend": [],
+          "sprachSek": 40.394999999999975,
+          "tempo": 4.951107810372574,
+          "schwankung": 0.21024935608394899
+        },
+        "ganz.nA.k1.t2": {
+          "datei": "audio/charon/ganz/ganz.nA.k1.t2.wav",
+          "hash": "a207751b987094c3",
+          "sekunden": 53.774,
+          "lufsVorher": -19.37,
+          "gainDb": -1.63,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518700-9uy13eAVnER78g7zUepq",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon",
+          "gehoert": "Ihre Zeit im Ehrenamt ist knapp. Zu viel davon steckt in Zetteln und Ordnern. Rescue bündelt Einsatz, Technik und Mannschaft in einem System. Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu. Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte. Den Einsatzbericht sprechen sie ein. Die KI schreibt den Entwurf, sie prüfen und geben frei. Wer die Geräte prüft, wird an Fristen erinnert. Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel. Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick. Auswertungen gibt es auch für die Gemeinde. Rescue wird in Deutschland gehostet. Bei der Datenübernahme helfen wir. Fragen Sie eine kostenlose Demo an. Rescue. Ehrenamt entlasten. Feuerwehr 4.0",
+          "gueltig": true,
+          "probleme": [],
+          "fehlend": [],
+          "sprachSek": 42.04499999999997,
+          "tempo": 4.756808181710076,
+          "schwankung": 0.21674329787595153
+        },
+        "ganz.nA.k1.t3": {
+          "datei": "audio/charon/ganz/ganz.nA.k1.t3.wav",
+          "hash": "25a9e4af00fc2d9b",
+          "sekunden": 54.582,
+          "lufsVorher": -19.92,
+          "gainDb": -1.08,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518732-mBDXRrCGvhp5V8CYTw0z",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon",
+          "gehoert": "Ihre Zeit im Ehrenamt ist knapp. Zu viel davon steckt in Zetteln und Ordnern. RESCUE bündelt Einsatz, Technik und Mannschaft in einem System. Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu. Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte. Den Einsatzbericht sprechen Sie ein. Die KI schreibt den Entwurf. Sie prüfen und geben frei. Wer die Geräte prüft, wird an Fristen erinnert. Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Menge. Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick. Auswertungen gibt es auch für die Gemeinde. ResQ wird in Deutschland gehostet. Bei der Datenübernahme helfen wir. Fragen Sie eine kostenlose Demo an. Rescue. Ehrenamt entlasten. Feuerwehr 4.0.",
+          "gueltig": true,
+          "probleme": [],
+          "fehlend": [
+            "Mängel"
+          ],
+          "sprachSek": 42.16212499999997,
+          "tempo": 4.743593924642084,
+          "schwankung": 0.20351110792528207
+        }
+      },
+      "einzeln": {
+        "s1a": {
+          "datei": "audio/charon/einzeln/s1a.wav",
+          "art": "satz",
+          "text": "Ihre Zeit im Ehrenamt ist knapp.",
+          "hash": "258ef65fc7201c17",
+          "sekunden": 1.909,
+          "silbenProSek": 4.72,
+          "lufsVorher": -20.82,
+          "gainDb": -0.18,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518224-7XrB4rK0wi5n0PbMK3yK",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s1b": {
+          "datei": "audio/charon/einzeln/s1b.wav",
+          "art": "satz",
+          "text": "Zu viel davon steckt in Zetteln und Ordnern.",
+          "hash": "7049ca6f6a481288",
+          "sekunden": 2.816,
+          "silbenProSek": 3.91,
+          "lufsVorher": -21.58,
+          "gainDb": -0.06,
+          "lufs": -21.64,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518227-IbQ34TxS2Jh61tqTi6DT",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s2a.nA": {
+          "datei": "audio/charon/einzeln/s2a.nA.wav",
+          "art": "satz",
+          "text": "Reskio bündelt Einsatz, Technik und Mannschaft in einem System.",
+          "hash": "b5eb89d3b95eef37",
+          "sekunden": 4.546,
+          "silbenProSek": 3.52,
+          "lufsVorher": -17.3,
+          "gainDb": -3.7,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518233-qfrLPnFQIqZgBoAfbqR6",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s3a": {
+          "datei": "audio/charon/einzeln/s3a.wav",
+          "art": "satz",
+          "text": "Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu.",
+          "hash": "58f40829e3674571",
+          "sekunden": 4.039,
+          "silbenProSek": 4.46,
+          "lufsVorher": -18.07,
+          "gainDb": -2.93,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518242-VvpENeDXjbjALQT5Ugwn",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s3b": {
+          "datei": "audio/charon/einzeln/s3b.wav",
+          "art": "satz",
+          "text": "Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte.",
+          "hash": "ae9834833d99a3ec",
+          "sekunden": 4.386,
+          "silbenProSek": 3.88,
+          "lufsVorher": -18.29,
+          "gainDb": -2.71,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518245-XZrBBbYCoKzOjawWC8uV",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s4a": {
+          "datei": "audio/charon/einzeln/s4a.wav",
+          "art": "satz",
+          "text": "Den Einsatzbericht sprechen Sie ein.",
+          "hash": "d67b164b4b4398da",
+          "sekunden": 2.496,
+          "silbenProSek": 3.61,
+          "lufsVorher": -16.9,
+          "gainDb": -4.1,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518252-5YlGzeHczP4hqXAaXpbj",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s4b.k1": {
+          "datei": "audio/charon/einzeln/s4b.k1.wav",
+          "art": "satz",
+          "text": "Die KI schreibt den Entwurf, Sie prüfen und geben frei.",
+          "hash": "49f8998288584179",
+          "sekunden": 3.568,
+          "silbenProSek": 3.64,
+          "lufsVorher": -21.71,
+          "gainDb": 0.71,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518255-LDFbdvUeMQidpjLtOoPk",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s5a": {
+          "datei": "audio/charon/einzeln/s5a.wav",
+          "art": "satz",
+          "text": "Wer die Geräte prüft, wird an Fristen erinnert.",
+          "hash": "06954974e0fa8944",
+          "sekunden": 3.038,
+          "silbenProSek": 4.28,
+          "lufsVorher": -19.7,
+          "gainDb": -1.3,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518264-7OGIScoFBpyGOSdlS52F",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s5b": {
+          "datei": "audio/charon/einzeln/s5b.wav",
+          "art": "satz",
+          "text": "Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel.",
+          "hash": "1aedafe1daefd5ec",
+          "sekunden": 3.917,
+          "silbenProSek": 4.6,
+          "lufsVorher": -19.99,
+          "gainDb": -1.01,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518267-2bLfpdqJrKGURBjm2kc7",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s6a": {
+          "datei": "audio/charon/einzeln/s6a.wav",
+          "art": "satz",
+          "text": "Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick.",
+          "hash": "c32b623a6ed445bb",
+          "sekunden": 5.426,
+          "silbenProSek": 3.5,
+          "lufsVorher": -18.26,
+          "gainDb": -2.74,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518274-nvBGoYGtY8mG16L3t123",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s6b": {
+          "datei": "audio/charon/einzeln/s6b.wav",
+          "art": "satz",
+          "text": "Auswertungen gibt es auch für die Gemeinde.",
+          "hash": "5b2c42d7559ef263",
+          "sekunden": 2.287,
+          "silbenProSek": 5.25,
+          "lufsVorher": -20.02,
+          "gainDb": -0.98,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518277-TUv1O5kBG5KP2Wh8HLP5",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s7a.nA": {
+          "datei": "audio/charon/einzeln/s7a.nA.wav",
+          "art": "satz",
+          "text": "Reskio wird in Deutschland gehostet.",
+          "hash": "0823ae12af90fe07",
+          "sekunden": 2.497,
+          "silbenProSek": 3.6,
+          "lufsVorher": -16.56,
+          "gainDb": -4.44,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518283-SLXDWpA7Zuj8N930rbZB",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s7b": {
+          "datei": "audio/charon/einzeln/s7b.wav",
+          "art": "satz",
+          "text": "Bei der Datenübernahme helfen wir.",
+          "hash": "cb6949b9553344cc",
+          "sekunden": 2.007,
+          "silbenProSek": 5.48,
+          "lufsVorher": -18.26,
+          "gainDb": -2.74,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518288-ax3NBmixLWLRf2IDYKyW",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s8a": {
+          "datei": "audio/charon/einzeln/s8a.wav",
+          "art": "satz",
+          "text": "Fragen Sie eine kostenlose Demo an.",
+          "hash": "d03cc02d6e0fcb7b",
+          "sekunden": 2.551,
+          "silbenProSek": 4.7,
+          "lufsVorher": -19.64,
+          "gainDb": -1.36,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518294-ctkoJU5QXxX40V19jryx",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        },
+        "s8b.nA": {
+          "datei": "audio/charon/einzeln/s8b.nA.wav",
+          "art": "satz",
+          "text": "Reskio. Ehrenamt entlasten. Feuerwehr vier Punkt null.",
+          "hash": "4ba25b2b8747c1f0",
+          "sekunden": 4.702,
+          "silbenProSek": 2.76,
+          "lufsVorher": -16.84,
+          "gainDb": -4.16,
+          "lufs": -21,
+          "rate": 24000,
+          "contentType": "audio/pcm;rate=24000;channels=1",
+          "generationId": "gen-tts-1794518302-nbmDv0RtDL12l7V6MPLZ",
+          "modell": "google/gemini-3.8-flash-tts",
+          "kennung": "Charon"
+        }
+      },
+      "gewaehlt": {
+        "nA.k1": "ganz.nA.k1.t1"
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "hinweis": "Zuschnitte der Produkt-Screenshots. Koordinaten in Pixeln der Quelldatei. 'abdecken' übermalt deckend (nicht weichzeichnen): Personennamen, PIN, Kennzeichen, Testtexte.",
+  "bilder": {
+    "lagemonitor.png": {
+      "quelle": "shots-src/lagemonitor.png",
+      "ausschnitt": { "x": 203, "y": 78, "b": 1297, "h": 617 },
+      "bleibtDraussen": "Kopfzeile (Einsatzort, Adresse, Name der Feuerwehr, Dauer) und Stammdaten (Einsatznummer, Datum) liegen außerhalb des Ausschnitts.",
+      "abdecken": [
+        { "was": "Auswahlfeld Person in Lagemeldungen (Demo-Benutzer mit PIN)", "x": 414, "y": 234, "b": 152, "h": 19, "farbe": "#ffffff" },
+        { "was": "Auswahlfeld Person in Interne Kommentare (Demo-Benutzer mit PIN)", "x": 1011, "y": 159, "b": 154, "h": 19, "farbe": "#ffffff" },
+        { "was": "Kennzeichen unter ELW 1", "x": 612, "y": 165, "b": 92, "h": 16, "farbeVon": { "x": 700, "y": 200 } }
+      ],
+      "markierungen": {
+        "status": { "x": 603, "y": 105, "b": 195, "h": 150 },
+        "karte": { "x": 1200, "y": 105, "b": 296, "h": 588 }
+      }
+    },
+    "kiosk.png": {
+      "quelle": "shots-src/kiosk-hilfe.png",
+      "ausschnitt": { "x": 0, "y": 0, "b": 1280, "h": 702 },
+      "bleibtDraussen": "Alle Kachelreihen ab der fünften (dort sitzt ein Beta-Abzeichen).",
+      "abdecken": [
+        { "was": "Versionsnummer und Begrüßung mit Vornamen in der Kopfzeile", "x": 955, "y": 12, "b": 158, "h": 34, "farbeVon": { "x": 940, "y": 28 } },
+        { "was": "Begrüßung mit Vornamen und Testmeldung unter der Kopfzeile", "x": 0, "y": 66, "b": 1280, "h": 100, "farbeVon": { "x": 10, "y": 168 } }
+      ],
+      "markierungen": {
+        "maengelmelder": { "x": 32, "y": 306, "b": 295, "h": 120 },
+        "fahrtenbuch": { "x": 646, "y": 306, "b": 295, "h": 120 }
+      }
+    },
+    "statistik.png": {
+      "quelle": "shots-src/statistik.png",
+      "ausschnitt": { "x": 176, "y": 16, "b": 856, "h": 586 },
+      "bleibtDraussen": "Seitenleiste mit Benutzer und PIN, rechte Kartenspalte (abgeschnittener Text, landesspezifische Richtlinie), untere Reihe.",
+      "abdecken": [],
+      "markierungen": {}
+    }
+  }
+}
