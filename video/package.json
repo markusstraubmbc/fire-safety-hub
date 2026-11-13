@@ -1,0 +1,19 @@
+{
+  "name": "resqio-erklaervideo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "RESQIO-Erklärvideo: im Code animiert, Bild für Bild gerendert. Nicht Teil der Webseite.",
+  "type": "module",
+  "scripts": {
+    "dev": "node ../node_modules/vite/bin/vite.js --config vite.config.ts",
+    "tts": "node scripts/tts.mjs",
+    "shots": "node scripts/prepare-shots.mjs",
+    "stills": "node scripts/render.mjs --stills",
+    "render": "node scripts/render.mjs",
+    "verify": "node scripts/verify.mjs"
+  },
+  "devDependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "ffprobe-static": "^3.1.0"
+  }
+}

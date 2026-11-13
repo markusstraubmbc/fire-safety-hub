@@ -1,0 +1,361 @@
+{
+  "titel": "RESQIO in 60 Sekunden",
+  "fps": 30,
+  "zeit": {
+    "vorlauf": 0.45,
+    "satzpause": 0.42,
+    "nachlauf": 0.55,
+    "standzeitSchluss": 2.5
+  },
+  "auswahl": {
+    "stimme": "brian",
+    "name": "A",
+    "ki": "1",
+    "adresse": false,
+    "gestrichen": []
+  },
+  "aussprache": {
+    "NAME": {
+      "A": "Reskio",
+      "B": "Reskjo"
+    },
+    "KI": {
+      "1": "KI",
+      "2": "Ka-I"
+    }
+  },
+  "stimmen": {
+    "klaus": {
+      "name": "Klaus (Microsoft, deutsche Stimme)",
+      "modell": "microsoft/mai-voice-2.1",
+      "kennung": "de-DE-Klaus:MAI-Voice-2.1",
+      "format": "pcm",
+      "rate": 24000
+    },
+    "charon": {
+      "name": "Charon (Google)",
+      "modell": "google/gemini-3.8-flash-tts",
+      "kennung": "Charon",
+      "format": "pcm",
+      "rate": 24000,
+      "anweisung": "Deutsch, ruhig, sachlich, gleichmäßiges Tempo, Sprecher eines Erklärvideos"
+    },
+    "brian": {
+      "name": "Brian (ElevenLabs, mehrsprachig)",
+      "modell": "elevenlabs/eleven-multilingual-v2",
+      "kennung": "brian",
+      "format": "mp3"
+    }
+  },
+  "hinweisKI": "Stimme KI-generiert",
+  "szenen": [
+    {
+      "id": "s1",
+      "abschnitt": "Einstieg",
+      "saetze": [
+        {
+          "id": "s1a",
+          "anzeige": "Ihre Zeit im Ehrenamt ist knapp.",
+          "sprech": "Ihre Zeit im Ehrenamt ist knapp."
+        },
+        {
+          "id": "s1b",
+          "anzeige": "Zu viel davon steckt in Zetteln und Ordnern.",
+          "sprech": "Zu viel davon steckt in Zetteln und Ordnern."
+        }
+      ],
+      "einblendungen": [
+        {
+          "ab": "s1a",
+          "zeilen": [
+            "Ehrenamt: zu viel Zeit",
+            "für Zettel und Ordner"
+          ]
+        }
+      ],
+      "klein": [
+        "Stimme KI-generiert"
+      ]
+    },
+    {
+      "id": "s2",
+      "abschnitt": "Lösung",
+      "saetze": [
+        {
+          "id": "s2a",
+          "anzeige": "RESQIO bündelt Einsatz, Technik und Mannschaft in einem System.",
+          "sprech": "{NAME} bündelt Einsatz, Technik und Mannschaft in einem System."
+        }
+      ],
+      "einblendungen": [
+        {
+          "ab": "s2a",
+          "zeilen": [
+            "Einsatz, Technik und Mannschaft",
+            "in einem System"
+          ]
+        }
+      ],
+      "saeulen": [
+        "Einsatz",
+        "Technik",
+        "Mannschaft"
+      ],
+      "marke": "RESQIO"
+    },
+    {
+      "id": "s3",
+      "abschnitt": "Alarm und Lage",
+      "saetze": [
+        {
+          "id": "s3a",
+          "anzeige": "Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu.",
+          "sprech": "Die Mannschaft bekommt den Alarm aufs Handy und sagt per Fingertipp zu."
+        },
+        {
+          "id": "s3b",
+          "anzeige": "Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte.",
+          "sprech": "Im Einsatz zeigt der Lagemonitor Fahrzeugstatus und Karte."
+        }
+      ],
+      "einblendungen": [
+        {
+          "ab": "s3a",
+          "zeilen": [
+            "Alarm aufs Handy,",
+            "Zusage per Fingertipp"
+          ]
+        },
+        {
+          "ab": "s3b",
+          "zeilen": [
+            "Lagemonitor:",
+            "Fahrzeugstatus und Lagekarte"
+          ]
+        }
+      ],
+      "klein": [
+        "Für Android und iOS"
+      ],
+      "screenshot": {
+        "ab": "s3b",
+        "dateien": [
+          "lagemonitor.png"
+        ],
+        "maxSekunden": 3
+      },
+      "etiketten": {
+        "alarm": "Einsatzalarm",
+        "zusagen": "Zusagen",
+        "zugesagt": "Zugesagt",
+        "osm": "Kartendaten © OpenStreetMap-Mitwirkende"
+      }
+    },
+    {
+      "id": "s4",
+      "abschnitt": "Bericht",
+      "saetze": [
+        {
+          "id": "s4a",
+          "anzeige": "Den Einsatzbericht sprechen Sie ein.",
+          "sprech": "Den Einsatzbericht sprechen Sie ein."
+        },
+        {
+          "id": "s4b",
+          "pflicht": true,
+          "anzeige": "Die KI schreibt den Entwurf, Sie prüfen und geben frei.",
+          "sprech": "Die {KI} schreibt den Entwurf, Sie prüfen und geben frei."
+        }
+      ],
+      "einblendungen": [
+        {
+          "ab": "s4a",
+          "zeilen": [
+            "Bericht einsprechen"
+          ]
+        },
+        {
+          "ab": "s4b",
+          "zeilen": [
+            "Die KI entwirft, Sie geben frei"
+          ]
+        }
+      ],
+      "etiketten": {
+        "titel": "Einsatzbericht",
+        "entwurf": "KI-Entwurf",
+        "knopf": "Freigeben",
+        "fertig": "Freigegeben"
+      },
+      "nachlauf": 1.3
+    },
+    {
+      "id": "s5",
+      "abschnitt": "Im Gerätehaus",
+      "saetze": [
+        {
+          "id": "s5a",
+          "anzeige": "Wer die Geräte prüft, wird an Fristen erinnert.",
+          "sprech": "Wer die Geräte prüft, wird an Fristen erinnert."
+        },
+        {
+          "id": "s5b",
+          "anzeige": "Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel.",
+          "sprech": "Am Tablet im Gerätehaus erfasst die Mannschaft Fahrten und Mängel."
+        }
+      ],
+      "einblendungen": [
+        {
+          "ab": "s5a",
+          "zeilen": [
+            "Erinnerung an Prüffristen"
+          ]
+        },
+        {
+          "ab": "s5b",
+          "zeilen": [
+            "Am Tablet im Gerätehaus:",
+            "Fahrten und Mängel, auch ohne Internet"
+          ]
+        }
+      ],
+      "etiketten": {
+        "geraet": "Atemschutzgerät",
+        "pruefung": "Prüfung",
+        "faellig": "fällig in 14 Tagen",
+        "unterschrift": "Unterschrift",
+        "fertig": "abgezeichnet"
+      },
+      "screenshot": {
+        "ab": "s5b",
+        "dateien": [
+          "kiosk.png"
+        ],
+        "maxSekunden": 3
+      }
+    },
+    {
+      "id": "s6",
+      "abschnitt": "Wehrführung",
+      "saetze": [
+        {
+          "id": "s6a",
+          "anzeige": "Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick.",
+          "sprech": "Wer die Wehr führt, hat Personal, Ausbildung und Einsatzbereitschaft im Blick."
+        },
+        {
+          "id": "s6b",
+          "anzeige": "Auswertungen gibt es auch für die Gemeinde.",
+          "sprech": "Auswertungen gibt es auch für die Gemeinde."
+        }
+      ],
+      "einblendungen": [
+        {
+          "ab": "s6a",
+          "zeilen": [
+            "Personal, Ausbildung,",
+            "Einsatzbereitschaft im Blick"
+          ]
+        },
+        {
+          "ab": "s6b",
+          "zeilen": [
+            "Auswertungen für",
+            "Führung und Gemeinde"
+          ]
+        }
+      ],
+      "zeilenUebersicht": [
+        "Personal",
+        "Ausbildung",
+        "Fahrzeuge"
+      ],
+      "screenshot": {
+        "ab": "s6b",
+        "dateien": [
+          "statistik.png"
+        ],
+        "maxSekunden": 3
+      },
+      "etiketten": {
+        "titel": "Überblick",
+        "bereit": "einsatzbereit",
+        "faellig": "Prüfung fällig"
+      }
+    },
+    {
+      "id": "s7",
+      "abschnitt": "Hosting und Umstieg",
+      "saetze": [
+        {
+          "id": "s7a",
+          "anzeige": "RESQIO wird in Deutschland gehostet.",
+          "sprech": "{NAME} wird in Deutschland gehostet."
+        },
+        {
+          "id": "s7b",
+          "anzeige": "Bei der Datenübernahme helfen wir.",
+          "sprech": "Bei der Datenübernahme helfen wir."
+        }
+      ],
+      "einblendungen": [
+        {
+          "ab": "s7a",
+          "zeilen": [
+            "Hosting in Deutschland",
+            "Hilfe bei der Datenübernahme"
+          ]
+        }
+      ],
+      "klein": [
+        "direkter Kontakt"
+      ]
+    },
+    {
+      "id": "s8",
+      "abschnitt": "Abschluss",
+      "saetze": [
+        {
+          "id": "s8a",
+          "anzeige": "Fragen Sie eine kostenlose Demo an.",
+          "sprech": "Fragen Sie eine kostenlose Demo an."
+        },
+        {
+          "id": "s8a_url",
+          "reserve": true,
+          "ersetzt": "s8a",
+          "anzeige": "Fragen Sie die kostenlose Demo auf resqio.de an.",
+          "sprech": "Fragen Sie die kostenlose Demo auf {NAME} Punkt D E an."
+        },
+        {
+          "id": "s8b",
+          "anzeige": "RESQIO. Ehrenamt entlasten. Feuerwehr 4.0.",
+          "sprech": "{NAME}. Ehrenamt entlasten. Feuerwehr vier Punkt null."
+        }
+      ],
+      "einblendungen": [
+        {
+          "ab": "s8a",
+          "zeilen": [
+            "Kostenlose Demo anfragen",
+            "resqio.de"
+          ]
+        },
+        {
+          "ab": "s8b",
+          "zeilen": [
+            "Ehrenamt entlasten –",
+            "Feuerwehr 4.0"
+          ]
+        }
+      ],
+      "knopf": "Kostenlose Demo anfragen",
+      "adresse": "resqio.de",
+      "leitmotiv": "Ehrenamt entlasten – Feuerwehr 4.0",
+      "klein": [
+        "Stimme KI-generiert"
+      ],
+      "marke": "RESQIO"
+    }
+  ]
+}

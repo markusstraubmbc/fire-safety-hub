@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Farben der Webseite (aus src/index.css, Block :root) und die Zusätze für das Video.
+  Übernommen sind nur die Variablen. Die Animationen und Übergänge der Webseite bleiben draußen:
+  Im Video ist jede Bewegung eine Funktion der Bildnummer.
+*/
+:root {
+  --background: 210 20% 98%;
+  --foreground: 220 30% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 30% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 30% 15%;
+  --primary: 0 85% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 50% 20%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 210 15% 94%;
+  --muted-foreground: 220 20% 30%;
+  --accent: 30 100% 55%;
+  --accent-foreground: 220 30% 15%;
+  --destructive: 0 72% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 210 20% 85%;
+  --input: 210 20% 85%;
+  --ring: 0 85% 50%;
+  --radius: 1.5rem;
+
+  /* Video: dunkle Bühne in der Marine-Farbe der Webseite, Rot als Akzent. */
+  --v-nacht: 222 58% 8%;
+  --v-marine: 220 50% 20%;
+  --v-rot: 0 85% 50%;
+  --v-orange: 30 100% 55%;
+  --v-gruen: 146 64% 44%;
+  --v-blau: 213 90% 60%;
+  --v-nebel: 214 30% 80%;
+}
+
+html,
+body {
+  margin: 0;
+  background: #05080f;
+}
+
+body {
+  font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* Keine Bewegung außer der gerechneten: sonst sähe dasselbe Bild bei zwei Durchläufen verschieden aus. */
+*,
+*::before,
+*::after {
+  animation: none !important;
+  transition: none !important;
+  caret-color: transparent;
+}
+
+/* Die Bühne hat immer genau die Größe des Videos. */
+#buehne {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  color: #fff;
+  background: hsl(var(--v-nacht));
+}
+
+#buehne img {
+  display: block;
+  max-width: none;
+}

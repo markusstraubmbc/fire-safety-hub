@@ -1,0 +1,68 @@
+{
+  "hinweis": "Zuschnitte der Produkt-Screenshots. Alle Koordinaten in Pixeln der Quelldatei. Was die Felder bedeuten, steht am Kopf von scripts/prepare-shots.mjs.",
+  "bilder": {
+    "lagemonitor.png": {
+      "quelle": "shots-src/lagemonitor.png",
+      "ausschnitt": { "x": 203, "y": 78, "b": 1297, "h": 617 },
+      "bleibtDraussen": "Kopfzeile (Einsatzort, Adresse, Name der Feuerwehr, Dauer) und Stammdaten (Einsatznummer, Datum) liegen außerhalb des Ausschnitts.",
+      "abdecken": [
+        { "was": "Auswahlfeld Person in Lagemeldungen (Demo-Benutzer mit PIN)", "x": 414, "y": 234, "b": 152, "h": 19, "farbe": "#ffffff" },
+        { "was": "Auswahlfeld Person in Interne Kommentare (Demo-Benutzer mit PIN)", "x": 1011, "y": 159, "b": 154, "h": 19, "farbe": "#ffffff" },
+        { "was": "Kennzeichen unter ELW 1", "x": 612, "y": 165, "b": 92, "h": 16, "farbeVon": { "x": 700, "y": 200 } }
+      ],
+      "weichzeichnen": [
+        {
+          "was": "Kartenbild: Straßen- und Ortsnamen unlesbar machen. Der Hinweis auf OpenStreetMap am unteren Rand bleibt scharf.",
+          "x": 1204,
+          "y": 140,
+          "b": 286,
+          "h": 536,
+          "staerke": 2.6,
+          "ausser": [
+            { "was": "Knöpfe zum Vergrößern", "x": 1209, "y": 147, "b": 25, "h": 48 },
+            { "was": "Knopf Kartenebenen", "x": 1352, "y": 151, "b": 127, "h": 31 },
+            { "was": "Kopf der Einsatznadel", "x": 1343, "y": 393, "b": 15, "h": 16 },
+            { "was": "Stift der Einsatznadel, nur der Stift: Das Kartensymbol direkt daneben wird mit weichgezeichnet", "x": 1349, "y": 409, "b": 3, "h": 10 }
+          ]
+        }
+      ],
+      "markierungen": {
+        "status": { "x": 603, "y": 105, "b": 195, "h": 150 },
+        "statusNah": { "x": 607, "y": 140, "b": 185, "h": 109 },
+        "karte": { "x": 1200, "y": 105, "b": 296, "h": 588 },
+        "karteNah": { "x": 1204, "y": 262, "b": 286, "h": 300 }
+      }
+    },
+    "kiosk.png": {
+      "quelle": "shots-src/kiosk-hilfe.png",
+      "ausschnitt": { "x": 0, "y": 0, "b": 1280, "h": 702 },
+      "bleibtDraussen": "Alle Kachelreihen ab der fünften (dort sitzt ein Beta-Abzeichen). Die Reihen 3 und 4 sind als Fläche zu sehen, aber nicht lesbar: Im Satz geht es um Fahrtenbuch und Mängelmelder in den ersten zwei Reihen.",
+      "abdecken": [
+        { "was": "Versionsnummer und Begrüßung mit Vornamen in der Kopfzeile", "x": 955, "y": 12, "b": 158, "h": 34, "farbeVon": { "x": 940, "y": 28 } },
+        { "was": "Begrüßung mit Vornamen und Testmeldung unter der Kopfzeile", "x": 0, "y": 66, "b": 1280, "h": 100, "farbeVon": { "x": 10, "y": 168 } }
+      ],
+      "weichzeichnen": [
+        { "was": "Kachelreihen 3 und 4", "x": 0, "y": 434, "b": 1280, "h": 268, "staerke": 7 }
+      ],
+      "zeilenStreichen": [
+        { "was": "Leerer Streifen, den die übermalte Begrüßung hinterlässt", "y": 70, "h": 74 }
+      ],
+      "markierungen": {
+        "maengelmelder": { "x": 32, "y": 306, "b": 295, "h": 120 },
+        "fahrtenbuch": { "x": 646, "y": 306, "b": 295, "h": 120 }
+      }
+    },
+    "statistik.png": {
+      "quelle": "shots-src/statistik.png",
+      "ausschnitt": { "x": 176, "y": 6, "b": 856, "h": 466 },
+      "bleibtDraussen": "Seitenleiste mit Benutzer und PIN, rechte Kartenspalte (abgeschnittener Text, landesspezifische Richtlinie), alles ab der vierten Kartenreihe. Die Reihen zwei und drei sind als Fläche zu sehen, aber nicht lesbar: Geburtstags- und Kontaktlisten passen nicht zum Satz über Auswertungen für die Gemeinde. Die Höhe ist so gewählt, dass der Ausschnitt in Originalgröße in den Monitor-Rahmen passt und nie vergrößert werden muss.",
+      "abdecken": [],
+      "weichzeichnen": [
+        { "was": "Karten unterhalb der ersten Reihe", "x": 176, "y": 284, "b": 856, "h": 318, "staerke": 5 }
+      ],
+      "markierungen": {
+        "titel": { "x": 212, "y": 12, "b": 350, "h": 50 }
+      }
+    }
+  }
+}
