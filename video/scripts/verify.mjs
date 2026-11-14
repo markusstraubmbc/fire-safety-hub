@@ -13,16 +13,21 @@
 //
 // Die Zeitleiste folgt drehbuch.json; liegt im Ausgabeordner eine render-auswahl.json, gilt deren Auswahl.
 //
-//   node scripts/verify.mjs      Prüft out/ (oder RESQIO_VIDEO_OUT) und endet mit Code 1, wenn etwas abweicht
+//   node scripts/verify.mjs          Prüft das Querformat in out/ (oder RESQIO_VIDEO_OUT) und endet mit Code 1, wenn etwas abweicht
+//   node scripts/verify.mjs --hoch   Prüft das Hochformat (1080 × 1920, Dateien mit Endung -hoch)
 import fs from "node:fs";
 import path from "node:path";
 import { OUT, ffprobePfad, ffmpegPfad, run, ladeJson, ladeDrehbuch, ladeManifest } from "./lib/common.mjs";
 import { buildTimeline, untertitelZeiten } from "../src/lib/timeline.js";
 
-const HAUPT = path.join(OUT, "resqio-erklaervideo.mp4");
-const MIT_UNTERTITELN = path.join(OUT, "resqio-erklaervideo-untertitel.mp4");
-const UNTERTITEL_DATEI = path.join(OUT, "resqio-erklaervideo.vtt");
-const VORSCHAUBILD = path.join(OUT, "poster.jpg");
+const HOCH = process.argv.includes("--hoch");
+const KENNUNG = HOCH ? "-hoch" : "";
+const BREITE = HOCH ? 1080 : 1920;
+const HOEHE = HOCH ? 1920 : 1080;
+const HAUPT = path.join(OUT, `resqio-erklaervideo${KENNUNG}.mp4`);
+const MIT_UNTERTITELN = path.join(OUT, `resqio-erklaervideo${KENNUNG}-untertitel.mp4`);
+const UNTERTITEL_DATEI = path.join(OUT, `resqio-erklaervideo${KENNUNG}.vtt`);
+const VORSCHAUBILD = path.join(OUT, `poster${KENNUNG}.jpg`);
 
 const DAUER_MIN = 55;
 const DAUER_MAX = 60;
@@ -145,8 +150,8 @@ async function pruefeVideo(titel, datei) {
   // Videostream: Format und Farbe (BT.709, wie es der Player für HD erwartet).
   const video = daten.streams.find((s) => s.codec_type === "video") || {};
   pruefeGleich("Video-Codec", "h264", video.codec_name);
-  pruefeGleich("Breite", 1920, video.width);
-  pruefeGleich("Höhe", 1080, video.height);
+  pruefeGleich("Breite", BREITE, video.width);
+  pruefeGleich("Höhe", HOEHE, video.height);
   pruefeGleich("Pixelformat", "yuv420p", video.pix_fmt);
   pruefeGleich("Bildrate", "30/1", video.r_frame_rate);
   pruefeGleich("Farbraum", "bt709", video.color_space);

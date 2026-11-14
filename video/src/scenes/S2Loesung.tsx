@@ -3,10 +3,11 @@ import type { SzeneProps } from "../types";
 import { SzenenRahmen } from "../components/Buehne";
 import { ease, feder, lerp, verlauf, wortBild } from "../lib/anim";
 import { LOGO, SPRECHNAME, SZENEN } from "../daten";
+import { FLAECHE, HOCH } from "../lib/format";
 import {
   Blatt,
   FUGE_OFFEN,
-  MITTE_Y,
+  RING_Y_ENDE,
   RAND_PAPIERE,
   RING_DICKE,
   RING_GROESSE,
@@ -24,18 +25,27 @@ import {
 const AKZENT = "0 85% 50%";
 
 // Logo und Schriftzug sitzen mittig oben; die Papiere fliegen auf den Mittelpunkt des Logos zu.
-const LOGO_GROESSE = 150;
-const LOGO_LINKS = 600;
-const LOGO_OBEN = 22;
+// Im Hochformat sind Logo und Schrift größer (das Handybild ist nur ca. 390 pt breit) und die Gruppe sitzt mittig.
+const LOGO_GROESSE = HOCH ? 170 : 150;
+const SCHRIFT_PX = HOCH ? 104 : 88;
+// Geschätzte Breite des Schriftzugs "RESQIO" in Poppins Semibold, nur um die Gruppe mittig zu setzen.
+const SCHRIFT_B = HOCH ? 400 : 0;
+const LOGO_LINKS = HOCH ? Math.round((FLAECHE.b - (LOGO_GROESSE + 32 + SCHRIFT_B)) / 2) : 600;
+const LOGO_OBEN = HOCH ? 30 : 22;
 const ZIEL = { x: LOGO_LINKS + LOGO_GROESSE / 2, y: LOGO_OBEN + LOGO_GROESSE / 2 };
 
-// Drei Säulen unter dem Logo, mittig in der Fläche.
-const KARTE_B = 440;
-const KARTE_H = 280;
-const LUECKE = 56;
-const KARTEN_LINKS = (1728 - (3 * KARTE_B + 2 * LUECKE)) / 2;
+// Drei Säulen unter dem Logo, mittig in der Fläche. Im Hochformat stehen sie untereinander, als breite Karten
+// mit Symbol links und Wort rechts: so ist jedes Wort groß genug fürs Handy.
+const KARTE_B = HOCH ? 840 : 440;
+const KARTE_H = HOCH ? 176 : 280;
+const LUECKE = HOCH ? 24 : 56;
+const KARTEN_LINKS = HOCH ? (FLAECHE.b - KARTE_B) / 2 : (FLAECHE.b - (3 * KARTE_B + 2 * LUECKE)) / 2;
 const KARTEN_OBEN = 262;
-const RAHMEN = { x: KARTEN_LINKS - 28, y: KARTEN_OBEN - 28, b: 3 * KARTE_B + 2 * LUECKE + 56, h: KARTE_H + 56 };
+/** Position der i-ten Karte: im Querformat nebeneinander, im Hochformat untereinander. */
+const kartenLage = (i: number) => (HOCH ? { x: KARTEN_LINKS, y: KARTEN_OBEN + i * (KARTE_H + LUECKE) } : { x: KARTEN_LINKS + i * (KARTE_B + LUECKE), y: KARTEN_OBEN });
+const RAHMEN = HOCH
+  ? { x: KARTEN_LINKS - 28, y: KARTEN_OBEN - 28, b: KARTE_B + 56, h: 3 * KARTE_H + 2 * LUECKE + 56 }
+  : { x: KARTEN_LINKS - 28, y: KARTEN_OBEN - 28, b: 3 * KARTE_B + 2 * LUECKE + 56, h: KARTE_H + 56 };
 
 const SYMBOLE = [Flame, Wrench, Users];
 const WOERTER = [
@@ -50,11 +60,17 @@ const ERSATZ = { von: 0.05, bis: 0.85 };
 // Die ersten fünf Papiere sind der Stapel aus Szene 1 und starten exakt dort. Drei weitere kommen von den Rändern
 // (Lage innerhalb der Fläche, abseits von Stapel und Schriftzug). `versatz` staffelt den Flug ins Logo.
 const VERSATZ = [0, 4, 8, 2, 6, 10, 3, 7];
-const RAND_LAGE = [
-  { x: 150, y: 470, dreh: -9 },
-  { x: 1600, y: 135, dreh: 9 },
-  { x: 1590, y: 470, dreh: 12 },
-];
+const RAND_LAGE = HOCH
+  ? [
+      { x: 110, y: 430, dreh: -9 },
+      { x: 890, y: 360, dreh: 9 },
+      { x: 880, y: 780, dreh: 12 },
+    ]
+  : [
+      { x: 150, y: 470, dreh: -9 },
+      { x: 1600, y: 135, dreh: 9 },
+      { x: 1590, y: 470, dreh: 12 },
+    ];
 // Hat Szene 1 keinen Stapel gebaut (zweiter Satz gestrichen), gibt es auch keinen Ring-Rest zu übernehmen:
 // Dann steht der volle Ring mittig und die Blätter kommen wie die Randblätter erst herein.
 const STAPEL_DA = SZENEN.find((s) => s.id === "s1")?.saetze.some((s) => s.anker === "s1b") ?? true;
@@ -94,6 +110,8 @@ export function S2Loesung(p: SzeneProps) {
   // Der volle Ring ohne Stapel wird schneller ausgeblendet, damit er nicht lange unter dem Logo steht.
   const restRing = 1 - (STAPEL_DA ? verlauf(bild, 4, 18) : verlauf(bild, 2, 10));
   const ringX = STAPEL_DA ? RING_X_ENDE : FLAECHE_B / 2;
+  // Höhe des Rings: wo Szene 1 ihn hinterlassen hat (Stapel vorhanden) oder mittig (voller Ring, Satz gestrichen).
+  const ringY = STAPEL_DA ? RING_Y_ENDE : FLAECHE.h / 2;
 
   // Der Rahmen schließt sich kurz vor „System" und ist auf dem Wort fertig, damit der Höhepunkt ruhig im Bild steht.
   const rahmen = verlauf(bild, system - 12, system + 4, ease.einAus);
@@ -107,7 +125,7 @@ export function S2Loesung(p: SzeneProps) {
           height={RING_GROESSE}
           viewBox={`0 0 ${RING_GROESSE} ${RING_GROESSE}`}
           className="absolute"
-          style={{ left: ringX - RING_GROESSE / 2, top: MITTE_Y - RING_GROESSE / 2, opacity: restRing }}
+          style={{ left: ringX - RING_GROESSE / 2, top: ringY - RING_GROESSE / 2, opacity: restRing }}
         >
           <circle cx={RING_GROESSE / 2} cy={RING_GROESSE / 2} r={RING_R} fill="none" stroke="white" strokeOpacity={0.07} strokeWidth={RING_DICKE} />
           {STAPEL_DA ? (
@@ -123,7 +141,7 @@ export function S2Loesung(p: SzeneProps) {
           )}
         </svg>
       )}
-      {restRing > 0 && <RingUhr x={ringX} deckkraft={0.5 * restRing} />}
+      {restRing > 0 && <RingUhr x={ringX} y={ringY} deckkraft={0.5 * restRing} />}
 
       {/* Papiere fliegen in den Mittelpunkt des Logos und lösen sich dort auf */}
       {PAPIERE.map((q, i) => {
@@ -176,10 +194,11 @@ export function S2Loesung(p: SzeneProps) {
         }}
       />
       <div
-        className="absolute whitespace-nowrap text-[88px] font-semibold leading-none tracking-[0.02em] text-white"
+        className="absolute whitespace-nowrap font-semibold leading-none tracking-[0.02em] text-white"
         style={{
+          fontSize: SCHRIFT_PX,
           left: LOGO_LINKS + LOGO_GROESSE + 32,
-          top: LOGO_OBEN + 30,
+          top: LOGO_OBEN + (HOCH ? (LOGO_GROESSE - SCHRIFT_PX) / 2 : 30),
           opacity: schrift,
           transform: `translateX(${(1 - schrift) * -28}px)`,
         }}
@@ -188,7 +207,7 @@ export function S2Loesung(p: SzeneProps) {
       </div>
 
       {/* Rahmen um alle drei Säulen: ein System unter dem Logo */}
-      <svg className="absolute left-0 top-0" width="1728" height="610" viewBox="0 0 1728 610" fill="none">
+      <svg className="absolute left-0 top-0" width={FLAECHE.b} height={FLAECHE.h} viewBox={`0 0 ${FLAECHE.b} ${FLAECHE.h}`} fill="none">
         <rect
           x={RAHMEN.x}
           y={RAHMEN.y}
@@ -208,13 +227,14 @@ export function S2Loesung(p: SzeneProps) {
       {SYMBOLE.map((Symbol, i) => {
         const ab = wort(WOERTER[i].wort, WOERTER[i].anteil);
         const k = feder(bild, ab, fps, 150, 20);
+        const lage = kartenLage(i);
         return (
           <div
             key={i}
-            className="absolute flex flex-col items-center justify-center gap-7 rounded-[32px] bg-white text-[hsl(var(--foreground))]"
+            className={`absolute flex items-center ${HOCH ? "" : "justify-center"} rounded-[32px] bg-white text-[hsl(var(--foreground))] ${HOCH ? "flex-row justify-start gap-10 pl-[72px]" : "flex-col gap-7"}`}
             style={{
-              left: KARTEN_LINKS + i * (KARTE_B + LUECKE),
-              top: KARTEN_OBEN,
+              left: lage.x,
+              top: lage.y,
               width: KARTE_B,
               height: KARTE_H,
               opacity: Math.min(1, k * 2.2),
@@ -225,7 +245,7 @@ export function S2Loesung(p: SzeneProps) {
             <div className="flex h-[112px] w-[112px] items-center justify-center rounded-[32px]" style={{ background: `hsl(${AKZENT} / 0.14)` }}>
               <Symbol size={64} strokeWidth={2.2} color={`hsl(${AKZENT})`} />
             </div>
-            <div className="text-[54px] font-semibold leading-none">{saeulen[i]}</div>
+            <div className={`${HOCH ? "text-[68px]" : "text-[54px]"} font-semibold leading-none`}>{saeulen[i]}</div>
           </div>
         );
       })}

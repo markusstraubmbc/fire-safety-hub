@@ -4,6 +4,7 @@ import type { SzeneProps } from "../types";
 import { ZEITLEISTE } from "../daten";
 import { ease, einAus, verlauf } from "../lib/anim";
 import { einblendungFenster } from "../lib/einblendung";
+import { BUEHNE, FLAECHE, HOCH, SICHERE_ZONE } from "../lib/format";
 
 /** Hintergrund der Bühne. Läuft über das ganze Video durch und bewegt sich nur ganz langsam. */
 export function Backdrop({ bild }: { bild: number }) {
@@ -38,12 +39,20 @@ export function Backdrop({ bild }: { bild: number }) {
 export function AbschnittMarke({ text, symbol: Symbol, akzent, bild }: { text: string; symbol: LucideIcon; akzent: string; bild: number }) {
   const p = verlauf(bild, 2, 14);
   return (
-    <div className="absolute left-24 top-[68px] flex items-center gap-5" style={{ opacity: p, transform: `translateX(${(1 - p) * -24}px)` }}>
+    <div
+      className="absolute flex items-center gap-5"
+      style={{
+        left: HOCH ? SICHERE_ZONE.links : FLAECHE.links,
+        top: HOCH ? SICHERE_ZONE.oben : 68,
+        opacity: p,
+        transform: `translateX(${(1 - p) * -24}px)`,
+      }}
+    >
       <div
-        className="flex h-[60px] w-[60px] items-center justify-center rounded-2xl"
+        className={`flex items-center justify-center rounded-2xl ${HOCH ? "h-[48px] w-[48px]" : "h-[60px] w-[60px]"}`}
         style={{ background: `hsl(${akzent} / 0.18)`, border: `2px solid hsl(${akzent} / 0.5)` }}
       >
-        <Symbol size={32} strokeWidth={2.2} color={`hsl(${akzent})`} />
+        <Symbol size={HOCH ? 26 : 32} strokeWidth={2.2} color={`hsl(${akzent})`} />
       </div>
       <div className="text-[34px] font-semibold uppercase tracking-[0.16em]" style={{ color: "hsl(var(--v-nebel))" }}>
         {text}
@@ -53,11 +62,21 @@ export function AbschnittMarke({ text, symbol: Symbol, akzent, bild }: { text: s
 }
 
 /** Einblendung unten links: trägt den Nutzen der Szene, damit das Video auch ohne Ton verständlich ist. */
+/** Breite, die eine Einblendung im Hochformat hat: rechts bis zur sicheren Zone, links nach Balken und Abstand. */
+const TEXTBREITE = BUEHNE.b - SICHERE_ZONE.rechts - (FLAECHE.links + 36);
+
 export function Caption({ zeilen, bild, von, bis, akzent }: { zeilen: string[]; bild: number; von: number; bis: number; akzent: string }) {
   if (bild < von - 1 || bild > bis) return null;
+  // Im Hochformat so groß wie möglich, ohne dass die längste Zeile die Breite überschreitet (56 px höchstens, 40 px mindestens).
+  const laengste = Math.max(...zeilen.map((z) => z.length));
+  const textGroesse = Math.max(40, Math.min(56, Math.floor(TEXTBREITE / (laengste * 0.56))));
   const weg = 1 - verlauf(bild, bis - 7, bis, ease.ein);
   return (
-    <div className="absolute bottom-[84px] left-24 flex gap-7" style={{ opacity: weg }}>
+    // Im Hochformat steht die Einblendung unter dem Bild; im Querformat unten links.
+    <div
+      className="absolute flex gap-7"
+      style={HOCH ? { left: FLAECHE.links, top: FLAECHE.oben + FLAECHE.h + 56, opacity: weg } : { left: 96, bottom: 84, opacity: weg }}
+    >
       {/* Der Balken wächst mit der ersten Textzeile. Stünde er schon vorher voll da, wirkte er wie ein Fehler. */}
       <div
         className="w-[8px] rounded-full"
@@ -68,14 +87,19 @@ export function Caption({ zeilen, bild, von, bis, akzent }: { zeilen: string[]; 
           transformOrigin: "50% 0%",
         }}
       />
-      <div>
+      {/* Im Hochformat passt sich die Schrift der Breite an: Jede Zeile bleibt einzeilig und innerhalb des rechten Randes. */}
+      <div style={HOCH ? { width: TEXTBREITE } : undefined}>
         {zeilen.map((zeile, i) => {
           const p = verlauf(bild, von + 3 + i * 4, von + 15 + i * 4);
           return (
             <div
               key={zeile}
-              className="whitespace-nowrap text-[64px] font-semibold leading-[1.14] tracking-[-0.012em]"
-              style={{ opacity: p, transform: `translateY(${(1 - p) * 26}px)` }}
+              className={`whitespace-nowrap font-semibold leading-[1.14] tracking-[-0.012em]`}
+              style={{
+                opacity: p,
+                transform: `translateY(${(1 - p) * 26}px)`,
+                fontSize: HOCH ? textGroesse : 64,
+              }}
             >
               {zeile}
             </div>
@@ -89,7 +113,16 @@ export function Caption({ zeilen, bild, von, bis, akzent }: { zeilen: string[]; 
 /** Kleiner Hinweis unten rechts, etwa „Stimme KI-generiert". */
 export function KleinHinweis({ text, bild, von = 8, bis }: { text: string; bild: number; von?: number; bis: number }) {
   return (
-    <div className="absolute bottom-[92px] right-24 text-[28px] font-medium tracking-[0.04em] text-white/70" style={{ opacity: einAus(bild, von, bis, 10, 7) }}>
+    // Im Hochformat ganz unten, mittig und leise: Die Angabe bleibt, liegt aber nicht über dem Bild oder den Untertiteln.
+    <div
+      className={`absolute font-medium tracking-[0.04em] ${HOCH ? "text-[34px] text-white/60" : "text-[28px] text-white/70"}`}
+      style={
+        HOCH
+          ? { left: 0, right: 0, textAlign: "center", bottom: 40, opacity: einAus(bild, von, bis, 10, 7) }
+          // Unten, ganz am Rand: Die Angabe liegt bewusst dort, wo auch Instagram Bedienelemente einblendet.
+          : { right: 96, bottom: 92, opacity: einAus(bild, von, bis, 10, 7) }
+      }
+    >
       {text}
     </div>
   );
@@ -112,8 +145,8 @@ type RahmenProps = SzeneProps & {
 
 /**
  * Rahmen jeder Szene: blendet sie ein und aus, setzt das Abschnitts-Etikett und zeigt die Einblendungen
- * aus drehbuch.json zur richtigen Zeit. Die Szene selbst zeichnet nur ihr Bild in die Fläche in der Mitte
- * (1728 × 610 Pixel, Ursprung oben links).
+ * aus drehbuch.json zur richtigen Zeit. Die Szene selbst zeichnet nur ihr Bild in ihre Fläche
+ * (FLAECHE aus lib/format.ts: im Querformat 1728 × 610 Pixel, im Hochformat 1000 × 900; Ursprung oben links).
  */
 export function SzenenRahmen({ bild, dauer, saetze, szene, symbol, akzent, children, ohneEinblendungen, ohneMarke, aussen, ohneAusblenden }: RahmenProps) {
   const fenster = ohneEinblendungen ? [] : einblendungFenster(szene.einblendungen, saetze, dauer);
@@ -121,7 +154,9 @@ export function SzenenRahmen({ bild, dauer, saetze, szene, symbol, akzent, child
   return (
     <div className="absolute inset-0" style={{ opacity: deckkraft }}>
       {!ohneMarke && <AbschnittMarke text={szene.abschnitt} symbol={symbol} akzent={akzent} bild={bild} />}
-      <div className="absolute left-24 top-[172px] h-[610px] w-[1728px]">{children}</div>
+      <div className="absolute" style={{ left: FLAECHE.links, top: FLAECHE.oben, width: FLAECHE.b, height: FLAECHE.h }}>
+        {children}
+      </div>
       {aussen}
       {fenster.map((f) => (
         <Caption key={f.ab} zeilen={f.zeilen} bild={bild} von={f.von} bis={f.bis} akzent={akzent} />

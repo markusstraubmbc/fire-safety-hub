@@ -1,4 +1,5 @@
 import { UNTERTITEL_ZEILEN } from "../daten";
+import { HOCH, SICHERE_ZONE } from "../lib/format";
 
 /**
  * Untertitel am unteren Rand, nur in der Fassung für Wiedergabe ohne Ton. Text in Anzeige-Schreibweise.
@@ -11,10 +12,16 @@ import { UNTERTITEL_ZEILEN } from "../daten";
 export function Untertitel({ bild }: { bild: number }) {
   const zeile = UNTERTITEL_ZEILEN.find((z) => bild >= z.von && bild < z.bis);
   if (!zeile) return null;
+  // Im Hochformat liegt der Kasten über der unteren Zone, die Instagram überlagert, und ist etwas schmaler.
   return (
-    <div className="absolute inset-x-0 bottom-[54px] flex justify-center">
+    <div
+      className="absolute flex justify-center"
+      style={{ left: HOCH ? SICHERE_ZONE.links : 0, right: HOCH ? SICHERE_ZONE.rechts : 0, bottom: HOCH ? SICHERE_ZONE.unten : 54 }}
+    >
       <div
-        className="max-w-[1320px] rounded-2xl bg-black/80 px-9 py-[12px] text-center text-[46px] font-medium leading-[1.2] text-white"
+        className={`rounded-2xl bg-black/80 px-9 py-[12px] text-center font-medium leading-[1.2] text-white ${
+          HOCH ? "max-w-[900px] text-[50px]" : "max-w-[1320px] text-[46px]"
+        }`}
         style={{ textWrap: "balance" }}
       >
         {zeile.text}

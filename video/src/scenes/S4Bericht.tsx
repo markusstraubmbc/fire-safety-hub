@@ -3,34 +3,42 @@ import type { SzeneProps } from "../types";
 import { SzenenRahmen } from "../components/Buehne";
 import { Fingertipp } from "../components/Fingertipp";
 import { ease, einAus, lerp, satz, verlauf, wortBild } from "../lib/anim";
+import { HOCH } from "../lib/format";
 
 // Markenrot wie --v-rot in tokens.css.
 const AKZENT = "0 85% 50%";
 
-// Die Klangwelle: viele schmale Balken rechts vom Mikrofon.
-const BALKEN = 40;
-const BALKEN_X = 320;
-const BALKEN_ABSTAND = 34;
-const BALKEN_BREITE = 16;
-const MITTE_Y = 305;
+// Die Klangwelle: viele schmale Balken. Querformat: rechts vom Mikrofon; Hochformat: unter dem Mikrofon,
+// so breit wie die Karte, die aus ihr wächst.
+const BALKEN = HOCH ? 28 : 40;
+const BALKEN_X = HOCH ? 100 : 320;
+const BALKEN_ABSTAND = HOCH ? 800 / 28 : 34;
+const BALKEN_BREITE = HOCH ? 15 : 16;
+const MITTE_Y = HOCH ? 560 : 305;
+const WELLE_HOEHE = HOCH ? 400 : 250;
+// Mikrofon (links, Querformat) bzw. oben mittig (Hochformat).
+const MIKRO = HOCH ? { x: 390, y: 50 } : { x: 40, y: MITTE_Y - 110 };
 
 // Karte des Entwurfs und ihr Knopf (Maße in Pixeln der Fläche).
-const KARTE = { x: 364, y: 20, b: 1000, h: 570 };
-const KNOPF = { b: 380, h: 96, rechts: 40, unten: 40 };
+const KARTE = HOCH ? { x: 100, y: 40, b: 800, h: 800 } : { x: 364, y: 20, b: 1000, h: 570 };
+const KNOPF = HOCH ? { b: 520, h: 110, rechts: 140, unten: 50 } : { b: 380, h: 96, rechts: 40, unten: 40 };
+// Schriftgrößen der Karte (Hochformat größer, mindestens 40 Pixel).
+const PILLE = HOCH ? 40 : 38;
+const KNOPF_SCHRIFT = HOCH ? 48 : 40;
 const KNOPF_MITTE_Y = KARTE.y + KARTE.h - KNOPF.unten - KNOPF.h / 2;
 // Getippt wird rechts neben der Aufschrift, in der oberen Hälfte des Knopfs (dort reicht die runde Kappe noch bis
 // unter den Finger): So bleibt „Freigeben" bis zum Tipp lesbar. Der Knopf behält seine Breite und färbt sich nur um,
 // die angetippte Stelle bleibt also unter dem Finger, und die Hand ragt beim Heranfahren und Zurückziehen nicht
 // unter die Fläche hinaus.
-const TIPP = { x: KARTE.x + KARTE.b - KNOPF.rechts - KNOPF.b + 330, y: KNOPF_MITTE_Y - 36 };
+const TIPP = { x: KARTE.x + KARTE.b - KNOPF.rechts - KNOPF.b + (HOCH ? 440 : 330), y: KNOPF_MITTE_Y - 36 };
 // Die Karte wächst aus der Mitte der Klangwelle (relativ zur Karte).
-const KARTE_URSPRUNG = `${BALKEN_X + 20 * BALKEN_ABSTAND + BALKEN_BREITE / 2 - KARTE.x}px ${MITTE_Y - KARTE.y}px`;
+const KARTE_URSPRUNG = `${BALKEN_X + (BALKEN / 2) * BALKEN_ABSTAND + (HOCH ? 0 : BALKEN_BREITE / 2) - KARTE.x}px ${MITTE_Y - KARTE.y}px`;
 
 // Der Entwurf als graue Zeilen: nur Balken, nie echte Wörter. Anteile der vollen Zeilenbreite.
 const ZEILEN = [1, 0.92, 0.97, 0.78, 0.94, 0.52];
-const ZEILEN_OBEN = 150;
-const ZEILE_HOEHE = 18;
-const ZEILE_ABSTAND = 40;
+const ZEILEN_OBEN = HOCH ? 170 : 150;
+const ZEILE_HOEHE = HOCH ? 26 : 18;
+const ZEILE_ABSTAND = HOCH ? 66 : 40;
 
 /**
  * Szene 4, „Bericht".
@@ -87,7 +95,7 @@ export function S4Bericht(p: SzeneProps) {
   return (
     <SzenenRahmen {...p} symbol={Mic} akzent={AKZENT}>
       {/* Mikrofon: Ring atmet leise, solange gesprochen wird */}
-      <div className="absolute" style={{ left: 40, top: MITTE_Y - 110, width: 220, height: 220, opacity: lerp(1, 0, karte) * mikro }}>
+      <div className="absolute" style={{ left: MIKRO.x, top: MIKRO.y, width: 220, height: 220, opacity: lerp(1, 0, karte) * mikro }}>
         <div
           className="absolute inset-0 rounded-full"
           style={{
@@ -111,7 +119,7 @@ export function S4Bericht(p: SzeneProps) {
           0.28 * Math.sin(bild * 0.42 + i * 0.55) +
           0.22 * Math.sin(bild * 0.23 + i * 1.3 + 1.7);
         const rand = Math.sin((i / (BALKEN - 1)) * Math.PI) ** 0.6;
-        const hoehe = lerp(14, 40 + 250 * welle * rand, aktiv) * (1 - welleWeg);
+        const hoehe = lerp(14, 40 + WELLE_HOEHE * welle * rand, aktiv) * (1 - welleWeg);
         return (
           <div
             key={i}
@@ -153,15 +161,15 @@ export function S4Bericht(p: SzeneProps) {
             className="absolute flex items-center gap-4 rounded-full px-8"
             style={{ right: 40, top: 40, height: 72, background: `hsl(${AKZENT} / 0.12)`, color: `hsl(${AKZENT})`, opacity: 1 - Math.min(1, gegeben * 2) }}
           >
-            <FileText size={38} strokeWidth={2.2} />
-            <span className="text-[38px] font-semibold">{e.entwurf}</span>
+            <FileText size={PILLE} strokeWidth={2.2} />
+            <span className="font-semibold" style={{ fontSize: PILLE }}>{e.entwurf}</span>
           </div>
           <div
             className="absolute flex items-center gap-4 rounded-full px-8"
             style={{ right: 40, top: 40, height: 72, background: "hsl(146 60% 90%)", color: "hsl(146 70% 24%)", opacity: Math.max(0, gegeben * 2 - 1) }}
           >
-            <Check size={40} strokeWidth={3} />
-            <span className="text-[38px] font-semibold">{e.fertig}</span>
+            <Check size={PILLE + 2} strokeWidth={3} />
+            <span className="font-semibold" style={{ fontSize: PILLE }}>{e.fertig}</span>
           </div>
 
           {/* Zeilen: wachsen von links nach rechts; beim Prüfen färbt sich jede kurz */}
@@ -200,8 +208,8 @@ export function S4Bericht(p: SzeneProps) {
             }}
           >
             <div
-              className="absolute inset-0 flex items-center justify-center overflow-hidden whitespace-nowrap rounded-full text-[40px] font-semibold text-white"
-              style={{ background: `hsl(${AKZENT})`, opacity: 1 - Math.min(1, gegeben * 2) }}
+              className="absolute inset-0 flex items-center justify-center overflow-hidden whitespace-nowrap rounded-full font-semibold text-white"
+              style={{ fontSize: KNOPF_SCHRIFT, background: `hsl(${AKZENT})`, opacity: 1 - Math.min(1, gegeben * 2) }}
             >
               {e.knopf}
             </div>
@@ -209,7 +217,7 @@ export function S4Bericht(p: SzeneProps) {
               className="absolute inset-0 flex items-center justify-center rounded-full"
               style={{ background: "hsl(146 60% 90%)", color: "hsl(146 70% 24%)", opacity: gegeben }}
             >
-              <Check size={50} strokeWidth={3} />
+              <Check size={HOCH ? 60 : 50} strokeWidth={3} />
             </div>
           </div>
         </div>

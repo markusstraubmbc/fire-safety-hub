@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components -- Werte und Blatt gehören zusammen; das Video wird gerendert, nicht live bearbeitet */
 import { ClipboardList, Clock, FileText, Folder, FolderOpen, NotebookPen, StickyNote } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { FLAECHE, HOCH } from "../lib/format";
 
 /**
  * Gemeinsame Werte der Szenen 1 und 2: Die Papiere der Zettelwirtschaft sehen in beiden gleich aus
@@ -17,20 +18,26 @@ const PAPIER_FARBE = "hsl(40 30% 97%)";
 const NOTIZ_FARBE = "hsl(48 90% 88%)";
 const SYMBOL_FARBE = "hsl(222 20% 45%)";
 
-/** Eine Fläche von 1728 x 610: Der Stapel steht rechts, der Ring links, beide gleich weit von der Mitte. */
-export const FLAECHE_B = 1728;
-const FLAECHE_H = 610;
-export const MITTE_Y = FLAECHE_H / 2;
-const STAPEL_X = FLAECHE_B / 2 + 400;
-export const RING_X_ENDE = FLAECHE_B / 2 - 400;
+/**
+ * Querformat (1728 x 610): Der Stapel steht rechts, der Ring links, beide gleich weit von der Mitte.
+ * Hochformat (1000 x 900): Der Ring sitzt oben, der Stapel mittig darunter; so bleibt jedes Teil groß genug fürs Handy.
+ */
+export const FLAECHE_B = FLAECHE.b;
+export const MITTE_Y = FLAECHE.h / 2;
+const STAPEL_X = HOCH ? FLAECHE.b / 2 : FLAECHE.b / 2 + 400;
+/** Mitte des Stapels in der Höhe: im Hochformat unter dem Ring (Ring reicht bis ca. 520, Stapel von ca. 560 bis 890). */
+const STAPEL_Y = HOCH ? 725 : MITTE_Y;
+export const RING_X_ENDE = HOCH ? FLAECHE.b / 2 : FLAECHE.b / 2 - 400;
+/** Höhe der Ringmitte, nachdem der Ring Platz gemacht hat; im Querformat bleibt er auf Mittenhöhe. */
+export const RING_Y_ENDE = HOCH ? 270 : MITTE_Y;
 
 /** Der Stapel am Ende von Szene 1, mit absoluter Lage und Drehung. Spätere Blätter liegen oben. */
 export const STAPEL: { Symbol: LucideIcon; notiz: boolean; x: number; y: number; dreh: number }[] = [
-  { Symbol: FileText, notiz: false, x: STAPEL_X - 50, y: MITTE_Y + 45, dreh: -7 },
-  { Symbol: ClipboardList, notiz: false, x: STAPEL_X + 40, y: MITTE_Y + 25, dreh: 5 },
-  { Symbol: Folder, notiz: false, x: STAPEL_X - 25, y: MITTE_Y + 5, dreh: -4 },
-  { Symbol: StickyNote, notiz: true, x: STAPEL_X + 45, y: MITTE_Y - 25, dreh: 8 },
-  { Symbol: FolderOpen, notiz: false, x: STAPEL_X - 5, y: MITTE_Y - 45, dreh: -6 },
+  { Symbol: FileText, notiz: false, x: STAPEL_X - 50, y: STAPEL_Y + 45, dreh: -7 },
+  { Symbol: ClipboardList, notiz: false, x: STAPEL_X + 40, y: STAPEL_Y + 25, dreh: 5 },
+  { Symbol: Folder, notiz: false, x: STAPEL_X - 25, y: STAPEL_Y + 5, dreh: -4 },
+  { Symbol: StickyNote, notiz: true, x: STAPEL_X + 45, y: STAPEL_Y - 25, dreh: 8 },
+  { Symbol: FolderOpen, notiz: false, x: STAPEL_X - 5, y: STAPEL_Y - 45, dreh: -6 },
 ];
 
 /** Weitere Blätter, die in Szene 2 von den Rändern dazukommen. */
@@ -92,9 +99,9 @@ export const FUGE_OFFEN = 1.5;
 export const RING_ROT = "hsl(0 85% 55%)";
 
 /** Die Uhr in der Ringmitte: in Szene 1 und am Anfang von Szene 2 gleich, damit der Schnitt sie nicht verschluckt. */
-export function RingUhr({ x, deckkraft }: { x: number; deckkraft: number }) {
+export function RingUhr({ x, y = MITTE_Y, deckkraft }: { x: number; y?: number; deckkraft: number }) {
   return (
-    <div className="absolute flex items-center justify-center" style={{ left: x - 60, top: MITTE_Y - 60, width: 120, height: 120, opacity: deckkraft }}>
+    <div className="absolute flex items-center justify-center" style={{ left: x - 60, top: y - 60, width: 120, height: 120, opacity: deckkraft }}>
       <Clock size={112} strokeWidth={2} color="white" />
     </div>
   );

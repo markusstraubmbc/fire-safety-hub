@@ -3,12 +3,29 @@ import type { SzeneProps } from "../types";
 import { KleinHinweis, SzenenRahmen } from "../components/Buehne";
 import { ease, feder, lerp, satz, verlauf, wortBild } from "../lib/anim";
 import { LOGO, SPRECHNAME } from "../daten";
+import { BUEHNE, FLAECHE, HOCH, SICHERE_ZONE } from "../lib/format";
 
 const AKZENT = "0 85% 50%";
-const BREITE = 1728;
+const BREITE = FLAECHE.b;
 // Die Schlusskarte hat keine Einblendung unten links. Ihr Inhalt rückt deshalb tiefer, als die Fläche der
 // anderen Szenen reicht, und steht so als Ganzes in der Bildmitte (knapp darüber, wo das Auge die Mitte sieht).
-const TIEFER = 44;
+// Hochformat: Die Karte steht mittig zwischen den Rändern von Instagram (oben 200, unten 360 Pixel), also um
+// den Mittelpunkt dieser Zone; gerechnet in Koordinaten der Fläche.
+const TIEFER = HOCH ? 40 : 44;
+const MITTE_HOCH = (BUEHNE.h - SICHERE_ZONE.unten + SICHERE_ZONE.oben) / 2 - FLAECHE.oben;
+// Hochformat: Maße der Schlusskarte (Marke, Motto, Knopf; Summe rund 680 Pixel, mittig um MITTE_HOCH).
+const H = {
+  logo: 130,
+  marke: 96,
+  mottoAb: 190,
+  motto: 80,
+  knopfAb: 480,
+  knopfH: 120,
+  knopfSchrift: 46,
+  adresse: 64,
+  gesamt: 680,
+};
+const KARTE_OBEN = MITTE_HOCH - H.gesamt / 2;
 
 /**
  * Szene 8, Schlusskarte.
@@ -57,8 +74,11 @@ export function S8Abschluss(p: SzeneProps) {
 
   // Der Knopfblock wandert aus der Mitte nach unten und wird kleiner; Endmaß so gewählt, dass die Adresse
   // danach auch in der verkleinerten Untertitel-Fassung noch gut 40 Pixel groß ist.
-  const blockOben = TIEFER + lerp(170, 392, rueck);
-  const blockMass = lerp(1, 0.78, rueck);
+  // Hochformat: Der Knopf bleibt in voller Größe (mindestens 100 Pixel hoch), er rückt nur nach unten.
+  const blockOben = HOCH ? lerp(MITTE_HOCH - (H.knopfH + 24 + H.adresse) / 2, KARTE_OBEN + H.knopfAb, rueck) : TIEFER + lerp(170, 392, rueck);
+  const blockMass = HOCH ? 1 : lerp(1, 0.78, rueck);
+  const marke_oben = HOCH ? KARTE_OBEN : TIEFER;
+  const motto_oben = HOCH ? KARTE_OBEN + H.mottoAb : TIEFER + 130;
 
   return (
     <SzenenRahmen
@@ -75,18 +95,21 @@ export function S8Abschluss(p: SzeneProps) {
       <div
         className="absolute left-0 flex items-center justify-center gap-6"
         style={{
-          top: TIEFER,
+          top: marke_oben,
           width: BREITE,
           opacity: markeSicht,
           transform: `translateY(${(1 - marke) * 30}px) scale(${lerp(0.9, 1, marke)})`,
         }}
       >
-        <img src={LOGO} alt="" className="h-[104px] w-[104px]" />
-        <div className="text-[76px] font-semibold tracking-[0.06em] text-white">{szene.marke}</div>
+        {HOCH ? <img src={LOGO} alt="" style={{ width: H.logo, height: H.logo }} /> : <img src={LOGO} alt="" className="h-[104px] w-[104px]" />}
+        <div className="font-semibold tracking-[0.06em] text-white" style={{ fontSize: HOCH ? H.marke : 76 }}>{szene.marke}</div>
       </div>
 
       {/* Leitmotiv: zwei Zeilen, jede für sich mittig */}
-      <div className="absolute left-0 text-center font-semibold leading-[1.12] tracking-[-0.015em] text-white" style={{ top: TIEFER + 130, width: BREITE, fontSize: 104 }}>
+      <div
+        className="absolute left-0 text-center font-semibold leading-[1.12] text-white"
+        style={{ top: motto_oben, width: BREITE, fontSize: HOCH ? H.motto : 104, letterSpacing: "-0.015em" }}
+      >
         <div className="whitespace-nowrap" style={{ opacity: motto1, transform: `translateY(${(1 - motto1) * 20}px)` }}>
           {hälfte1}
         </div>
@@ -101,8 +124,9 @@ export function S8Abschluss(p: SzeneProps) {
         style={{ top: blockOben, width: BREITE, transform: `scale(${blockMass})`, transformOrigin: "50% 0%" }}
       >
         <div
-          className="flex h-[148px] items-center gap-6 rounded-full px-[72px] text-[56px] font-semibold text-white"
+          className={HOCH ? "flex items-center gap-5 rounded-full px-[52px] font-semibold text-white" : "flex h-[148px] items-center gap-6 rounded-full px-[72px] text-[56px] font-semibold text-white"}
           style={{
+            ...(HOCH ? { height: H.knopfH, fontSize: H.knopfSchrift } : {}),
             background: `hsl(${AKZENT})`,
             opacity: Math.min(1, knopf * 1.4),
             transform: `scale(${lerp(0.9, 1, Math.min(1, knopf))})`,
@@ -110,7 +134,7 @@ export function S8Abschluss(p: SzeneProps) {
           }}
         >
           {szene.knopf}
-          <ArrowRight size={56} strokeWidth={2.6} />
+          <ArrowRight size={HOCH ? 46 : 56} strokeWidth={2.6} />
         </div>
         <div className="mt-6 text-[60px] font-semibold tracking-[0.03em] text-white" style={{ opacity: adresse, transform: `translateY(${(1 - adresse) * 14}px)` }}>
           {szene.adresse}

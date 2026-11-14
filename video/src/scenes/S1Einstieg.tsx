@@ -15,6 +15,7 @@ import {
   RING_ROT,
   RING_STUECK,
   RING_X_ENDE,
+  RING_Y_ENDE,
   RingUhr,
   STAPEL,
   bogen,
@@ -73,7 +74,10 @@ export function S1Einstieg(p: SzeneProps) {
   const restRot = s1b ? verlauf(bild, restVon, restVon + 12) : 0;
 
   // Der Ring rückt zur Seite, kurz bevor das erste Papier kommt.
-  const mx = lerp(RING_X_ANFANG, RING_X_ENDE, verlauf(bild, ankunft[0] - 16, ankunft[0] + 8, ease.einAus));
+  // Im Hochformat rückt er dabei nach oben (der Stapel entsteht darunter), im Querformat bleibt die Höhe gleich.
+  const rueck = verlauf(bild, ankunft[0] - 16, ankunft[0] + 8, ease.einAus);
+  const mx = lerp(RING_X_ANFANG, RING_X_ENDE, rueck);
+  const my = lerp(MY, RING_Y_ENDE, rueck);
   // Bis das erste Papier kommt, überlappen sich die Bögen leicht (negative Fuge): So bleibt der Ring ohne
   // Haarlinien an den Stößen geschlossen. Danach öffnen sich die Fugen.
   const fuge = lerp(-0.7, FUGE_OFFEN, verlauf(bild, ankunft[0] - 4, ankunft[0] + 2));
@@ -81,7 +85,7 @@ export function S1Einstieg(p: SzeneProps) {
   /** Punkt auf dem Ring; 0 Grad liegt oben, es geht im Uhrzeigersinn. */
   const ringPunkt = (grad: number) => {
     const w = ((grad - 90) * Math.PI) / 180;
-    return { x: mx + RING_R * Math.cos(w), y: MY + RING_R * Math.sin(w) };
+    return { x: mx + RING_R * Math.cos(w), y: my + RING_R * Math.sin(w) };
   };
 
   return (
@@ -92,7 +96,7 @@ export function S1Einstieg(p: SzeneProps) {
         height={RING_GROESSE}
         viewBox={`0 0 ${RING_GROESSE} ${RING_GROESSE}`}
         className="absolute"
-        style={{ left: mx - RING_GROESSE / 2, top: MY - RING_GROESSE / 2 }}
+        style={{ left: mx - RING_GROESSE / 2, top: my - RING_GROESSE / 2 }}
       >
         <circle cx={RING_GROESSE / 2} cy={RING_GROESSE / 2} r={RING_R} fill="none" stroke="white" strokeOpacity={0.07 * uhr} strokeWidth={RING_DICKE} />
         {[
@@ -126,7 +130,7 @@ export function S1Einstieg(p: SzeneProps) {
       </svg>
 
       {/* Uhr in der Mitte des Rings, ruhig und ohne Zeiger auf eine Zahl */}
-      <RingUhr x={mx} deckkraft={uhr * 0.5} />
+      <RingUhr x={mx} y={my} deckkraft={uhr * 0.5} />
 
       {/* Papier: erscheint am Ringstück, das es nimmt, und wandert dann auf den Stapel */}
       {STAPEL.map((pp, i) => {

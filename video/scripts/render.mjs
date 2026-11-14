@@ -39,12 +39,21 @@ const { values: opt, positionals } = parseArgs({
     ki: { type: "string" },
     gestrichen: { type: "string" },
     adresse: { type: "boolean" },
+    format: { type: "string", default: "quer" },
   },
 });
 
+// Das Hochformat (1080 × 1920, Instagram) hat eigene Dateinamen; Standbilder bleiben gleich benannt und liegen in eigenen Ordnern.
+if (opt.format !== "quer" && opt.format !== "hoch") {
+  throw new Error(`--format kennt nur "quer" oder "hoch", nicht "${opt.format}".`);
+}
+const HOCH = opt.format === "hoch";
+const BUEHNE = HOCH ? { width: 1080, height: 1920 } : { width: 1920, height: 1080 };
+const KENNUNG = HOCH ? "-hoch" : "";
+
 const KONFIG = path.join(VIDEO, "vite.config.ts");
-const HAUPT = path.join(OUT, "resqio-erklaervideo.mp4");
-const MIT_UNTERTITELN = path.join(OUT, "resqio-erklaervideo-untertitel.mp4");
+const HAUPT = path.join(OUT, `resqio-erklaervideo${KENNUNG}.mp4`);
+const MIT_UNTERTITELN = path.join(OUT, `resqio-erklaervideo${KENNUNG}-untertitel.mp4`);
 const TON_ROH = path.join(OUT, "ton-roh.wav");
 const TON_FERTIG = path.join(OUT, "ton.wav");
 const ZIEL_LUFS = -16;
@@ -170,12 +179,13 @@ function abfrage(untertitel) {
   if (auswahl.gestrichen) q.set("gestrichen", auswahl.gestrichen.join(","));
   if (auswahl.adresse !== undefined) q.set("adresse", auswahl.adresse ? "1" : "0");
   if (untertitel) q.set("untertitel", "1");
+  if (HOCH) q.set("format", "hoch");
   return `?${q}`;
 }
 
 /** Seite öffnen. Ein fehlendes Bild, eine fehlende Schrift oder ein Fehler im Skript der Seite bricht ab. */
 async function oeffne(browser, adresse, untertitel) {
-  const kontext = await browser.newContext({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1, reducedMotion: "reduce" });
+  const kontext = await browser.newContext({ viewport: BUEHNE, deviceScaleFactor: 1, reducedMotion: "reduce" });
   const seite = await kontext.newPage();
   const fehler = [];
   seite.on("pageerror", (e) => fehler.push(`Seitenfehler: ${e.message}`));
@@ -344,9 +354,9 @@ try {
     if (opt.nur !== "untertitel") await rendere(browser, adresse, { untertitel: false, ziel: HAUPT, ton });
     if (opt.nur !== "haupt") await rendere(browser, adresse, { untertitel: true, ziel: MIT_UNTERTITELN, ton });
     fs.rmSync(ton, { force: true });
-    fs.writeFileSync(path.join(OUT, "resqio-erklaervideo.vtt"), baueVtt(zeitleiste));
+    fs.writeFileSync(path.join(OUT, `resqio-erklaervideo${KENNUNG}.vtt`), baueVtt(zeitleiste));
     const { seite, kontext } = await oeffne(browser, adresse, false);
-    fs.writeFileSync(path.join(OUT, "poster.jpg"), await bildVon(seite, zeitleiste.totalFrames - 20, "jpeg"));
+    fs.writeFileSync(path.join(OUT, `poster${KENNUNG}.jpg`), await bildVon(seite, zeitleiste.totalFrames - 20, "jpeg"));
     await kontext.close();
     // Das Prüfskript rechnet die Zeitleiste mit genau dieser Auswahl nach, auch wenn sie von drehbuch.json abweicht.
     schreibeJson(path.join(OUT, "render-auswahl.json"), zeitleiste.auswahl);

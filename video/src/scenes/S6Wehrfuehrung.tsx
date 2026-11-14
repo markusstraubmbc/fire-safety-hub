@@ -4,18 +4,21 @@ import { SzenenRahmen } from "../components/Buehne";
 import { Geraet, Lupe, Shot } from "../components/Geraet";
 import { ease, feder, lerp, screenshotFenster, screenshotSicht, satz, verlauf, vorigesBildWeg, wortBild } from "../lib/anim";
 import { lupenMass, shotHoehe, SHOTS } from "../daten";
+import { FLAECHE, HOCH } from "../lib/format";
 
 const AKZENT = "213 90% 60%";
 const SHOT = "statistik.png";
 // Der Titelblock (Symbol, Seitentitel, Zeile darunter) doppelt so groß: rund 700 Pixel breit, schmaler als der Screenshot.
-const LUPE_FAKTOR = 2;
+// Im Hochformat 2,7-fach (rund 945 Pixel): Die Lupe steht unter dem Monitor und füllt die Breite.
+const LUPE_FAKTOR = HOCH ? 2.4 : 2;
+// Hochformat: Abstand zwischen Monitor und Lupe.
+const LUPE_LUECKE = 44;
 // Abstand der Lupe von der Oberkante des Screenshots: Dort liegen weichgezeichnete Reihen, die Lupe verdeckt
 // nichts Lesbares und liegt, mit ihrer Höhe, ganz innerhalb des Screenshots.
 const LUPE_ABSTAND_OBEN = 310;
 // Rahmen des Monitors: 14 px je Seite, darunter Hals und Fuß (34 + 14 = 48 px).
 const RAND = 14;
 const FUSS = 48;
-const FLAECHE = { b: 1728, h: 610 };
 const GRUEN = { hell: "hsl(146 60% 90%)", dunkel: "hsl(146 70% 24%)", punkt: "hsl(146 62% 42%)" };
 const AMBER = { hell: "hsl(38 100% 90%)", dunkel: "hsl(28 90% 34%)", punkt: "hsl(38 96% 52%)" };
 
@@ -31,12 +34,12 @@ const WOERTER = ["Personal", "Ausbildung", "Einsatzbereitschaft"];
 const ERSATZ = [0.3, 0.5, 0.75];
 
 // Maße der Überblickskarte: Sie wächst mit den Zeilen, damit nie eine leere Fläche wie ein Ladezustand wirkt.
-const KARTE_B = 800;
-const KOPF = 112;
-const ZEILE_H = 96;
-const ZEILE_ABSTAND = 16;
-const LEGENDE_H = 68;
-const FUSSRAUM = 36;
+const KARTE_B = HOCH ? 820 : 800;
+const KOPF = HOCH ? 150 : 112;
+const ZEILE_H = HOCH ? 132 : 96;
+const ZEILE_ABSTAND = HOCH ? 20 : 16;
+const LEGENDE_H = HOCH ? 96 : 68;
+const FUSSRAUM = HOCH ? 44 : 36;
 
 /**
  * Szene 6, „Wehrführung".
@@ -82,15 +85,17 @@ export function S6Wehrfuehrung(p: SzeneProps) {
   const monitorB = shotB + 2 * RAND;
   const monitorH = shotH + 2 * RAND + FUSS;
   const monitorLinks = (FLAECHE.b - monitorB) / 2;
-  const monitorOben = (FLAECHE.h - monitorH) / 2;
-
-  // Lupe auf den Titel, über den weichgezeichneten Reihen im unteren Teil des Screenshots.
   const lupe = lupenMass(SHOT, "titel", LUPE_FAKTOR);
+  // Hochformat: Monitor und Lupe bilden eine Gruppe (Lupe darunter), die mittig in der Fläche steht.
+  const monitorOben = HOCH ? (FLAECHE.h - (monitorH + LUPE_LUECKE + lupe.hoehe)) / 2 : (FLAECHE.h - monitorH) / 2;
+
+  // Lupe auf den Titel; im Querformat über den weichgezeichneten Reihen im unteren Teil des Screenshots,
+  // im Hochformat unter dem Monitor, damit sie den Titel nicht verdeckt.
   const lupeAb = fenster ? fenster.von + 7 : -1;
   const lupeEin = verlauf(bild, lupeAb, lupeAb + 12);
   const lupeStaerke = fenster ? Math.min(lupeEin, 1 - verlauf(bild, fenster.bis - 7, fenster.bis, ease.ein)) : 0;
-  const lupeLinks = monitorLinks + RAND + (shotB - lupe.breite) / 2;
-  const lupeOben = monitorOben + RAND + LUPE_ABSTAND_OBEN;
+  const lupeLinks = HOCH ? (FLAECHE.b - lupe.breite) / 2 : monitorLinks + RAND + (shotB - lupe.breite) / 2;
+  const lupeOben = HOCH ? monitorOben + monitorH + LUPE_LUECKE : monitorOben + RAND + LUPE_ABSTAND_OBEN;
 
   return (
     <SzenenRahmen {...p} symbol={ShieldCheck} akzent={AKZENT}>
@@ -105,15 +110,15 @@ export function S6Wehrfuehrung(p: SzeneProps) {
             height: kartenHoehe,
             overflow: "hidden",
             opacity: Math.min(1, karte * 1.4) * (1 - weg),
-            transform: `translateX(${-220 * weg}px) scale(${lerp(1, 0.94, weg)})`,
+            transform: `translateX(${(HOCH ? -90 : -220) * weg}px) scale(${lerp(1, 0.94, weg)})`,
             boxShadow: "0 40px 90px -24px rgba(0,0,0,0.7)",
           }}
         >
           <div className="flex items-center gap-5 px-10 pt-9">
-            <div className="flex h-[64px] w-[64px] items-center justify-center rounded-2xl" style={{ background: `hsl(${AKZENT} / 0.16)` }}>
-              <ShieldCheck size={36} strokeWidth={2.2} color={`hsl(${AKZENT})`} />
+            <div className={HOCH ? "flex h-[80px] w-[80px] items-center justify-center rounded-2xl" : "flex h-[64px] w-[64px] items-center justify-center rounded-2xl"} style={{ background: `hsl(${AKZENT} / 0.16)` }}>
+              <ShieldCheck size={HOCH ? 44 : 36} strokeWidth={2.2} color={`hsl(${AKZENT})`} />
             </div>
-            <div className="text-[40px] font-semibold leading-tight">{e.titel}</div>
+            <div className={HOCH ? "text-[52px] font-semibold leading-tight" : "text-[40px] font-semibold leading-tight"}>{e.titel}</div>
           </div>
 
           <div className="mx-10 mt-3">
@@ -122,13 +127,13 @@ export function S6Wehrfuehrung(p: SzeneProps) {
               const t = zeilenP[i];
               return (
                 <div key={i} style={{ height: (ZEILE_H + ZEILE_ABSTAND) * t, paddingTop: ZEILE_ABSTAND * t, overflow: "hidden" }}>
-                  <div className="flex items-center gap-6 rounded-3xl px-7" style={{ height: ZEILE_H, background: "hsl(210 40% 96%)", opacity: t }}>
-                    <div className="flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-2xl" style={{ background: `hsl(${AKZENT} / 0.16)`, transform: `translateX(${(1 - t) * -40}px)` }}>
-                      <Icon size={32} strokeWidth={2.2} color={`hsl(${AKZENT})`} />
+                  <div className={HOCH ? "flex items-center gap-5 rounded-3xl px-6" : "flex items-center gap-6 rounded-3xl px-7"} style={{ height: ZEILE_H, background: "hsl(210 40% 96%)", opacity: t }}>
+                    <div className={HOCH ? "flex h-[64px] w-[64px] shrink-0 items-center justify-center rounded-2xl" : "flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-2xl"} style={{ background: `hsl(${AKZENT} / 0.16)`, transform: `translateX(${(1 - t) * -40}px)` }}>
+                      <Icon size={HOCH ? 36 : 32} strokeWidth={2.2} color={`hsl(${AKZENT})`} />
                     </div>
-                    <div className="w-[210px] shrink-0 text-[32px] font-semibold" style={{ transform: `translateX(${(1 - t) * -40}px)` }}>{text}</div>
+                    <div className={HOCH ? "w-[270px] shrink-0 text-[42px] font-semibold" : "w-[210px] shrink-0 text-[32px] font-semibold"} style={{ transform: `translateX(${(1 - t) * -40}px)` }}>{text}</div>
                     {/* Punktereihe: die Punkte setzen nacheinander ein, ohne Wert und ohne Zahl */}
-                    <div className="flex items-center gap-4">
+                    <div className={HOCH ? "flex items-center gap-[10px]" : "flex items-center gap-4"}>
                       {PUNKTE[i].map((ok, j) => {
                         const d = verlauf(bild, zeilenAb[i] + 8 + j * 4, zeilenAb[i] + 18 + j * 4);
                         const f = ok ? GRUEN : AMBER;
@@ -136,10 +141,10 @@ export function S6Wehrfuehrung(p: SzeneProps) {
                         return (
                           <div
                             key={j}
-                            className="flex h-[44px] w-[44px] items-center justify-center rounded-full"
+                            className={HOCH ? "flex h-[52px] w-[52px] items-center justify-center rounded-full" : "flex h-[44px] w-[44px] items-center justify-center rounded-full"}
                             style={{ background: f.hell, opacity: d, transform: `scale(${lerp(0.6, 1, d)})` }}
                           >
-                            <Zeichen size={26} strokeWidth={3} color={f.dunkel} />
+                            <Zeichen size={HOCH ? 30 : 26} strokeWidth={3} color={f.dunkel} />
                           </div>
                         );
                       })}
@@ -152,15 +157,15 @@ export function S6Wehrfuehrung(p: SzeneProps) {
 
           {/* Legende */}
           <div
-            className="mx-10 flex items-center gap-10 text-[30px] font-medium text-[hsl(var(--muted-foreground))]"
-            style={{ height: LEGENDE_H * legende, paddingTop: 24 * legende, opacity: legende, overflow: "hidden" }}
+            className={HOCH ? "mx-10 flex items-center gap-8 text-[40px] font-medium text-[hsl(var(--muted-foreground))]" : "mx-10 flex items-center gap-10 text-[30px] font-medium text-[hsl(var(--muted-foreground))]"}
+            style={{ height: LEGENDE_H * legende, paddingTop: (HOCH ? 30 : 24) * legende, opacity: legende, overflow: "hidden" }}
           >
             <div className="flex items-center gap-3">
-              <span className="inline-block h-[22px] w-[22px] rounded-full" style={{ background: GRUEN.punkt }} />
+              <span className={HOCH ? "inline-block h-[26px] w-[26px] rounded-full" : "inline-block h-[22px] w-[22px] rounded-full"} style={{ background: GRUEN.punkt }} />
               {e.bereit}
             </div>
             <div className="flex items-center gap-3">
-              <span className="inline-block h-[22px] w-[22px] rounded-full" style={{ background: AMBER.punkt }} />
+              <span className={HOCH ? "inline-block h-[26px] w-[26px] rounded-full" : "inline-block h-[22px] w-[22px] rounded-full"} style={{ background: AMBER.punkt }} />
               {e.faellig}
             </div>
           </div>

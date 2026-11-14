@@ -4,12 +4,14 @@ import { SzenenRahmen } from "../components/Buehne";
 import { Geraet, Lupe, Shot } from "../components/Geraet";
 import { ease, einAus, feder, lerp, satz, screenshotFenster, screenshotSicht, verlauf, vorigesBildWeg, wortBild } from "../lib/anim";
 import { lupenMass, shotHoehe } from "../daten";
+import { FLAECHE, HOCH } from "../lib/format";
 
 const AKZENT = "30 100% 55%";
 const SHOT = "kiosk.png";
 // Knapp unter der größtmöglichen Breite (die Fläche ist 610 hoch, der Rahmen 24 px je Seite; bei diesem
 // Seitenverhältnis wären es rund 1145): So bleibt oben und unten etwas Luft.
-const SHOT_BREITE = 1100;
+// Hochformat: etwas schmaler als die Fläche, darunter die zwei Lupen.
+const SHOT_BREITE = HOCH ? 900 : 1100;
 
 /**
  * Szene 5, „Im Gerätehaus". Vorlage für alle anderen Szenen.
@@ -59,15 +61,33 @@ export function S5Geraetehaus(p: SzeneProps) {
   // Maße: Das Tablet füllt die Fläche mittig (Rahmen 22 px + 2 px Kante je Seite).
   const RAHMEN = 24;
   const shotHoch = shotHoehe(SHOT, SHOT_BREITE);
-  const tabletLinks = Math.round((1728 - (SHOT_BREITE + 2 * RAHMEN)) / 2);
-  const tabletOben = Math.round((610 - (shotHoch + 2 * RAHMEN)) / 2);
+  const tabletLinks = Math.round((FLAECHE.b - (SHOT_BREITE + 2 * RAHMEN)) / 2);
+  const tabletH = shotHoch + 2 * RAHMEN;
+  const maxFaktor = HOCH ? 1.55 : 1.5;
+  const lupeF = lupenMass(SHOT, "fahrtenbuch", maxFaktor);
+  // Hochformat: Tablet und die zwei Lupen darunter bilden einen Block, der mittig in der Fläche steht.
+  const LUPEN_LUECKE = 36;
+  const LUPEN_ABSTAND = 44;
+  const blockH = tabletH + LUPEN_ABSTAND + lupeF.hoehe;
+  const tabletOben = HOCH ? Math.round((FLAECHE.h - blockH) / 2) : Math.round((FLAECHE.h - tabletH) / 2);
   const bildLinks = tabletLinks + RAHMEN;
   const bildOben = tabletOben + RAHMEN;
-  const maxFaktor = 1.5;
-  const lupeF = lupenMass(SHOT, "fahrtenbuch", maxFaktor);
-  // Die Lupen liegen auf den weichgezeichneten unteren Kachelreihen und verdecken nichts Lesbares.
-  const lupeOben = bildOben + Math.round(shotHoch * 0.6);
-  const kartenLinks = Math.round((1728 - 820) / 2);
+  // Querformat: Die Lupen liegen auf den weichgezeichneten unteren Kachelreihen und verdecken nichts Lesbares.
+  // Hochformat: Sie liegen unter dem Tablet, also ganz außerhalb des Screenshots.
+  const lupeOben = HOCH ? tabletOben + tabletH + LUPEN_ABSTAND : bildOben + Math.round(shotHoch * 0.6);
+  const lupenLinks = Math.round((FLAECHE.b - (2 * lupeF.breite + LUPEN_LUECKE)) / 2);
+  const lupeLinksX = HOCH ? lupenLinks : bildLinks + 20;
+  const lupeRechtsX = HOCH ? lupenLinks + lupeF.breite + LUPEN_LUECKE : bildLinks + SHOT_BREITE - 20 - lupeF.breite;
+  // Die Prüfkarte ist 820 × 480 und im Hochformat vergrößert, damit sie die Fläche trägt.
+  const KARTE_B = 820;
+  const KARTE_H = 480;
+  const kartenSkala = HOCH ? 1.15 : 1;
+  const kartenLinks = Math.round((FLAECHE.b - KARTE_B) / 2);
+  const kartenOben = HOCH ? Math.round((FLAECHE.h - KARTE_H) / 2) : 65;
+  const kartenWegX = HOCH ? 0 : -kartenWeg * 260;
+  const kartenWegY = HOCH ? -kartenWeg * 140 : 0;
+  const kartenSkalaText = HOCH ? ` scale(${kartenSkala})` : "";
+  const tabletGleitet = HOCH ? 40 : Math.max(0, FLAECHE.h - (tabletOben + tabletH));
 
   return (
     <SzenenRahmen {...p} symbol={Wrench} akzent={AKZENT}>
@@ -76,11 +96,11 @@ export function S5Geraetehaus(p: SzeneProps) {
         className="absolute rounded-[32px] bg-white text-[hsl(var(--foreground))]"
         style={{
           left: kartenLinks,
-          top: 65,
-          width: 820,
-          height: 480,
+          top: kartenOben,
+          width: KARTE_B,
+          height: KARTE_H,
           opacity: Math.min(1, karte * 1.4) * (1 - kartenWeg),
-          transform: `translate(${-kartenWeg * 260}px, ${(1 - karte) * 40}px)`,
+          transform: `translate(${kartenWegX}px, ${kartenWegY + (1 - karte) * 40}px)${kartenSkalaText}`,
           boxShadow: "0 40px 90px -24px rgba(0,0,0,0.7)",
         }}
       >
@@ -114,7 +134,7 @@ export function S5Geraetehaus(p: SzeneProps) {
 
         {/* Unterschrift: Der Strich wird gezeichnet, statt aufzutauchen */}
         <div className="mx-10 mt-9">
-          <div className="text-[28px] font-medium uppercase tracking-[0.08em] text-[hsl(var(--muted-foreground))]">{e.unterschrift}</div>
+          <div className={`${HOCH ? "text-[30px]" : "text-[28px]"} font-medium uppercase tracking-[0.08em] text-[hsl(var(--muted-foreground))]`}>{e.unterschrift}</div>
           <svg width="740" height="118" viewBox="0 0 600 96" className="mt-1 block">
             <line x1="0" y1="84" x2="600" y2="84" stroke="hsl(210 20% 80%)" strokeWidth="3" />
             {/* Erst zeichnen, wenn der Strich eine Länge hat: sonst malt die runde Kappe einen einzelnen Punkt. */}
@@ -141,7 +161,7 @@ export function S5Geraetehaus(p: SzeneProps) {
           art="tablet"
           breite={SHOT_BREITE}
           hoehe={shotHoch}
-          style={{ left: tabletLinks, top: tabletOben, opacity: shotSichtbar, transform: `translateY(${(1 - shotSichtbar) * Math.max(0, 610 - (tabletOben + shotHoch + 2 * RAHMEN))}px)` }}
+          style={{ left: tabletLinks, top: tabletOben, opacity: shotSichtbar, transform: `translateY(${(1 - shotSichtbar) * tabletGleitet}px)` }}
         >
           <Shot
             datei={SHOT}
@@ -152,8 +172,8 @@ export function S5Geraetehaus(p: SzeneProps) {
             ]}
           />
         </Geraet>
-        <Lupe datei={SHOT} name="maengelmelder" faktor={maxFaktor} staerke={maengel} style={{ left: bildLinks + 20, top: lupeOben }} />
-        <Lupe datei={SHOT} name="fahrtenbuch" faktor={maxFaktor} staerke={fahrten} style={{ left: bildLinks + SHOT_BREITE - 20 - lupeF.breite, top: lupeOben }} />
+        <Lupe datei={SHOT} name="maengelmelder" faktor={maxFaktor} staerke={maengel} style={{ left: lupeLinksX, top: lupeOben }} />
+        <Lupe datei={SHOT} name="fahrtenbuch" faktor={maxFaktor} staerke={fahrten} style={{ left: lupeRechtsX, top: lupeOben }} />
       </>
       )}
     </SzenenRahmen>
