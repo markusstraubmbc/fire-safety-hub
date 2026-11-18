@@ -2,12 +2,13 @@
 require_once __DIR__ . '/_mail.php';
 
 header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
+// Kein CORS-Header: das Formular sendet von derselben Origin (/api/contact).
+// Ein "Allow-Origin: *" haette fremden Seiten erlaubt, es aus dem Browser ihrer
+// Besucher heraus fuer Spam zu missbrauchen.
+header('X-Content-Type-Options: nosniff');
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
+    http_response_code(204);
     exit;
 }
 
@@ -17,11 +18,77 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$input = json_decode(file_get_contents('php://input'), true);
+// Einfaches Rate-Limit je IP (Dateisystem, kein Zusatzdienst noetig): das
+// Formular verschickt auch eine Mail an eine frei waehlbare Adresse und waere
+// sonst ein Spam-/Phishing-Relay ueber die eigene Absenderdomain.
+function rate_limited(int $max, int $windowSeconds): bool {
+    $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+    $file = sys_get_temp_dir() . '/resqio-contact-' . hash('sha256', $ip) . '.json';
+    $now = time();
+    $hits = [];
+    $fp = @fopen($file, 'c+');
+    if ($fp === false) {
+        return false; // im Zweifel lieber senden als Anfragen verlieren
+    }
+    flock($fp, LOCK_EX);
+    $raw = stream_get_contents($fp);
+    $list = json_decode($raw ?: '[]', true);
+    if (is_array($list)) {
+        $hits = array_values(array_filter($list, fn($t) => is_int($t) && $t > $now - $windowSeconds));
+    }
+    $limited = count($hits) >= $max;
+    if (!$limited) {
+        $hits[] = $now;
+    }
+    ftruncate($fp, 0);
+    rewind($fp);
+    fwrite($fp, json_encode($hits));
+    flock($fp, LOCK_UN);
+    fclose($fp);
+    return $limited;
+}
 
-if (!$input || empty($input['name']) || empty($input['email']) || empty($input['message'])) {
+if (rate_limited(5, 3600)) {
+    http_response_code(429);
+    echo json_encode(['error' => 'Zu viele Anfragen. Bitte versuchen Sie es später erneut oder schreiben Sie an kontakt@resqio.de.']);
+    exit;
+}
+
+$raw = file_get_contents('php://input', false, null, 0, 20001);
+if ($raw === false || strlen($raw) > 20000) {
+    http_response_code(413);
+    echo json_encode(['error' => 'Anfrage zu groß.']);
+    exit;
+}
+$input = json_decode($raw, true);
+
+// Nur Strings zulassen (Arrays/Objekte wuerden in htmlspecialchars() einen
+// TypeError und damit einen 500 ausloesen) und Laengen begrenzen.
+$limits = ['name' => 200, 'email' => 254, 'phone' => 50, 'feuerwehr' => 200, 'message' => 5000];
+if (!is_array($input)) {
+    $input = [];
+}
+foreach ($limits as $field => $max) {
+    if (!isset($input[$field])) {
+        $input[$field] = '';
+    }
+    if (!is_string($input[$field]) || mb_strlen($input[$field]) > $max) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Ungültige Eingabe.']);
+        exit;
+    }
+    $input[$field] = trim($input[$field]);
+}
+
+if ($input['name'] === '' || $input['email'] === '' || $input['message'] === '') {
     http_response_code(400);
     echo json_encode(['error' => 'Name, E-Mail und Nachricht sind Pflichtfelder.']);
+    exit;
+}
+
+if (!filter_var($input['email'], FILTER_VALIDATE_EMAIL)) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Bitte geben Sie eine gültige E-Mail-Adresse an.']);
     exit;
 }
 
@@ -84,10 +151,10 @@ $resendApiKey = getenv('RESEND_API_KEY') ?: 're_bCqQgZJy_GAZv4Ti5xtpEEUsvxXwvU2k
 
 if (!$sent) {
     http_response_code(500);
-    echo json_encode([
-        'error' => 'E-Mail konnte nicht gesendet werden.',
-        'detail' => $sendDetail,
-    ]);
+    // Providerdetails (Fehlertexte von Resend/SMTP) gehoeren ins Log, nicht in die
+    // Antwort an anonyme Besucher.
+    error_log('Kontaktformular: Versand fehlgeschlagen: ' . $sendDetail);
+    echo json_encode(['error' => 'E-Mail konnte nicht gesendet werden.']);
     exit;
 }
 
