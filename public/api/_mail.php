@@ -18,18 +18,18 @@
  */
 
 const MAIL_CONFIG_TEMPLATE = [
-    'provider' => '',          // resend | brevo | smtp   (leer = resend)
+    'provider' => 'smtp',          // resend | brevo | smtp   (leer = resend)
     'fallback_provider' => '', // optional: springt ein, wenn 'provider' fehlschlaegt
-    'from' => '',              // z. B. "RESQIO Kontaktformular <kontakt@resqio.de>"
+    'from' => 'kontakt@resqio.de',              // z. B. "RESQIO Kontaktformular <kontakt@resqio.de>"
     'to' => '',                // interner Empfaenger der Anfragen
-    'reply_to' => '',          // Antwortadresse der Eingangsbestaetigung
+    'reply_to' => 'kontakt@resqio.de',          // Antwortadresse der Eingangsbestaetigung
     'resend' => ['api_key' => ''],
     'brevo' => ['api_key' => ''],
     'smtp' => [
-        'host' => '',
+        'host' => 'smtp-relay.brevo.com',
         'port' => 587,
         'encryption' => 'tls', // tls (STARTTLS) | ssl (Port 465) | none
-        'username' => '',
+        'username' => 'b8759e001@smtp-brevo.com',
         'password' => '',
     ],
 ];
