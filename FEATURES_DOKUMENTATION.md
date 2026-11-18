@@ -1662,5 +1662,8 @@ Durch die Integration aller Module in einer zentralen Plattform entfällt die No
 
 - **Qualifikationsverfall-Cluster:** Gruppierung von Mitgliedern mit ähnlich ablaufenden Qualifikationen für gezielte Nachschulungsplanung
 - **Retention-Risk-Analyse:** Früherkennung von Mitgliedern mit Fluktuationsrisiko auf Basis von Aktivitäts- und Engagementdaten
+  - **Suche:** Mitglieder in der Risikotabelle per Freitext (Name) schnell finden
+  - **Filter nach Übungs- bzw. Einsatztyp:** Die Auswertung lässt sich auf einen Übungstyp oder Einsatztyp (Mission-Typ) eingrenzen, um die Beteiligung je Veranstaltungsart zu prüfen
+  - **Fixierte Kopfzeile:** Die obere Tabellenzeile bleibt beim Scrollen sichtbar, auch bei langen Mitgliederlisten
 - **Szenario-Simulation:** KI-gestützte Besetzungsplanung für verschiedene Einsatzszenarien und Tageszeiten
 - **LLM-gestützter Personalbericht:** Vollautomatisch generierter Textbericht mit strategischen Handlungsempfehlungen
