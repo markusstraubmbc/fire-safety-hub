@@ -62,14 +62,8 @@ function escapeHtml(str: string): string {
 
 export default async function handler(request: Request) {
   if (request.method === "OPTIONS") {
-    return new Response(null, {
-      status: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-      },
-    });
+    // Kein CORS: das Formular sendet von derselben Origin.
+    return new Response(null, { status: 204 });
   }
 
   if (request.method !== "POST") {
@@ -83,6 +77,14 @@ export default async function handler(request: Request) {
     return Response.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
+  const limits: Record<string, number> = { name: 200, email: 254, phone: 50, feuerwehr: 200, message: 5000 };
+  for (const [field, max] of Object.entries(limits)) {
+    const v = (body as Record<string, unknown>)?.[field];
+    if (v !== undefined && v !== null && (typeof v !== "string" || v.length > max)) {
+      return Response.json({ error: "Ungültige Eingabe." }, { status: 400 });
+    }
+  }
+
   const { name, email, phone, message, feuerwehr } = body;
 
   if (!name || !email || !message) {
@@ -90,6 +92,10 @@ export default async function handler(request: Request) {
       { error: "Name, E-Mail und Nachricht sind Pflichtfelder." },
       { status: 400 }
     );
+  }
+
+  if (!isPlausibleEmail(email)) {
+    return Response.json({ error: "Bitte geben Sie eine gültige E-Mail-Adresse an." }, { status: 400 });
   }
 
   const safeName = escapeHtml(name);
@@ -156,7 +162,6 @@ export default async function handler(request: Request) {
       return Response.json(
         {
           error: "E-Mail konnte nicht gesendet werden.",
-          detail: resendData?.message || resendData?.name || `HTTP ${resendResponse.status}`,
         },
         { status: 422 }
       );
@@ -203,7 +208,6 @@ export default async function handler(request: Request) {
     return Response.json(
       {
         error: "E-Mail konnte nicht gesendet werden.",
-        detail: err instanceof Error ? err.message : "Netzwerkfehler",
       },
       { status: 500 }
     );
